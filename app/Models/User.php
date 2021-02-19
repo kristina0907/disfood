@@ -40,4 +40,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+
+    public function roles()
+    {
+        return $this->belongsToMany(User::class,'users_roles','user_id','role_id');
+    }
 }

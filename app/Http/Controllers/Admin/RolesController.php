@@ -18,7 +18,31 @@ class RolesController extends Controller
 
         if(!empty($roles))
         {
-            return view('Admin.show',['roles'=>$roles]);
+            return view('Admin.pages.roles.show',['roles'=>$roles]);
         }
+    }
+
+    public function create()
+    {
+        return view('Admin.pages.roles.create');
+    }
+
+    public function store(Request $request)
+    {
+        if(!empty($request))
+        {
+            $role = new Role();
+            $role->name = $request->name;
+            $role->slug = $request->slug;
+            if((string)$request->active === (string)"on")
+            {
+                $role->active = true;
+            }else{
+                $role->active = false;
+            }
+            $role->save();
+        }
+
+        return redirect('/superadmin/roles');
     }
 }

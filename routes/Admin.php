@@ -15,4 +15,6 @@ Route::middleware(['auth'])->prefix('superadmin')->group(function () {
      */
 
     Route::get('/roles', [RolesController::class,'show'] );
+    Route::get('/role/create',[RolesController::class,'create']);
+    Route::post('/role/create',[RolesController::class,'store']);
 });

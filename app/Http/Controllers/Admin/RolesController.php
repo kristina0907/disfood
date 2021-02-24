@@ -37,6 +37,11 @@ class RolesController extends Controller
 
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'slug' => 'required|max:255|unique:roles',
+        ]);
+
         if (!empty($request)) {
             $role = new Role();
             $role->name = $request->name;
@@ -59,6 +64,11 @@ class RolesController extends Controller
 
     public function update(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'slug' => 'required|max:255',
+        ]);
+
         if (!empty($request)) {
             $role = Role::find($request->id);
             if(!empty($role))

@@ -41,6 +41,7 @@ class UserController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:6',
+            'roles' => 'required'
         ]);
 
         if(!empty($request))
@@ -66,8 +67,9 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|max:255',
+            'name'  => 'required|max:255',
             'email' => 'required|email',
+            'roles' => 'required'
         ]);
 
         if(!empty($request) && !empty($request->id)) {
@@ -91,6 +93,11 @@ class UserController extends Controller
         }
         return redirect('/superadmin/users');
     }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
 
     public function edit($id)
     {

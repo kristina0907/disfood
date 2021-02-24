@@ -1,16 +1,31 @@
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Disfood.ru</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-<title>Disfood.ru Админ панель</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
-<!-- Custom fonts for this template-->
-<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-<link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
+    <!-- Bootstrap Core Css -->
+    <link href="/theme/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-<!-- Custom styles for this template-->
-<link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Waves Effect Css -->
+    <link href="/theme/plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="/theme/plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="/theme/plugins/morrisjs/morris.css" rel="stylesheet" />
+    <!-- Bootstrap Select Css -->
+    <link href="/theme/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="/theme/css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="/theme/css/themes/all-themes.css" rel="stylesheet" />
+

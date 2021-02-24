@@ -1,54 +1,240 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<section>
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="image">
+                <img src="/theme/images/user.png" width="48" height="48" alt="User" />
+            </div>
+            <div class="info-container">
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{\Illuminate\Support\Facades\Auth::user()->name}}
+                </div>
+                <div class="email">{{\Illuminate\Support\Facades\Auth::user()->email}}</div>
+                <div class="btn-group user-helper-dropdown">
+                    <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
+                        <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
+                        <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
 
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">Disfood Admin</div>
-    </a>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Главная</span></a>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Пользователи
-    </div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-           aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-user-circle fa-cog"></i>
-            <span>Пользователи</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="/superadmin/users">Пользователи</a>
-                <a class="collapse-item" href="/superadmin/roles">Роли</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </li>
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
-
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
-
-
-
-</ul>
+        <!-- #User Info -->
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+                <li class="header">МЕНЮ</li>
+                <li class="active">
+                    <a href="/superadmin">
+                        <i class="material-icons">dashboard</i>
+                        <span>Панель управления</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">people</i>
+                        <span>Пользователи</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="/superadmin/users">Пользователи</a>
+                        </li>
+                        <li>
+                            <a href="/superadmin/roles">Роли</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="header">ОПОВЕЩЕНИЯ</li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <i class="material-icons col-red">donut_large</i>
+                        <span>Важные</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <i class="material-icons col-amber">donut_large</i>
+                        <span>Предупреждения</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <i class="material-icons col-light-blue">donut_large</i>
+                        <span>Инфо</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- #Menu -->
+        <!-- Footer -->
+        <div class="legal">
+            <div class="copyright">
+                &copy; 2018 - 2021 <a href="javascript:void(0);">Disfood.ru</a>.
+            </div>
+            <div class="version">
+                <b>Version: </b> Beta 1.0.5
+            </div>
+        </div>
+        <!-- #Footer -->
+    </aside>
+    <!-- #END# Left Sidebar -->
+    <!-- Right Sidebar -->
+    <aside id="rightsidebar" class="right-sidebar">
+        <ul class="nav nav-tabs tab-nav-right" role="tablist">
+            <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
+            <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
+                <ul class="demo-choose-skin">
+                    <li data-theme="red" class="active">
+                        <div class="red"></div>
+                        <span>Red</span>
+                    </li>
+                    <li data-theme="pink">
+                        <div class="pink"></div>
+                        <span>Pink</span>
+                    </li>
+                    <li data-theme="purple">
+                        <div class="purple"></div>
+                        <span>Purple</span>
+                    </li>
+                    <li data-theme="deep-purple">
+                        <div class="deep-purple"></div>
+                        <span>Deep Purple</span>
+                    </li>
+                    <li data-theme="indigo">
+                        <div class="indigo"></div>
+                        <span>Indigo</span>
+                    </li>
+                    <li data-theme="blue">
+                        <div class="blue"></div>
+                        <span>Blue</span>
+                    </li>
+                    <li data-theme="light-blue">
+                        <div class="light-blue"></div>
+                        <span>Light Blue</span>
+                    </li>
+                    <li data-theme="cyan">
+                        <div class="cyan"></div>
+                        <span>Cyan</span>
+                    </li>
+                    <li data-theme="teal">
+                        <div class="teal"></div>
+                        <span>Teal</span>
+                    </li>
+                    <li data-theme="green">
+                        <div class="green"></div>
+                        <span>Green</span>
+                    </li>
+                    <li data-theme="light-green">
+                        <div class="light-green"></div>
+                        <span>Light Green</span>
+                    </li>
+                    <li data-theme="lime">
+                        <div class="lime"></div>
+                        <span>Lime</span>
+                    </li>
+                    <li data-theme="yellow">
+                        <div class="yellow"></div>
+                        <span>Yellow</span>
+                    </li>
+                    <li data-theme="amber">
+                        <div class="amber"></div>
+                        <span>Amber</span>
+                    </li>
+                    <li data-theme="orange">
+                        <div class="orange"></div>
+                        <span>Orange</span>
+                    </li>
+                    <li data-theme="deep-orange">
+                        <div class="deep-orange"></div>
+                        <span>Deep Orange</span>
+                    </li>
+                    <li data-theme="brown">
+                        <div class="brown"></div>
+                        <span>Brown</span>
+                    </li>
+                    <li data-theme="grey">
+                        <div class="grey"></div>
+                        <span>Grey</span>
+                    </li>
+                    <li data-theme="blue-grey">
+                        <div class="blue-grey"></div>
+                        <span>Blue Grey</span>
+                    </li>
+                    <li data-theme="black">
+                        <div class="black"></div>
+                        <span>Black</span>
+                    </li>
+                </ul>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="settings">
+                <div class="demo-settings">
+                    <p>GENERAL SETTINGS</p>
+                    <ul class="setting-list">
+                        <li>
+                            <span>Report Panel Usage</span>
+                            <div class="switch">
+                                <label><input type="checkbox" checked><span class="lever"></span></label>
+                            </div>
+                        </li>
+                        <li>
+                            <span>Email Redirect</span>
+                            <div class="switch">
+                                <label><input type="checkbox"><span class="lever"></span></label>
+                            </div>
+                        </li>
+                    </ul>
+                    <p>SYSTEM SETTINGS</p>
+                    <ul class="setting-list">
+                        <li>
+                            <span>Notifications</span>
+                            <div class="switch">
+                                <label><input type="checkbox" checked><span class="lever"></span></label>
+                            </div>
+                        </li>
+                        <li>
+                            <span>Auto Updates</span>
+                            <div class="switch">
+                                <label><input type="checkbox" checked><span class="lever"></span></label>
+                            </div>
+                        </li>
+                    </ul>
+                    <p>ACCOUNT SETTINGS</p>
+                    <ul class="setting-list">
+                        <li>
+                            <span>Offline</span>
+                            <div class="switch">
+                                <label><input type="checkbox"><span class="lever"></span></label>
+                            </div>
+                        </li>
+                        <li>
+                            <span>Location Permission</span>
+                            <div class="switch">
+                                <label><input type="checkbox" checked><span class="lever"></span></label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- #END# Right Sidebar -->
+</section>

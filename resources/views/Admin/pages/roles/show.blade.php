@@ -1,117 +1,81 @@
 @extends('Admin.master')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="col md-12">
-            <!-- Page Heading -->
-            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Панель администратора</h1>
-            </div>
-        </div>
-    </div>
 
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="row">
-                    <a href="/superadmin/role/create" class="btn btn-success btn-circle">
-                        <i class="fas fa-plus"></i>
-                    </a>
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        Роли пользователей
+                        <a href="/superadmin/role/create" class="btn btn-success btn-circle waves-effect waves-circle waves-float">
+                            <i class="material-icons">add</i>
+                        </a>
+
+                    </h2>
+                    <ul class="header-dropdown m-r--5">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="javascript:void(0);">Action</a></li>
+                                <li><a href="javascript:void(0);">Another action</a></li>
+                                <li><a href="javascript:void(0);">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
                 </div>
-            </div>
-
-            <div class="col-md-12 m-3">
-                    <div class="row">
-                        <div class="card shadow mb-12">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Роли пользователей</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="dataTables_length" id="dataTable_length">
-                                                    <label>Show <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">
-                                                            <option value="10">10</option><option value="25">25</option>
-                                                            <option value="50">50</option><option value="100">100</option>
-                                                        </select> entries
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6">
-                                                <div id="dataTable_filter" class="dataTables_filter">
-                                                    <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <table class="table table-bordered dataTable" id="dataTable" role="grid" aria-describedby="dataTable_info" style="width: 100%;" width="100%" cellspacing="0">
-                                                    <thead>
-                                                    <tr role="row">
-                                                        <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 75px;" aria-label="Name: activate to sort column descending" aria-sort="ascending">ID</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 99px;" aria-label="Position: activate to sort column ascending">Название</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 59px;" aria-label="Office: activate to sort column ascending">Slug</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 31px;" aria-label="Age: activate to sort column ascending">Включено</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 71px;" aria-label="Start date: activate to sort column ascending">Создано</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 71px;" aria-label="controls">Действия</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                    <tr>
-                                                        <th rowspan="1" colspan="1">ID</th>
-                                                        <th rowspan="1" colspan="1">Название</th>
-                                                        <th rowspan="1" colspan="1">Slug</th>
-                                                        <th rowspan="1" colspan="1">Включено</th>
-                                                        <th rowspan="1" colspan="1">Создано</th>
-                                                    </tr>
-                                                    </tfoot>
-                                                    <tbody>
-                                                    @if(!empty($roles))
-                                                        @foreach($roles as $role)
-                                                            <tr role="row" class="odd">
-                                                                <td class="sorting_1">{{$role->id}}</td>
-                                                                <td class="">{{$role->name}}</td>
-                                                                <td class="">{{$role->slug}}</td>
-                                                                <td class="">{{$role->active}}</td>
-                                                                <td class="">{{$role->created_at}}</td>
-                                                                <td class="">
-                                                                    <a href="/superadmin/role/edit/{{$role->id}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
-                                                                    <a href="/superadmin/role/delete/{{$role->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
-                                                    @endif
-                                                 </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-5">
-                                                <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Showing 1 to 57 of 57 entries</div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-7">
-                                                <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-                                                    <ul class="pagination">
-                                                        <li class="paginate_button page-item previous disabled" id="dataTable_previous">
-                                                            <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item active">
-                                                            <a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item next disabled" id="dataTable_next">
-                                                            <a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Название роли</th>
+                                <th>slug</th>
+                                <th>Активно</th>
+                                <th>Дата создания</th>
+                                <th>Действия</th>
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Название роли</th>
+                                <th>slug</th>
+                                <th>Активно</th>
+                                <th>Дата создания</th>
+                                <th>Действия</th>
+                            </tr>
+                            </tfoot>
+                            <tbody>
+                            @if(!empty($roles))
+                                @foreach($roles as $role)
+                                    <tr role="row" class="odd">
+                                        <td>{{$role->id}}</td>
+                                        <td>{{$role->name}}</td>
+                                        <td>{{$role->slug}}</td>
+                                        <td>
+                                            @if($role->active)
+                                                <span class="badge bg-green">Да</span>
+                                            @else
+                                                <span class="badge bg-red">Нет</span>
+                                            @endif
+                                        </td>
+                                        <td>{{$role->created_at}}</td>
+                                        <td>
+                                            <a href="/superadmin/role/edit/{{$role->id}}" class="btn btn-success btn-circle waves-effect waves-circle waves-float"><i class="material-icons">edit</i></a>
+                                            <a href="/superadmin/role/delete/{{$role->id}}" class="btn btn-danger btn-circle waves-effect waves-circle waves-float"><i class="material-icons">delete</i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
+                            </tbody>
+                        </table>
                     </div>
+                </div>
             </div>
         </div>
     </div>

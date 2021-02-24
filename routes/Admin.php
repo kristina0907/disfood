@@ -3,12 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\DashboardController;
 /**
  *  Admin routes
  */
 
 
 Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
+
+    Route::get('/',[DashboardController::class,'show']);
 
     /**
      * Roles routes

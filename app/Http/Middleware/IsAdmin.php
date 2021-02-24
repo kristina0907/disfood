@@ -22,8 +22,7 @@ class IsAdmin
         if (!empty($user->roles)) {
             foreach ($user->roles as $role)
             {
-                dd($role);
-                if((string)($role->slug) === (string)"super_admin")
+                if((string)($role->slug) === (string)"super_admin" || (int)$role->id === (int)1)
                 {
                     return $next($request);
                 }

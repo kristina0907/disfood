@@ -3,8 +3,8 @@ $(function () {
 
     $('.dd').on('change', function () {
         var $this = $(this);
-        var serializedData = window.JSON.stringify($($this).nestable('serialize'));
-
+        var serializedData = $($this).nestable('serialize');
+        console.log(serializedData)
         $this.parents('div.body').find('textarea').val(serializedData);
     });
 });

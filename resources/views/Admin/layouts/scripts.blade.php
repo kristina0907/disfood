@@ -48,6 +48,45 @@
 
 <!-- Multi Select Plugin Js -->
 <script src="/theme/plugins/multi-select/js/jquery.multi-select.js"></script>
+
+
+<!-- Jquery Nestable -->
+<script src="/theme/plugins/nestable/jquery.nestable.js"></script>
+
+
 <!-- Custom Js -->
 <script src="/theme/js/admin.js"></script>
 
+<script>
+    $(function () {
+        $('.dd').nestable();
+
+        $('.dd').on('change', function () {
+            var $this = $(this);
+            var serializedData = $($this).nestable('serialize');
+            setChanges(serializedData);
+            //$this.parents('div.body').find('textarea').val(serializedData);
+        });
+
+        function setChanges(data)
+        {
+            console.log(data)
+            $.ajax(
+                {
+                url: '/superadmin/categories/changetree',
+                type: "POST",
+                data: {data: data},
+                headers: {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (data) {
+                    console.log(data)
+                },
+
+                error: function (msg) {
+                    alert('Ошибка');
+                }
+            })
+        }
+    });
+</script>

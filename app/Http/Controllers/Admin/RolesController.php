@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class RolesController extends Controller
 {
@@ -16,9 +18,13 @@ class RolesController extends Controller
     {
         $roles = Role::all();
 
-        if (!empty($roles)) {
-            return view('Admin.pages.roles.show', ['roles' => $roles]);
+        if(Gate::allows('viewAny',Auth::user()))
+        {
+            if (!empty($roles)) {
+                return view('Admin.pages.roles.show', ['roles' => $roles]);
+            }
         }
+
     }
 
     /**
@@ -27,7 +33,11 @@ class RolesController extends Controller
 
     public function create()
     {
-        return view('Admin.pages.roles.create');
+        if(Gate::allows('create',Auth::user()))
+        {
+            return view('Admin.pages.roles.create');
+        }
+
     }
 
     /**
@@ -42,16 +52,19 @@ class RolesController extends Controller
             'slug' => 'required|max:255|unique:roles',
         ]);
 
-        if (!empty($request)) {
-            $role = new Role();
-            $role->name = $request->name;
-            $role->slug = $request->slug;
-            if ((string)$request->active === (string)"on") {
-                $role->active = true;
-            } else {
-                $role->active = false;
+        if(Gate::allows('create',Auth::user()))
+        {
+            if (!empty($request)) {
+                $role = new Role();
+                $role->name = $request->name;
+                $role->slug = $request->slug;
+                if ((string)$request->active === (string)"on") {
+                    $role->active = true;
+                } else {
+                    $role->active = false;
+                }
+                $role->save();
             }
-            $role->save();
         }
 
         return redirect('/superadmin/roles');
@@ -69,20 +82,24 @@ class RolesController extends Controller
             'slug' => 'required|max:255',
         ]);
 
-        if (!empty($request)) {
-            $role = Role::find($request->id);
-            if(!empty($role))
-            {
-                $role->name = $request->name;
-                $role->slug = $request->slug;
-                if ((string)$request->active === (string)"on") {
-                    $role->active = true;
-                } else {
-                    $role->active = false;
+        if(Gate::allows('update',Auth::user()))
+        {
+            if (!empty($request)) {
+                $role = Role::find($request->id);
+                if(!empty($role))
+                {
+                    $role->name = $request->name;
+                    $role->slug = $request->slug;
+                    if ((string)$request->active === (string)"on") {
+                        $role->active = true;
+                    } else {
+                        $role->active = false;
+                    }
+                    $role->save();
                 }
-                $role->save();
             }
         }
+
 
         return redirect('/superadmin/roles');
     }
@@ -94,13 +111,17 @@ class RolesController extends Controller
 
     public function delete($id)
     {
-        if (!empty($id)) {
-            $role = Role::find($id);
-            if (!empty($role->id)) {
-                $role->delete();
+        if(Gate::allows('delete',Auth::user()))
+        {
+            if (!empty($id)) {
+                $role = Role::find($id);
+                if (!empty($role->id)) {
+                    $role->delete();
+                }
+                return redirect()->back();
             }
-            return redirect()->back();
         }
+
         abort(404, 'Not found role');
     }
 
@@ -111,12 +132,16 @@ class RolesController extends Controller
 
     public function edit($id)
     {
-        if (!empty($id)) {
-            $role = Role::find($id);
-            if (!empty($role->id)) {
-               return view('Admin.pages.roles.edit',['role'=>$role]);
+        if(Gate::allows('update',Auth::user()))
+        {
+            if (!empty($id)) {
+                $role = Role::find($id);
+                if (!empty($role->id)) {
+                    return view('Admin.pages.roles.edit',['role'=>$role]);
+                }
             }
         }
+
         abort(404, 'Not found role');
     }
 }

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -17,7 +19,11 @@ class UserController extends Controller
     public function show()
     {
         $users = User::paginate(20);
-        return view('Admin.pages.users.show',['users'=>$users]);
+        if(Gate::allows('view',Auth::user()))
+        {
+            return view('Admin.pages.users.show',['users'=>$users]);
+        }
+
     }
 
     /**
@@ -27,7 +33,11 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::all();
-        return view('Admin.pages.users.create',['roles'=>$roles]);
+        if(Gate::allows('create',Auth::user()))
+        {
+            return view('Admin.pages.users.create',['roles'=>$roles]);
+        }
+
     }
 
     /**
@@ -44,18 +54,22 @@ class UserController extends Controller
             'roles' => 'required'
         ]);
 
-        if(!empty($request))
+        if(Gate::allows('create',Auth::user()))
         {
-            $user = new User();
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->password = Hash::make($request->password);
-            $user->save();
-            if(!empty($request->roles))
+            if(!empty($request))
             {
-               $user->roles()->sync($request->roles);
+                $user = new User();
+                $user->name = $request->name;
+                $user->email = $request->email;
+                $user->password = Hash::make($request->password);
+                $user->save();
+                if(!empty($request->roles))
+                {
+                    $user->roles()->sync($request->roles);
+                }
             }
         }
+
         return redirect('/superadmin/users');
     }
 
@@ -72,25 +86,29 @@ class UserController extends Controller
             'roles' => 'required'
         ]);
 
-        if(!empty($request) && !empty($request->id)) {
-            $user = User::find($request->id);
-            if (!empty($user))
-            {
-                $user->name = $request->name;
-                $user->email = $request->email;
-                if(!empty($request->password))
+        if(Gate::allows('update',Auth::user()))
+        {
+            if(!empty($request) && !empty($request->id)) {
+                $user = User::find($request->id);
+                if (!empty($user))
                 {
-                    $user->password = Hash::make($request->password);
+                    $user->name = $request->name;
+                    $user->email = $request->email;
+                    if(!empty($request->password))
+                    {
+                        $user->password = Hash::make($request->password);
+                    }
+
+                    $user->save();
+                    if(!empty($request->roles))
+                    {
+                        $user->roles()->sync($request->roles);
+                    }
                 }
 
-                $user->save();
-                if(!empty($request->roles))
-                {
-                    $user->roles()->sync($request->roles);
-                }
             }
-
         }
+
         return redirect('/superadmin/users');
     }
 
@@ -101,12 +119,16 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        if (!empty($id))
+        if(Gate::allows('update',Auth::user()))
         {
-            $user = User::find($id);
-            $roles = Role::all();
-            return view('Admin.pages.users.edit',['roles'=>$roles,'user'=>$user]);
+            if (!empty($id))
+            {
+                $user = User::find($id);
+                $roles = Role::all();
+                return view('Admin.pages.users.edit',['roles'=>$roles,'user'=>$user]);
+            }
         }
+
     }
 
     /**
@@ -116,15 +138,19 @@ class UserController extends Controller
 
     public function delete($id)
     {
-        if(!empty($id))
+        if(Gate::allows('delete',Auth::user()))
         {
-            $user = User::find($id);
-            if(!empty($user))
+            if(!empty($id))
             {
-                $user->roles()->sync([]);
-                $user->delete();
+                $user = User::find($id);
+                if(!empty($user))
+                {
+                    $user->roles()->sync([]);
+                    $user->delete();
+                }
             }
         }
+
         return redirect('/superadmin/users');
     }
 }

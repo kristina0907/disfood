@@ -23,9 +23,15 @@
     <!-- Bootstrap Select Css -->
     <link href="/theme/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
+    <!-- JQuery Nestable Css -->
+    <link href="/theme/plugins/nestable/jquery-nestable.css" rel="stylesheet" />
+
+
     <!-- Custom Css -->
     <link href="/theme/css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="/theme/css/themes/all-themes.css" rel="stylesheet" />
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 

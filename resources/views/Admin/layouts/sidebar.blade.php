@@ -70,6 +70,21 @@
                         <li>
                             <a href="/superadmin/categories">Категории Товара</a>
                         </li>
+                        <li>
+                            <a href="/superadmin/types">Типы Товара</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">home</i>
+                        <span>Организации</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="/superadmin/organizations">Организации</a>
+                        </li>
                     </ul>
                 </li>
 

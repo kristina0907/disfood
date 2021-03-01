@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -91,7 +92,7 @@ class CategoryController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|max:255',
-            'slug' => 'required|max:255|unique:categories,slug,'.$request->id,
+            'slug' => 'required|max:255|unique:categories,slug,'. $request->id,
         ]);
 
         if(Gate::allows('update',Auth::user()))

@@ -1,7 +1,8 @@
 <?php
 namespace App\Contracts;
 
-interface BaseContract{
+interface BaseContract
+{
 
     /**
      * Create a model instance

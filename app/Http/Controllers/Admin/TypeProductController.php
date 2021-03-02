@@ -3,32 +3,35 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Organization;
-use App\Models\User;
-use App\Services\OrganizationService;
+use App\Models\Category;
+use App\Models\TypeProduct;
+use App\Services\CategoryService;
+use App\Services\TypeProductService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
-class OrganizationsController extends Controller
+class TypeProductController extends Controller
 {
 
-    /**
-     * @var OrganizationService
-     */
-
-    protected $organizationService;
-
 
     /**
-     * OrganizationsController constructor.
-     * @param OrganizationService $organizationService
+     * @var TypeProductService
      */
 
-    public function __construct(OrganizationService $organizationService)
+    protected $typeService,$categoryService;
+
+    /**
+     * TypeProductController constructor.
+     * @param TypeProductService $typeService
+     */
+
+    public function __construct(TypeProductService $typeService,CategoryService $categoryService)
     {
-        $this->organizationService = $organizationService;
+        $this->typeService = $typeService;
+        $this->categoryService = $categoryService;
     }
+
 
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
@@ -38,10 +41,10 @@ class OrganizationsController extends Controller
     {
         if(Gate::allows('view',Auth::user()))
         {
-            $organizations = $this->organizationService->getAll();
-            return view('Admin.pages.organizations.show',['organizations'=>$organizations]);
+            $types = $this->typeService->getAll();
+            return view('Admin.pages.typeproduct.show',['types'=>$types]);
         }
-       abort(403,'Access Denied');
+        abort(403,'Access Denied');
     }
 
     /**
@@ -52,11 +55,10 @@ class OrganizationsController extends Controller
     {
         if(Gate::allows('create',Auth::user()))
         {
-           $clients = User::clients()->get();
-
-            return view('Admin.pages.organizations.create',['clients'=>$clients]);
+            $cats = $this->categoryService->getAll();
+            return view('Admin.pages.typeproduct.create',['categories'=>$cats]);
         }
-        abort(403,'Access Denied');
+       abort(403,'Access Denied');
     }
 
     /**
@@ -69,11 +71,10 @@ class OrganizationsController extends Controller
 
         if(Gate::allows('create',Auth::user()))
         {
-            $this->organizationService->saveOrganizationData($request);
-            return redirect('/superadmin/organizations');
+            $this->typeService->saveTypeData($request);
+            return redirect('/superadmin/types');
         }
         abort(403,'Access Denied');
-
     }
 
     /**
@@ -85,11 +86,14 @@ class OrganizationsController extends Controller
     {
         if(Gate::allows('update',Auth::user()))
         {
-            $organization = $this->organizationService->getOrganizationById($id);
-            $clients = User::clients()->get();
-
-            return view('Admin.pages.organizations.edit',['clients'=>$clients,'organization'=>$organization]);
+            if(!empty($id))
+            {
+                $cat = $this->typeService->getCategoryById($id);
+                $categories = $this->categoryService->getAll();
+                return view('Admin.pages.typeproduct.edit',['category'=>$cat,'categories'=>$categories]);
+            }
         }
+        abort(403,'Access Denied');
     }
 
     /**
@@ -99,10 +103,16 @@ class OrganizationsController extends Controller
 
     public function update(Request $request)
     {
-        if(Gate::allows('update',Auth::user()))
+
+        if(Gate::allows('create',Auth::user()))
         {
-            $this->organizationService->updateOrganizationData($request,$request->id);
-            return redirect('/superadmin/organizations');
+            if(!empty($request->id))
+            {
+               $this->typeService->updateCategoryData($request,$request->id);
+
+                return redirect('/superadmin/types');
+            }
+          abort(404,'Not found');
         }
         abort(403,'Access Denied');
     }
@@ -116,12 +126,7 @@ class OrganizationsController extends Controller
     {
         if(Gate::allows('delete',Auth::user()))
         {
-            if(!empty($id))
-            {
-                $this->organizationService->deleteOrganizationById($id);
-                return redirect('/superadmin/organizations');
-
-            }
+           $this->typeService->deleteCategoryById($id);
         }
         abort(403,'Access Denied');
     }

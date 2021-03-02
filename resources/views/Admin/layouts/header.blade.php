@@ -25,7 +25,8 @@
 
     <!-- JQuery Nestable Css -->
     <link href="/theme/plugins/nestable/jquery-nestable.css" rel="stylesheet" />
-
+    <!-- Dropzone Css -->
+    <link href="/theme/plugins/dropzone/dropzone.css" rel="stylesheet">
 
     <!-- Custom Css -->
     <link href="/theme/css/style.css" rel="stylesheet">

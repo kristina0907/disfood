@@ -4,12 +4,30 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Services\CategoryService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
 class CategoryController extends Controller
 {
+
+    /**
+     * @var CategoryService
+     */
+
+    protected $categoryService;
+
+    /**
+     * CategoryController constructor.
+     * @param CategoryService $categoryService
+     */
+
+    public function __construct(CategoryService $categoryService)
+    {
+        $this->categoryService = $categoryService;
+    }
+
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
@@ -18,7 +36,7 @@ class CategoryController extends Controller
     {
         if(Gate::allows('view',Auth::user()))
         {
-            $cats = Category::all();
+            $cats = $this->categoryService->getAll();
             return view('Admin.pages.categories.show',['categories'=>$cats]);
         }
         abort(403,'Access Denied');
@@ -32,7 +50,7 @@ class CategoryController extends Controller
     {
         if(Gate::allows('create',Auth::user()))
         {
-            $categories = Category::all();
+            $categories = $this->categoryService->getAll();
             return view('Admin.pages.categories.create',['categories'=>$categories]);
         }
     }
@@ -44,20 +62,10 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|max:255',
-            //'slug' => 'required|max:255|unique:categories',
-        ]);
 
         if(Gate::allows('create',Auth::user()))
         {
-            $cat = new Category();
-            $cat->name = $request->name;
-            if(!empty($request->parent_id))
-            {
-                $cat->parent_id = $request->parent_id;
-            }
-            $cat->save();
+            $this->categoryService->saveCategoryData($request);
             return redirect('/superadmin/categories');
         }
         abort(403,'Access Denied');
@@ -75,8 +83,8 @@ class CategoryController extends Controller
         {
             if(!empty($id))
             {
-                $cat = Category::find($id);
-                $categories = Category::all();
+                $cat = $this->categoryService->getCategoryById($id);
+                $categories = $this->categoryService->getAll();
                 return view('Admin.pages.categories.edit',['category'=>$cat,'categories'=>$categories]);
             }
         }
@@ -90,26 +98,12 @@ class CategoryController extends Controller
 
     public function update(Request $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|max:255',
-            'slug' => 'required|max:255|unique:categories,slug,'. $request->id,
-        ]);
-
         if(Gate::allows('update',Auth::user()))
         {
             if(!empty($request->id))
             {
-                $cat = Category::find($request->id);
-                $cat->name = $request->name;
-                if(!empty($request->slug))
-                {
-                    $cat->slug = $request->slug;
-                }
-                if(!empty($request->parent_id))
-                {
-                    $cat->parent_id = $request->parent_id;
-                }
-                $cat->save();
+                $this->categoryService->updateCategoryData($request, $request->id);
+
                 return redirect('/superadmin/categories');
             }
         }
@@ -126,15 +120,8 @@ class CategoryController extends Controller
     {
         if(Gate::allows('delete',Auth::user()))
         {
-            if(!empty($id))
-            {
-                $cat = Category::find($id);
-                if(!empty($cat))
-                {
-                    $cat->delete();
-                    return redirect('/superadmin/categories');
-                }
-            }
+            $this->categoryService->deleteCategoryById($id);
+            return redirect('/superadmin/categories');
         }
         abort(403,'Access Denied');
     }

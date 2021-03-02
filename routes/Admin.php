@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\OrganizationsController;
+use App\Http\Controllers\Admin\TypeProductController;
+use App\Http\Controllers\Admin\ProductController;
 
 /**
  *  Admin routes
@@ -52,6 +54,18 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::post('/categories/changetree',[CategoryController::class,'changeTree'])->name('categories.changeTree');
 
     /**
+     *  Types routes
+     */
+
+    Route::get('/types', [TypeProductController::class,'show'] )->name('types.show');
+    Route::get('/types/create',[TypeProductController::class,'create'])->name('types.create');
+    Route::post('/types/create',[TypeProductController::class,'store'])->name('types.store');
+    Route::get('/types/edit/{id}',[TypeProductController::class,'edit'])->name('types.edit');
+    Route::get('/types/delete/{id}',[TypeProductController::class,'delete'])->name('types.delete');
+    Route::post('/types/update',[TypeProductController::class,'update'])->name('types.update');
+
+
+    /**
      *  Organizations routes
      */
 
@@ -61,5 +75,17 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/organizations/edit/{id}',[OrganizationsController::class,'edit'])->name('organizations.edit');
     Route::get('/organizations/delete/{id}',[OrganizationsController::class,'delete'])->name('organizations.delete');
     Route::post('/organizations/update',[OrganizationsController::class,'update'])->name('organizations.update');
+
+    /**
+     *  Products routes
+     */
+
+    Route::get('/products', [ProductController::class,'show'] )->name('products.show');
+    Route::get('/products/create',[ProductController::class,'create'])->name('products.create');
+    Route::post('/products/create',[ProductController::class,'store'])->name('products.store');
+    Route::get('/products/edit/{id}',[ProductController::class,'edit'])->name('products.edit');
+    Route::get('/products/delete/{id}',[ProductController::class,'delete'])->name('products.delete');
+    Route::post('/products/update',[ProductController::class,'update'])->name('products.update');
+
 
 });

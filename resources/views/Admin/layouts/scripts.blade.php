@@ -52,7 +52,8 @@
 
 <!-- Jquery Nestable -->
 <script src="/theme/plugins/nestable/jquery.nestable.js"></script>
-
+<!-- Dropzone Plugin Js -->
+<script src="/theme/plugins/dropzone/dropzone.js"></script>
 
 <!-- Custom Js -->
 <script src="/theme/js/admin.js"></script>
@@ -88,5 +89,10 @@
                 }
             })
         }
+
+        Dropzone.options.frmFileUpload = {
+            paramName: "file",
+            maxFilesize: 2
+        };
     });
 </script>

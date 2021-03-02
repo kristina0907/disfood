@@ -88,6 +88,18 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">shopping_basket</i>
+                        <span>Товары</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="/superadmin/products">Товары</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="header">ОПОВЕЩЕНИЯ</li>
                 <li>
                     <a href="javascript:void(0);">

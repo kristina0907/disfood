@@ -47,6 +47,19 @@ class User extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class,'users_roles','user_id','role_id');
+        return $this->belongsToMany(Role::class, 'users_roles', 'user_id', 'role_id');
+    }
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+
+    public function scopeClients($query)
+    {
+        return $query->whereHas('roles',function ($q){
+            $q->where('slug','client');
+        });
+
     }
 }

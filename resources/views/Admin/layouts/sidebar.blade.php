@@ -100,6 +100,18 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">gavel</i>
+                        <span>Предложения</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="/superadmin/offers">Предложения</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="header">ОПОВЕЩЕНИЯ</li>
                 <li>
                     <a href="javascript:void(0);">

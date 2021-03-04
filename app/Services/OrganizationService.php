@@ -28,6 +28,12 @@ class OrganizationService
         $this->organizationRepository = $organizationRepository;
     }
 
+    public function findByText($req)
+    {
+        return $this->organizationRepository->findByText($req);
+    }
+
+
     /**
      * @return mixed
      */

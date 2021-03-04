@@ -49,7 +49,7 @@
 <!-- Multi Select Plugin Js -->
 <script src="/theme/plugins/multi-select/js/jquery.multi-select.js"></script>
 
-
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- Jquery Nestable -->
 <script src="/theme/plugins/nestable/jquery.nestable.js"></script>
 <!-- Dropzone Plugin Js -->
@@ -65,34 +65,156 @@
         $('.dd').on('change', function () {
             var $this = $(this);
             var serializedData = $($this).nestable('serialize');
-            setChanges(serializedData);
+            //setChanges(serializedData);
             //$this.parents('div.body').find('textarea').val(serializedData);
         });
 
-        function setChanges(data)
+
+
+        $('#companyInput').on('input',function (e){
+            e.preventDefault();
+            var $this = $(this);
+            var $val = $(this).val();
+            if($val.length >= 4)
+            {
+                setTimeout( getOrganizations($this,$val), 1000);
+            }
+
+        });
+
+        $('#countryInput').on('input',function (e){
+            e.preventDefault();
+            var $this = $(this);
+            var $val = $(this).val();
+            if($val.length >= 4)
+            {
+                setTimeout( getCountries($this,$val), 1000);
+            }
+
+        });
+
+        $('#cityInput').keyup(delay(function (e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $val = $(this).val();
+            if($val.length >= 4)
+            {
+                getCities($this,$val);
+            }
+        }, 1000));
+
+        function delay(callback, ms) {
+            var timer = 0;
+            return function() {
+                var context = this, args = arguments;
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    callback.apply(context, args);
+                }, ms || 0);
+            };
+        }
+
+        /**
+         *
+         * @param $this
+         * @param $val
+         */
+        function getOrganizations($this,$val)
         {
-            console.log(data)
             $.ajax(
                 {
-                url: '/superadmin/categories/changetree',
+                url: '/superadmin/organizations/findsearch',
                 type: "POST",
-                data: {data: data},
+                data: {data: $val},
                 headers: {
                     'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function (data) {
-                    console.log(data)
+                   if(data.length > 0)
+                   {
+                       $("#companyList").empty();
+                       for(var i=0; i<data.length; i++)
+                       {
+                            $("#companyList").append("<option value='" + data[i].inn + "'>"+data[i].name+"</option>");
+                       }
+                   }else {
+                       $("#companyList").empty();
+                       $("#companyList").append("<option value='Ничего не найдено'></option>");
+                   }
                 },
 
                 error: function (msg) {
-                    alert('Ошибка');
+                    $("#companyList").append("<option value='Ничего не найдено'></option>");
                 }
             })
+        }
+
+        /**
+         *
+         * @param $this
+         * @param $val
+         */
+
+        function getCountries($this,$val)
+        {
+            $.ajax(
+                {
+                    url: '/superadmin/countries/findsearch',
+                    type: "POST",
+                    data: {data: $val},
+                    headers: {
+                        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function (data) {
+                        if(data.length > 0)
+                        {
+                            $("#countryList").empty();
+                            for(var i=0; i<data.length; i++)
+                            {
+                                $("#countryList").append("<option value='" + data[i].country_id + "'>"+data[i].title_ru+"</option>");
+                            }
+                        }
+                    },
+
+                    error: function (msg) {
+                        $("#countryList").append("<option value='Ничего не найдено'></option>");
+                    }
+                })
+        }
+
+
+        async function getCities($this,$val)
+        {
+            await $.ajax(
+                {
+                    url: '/superadmin/cities/findsearch',
+                    type: "POST",
+                    data: {data: $val},
+                    headers: {
+                        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function (data) {
+                        if(data.length > 0)
+                        {
+                            $("#cityList").empty();
+                            for(var i=0; i<data.length; i++)
+                            {
+                                $("#cityList").append("<option value='" + data[i].city_id + "'>"+ data[i].title_ru +"</option>");
+                            }
+                        }
+                    },
+
+                    error: function (msg) {
+
+                    }
+                })
         }
 
         Dropzone.options.frmFileUpload = {
             paramName: "file",
             maxFilesize: 2
         };
+
+
     });
 </script>

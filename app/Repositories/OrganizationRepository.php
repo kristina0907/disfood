@@ -18,6 +18,13 @@ class OrganizationRepository implements OrganizationContract
         $this->organization = $organization;
     }
 
+    public function findByText($req)
+    {
+        $searched = $this->organization->where('name','ILIKE','%'.$req.'%')->get()->toArray();
+        return $searched;
+    }
+
+
     /**
      * @return mixed
      */

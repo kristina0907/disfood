@@ -8,6 +8,9 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\OrganizationsController;
 use App\Http\Controllers\Admin\TypeProductController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\OfferController;
+use App\Http\Controllers\Admin\CountryController;
+use App\Http\Controllers\Admin\CityController;
 
 /**
  *  Admin routes
@@ -75,6 +78,7 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/organizations/edit/{id}',[OrganizationsController::class,'edit'])->name('organizations.edit');
     Route::get('/organizations/delete/{id}',[OrganizationsController::class,'delete'])->name('organizations.delete');
     Route::post('/organizations/update',[OrganizationsController::class,'update'])->name('organizations.update');
+    Route::post('/organizations/findsearch',[OrganizationsController::class,'findByText'])->name('organizations.findByText');
 
     /**
      *  Products routes
@@ -87,5 +91,28 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/products/delete/{id}',[ProductController::class,'delete'])->name('products.delete');
     Route::post('/products/update',[ProductController::class,'update'])->name('products.update');
 
+
+    /**
+     *  Offers routes
+     */
+
+    Route::get('/offers', [OfferController::class,'show'] )->name('offers.show');
+    Route::get('/offers/create',[OfferController::class,'create'])->name('offers.create');
+    Route::post('/offers/create',[OfferController::class,'store'])->name('offers.store');
+    Route::get('/offers/edit/{id}',[OfferController::class,'edit'])->name('offers.edit');
+    Route::get('/offers/delete/{id}',[OfferController::class,'delete'])->name('offers.delete');
+    Route::post('/offers/update',[OfferController::class,'update'])->name('offers.update');
+
+    /**
+     *  Countries routes
+     */
+
+    Route::post('/countries/findsearch',[CountryController::class,'findByText']);
+
+    /**
+     * Cities routes
+     */
+
+    Route::post('/cities/findsearch',[CityController::class,'findByText']);
 
 });

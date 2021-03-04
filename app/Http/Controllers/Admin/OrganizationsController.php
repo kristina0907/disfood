@@ -30,6 +30,8 @@ class OrganizationsController extends Controller
         $this->organizationService = $organizationService;
     }
 
+
+
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
@@ -124,5 +126,15 @@ class OrganizationsController extends Controller
             }
         }
         abort(403,'Access Denied');
+    }
+
+
+    public function findByText(Request $request)
+    {
+        if(!empty($request->data))
+        {
+            return response()->json($this->organizationService->findByText($request->data),'200');
+        }
+        abort(404,'Not Found');
     }
 }

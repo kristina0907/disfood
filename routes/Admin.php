@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\OrderStatusController;
+use App\Http\Controllers\Admin\OrderController;
 
 /**
  *  Admin routes
@@ -114,5 +116,27 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
      */
 
     Route::post('/cities/findsearch',[CityController::class,'findByText']);
+
+    /**
+     * Order Statuses routes
+     */
+
+    Route::get('/orderstatuses', [OrderStatusController::class,'show'] )->name('orderstatuses.show');
+    Route::get('/orderstatuses/create',[OrderStatusController::class,'create'])->name('orderstatuses.create');
+    Route::post('/orderstatuses/create',[OrderStatusController::class,'store'])->name('orderstatuses.store');
+    Route::get('/orderstatuses/edit/{id}',[OrderStatusController::class,'edit'])->name('orderstatuses.edit');
+    Route::get('/orderstatuses/delete/{id}',[OrderStatusController::class,'delete'])->name('orderstatuses.delete');
+    Route::post('/orderstatuses/update',[OrderStatusController::class,'update'])->name('orderstatuses.update');
+
+    /**
+     * Order routes
+     */
+
+    Route::get('/orders', [OrderController::class,'show'] )->name('order.show');
+    Route::get('/orders/create',[OrderController::class,'create'])->name('order.create');
+    Route::post('/orders/create',[OrderController::class,'store'])->name('order.store');
+    Route::get('/orders/edit/{id}',[OrderController::class,'edit'])->name('order.edit');
+    Route::get('/orders/delete/{id}',[OrderController::class,'delete'])->name('order.delete');
+    Route::post('/orders/update',[OrderController::class,'update'])->name('order.update');
 
 });

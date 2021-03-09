@@ -73,6 +73,9 @@
                         <li>
                             <a href="/superadmin/types">Типы Товара</a>
                         </li>
+                        <li>
+                            <a href="/superadmin/orderstatuses">Статусы заказов</a>
+                        </li>
                     </ul>
                 </li>
 
@@ -108,6 +111,17 @@
                     <ul class="ml-menu">
                         <li>
                             <a href="/superadmin/offers">Предложения</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">monetization_on</i>
+                        <span>Заявки</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="/superadmin/orders">Заявки</a>
                         </li>
                     </ul>
                 </li>

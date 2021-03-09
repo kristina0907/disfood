@@ -3,52 +3,27 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Services\CityService;
-use App\Services\CountryService;
-use App\Services\OfferService;
-use App\Services\ProductService;
+use App\Services\OrderStatusService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
-class OfferController extends Controller
+class OrderStatusController extends Controller
 {
-
     /**
-     * @var OfferService
+     * @var OrderStatusService
      */
 
-    protected $offerService,
-              $countryService,
-              $productService,
-              $cityService;
+    protected $statusService;
 
     /**
-     * OfferController constructor.
-     * @param OfferService $offerService
+     * OrderStatusController constructor.
+     * @param OrderStatusService $statusService
      */
 
-    public function __construct(OfferService $offerService,CountryService $countryService,ProductService $productService,CityService $cityService)
+    public function __construct(OrderStatusService $statusService)
     {
-        $this->offerService = $offerService;
-        $this->countryService = $countryService;
-        $this->productService = $productService;
-        $this->cityService = $cityService;
-    }
-
-
-    /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-
-    public function show()
-    {
-        if(Gate::allows('view',Auth::user()))
-        {
-            $offers = $this->offerService->getAll();
-            return view('Admin.pages.offers.show',['offers'=>$offers]);
-        }
-        abort(403,'Access Denied');
+        $this->statusService = $statusService;
     }
 
     /**
@@ -57,15 +32,16 @@ class OfferController extends Controller
 
     public function create()
     {
-        $products = $this->productService->getAll();
+        $statuses = $this->statusService->getAll();
         if(Gate::allows('create',Auth::user()))
         {
-            return view('Admin.pages.offers.create',[
-                'products'=>$products,
+            return view('Admin.pages.orderstatuses.create',[
+                'statuses'=>$statuses,
             ]);
         }
         abort(403,'Access Denied');
     }
+
 
     /**
      * @param Request $request
@@ -78,11 +54,26 @@ class OfferController extends Controller
         {
             if(Gate::allows('create',Auth::user()))
             {
-               $this->offerService->saveOfferData($request);
-                return redirect('/superadmin/offers');
+                $this->statusService->saveStatusData($request);
+                return redirect('/superadmin/orderstatuses');
             }
             abort(403,'Access Denied');
         }
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+
+    public function show()
+    {
+        if(Gate::allows('view',Auth::user()))
+        {
+            $statuses = $this->statusService->getAll();
+            return view('Admin.pages.orderstatuses.show',['statuses'=>$statuses]);
+        }
+        abort(403,'Access Denied');
     }
 
     /**
@@ -94,14 +85,14 @@ class OfferController extends Controller
     {
         if(Gate::allows('update',Auth::user()))
         {
-            $products = $this->productService->getAll();
-            $offer = $this->offerService->getOfferById($id);
-            return view('Admin.pages.offers.edit',['offer'=>$offer,'products'=>$products]);
+            $status = $this->statusService->getStatusById($id);
+            return view('Admin.pages.orderstatuses.edit',['status'=>$status]);
         }
     }
 
     /**
      * @param Request $request
+     * @param $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
 
@@ -109,8 +100,8 @@ class OfferController extends Controller
     {
         if(Gate::allows('update',Auth::user()))
         {
-            $this->offerService->updateOfferData($request,$request->id);
-            return redirect('/superadmin/offers');
+            $this->statusService->updateStatusData($request,$request->id);
+            return redirect('/superadmin/orderstatuses');
         }
         abort(403,'Access Denied');
     }
@@ -126,8 +117,8 @@ class OfferController extends Controller
         {
             if(!empty($id))
             {
-                $this->offerService->deleteOfferById($id);
-                return redirect('/superadmin/offers');
+                $this->statusService->deleteStatusById($id);
+                return redirect('/superadmin/orderstatuses');
 
             }
         }

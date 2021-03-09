@@ -103,6 +103,28 @@
             }
         }, 1000));
 
+
+        $('#cityInputFrom').keyup(delay(function (e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $val = $(this).val();
+            if($val.length >= 4)
+            {
+                getCities($this,$val);
+            }
+        }, 1000));
+
+        $('#cityInputTo').keyup(delay(function (e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $val = $(this).val();
+            if($val.length >= 4)
+            {
+                getCities($this,$val);
+            }
+        }, 1000));
+
+
         function delay(callback, ms) {
             var timer = 0;
             return function() {

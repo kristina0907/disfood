@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\OrderStatusController;
 use App\Http\Controllers\Admin\OrderController;
-
+use App\Http\Controllers\Admin\PackingController;
 /**
  *  Admin routes
  */
@@ -138,5 +138,16 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/orders/edit/{id}',[OrderController::class,'edit'])->name('order.edit');
     Route::get('/orders/delete/{id}',[OrderController::class,'delete'])->name('order.delete');
     Route::post('/orders/update',[OrderController::class,'update'])->name('order.update');
+
+    /**
+     * Packing routes
+     */
+
+    Route::get('/packing', [PackingController::class,'show'] )->name('packing.show');
+    Route::get('/packing/create',[PackingController::class,'create'])->name('packing.create');
+    Route::post('/packing/create',[PackingController::class,'store'])->name('packing.store');
+    Route::get('/packing/edit/{id}',[PackingController::class,'edit'])->name('packing.edit');
+    Route::get('/packing/delete/{id}',[PackingController::class,'delete'])->name('packing.delete');
+    Route::post('/packing/update',[PackingController::class,'update'])->name('packing.update');
 
 });

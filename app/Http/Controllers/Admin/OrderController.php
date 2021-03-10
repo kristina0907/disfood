@@ -140,7 +140,6 @@ class OrderController extends Controller
             {
                 $this->orderService->deleteOrderById($id);
                 return redirect('/superadmin/orders');
-
             }
         }
         abort(403,'Access Denied');

@@ -76,6 +76,9 @@
                         <li>
                             <a href="/superadmin/orderstatuses">Статусы заказов</a>
                         </li>
+                        <li>
+                            <a href="/superadmin/packing">Фасовка</a>
+                        </li>
                     </ul>
                 </li>
 

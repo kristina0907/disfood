@@ -14,6 +14,9 @@ use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\OrderStatusController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PackingController;
+use App\Http\Controllers\Admin\CartController;
+use App\Http\Controllers\Admin\BikController;
+
 /**
  *  Admin routes
  */
@@ -149,5 +152,38 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/packing/edit/{id}',[PackingController::class,'edit'])->name('packing.edit');
     Route::get('/packing/delete/{id}',[PackingController::class,'delete'])->name('packing.delete');
     Route::post('/packing/update',[PackingController::class,'update'])->name('packing.update');
+
+    /**
+     * Cart routes
+     */
+
+    Route::get('/cart', [CartController::class,'show'] )->name('cart.show');
+    Route::get('/cart/create',[CartController::class,'create'])->name('cart.create');
+    Route::post('/cart/create',[CartController::class,'store'])->name('cart.store');
+    Route::get('/cart/edit/{id}',[CartController::class,'edit'])->name('cart.edit');
+    Route::get('/cart/delete/{id}',[CartController::class,'delete'])->name('cart.delete');
+    Route::post('/cart/update',[CartController::class,'update'])->name('cart.update');
+
+
+
+    /**
+     * Bik routes
+     */
+
+    Route::get('/bik', [BikController::class,'show'] )->name('bik.show');
+    Route::get('/bik/create',[BikController::class,'create'])->name('bik.create');
+    Route::post('/bik/create',[BikController::class,'store'])->name('bik.store');
+    Route::get('/bik/edit/{id}',[BikController::class,'edit'])->name('bik.edit');
+    Route::get('/bik/delete/{id}',[BikController::class,'delete'])->name('bik.delete');
+    Route::post('/bik/update',[BikController::class,'update'])->name('bik.update');
+
+
+    /**
+     * Bik Parser routes
+     */
+
+    Route::get('/bik/parse', [BikController::class,'parse'] )->name('bik.parse');
+
+
 
 });

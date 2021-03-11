@@ -64,8 +64,9 @@ class PackingRepository implements PackingContract
         if($data->hasFile('image'))
         {
             $extension = $data->image->extension();
-            $data->image->storeAs('/images/packing/', $data['name'].".".$extension);
-            $packing->image = '/images/packing/'. $data['name'].".".$extension;
+            $name = '/images/packing/'. date('mdYHis') . uniqid().".".$extension;
+            $data->image->storeAs('/public', $name);
+            $packing->image = $name;
         }
         $packing->save();
 
@@ -91,8 +92,9 @@ class PackingRepository implements PackingContract
         if($data->hasFile('image'))
         {
             $extension = $data->image->extension();
-            $data->image->storeAs('/images/packing/', $data['name'].".".$extension);
-            $packing->image = '/images/packing/'. $data['name'].".".$extension;
+            $name = '/images/packing/'. date('mdYHis') . uniqid().".".$extension;
+            $data->image->storeAs('/public', $name);
+            $packing->image = $name;
         }
         if(empty($data['active']))
         {

@@ -53,7 +53,7 @@
                                                     <tr role="row" class="odd">
                                                         <td>{{$pack->id}}</td>
                                                         <td>
-                                                            <img src="{{'/storage'.$pack->image }}"/>
+                                                            <img src="{{'/storage'.$pack->image }}" style="width: 50px;height: auto;"/>
                                                         </td>
                                                         <td>{{$pack->name}}</td>
                                                         <td>{{$pack->slug}}</td>

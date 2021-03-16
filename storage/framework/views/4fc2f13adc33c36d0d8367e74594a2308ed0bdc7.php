@@ -124,6 +124,78 @@
             }
         }, 1000));
 
+        $('#innsend').on('click',function (e){
+            console.log('click');
+            e.preventDefault();
+            var inn = $('#inn').val();
+            console.log(inn);
+
+            $.ajax(
+                {
+                    url: '/superadmin/dadata/api/get-company-by-inn',
+                    type: "GET",
+                    data: {
+                        inn: inn,
+                        count:10
+                    },
+                    headers: {
+                        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function (data) {
+                        if(data.suggestions.length > 0)
+                        {
+                            if(data.suggestions[0].data.name.short_with_opf){
+                                $('#name').val(data.suggestions[0].data.name.short_with_opf);
+                            }
+                            if(data.suggestions[0].data.ogrn)
+                            {
+                                $('#ogrn').val(data.suggestions[0].data.ogrn)
+                            }
+                            if(data.suggestions[0].data.address.unrestricted_value)
+                            {
+                                $('#adress').val(data.suggestions[0].data.address.unrestricted_value)
+                            }
+                        }
+                    },
+
+                    error: function (msg) {
+                        $("#countryList").append("<option value='Ничего не найдено'></option>");
+                    }
+                })
+
+        });
+
+        $('#biksend').on('click',function(e){
+            var bik = $('#bik').val();
+            console.log(bik);
+
+            $.ajax(
+                {
+                    url: '/superadmin/bik/findbynumber',
+                    type: "GET",
+                    data: {
+                        bik: bik,
+                    },
+                    headers: {
+                        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function (data) {
+
+                            if(data.name)
+                            {
+                                $('#bank_name').val(data.name)
+                            }
+                            if(data.ks)
+                            {
+                                $('#kor_account').val(data.ks)
+                            }
+                    },
+
+                    error: function (msg) {
+                        $("#countryList").append("<option value='Ничего не найдено'></option>");
+                    }
+                })
+        });
 
         function delay(callback, ms) {
             var timer = 0;

@@ -118,6 +118,12 @@ class BikService
         return $cat;
     }
 
+    public function getByBik($id)
+    {
+        return $this->bikRepository->getByBik($id);
+    }
+
+
     /**
      * @param $id
      * @return mixed

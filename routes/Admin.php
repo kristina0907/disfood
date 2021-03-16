@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PackingController;
 use App\Http\Controllers\Admin\CartController;
 use App\Http\Controllers\Admin\BikController;
+use App\Http\Controllers\Admin\DadataController;
 
 /**
  *  Admin routes
@@ -183,7 +184,17 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
      */
 
     Route::get('/bik/parse', [BikController::class,'parse'] )->name('bik.parse');
+    Route::get('/bik/findbynumber',[BikController::class,'findBik'])->name('bik.find');
 
 
+    /**
+     * DADATA API routes
+     */
+
+    Route::get('/dadata/api/get-user-by-name',[DadataController::class,'getUserByName']);
+    Route::get('/dadata/api/get-company-by-inn',[DadataController::class,'getCompanyByInn']);
+    Route::get('/dadata/api/get-city-by-name',[DadataController::class,'getCityByName']);
+    Route::get('/dadata/api/get-phone-by-number',[DadataController::class,'getPhoneByNumber']);
+    Route::get('/dadata/api/get-type-user-by-inn',[DadataController::class,'getTypeUserByInn']);
 
 });

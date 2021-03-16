@@ -28,6 +28,10 @@ class BikController extends Controller
         $this->bikParserService = $bikParserService;
     }
 
+    /**
+     * @return bool
+     */
+
     public function parse()
     {
         $biks = $this->bikParserService->init();
@@ -39,5 +43,13 @@ class BikController extends Controller
             }
         }
         return true;
+    }
+
+    public function findBik(Request $request)
+    {
+        if(!empty($request->bik))
+        {
+            return $this->bikService->getByBik($request->bik);
+        }
     }
 }

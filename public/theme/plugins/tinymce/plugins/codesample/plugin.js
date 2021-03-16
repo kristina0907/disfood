@@ -80,7 +80,7 @@
 
 			target[fragments[fragments.length - 1]] = modules[id];
 		}
-		
+
 		// Expose private modules for unit tests
 		if (exports.AMDLC_TESTS) {
 			privateModules = exports.privateModules || {};
@@ -546,7 +546,7 @@ if (typeof module !== 'undefined' && module.exports) {
 	module.exports = Prism;
 }
 
-// hack for components to work correctly in node.js
+// hack for Сomponents to work correctly in node.js
 if (typeof global !== 'undefined') {
 	global.Prism = Prism;
 }

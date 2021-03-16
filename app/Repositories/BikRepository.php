@@ -47,6 +47,18 @@ class BikRepository implements BikContract
     }
 
     /**
+     * @param $id
+     * @return mixed
+     */
+
+    public function getByBik($id)
+    {
+        return $this->bik
+            ->where('bik', $id)
+            ->first();
+    }
+
+    /**
      * @param $data
      * @return mixed
      */

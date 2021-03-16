@@ -52,19 +52,17 @@ class OrganizationService
     {
         $validated = $data->validate([
             'name' => 'string|required|max:255',
-            'inn' => 'required|integer|unique:organizations',
-            'kpp' => 'integer',
-            'ogrn' => 'integer',
+            'inn' => 'required|string|unique:organizations',
+            'kpp' => 'string',
+            'ogrn' => 'string',
             'adress' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'bank_name' => 'required|string|max:255',
-            'r_account' => 'required|integer',
-            'kor_account' => 'required|integer',
+            'r_account' => 'required',
+            'kor_account' => 'required',
             'fio_ceo' => 'required|string|max:255',
             'reason' => 'required|string|max:255',
-            'number_power_of_attorney' => 'required|integer',
-            'date_power_of_attorney' => 'required|date',
-            'user_id' => 'required|integer',
+            'user_id' => 'required|string',
         ]);
 
         $result = $this->organizationRepository->save($data);

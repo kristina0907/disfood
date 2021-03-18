@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\CartController;
 use App\Http\Controllers\Admin\BikController;
 use App\Http\Controllers\Admin\DadataController;
 use App\Http\Controllers\Admin\SettingsConroller;
+use App\Http\Controllers\AltaSoftController;
 
 /**
  *  Admin routes
@@ -186,6 +187,14 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
 
     Route::get('/bik/parse', [BikController::class,'parse'] )->name('bik.parse');
     Route::get('/bik/findbynumber',[BikController::class,'findBik'])->name('bik.find');
+
+    /**
+     * AltaSoft  routes
+     */
+
+    Route::get('/altasoft/get-railway-station', [AltaSoftController::class,'getRailwayStation'] )->name('altasoft.get.railway.station');
+    Route::get('/altasoft/get-product-code', [AltaSoftController::class,'getProductCode'] )->name('altasoft.get.product.code');
+    Route::get('/altasoft/get-delivery-calc', [AltaSoftController::class,'getCalcDelivery'] )->name('altasoft.get.delivery.calc');
 
 
     /**

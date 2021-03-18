@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\PackingController;
 use App\Http\Controllers\Admin\CartController;
 use App\Http\Controllers\Admin\BikController;
 use App\Http\Controllers\Admin\DadataController;
+use App\Http\Controllers\Admin\SettingsConroller;
 
 /**
  *  Admin routes
@@ -196,5 +197,17 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/dadata/api/get-city-by-name',[DadataController::class,'getCityByName']);
     Route::get('/dadata/api/get-phone-by-number',[DadataController::class,'getPhoneByNumber']);
     Route::get('/dadata/api/get-type-user-by-inn',[DadataController::class,'getTypeUserByInn']);
+
+
+    /**
+     * Settings routes
+     */
+
+    Route::get('/settings', [SettingsConroller::class,'show'] )->name('settings.show');
+    Route::get('/settings/create',[SettingsConroller::class,'create'])->name('settings.create');
+    Route::post('/settings/store',[SettingsConroller::class,'store'])->name('settings.store');
+    Route::get('/settings/edit/{id}',[SettingsConroller::class,'edit'])->name('settings.edit');
+    Route::get('/settings/delete/{id}',[SettingsConroller::class,'delete'])->name('settings.delete');
+    Route::post('/settings/update',[SettingsConroller::class,'update'])->name('settings.update');
 
 });

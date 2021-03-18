@@ -15,6 +15,10 @@ class CreateSetingsTable extends Migration
     {
         Schema::create('setings', function (Blueprint $table) {
             $table->id();
+            $table->text('name');
+            $table->text('slug');
+            $table->text('value');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

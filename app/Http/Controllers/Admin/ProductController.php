@@ -35,7 +35,7 @@ class ProductController extends Controller
     {
         if(Gate::allows('view',Auth::user()))
         {
-            $products = Product::all();
+            $products = $this->productService->getAll();
             return view('Admin.pages.products.show',['products'=>$products]);
         }
         abort(403,'Access Denied');

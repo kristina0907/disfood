@@ -3,83 +3,120 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\SettingsService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class SettingsConroller extends Controller
 {
+
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @var SettingsService
      */
-    public function index()
+
+    protected $settingsService;
+
+    /**
+     * SettingsConroller constructor.
+     * @param SettingsService $settingsService
+     */
+
+    public function __construct(SettingsService $settingsService)
     {
-        //
+        $this->settingsService = $settingsService;
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
+
     public function create()
     {
-        //
+        if(Gate::allows('create',Auth::user()))
+        {
+            return view('Admin.pages.settings.create');
+        }
+        abort(403,'Access denied');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirecto
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
-        //
+        if(Gate::allows('create',Auth::user()))
+        {
+            $this->settingsService->saveData($request);
+            return redirect('/superadmin/settings');
+        }
+        abort(403,'Access denied');
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function show(int $id)
+
+    public function show()
     {
-        //
+        if(Gate::allows('view',Auth::user()))
+        {
+            $settings = $this->settingsService->getAll();
+            return view('Admin.pages.settings.show',['settings'=>$settings]);
+        }
+        abort(403,'Access Denied');
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
+
     public function edit(int $id)
     {
-        //
+        if(Gate::allows('update',Auth::user()))
+        {
+            $settings = $this->settingsService->getById($id);
+
+            return view('Admin.pages.settings.edit',['settings'=>$settings]);
+        }
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, int $id)
+
+    public function update(Request $request)
     {
-        //
+        if(Gate::allows('update',Auth::user()))
+        {
+            if(!empty($request->id))
+            {
+                $this->settingsService->updateData($request,$request->id);
+
+                return redirect('/superadmin/settings');
+            }
+            abort(404,'Not found');
+        }
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destroy(int $id)
+
+    public function delete(int $id)
     {
-        //
+        if(Gate::allows('delete',Auth::user()))
+        {
+            $this->settingsService->deleteFromId($id);
+            return redirect('/superadmin/settings');
+        }
+        abort(403,'Access Denied');
     }
 }

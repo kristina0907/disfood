@@ -1,6 +1,6 @@
 <template>
     <div class="app">
-        <Navbar></Navbar>
+        <Head></Head>
         <router-view></router-view>
     </div>
 </template>
@@ -8,11 +8,11 @@
 
 <script>
     import './Styles/app.scss'
-
+    import "./bootstrap"
     export default {
         name:"app",
         components:{
-            Navbar: () => import('./Сomponents/Navbar')
+            Head: () => import('./Сomponents/Header')
         }
     }
 

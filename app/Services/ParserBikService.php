@@ -19,6 +19,10 @@ class ParserBikService
 
     protected $bikRepository;
 
+    /**
+     * @var string
+     */
+
     protected $url = 'https://bik-info.ru/base/base.xml';
 
     /**
@@ -32,6 +36,9 @@ class ParserBikService
 
     }
 
+    /**
+     * @return mixed
+     */
 
     public function init()
     {
@@ -46,6 +53,11 @@ class ParserBikService
 
     }
 
+    /**
+     * @param $data
+     * @return mixed
+     */
+
     private function parseXmlToArray($data)
     {
         // Convert xml string into an object
@@ -59,6 +71,11 @@ class ParserBikService
 
         return $newArr;
     }
+
+    /**
+     * @param $data
+     * @return mixed
+     */
 
     public function saveBikData($data)
     {

@@ -2,6 +2,7 @@
     <div class="app">
         <Head></Head>
         <router-view></router-view>
+        <foot></foot>
     </div>
 </template>
 
@@ -12,7 +13,9 @@
     export default {
         name:"app",
         components:{
-            Head: () => import('./Сomponents/Header')
+            Head: () => import('./Сomponents/Header'),
+            Foot: () => import('./Сomponents/Footer'),
+            Autocomplete: () => import('./Сomponents/Autocomplete'),
         }
     }
 

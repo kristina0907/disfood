@@ -3,10 +3,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Как это работает</div>
+                    <div class="card-header">Каталог</div>
 
                     <div class="card-body">
-                        I'm an Как это работает component.
+                        I'm an Каталог component.
                     </div>
                 </div>
             </div>

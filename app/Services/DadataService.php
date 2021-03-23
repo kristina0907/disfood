@@ -11,11 +11,14 @@ use Illuminate\Support\Facades\Lang;
 use InvalidArgumentException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use MoveMoveIo\DaData\Enums\CompanyStatus;
+use MoveMoveIo\DaData\Enums\CompanyType;
 use MoveMoveIo\DaData\Enums\Language;
 use MoveMoveIo\DaData\Facades\DaDataAddress;
 use MoveMoveIo\DaData\Facades\DaDataCompany;
 use MoveMoveIo\DaData\Facades\DaDataName;
 use MoveMoveIo\DaData\Facades\DaDataPhone;
+
 
 
 class DadataService implements DadataContract
@@ -40,7 +43,8 @@ class DadataService implements DadataContract
 
     public function getCompanyByInn($data,$count)
     {
-        return DaDataCompany::id($data,$count);
+
+       return DaDataCompany::id($data,$count);
     }
 
     /**
@@ -78,6 +82,15 @@ class DadataService implements DadataContract
         }
         return 'ИНН не найден';
 
+    }
+
+    /**
+     * @param $data
+     */
+
+    public function getOrganizationByName($data)
+    {
+        return DaDataCompany::prompt($data, 10, [CompanyStatus::ACTIVE], CompanyType::LEGAL);
     }
 
 }

@@ -17,10 +17,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Navbar: function Navbar() {
       return __webpack_require__.e(/*! import() */ "resources_js_omponents_Navbar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./Navbar */ "./resources/js/Сomponents/Navbar.vue"));
+    },
+    NavbarCatalog: function NavbarCatalog() {
+      return __webpack_require__.e(/*! import() */ "resources_js_omponents_NavbarCatalog_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./NavbarCatalog */ "./resources/js/Сomponents/NavbarCatalog.vue"));
     }
   }
 });
@@ -115,7 +119,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("header", [_c("navbar")], 1)
+  return _c(
+    "header",
+    { staticClass: "header_registration" },
+    [_c("navbar"), _vm._v(" "), _c("navbar-catalog")],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

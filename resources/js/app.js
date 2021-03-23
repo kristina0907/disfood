@@ -19,12 +19,21 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+
+var token = document.head.querySelector('meta[name="csrf-token"]');
+window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+
+
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import router from "./Router/index"
 import store from "./Store/index";
 import App from './App';
+import Vuelidate from 'vuelidate';
 
+
+
+Vue.use(Vuelidate)
 Vue.use(VueRouter);
 
 /**

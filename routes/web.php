@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +25,15 @@ Auth::routes();
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//->middleware(['auth','IsAdmin']);
+
+Route::post('/get/inn/from/api',[ApiController::class,'getInnFromApi']);
+Route::post('/get/companyname/from/api',[ApiController::class,'getNameFromApi']);
+Route::post('/set/company/and/register',[ApiController::class,'setCompanyAndRegister']);
+
+
+
+Route::get('/{any?}',function (){
+   return view('welcome');
+});
 
 

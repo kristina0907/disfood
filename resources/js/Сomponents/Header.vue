@@ -1,6 +1,7 @@
 <template>
-    <header>
+    <header class="header_registration">
         <navbar></navbar>
+        <navbar-catalog></navbar-catalog>
     </header>
 </template>
 
@@ -8,7 +9,8 @@
 
 export default {
     components:{
-        Navbar: () => import('./Navbar')
+        Navbar: () => import('./Navbar'),
+        NavbarCatalog : () => import('./NavbarCatalog')
     }
 }
 </script>

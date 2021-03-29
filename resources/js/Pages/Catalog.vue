@@ -1,6 +1,9 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
+    <div class="container-fluid">
+        <div class="row">
+            <Header></Header>
+        </div>
+        <div class="container content">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Каталог</div>
@@ -15,7 +18,9 @@
 </template>
 
 <script>
+import Header from "../Сomponents/Header";
 export default {
+    components: {Header},
     mounted() {
         console.log('Component mounted.')
     }

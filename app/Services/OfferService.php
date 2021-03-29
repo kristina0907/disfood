@@ -152,6 +152,14 @@ class OfferService
 
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
 
+    public function getOffersByUserId($id)
+    {
+        return $this->offerRepository->getByUserId($id);
+    }
 
 }

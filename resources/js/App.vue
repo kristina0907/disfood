@@ -1,6 +1,5 @@
 <template>
     <div class="app">
-        <Head></Head>
         <router-view></router-view>
         <foot></foot>
     </div>
@@ -8,10 +7,15 @@
 
 
 <script>
-    import './Styles/app.scss'
-    import "./bootstrap"
+    import './Styles/app.scss';
+    import "./bootstrap";
     export default {
         name:"app",
+        data(){
+          return {
+
+          }
+        },
         components:{
             Head: () => import('./Сomponents/Header'),
             Foot: () => import('./Сomponents/Footer'),

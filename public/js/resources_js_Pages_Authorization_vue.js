@@ -11,8 +11,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vue_masked_input__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-masked-input */ "./node_modules/vue-masked-input/dist/maskedInput.js");
+/* harmony import */ var _omponents_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Сomponents/Header */ "./resources/js/Сomponents/Header.vue");
 //
 //
 //
@@ -330,6 +331,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -349,42 +361,43 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
+    Header: _omponents_Header__WEBPACK_IMPORTED_MODULE_1__.default,
     MaskedInput: vue_masked_input__WEBPACK_IMPORTED_MODULE_0__.default
   },
   validations: {
     inn: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.required,
-      minLength: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.minLength)(10),
-      maxLength: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.maxLength)(12)
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required,
+      minLength: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.minLength)(10),
+      maxLength: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.maxLength)(12)
     },
     companyName: {
-      required: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.requiredIf)(function (e) {
+      required: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.requiredIf)(function (e) {
         if (this.type && this.type == "company") {
           return true;
         } else {
           return false;
         }
       }),
-      minLength: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.minLength)(5)
+      minLength: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.minLength)(5)
     },
     userName: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.required
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required
     },
     userSurname: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.required
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required
     },
     userPassword: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.required,
-      minLength: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.minLength)(8)
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required,
+      minLength: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.minLength)(8)
     },
     userPasswordConfirmation: {
-      sameAsPassword: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.sameAs)('userPassword')
+      sameAsPassword: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.sameAs)('userPassword')
     },
     userEmail: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.required
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required
     },
     userPhone: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__.required
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required
     }
   },
   methods: {
@@ -436,6 +449,8 @@ __webpack_require__.r(__webpack_exports__);
       this.search_data = [];
     },
     sendData: function sendData(e) {
+      var _this3 = this;
+
       e.preventDefault();
 
       if (!this.$v.anyDirty) {
@@ -449,13 +464,53 @@ __webpack_require__.r(__webpack_exports__);
           userEmail: this.userEmail,
           userPassword: this.userPassword
         }).then(function (response) {
-          console.log(response.data);
+          if (response.status == 200) {
+            console.log(response.status);
+
+            _this3.$router.push({
+              name: 'authorization-success',
+              query: {
+                redirect: '/successauth'
+              }
+            });
+          }
         });
       }
     }
   },
   mounted: function mounted() {
     console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/Header.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/Header.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Navbar: function Navbar() {
+      return __webpack_require__.e(/*! import() */ "resources_js_omponents_Navbar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./Navbar */ "./resources/js/Сomponents/Navbar.vue"));
+    },
+    NavbarCatalog: function NavbarCatalog() {
+      return __webpack_require__.e(/*! import() */ "resources_js_omponents_NavbarCatalog_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./NavbarCatalog */ "./resources/js/Сomponents/NavbarCatalog.vue"));
+    }
   }
 });
 
@@ -1028,6 +1083,45 @@ component.options.__file = "resources/js/Pages/Authorization.vue"
 
 /***/ }),
 
+/***/ "./resources/js/Сomponents/Header.vue":
+/*!********************************************!*\
+  !*** ./resources/js/Сomponents/Header.vue ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Header_vue_vue_type_template_id_14c53af6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header.vue?vue&type=template&id=14c53af6& */ "./resources/js/Сomponents/Header.vue?vue&type=template&id=14c53af6&");
+/* harmony import */ var _Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Header.vue?vue&type=script&lang=js& */ "./resources/js/Сomponents/Header.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _Header_vue_vue_type_template_id_14c53af6___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Header_vue_vue_type_template_id_14c53af6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Сomponents/Header.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Authorization.vue?vue&type=script&lang=js&":
 /*!***********************************************************************!*\
   !*** ./resources/js/Pages/Authorization.vue?vue&type=script&lang=js& ***!
@@ -1041,6 +1135,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Authorization_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Authorization.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Authorization.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Authorization_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/Сomponents/Header.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/Сomponents/Header.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Header.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/Header.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -1061,6 +1171,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Сomponents/Header.vue?vue&type=template&id=14c53af6&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/Сomponents/Header.vue?vue&type=template&id=14c53af6& ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_template_id_14c53af6___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_template_id_14c53af6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_template_id_14c53af6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Header.vue?vue&type=template&id=14c53af6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/Header.vue?vue&type=template&id=14c53af6&");
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Authorization.vue?vue&type=template&id=29df7d20&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Authorization.vue?vue&type=template&id=29df7d20& ***!
@@ -1077,23 +1204,671 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container container_register" }, [
+  return _c("div", { staticClass: "container-fluid" }, [
+    _c("div", { staticClass: "row" }, [_c("Header")], 1),
+    _vm._v(" "),
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col xs-12 col-md-6" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "reg_form" }, [
-          _c("form", [
-            _c("div", { staticClass: "item_reg_block" }, [
-              _c("div", { staticClass: "container_item_reg_input" }, [
-                _c("div", [
-                  _c(
-                    "div",
-                    { staticClass: "container_item_providere active" },
-                    [
-                      _vm._m(1),
+      _c("div", { staticClass: "container container_register" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col xs-12 col-md-6" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "reg_form" }, [
+              _c("form", [
+                _c("div", { staticClass: "item_reg_block" }, [
+                  _c("div", { staticClass: "container_item_reg_input" }, [
+                    _c("div", [
+                      _c(
+                        "div",
+                        { staticClass: "container_item_providere active" },
+                        [
+                          _vm._m(1),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "icon_provider" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "24",
+                                  height: "24",
+                                  viewBox: "0 0 24 24",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M1 2H3.39566C4.33305 2 5.14468 2.65106 5.34803 3.56614L6 6.5M6 6.5L7.10424 12.5733C7.62296 15.4263 10.1077 17.5 13.0075 17.5H15.7106C18.512 17.5 20.9406 15.5615 21.5614 12.8297L22.5835 8.33243C22.7969 7.39379 22.0834 6.5 21.1208 6.5H6Z",
+                                    stroke: "white",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "8.5",
+                                    cy: "21",
+                                    r: "1",
+                                    stroke: "white",
+                                    "stroke-width": "2"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "20.5",
+                                    cy: "21",
+                                    r: "1",
+                                    stroke: "white",
+                                    "stroke-width": "2"
+                                  }
+                                })
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("div", { staticClass: "container_item_providere" }, [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "icon_provider" }, [
+                          _c(
+                            "svg",
+                            {
+                              attrs: {
+                                width: "22",
+                                height: "23",
+                                viewBox: "0 0 22 23",
+                                fill: "none",
+                                xmlns: "http://www.w3.org/2000/svg"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M10.3079 1.65797C10.5645 1.0432 11.4355 1.0432 11.6921 1.65797L13.8937 6.93186C13.9962 7.17755 14.2214 7.35045 14.4852 7.38616L20.2876 8.17148C20.9378 8.25948 21.1695 9.08097 20.6612 9.49579L16.1809 13.1518C15.9594 13.3326 15.86 13.6235 15.9244 13.902L17.3568 20.0919C17.5119 20.762 16.7583 21.27 16.1953 20.8748L11.4309 17.5309C11.1723 17.3494 10.8277 17.3494 10.5691 17.5309L5.8047 20.8749C5.24167 21.27 4.48807 20.7621 4.64315 20.0919L6.07545 13.902C6.1399 13.6235 6.04042 13.3326 5.81895 13.1518L1.3388 9.49578C0.830477 9.08096 1.06222 8.25948 1.7124 8.17149L7.51479 7.38616C7.77862 7.35045 8.00375 7.17755 8.10631 6.93186L10.3079 1.65797Z",
+                                  stroke: "#71BF45",
+                                  "stroke-width": "2",
+                                  "stroke-miterlimit": "3.3292",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round"
+                                }
+                              })
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "item_reg_block" }, [
+                  _c("div", { staticClass: "title_item_reg_block" }, [
+                    _vm._v(
+                      "\n                                    Реквизиты\n                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "tab_reg" }, [
+                    _c(
+                      "ul",
+                      {
+                        staticClass: "nav nav-tabs",
+                        attrs: { id: "myTab", role: "tablist" }
+                      },
+                      [
+                        _c("li", { staticClass: "nav-item" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-link active",
+                              attrs: {
+                                id: "home-tab",
+                                "data-toggle": "tab",
+                                href: "#company",
+                                role: "tab",
+                                "aria-controls": "company",
+                                "aria-selected": "true"
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.changeType("company")
+                                }
+                              }
+                            },
+                            [
+                              _c("span", [_vm._v(" ·")]),
+                              _vm._v(
+                                "\n                                                Компания "
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "nav-item" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-link",
+                              attrs: {
+                                id: "IP-tab",
+                                "data-toggle": "tab",
+                                href: "#IP",
+                                role: "tab",
+                                "aria-controls": "IP",
+                                "aria-selected": "false"
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.changeType("ip")
+                                }
+                              }
+                            },
+                            [_c("span", [_vm._v(" ·")]), _vm._v(" ИП")]
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-content",
+                        attrs: { id: "myTabContent" }
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane fade show active",
+                            attrs: {
+                              id: "company",
+                              role: "tabpanel",
+                              "aria-labelledby": "company-tab"
+                            }
+                          },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "container_item_reg_input" },
+                              [
+                                _c("div", [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.companyName,
+                                        expression: "companyName"
+                                      }
+                                    ],
+                                    class: {
+                                      "form-group--error":
+                                        _vm.$v.companyName.$error
+                                    },
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Название компании",
+                                      autocomplete: "off"
+                                    },
+                                    domProps: { value: _vm.companyName },
+                                    on: {
+                                      keyup: function($event) {
+                                        return _vm.getCompanyName()
+                                      },
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.companyName = $event.target.value
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.search_data.length
+                                    ? _c(
+                                        "div",
+                                        { staticClass: "panel-footer" },
+                                        [
+                                          _c(
+                                            "ul",
+                                            { staticClass: "list-group" },
+                                            _vm._l(_vm.search_data, function(
+                                              data1
+                                            ) {
+                                              return _c(
+                                                "a",
+                                                {
+                                                  staticClass:
+                                                    "list-group-item",
+                                                  attrs: { href: "#" },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.getName(
+                                                        data1.data.name
+                                                          .full_with_opf,
+                                                        data1.data.inn
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                                                " +
+                                                      _vm._s(
+                                                        data1.data.name
+                                                          .full_with_opf
+                                                      ) +
+                                                      " "
+                                                  ),
+                                                  _c("br"),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "color_success"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "ИНН " +
+                                                          _vm._s(data1.data.inn)
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            }),
+                                            0
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  !_vm.$v.companyName.required
+                                    ? _c("div", { staticClass: "error" }, [
+                                        _vm._v(
+                                          "Поле обязательно для заполнения"
+                                        )
+                                      ])
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  !_vm.$v.companyName.minLength
+                                    ? _c("div", { staticClass: "error" }, [
+                                        _vm._v(
+                                          "ИНН должен содержать минимум " +
+                                            _vm._s(
+                                              _vm.$v.companyName.$params
+                                                .minLength.min
+                                            ) +
+                                            " знаков."
+                                        )
+                                      ])
+                                    : _vm._e()
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  [
+                                    _c("masked-input", {
+                                      class: {
+                                        "form-group--error": _vm.$v.inn.$error
+                                      },
+                                      attrs: {
+                                        type: "text",
+                                        placeholder: "ИНН",
+                                        mask: "1111111111",
+                                        required: ""
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          return _vm.getInn()
+                                        }
+                                      },
+                                      model: {
+                                        value: _vm.inn,
+                                        callback: function($$v) {
+                                          _vm.inn = $$v
+                                        },
+                                        expression: "inn"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    !_vm.$v.inn.required
+                                      ? _c("div", { staticClass: "error" }, [
+                                          _vm._v(
+                                            "Поле обязательно для заполнения"
+                                          )
+                                        ])
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    !_vm.$v.inn.minLength
+                                      ? _c("div", { staticClass: "error" }, [
+                                          _vm._v(
+                                            "ИНН должен содержать минимум " +
+                                              _vm._s(
+                                                _vm.$v.inn.$params.minLength.min
+                                              ) +
+                                              " знаков"
+                                          )
+                                        ])
+                                      : _vm._e()
+                                  ],
+                                  1
+                                )
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane fade",
+                            attrs: {
+                              id: "IP",
+                              role: "tabpanel",
+                              "aria-labelledby": "IP-tab"
+                            }
+                          },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "container_item_reg_input" },
+                              [
+                                _c("div", [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.userName,
+                                        expression: "userName"
+                                      }
+                                    ],
+                                    attrs: { type: "text", placeholder: "Имя" },
+                                    domProps: { value: _vm.userName },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.userName = $event.target.value
+                                      }
+                                    }
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.userSurname,
+                                        expression: "userSurname"
+                                      }
+                                    ],
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Фамилия"
+                                    },
+                                    domProps: { value: _vm.userSurname },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.userSurname = $event.target.value
+                                      }
+                                    }
+                                  })
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "item_reg_input_one" },
+                              [
+                                _c("masked-input", {
+                                  class: {
+                                    "form-group--error": _vm.$v.inn.$error
+                                  },
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "ИНН",
+                                    mask: "111111111111",
+                                    required: ""
+                                  },
+                                  on: {
+                                    input: function($event) {
+                                      return _vm.getInn()
+                                    }
+                                  },
+                                  model: {
+                                    value: _vm.inn,
+                                    callback: function($$v) {
+                                      _vm.inn = $$v
+                                    },
+                                    expression: "inn"
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            !_vm.$v.inn.required
+                              ? _c("div", { staticClass: "error" }, [
+                                  _vm._v("Поле обязательно для заполнения")
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            !_vm.$v.inn.minLength
+                              ? _c("div", { staticClass: "error" }, [
+                                  _vm._v(
+                                    "ИНН должен содержать минимум " +
+                                      _vm._s(_vm.$v.inn.$params.minLength.min) +
+                                      " знаков."
+                                  )
+                                ])
+                              : _vm._e()
+                          ]
+                        )
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "item_reg_block" }, [
+                  _c("div", { staticClass: "title_item_reg_block" }, [
+                    _vm._v(
+                      "\n                                    Контакты\n                                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "container_item_reg_input" }, [
+                    _c("div", [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.userName,
+                            expression: "userName"
+                          }
+                        ],
+                        attrs: {
+                          type: "text",
+                          placeholder: "Имя",
+                          required: ""
+                        },
+                        domProps: { value: _vm.userName },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.userName = $event.target.value
+                          }
+                        }
+                      }),
                       _vm._v(" "),
-                      _c("div", { staticClass: "icon_provider" }, [
+                      !_vm.$v.userName.required
+                        ? _c("div", { staticClass: "error" }, [
+                            _vm._v("Имя обязательно для заполнения.")
+                          ])
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.userSurname,
+                            expression: "userSurname"
+                          }
+                        ],
+                        attrs: {
+                          type: "text",
+                          placeholder: "Фамилия",
+                          required: ""
+                        },
+                        domProps: { value: _vm.userSurname },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.userSurname = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      !_vm.$v.userSurname.required
+                        ? _c("div", { staticClass: "error" }, [
+                            _vm._v("Фамилия обязательно для заполнения.")
+                          ])
+                        : _vm._e()
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "container_item_reg_input" }, [
+                    _c(
+                      "div",
+                      [
+                        _c("masked-input", {
+                          attrs: {
+                            type: "text",
+                            placeholder: "Телефон",
+                            mask: "\\+\\7 (111) 111-1111"
+                          },
+                          model: {
+                            value: _vm.userPhone,
+                            callback: function($$v) {
+                              _vm.userPhone = $$v
+                            },
+                            expression: "userPhone"
+                          }
+                        }),
+                        _vm._v(" "),
+                        !_vm.$v.userPhone.required
+                          ? _c("div", { staticClass: "error" }, [
+                              _vm._v("Телефон обязателен для заполнения.")
+                            ])
+                          : _vm._e()
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.userEmail,
+                            expression: "userEmail"
+                          }
+                        ],
+                        attrs: {
+                          type: "email",
+                          placeholder: "E-mail",
+                          required: ""
+                        },
+                        domProps: { value: _vm.userEmail },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.userEmail = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      !_vm.$v.userEmail.required
+                        ? _c("div", { staticClass: "error" }, [
+                            _vm._v("Email обязателен для заполнения.")
+                          ])
+                        : _vm._e()
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "item_reg_block" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "container_item_reg_input" }, [
+                    _c("div", [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.userPassword,
+                            expression: "userPassword"
+                          }
+                        ],
+                        attrs: {
+                          type: "password",
+                          placeholder: "Введите пароль"
+                        },
+                        domProps: { value: _vm.userPassword },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.userPassword = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      !_vm.$v.userPassword.required
+                        ? _c("div", { staticClass: "error" }, [
+                            _vm._v("Пароль обязателен для заполнения.")
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      !_vm.$v.userPassword.minLength
+                        ? _c("div", { staticClass: "error" }, [
+                            _vm._v(
+                              "Пароль должен состоять миимум из 8 символов."
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "icon_password" }, [
                         _c(
                           "svg",
                           {
@@ -1106,1297 +1881,702 @@ var render = function() {
                             }
                           },
                           [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M1 2H3.39566C4.33305 2 5.14468 2.65106 5.34803 3.56614L6 6.5M6 6.5L7.10424 12.5733C7.62296 15.4263 10.1077 17.5 13.0075 17.5H15.7106C18.512 17.5 20.9406 15.5615 21.5614 12.8297L22.5835 8.33243C22.7969 7.39379 22.0834 6.5 21.1208 6.5H6Z",
-                                stroke: "white",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("circle", {
-                              attrs: {
-                                cx: "8.5",
-                                cy: "21",
-                                r: "1",
-                                stroke: "white",
-                                "stroke-width": "2"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("circle", {
-                              attrs: {
-                                cx: "20.5",
-                                cy: "21",
-                                r: "1",
-                                stroke: "white",
-                                "stroke-width": "2"
-                              }
-                            })
-                          ]
-                        )
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("div", { staticClass: "container_item_providere" }, [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "icon_provider" }, [
-                      _c(
-                        "svg",
-                        {
-                          attrs: {
-                            width: "22",
-                            height: "23",
-                            viewBox: "0 0 22 23",
-                            fill: "none",
-                            xmlns: "http://www.w3.org/2000/svg"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M10.3079 1.65797C10.5645 1.0432 11.4355 1.0432 11.6921 1.65797L13.8937 6.93186C13.9962 7.17755 14.2214 7.35045 14.4852 7.38616L20.2876 8.17148C20.9378 8.25948 21.1695 9.08097 20.6612 9.49579L16.1809 13.1518C15.9594 13.3326 15.86 13.6235 15.9244 13.902L17.3568 20.0919C17.5119 20.762 16.7583 21.27 16.1953 20.8748L11.4309 17.5309C11.1723 17.3494 10.8277 17.3494 10.5691 17.5309L5.8047 20.8749C5.24167 21.27 4.48807 20.7621 4.64315 20.0919L6.07545 13.902C6.1399 13.6235 6.04042 13.3326 5.81895 13.1518L1.3388 9.49578C0.830477 9.08096 1.06222 8.25948 1.7124 8.17149L7.51479 7.38616C7.77862 7.35045 8.00375 7.17755 8.10631 6.93186L10.3079 1.65797Z",
-                              stroke: "#71BF45",
-                              "stroke-width": "2",
-                              "stroke-miterlimit": "3.3292",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          })
-                        ]
-                      )
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "item_reg_block" }, [
-              _c("div", { staticClass: "title_item_reg_block" }, [
-                _vm._v(
-                  "\n                            Реквизиты\n                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "tab_reg" }, [
-                _c(
-                  "ul",
-                  {
-                    staticClass: "nav nav-tabs",
-                    attrs: { id: "myTab", role: "tablist" }
-                  },
-                  [
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link active",
-                          attrs: {
-                            id: "home-tab",
-                            "data-toggle": "tab",
-                            href: "#company",
-                            role: "tab",
-                            "aria-controls": "company",
-                            "aria-selected": "true"
-                          },
-                          on: {
-                            click: function($event) {
-                              return _vm.changeType("company")
-                            }
-                          }
-                        },
-                        [
-                          _c("span", [_vm._v(" ·")]),
-                          _vm._v(
-                            "\n                                        Компания "
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link",
-                          attrs: {
-                            id: "IP-tab",
-                            "data-toggle": "tab",
-                            href: "#IP",
-                            role: "tab",
-                            "aria-controls": "IP",
-                            "aria-selected": "false"
-                          },
-                          on: {
-                            click: function($event) {
-                              return _vm.changeType("ip")
-                            }
-                          }
-                        },
-                        [_c("span", [_vm._v(" ·")]), _vm._v(" ИП")]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "tab-content", attrs: { id: "myTabContent" } },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade show active",
-                        attrs: {
-                          id: "company",
-                          role: "tabpanel",
-                          "aria-labelledby": "company-tab"
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "container_item_reg_input" }, [
-                          _c("div", [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.companyName,
-                                  expression: "companyName"
-                                }
-                              ],
-                              class: {
-                                "form-group--error": _vm.$v.companyName.$error
-                              },
-                              attrs: {
-                                type: "text",
-                                placeholder: "Название компании",
-                                autocomplete: "off"
-                              },
-                              domProps: { value: _vm.companyName },
-                              on: {
-                                keyup: function($event) {
-                                  return _vm.getCompanyName()
-                                },
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.companyName = $event.target.value
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _vm.search_data.length
-                              ? _c("div", { staticClass: "panel-footer" }, [
-                                  _c(
-                                    "ul",
-                                    { staticClass: "list-group" },
-                                    _vm._l(_vm.search_data, function(data1) {
-                                      return _c(
-                                        "a",
-                                        {
-                                          staticClass: "list-group-item",
-                                          attrs: { href: "#" },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.getName(
-                                                data1.data.name.full_with_opf,
-                                                data1.data.inn
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                                        " +
-                                              _vm._s(
-                                                data1.data.name.full_with_opf
-                                              ) +
-                                              " "
-                                          ),
-                                          _c("br"),
-                                          _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            { staticClass: "color_success" },
-                                            [
-                                              _vm._v(
-                                                "ИНН " + _vm._s(data1.data.inn)
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    }),
-                                    0
-                                  )
-                                ])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            !_vm.$v.companyName.required
-                              ? _c("div", { staticClass: "error" }, [
-                                  _vm._v("Поле обязательно для заполнения")
-                                ])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            !_vm.$v.companyName.minLength
-                              ? _c("div", { staticClass: "error" }, [
-                                  _vm._v(
-                                    "ИНН должен содержать минимум " +
-                                      _vm._s(
-                                        _vm.$v.companyName.$params.minLength.min
-                                      ) +
-                                      " знаков."
-                                  )
-                                ])
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            [
-                              _c("masked-input", {
-                                class: {
-                                  "form-group--error": _vm.$v.inn.$error
-                                },
+                            _c("g", { attrs: { opacity: "0.5" } }, [
+                              _c("path", {
                                 attrs: {
-                                  type: "text",
-                                  placeholder: "ИНН",
-                                  mask: "1111111111",
-                                  required: ""
-                                },
-                                on: {
-                                  input: function($event) {
-                                    return _vm.getInn()
-                                  }
-                                },
-                                model: {
-                                  value: _vm.inn,
-                                  callback: function($$v) {
-                                    _vm.inn = $$v
-                                  },
-                                  expression: "inn"
+                                  d: "M5.67969 3L21.6797 19",
+                                  stroke: "#22262A",
+                                  "stroke-width": "2",
+                                  "stroke-linecap": "round"
                                 }
                               }),
                               _vm._v(" "),
-                              !_vm.$v.inn.required
-                                ? _c("div", { staticClass: "error" }, [
-                                    _vm._v("Поле обязательно для заполнения")
-                                  ])
-                                : _vm._e(),
+                              _c("path", {
+                                attrs: {
+                                  "fill-rule": "evenodd",
+                                  "clip-rule": "evenodd",
+                                  d:
+                                    "M14.0546 4.79046C14.2347 4.26835 14.8039 3.99106 15.326 4.17112C18.4478 5.24771 21.0835 7.65289 22.8918 10.8025C23.3668 11.6299 23.4799 12.6015 23.2316 13.4975C23.084 14.0297 22.5329 14.3416 22.0007 14.194C21.4685 14.0465 21.1567 13.4954 21.3042 12.9632C21.4117 12.5757 21.3626 12.1559 21.1573 11.7984C19.5394 8.98037 17.2514 6.95069 14.674 6.06185C14.1519 5.88179 13.8746 5.31257 14.0546 4.79046ZM8.7503 4.94125C8.95814 5.45293 8.71183 6.03622 8.20014 6.24406C5.82167 7.21018 3.71737 9.15939 2.2022 11.7984C1.9326 12.268 1.9326 12.845 2.2022 13.3146C4.42466 17.1855 7.89339 19.5565 11.6798 19.5565C14.367 19.5565 16.8801 18.369 18.9146 16.2991C19.3017 15.9052 19.9349 15.8998 20.3288 16.2869C20.7226 16.674 20.7281 17.3072 20.341 17.7011C17.9956 20.0872 14.9897 21.5565 11.6798 21.5565C6.99415 21.5565 2.94527 18.6256 0.467746 14.3104C-0.155911 13.2242 -0.155916 11.8889 0.467735 10.8026C2.16221 7.85128 4.58162 5.55518 7.44748 4.39109C7.95917 4.18325 8.54246 4.42956 8.7503 4.94125Z",
+                                  fill: "#22262A"
+                                }
+                              }),
                               _vm._v(" "),
-                              !_vm.$v.inn.minLength
-                                ? _c("div", { staticClass: "error" }, [
-                                    _vm._v(
-                                      "ИНН должен содержать минимум " +
-                                        _vm._s(
-                                          _vm.$v.inn.$params.minLength.min
-                                        ) +
-                                        " знаков"
-                                    )
-                                  ])
-                                : _vm._e()
-                            ],
-                            1
-                          )
-                        ])
-                      ]
-                    ),
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M14.5892 11.8251C14.748 12.457 14.6968 13.1233 14.4434 13.7235C14.1899 14.3236 13.748 14.825 13.1844 15.1517C12.6208 15.4785 11.9662 15.6129 11.3194 15.5347C10.6726 15.4564 10.0689 15.1698 9.59949 14.7181C9.13007 14.2663 8.82045 13.6741 8.71743 13.0308C8.61441 12.3875 8.7236 11.7282 9.02848 11.1524C9.33337 10.5767 9.81738 10.1159 10.4074 9.83956C10.9973 9.56327 11.6612 9.48653 12.2987 9.62095",
+                                  stroke: "#22262A",
+                                  "stroke-width": "2"
+                                }
+                              })
+                            ])
+                          ]
+                        )
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade",
+                    _c("div", [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.userPasswordConfirmation,
+                            expression: "userPasswordConfirmation"
+                          }
+                        ],
                         attrs: {
-                          id: "IP",
-                          role: "tabpanel",
-                          "aria-labelledby": "IP-tab"
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "container_item_reg_input" }, [
-                          _c("div", [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.userName,
-                                  expression: "userName"
-                                }
-                              ],
-                              attrs: { type: "text", placeholder: "Имя" },
-                              domProps: { value: _vm.userName },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.userName = $event.target.value
-                                }
-                              }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("div", [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.userSurname,
-                                  expression: "userSurname"
-                                }
-                              ],
-                              attrs: { type: "text", placeholder: "Фамилия" },
-                              domProps: { value: _vm.userSurname },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.userSurname = $event.target.value
-                                }
-                              }
-                            })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "item_reg_input_one" },
-                          [
-                            _c("masked-input", {
-                              class: { "form-group--error": _vm.$v.inn.$error },
-                              attrs: {
-                                type: "text",
-                                placeholder: "ИНН",
-                                mask: "111111111111",
-                                required: ""
-                              },
-                              on: {
-                                input: function($event) {
-                                  return _vm.getInn()
-                                }
-                              },
-                              model: {
-                                value: _vm.inn,
-                                callback: function($$v) {
-                                  _vm.inn = $$v
-                                },
-                                expression: "inn"
-                              }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        !_vm.$v.inn.required
-                          ? _c("div", { staticClass: "error" }, [
-                              _vm._v("Поле обязательно для заполнения")
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        !_vm.$v.inn.minLength
-                          ? _c("div", { staticClass: "error" }, [
-                              _vm._v(
-                                "ИНН должен содержать минимум " +
-                                  _vm._s(_vm.$v.inn.$params.minLength.min) +
-                                  " знаков."
-                              )
-                            ])
-                          : _vm._e()
-                      ]
-                    )
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "item_reg_block" }, [
-              _c("div", { staticClass: "title_item_reg_block" }, [
-                _vm._v(
-                  "\n                            Контакты\n                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "container_item_reg_input" }, [
-                _c("div", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.userName,
-                        expression: "userName"
-                      }
-                    ],
-                    attrs: { type: "text", placeholder: "Имя", required: "" },
-                    domProps: { value: _vm.userName },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.userName = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  !_vm.$v.userName.required
-                    ? _c("div", { staticClass: "error" }, [
-                        _vm._v("Имя обязательно для заполнения.")
-                      ])
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.userSurname,
-                        expression: "userSurname"
-                      }
-                    ],
-                    attrs: {
-                      type: "text",
-                      placeholder: "Фамилия",
-                      required: ""
-                    },
-                    domProps: { value: _vm.userSurname },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.userSurname = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  !_vm.$v.userSurname.required
-                    ? _c("div", { staticClass: "error" }, [
-                        _vm._v("Фамилия обязательно для заполнения.")
-                      ])
-                    : _vm._e()
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "container_item_reg_input" }, [
-                _c(
-                  "div",
-                  [
-                    _c("masked-input", {
-                      attrs: {
-                        type: "text",
-                        placeholder: "Телефон",
-                        mask: "\\+\\7 (111) 111-1111"
-                      },
-                      model: {
-                        value: _vm.userPhone,
-                        callback: function($$v) {
-                          _vm.userPhone = $$v
+                          type: "password",
+                          placeholder: "Повторите пароль"
                         },
-                        expression: "userPhone"
+                        domProps: { value: _vm.userPasswordConfirmation },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.userPasswordConfirmation = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      !_vm.$v.userPasswordConfirmation.sameAsPassword
+                        ? _c("div", { staticClass: "error" }, [
+                            _vm._v("Пароли должны совпадать.")
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "icon_password" }, [
+                        _c(
+                          "svg",
+                          {
+                            attrs: {
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              xmlns: "http://www.w3.org/2000/svg"
+                            }
+                          },
+                          [
+                            _c("g", { attrs: { opacity: "0.5" } }, [
+                              _c("path", {
+                                attrs: {
+                                  d: "M5.67969 3L21.6797 19",
+                                  stroke: "#22262A",
+                                  "stroke-width": "2",
+                                  "stroke-linecap": "round"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("path", {
+                                attrs: {
+                                  "fill-rule": "evenodd",
+                                  "clip-rule": "evenodd",
+                                  d:
+                                    "M14.0546 4.79046C14.2347 4.26835 14.8039 3.99106 15.326 4.17112C18.4478 5.24771 21.0835 7.65289 22.8918 10.8025C23.3668 11.6299 23.4799 12.6015 23.2316 13.4975C23.084 14.0297 22.5329 14.3416 22.0007 14.194C21.4685 14.0465 21.1567 13.4954 21.3042 12.9632C21.4117 12.5757 21.3626 12.1559 21.1573 11.7984C19.5394 8.98037 17.2514 6.95069 14.674 6.06185C14.1519 5.88179 13.8746 5.31257 14.0546 4.79046ZM8.7503 4.94125C8.95814 5.45293 8.71183 6.03622 8.20014 6.24406C5.82167 7.21018 3.71737 9.15939 2.2022 11.7984C1.9326 12.268 1.9326 12.845 2.2022 13.3146C4.42466 17.1855 7.89339 19.5565 11.6798 19.5565C14.367 19.5565 16.8801 18.369 18.9146 16.2991C19.3017 15.9052 19.9349 15.8998 20.3288 16.2869C20.7226 16.674 20.7281 17.3072 20.341 17.7011C17.9956 20.0872 14.9897 21.5565 11.6798 21.5565C6.99415 21.5565 2.94527 18.6256 0.467746 14.3104C-0.155911 13.2242 -0.155916 11.8889 0.467735 10.8026C2.16221 7.85128 4.58162 5.55518 7.44748 4.39109C7.95917 4.18325 8.54246 4.42956 8.7503 4.94125Z",
+                                  fill: "#22262A"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M14.5892 11.8251C14.748 12.457 14.6968 13.1233 14.4434 13.7235C14.1899 14.3236 13.748 14.825 13.1844 15.1517C12.6208 15.4785 11.9662 15.6129 11.3194 15.5347C10.6726 15.4564 10.0689 15.1698 9.59949 14.7181C9.13007 14.2663 8.82045 13.6741 8.71743 13.0308C8.61441 12.3875 8.7236 11.7282 9.02848 11.1524C9.33337 10.5767 9.81738 10.1159 10.4074 9.83956C10.9973 9.56327 11.6612 9.48653 12.2987 9.62095",
+                                  stroke: "#22262A",
+                                  "stroke-width": "2"
+                                }
+                              })
+                            ])
+                          ]
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "checkbox" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.userCheckPersonalData,
+                          expression: "userCheckPersonalData"
+                        }
+                      ],
+                      staticClass: "custom-checkbox",
+                      attrs: {
+                        checked: "",
+                        type: "checkbox",
+                        id: "color-2",
+                        name: "color-2",
+                        value: "indigo"
+                      },
+                      domProps: {
+                        checked: Array.isArray(_vm.userCheckPersonalData)
+                          ? _vm._i(_vm.userCheckPersonalData, "indigo") > -1
+                          : _vm.userCheckPersonalData
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$a = _vm.userCheckPersonalData,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = "indigo",
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                (_vm.userCheckPersonalData = $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                (_vm.userCheckPersonalData = $$a
+                                  .slice(0, $$i)
+                                  .concat($$a.slice($$i + 1)))
+                            }
+                          } else {
+                            _vm.userCheckPersonalData = $$c
+                          }
+                        }
                       }
                     }),
                     _vm._v(" "),
-                    !_vm.$v.userPhone.required
-                      ? _c("div", { staticClass: "error" }, [
-                          _vm._v("Телефон обязателен для заполнения.")
-                        ])
-                      : _vm._e()
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.userEmail,
-                        expression: "userEmail"
-                      }
-                    ],
-                    attrs: {
-                      type: "email",
-                      placeholder: "E-mail",
-                      required: ""
-                    },
-                    domProps: { value: _vm.userEmail },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.userEmail = $event.target.value
-                      }
-                    }
-                  }),
+                    _c("label", { attrs: { for: "color-2" } }, [
+                      _vm._v("Даю согласие на обработку персональных данных")
+                    ])
+                  ]),
                   _vm._v(" "),
-                  !_vm.$v.userEmail.required
-                    ? _c("div", { staticClass: "error" }, [
-                        _vm._v("Email обязателен для заполнения.")
-                      ])
-                    : _vm._e()
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "item_reg_block" }, [
-              _vm._m(3),
-              _vm._v(" "),
-              _c("div", { staticClass: "container_item_reg_input" }, [
-                _c("div", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.userPassword,
-                        expression: "userPassword"
-                      }
-                    ],
-                    attrs: { type: "password", placeholder: "Введите пароль" },
-                    domProps: { value: _vm.userPassword },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.userPassword = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  !_vm.$v.userPassword.required
-                    ? _c("div", { staticClass: "error" }, [
-                        _vm._v("Пароль обязателен для заполнения.")
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  !_vm.$v.userPassword.minLength
-                    ? _c("div", { staticClass: "error" }, [
-                        _vm._v("Пароль должен состоять миимум из 8 символов.")
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "icon_password" }, [
+                  _c("div", { staticClass: "btn_summit" }, [
                     _c(
-                      "svg",
+                      "button",
                       {
-                        attrs: {
-                          width: "24",
-                          height: "24",
-                          viewBox: "0 0 24 24",
-                          fill: "none",
-                          xmlns: "http://www.w3.org/2000/svg"
-                        }
+                        attrs: { type: "submit" },
+                        on: { click: _vm.sendData }
                       },
-                      [
-                        _c("g", { attrs: { opacity: "0.5" } }, [
-                          _c("path", {
-                            attrs: {
-                              d: "M5.67969 3L21.6797 19",
-                              stroke: "#22262A",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              "fill-rule": "evenodd",
-                              "clip-rule": "evenodd",
-                              d:
-                                "M14.0546 4.79046C14.2347 4.26835 14.8039 3.99106 15.326 4.17112C18.4478 5.24771 21.0835 7.65289 22.8918 10.8025C23.3668 11.6299 23.4799 12.6015 23.2316 13.4975C23.084 14.0297 22.5329 14.3416 22.0007 14.194C21.4685 14.0465 21.1567 13.4954 21.3042 12.9632C21.4117 12.5757 21.3626 12.1559 21.1573 11.7984C19.5394 8.98037 17.2514 6.95069 14.674 6.06185C14.1519 5.88179 13.8746 5.31257 14.0546 4.79046ZM8.7503 4.94125C8.95814 5.45293 8.71183 6.03622 8.20014 6.24406C5.82167 7.21018 3.71737 9.15939 2.2022 11.7984C1.9326 12.268 1.9326 12.845 2.2022 13.3146C4.42466 17.1855 7.89339 19.5565 11.6798 19.5565C14.367 19.5565 16.8801 18.369 18.9146 16.2991C19.3017 15.9052 19.9349 15.8998 20.3288 16.2869C20.7226 16.674 20.7281 17.3072 20.341 17.7011C17.9956 20.0872 14.9897 21.5565 11.6798 21.5565C6.99415 21.5565 2.94527 18.6256 0.467746 14.3104C-0.155911 13.2242 -0.155916 11.8889 0.467735 10.8026C2.16221 7.85128 4.58162 5.55518 7.44748 4.39109C7.95917 4.18325 8.54246 4.42956 8.7503 4.94125Z",
-                              fill: "#22262A"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M14.5892 11.8251C14.748 12.457 14.6968 13.1233 14.4434 13.7235C14.1899 14.3236 13.748 14.825 13.1844 15.1517C12.6208 15.4785 11.9662 15.6129 11.3194 15.5347C10.6726 15.4564 10.0689 15.1698 9.59949 14.7181C9.13007 14.2663 8.82045 13.6741 8.71743 13.0308C8.61441 12.3875 8.7236 11.7282 9.02848 11.1524C9.33337 10.5767 9.81738 10.1159 10.4074 9.83956C10.9973 9.56327 11.6612 9.48653 12.2987 9.62095",
-                              stroke: "#22262A",
-                              "stroke-width": "2"
-                            }
-                          })
-                        ])
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.userPasswordConfirmation,
-                        expression: "userPasswordConfirmation"
-                      }
-                    ],
-                    attrs: {
-                      type: "password",
-                      placeholder: "Повторите пароль"
-                    },
-                    domProps: { value: _vm.userPasswordConfirmation },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.userPasswordConfirmation = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  !_vm.$v.userPasswordConfirmation.sameAsPassword
-                    ? _c("div", { staticClass: "error" }, [
-                        _vm._v("Пароли должны совпадать.")
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "icon_password" }, [
-                    _c(
-                      "svg",
-                      {
-                        attrs: {
-                          width: "24",
-                          height: "24",
-                          viewBox: "0 0 24 24",
-                          fill: "none",
-                          xmlns: "http://www.w3.org/2000/svg"
-                        }
-                      },
-                      [
-                        _c("g", { attrs: { opacity: "0.5" } }, [
-                          _c("path", {
-                            attrs: {
-                              d: "M5.67969 3L21.6797 19",
-                              stroke: "#22262A",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              "fill-rule": "evenodd",
-                              "clip-rule": "evenodd",
-                              d:
-                                "M14.0546 4.79046C14.2347 4.26835 14.8039 3.99106 15.326 4.17112C18.4478 5.24771 21.0835 7.65289 22.8918 10.8025C23.3668 11.6299 23.4799 12.6015 23.2316 13.4975C23.084 14.0297 22.5329 14.3416 22.0007 14.194C21.4685 14.0465 21.1567 13.4954 21.3042 12.9632C21.4117 12.5757 21.3626 12.1559 21.1573 11.7984C19.5394 8.98037 17.2514 6.95069 14.674 6.06185C14.1519 5.88179 13.8746 5.31257 14.0546 4.79046ZM8.7503 4.94125C8.95814 5.45293 8.71183 6.03622 8.20014 6.24406C5.82167 7.21018 3.71737 9.15939 2.2022 11.7984C1.9326 12.268 1.9326 12.845 2.2022 13.3146C4.42466 17.1855 7.89339 19.5565 11.6798 19.5565C14.367 19.5565 16.8801 18.369 18.9146 16.2991C19.3017 15.9052 19.9349 15.8998 20.3288 16.2869C20.7226 16.674 20.7281 17.3072 20.341 17.7011C17.9956 20.0872 14.9897 21.5565 11.6798 21.5565C6.99415 21.5565 2.94527 18.6256 0.467746 14.3104C-0.155911 13.2242 -0.155916 11.8889 0.467735 10.8026C2.16221 7.85128 4.58162 5.55518 7.44748 4.39109C7.95917 4.18325 8.54246 4.42956 8.7503 4.94125Z",
-                              fill: "#22262A"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M14.5892 11.8251C14.748 12.457 14.6968 13.1233 14.4434 13.7235C14.1899 14.3236 13.748 14.825 13.1844 15.1517C12.6208 15.4785 11.9662 15.6129 11.3194 15.5347C10.6726 15.4564 10.0689 15.1698 9.59949 14.7181C9.13007 14.2663 8.82045 13.6741 8.71743 13.0308C8.61441 12.3875 8.7236 11.7282 9.02848 11.1524C9.33337 10.5767 9.81738 10.1159 10.4074 9.83956C10.9973 9.56327 11.6612 9.48653 12.2987 9.62095",
-                              stroke: "#22262A",
-                              "stroke-width": "2"
-                            }
-                          })
-                        ])
-                      ]
+                      [_vm._v("Зарегистрироваться")]
                     )
                   ])
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "checkbox" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.userCheckPersonalData,
-                      expression: "userCheckPersonalData"
-                    }
-                  ],
-                  staticClass: "custom-checkbox",
-                  attrs: {
-                    checked: "",
-                    type: "checkbox",
-                    id: "color-2",
-                    name: "color-2",
-                    value: "indigo"
-                  },
-                  domProps: {
-                    checked: Array.isArray(_vm.userCheckPersonalData)
-                      ? _vm._i(_vm.userCheckPersonalData, "indigo") > -1
-                      : _vm.userCheckPersonalData
-                  },
-                  on: {
-                    change: function($event) {
-                      var $$a = _vm.userCheckPersonalData,
-                        $$el = $event.target,
-                        $$c = $$el.checked ? true : false
-                      if (Array.isArray($$a)) {
-                        var $$v = "indigo",
-                          $$i = _vm._i($$a, $$v)
-                        if ($$el.checked) {
-                          $$i < 0 &&
-                            (_vm.userCheckPersonalData = $$a.concat([$$v]))
-                        } else {
-                          $$i > -1 &&
-                            (_vm.userCheckPersonalData = $$a
-                              .slice(0, $$i)
-                              .concat($$a.slice($$i + 1)))
-                        }
-                      } else {
-                        _vm.userCheckPersonalData = $$c
-                      }
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "color-2" } }, [
-                  _vm._v("Даю согласие на обработку персональных данных")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "btn_summit" }, [
-                _c(
-                  "button",
-                  { attrs: { type: "submit" }, on: { click: _vm.sendData } },
-                  [_vm._v("Зарегистрироваться")]
-                )
               ])
             ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col xs-12 col-md-6" }, [
+            _c("div", { staticClass: "reg_img" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "555",
+                    height: "465",
+                    viewBox: "0 0 555 465",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("g", { attrs: { "clip-path": "url(#clip0)" } }, [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M25.788 443.096C33.4864 457.425 49.8252 463.576 49.8252 463.576C49.8252 463.576 53.6824 446.496 45.984 432.166C38.2856 417.837 21.9468 411.686 21.9468 411.686C21.9468 411.686 18.0896 428.767 25.788 443.096Z",
+                        fill: "#51668F"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M31.0803 438.382C44.9791 446.774 50.332 463.444 50.332 463.444C50.332 463.444 33.1504 466.507 19.2517 458.114C5.35287 449.722 0 433.052 0 433.052C0 433.052 17.1815 429.989 31.0803 438.382Z",
+                        fill: "#71BF45"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M342.693 22.3235H255.975V23.5668H342.693V22.3235Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M319.155 23.2556H317.916V34.7567H319.155V23.2556Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M281.37 23.2556H280.131V34.7567H281.37V23.2556Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M386.672 82.0046H299.953V83.248H386.672V82.0046Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M324.731 70.8145H323.492V82.3156H324.731V70.8145Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M362.514 70.8145H361.275V82.3156H362.514V70.8145Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M501.885 109.98H415.166V111.224H501.885V109.98Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M439.942 98.79H438.703V110.291H439.942V98.79Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M477.727 98.79H476.488V110.291H477.727V98.79Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M493.213 398.441H406.494V399.684H493.213V398.441Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M431.27 387.25H430.031V398.752H431.27V387.25Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M469.055 387.25H467.816V398.752H469.055V387.25Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M345.17 198.881H258.451V200.124H345.17V198.881Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M283.229 187.69H281.99V199.192H283.229V187.69Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M321.014 187.69H319.775V199.192H321.014V187.69Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M372.424 348.706H285.705V349.949H372.424V348.706Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M310.483 337.516H309.244V349.017H310.483V337.516Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M348.268 337.516H347.029V349.017H348.268V337.516Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M511.176 303.323H424.457V304.567H511.176V303.323Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M449.233 292.133H447.994V303.634H449.233V292.133Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M487.018 292.133H485.779V303.634H487.018V292.133Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M224.268 436.535H77.5977V435.476H223.212V384.113H89.9278L83.453 370.574L84.4045 370.116L90.5918 383.053H224.268V436.535Z",
+                        fill: "#51668F"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M97.1185 462.481C103.237 462.481 108.198 457.503 108.198 451.361C108.198 445.22 103.237 440.241 97.1185 440.241C90.9995 440.241 86.0391 445.22 86.0391 451.361C86.0391 457.503 90.9995 462.481 97.1185 462.481Z",
+                        fill: "#22262A"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M206.329 462.481C212.448 462.481 217.409 457.503 217.409 451.361C217.409 445.22 212.448 440.241 206.329 440.241C200.21 440.241 195.25 445.22 195.25 451.361C195.25 457.503 200.21 462.481 206.329 462.481Z",
+                        fill: "#22262A"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M335.062 222.081C338.85 222.081 341.92 218.999 341.92 215.197C341.92 211.395 338.85 208.313 335.062 208.313C331.274 208.313 328.203 211.395 328.203 215.197C328.203 218.999 331.274 222.081 335.062 222.081Z",
+                        fill: "#22262A"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M239.955 366.639H75.0971L39.4258 249.616H276.691L276.475 250.304L239.955 366.639ZM75.8777 365.58H239.181L275.252 250.675H40.8519L75.8777 365.58Z",
+                        fill: "#51668F"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M227.085 360.549H82.2846L50.9531 256.764H259.351L259.162 257.375L227.085 360.549Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M279.645 239.161L278.625 238.889L285.588 212.549H326.091V213.609H286.4L279.645 239.161Z",
+                        fill: "#51668F"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M264.834 285.093H50.9531V286.152H264.834V285.093Z",
+                        fill: "#51668F"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M252.585 324.11H62.8457V325.169H252.585V324.11Z",
+                        fill: "#51668F"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M158.582 250.145H157.527V366.109H158.582V250.145Z",
+                        fill: "#51668F"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M205.824 250.112L198.25 366.073L199.303 366.142L206.878 250.181L205.824 250.112Z",
+                        fill: "#51668F"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M110.307 250.111L109.254 250.179L116.784 366.144L117.838 366.075L110.307 250.111Z",
+                        fill: "#51668F"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M555 463.153H0V464.396H555V463.153Z",
+                        fill: "#51668F"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M368.809 38.4671C368.809 38.4671 377.864 64.333 372.291 68.3123C366.719 72.2917 391.098 104.79 391.098 104.79L420.352 96.8311L404.332 69.6388C404.332 69.6388 402.242 42.4465 402.242 38.4671C402.242 34.4877 368.809 38.4671 368.809 38.4671Z",
+                        fill: "#EFC4A5"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        opacity: "0.1",
+                        d:
+                          "M368.809 38.4671C368.809 38.4671 377.864 64.333 372.291 68.3123C366.719 72.2917 391.098 104.79 391.098 104.79L420.352 96.8311L404.332 69.6388C404.332 69.6388 402.242 42.4465 402.242 38.4671C402.242 34.4877 368.809 38.4671 368.809 38.4671Z",
+                        fill: "#0E0F11"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M353.61 222.844C353.61 222.844 350.967 256.005 353.61 273.249C356.254 290.493 360.218 338.246 360.218 338.246C360.218 338.246 360.218 428.444 374.756 429.771C389.294 431.097 399.867 432.424 401.189 427.118C402.511 421.812 394.581 419.159 398.546 416.506C402.511 413.853 403.832 404.568 398.546 393.957C393.259 383.345 398.546 275.902 398.546 275.902L423.657 343.551C423.657 343.551 426.3 399.262 428.943 407.221C431.586 415.18 426.3 429.771 435.551 431.097C444.803 432.424 455.376 424.465 460.662 421.812C465.949 419.159 452.732 419.159 455.376 417.833C458.019 416.506 465.949 412.527 463.305 411.201C460.662 409.874 458.019 346.204 458.019 346.204C458.019 346.204 450.75 210.243 441.499 204.937C432.247 199.631 426.3 208.77 426.3 208.77L353.61 222.844Z",
+                        fill: "#51668F"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M377.4 424.465V435.077C377.4 435.077 365.505 463.923 377.4 463.923C389.294 463.923 398.546 466.912 398.546 462.932V427.118L377.4 424.465Z",
+                        fill: "#51668F"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M455.377 424.447V435.058C455.377 435.058 467.271 463.904 455.377 463.904C443.482 463.904 434.23 466.893 434.23 462.914V427.099L455.377 424.447Z",
+                        fill: "#51668F"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M387.311 57.7008C400.449 57.7008 411.1 47.0111 411.1 33.8247C411.1 20.6382 400.449 9.94849 387.311 9.94849C374.172 9.94849 363.521 20.6382 363.521 33.8247C363.521 47.0111 374.172 57.7008 387.311 57.7008Z",
+                        fill: "#EFC4A5"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M380.044 78.2607C380.044 78.2607 386.652 98.1575 397.225 94.1782L407.798 90.1988L426.301 217.538C426.301 217.538 411.763 238.762 390.617 225.497C369.471 212.233 380.044 78.2607 380.044 78.2607Z",
+                        fill: "#71BF45"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M398.547 74.2812L404.494 61.6799C404.494 61.6799 439.517 78.2606 444.804 83.5664C450.09 88.8722 450.09 96.831 450.09 96.831L440.839 129.992C440.839 129.992 443.482 202.947 443.482 205.6C443.482 208.253 452.734 222.844 446.125 217.538C439.517 212.232 438.196 206.927 432.909 214.885C427.623 222.844 415.728 232.129 415.728 232.129L398.547 74.2812Z",
+                        fill: "#22262A"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M444.803 169.786L440.838 206.927C440.838 206.927 417.048 228.15 422.335 229.477C427.621 230.803 430.265 225.497 430.265 225.497C430.265 225.497 439.516 234.782 444.803 229.477C450.089 224.171 463.305 173.765 463.305 173.765L444.803 169.786Z",
+                        fill: "#EFC4A5"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M387.818 0.0807384C382.544 -0.108483 376.901 -0.202084 372.454 2.65028C370.408 4.08176 368.614 5.84476 367.144 7.86714C362.814 13.3618 359.072 20.2754 360.68 27.0929L362.549 26.3615C362.549 28.1813 362.146 29.9783 361.369 31.6226C361.632 30.8547 362.513 32.096 362.277 32.8727L360.219 39.6494C363.602 38.4046 367.811 40.925 368.326 44.5046C368.561 36.6333 369.375 27.6075 375.737 22.9985C378.945 20.6743 383.005 19.9647 386.912 19.3347C390.516 18.7534 394.294 18.1991 397.746 19.3899C401.198 20.5807 404.138 24.124 403.355 27.7024C404.947 27.1521 406.727 28.2654 407.514 29.7592C408.3 31.2531 408.341 33.0153 408.365 34.7048C410.062 35.9082 411.993 33.5185 412.684 31.5521C414.307 26.9366 415.75 22.0234 414.876 17.2081C414.001 12.3928 410.092 7.79101 405.215 7.77468C405.807 7.12212 406.123 6.26406 406.096 5.38199L402.076 5.04112C403.096 4.8961 404.035 4.39951 404.731 3.6364C403.117 5.41872 390.428 0.17437 387.818 0.0807384Z",
+                        fill: "#51668F"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M386.651 70.3021C386.651 70.3021 375.892 59.7205 372.02 60.3687C368.148 61.0169 362.861 70.3021 362.861 70.3021C362.861 70.3021 331.142 80.9137 332.464 91.5253C333.786 102.137 348.323 153.869 348.323 153.869C348.323 153.869 360.218 216.212 349.645 222.844C339.072 229.477 399.867 246.72 401.189 238.762C402.51 230.803 405.153 151.216 401.189 139.278C397.224 127.34 386.651 70.3021 386.651 70.3021Z",
+                        fill: "#22262A"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M432.908 91.5254H449.25C449.25 91.5254 460.662 141.931 461.984 147.236C463.306 152.542 465.949 177.745 464.627 177.745C463.306 177.745 436.873 172.439 436.873 176.418L432.908 91.5254Z",
+                        fill: "#22262A"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M432.355 216.345H369.793C363.688 188.158 363.178 160.925 369.793 134.905H432.355C422.259 160.457 421.628 187.504 432.355 216.345Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M344.357 181.724L362.86 189.683C362.86 189.683 398.544 194.989 398.544 180.398C398.544 165.807 362.86 173.766 362.86 173.766L350.965 169.948L344.357 181.724Z",
+                        fill: "#EFC4A5"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M348.324 83.5667L332.465 87.546L320.57 157.848C320.57 157.848 316.605 176.418 323.214 177.745C329.822 179.071 348.324 189.683 348.324 189.683C348.324 189.683 350.968 169.786 356.254 169.786L343.038 159.175L350.968 112.749L348.324 83.5667Z",
+                        fill: "#22262A"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M124.037 219.396H37.3184V220.64H124.037V219.396Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M62.0963 208.206H60.8574V219.707H62.0963V208.206Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M99.8795 208.206H98.6406V219.707H99.8795V208.206Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M154.389 35.3784H67.6699V36.6218H154.389V35.3784Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M130.85 36.311H129.611V47.8121H130.85V36.311Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M93.067 36.311H91.8281V47.8121H93.067V36.311Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M241.727 157.85H155.008V159.093H241.727V157.85Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M218.19 158.782H216.951V170.283H218.19V158.782Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M180.405 158.782H179.166V170.283H180.405V158.782Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M94.3047 157.228H7.58594V158.472H94.3047V157.228Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M70.7681 158.161H69.5293V169.662H70.7681V158.161Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M32.983 158.161H31.7441V169.662H32.983V158.161Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M198.367 95.0601H111.648V96.3034H198.367V95.0601Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M136.426 83.8696H135.188V95.3707H136.426V83.8696Z",
+                        fill: "#F2F2F2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M174.21 83.8696H172.971V95.3707H174.21V83.8696Z",
+                        fill: "#F2F2F2"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("defs", [
+                    _c("clipPath", { attrs: { id: "clip0" } }, [
+                      _c("rect", {
+                        attrs: { width: "555", height: "465", fill: "white" }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ])
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col xs-12 col-md-6" }, [
-        _c("div", { staticClass: "reg_img" }, [
-          _c(
-            "svg",
-            {
-              attrs: {
-                width: "555",
-                height: "465",
-                viewBox: "0 0 555 465",
-                fill: "none",
-                xmlns: "http://www.w3.org/2000/svg"
-              }
-            },
-            [
-              _c("g", { attrs: { "clip-path": "url(#clip0)" } }, [
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M25.788 443.096C33.4864 457.425 49.8252 463.576 49.8252 463.576C49.8252 463.576 53.6824 446.496 45.984 432.166C38.2856 417.837 21.9468 411.686 21.9468 411.686C21.9468 411.686 18.0896 428.767 25.788 443.096Z",
-                    fill: "#51668F"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M31.0803 438.382C44.9791 446.774 50.332 463.444 50.332 463.444C50.332 463.444 33.1504 466.507 19.2517 458.114C5.35287 449.722 0 433.052 0 433.052C0 433.052 17.1815 429.989 31.0803 438.382Z",
-                    fill: "#71BF45"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M342.693 22.3235H255.975V23.5668H342.693V22.3235Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M319.155 23.2556H317.916V34.7567H319.155V23.2556Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M281.37 23.2556H280.131V34.7567H281.37V23.2556Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M386.672 82.0046H299.953V83.248H386.672V82.0046Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M324.731 70.8145H323.492V82.3156H324.731V70.8145Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M362.514 70.8145H361.275V82.3156H362.514V70.8145Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M501.885 109.98H415.166V111.224H501.885V109.98Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M439.942 98.79H438.703V110.291H439.942V98.79Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M477.727 98.79H476.488V110.291H477.727V98.79Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M493.213 398.441H406.494V399.684H493.213V398.441Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M431.27 387.25H430.031V398.752H431.27V387.25Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M469.055 387.25H467.816V398.752H469.055V387.25Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M345.17 198.881H258.451V200.124H345.17V198.881Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M283.229 187.69H281.99V199.192H283.229V187.69Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M321.014 187.69H319.775V199.192H321.014V187.69Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M372.424 348.706H285.705V349.949H372.424V348.706Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M310.483 337.516H309.244V349.017H310.483V337.516Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M348.268 337.516H347.029V349.017H348.268V337.516Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M511.176 303.323H424.457V304.567H511.176V303.323Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M449.233 292.133H447.994V303.634H449.233V292.133Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M487.018 292.133H485.779V303.634H487.018V292.133Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M224.268 436.535H77.5977V435.476H223.212V384.113H89.9278L83.453 370.574L84.4045 370.116L90.5918 383.053H224.268V436.535Z",
-                    fill: "#51668F"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M97.1185 462.481C103.237 462.481 108.198 457.503 108.198 451.361C108.198 445.22 103.237 440.241 97.1185 440.241C90.9995 440.241 86.0391 445.22 86.0391 451.361C86.0391 457.503 90.9995 462.481 97.1185 462.481Z",
-                    fill: "#22262A"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M206.329 462.481C212.448 462.481 217.409 457.503 217.409 451.361C217.409 445.22 212.448 440.241 206.329 440.241C200.21 440.241 195.25 445.22 195.25 451.361C195.25 457.503 200.21 462.481 206.329 462.481Z",
-                    fill: "#22262A"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M335.062 222.081C338.85 222.081 341.92 218.999 341.92 215.197C341.92 211.395 338.85 208.313 335.062 208.313C331.274 208.313 328.203 211.395 328.203 215.197C328.203 218.999 331.274 222.081 335.062 222.081Z",
-                    fill: "#22262A"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M239.955 366.639H75.0971L39.4258 249.616H276.691L276.475 250.304L239.955 366.639ZM75.8777 365.58H239.181L275.252 250.675H40.8519L75.8777 365.58Z",
-                    fill: "#51668F"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M227.085 360.549H82.2846L50.9531 256.764H259.351L259.162 257.375L227.085 360.549Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M279.645 239.161L278.625 238.889L285.588 212.549H326.091V213.609H286.4L279.645 239.161Z",
-                    fill: "#51668F"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M264.834 285.093H50.9531V286.152H264.834V285.093Z",
-                    fill: "#51668F"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M252.585 324.11H62.8457V325.169H252.585V324.11Z",
-                    fill: "#51668F"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M158.582 250.145H157.527V366.109H158.582V250.145Z",
-                    fill: "#51668F"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M205.824 250.112L198.25 366.073L199.303 366.142L206.878 250.181L205.824 250.112Z",
-                    fill: "#51668F"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M110.307 250.111L109.254 250.179L116.784 366.144L117.838 366.075L110.307 250.111Z",
-                    fill: "#51668F"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M555 463.153H0V464.396H555V463.153Z",
-                    fill: "#51668F"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M368.809 38.4671C368.809 38.4671 377.864 64.333 372.291 68.3123C366.719 72.2917 391.098 104.79 391.098 104.79L420.352 96.8311L404.332 69.6388C404.332 69.6388 402.242 42.4465 402.242 38.4671C402.242 34.4877 368.809 38.4671 368.809 38.4671Z",
-                    fill: "#EFC4A5"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    opacity: "0.1",
-                    d:
-                      "M368.809 38.4671C368.809 38.4671 377.864 64.333 372.291 68.3123C366.719 72.2917 391.098 104.79 391.098 104.79L420.352 96.8311L404.332 69.6388C404.332 69.6388 402.242 42.4465 402.242 38.4671C402.242 34.4877 368.809 38.4671 368.809 38.4671Z",
-                    fill: "#0E0F11"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M353.61 222.844C353.61 222.844 350.967 256.005 353.61 273.249C356.254 290.493 360.218 338.246 360.218 338.246C360.218 338.246 360.218 428.444 374.756 429.771C389.294 431.097 399.867 432.424 401.189 427.118C402.511 421.812 394.581 419.159 398.546 416.506C402.511 413.853 403.832 404.568 398.546 393.957C393.259 383.345 398.546 275.902 398.546 275.902L423.657 343.551C423.657 343.551 426.3 399.262 428.943 407.221C431.586 415.18 426.3 429.771 435.551 431.097C444.803 432.424 455.376 424.465 460.662 421.812C465.949 419.159 452.732 419.159 455.376 417.833C458.019 416.506 465.949 412.527 463.305 411.201C460.662 409.874 458.019 346.204 458.019 346.204C458.019 346.204 450.75 210.243 441.499 204.937C432.247 199.631 426.3 208.77 426.3 208.77L353.61 222.844Z",
-                    fill: "#51668F"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M377.4 424.465V435.077C377.4 435.077 365.505 463.923 377.4 463.923C389.294 463.923 398.546 466.912 398.546 462.932V427.118L377.4 424.465Z",
-                    fill: "#51668F"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M455.377 424.447V435.058C455.377 435.058 467.271 463.904 455.377 463.904C443.482 463.904 434.23 466.893 434.23 462.914V427.099L455.377 424.447Z",
-                    fill: "#51668F"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M387.311 57.7008C400.449 57.7008 411.1 47.0111 411.1 33.8247C411.1 20.6382 400.449 9.94849 387.311 9.94849C374.172 9.94849 363.521 20.6382 363.521 33.8247C363.521 47.0111 374.172 57.7008 387.311 57.7008Z",
-                    fill: "#EFC4A5"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M380.044 78.2607C380.044 78.2607 386.652 98.1575 397.225 94.1782L407.798 90.1988L426.301 217.538C426.301 217.538 411.763 238.762 390.617 225.497C369.471 212.233 380.044 78.2607 380.044 78.2607Z",
-                    fill: "#71BF45"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M398.547 74.2812L404.494 61.6799C404.494 61.6799 439.517 78.2606 444.804 83.5664C450.09 88.8722 450.09 96.831 450.09 96.831L440.839 129.992C440.839 129.992 443.482 202.947 443.482 205.6C443.482 208.253 452.734 222.844 446.125 217.538C439.517 212.232 438.196 206.927 432.909 214.885C427.623 222.844 415.728 232.129 415.728 232.129L398.547 74.2812Z",
-                    fill: "#22262A"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M444.803 169.786L440.838 206.927C440.838 206.927 417.048 228.15 422.335 229.477C427.621 230.803 430.265 225.497 430.265 225.497C430.265 225.497 439.516 234.782 444.803 229.477C450.089 224.171 463.305 173.765 463.305 173.765L444.803 169.786Z",
-                    fill: "#EFC4A5"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M387.818 0.0807384C382.544 -0.108483 376.901 -0.202084 372.454 2.65028C370.408 4.08176 368.614 5.84476 367.144 7.86714C362.814 13.3618 359.072 20.2754 360.68 27.0929L362.549 26.3615C362.549 28.1813 362.146 29.9783 361.369 31.6226C361.632 30.8547 362.513 32.096 362.277 32.8727L360.219 39.6494C363.602 38.4046 367.811 40.925 368.326 44.5046C368.561 36.6333 369.375 27.6075 375.737 22.9985C378.945 20.6743 383.005 19.9647 386.912 19.3347C390.516 18.7534 394.294 18.1991 397.746 19.3899C401.198 20.5807 404.138 24.124 403.355 27.7024C404.947 27.1521 406.727 28.2654 407.514 29.7592C408.3 31.2531 408.341 33.0153 408.365 34.7048C410.062 35.9082 411.993 33.5185 412.684 31.5521C414.307 26.9366 415.75 22.0234 414.876 17.2081C414.001 12.3928 410.092 7.79101 405.215 7.77468C405.807 7.12212 406.123 6.26406 406.096 5.38199L402.076 5.04112C403.096 4.8961 404.035 4.39951 404.731 3.6364C403.117 5.41872 390.428 0.17437 387.818 0.0807384Z",
-                    fill: "#51668F"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M386.651 70.3021C386.651 70.3021 375.892 59.7205 372.02 60.3687C368.148 61.0169 362.861 70.3021 362.861 70.3021C362.861 70.3021 331.142 80.9137 332.464 91.5253C333.786 102.137 348.323 153.869 348.323 153.869C348.323 153.869 360.218 216.212 349.645 222.844C339.072 229.477 399.867 246.72 401.189 238.762C402.51 230.803 405.153 151.216 401.189 139.278C397.224 127.34 386.651 70.3021 386.651 70.3021Z",
-                    fill: "#22262A"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M432.908 91.5254H449.25C449.25 91.5254 460.662 141.931 461.984 147.236C463.306 152.542 465.949 177.745 464.627 177.745C463.306 177.745 436.873 172.439 436.873 176.418L432.908 91.5254Z",
-                    fill: "#22262A"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M432.355 216.345H369.793C363.688 188.158 363.178 160.925 369.793 134.905H432.355C422.259 160.457 421.628 187.504 432.355 216.345Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M344.357 181.724L362.86 189.683C362.86 189.683 398.544 194.989 398.544 180.398C398.544 165.807 362.86 173.766 362.86 173.766L350.965 169.948L344.357 181.724Z",
-                    fill: "#EFC4A5"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M348.324 83.5667L332.465 87.546L320.57 157.848C320.57 157.848 316.605 176.418 323.214 177.745C329.822 179.071 348.324 189.683 348.324 189.683C348.324 189.683 350.968 169.786 356.254 169.786L343.038 159.175L350.968 112.749L348.324 83.5667Z",
-                    fill: "#22262A"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M124.037 219.396H37.3184V220.64H124.037V219.396Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M62.0963 208.206H60.8574V219.707H62.0963V208.206Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M99.8795 208.206H98.6406V219.707H99.8795V208.206Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M154.389 35.3784H67.6699V36.6218H154.389V35.3784Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M130.85 36.311H129.611V47.8121H130.85V36.311Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M93.067 36.311H91.8281V47.8121H93.067V36.311Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M241.727 157.85H155.008V159.093H241.727V157.85Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M218.19 158.782H216.951V170.283H218.19V158.782Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M180.405 158.782H179.166V170.283H180.405V158.782Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M94.3047 157.228H7.58594V158.472H94.3047V157.228Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M70.7681 158.161H69.5293V169.662H70.7681V158.161Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M32.983 158.161H31.7441V169.662H32.983V158.161Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M198.367 95.0601H111.648V96.3034H198.367V95.0601Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M136.426 83.8696H135.188V95.3707H136.426V83.8696Z",
-                    fill: "#F2F2F2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M174.21 83.8696H172.971V95.3707H174.21V83.8696Z",
-                    fill: "#F2F2F2"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("defs", [
-                _c("clipPath", { attrs: { id: "clip0" } }, [
-                  _c("rect", {
-                    attrs: { width: "555", height: "465", fill: "white" }
-                  })
-                ])
-              ])
-            ]
-          )
         ])
       ])
     ])
@@ -2408,9 +2588,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "title_reg" }, [
-      _vm._v("\n                Создайте аккаунт"),
+      _vm._v("\n                        Создайте аккаунт"),
       _c("br"),
-      _vm._v("\n                в Disfood Market\n            ")
+      _vm._v("\n                        в Disfood Market\n                    ")
     ])
   },
   function() {
@@ -2422,7 +2602,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "description_provider" }, [
         _vm._v(
-          "Получите доступ к 1000 товаров и сделкам\n                                        "
+          "Получите доступ к 1000 товаров и сделкам\n                                                "
         )
       ])
     ])
@@ -2448,12 +2628,42 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "description_title_reg_block" }, [
         _vm._v(
-          "Минимум 8 символов, используйте заглавные буквы\n                                и цифры"
+          "Минимум 8 символов, используйте заглавные буквы\n                                        и цифры"
         )
       ])
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/Header.vue?vue&type=template&id=14c53af6&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/Header.vue?vue&type=template&id=14c53af6& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "header",
+    { staticClass: "header_registration" },
+    [_c("navbar"), _vm._v(" "), _c("navbar-catalog")],
+    1
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

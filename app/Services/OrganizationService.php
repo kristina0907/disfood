@@ -28,11 +28,25 @@ class OrganizationService
         $this->organizationRepository = $organizationRepository;
     }
 
+    /**
+     * @param $req
+     * @return mixed
+     */
+
     public function findByText($req)
     {
         return $this->organizationRepository->findByText($req);
     }
 
+    /**
+     * @param $inn
+     * @return mixed
+     */
+
+    public function findByInn($inn)
+    {
+        return $this->organizationRepository->findByInn($inn);
+    }
 
     /**
      * @return mixed
@@ -50,6 +64,7 @@ class OrganizationService
 
     public function saveOrganizationData($data)
     {
+
         $validated = $data->validate([
             'name' => 'string|required|max:255',
             'inn' => 'required|string|unique:organizations',
@@ -69,6 +84,17 @@ class OrganizationService
 
         return $result;
 
+    }
+
+    /**
+     * @param $data
+     * @return mixed
+     */
+
+    public function saveOrganizationFromApi($data,$user)
+    {
+        $result = $this->organizationRepository->saveFromApi($data[0],$user);
+        return $result;
     }
 
     /**

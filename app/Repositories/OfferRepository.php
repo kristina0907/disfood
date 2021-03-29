@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Contracts\OfferContract;
 use App\Models\Offer;
+use App\Models\User;
 
 
 class OfferRepository implements OfferContract
@@ -18,13 +19,20 @@ class OfferRepository implements OfferContract
     protected $offer;
 
     /**
+     * @var User
+     */
+
+    protected $user;
+
+    /**
      * OfferRepository constructor.
      * @param Offer $offer
      */
 
-    public function __construct(Offer $offer)
+    public function __construct(Offer $offer,User $user)
     {
         $this->offer = $offer;
+        $this->user = $user;
     }
 
     /**
@@ -120,6 +128,33 @@ class OfferRepository implements OfferContract
         return $offer;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
 
+    public function getByUserId($id)
+    {
+        $orgs = $this->getUserOrganizationId($id);
+        return $this->offer->whereIn('organization_id',$orgs)->where('active',true)->with(['product','product.type','product.category'])->get();
+    }
 
+    /**
+     * @param $id
+     * @return array
+     */
+
+    private function getUserOrganizationId($id)
+    {
+        $user = $this->user->find($id);
+        $orgs = array();
+        if(!empty($user->organizations))
+        {
+            foreach ($user->organizations as $organization)
+            {
+                $orgs[] = $organization->id;
+            }
+        }
+        return $orgs;
+    }
 }

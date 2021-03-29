@@ -60,6 +60,14 @@ class User extends Authenticatable
         return $query->whereHas('roles',function ($q){
             $q->where('slug','client');
         });
+    }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+
+    public function organizations()
+    {
+        return $this->hasMany(Organization::class,'user_id');
     }
 }

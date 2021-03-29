@@ -9,14 +9,26 @@ use App\Models\Organization;
 class OrganizationRepository implements OrganizationContract
 {
 
+    /**
+     * @var Organization
+     */
 
     protected $organization;
 
+    /**
+     * OrganizationRepository constructor.
+     * @param Organization $organization
+     */
 
     public function __construct(Organization $organization)
     {
         $this->organization = $organization;
     }
+
+    /**
+     * @param $req
+     * @return mixed
+     */
 
     public function findByText($req)
     {
@@ -24,6 +36,16 @@ class OrganizationRepository implements OrganizationContract
         return $searched;
     }
 
+    /**
+     * @param $inn
+     * @return mixed
+     */
+
+    public function findByInn($inn)
+    {
+        $searched = $this->organization->where('inn',$inn)->first();
+        return $searched;
+    }
 
     /**
      * @return mixed
@@ -90,6 +112,45 @@ class OrganizationRepository implements OrganizationContract
 
         return $organization->fresh();
     }
+
+    /**
+     * @param $data
+     * @param $user
+     * @return mixed
+     */
+
+    public function saveFromApi($data,$user)
+    {
+        $organization = new $this->organization;
+        //dd($data['data']);
+        $organization->name = $data['data']['name']['full_with_opf'];
+        $organization->inn = $data['data']['inn'];
+
+        if(!empty($data['data']['kpp']))
+        {
+            $organization->kpp = $data['data']['kpp'];
+        }
+        if(!empty($data['data']['ogrn']))
+        {
+            $organization->ogrn = $data['data']['ogrn'];
+        }
+        $organization->adress = $data['data']['address']['unrestricted_value'];
+        if(!empty($data['data']['phones']))
+        {
+            $organization->phone = $data['data']['phones'];
+        }
+        if(!empty($data['data']['management']['name']))
+        {
+            $organization->fio_ceo  = $data['data']['management']['name'];
+        }
+
+
+        $organization->user_id = $user->id;
+        $organization->save();
+
+        return $organization->fresh();
+    }
+
 
     /**
      * @param $data

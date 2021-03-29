@@ -2,7 +2,7 @@
 
 const routes = [
     {
-        path:'',
+        path:'/',
         component: ()=>import('../Pages/Frontpage'),
         name: 'frontpage'
     },
@@ -35,6 +35,36 @@ const routes = [
         path: '/authorization',
         component:()=>import('../Pages/Authorization'),
         name:'authorization'
+    },
+    {
+        path:'/successauth',
+        component:()=>import('../Pages/AuthorizationSuccess'),
+        name:'authorization-success'
+    },
+    {
+        path:'/user-cabinet',
+        component:()=> import('../Pages/LK/Pages/UserCabinet'),
+        name:'cabinet',
+    },
+    {
+        path: '/my-products',
+        component: () => import('../Pages/LK/Pages/MyProducts'),
+        name: 'my-roducts',
+    },
+    {
+        path:'/my-offers',
+        component:()=> import('../Pages/LK/Pages/MyOffers'),
+        name:'my-offers',
+    },
+    {
+        path:'/my-messages',
+        component:()=> import('../Pages/LK/Pages/MyMessages'),
+        name:'my-messages',
+    },
+    {
+        path:'/dashboard',
+        component:()=> import('../Pages/LK/Pages/Dashboard'),
+        name:'dashboard',
     }
 ]
 

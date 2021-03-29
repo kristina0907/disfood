@@ -27,7 +27,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Head: function Head() {
+      return __webpack_require__.e(/*! import() */ "resources_js_omponents_Header_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../Сomponents/Header */ "./resources/js/Сomponents/Header.vue"));
+    }
+  },
   mounted: function mounted() {
     console.log('Component mounted.');
   }
@@ -123,14 +134,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container-fluid" }, [
+    _c("div", { staticClass: "row" }, [_c("Head")], 1),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
+    return _c("div", { staticClass: "container content" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-md-8" }, [
           _c("div", { staticClass: "card" }, [
@@ -138,7 +153,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _vm._v(
-                "\n                    I'm an Frontpage component.\n                "
+                "\n                       I'm an Frontpage component.\n                   "
               )
             ])
           ])

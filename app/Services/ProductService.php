@@ -105,6 +105,11 @@ class ProductService
         return $product;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
+
     public function deleteProductFromId($id)
     {
         if(!empty($id))
@@ -126,5 +131,7 @@ class ProductService
             return $product;
         }
     }
+
+
 
 }

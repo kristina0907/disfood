@@ -26,13 +26,21 @@ window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import router from "./Router/index"
-import store from "./Store/index";
+import router from "./Router";
+import store from "./Store";
 import App from './App';
+import { BootstrapVue, IconsPlugin , DropdownPlugin, TablePlugin} from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+
 import Vuelidate from 'vuelidate';
 
 
-
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
+Vue.use(DropdownPlugin)
+Vue.use(TablePlugin)
 Vue.use(Vuelidate)
 Vue.use(VueRouter);
 
@@ -48,3 +56,4 @@ const app = new Vue({
     store,
     components:{App}
 });
+

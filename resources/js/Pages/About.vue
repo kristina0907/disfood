@@ -1,6 +1,10 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
+    <div class="container-fluid">
+        <div class="row">
+            <Head></Head>
+        </div>
+
+        <div class="container content">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">About</div>
@@ -16,6 +20,9 @@
 
 <script>
 export default {
+    components:{
+        Head: () => import('../Сomponents/Header'),
+    },
     mounted() {
         console.log('Component mounted.')
     }

@@ -10,64 +10,71 @@
                 </svg>
             </router-link>
         </div>
-        <router-link :to="{name:'catalog'}">
-            <div class="catalog">
+
+        <div class="container_catalog_search">
+            <router-link :to="{name:'catalog'}">
+                <div class="catalog">
                 <span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4 7H20" stroke="white" stroke-width="2" stroke-linecap="round" />
                         <path d="M4 17H16" stroke="white" stroke-width="2" stroke-linecap="round" />
                     </svg>
                 </span>
-                Каталог
-            </div>
-        </router-link>
-
-        <div class="header_search">
-            <input type="text" placeholder="Найти товар">
-            <div class="btn_header_search">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11 20C15.9706 20 20 15.9706 20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M22 22L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                    Каталог
+                </div>
+            </router-link>
+            <div class="header_search">
+                <input type="text" placeholder="Найти товар">
+                <div class="btn_header_search">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11 20C15.9706 20 20 15.9706 20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20Z"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M22 22L18 18" stroke="white" stroke-width="2" stroke-linecap="round"
+                              stroke-linejoin="round" />
+                    </svg>
+                </div>
             </div>
         </div>
-        <router-link :to="{name:'authorization'}">
+        <div class="container_header_btn_info">
+                <div class="header_btn_info">
+                    <router-link :to="{name:'authorization'}">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M3 21.5L3.16547 20.4362C3.37405 19.0954 4.24842 17.9469 5.54504 17.5466C7.13654 17.0553 9.49052 16.5 12 16.5C14.5095 16.5 16.8635 17.0553 18.455 17.5466C19.7516 17.9469 20.6259 19.0954 20.8345 20.4362L21 21.5"
+                            stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
+                            stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    </router-link>
+                </div>
             <div class="header_btn_info">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
-                        d="M3 21.5L3.16547 20.4362C3.37405 19.0954 4.24842 17.9469 5.54504 17.5466C7.13654 17.0553 9.49052 16.5 12 16.5C14.5095 16.5 16.8635 17.0553 18.455 17.5466C19.7516 17.9469 20.6259 19.0954 20.8345 20.4362L21 21.5"
-                        stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    <path
-                        d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                        stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        d="M13 4.5C13 5.05228 13.4477 5.5 14 5.5C14.5523 5.5 15 5.05228 15 4.5H13ZM5.42857 16C5.98086 16 6.42857 15.5523 6.42857 15C6.42857 14.4477 5.98086 14 5.42857 14V16ZM5 2H11V0H5V2ZM3 12V4H1V12H3ZM13 4V4.5H15V4H13ZM5.42857 14H5V16H5.42857V14ZM1 12C1 14.2091 2.79086 16 5 16V14C3.89543 14 3 13.1046 3 12H1ZM11 2C12.1046 2 13 2.89543 13 4H15C15 1.79086 13.2091 0 11 0V2ZM5 0C2.79086 0 1 1.79086 1 4H3C3 2.89543 3.89543 2 5 2V0Z"
+                        fill="#71BF45" />
+                    <rect x="10" y="9" width="12" height="14" rx="3" stroke="#71BF45" stroke-width="2" />
                 </svg>
             </div>
-        </router-link>
-        <div class="header_btn_info">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M13 4.5C13 5.05228 13.4477 5.5 14 5.5C14.5523 5.5 15 5.05228 15 4.5H13ZM5.42857 16C5.98086 16 6.42857 15.5523 6.42857 15C6.42857 14.4477 5.98086 14 5.42857 14V16ZM5 2H11V0H5V2ZM3 12V4H1V12H3ZM13 4V4.5H15V4H13ZM5.42857 14H5V16H5.42857V14ZM1 12C1 14.2091 2.79086 16 5 16V14C3.89543 14 3 13.1046 3 12H1ZM11 2C12.1046 2 13 2.89543 13 4H15C15 1.79086 13.2091 0 11 0V2ZM5 0C2.79086 0 1 1.79086 1 4H3C3 2.89543 3.89543 2 5 2V0Z"
-                    fill="#71BF45" />
-                <rect x="10" y="9" width="12" height="14" rx="3" stroke="#71BF45" stroke-width="2" />
-            </svg>
-        </div>
-        <div class="header_btn_info">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M1 2H3.39566C4.33305 2 5.14468 2.65106 5.34803 3.56614L6 6.5M6 6.5L7.10424 12.5733C7.62296 15.4263 10.1077 17.5 13.0075 17.5H15.7106C18.512 17.5 20.9406 15.5615 21.5614 12.8297L22.5835 8.33243C22.7969 7.39379 22.0834 6.5 21.1208 6.5H6Z"
-                    stroke="#71BF45" stroke-width="2" stroke-linecap="round" />
-                <circle cx="8.5" cy="21" r="1" stroke="#71BF45" stroke-width="2" />
-                <circle cx="20.5" cy="21" r="1" stroke="#71BF45" stroke-width="2" />
-            </svg>
+            <div class="header_btn_info">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M1 2H3.39566C4.33305 2 5.14468 2.65106 5.34803 3.56614L6 6.5M6 6.5L7.10424 12.5733C7.62296 15.4263 10.1077 17.5 13.0075 17.5H15.7106C18.512 17.5 20.9406 15.5615 21.5614 12.8297L22.5835 8.33243C22.7969 7.39379 22.0834 6.5 21.1208 6.5H6Z"
+                        stroke="#71BF45" stroke-width="2" stroke-linecap="round" />
+                    <circle cx="8.5" cy="21" r="1" stroke="#71BF45" stroke-width="2" />
+                    <circle cx="20.5" cy="21" r="1" stroke="#71BF45" stroke-width="2" />
+                </svg>
 
-        </div>
-        <div class="header_btn_info">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="11" stroke="#71BF45" stroke-width="2" />
-                <path d="M12 7V13L14.5 15.5" stroke="#71BF45" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-            </svg>
+            </div>
+            <div class="header_btn_info">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="11" stroke="#71BF45" stroke-width="2" />
+                    <path d="M12 7V13L14.5 15.5" stroke="#71BF45" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                </svg>
 
+            </div>
         </div>
     </div>
 </template>

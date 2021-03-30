@@ -49,7 +49,7 @@ const routes = [
     {
         path: '/my-products',
         component: () => import('../Pages/LK/Pages/MyProducts'),
-        name: 'my-roducts',
+        name: 'my-products',
     },
     {
         path:'/my-offers',
@@ -65,6 +65,11 @@ const routes = [
         path:'/dashboard',
         component:()=> import('../Pages/LK/Pages/Dashboard'),
         name:'dashboard',
+    },
+    {
+        path:'/product-add',
+        component:()=> import('../Pages/LK/Pages/AddProduct'),
+        name:'productadd',
     }
 ]
 

@@ -136,7 +136,7 @@ class OfferRepository implements OfferContract
     public function getByUserId($id)
     {
         $orgs = $this->getUserOrganizationId($id);
-        return $this->offer->whereIn('organization_id',$orgs)->where('active',true)->with(['product','product.type','product.category'])->get();
+        return $this->offer->whereIn('organization_id',$orgs)->with(['product','product.type','product.category'])->get();
     }
 
     /**

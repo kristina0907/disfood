@@ -209,6 +209,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -216,7 +219,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      products: []
+      products: [],
+      productsFilter: [],
+      activeflag: false,
+      noactiveFlag: false,
+      allFlag: true
     };
   },
   methods: {
@@ -227,7 +234,49 @@ __webpack_require__.r(__webpack_exports__);
         if (response.data !== 'undefined' && response.data !== null) {
           _this.products = response.data;
         }
+
+        _this.allFilter();
       });
+    },
+    calcNds: function calcNds(price) {
+      var nds = price * 10 / 100;
+      return price + nds;
+    },
+    allFilter: function allFilter() {
+      this.productsFilter = this.products;
+      this.activeflag = false;
+      this.allFlag = true;
+      this.noactiveFlag = false;
+    },
+    activeFilter: function activeFilter() {
+      var positiveArr = this.products.filter(function (product) {
+        return product.active == true;
+      });
+      this.productsFilter = positiveArr;
+      this.activeflag = true;
+      this.allFlag = false;
+      this.noactiveFlag = false;
+    },
+    noactiveFilter: function noactiveFilter() {
+      var positiveArr = this.products.filter(function (product) {
+        return product.active == false;
+      });
+      this.productsFilter = positiveArr;
+      this.activeflag = false;
+      this.allFlag = false;
+      this.noactiveFlag = true;
+    },
+    countActive: function countActive() {
+      var positiveArr = this.products.filter(function (product) {
+        return product.active == true;
+      });
+      return positiveArr.length;
+    },
+    countNoActive: function countNoActive() {
+      var positiveArr = this.products.filter(function (product) {
+        return product.active == false;
+      });
+      return positiveArr.length;
     }
   },
   mounted: function mounted() {
@@ -572,7 +621,51 @@ var render = function() {
         _c("div", { staticClass: "title_page" }, [_vm._v("Мои товары")]),
         _vm._v(" "),
         _c("div", { staticClass: "table_container table-responsive" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "sort_taable" }, [
+            _c(
+              "div",
+              {
+                staticClass: "item_sort",
+                class: { active: _vm.allFlag },
+                on: { click: _vm.allFilter }
+              },
+              [
+                _vm._v("Все "),
+                _c("span", [_vm._v("·")]),
+                _vm._v(
+                  "\n                        " + _vm._s(_vm.products.length)
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "item_sort",
+                class: { active: _vm.activeflag },
+                on: { click: _vm.activeFilter }
+              },
+              [
+                _vm._v("Активные "),
+                _c("span", [_vm._v("·")]),
+                _vm._v(" " + _vm._s(_vm.countActive()))
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "item_sort",
+                class: { active: _vm.noactiveFlag },
+                on: { click: _vm.noactiveFilter }
+              },
+              [
+                _vm._v("Неактивные "),
+                _c("span", [_vm._v("·")]),
+                _vm._v(" " + _vm._s(_vm.countNoActive()))
+              ]
+            )
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "search_table_btn" }, [
             _c("div", { staticClass: "container_search_table" }, [
@@ -621,56 +714,71 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "container_btn_table" }, [
-              _c("button", [
-                _c("span", [
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d: "M12 3V21",
-                          stroke: "#71BF45",
-                          "stroke-width": "2",
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d: "M3 12L21 12",
-                          stroke: "#71BF45",
-                          "stroke-width": "2",
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round"
-                        }
-                      })
-                    ]
-                  )
-                ]),
-                _vm._v(" Добавить товар")
-              ]),
-              _vm._v(" "),
-              _c("button", [_vm._v("Утвердить цену")]),
-              _vm._v(" "),
-              _c("button", [_vm._v("Утвердить все")])
-            ])
+            _c(
+              "div",
+              { staticClass: "container_btn_table" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn-table",
+                    attrs: {
+                      to: { name: "productadd" },
+                      "active-class": "active"
+                    }
+                  },
+                  [
+                    _c("span", [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d: "M12 3V21",
+                              stroke: "#71BF45",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: {
+                              d: "M3 12L21 12",
+                              stroke: "#71BF45",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" Добавить товар\n                        ")
+                  ]
+                ),
+                _vm._v(" "),
+                _c("button", [_vm._v("Утвердить цену")]),
+                _vm._v(" "),
+                _c("button", [_vm._v("Утвердить все")])
+              ],
+              1
+            )
           ]),
           _vm._v(" "),
           _c("table", { staticClass: "table default_table table_product" }, [
             _c("thead", [
               _c("tr", [
-                _vm._m(1),
+                _vm._m(0),
                 _vm._v(" "),
                 _c("th", { attrs: { scope: "col" } }, [_vm._v("Фото")]),
                 _vm._v(" "),
@@ -792,17 +900,25 @@ var render = function() {
             _vm._v(" "),
             _c(
               "tbody",
-              _vm._l(_vm.products, function(product) {
+              _vm._l(_vm.productsFilter, function(product) {
                 return _c("tr", [
-                  _vm._m(2, true),
+                  _vm._m(1, true),
                   _vm._v(" "),
-                  _vm._m(3, true),
+                  _c("td", [
+                    _c("div", {
+                      staticClass: "image_product_table",
+                      style:
+                        "background-image: url(" + product.product.image + ");"
+                    })
+                  ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "bold" }, [
                     _vm._v(_vm._s(product.product.name))
                   ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(product.active))]),
+                  product.active
+                    ? _c("td", [_vm._v("Активно")])
+                    : _c("td", [_vm._v("Не активно")]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(product.product.category.name))]),
                   _vm._v(" "),
@@ -825,28 +941,28 @@ var render = function() {
                     },
                     [
                       _c("span", { staticClass: "price" }, [
-                        _vm._v(_vm._s(product.price) + "₽")
+                        _vm._v(_vm._s(product.price) + " ₽")
                       ]),
                       _c("span", { staticClass: "price_nds" }, [
                         _vm._v(
-                          _vm._s(product.price + " +10%") +
-                            "₽ НДС\n                        "
+                          _vm._s(_vm.calcNds(product.price)) +
+                            " ₽ НДС\n                        "
                         )
                       ])
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(4, true)
+                  _vm._m(2, true)
                 ])
               }),
               0
             )
           ]),
           _vm._v(" "),
-          _vm._m(5),
+          _vm._m(3),
           _vm._v(" "),
           _c("div", { staticClass: "navigation_table" }, [
-            _vm._m(6),
+            _vm._m(4),
             _vm._v(" "),
             _c("div", [
               _c(
@@ -895,11 +1011,11 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _vm._m(6),
+                    _vm._v(" "),
                     _vm._m(7),
-                    _vm._v(" "),
-                    _vm._m(8),
-                    _vm._v(" "),
-                    _vm._m(9),
                     _vm._v(" "),
                     _c("li", { staticClass: "page-item" }, [
                       _c(
@@ -962,30 +1078,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sort_taable" }, [
-      _c("div", { staticClass: "item_sort active" }, [
-        _vm._v("Все "),
-        _c("span", [_vm._v("·")]),
-        _vm._v(" 100")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "item_sort" }, [
-        _vm._v("Активные "),
-        _c("span", [_vm._v("·")]),
-        _vm._v(" 10")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "item_sort" }, [
-        _vm._v("Неактивные "),
-        _c("span", [_vm._v("·")]),
-        _vm._v(" 10")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("th", { attrs: { scope: "col" } }, [
       _c("div", { staticClass: "checkbox" }, [
         _c("input", {
@@ -1020,17 +1112,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("label", { attrs: { for: "color-2" } })
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("div", {
-        staticClass: "image_product_table",
-        staticStyle: { "background-image": "url(/public/images/product.png)" }
-      })
     ])
   },
   function() {
@@ -1173,7 +1254,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("header", { staticClass: "lk-header" }, [
-    _c("nav", { staticClass: "navbar navbar-expand-lg" }, [
+    _c("nav", { staticClass: "navbar navbar-expand-lg pad-bot-0" }, [
       _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
         _c(
           "svg",
@@ -1266,7 +1347,7 @@ var render = function() {
                   {
                     staticClass: "nav-link",
                     attrs: {
-                      to: { name: "my-roducts" },
+                      to: { name: "my-products" },
                       "active-class": "active"
                     }
                   },

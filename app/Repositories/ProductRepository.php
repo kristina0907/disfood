@@ -68,9 +68,10 @@ class ProductRepository implements ProductContract
 
         if($data->hasFile('image'))
         {
+            $name = rand(0,10000).time();
             $extension = $data->image->extension();
-            $data->image->storeAs('/public/images/products', $data['name'].".".$extension);
-            $product->image = '/public/images/products'. $data['name'].".".$extension;
+            $data->image->storeAs('/public/images/products/', $name.".".$extension);
+            $product->image = '/storage/images/products/'. $name.".".$extension;
         }
 
         $product->save();
@@ -102,12 +103,13 @@ class ProductRepository implements ProductContract
             $product->type_id = $data['type_id'];
         }
 
-
+        //TODO вынести в отдельный класс или трейт логику работы с изображениями
         if($data->hasFile('image'))
         {
+            $name = rand(0,10000).time();
             $extension = $data->image->extension();
-            $data->image->storeAs('/public/images/products', $data['name'].".".$extension);
-            $product->image = '/public/images/products'. $data['name'].".".$extension;
+            $data->image->storeAs('/public/images/products/', $name.".".$extension);
+            $product->image = '/storage/images/products/'. $name.".".$extension;
         }
 
         $product->update();

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\CategoryService;
 use App\Services\DadataService;
 use App\Services\OfferService;
 use App\Services\OrganizationService;
+use App\Services\PackingService;
 use App\Services\ProductService;
+use App\Services\TypeProductService;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 
@@ -37,8 +40,31 @@ class ApiController extends Controller
 
     protected $productService;
 
+    /**
+     * @var OfferService
+     */
+
+    protected $categoryService;
+
+    /**
+     * @var OfferService
+     */
 
     protected $offerService;
+
+    /**
+     * @var TypeProductService
+     */
+
+    protected $typeService;
+
+    /**
+     * @var PackingService
+     */
+
+    protected $packingService;
+
+
     /**
      * ApiController constructor.
      * @param DadataService $daDataService
@@ -48,13 +74,20 @@ class ApiController extends Controller
                                 OrganizationService $organizationService,
                                 UserService $userService,
                                 ProductService $productService,
-                                OfferService $offerService)
+                                OfferService $offerService,
+                                CategoryService $categoryService,
+                                TypeProductService $typeService,
+                                PackingService $packingService
+    )
     {
         $this->daDataService = $daDataService;
         $this->organizationService = $organizationService;
         $this->userService = $userService;
         $this->productService = $productService;
         $this->offerService = $offerService;
+        $this->categoryService = $categoryService;
+        $this->typeService = $typeService;
+        $this->packingService = $packingService;
     }
 
     /**
@@ -125,6 +158,20 @@ class ApiController extends Controller
         {
             return $this->offerService->getOffersByUserId($id);
         }
+    }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+
+    public function getNewProductData()
+    {
+        $categories = $this->categoryService->getAll();
+        $types = $this->typeService->getAll();
+        $products = $this->productService->getAll();
+        $packings = $this->packingService->getAll();
+
+        return response()->json(['categories'=>$categories,'types'=>$types,'products'=>$products,'packings'=>$packings],200);
     }
 
 }

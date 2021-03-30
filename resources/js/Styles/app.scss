@@ -253,7 +253,7 @@ body{
 }
 .container_select_rows:after {
     content: "";
-    background-image: url(/public/images/select_arrow.svg);
+    background-image: url('/images/select_arrow.svg');
     position: absolute;
     background-repeat: no-repeat;
     background-position: center;
@@ -635,7 +635,8 @@ tbody.collapse.in {
     border: 0;
     outline: none;
 }
-.container_btn_table button{
+.container_btn_table button,
+a.btn-table{
     color: #71BF45;
     border-radius: 10px;
     border: 1px solid #71BF45;
@@ -643,6 +644,15 @@ tbody.collapse.in {
     padding: 7px 30px;
     margin-right: 10px;
     font-weight: 600;
+    display: block;
+    position: relative;
+    float: left;
+}
+a.btn-table:hover
+{
+    color:#71BF45;
+    background:#f0f2f4 ;
+    text-decoration: none;
 }
 .container_btn_table span{
     margin-right: 10px;
@@ -1136,7 +1146,7 @@ footer{
 }
 .select_container:after {
     content: "";
-    background-image: url(/public/images/select_arrow.svg);
+    background-image: url('/images/select_arrow.svg');
     position: absolute;
     background-repeat: no-repeat;
     background-position: center;
@@ -1636,4 +1646,8 @@ MY SCRIPT
 }
 .lk-header{
     width: 100%;
+}
+
+.pad-bot-0{
+    padding-bottom: 0 !important;
 }

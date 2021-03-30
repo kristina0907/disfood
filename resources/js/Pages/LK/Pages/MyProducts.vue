@@ -8,9 +8,10 @@
                 <div class="title_page">Мои товары</div>
                 <div class="table_container table-responsive">
                     <div class="sort_taable">
-                        <div class="item_sort active">Все <span>&#183;</span> 100</div>
-                        <div class="item_sort">Активные <span>&#183;</span> 10</div>
-                        <div class="item_sort">Неактивные <span>&#183;</span> 10</div>
+                        <div class="item_sort" :class="{'active':allFlag}" @click="allFilter">Все <span>&#183;</span>
+                            {{ products.length }}</div>
+                        <div class="item_sort" :class="{'active':activeflag}" @click="activeFilter">Активные <span>&#183;</span> {{ countActive() }}</div>
+                        <div class="item_sort" :class="{'active':noactiveFlag}" @click="noactiveFilter">Неактивные <span>&#183;</span> {{ countNoActive() }}</div>
                     </div>
                     <div class="search_table_btn">
                         <div class="container_search_table">
@@ -26,16 +27,17 @@
                             <input type="text" placeholder="Найти товар по наименованию">
                         </div>
                         <div class="container_btn_table">
-                            <button>
-                        <span>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 3V21" stroke="#71BF45" stroke-width="2" stroke-linecap="round"
-                                      stroke-linejoin="round" />
-                                <path d="M3 12L21 12" stroke="#71BF45" stroke-width="2" stroke-linecap="round"
-                                      stroke-linejoin="round" />
-                            </svg>
-                        </span> Добавить товар</button>
+                            <router-link :to="{name:'productadd'}" class="btn-table" active-class="active">
+                                <span>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 3V21" stroke="#71BF45" stroke-width="2" stroke-linecap="round"
+                                              stroke-linejoin="round" />
+                                        <path d="M3 12L21 12" stroke="#71BF45" stroke-width="2" stroke-linecap="round"
+                                              stroke-linejoin="round" />
+                                    </svg>
+                                </span> Добавить товар
+                            </router-link>
                             <button>Утвердить цену</button>
                             <button>Утвердить все</button>
                         </div>
@@ -88,7 +90,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="product in products">
+                        <tr v-for="product in productsFilter">
                             <td>
                                 <div class="checkbox">
                                     <input class="custom-checkbox" type="checkbox" id="color-2" name="color-2"
@@ -98,17 +100,18 @@
                             </td>
                             <td>
                                 <div class="image_product_table"
-                                     style="background-image: url(/public/images/product.png);"></div>
+                                     :style="'background-image: url('+product.product.image+');'"></div>
                             </td>
                             <td class="bold">{{ product.product.name }}</td>
-                            <td>{{ product.active }}</td>
+                            <td v-if="product.active">Активно</td>
+                            <td v-else>Не активно</td>
                             <td>{{ product.product.category.name }}</td>
                             <td>{{ product.product.type.name }}</td>
                             <td>{{product.adress}}</td>
                             <td>50 кг</td>
                             <td>{{product.capacity}}</td>
                             <td class="nowrap modal_price" data-bs-toggle="modal" data-bs-target="#changePrice"><span
-                                class="price">{{ product.price }}₽</span><span class="price_nds">{{ product.price + ' +10%'}}₽ НДС
+                                class="price">{{ product.price }} ₽</span><span class="price_nds">{{calcNds(product.price)}} ₽ НДС
                             </span></td>
                             <td class="nowrap price-term">до 13:00 МСК<span class="status_time_good">8ч</span></td>
                         </tr>
@@ -204,6 +207,10 @@ export default {
     data(){
         return {
             products:[],
+            productsFilter:[],
+            activeflag:false,
+            noactiveFlag:false,
+            allFlag:true,
         }
     },
     methods:{
@@ -216,8 +223,55 @@ export default {
                     {
                         this.products = response.data;
                     }
-
+                    this.allFilter();
                 })
+        },
+        calcNds(price)
+        {
+            var nds = price * 10 / 100;
+            return price + nds
+        },
+        allFilter()
+        {
+            this.productsFilter = this.products;
+            this.activeflag =false;
+            this.allFlag = true;
+            this.noactiveFlag =false;
+        },
+
+        activeFilter()
+        {
+            var positiveArr = this.products.filter(function(product) {
+                return product.active == true;
+            });
+           this.productsFilter = positiveArr;
+           this.activeflag =true;
+           this.allFlag = false;
+           this.noactiveFlag =false;
+        },
+        noactiveFilter()
+        {
+            var positiveArr = this.products.filter(function(product) {
+                return product.active == false;
+            });
+            this.productsFilter = positiveArr;
+            this.activeflag =false;
+            this.allFlag = false;
+            this.noactiveFlag =true;
+        },
+        countActive()
+        {
+            var positiveArr = this.products.filter(function(product) {
+                return product.active == true;
+            });
+            return positiveArr.length
+        },
+        countNoActive()
+        {
+            var positiveArr = this.products.filter(function(product) {
+                return product.active == false;
+            });
+            return positiveArr.length
         }
     },
     mounted() {

@@ -394,7 +394,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("header", { staticClass: "lk-header" }, [
-    _c("nav", { staticClass: "navbar navbar-expand-lg" }, [
+    _c("nav", { staticClass: "navbar navbar-expand-lg pad-bot-0" }, [
       _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
         _c(
           "svg",
@@ -487,7 +487,7 @@ var render = function() {
                   {
                     staticClass: "nav-link",
                     attrs: {
-                      to: { name: "my-roducts" },
+                      to: { name: "my-products" },
                       "active-class": "active"
                     }
                   },

@@ -1,6 +1,6 @@
 <template>
     <header class="lk-header">
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg pad-bot-0">
             <a class="navbar-brand" href="#">
                 <svg width="135" height="34" viewBox="0 0 135 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -30,7 +30,7 @@
                         </router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link :to="{name:'my-roducts'}" class="nav-link" active-class="active">
+                        <router-link :to="{name:'my-products'}" class="nav-link" active-class="active">
                             Мои товары
                         </router-link>
 

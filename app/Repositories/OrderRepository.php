@@ -50,6 +50,18 @@ class OrderRepository implements OrderContract
     }
 
     /**
+     * @param $id
+     * @return mixed
+     */
+
+    public function getByUserId($id)
+    {
+        return $this->order
+            ->where('user_id', $id)->with(['offer','offer.product','organization','delivery','status'])
+            ->get();
+    }
+
+    /**
      * @param $data
      * @return mixed
      */

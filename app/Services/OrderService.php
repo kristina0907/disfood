@@ -133,6 +133,15 @@ class OrderService
 
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
 
+    public function getOrdersByUserId($id)
+    {
+        $cat = $this->orderRepository->getByUserId($id);
+        return $cat;
+    }
 
 }

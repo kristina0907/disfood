@@ -23,13 +23,197 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     UserLKHeader: _omponents_LK_UserLKHeader__WEBPACK_IMPORTED_MODULE_0__.default
   },
   data: function data() {
-    return {};
+    return {
+      allFlag: true,
+      newFlag: false,
+      payngFlag: false,
+      acceptedFlag: false,
+      pogruzkaFlag: false,
+      deliveryFlag: false,
+      completeFlag: false,
+      cancelledFlag: false,
+      orders: [],
+      ordersFilter: []
+    };
+  },
+  methods: {
+    getOffers: function getOffers() {
+      var _this = this;
+
+      axios.get('/get/my-offers/1').then(function (response) {
+        if (response.data !== 'undefined' && response.data !== null) {
+          _this.orders = response.data;
+        }
+
+        _this.allFilter();
+      });
+    },
+    allFilter: function allFilter() {
+      this.ordersFilter = this.orders;
+      this.allFlag = true;
+      this.newFlag = false;
+      this.payngFlag = false;
+      this.acceptedFlag = false;
+      this.pogruzkaFlag = false;
+      this.deliveryFlag = false;
+      this.completeFlag = false;
+      this.cancelledFlag = false;
+    },
+    newFilter: function newFilter() {},
+    payngFilter: function payngFilter() {},
+    acceptedFilter: function acceptedFilter() {},
+    pogruzkaFilter: function pogruzkaFilter() {},
+    deliveryFilter: function deliveryFilter() {},
+    completeFilter: function completeFilter() {},
+    cancelledFilter: function cancelledFilter() {},
+    countOffers: function countOffers() {}
+  },
+  mounted: function mounted() {
+    this.getOffers();
   }
 });
 
@@ -365,12 +549,529 @@ var render = function() {
   return _c("div", { staticClass: "container-fluid" }, [
     _c("div", { staticClass: "row" }, [_c("UserLKHeader")], 1),
     _vm._v(" "),
-    _c("div", { staticClass: "content container" }, [
-      _vm._v("\n        Мои сделки\n    ")
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "main_container" }, [
+        _c("div", { staticClass: "title_page" }, [_vm._v("Мои сделки")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "table_container table-responsive" }, [
+          _c("div", { staticClass: "sort_taable" }, [
+            _c(
+              "div",
+              {
+                staticClass: "item_sort",
+                class: { active: _vm.allFlag },
+                on: { click: _vm.allFilter }
+              },
+              [
+                _vm._v("Все "),
+                _c("span", [_vm._v("·")]),
+                _vm._v("  " + _vm._s(_vm.orders.length))
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "item_sort",
+                class: { active: _vm.newFlag },
+                on: { click: _vm.newFilter }
+              },
+              [
+                _vm._v("Новые "),
+                _c("span", [_vm._v("·")]),
+                _vm._v(" " + _vm._s(_vm.countOffers("new")))
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "item_sort",
+                class: { active: _vm.payngFlag },
+                on: { click: _vm.payngFilter }
+              },
+              [
+                _vm._v("Оплата "),
+                _c("span", [_vm._v("·")]),
+                _vm._v(" " + _vm._s(_vm.countOffers("paying")))
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "item_sort",
+                class: { active: _vm.acceptedFlag },
+                on: { click: _vm.acceptedFilter }
+              },
+              [
+                _vm._v("Подтвержден "),
+                _c("span", [_vm._v("·")]),
+                _vm._v(_vm._s(_vm.countOffers("accepted")))
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "item_sort",
+                class: { active: _vm.pogruzkaFlag },
+                on: { click: _vm.pogruzkaFilter }
+              },
+              [
+                _vm._v("Погрузка "),
+                _c("span", [_vm._v("·")]),
+                _vm._v(_vm._s(_vm.countOffers("pogruzka")))
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "item_sort",
+                class: { active: _vm.deliveryFlag },
+                on: { click: _vm.deliveryFilter }
+              },
+              [
+                _vm._v("Доставляется "),
+                _c("span", [_vm._v("·")]),
+                _vm._v(_vm._s(_vm.countOffers("delivery")))
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "item_sort",
+                class: { active: _vm.completeFlag },
+                on: { click: _vm.completeFilter }
+              },
+              [
+                _vm._v("Завершена "),
+                _c("span", [_vm._v("·")]),
+                _vm._v(_vm._s(_vm.countOffers("complete")))
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "item_sort",
+                class: { active: _vm.cancelledFlag },
+                on: { click: _vm.cancelledFilter }
+              },
+              [
+                _vm._v("Не состоялась "),
+                _c("span", [_vm._v("·")]),
+                _vm._v(" " + _vm._s(_vm.countOffers("cancelled")))
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "search_table" }, [
+            _c("div", { staticClass: "icon_search" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "24",
+                    height: "25",
+                    viewBox: "0 0 24 25",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M11 20.5C15.9706 20.5 20 16.4706 20 11.5C20 6.52944 15.9706 2.5 11 2.5C6.02944 2.5 2 6.52944 2 11.5C2 16.4706 6.02944 20.5 11 20.5Z",
+                      stroke: "#71BF45",
+                      "stroke-width": "2",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d: "M22 22.5L18 18.5",
+                      stroke: "#71BF45",
+                      "stroke-width": "2",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round"
+                    }
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              attrs: {
+                type: "text",
+                placeholder: "Найти сделку по дате или номеру договора"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("table", { staticClass: "table default_table" }, [
+            _c("thead", [
+              _c("tr", [
+                _c("th", { attrs: { scope: "col" } }, [
+                  _vm._v("№\n                            "),
+                  _c("span", { staticClass: "sort_col" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "15",
+                          height: "9",
+                          viewBox: "0 0 15 9",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751",
+                            stroke: "#22262A",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [
+                  _vm._v("Создана\n                            "),
+                  _c("span", { staticClass: "sort_col" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "15",
+                          height: "9",
+                          viewBox: "0 0 15 9",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751",
+                            stroke: "#22262A",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Товар")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [
+                  _vm._v("Объём\n                            "),
+                  _c("span", { staticClass: "sort_col" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "15",
+                          height: "9",
+                          viewBox: "0 0 15 9",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751",
+                            stroke: "#22262A",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Фасовка")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [
+                  _vm._v("Сумма\n                            "),
+                  _c("span", { staticClass: "sort_col" }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "15",
+                          height: "9",
+                          viewBox: "0 0 15 9",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751",
+                            stroke: "#22262A",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Тип доставки")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Контрагент")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Доставка")]),
+                _vm._v(" "),
+                _c(
+                  "th",
+                  { staticClass: "status_table", attrs: { scope: "col" } },
+                  [
+                    _vm._v("Статус\n                            "),
+                    _c("span", { staticClass: "sort_col" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "15",
+                            height: "9",
+                            viewBox: "0 0 15 9",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751",
+                              stroke: "#22262A",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          })
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.orders, function(order) {
+                return _c("tr", [
+                  _c("td", [_vm._v(_vm._s(order.id))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(order.created_at))]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "bold" }, [
+                    _vm._v(_vm._s(order.offer.product.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v("10000 кг")]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v("50кг")]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v("20 734 349 р")]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v("Самовывоз")]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(order.organization.name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(order.delivery.region_be))]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "status_table" }, [
+                    _c("span", { staticClass: "status_completed" }, [
+                      _vm._v(_vm._s(order.status.name))
+                    ])
+                  ])
+                ])
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "navigation_table" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "nav",
+                { attrs: { "aria-label": "Page navigation example" } },
+                [
+                  _c("ul", { staticClass: "pagination" }, [
+                    _c("li", { staticClass: "page-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: { href: "#", "aria-label": "Previous" }
+                        },
+                        [
+                          _c("span", { attrs: { "aria-hidden": "true" } }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "9",
+                                  height: "16",
+                                  viewBox: "0 0 9 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d: "M8 1L1.03683 7.96317L8 14.9263",
+                                    stroke: "#22262A",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "sr-only" }, [
+                            _vm._v("Previous")
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "page-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: { href: "#", "aria-label": "Next" }
+                        },
+                        [
+                          _c("span", { attrs: { "aria-hidden": "true" } }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "9",
+                                  height: "16",
+                                  viewBox: "0 0 9 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d: "M1 1L7.96317 7.96317L1 14.9263",
+                                    stroke: "#22262A",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "sr-only" }, [
+                            _vm._v("Next")
+                          ])
+                        ]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "page_count" }, [
+              _vm._v(
+                "\n                        1-5 из 100\n                    "
+              )
+            ])
+          ])
+        ])
+      ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "num_rows" }, [
+      _c("span", [_vm._v("\n          Количество сторок\n      ")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container_select_rows" }, [
+        _c("select", { attrs: { name: "", id: "" } }, [
+          _c("option", { attrs: { value: "" } }, [_vm._v("5")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "" } }, [_vm._v("10")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "page-item active" }, [
+      _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [_vm._v("1")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "page-item" }, [
+      _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [_vm._v("2")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "page-item" }, [
+      _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [_vm._v("3")])
+    ])
+  }
+]
 render._withStripped = true
 
 

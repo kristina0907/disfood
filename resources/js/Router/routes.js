@@ -71,6 +71,7 @@ const routes = [
         component:()=> import('../Pages/LK/Pages/AddProduct'),
         name:'productadd',
     }
+
 ]
 
 export default routes;

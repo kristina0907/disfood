@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\CategoryService;
 use App\Services\DadataService;
 use App\Services\OfferService;
+use App\Services\OrderService;
 use App\Services\OrganizationService;
 use App\Services\PackingService;
 use App\Services\ProductService;
@@ -65,6 +66,8 @@ class ApiController extends Controller
     protected $packingService;
 
 
+    protected $orderService;
+
     /**
      * ApiController constructor.
      * @param DadataService $daDataService
@@ -77,7 +80,8 @@ class ApiController extends Controller
                                 OfferService $offerService,
                                 CategoryService $categoryService,
                                 TypeProductService $typeService,
-                                PackingService $packingService
+                                PackingService $packingService,
+                                OrderService $orderService,
     )
     {
         $this->daDataService = $daDataService;
@@ -88,6 +92,7 @@ class ApiController extends Controller
         $this->categoryService = $categoryService;
         $this->typeService = $typeService;
         $this->packingService = $packingService;
+        $this->orderService = $orderService;
     }
 
     /**
@@ -174,4 +179,12 @@ class ApiController extends Controller
         return response()->json(['categories'=>$categories,'types'=>$types,'products'=>$products,'packings'=>$packings],200);
     }
 
+
+    public function getMyOffers($id)
+    {
+        if(!empty($id))
+        {
+            return $this->orderService->getOrdersByUserId($id);
+        }
+    }
 }

@@ -111,9 +111,9 @@
                                 <div class="item_container_product_block">
                                     <div class="title_container_product_block">Вариант доставки</div>
                                     <div class="item_product_input row">
-                                        <div class="container_input_price col-md-12" v-for="adr in adress">
+                                        <div class="container_input_price col-md-12 m-b-30" v-for="(adr, index) in adress" :key="index">
                                             <div class="text_input">Адрес</div>
-                                            <input type="text" value="" v-model="adress">
+                                            <input type="text" value="" v-model="adr.adress">
                                             <div class="icon_price_input">
                                                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -121,8 +121,11 @@
                                                           stroke-linecap="round" />
                                                 </svg>
                                             </div>
+                                        </div>
+                                        <div class="col-md-12">
                                             <div class="new_adress" @click="addAdress">Добавить адрес</div>
                                         </div>
+
                                     </div>
                                 </div>
                                 <div class="item_container_product_block">
@@ -130,13 +133,15 @@
                                         <div>Документы</div>
                                         <div class="help_text">Документы в форма PDF, DOC</div>
                                     </div>
+
                                     <div class="item_product_document row">
                                         <div class="col">
                                             <div class="container_new_document uploaded">
                                                 <div class="form-group">
-                                                    <input type="file" name="file" id="file" class="input-file">
-                                                    <label for="file" class="btn btn-tertiary js-labelFile">
-                                                        <span>Сертификат.PDF</span>
+                                                    <label for="file" class="btn btn-tertiary js-labelFile" >
+                                                    <input type="file" name="file" id="file1" class="input-file"  @change="handleFileChange"/>
+
+                                                        <span>Добавить</span>
                                                         <svg width="16" height="12" viewBox="0 0 16 12" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M14.4001 1.70001L5.6001 10.5L1.6001 6.50001"
@@ -148,78 +153,9 @@
                                             </div>
                                         </div>
                                         <div class="col">
-                                            <div class="container_new_document uploaded">
-                                                <div class="form-group">
-                                                    <input type="file" name="file" id="file" class="input-file">
-                                                    <label for="file" class="btn btn-tertiary js-labelFile">
-                                                        <span>Сертификат.PDF</span>
-                                                        <svg width="16" height="12" viewBox="0 0 16 12" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M14.4001 1.70001L5.6001 10.5L1.6001 6.50001"
-                                                                  stroke="#71BF45" stroke-width="2" stroke-linecap="round" />
-                                                        </svg>
 
-                                                    </label>
-                                                </div>
-                                            </div>
                                         </div>
-                                        <div class="col">
-                                            <div class="container_new_document uploaded">
-                                                <div class="form-group">
-                                                    <input type="file" name="file" id="file" class="input-file">
-                                                    <label for="file" class="btn btn-tertiary js-labelFile">
-                                                        <span>Добавить</span>
-                                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.42105 2.5C11.0779 2.5 12.4211 3.84315 12.4211 5.5L12.4211 8C12.4211 9.38071 13.5403 10.5 14.9211 10.5H17C18.6569 10.5 20 11.8431 20 13.5V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                                stroke="#22262A" stroke-width="2" />
-                                                            <path
-                                                                d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.23393 2.5C11.5937 2.5 13.8332 3.54186 15.3532 5.34691L18.1193 8.63163C19.3339 10.074 20 11.899 20 13.7847V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                                stroke="#22262A" stroke-width="2" />
-                                                        </svg>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="container_new_document uploaded">
-                                                <div class="form-group">
-                                                    <input type="file" name="file" id="file" class="input-file">
-                                                    <label for="file" class="btn btn-tertiary js-labelFile">
-                                                        <span>Добавить</span>
-                                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.42105 2.5C11.0779 2.5 12.4211 3.84315 12.4211 5.5L12.4211 8C12.4211 9.38071 13.5403 10.5 14.9211 10.5H17C18.6569 10.5 20 11.8431 20 13.5V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                                stroke="#22262A" stroke-width="2" />
-                                                            <path
-                                                                d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.23393 2.5C11.5937 2.5 13.8332 3.54186 15.3532 5.34691L18.1193 8.63163C19.3339 10.074 20 11.899 20 13.7847V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                                stroke="#22262A" stroke-width="2" />
-                                                        </svg>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="container_new_document uploaded">
-                                                <div class="form-group">
-                                                    <input type="file" name="file" id="file" class="input-file">
-                                                    <label for="file" class="btn btn-tertiary js-labelFile">
-                                                        <span>Добавить</span>
-                                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.42105 2.5C11.0779 2.5 12.4211 3.84315 12.4211 5.5L12.4211 8C12.4211 9.38071 13.5403 10.5 14.9211 10.5H17C18.6569 10.5 20 11.8431 20 13.5V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                                stroke="#22262A" stroke-width="2" />
-                                                            <path
-                                                                d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.23393 2.5C11.5937 2.5 13.8332 3.54186 15.3532 5.34691L18.1193 8.63163C19.3339 10.074 20 11.899 20 13.7847V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                                stroke="#22262A" stroke-width="2" />
-                                                        </svg>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="item_container_product_block">
@@ -340,11 +276,12 @@
 </template>
 
 <script>
-
+//TODO Добить файл селект и написать отправку на бэк данных
 import Multiselect from 'vue-multiselect';
 import UserLKHeader from "../../../Сomponents/LK/UserLKHeader";
+import FileSelect from "../../../Сomponents/FileSelect";
 export default {
-    components: {UserLKHeader,Multiselect},
+    components: {UserLKHeader,Multiselect,FileSelect},
     data(){
         return {
             categories:[],
@@ -352,7 +289,9 @@ export default {
             products:[],
             packings:[],
             capacity:0,
-            adress:[],
+            adress:[
+                {adress:''}
+            ],
             documents:[],
             photos:[],
             price:0,
@@ -383,7 +322,14 @@ export default {
         },
         addAdress()
         {
-            this.adress.push()
+            this.adress.push({
+                adress: '',
+            })
+        },
+        handleFileChange(event)
+        {
+            console.log(event.target.files);
+            this.documents.push({file:event.target.files[0]});
         }
     },
     mounted() {

@@ -29,8 +29,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/get/inn/from/api',[ApiController::class,'getInnFromApi']);
 Route::post('/get/companyname/from/api',[ApiController::class,'getNameFromApi']);
 Route::post('/set/company/and/register',[ApiController::class,'setCompanyAndRegister']);
+
 Route::get('/get/my-products/{id}',[ApiController::class,'getMyProducts']);
 Route::get('/get/newproduct/data',[ApiController::class,'getNewProductData']);
+
+Route::get('/get/my-offers/{id}',[ApiController::class,'getMyOffers']);
 
 
 

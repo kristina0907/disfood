@@ -32,6 +32,12 @@ const routes = [
         name: 'catalog'
     },
     {
+        path:'/catalog-page/:id',
+        component: ()=>import('../Pages/CatalogPage'),
+        name: 'catalog-page',
+        props:true,
+    },
+    {
         path: '/authorization',
         component:()=>import('../Pages/Authorization'),
         name:'authorization'
@@ -52,9 +58,16 @@ const routes = [
         name: 'my-products',
     },
     {
-        path:'/my-offers',
-        component:()=> import('../Pages/LK/Pages/MyOffers'),
-        name:'my-offers',
+        path:'/my-orders',
+        component:()=> import('../Pages/LK/Pages/MyOrders'),
+        name:'my-orders',
+    },
+    {
+        path:'/order-page/:id',
+        component:()=> import('../Pages/LK/Pages/OrderPage'),
+        name:'order-page',
+        props:true,
+
     },
     {
         path:'/my-messages',
@@ -70,7 +83,12 @@ const routes = [
         path:'/product-add',
         component:()=> import('../Pages/LK/Pages/AddProduct'),
         name:'productadd',
-    }
+    },
+    {
+        path:'/offers',
+        component:()=> import('../Pages/Offers'),
+        name:'offers',
+    },
 
 ]
 

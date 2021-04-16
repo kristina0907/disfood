@@ -6,16 +6,18 @@
         <div class="row">
             <div class="main_container">
                 <div class="title_page">Мои сделки</div>
+
                 <div class="table_container table-responsive">
                     <div class="sort_taable">
-                        <div class="item_sort" :class="{'active':allFlag}" @click="allFilter">Все <span>&#183;</span>  {{ orders.length }}</div>
-                        <div class="item_sort" :class="{'active':newFlag}" @click="newFilter">Новые <span>&#183;</span> {{ countOffers('new') }}</div>
-                        <div class="item_sort" :class="{'active':payngFlag}" @click="payngFilter">Оплата <span>&#183;</span> {{ countOffers('paying') }}</div>
-                        <div class="item_sort" :class="{'active':acceptedFlag}" @click="acceptedFilter">Подтвержден <span>&#183;</span>{{ countOffers('accepted') }}</div>
-                        <div class="item_sort" :class="{'active':pogruzkaFlag}" @click="pogruzkaFilter">Погрузка <span>&#183;</span>{{countOffers('pogruzka')}}</div>
-                        <div class="item_sort" :class="{'active':deliveryFlag}" @click="deliveryFilter">Доставляется <span>&#183;</span>{{countOffers('delivery')}}</div>
-                        <div class="item_sort" :class="{'active':completeFlag}" @click="completeFilter">Завершена <span>&#183;</span>{{countOffers('complete')}}</div>
-                        <div class="item_sort" :class="{'active':cancelledFlag}" @click="cancelledFilter">Не состоялась <span>&#183;</span> {{countOffers('cancelled')}}</div>
+
+                        <div class="item_sort" :class="{'active':flags[0]['allFlag']}" @click="allFilter('all')">Все <span>&#183;</span>  {{ orders.length }}</div>
+                        <div class="item_sort" :class="{'active':flags[1]['newFlag']}" @click="valFilter('new')">Новые <span>&#183;</span> {{ countOffers('new') }}</div>
+                        <div class="item_sort" :class="{'active':flags[2]['payingFlag']}" @click="valFilter('paying')">Оплата <span>&#183;</span> {{ countOffers('paying') }}</div>
+                        <div class="item_sort" :class="{'active':flags[3]['acceptedFlag']}" @click="valFilter('accepted')">Подтвержден <span>&#183;</span>{{ countOffers('accepted') }}</div>
+                        <div class="item_sort" :class="{'active':flags[4]['pogruzkaFlag']}" @click="valFilter('pogruzka')">Погрузка <span>&#183;</span>{{countOffers('pogruzka')}}</div>
+                        <div class="item_sort" :class="{'active':flags[5]['deliveryFlag']}" @click="valFilter('delivery')">Доставляется <span>&#183;</span>{{countOffers('delivery')}}</div>
+                        <div class="item_sort" :class="{'active':flags[6]['completeFlag']}" @click="valFilter('complete')">Завершена <span>&#183;</span>{{countOffers('complete')}}</div>
+                        <div class="item_sort" :class="{'active':flags[7]['cancelledFlag']}" @click="valFilter('cancelled')">Не состоялась <span>&#183;</span> {{countOffers('cancelled')}}</div>
                     </div>
                     <div class="search_table">
                         <div class="icon_search">
@@ -80,19 +82,21 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="order in orders">
-                            <td>{{order.id}}</td>
-                            <td>{{order.created_at}}</td>
-                            <td class="bold">{{order.offer.product.name}}</td>
-                            <td>10000 кг</td>
-                            <td>50кг</td>
-                            <td>20 734 349 р</td>
-                            <td>Самовывоз</td>
-                            <td>{{order.organization.name}}</td>
-                            <td>{{ order.delivery.region_be }}</td>
-                            <td class="status_table">
-                                <span class="status_completed">{{ order.status.name }}</span>
-                            </td>
+                        <tr v-for="order in ordersFilter" @click="goToOrder(order.id)">
+                                <td>
+                                    {{order.id}}
+                                </td>
+                                <td>{{order.created_at}}</td>
+                                <td class="bold">{{order.offer.product.name}}</td>
+                                <td>10000 кг</td>
+                                <td>50кг</td>
+                                <td>20 734 349 р</td>
+                                <td>Самовывоз</td>
+                                <td>{{order.organization.name}}</td>
+                                <td>{{ order.delivery.region_be }}</td>
+                                <td class="status_table">
+                                    <span class="status_completed">{{ order.status.name }}</span>
+                                </td>
                         </tr>
                         </tbody>
                     </table>
@@ -155,74 +159,68 @@ export default {
     components: {UserLKHeader},
     data(){
         return {
-            allFlag:true,
-            newFlag:false,
-            payngFlag:false,
-            acceptedFlag:false,
-            pogruzkaFlag:false,
-            deliveryFlag:false,
-            completeFlag:false,
-            cancelledFlag:false,
+            flags:[
+                {allFlag:true},
+                {newFlag:false},
+                {payingFlag:false},
+                {acceptedFlag:false},
+                {pogruzkaFlag:false},
+                {deliveryFlag:false},
+                {completeFlag:false},
+                {cancelledFlag:false},
+            ],
             orders:[],
             ordersFilter:[],
         }
     },
-    methods:{
-        getOffers()
-        {
+    methods: {
+        getOffers() {
             axios.get('/get/my-offers/1')
-                .then((response)=>{
+                .then((response) => {
 
-                    if(response.data !== 'undefined' && response.data !== null)
-                    {
+                    if (response.data !== 'undefined' && response.data !== null) {
                         this.orders = response.data;
                     }
-                    this.allFilter();
+                    this.allFilter('all');
                 })
         },
-        allFilter()
-        {
+        allFilter(type) {
             this.ordersFilter = this.orders;
-            this.allFlag = true;
-            this.newFlag =false;
-            this.payngFlag = false;
-            this.acceptedFlag =false;
-            this.pogruzkaFlag =false;
-            this.deliveryFlag = false;
-            this.completeFlag =false;
-            this.cancelledFlag =false;
-        },
-        newFilter()
-        {
+            this.changeFlags(type);
 
         },
-        payngFilter()
-        {
+        valFilter(type) {
+            var positiveArr = this.orders.filter(function (order) {
+                return order.status.slug == type;
+            });
+            this.ordersFilter = positiveArr;
+            this.changeFlags(type);
 
         },
-        acceptedFilter()
-        {
-
+        goToOrder(id){
+            var path = '/order-page/'+id;
+            this.$router.push({ path: path,params:{id:id} });
         },
-        pogruzkaFilter()
+        changeFlags(type)
         {
-
+            var str = type + 'Flag';
+            this.flags.map(function (flag){
+                if(str == Object.keys(flag).[0])
+                {
+                    flag[str] = true;
+                }
+                else
+                {
+                    flag[Object.keys(flag).[0]] = false;
+                }
+            })
         },
-        deliveryFilter()
+        countOffers(type)
         {
-
-        },
-        completeFilter()
-        {
-
-        },
-        cancelledFilter()
-        {
-
-        },
-        countOffers()
-        {
-
+            var positiveArr = this.orders.filter(function(order) {
+                return order.status.slug == type;
+            });
+            return positiveArr.length
         },
 
 

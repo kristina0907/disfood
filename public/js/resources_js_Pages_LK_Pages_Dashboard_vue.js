@@ -513,7 +513,7 @@ var render = function() {
                   {
                     staticClass: "nav-link",
                     attrs: {
-                      to: { name: "my-offers" },
+                      to: { name: "my-orders" },
                       "active-class": "active"
                     }
                   },

@@ -86,4 +86,22 @@ class Offer extends Model
     {
         return $this->belongsTo(City::class,'city_id','city_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class,'category_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+
+    public function type()
+    {
+        return $this->belongsTo(TypeProduct::class,'type_id');
+    }
 }

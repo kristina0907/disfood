@@ -25,6 +25,28 @@
                             </div>
                         </div>
                         <div class="col-md-12">
+                            <div class="col-md-6">
+                                <?php if(!empty($categories)): ?>
+                                    <label for="product_id">Категория</label>
+                                    <select class="form-control" name="category_id">
+                                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->name); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
+                                <?php endif; ?>
+                            </div>
+                            <div class="col-md-6">
+                                <?php if(!empty($types)): ?>
+                                    <label for="product_id">Тип</label>
+                                    <select class="form-control" name="type_id">
+                                        <?php $__currentLoopData = $types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $type): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($type->id); ?>"><?php echo e($type->name); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-6">
                                     <?php if(!empty($products)): ?>

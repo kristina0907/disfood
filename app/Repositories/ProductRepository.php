@@ -131,6 +131,18 @@ class ProductRepository implements ProductContract
         return $product;
     }
 
+    /**
+     * @param $cat
+     * @param $type
+     * @return mixed
+     */
+
+    public function getProductsCatType($cat,$type=null)
+    {
+        return $this->product->where('category_id',$cat)->when((integer) $type,function ($query) use ($type){
+            $query->where('type_id',$type);
+        })->get();
+    }
 
 
 }

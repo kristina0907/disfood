@@ -79,6 +79,9 @@
                         <li>
                             <a href="/superadmin/packing">Фасовка</a>
                         </li>
+                        <li>
+                            <a href="/superadmin/typedelivery">Типы доставки</a>
+                        </li>
                     </ul>
                 </li>
 

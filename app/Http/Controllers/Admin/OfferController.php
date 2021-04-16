@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\CategoryService;
 use App\Services\CityService;
 use App\Services\CountryService;
 use App\Services\OfferService;
 use App\Services\ProductService;
+use App\Services\TypeProductService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -21,19 +23,29 @@ class OfferController extends Controller
     protected $offerService,
               $countryService,
               $productService,
-              $cityService;
+              $cityService,
+              $categoryService,
+              $typeService;
 
     /**
      * OfferController constructor.
      * @param OfferService $offerService
      */
 
-    public function __construct(OfferService $offerService,CountryService $countryService,ProductService $productService,CityService $cityService)
+    public function __construct(OfferService $offerService,
+                                CountryService $countryService,
+                                ProductService $productService,
+                                CityService $cityService,
+                                CategoryService $categoryService,
+                                TypeProductService $typeService
+    )
     {
         $this->offerService = $offerService;
         $this->countryService = $countryService;
         $this->productService = $productService;
         $this->cityService = $cityService;
+        $this->typeService = $typeService;
+        $this->categoryService = $categoryService;
     }
 
 
@@ -58,10 +70,14 @@ class OfferController extends Controller
     public function create()
     {
         $products = $this->productService->getAll();
+        $cats = $this->categoryService->getAll();
+        $types = $this->typeService->getAll();
         if(Gate::allows('create',Auth::user()))
         {
             return view('Admin.pages.offers.create',[
                 'products'=>$products,
+                'categories'=>$cats,
+                'types'=>$types
             ]);
         }
         abort(403,'Access Denied');
@@ -96,7 +112,14 @@ class OfferController extends Controller
         {
             $products = $this->productService->getAll();
             $offer = $this->offerService->getOfferById($id);
-            return view('Admin.pages.offers.edit',['offer'=>$offer,'products'=>$products]);
+            $cats = $this->categoryService->getAll();
+            $types = $this->typeService->getAll();
+            return view('Admin.pages.offers.edit',[
+                'offer'=>$offer,
+                'products'=>$products,
+                'categories'=>$cats,
+                'types'=>$types
+            ]);
         }
     }
 

@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
         <div class="row">
-            <Header></Header>
+            <HeaderCatalog></HeaderCatalog>
         </div>
         <div class="row">
             <div class="container container_register">
@@ -328,7 +328,7 @@
 <script>
 import { required, minLength, between,requiredIf,maxLength,sameAs} from 'vuelidate/lib/validators';
 import MaskedInput from 'vue-masked-input';
-import Header from "../Сomponents/Header";
+import HeaderCatalog from "../Сomponents/HeaderCatalog";
 
 
 export default {
@@ -350,7 +350,7 @@ export default {
        }
     },
     components:{
-        Header,
+        HeaderCatalog,
                 MaskedInput,
     },
     validations: {

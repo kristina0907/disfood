@@ -21,6 +21,7 @@ use MoveMoveIo\DaData\Facades\DaDataPhone;
 
 
 
+
 class DadataService implements DadataContract
 {
 
@@ -43,8 +44,9 @@ class DadataService implements DadataContract
 
     public function getCompanyByInn($data,$count)
     {
-
-       return DaDataCompany::id($data,$count);
+        $dadata = DaDataCompany::prompt('сбербанк', 10, [CompanyStatus::ACTIVE], CompanyType::LEGAL);
+        return $dadata;
+       //return DaDataCompany::id($data,$count);
     }
 
     /**

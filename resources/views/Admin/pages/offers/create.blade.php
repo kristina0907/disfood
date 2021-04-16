@@ -27,6 +27,28 @@
                             </div>
                         </div>
                         <div class="col-md-12">
+                            <div class="col-md-6">
+                                @if(!empty($categories))
+                                    <label for="product_id">Категория</label>
+                                    <select class="form-control" name="category_id">
+                                        @foreach($categories as $cat)
+                                            <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                        @endforeach
+                                    </select>
+                                @endif
+                            </div>
+                            <div class="col-md-6">
+                                @if(!empty($types))
+                                    <label for="product_id">Тип</label>
+                                    <select class="form-control" name="type_id">
+                                        @foreach($types as $type)
+                                            <option value="{{$type->id}}">{{$type->name}}</option>
+                                        @endforeach
+                                    </select>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-6">
                                     @if(!empty($products))

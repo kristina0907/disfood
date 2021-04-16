@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
         <div class="row">
-            <Head></Head>
+            <HeaderCatalog></HeaderCatalog>
         </div>
        <div class="container content">
            <div class="row justify-content-center">
@@ -21,9 +21,12 @@
 </template>
 
 <script>
+import NavbarCatalog from "../Сomponents/NavbarCatalog";
+import HeaderCatalog from "../Сomponents/HeaderCatalog";
 export default {
     components:{
-        Head: () => import('../Сomponents/Header'),
+        NavbarCatalog,
+        HeaderCatalog
     },
     mounted() {
         console.log('Component mounted.')

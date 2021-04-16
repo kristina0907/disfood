@@ -36,7 +36,7 @@
 
                     </li>
                     <li class="nav-item">
-                        <router-link :to="{name:'my-offers'}" class="nav-link" active-class="active">
+                        <router-link :to="{name:'my-orders'}" class="nav-link" active-class="active">
                             Мои сделки
                         </router-link>
                     </li>

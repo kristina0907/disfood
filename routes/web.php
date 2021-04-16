@@ -34,11 +34,21 @@ Route::get('/get/my-products/{id}',[ApiController::class,'getMyProducts']);
 Route::get('/get/newproduct/data',[ApiController::class,'getNewProductData']);
 
 Route::get('/get/my-offers/{id}',[ApiController::class,'getMyOffers']);
+Route::get('/get/order/{id}',[ApiController::class,'getMyOrder']);
 
+Route::get('/get/categories',[ApiController::class,'getCategories']);
+Route::get('/get/types',[ApiController::class,'getTypes']);
+Route::get('/get/packages',[ApiController::class,'getPackages']);
 
+Route::get('/get/catalog',[ApiController::class,'getFilterCatalogData']);
+Route::get('/get/catalog/page/{id}',[ApiController::class,'getCatalogPageData']);
+Route::get('/get/offer',[ApiController::class,'getFilterOfferData']);
+Route::get('/get/messages/{id}',[ApiController::class,'getOfferMessages']);
+Route::get('/get/last/message/{id}',[ApiController::class,'getLastMessageFromChat']);
+Route::post('/send/messages',[ApiController::class,'setOfferMessages']);
 
 Route::get('/{any?}',function (){
    return view('welcome');
-});
+})->where('any', '.*');
 
 

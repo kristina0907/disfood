@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
         <div class="row">
-            <Head></Head>
+            <HeaderCatalog></HeaderCatalog>
         </div>
         <div class="content container">
             <div class="col-md-8">
@@ -18,9 +18,10 @@
 </template>
 
 <script>
+import HeaderCatalog from "../Сomponents/HeaderCatalog";
 export default {
     components:{
-        Head: () => import('../Сomponents/Header'),
+        HeaderCatalog
     },
     mounted() {
         console.log('Component mounted.')

@@ -45,7 +45,9 @@ class OrderRepository implements OrderContract
     public function getById($id)
     {
         return $this->order
-            ->where('id', $id)
+            ->where('id', $id)->with([
+                'offer.product','status','organization','from','delivery','packages.package','typeDelivery','history.status',
+            ])
             ->first();
     }
 

@@ -20,6 +20,8 @@
                                 <th>ID</th>
                                 <th>Название предложения</th>
                                 <th>Описание</th>
+                                <th>Категория</th>
+                                <th>Тип</th>
                                 <th>Товар</th>
                                 <th>Организация</th>
                                 <th>Страна</th>
@@ -35,6 +37,8 @@
                                 <th>ID</th>
                                 <th>Название предложения</th>
                                 <th>Описание</th>
+                                <th>Категория</th>
+                                <th>Тип</th>
                                 <th>Товар</th>
                                 <th>Организация</th>
                                 <th>Страна</th>
@@ -60,6 +64,18 @@
                                         <td>
                                             <?php echo e($offer->description); ?>
 
+                                        </td>
+                                        <td>
+                                            <?php if(!empty($offer->category)): ?>
+                                                <?php echo e($offer->category->name); ?>
+
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <?php if(!empty($offer->type)): ?>
+                                                <?php echo e($offer->type->name); ?>
+
+                                            <?php endif; ?>
                                         </td>
                                         <td>
                                             <?php if(!empty($offer->product)): ?>

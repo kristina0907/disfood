@@ -94,4 +94,26 @@ class Order extends Model
     {
         return $this->belongsTo(OrderStatus::class,'status_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+
+    public function packages()
+    {
+        return $this->hasMany(TypePackageOrder::class,'order_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function typeDelivery()
+    {
+        return $this->belongsToMany(TypeDelivery::class,'type_delivery_orders','order_id','type_delivery_id');
+    }
+
+    public function history()
+    {
+        return $this->hasMany(OrderHistory::class,'order_id','id');
+    }
 }

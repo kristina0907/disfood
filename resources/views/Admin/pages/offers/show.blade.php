@@ -22,6 +22,8 @@
                                 <th>ID</th>
                                 <th>Название предложения</th>
                                 <th>Описание</th>
+                                <th>Категория</th>
+                                <th>Тип</th>
                                 <th>Товар</th>
                                 <th>Организация</th>
                                 <th>Страна</th>
@@ -37,6 +39,8 @@
                                 <th>ID</th>
                                 <th>Название предложения</th>
                                 <th>Описание</th>
+                                <th>Категория</th>
+                                <th>Тип</th>
                                 <th>Товар</th>
                                 <th>Организация</th>
                                 <th>Страна</th>
@@ -59,6 +63,16 @@
                                         </td>
                                         <td>
                                             {{$offer->description}}
+                                        </td>
+                                        <td>
+                                            @if(!empty($offer->category))
+                                                {{$offer->category->name}}
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if(!empty($offer->type))
+                                                {{$offer->type->name}}
+                                            @endif
                                         </td>
                                         <td>
                                             @if(!empty($offer->product))

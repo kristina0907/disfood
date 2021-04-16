@@ -132,6 +132,11 @@ class ProductService
         }
     }
 
+    public function getProductsByCatsAndTypes($cat,$type=null)
+    {
+        return  $this->productRepository->getProductsCatType($cat, $type);
+    }
+
 
 
 }

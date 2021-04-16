@@ -74,7 +74,8 @@ class OfferRepository implements OfferContract
         $offer->price = $data['price'];
         $offer->capacity = $data['capacity'];
         $offer->product_id = $data['product_id'];
-
+        $offer->category_id = $data['category_id'];
+        $offer->type_id = $data['type_id'];
         if (!empty($data['organization_id']))
         {
             $offer->organization_id = $data['organization_id'];
@@ -104,7 +105,8 @@ class OfferRepository implements OfferContract
         $offer->price = $data['price'];
         $offer->capacity = $data['capacity'];
         $offer->product_id = $data['product_id'];
-
+        $offer->category_id = $data['category_id'];
+        $offer->type_id = $data['type_id'];
         if (!empty($data['organization_id']))
         {
             $offer->organization_id = $data['organization_id'];
@@ -156,5 +158,15 @@ class OfferRepository implements OfferContract
             }
         }
         return $orgs;
+    }
+
+    public function getOffersByCategory($category,$type = null,$product = null)
+    {
+        return $this->offer->where('category_id',$category)->when((integer) $type,function ($query) use ($type,$product){
+            $query->where('type_id',$type);
+            $query->when((integer) $product,function ($q) use ($product){
+                $q->where('product_id',$product);
+            });
+        })->with(['organization','product','category','type','country','city'])->get();
     }
 }

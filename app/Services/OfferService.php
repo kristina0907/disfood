@@ -50,13 +50,14 @@ class OfferService
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'product_id'    =>'required|integer',
-            'organization_inn'=>'required|integer',
-            'country_id'=>'required|integer',
-            'city_id'=>'required|integer',
+            'organization_inn'=>'required',
+            'country_id'=>'required',
+            'city_id'=>'required',
             'adress'=>'required|string',
-            'price'=>'required|integer',
-            'capacity'=>'required|integer'
-
+            'price'=>'required',
+            'capacity'=>'required',
+            'category_id'=>'required',
+            'type_id'=> 'required'
 
         ]);
 
@@ -160,6 +161,14 @@ class OfferService
     public function getOffersByUserId($id)
     {
         return $this->offerRepository->getByUserId($id);
+    }
+
+    public function getOffersByCategory($data)
+    {
+        if(!empty($data))
+        {
+            return $this->offerRepository->getOffersByCategory($data->category,$data->type);
+        }
     }
 
 }

@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\BikController;
 use App\Http\Controllers\Admin\DadataController;
 use App\Http\Controllers\Admin\SettingsConroller;
 use App\Http\Controllers\AltaSoftController;
+use App\Http\Controllers\Admin\TypeDeliveryController;
 
 /**
  *  Admin routes
@@ -218,5 +219,17 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/settings/edit/{id}',[SettingsConroller::class,'edit'])->name('settings.edit');
     Route::get('/settings/delete/{id}',[SettingsConroller::class,'delete'])->name('settings.delete');
     Route::post('/settings/update',[SettingsConroller::class,'update'])->name('settings.update');
+
+
+    /**
+     * Type Delivery routes
+     */
+
+    Route::get('/typedelivery', [TypeDeliveryController::class,'show'] )->name('typedelivery.show');
+    Route::get('/typedelivery/create',[TypeDeliveryController::class,'create'])->name('typedelivery.create');
+    Route::post('/typedelivery/create',[TypeDeliveryController::class,'store'])->name('typedelivery.store');
+    Route::get('/typedelivery/edit/{id}',[TypeDeliveryController::class,'edit'])->name('typedelivery.edit');
+    Route::get('/typedelivery/delete/{id}',[TypeDeliveryController::class,'delete'])->name('typedelivery.delete');
+    Route::post('/typedelivery/update',[TypeDeliveryController::class,'update'])->name('typedelivery.update');
 
 });

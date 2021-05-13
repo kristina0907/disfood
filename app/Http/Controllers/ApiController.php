@@ -318,6 +318,11 @@ class ApiController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
+
     public function getLastMessageFromChat($id)
     {
         if(!empty($id))
@@ -325,4 +330,6 @@ class ApiController extends Controller
             return $this->messageService->getLastByOfferId($id);
         }
     }
+
+
 }

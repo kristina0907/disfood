@@ -143,6 +143,17 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">description</i>
+                        <span>Страницы сайта</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="/superadmin/simplepages">Страницы сайта</a>
+                        </li>
+                    </ul>
+                </li>
 
                 <li class="header">ОПОВЕЩЕНИЯ</li>
                 <li>

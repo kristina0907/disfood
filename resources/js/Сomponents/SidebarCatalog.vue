@@ -2,38 +2,49 @@
     <div class="sidebar_catalog">
         <div class="container_filter_catalog">
             <div class="item_filter_catalog">
-                <div class="title_filter_catalog">Категория</div>
-                <input type="checkbox" class="read-more-state" id="category" />
-                <div class="read-more-wrap">
-                    <div class="radio" v-for="cat in categories.cats" v-if="cat.id !== 8">
-                        <input class="custom-radio" type="radio" :id="'cat-'+cat.id" name="color" :value="cat.id"
-                               checked v-model="catChecked" @change="sendFilter">
-                        <label :for="'cat-'+cat.id">{{cat.name}}</label>
-                    </div>
+                <div class="title_filter_catalog">Тип фасовки</div>
+                <div class="radio">
+                    <input class="custom-radio" type="radio" id="packaging-1" name="packaging" value="indigo">
+                    <label for="packaging-1">Весовой</label>
                 </div>
-                <label for="category" class="read-more-trigger"></label>
 
+                <div class="radio">
+                    <input class="custom-radio" type="radio" id="packaging-2" name="packaging" value="red">
+                    <label for="packaging-2">Фасованнный</label>
+                </div>
             </div>
             <div class="item_filter_catalog">
-                <div class="title_filter_catalog">Вид</div>
-                <input type="checkbox" class="read-more-state" id="type" />
+                <div class="title_filter_catalog">Страна производителя</div>
+                <input type="checkbox" class="read-more-state" id="countries" />
                 <div class="read-more-wrap">
-                    <div class="radio" v-for="typ in types.types" v-if="catChecked && typ.category_id == catChecked">
-                        <input class="custom-radio" type="radio"  :id="'type-'+typ.id" name="type" :value="typ.id" v-model="typeChecked" @change="sendFilter">
-                        <label :for="'type-'+typ.id">{{typ.name}}</label>
+                    <div class="checkbox filter_checkbox">
+                        <input class="custom-checkbox" type="checkbox" id="country-1" name="country"
+                               value="indigo">
+                        <label for="country-1">Россия</label>
                     </div>
-
+                    <div class="checkbox filter_checkbox">
+                        <input class="custom-checkbox" type="checkbox" id="country-2" name="country"
+                               value="indigo">
+                        <label for="country-2">Украина</label>
+                    </div>
+                    <div class="checkbox filter_checkbox">
+                        <input class="custom-checkbox" type="checkbox" id="country-3" name="country"
+                               value="indigo">
+                        <label for="country-3">Азербайджан</label>
+                    </div>
+                    <div class="checkbox filter_checkbox read-more-target">
+                        <input class="custom-checkbox" type="checkbox" id="country-5" name="country"
+                               value="indigo">
+                        <label for="country-5">Белоруссия</label>
+                    </div>
+                    <div class="checkbox filter_checkbox read-more-target">
+                        <input class="custom-checkbox" type="checkbox" id="country-6" name="country"
+                               value="indigo">
+                        <label for="country-6">Казахстан</label>
+                    </div>
                 </div>
-                <label for="type" class="read-more-trigger"></label>
+                <label for="countries" class="read-more-trigger"></label>
 
-            </div>
-
-            <div class="item_filter_catalog" v-if="catChecked > 0 ">
-                <div class="title_filter_catalog">Размер фасовки</div>
-                <div class="checkbox filter_checkbox" v-for="pack in packages.packages" v-if="pack.category_id == catChecked"  @change="sendFilter">
-                    <input class="custom-checkbox" type="checkbox" :id="'size-'+pack.id" name="size" :value="pack.id" v-model="packagesChecked">
-                    <label :for="'size-'+pack.id">{{pack.name}}</label>
-                </div>
             </div>
         </div>
     </div>

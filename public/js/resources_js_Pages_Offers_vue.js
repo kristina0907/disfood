@@ -714,6 +714,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "navbar-catalog",
   mounted: function mounted() {
@@ -734,6 +736,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3096,43 +3109,50 @@ var render = function() {
         ),
         _vm._v(" "),
         _c("div", { staticClass: "container_header_catalog_btn_info" }, [
-          _c("div", { staticClass: "catalog_header_btn_info" }, [
-            _c(
-              "svg",
-              {
-                attrs: {
-                  width: "24",
-                  height: "24",
-                  viewBox: "0 0 24 24",
-                  fill: "none",
-                  xmlns: "http://www.w3.org/2000/svg"
-                }
-              },
-              [
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M3 21.5L3.16547 20.4362C3.37405 19.0954 4.24842 17.9469 5.54504 17.5466C7.13654 17.0553 9.49052 16.5 12 16.5C14.5095 16.5 16.8635 17.0553 18.455 17.5466C19.7516 17.9469 20.6259 19.0954 20.8345 20.4362L21 21.5",
-                    stroke: "#22262A",
-                    "stroke-width": "2",
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z",
-                    stroke: "#22262A",
-                    "stroke-width": "2",
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round"
-                  }
-                })
-              ]
-            )
-          ]),
+          _c(
+            "div",
+            { staticClass: "catalog_header_btn_info" },
+            [
+              _c("router-link", { attrs: { to: { name: "authorization" } } }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      width: "24",
+                      height: "24",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      xmlns: "http://www.w3.org/2000/svg"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M3 21.5L3.16547 20.4362C3.37405 19.0954 4.24842 17.9469 5.54504 17.5466C7.13654 17.0553 9.49052 16.5 12 16.5C14.5095 16.5 16.8635 17.0553 18.455 17.5466C19.7516 17.9469 20.6259 19.0954 20.8345 20.4362L21 21.5",
+                        stroke: "#22262A",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z",
+                        stroke: "#22262A",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    })
+                  ]
+                )
+              ])
+            ],
+            1
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "catalog_header_btn_info" }, [
             _c(
@@ -3308,205 +3328,156 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "sidebar_catalog" }, [
-    _c("div", { staticClass: "container_filter_catalog" }, [
-      _c("div", { staticClass: "item_filter_catalog" }, [
-        _c("div", { staticClass: "title_filter_catalog" }, [
-          _vm._v("Категория")
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "sidebar_catalog" }, [
+      _c("div", { staticClass: "container_filter_catalog" }, [
+        _c("div", { staticClass: "item_filter_catalog" }, [
+          _c("div", { staticClass: "title_filter_catalog" }, [
+            _vm._v("Тип фасовки")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "radio" }, [
+            _c("input", {
+              staticClass: "custom-radio",
+              attrs: {
+                type: "radio",
+                id: "packaging-1",
+                name: "packaging",
+                value: "indigo"
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "packaging-1" } }, [_vm._v("Весовой")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "radio" }, [
+            _c("input", {
+              staticClass: "custom-radio",
+              attrs: {
+                type: "radio",
+                id: "packaging-2",
+                name: "packaging",
+                value: "red"
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "packaging-2" } }, [
+              _vm._v("Фасованнный")
+            ])
+          ])
         ]),
         _vm._v(" "),
-        _c("input", {
-          staticClass: "read-more-state",
-          attrs: { type: "checkbox", id: "category" }
-        }),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "read-more-wrap" },
-          _vm._l(_vm.categories.cats, function(cat) {
-            return cat.id !== 8
-              ? _c("div", { staticClass: "radio" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.catChecked,
-                        expression: "catChecked"
-                      }
-                    ],
-                    staticClass: "custom-radio",
-                    attrs: {
-                      type: "radio",
-                      id: "cat-" + cat.id,
-                      name: "color",
-                      checked: ""
-                    },
-                    domProps: {
-                      value: cat.id,
-                      checked: _vm._q(_vm.catChecked, cat.id)
-                    },
-                    on: {
-                      change: [
-                        function($event) {
-                          _vm.catChecked = cat.id
-                        },
-                        _vm.sendFilter
-                      ]
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "cat-" + cat.id } }, [
-                    _vm._v(_vm._s(cat.name))
-                  ])
-                ])
-              : _vm._e()
+        _c("div", { staticClass: "item_filter_catalog" }, [
+          _c("div", { staticClass: "title_filter_catalog" }, [
+            _vm._v("Страна производителя")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "read-more-state",
+            attrs: { type: "checkbox", id: "countries" }
           }),
-          0
-        ),
-        _vm._v(" "),
-        _c("label", {
-          staticClass: "read-more-trigger",
-          attrs: { for: "category" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "item_filter_catalog" }, [
-        _c("div", { staticClass: "title_filter_catalog" }, [_vm._v("Вид")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "read-more-state",
-          attrs: { type: "checkbox", id: "type" }
-        }),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "read-more-wrap" },
-          _vm._l(_vm.types.types, function(typ) {
-            return _vm.catChecked && typ.category_id == _vm.catChecked
-              ? _c("div", { staticClass: "radio" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.typeChecked,
-                        expression: "typeChecked"
-                      }
-                    ],
-                    staticClass: "custom-radio",
-                    attrs: {
-                      type: "radio",
-                      id: "type-" + typ.id,
-                      name: "type"
-                    },
-                    domProps: {
-                      value: typ.id,
-                      checked: _vm._q(_vm.typeChecked, typ.id)
-                    },
-                    on: {
-                      change: [
-                        function($event) {
-                          _vm.typeChecked = typ.id
-                        },
-                        _vm.sendFilter
-                      ]
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "type-" + typ.id } }, [
-                    _vm._v(_vm._s(typ.name))
-                  ])
-                ])
-              : _vm._e()
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c("label", {
-          staticClass: "read-more-trigger",
-          attrs: { for: "type" }
-        })
-      ]),
-      _vm._v(" "),
-      _vm.catChecked > 0
-        ? _c(
-            "div",
-            { staticClass: "item_filter_catalog" },
-            [
-              _c("div", { staticClass: "title_filter_catalog" }, [
-                _vm._v("Размер фасовки")
-              ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "read-more-wrap" }, [
+            _c("div", { staticClass: "checkbox filter_checkbox" }, [
+              _c("input", {
+                staticClass: "custom-checkbox",
+                attrs: {
+                  type: "checkbox",
+                  id: "country-1",
+                  name: "country",
+                  value: "indigo"
+                }
+              }),
               _vm._v(" "),
-              _vm._l(_vm.packages.packages, function(pack) {
-                return pack.category_id == _vm.catChecked
-                  ? _c(
-                      "div",
-                      {
-                        staticClass: "checkbox filter_checkbox",
-                        on: { change: _vm.sendFilter }
-                      },
-                      [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.packagesChecked,
-                              expression: "packagesChecked"
-                            }
-                          ],
-                          staticClass: "custom-checkbox",
-                          attrs: {
-                            type: "checkbox",
-                            id: "size-" + pack.id,
-                            name: "size"
-                          },
-                          domProps: {
-                            value: pack.id,
-                            checked: Array.isArray(_vm.packagesChecked)
-                              ? _vm._i(_vm.packagesChecked, pack.id) > -1
-                              : _vm.packagesChecked
-                          },
-                          on: {
-                            change: function($event) {
-                              var $$a = _vm.packagesChecked,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? true : false
-                              if (Array.isArray($$a)) {
-                                var $$v = pack.id,
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.packagesChecked = $$a.concat([$$v]))
-                                } else {
-                                  $$i > -1 &&
-                                    (_vm.packagesChecked = $$a
-                                      .slice(0, $$i)
-                                      .concat($$a.slice($$i + 1)))
-                                }
-                              } else {
-                                _vm.packagesChecked = $$c
-                              }
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("label", { attrs: { for: "size-" + pack.id } }, [
-                          _vm._v(_vm._s(pack.name))
-                        ])
-                      ]
-                    )
-                  : _vm._e()
-              })
-            ],
-            2
-          )
-        : _vm._e()
+              _c("label", { attrs: { for: "country-1" } }, [_vm._v("Россия")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "checkbox filter_checkbox" }, [
+              _c("input", {
+                staticClass: "custom-checkbox",
+                attrs: {
+                  type: "checkbox",
+                  id: "country-2",
+                  name: "country",
+                  value: "indigo"
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "country-2" } }, [_vm._v("Украина")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "checkbox filter_checkbox" }, [
+              _c("input", {
+                staticClass: "custom-checkbox",
+                attrs: {
+                  type: "checkbox",
+                  id: "country-3",
+                  name: "country",
+                  value: "indigo"
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "country-3" } }, [
+                _vm._v("Азербайджан")
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "checkbox filter_checkbox read-more-target" },
+              [
+                _c("input", {
+                  staticClass: "custom-checkbox",
+                  attrs: {
+                    type: "checkbox",
+                    id: "country-5",
+                    name: "country",
+                    value: "indigo"
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "country-5" } }, [
+                  _vm._v("Белоруссия")
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "checkbox filter_checkbox read-more-target" },
+              [
+                _c("input", {
+                  staticClass: "custom-checkbox",
+                  attrs: {
+                    type: "checkbox",
+                    id: "country-6",
+                    name: "country",
+                    value: "indigo"
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "country-6" } }, [
+                  _vm._v("Казахстан")
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("label", {
+            staticClass: "read-more-trigger",
+            attrs: { for: "countries" }
+          })
+        ])
+      ])
     ])
-  ])
-}
-var staticRenderFns = []
+  }
+]
 render._withStripped = true
 
 

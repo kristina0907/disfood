@@ -47,6 +47,9 @@ Route::get('/get/messages/{id}',[ApiController::class,'getOfferMessages']);
 Route::get('/get/last/message/{id}',[ApiController::class,'getLastMessageFromChat']);
 Route::post('/send/messages',[ApiController::class,'setOfferMessages']);
 
+
+
+
 Route::get('/{any?}',function (){
    return view('welcome');
 })->where('any', '.*');

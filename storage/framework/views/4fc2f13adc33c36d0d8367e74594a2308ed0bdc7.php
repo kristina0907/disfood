@@ -55,6 +55,9 @@
 <!-- Dropzone Plugin Js -->
 <script src="/theme/plugins/dropzone/dropzone.js"></script>
 
+<!-- Ckeditor -->
+<script src="/theme/plugins/ckeditor/ckeditor.js"></script>
+
 <!-- Custom Js -->
 <script src="/theme/js/admin.js"></script>
 

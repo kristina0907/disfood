@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\DadataController;
 use App\Http\Controllers\Admin\SettingsConroller;
 use App\Http\Controllers\AltaSoftController;
 use App\Http\Controllers\Admin\TypeDeliveryController;
+use App\Http\Controllers\Admin\SimplePageController;
 
 /**
  *  Admin routes
@@ -231,5 +232,16 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/typedelivery/edit/{id}',[TypeDeliveryController::class,'edit'])->name('typedelivery.edit');
     Route::get('/typedelivery/delete/{id}',[TypeDeliveryController::class,'delete'])->name('typedelivery.delete');
     Route::post('/typedelivery/update',[TypeDeliveryController::class,'update'])->name('typedelivery.update');
+
+    /**
+     * Simple Pages routes
+     */
+
+    Route::get('/simplepages', [SimplePageController::class,'show'] )->name('simplepages.show');
+    Route::get('/simplepages/create',[SimplePageController::class,'create'])->name('simplepages.create');
+    Route::post('/simplepages/create',[SimplePageController::class,'store'])->name('simplepages.store');
+    Route::get('/simplepages/edit/{id}',[SimplePageController::class,'edit'])->name('simplepages.edit');
+    Route::get('/simplepages/delete/{id}',[SimplePageController::class,'delete'])->name('simplepages.delete');
+    Route::post('/simplepages/update',[SimplePageController::class,'update'])->name('simplepages.update');
 
 });

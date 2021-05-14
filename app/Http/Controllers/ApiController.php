@@ -10,6 +10,7 @@ use App\Services\OfferService;
 use App\Services\OrderService;
 use App\Services\OrganizationService;
 use App\Services\PackingService;
+use App\Services\PartnerService;
 use App\Services\ProductService;
 use App\Services\TypeProductService;
 use App\Services\UserService;
@@ -79,7 +80,17 @@ class ApiController extends Controller
 
     protected $chatRoomService;
 
+    /**
+     * @var MessageService
+     */
+
     protected $messageService;
+
+    /**
+     * @var PartnerService
+     */
+
+    protected $partnerService;
 
     /**
      * ApiController constructor.
@@ -96,7 +107,8 @@ class ApiController extends Controller
                                 PackingService $packingService,
                                 OrderService $orderService,
                                 ChatRoomService $chatRoomService,
-                                MessageService $messageService
+                                MessageService $messageService,
+                                PartnerService $partnerService
     )
     {
         $this->daDataService = $daDataService;
@@ -110,6 +122,7 @@ class ApiController extends Controller
         $this->orderService = $orderService;
         $this->chatRoomService = $chatRoomService;
         $this->messageService = $messageService;
+        $this->partnerService = $partnerService;
     }
 
     /**
@@ -242,6 +255,16 @@ class ApiController extends Controller
     {
         $types = $this->typeService->getAll();
         return response()->json(['types'=>$types],200);
+    }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+
+    public function getPartners()
+    {
+        $types = $this->partnerService->getAll();
+        return response()->json(['partners'=>$types],200);
     }
 
     /**

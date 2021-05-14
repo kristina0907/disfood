@@ -388,61 +388,12 @@
                </div>
                <div class="partners_company_block">
                    <div class="title_partners_company_block">Наши партнеры</div>
-                   <div class="row">
-                       <div class="col-xs-12 col-md-3 padding_item_partners_company">
+                   <div class="row" v-if="partners.partners">
+                       <div class="col-xs-12 col-md-3 padding_item_partners_company" v-for="partner in partners.partners">
                            <div class="item_partners_company">
                                <div class="img_item_partners_company"
-                                    style="background-image: url(./images/offer.png);"></div>
-                               <div class="name_item_partners_company">Агро Альянс</div>
-                           </div>
-                       </div>
-                       <div class="col-xs-12 col-md-3 padding_item_partners_company">
-                           <div class="item_partners_company">
-                               <div class="img_item_partners_company"
-                                    style="background-image: url(./images/offer.png);"></div>
-                               <div class="name_item_partners_company">Агро Альянс</div>
-                           </div>
-                       </div>
-                       <div class="col-xs-12 col-md-3 padding_item_partners_company">
-                           <div class="item_partners_company">
-                               <div class="img_item_partners_company"
-                                    style="background-image: url(./images/offer.png);"></div>
-                               <div class="name_item_partners_company">Агро Альянс</div>
-                           </div>
-                       </div>
-                       <div class="col-xs-12 col-md-3 padding_item_partners_company">
-                           <div class="item_partners_company">
-                               <div class="img_item_partners_company"
-                                    style="background-image: url(./images/offer.png);"></div>
-                               <div class="name_item_partners_company">Агро Альянс</div>
-                           </div>
-                       </div>
-                       <div class="col-xs-12 col-md-3 padding_item_partners_company">
-                           <div class="item_partners_company">
-                               <div class="img_item_partners_company"
-                                    style="background-image: url(./images/offer.png);"></div>
-                               <div class="name_item_partners_company">Агро Альянс</div>
-                           </div>
-                       </div>
-                       <div class="col-xs-12 col-md-3 padding_item_partners_company">
-                           <div class="item_partners_company">
-                               <div class="img_item_partners_company"
-                                    style="background-image: url(./images/offer.png);"></div>
-                               <div class="name_item_partners_company">Агро Альянс</div>
-                           </div>
-                       </div>
-                       <div class="col-xs-12 col-md-3 padding_item_partners_company">
-                           <div class="item_partners_company">
-                               <div class="img_item_partners_company"
-                                    style="background-image: url(./images/offer.png);"></div>
-                               <div class="name_item_partners_company">Агро Альянс</div>
-                           </div>
-                       </div>
-                       <div class="col-xs-12 col-md-3 padding_item_partners_company">
-                           <div class="item_partners_company">
-                               <div class="img_item_partners_company"
-                                    style="background-image: url(./images/offer.png);"></div>
-                               <div class="name_item_partners_company">Агро Альянс</div>
+                                    :style="'background-image: url(/storage/'+ partner.image + ');'"></div>
+                               <div class="name_item_partners_company">{{partner.name}}</div>
                            </div>
                        </div>
                    </div>
@@ -455,9 +406,9 @@
                        <div class="title_news_company_block">Новости</div>
                        <div class="all_news_company_block"><a href="">Смотреть все</a></div>
                    </div>
-                   <div class="list_news">
+                   <VueSlickCarousel :arrows="true" :dots="false" :slidesPerRow="2" class="list_news">
                        <div class="item_list_news_company">
-                           <div class="img_item_list_news_company" style="background-image: url(./images/news.png);">
+                           <div class="img_item_list_news_company" :style="'background-image: url(./images/news.png);'">
                            </div>
                            <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
                            <div class="category_news_item_list_news_company">
@@ -465,7 +416,7 @@
                            </div>
                        </div>
                        <div class="item_list_news_company">
-                           <div class="img_item_list_news_company" style="background-image: url(./images/news.png);">
+                           <div class="img_item_list_news_company" :style="'background-image: url(./images/news.png);'">
                            </div>
                            <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
                            <div class="category_news_item_list_news_company">
@@ -473,7 +424,7 @@
                            </div>
                        </div>
                        <div class="item_list_news_company">
-                           <div class="img_item_list_news_company" style="background-image: url(./images/news.png);">
+                           <div class="img_item_list_news_company" :style="'background-image: url(./images/news.png);'">
                            </div>
                            <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
                            <div class="category_news_item_list_news_company">
@@ -481,14 +432,14 @@
                            </div>
                        </div>
                        <div class="item_list_news_company">
-                           <div class="img_item_list_news_company" style="background-image: url(./images/news.png);">
+                           <div class="img_item_list_news_company" :style="'background-image: url(./images/news.png);'">
                            </div>
                            <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
                            <div class="category_news_item_list_news_company">
                                Новости • Индустрия
                            </div>
                        </div>
-                   </div>
+                   </VueSlickCarousel>
                </div>
                <div class="questions_company_block">
                    <div class="row">
@@ -557,14 +508,21 @@
 <script>
 import NavbarCatalog from "../Сomponents/NavbarCatalog";
 import HeaderCatalog from "../Сomponents/HeaderCatalog";
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+// optional style for arrows & dots
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 export default {
+    name:'frontpage',
     components:{
         NavbarCatalog,
-        HeaderCatalog
+        HeaderCatalog,
+        VueSlickCarousel
     },
     data(){
       return {
           types:[],
+          partners:[],
       }
     },
     methods:{
@@ -575,6 +533,13 @@ export default {
 
                   if (response.data !== 'undefined' && response.data !== null) {
                       this.types = response.data;
+                  }
+              })
+          axios.get('/get/partners/')
+              .then((response) => {
+
+                  if (response.data !== 'undefined' && response.data !== null) {
+                      this.partners = response.data;
                   }
               })
       }

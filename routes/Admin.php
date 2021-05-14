@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\SettingsConroller;
 use App\Http\Controllers\AltaSoftController;
 use App\Http\Controllers\Admin\TypeDeliveryController;
 use App\Http\Controllers\Admin\SimplePageController;
+use App\Http\Controllers\Admin\PartnerController;
 
 /**
  *  Admin routes
@@ -157,6 +158,17 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/packing/edit/{id}',[PackingController::class,'edit'])->name('packing.edit');
     Route::get('/packing/delete/{id}',[PackingController::class,'delete'])->name('packing.delete');
     Route::post('/packing/update',[PackingController::class,'update'])->name('packing.update');
+
+    /**
+     * Partners routes
+     */
+
+    Route::get('/partners', [PartnerController::class,'show'] )->name('partners.show');
+    Route::get('/partners/create',[PartnerController::class,'create'])->name('partners.create');
+    Route::post('/partners/create',[PartnerController::class,'store'])->name('partners.store');
+    Route::get('/partners/edit/{id}',[PartnerController::class,'edit'])->name('partners.edit');
+    Route::get('/partners/delete/{id}',[PartnerController::class,'delete'])->name('partners.delete');
+    Route::post('/partners/update',[PartnerController::class,'update'])->name('partners.update');
 
     /**
      * Cart routes

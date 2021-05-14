@@ -82,6 +82,9 @@
                         <li>
                             <a href="/superadmin/typedelivery">Типы доставки</a>
                         </li>
+                        <li>
+                            <a href="/superadmin/partners">Партнеры</a>
+                        </li>
                     </ul>
                 </li>
 

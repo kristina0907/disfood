@@ -38,6 +38,7 @@ Route::get('/get/order/{id}',[ApiController::class,'getMyOrder']);
 
 Route::get('/get/categories',[ApiController::class,'getCategories']);
 Route::get('/get/types',[ApiController::class,'getTypes']);
+Route::get('/get/partners',[ApiController::class,'getPartners']);
 Route::get('/get/packages',[ApiController::class,'getPackages']);
 
 Route::get('/get/catalog',[ApiController::class,'getFilterCatalogData']);

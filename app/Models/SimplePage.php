@@ -33,9 +33,18 @@ class SimplePage extends Model
      * @param $value
      */
 
-    public function setNameAttribute($value){
-        $this->attributes['name'] = $value;
+    public function setTitleAttribute($value){
+        $this->attributes['title'] = $value;
         $this->attributes['slug'] = Str::slug($value);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+
+    public function category()
+    {
+        return $this->belongsTo(PageCategory::class,'category_id');
     }
 
 }

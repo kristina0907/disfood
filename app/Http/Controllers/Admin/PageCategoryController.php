@@ -3,20 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\CategoryService;
+use App\Services\PackingService;
 use App\Services\PageCategoryService;
-use App\Services\SimplePageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
-class SimplePageController extends Controller
+class PageCategoryController extends Controller
 {
-
-    /**
-     * @var SimplePageService
-     */
-
-    protected $simplePageService;
 
     /**
      * @var PageCategoryService
@@ -25,13 +20,12 @@ class SimplePageController extends Controller
     protected $pageCategoryService;
 
     /**
-     * SimplePageController constructor.
-     * @param SimplePageService $simplePageService
+     * PageCategoryController constructor.
+     * @param PageCategoryService $pageCategoryService
      */
 
-    public function __construct(SimplePageService $simplePageService,PageCategoryService $pageCategoryService)
+    public function __construct(PageCategoryService $pageCategoryService)
     {
-        $this->simplePageService = $simplePageService;
         $this->pageCategoryService = $pageCategoryService;
     }
 
@@ -43,8 +37,8 @@ class SimplePageController extends Controller
     {
         if(Gate::allows('view',Auth::user()))
         {
-            $pages = $this->simplePageService->getAll();
-            return view('Admin.pages.simplepage.show',['pages'=>$pages]);
+            $packing = $this->pageCategoryService->getAll();
+            return view('Admin.pages.pagecategories.show',['categories'=>$packing]);
         }
         abort(403,'Access Denied');
     }
@@ -55,14 +49,12 @@ class SimplePageController extends Controller
 
     public function create()
     {
+
         if(Gate::allows('create',Auth::user()))
         {
-            $cats = $this->pageCategoryService->getAll();
-            return view('Admin.pages.simplepage.create',[
-                'cats'=>$cats
-            ]);
+            return view('Admin.pages.pagecategories.create');
         }
-        abort(403,'Access denied');
+        abort(403,'Access Denied');
     }
 
     /**
@@ -76,9 +68,8 @@ class SimplePageController extends Controller
         {
             if(Gate::allows('create',Auth::user()))
             {
-                //dd($request);
-                $this->simplePageService->saveData($request);
-                return redirect('/superadmin/simplepages');
+                $this->pageCategoryService->saveData($request);
+                return redirect('/superadmin/pagecategories');
             }
             abort(403,'Access Denied');
         }
@@ -93,14 +84,11 @@ class SimplePageController extends Controller
     {
         if(Gate::allows('update',Auth::user()))
         {
-            if(!empty($id))
-            {
-                $cat = $this->simplePageService->getById($id);
-                $categories = $this->pageCategoryService->getAll();
-                return view('Admin.pages.simplepage.edit',['page'=>$cat,'categories'=>$categories]);
-            }
+            $packing = $this->pageCategoryService->getById($id);
+            return view('Admin.pages.pagecategories.edit',[
+                'categories'=>$packing
+            ]);
         }
-        abort(403,'Access Denied');
     }
 
     /**
@@ -110,33 +98,28 @@ class SimplePageController extends Controller
 
     public function update(Request $request)
     {
-
         if(Gate::allows('update',Auth::user()))
         {
-            if(!empty($request->id))
-            {
-                $this->simplePageService->updateData($request,$request->id);
-
-                return redirect('/superadmin/simplepages');
-            }
-            abort(404,'Not found');
+            $this->pageCategoryService->updateData($request,$request->id);
+            return redirect('/superadmin/pagecategories');
         }
         abort(403,'Access Denied');
     }
 
     /**
-     * @param int $id
+     * @param $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-
-    public function delete(int $id)
+    public function delete($id)
     {
         if(Gate::allows('delete',Auth::user()))
         {
-            $this->simplePageService->deleteFromId($id);
-            return redirect('/superadmin/simplepages');
+            if(!empty($id))
+            {
+                $this->pageCategoryService->deleteById($id);
+                return redirect('/superadmin/pagecategories');
+            }
         }
         abort(403,'Access Denied');
     }
-
 }

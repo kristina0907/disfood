@@ -12,6 +12,7 @@ use App\Services\OrganizationService;
 use App\Services\PackingService;
 use App\Services\PartnerService;
 use App\Services\ProductService;
+use App\Services\SimplePageService;
 use App\Services\TypeProductService;
 use App\Services\UserService;
 use Illuminate\Http\Request;
@@ -93,6 +94,12 @@ class ApiController extends Controller
     protected $partnerService;
 
     /**
+     * @var SimplePageService
+     */
+
+    protected $simplePageService;
+
+    /**
      * ApiController constructor.
      * @param DadataService $daDataService
      */
@@ -108,7 +115,8 @@ class ApiController extends Controller
                                 OrderService $orderService,
                                 ChatRoomService $chatRoomService,
                                 MessageService $messageService,
-                                PartnerService $partnerService
+                                PartnerService $partnerService,
+                                SimplePageService  $simplePageService,
     )
     {
         $this->daDataService = $daDataService;
@@ -123,6 +131,7 @@ class ApiController extends Controller
         $this->chatRoomService = $chatRoomService;
         $this->messageService = $messageService;
         $this->partnerService = $partnerService;
+        $this->simplePageService = $simplePageService;
     }
 
     /**
@@ -352,6 +361,11 @@ class ApiController extends Controller
         {
             return $this->messageService->getLastByOfferId($id);
         }
+    }
+
+    public function getNews()
+    {
+        return $this->simplePageService->getNews();
     }
 
 

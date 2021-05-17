@@ -22,6 +22,7 @@ use App\Http\Controllers\AltaSoftController;
 use App\Http\Controllers\Admin\TypeDeliveryController;
 use App\Http\Controllers\Admin\SimplePageController;
 use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\PageCategoryController;
 
 /**
  *  Admin routes
@@ -169,6 +170,17 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/partners/edit/{id}',[PartnerController::class,'edit'])->name('partners.edit');
     Route::get('/partners/delete/{id}',[PartnerController::class,'delete'])->name('partners.delete');
     Route::post('/partners/update',[PartnerController::class,'update'])->name('partners.update');
+
+    /**
+     * Page Categories routes
+     */
+
+    Route::get('/pagecategories', [PageCategoryController::class,'show'] )->name('pagecategories.show');
+    Route::get('/pagecategories/create',[PageCategoryController::class,'create'])->name('pagecategories.create');
+    Route::post('/pagecategories/create',[PageCategoryController::class,'store'])->name('pagecategories.store');
+    Route::get('/pagecategories/edit/{id}',[PageCategoryController::class,'edit'])->name('pagecategories.edit');
+    Route::get('/pagecategories/delete/{id}',[PageCategoryController::class,'delete'])->name('pagecategories.delete');
+    Route::post('/pagecategories/update',[PageCategoryController::class,'update'])->name('pagecategories.update');
 
     /**
      * Cart routes

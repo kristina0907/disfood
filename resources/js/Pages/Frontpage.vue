@@ -406,37 +406,13 @@
                        <div class="title_news_company_block">Новости</div>
                        <div class="all_news_company_block"><a href="">Смотреть все</a></div>
                    </div>
-                   <VueSlickCarousel :arrows="true" :dots="false" :slidesPerRow="2" class="list_news">
-                       <div class="item_list_news_company">
-                           <div class="img_item_list_news_company" :style="'background-image: url(./images/news.png);'">
+                   <VueSlickCarousel :arrows="true" :dots="false" :slidesPerRow="2" class="list_news" v-if="news.length" >
+                       <div class="item_list_news_company" v-for="page in news">
+                           <div class="img_item_list_news_company" :style="'background-image: url(/storage'+page.image+');'">
                            </div>
-                           <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
+                           <div class="title_item_list_news_company">{{page.title}}</div>
                            <div class="category_news_item_list_news_company">
-                               Новости • Индустрия
-                           </div>
-                       </div>
-                       <div class="item_list_news_company">
-                           <div class="img_item_list_news_company" :style="'background-image: url(./images/news.png);'">
-                           </div>
-                           <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
-                           <div class="category_news_item_list_news_company">
-                               Новости • Индустрия
-                           </div>
-                       </div>
-                       <div class="item_list_news_company">
-                           <div class="img_item_list_news_company" :style="'background-image: url(./images/news.png);'">
-                           </div>
-                           <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
-                           <div class="category_news_item_list_news_company">
-                               Новости • Индустрия
-                           </div>
-                       </div>
-                       <div class="item_list_news_company">
-                           <div class="img_item_list_news_company" :style="'background-image: url(./images/news.png);'">
-                           </div>
-                           <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
-                           <div class="category_news_item_list_news_company">
-                               Новости • Индустрия
+                               Новости
                            </div>
                        </div>
                    </VueSlickCarousel>
@@ -523,6 +499,7 @@ export default {
       return {
           types:[],
           partners:[],
+          news:[],
       }
     },
     methods:{
@@ -540,6 +517,13 @@ export default {
 
                   if (response.data !== 'undefined' && response.data !== null) {
                       this.partners = response.data;
+                  }
+              })
+          axios.get('/get/news/')
+              .then((response) => {
+
+                  if (response.data !== 'undefined' && response.data !== null) {
+                      this.news = response.data;
                   }
               })
       }

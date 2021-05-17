@@ -500,30 +500,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -540,7 +516,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       types: [],
-      partners: []
+      partners: [],
+      news: []
     };
   },
   methods: {
@@ -555,6 +532,11 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/get/partners/').then(function (response) {
         if (response.data !== 'undefined' && response.data !== null) {
           _this.partners = response.data;
+        }
+      });
+      axios.get('/get/news/').then(function (response) {
+        if (response.data !== 'undefined' && response.data !== null) {
+          _this.news = response.data;
         }
       });
     }
@@ -1854,98 +1836,39 @@ var render = function() {
         [
           _vm._m(14),
           _vm._v(" "),
-          _c(
-            "VueSlickCarousel",
-            {
-              staticClass: "list_news",
-              attrs: { arrows: true, dots: false, slidesPerRow: 2 }
-            },
-            [
-              _c("div", { staticClass: "item_list_news_company" }, [
-                _c("div", {
-                  staticClass: "img_item_list_news_company",
-                  style: "background-image: url(./images/news.png);"
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "title_item_list_news_company" }, [
-                  _vm._v("Цены на молочные продукты увеличат в ближайшее время")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "category_news_item_list_news_company" },
-                  [
-                    _vm._v(
-                      "\n                           Новости • Индустрия\n                       "
+          _vm.news.length
+            ? _c(
+                "VueSlickCarousel",
+                {
+                  staticClass: "list_news",
+                  attrs: { arrows: true, dots: false, slidesPerRow: 2 }
+                },
+                _vm._l(_vm.news, function(page) {
+                  return _c("div", { staticClass: "item_list_news_company" }, [
+                    _c("div", {
+                      staticClass: "img_item_list_news_company",
+                      style:
+                        "background-image: url(/storage" + page.image + ");"
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "title_item_list_news_company" }, [
+                      _vm._v(_vm._s(page.title))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "category_news_item_list_news_company" },
+                      [
+                        _vm._v(
+                          "\n                           Новости\n                       "
+                        )
+                      ]
                     )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "item_list_news_company" }, [
-                _c("div", {
-                  staticClass: "img_item_list_news_company",
-                  style: "background-image: url(./images/news.png);"
+                  ])
                 }),
-                _vm._v(" "),
-                _c("div", { staticClass: "title_item_list_news_company" }, [
-                  _vm._v("Цены на молочные продукты увеличат в ближайшее время")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "category_news_item_list_news_company" },
-                  [
-                    _vm._v(
-                      "\n                           Новости • Индустрия\n                       "
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "item_list_news_company" }, [
-                _c("div", {
-                  staticClass: "img_item_list_news_company",
-                  style: "background-image: url(./images/news.png);"
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "title_item_list_news_company" }, [
-                  _vm._v("Цены на молочные продукты увеличат в ближайшее время")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "category_news_item_list_news_company" },
-                  [
-                    _vm._v(
-                      "\n                           Новости • Индустрия\n                       "
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "item_list_news_company" }, [
-                _c("div", {
-                  staticClass: "img_item_list_news_company",
-                  style: "background-image: url(./images/news.png);"
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "title_item_list_news_company" }, [
-                  _vm._v("Цены на молочные продукты увеличат в ближайшее время")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "category_news_item_list_news_company" },
-                  [
-                    _vm._v(
-                      "\n                           Новости • Индустрия\n                       "
-                    )
-                  ]
-                )
-              ])
-            ]
-          )
+                0
+              )
+            : _vm._e()
         ],
         1
       ),

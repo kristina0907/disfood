@@ -7,8 +7,8 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        Страницы сайта
-                        <a href="/superadmin/simplepages/create" class="btn btn-success btn-circle waves-effect waves-circle waves-float">
+                        Категории страниц
+                        <a href="/superadmin/pagecategories/create" class="btn btn-success btn-circle waves-effect waves-circle waves-float">
                             <i class="material-icons">add</i>
                         </a>
                     </h2>
@@ -24,11 +24,8 @@
                                             <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Фото</th>
                                                 <th>Название</th>
-                                                <th>slug</th>
-                                                <th>Описание</th>
-                                                <th>Категория</th>
+                                                <th>Активно</th>
                                                 <th>Дата создания</th>
                                                 <th>Действия</th>
                                             </tr>
@@ -36,37 +33,23 @@
                                             <tfoot>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Фото</th>
                                                 <th>Название</th>
-                                                <th>slug</th>
-                                                <th>Описание</th>
-                                                <th>Категория</th>
+                                                <th>Активно</th>
                                                 <th>Дата создания</th>
                                                 <th>Действия</th>
                                             </tr>
                                             </tfoot>
                                             <tbody>
-                                            @if(!empty($pages))
-                                                @foreach($pages as $page)
+                                            @if(!empty($categories))
+                                                @foreach($categories as $pack)
                                                     <tr role="row" class="odd">
-                                                        <td>{{$page->id}}</td>
-                                                        <td><img src="/storage{{$page->image}}" style="max-width: 50px"/> </td>
-                                                        <td>{{$page->title}}</td>
+                                                        <td>{{$pack->id}}</td>
+                                                        <td>{{$pack->name}}</td>
+                                                        <td>{{$pack->active}}</td>
+                                                        <td>{{$pack->created_at}}</td>
                                                         <td>
-                                                            {{$page->slug}}
-                                                        </td>
-                                                        <td>
-                                                            {{$page->description}}
-                                                        </td>
-                                                        <td>
-                                                            @if(!empty($page->category))
-                                                                {{$page->category->name}}
-                                                            @endif
-                                                        </td>
-                                                        <td>{{$page->created_at}}</td>
-                                                        <td>
-                                                            <a href="/superadmin/simplepages/edit/{{$page->id}}" class="btn btn-success btn-circle waves-effect waves-circle waves-float"><i class="material-icons">edit</i></a>
-                                                            <a href="/superadmin/simplepages/delete/{{$page->id}}" class="btn btn-danger btn-circle waves-effect waves-circle waves-float"><i class="material-icons">delete</i></a>
+                                                            <a href="/superadmin/pagecategories/edit/{{$pack->id}}" class="btn btn-success btn-circle waves-effect waves-circle waves-float"><i class="material-icons">edit</i></a>
+                                                            <a href="/superadmin/pagecategories/delete/{{$pack->id}}" class="btn btn-danger btn-circle waves-effect waves-circle waves-float"><i class="material-icons">delete</i></a>
                                                         </td>
                                                     </tr>
                                                 @endforeach

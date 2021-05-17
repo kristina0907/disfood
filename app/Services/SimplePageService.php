@@ -48,7 +48,7 @@ class SimplePageService
     public function saveData($data)
     {
         $validated = $data->validate([
-            'name' => 'string|required|max:255',
+            'title' => 'string|required',
             'body' => 'string|required',
         ]);
 
@@ -67,8 +67,8 @@ class SimplePageService
     public function updateData($data,int $id)
     {
         $validated = $data->validate([
-            'name' => 'string|required|max:255',
-            'body' => 'string|required|max:255',
+            'title' => 'string|required',
+            'body' => 'string|required',
         ]);
 
         DB::beginTransaction();
@@ -126,6 +126,16 @@ class SimplePageService
 
             return $result;
         }
+    }
+
+    /**
+     * @return mixed
+     */
+
+    public function getNews()
+    {
+        $result = $this->simplePageRepository->getNews();
+        return $result;
     }
 
 }

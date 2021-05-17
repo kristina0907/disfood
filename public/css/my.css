@@ -32,3 +32,10 @@ select option:hover {
 .item_reg_block .nav-tabs .nav-link.active{
     border-color:#dee2e6 ;
 }
+.ck-editor__editable {
+    min-height: 500px;
+}
+.title_item_list_news_company{
+    height: 30px;
+    overflow: hidden;
+}

@@ -55,18 +55,35 @@ class SimplePageRepository implements SimplePageContract
 
     public function save($data)
     {
+
         $page = new $this->page;
         $page->title = $data['title'];
         if (!empty($data['description']))
         {
             $page->description = $data['description'];
         }
-        $page->body = $data['body'];
-        if(!empty($data['image']))
+        if(!empty($data->category_id))
         {
-            $page->image = $data['image'];
+            $page->category_id = $data->category_id;
         }
-        $page->active = true;
+
+        $page->body = $data['body'];
+        if($data->hasFile('image'))
+        {
+
+            $extension = $data->image->extension();
+            $name = '/images/simplepages/'. date('mdYHis') . uniqid().".".$extension;
+            $data->image->storeAs('/public', $name);
+            $page->image =  $name;
+        }
+
+        if(empty($data['active']))
+        {
+            $page->public = false;
+        }
+        else{
+            $page->public = true;
+        }
 
         $page->save();
 
@@ -84,24 +101,34 @@ class SimplePageRepository implements SimplePageContract
 
         $page = $this->page->find($id);
 
-        $page->name = $data['name'];
-        $page->slug = $data['slug'];
+        $page->title = $data['title'];
         if (!empty($data['description']))
         {
             $page->description = $data['description'];
         }
-        $page->body = $data['body'];
-        if(!empty($data['image']))
+        if(!empty($data->category_id))
         {
-            $page->image = $data['image'];
+            $page->category_id = $data->category_id;
         }
+
+        $page->body = $data['body'];
+        if($data->hasFile('image'))
+        {
+
+            $extension = $data->image->extension();
+            $name = '/images/simplepages/'. date('mdYHis') . uniqid().".".$extension;
+            $data->image->storeAs('/public', $name);
+            $page->image =  $name;
+        }
+
         if(empty($data['active']))
         {
-            $page->active = false;
+            $page->public = false;
         }
         else{
-            $page->active = true;
+            $page->public = true;
         }
+
         $page->update();
 
         return $page;
@@ -121,6 +148,14 @@ class SimplePageRepository implements SimplePageContract
         return true;
     }
 
+    /**
+     * @return mixed
+     */
+
+    public function getNews()
+    {
+        return $this->page->where('category_id',1)->get();
+    }
 
 
 }

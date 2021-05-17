@@ -40,6 +40,7 @@ Route::get('/get/categories',[ApiController::class,'getCategories']);
 Route::get('/get/types',[ApiController::class,'getTypes']);
 Route::get('/get/partners',[ApiController::class,'getPartners']);
 Route::get('/get/packages',[ApiController::class,'getPackages']);
+Route::get('/get/news',[ApiController::class,'getNews']);
 
 Route::get('/get/catalog',[ApiController::class,'getFilterCatalogData']);
 Route::get('/get/catalog/page/{id}',[ApiController::class,'getCatalogPageData']);

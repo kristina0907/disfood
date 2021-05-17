@@ -85,6 +85,9 @@
                         <li>
                             <a href="/superadmin/partners">Партнеры</a>
                         </li>
+                        <li>
+                            <a href="/superadmin/pagecategories">Категории страниц</a>
+                        </li>
                     </ul>
                 </li>
 

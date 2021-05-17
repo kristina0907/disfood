@@ -4,6 +4,7 @@
 
 <head>
     @include('Admin.layouts.header')
+    <link rel="stylesheet" href="/css/my.css">
 </head>
 
 <body id="page-top" class="theme-cyan">

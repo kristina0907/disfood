@@ -201,7 +201,7 @@
                                         </div>
                                     </div>
                                     <div :class="{ 'container_item_offer_catalog' : listView,'tile_container_item_offer_catalog row':tileView}">
-                                        <div :class="{ 'item_product_category' : listView,'tile_item_offer_catalog col':tileView}" v-if="products.length" v-for="product in products">
+                                        <div :class="{ 'item_product_category' : listView,'tile_item_tile_item_product_category  col':tileView}" v-if="products.length" v-for="product in products">
                                             <div :class="{ 'info_item_offer_catalog' : listView,'tile_info_item_offer_catalog':tileView}">
                                                 <div :class="{ 'image_info_item_offer_catalog' : listView,'tile_image_info_item_offer_catalog':tileView}"
                                                      :style="'background-image: url('+product.image+');'"></div>

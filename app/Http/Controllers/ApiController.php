@@ -116,7 +116,7 @@ class ApiController extends Controller
                                 ChatRoomService $chatRoomService,
                                 MessageService $messageService,
                                 PartnerService $partnerService,
-                                SimplePageService  $simplePageService,
+                                SimplePageService  $simplePageService
     )
     {
         $this->daDataService = $daDataService;

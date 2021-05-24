@@ -1709,10 +1709,9 @@ var render = function() {
                                     tile_image_info_item_offer_catalog:
                                       _vm.tileView
                                   },
-                                  style:
-                                    "background-image: url(" +
-                                    product.image +
-                                    ");"
+                                  staticStyle: {
+                                    "background-image": "url(/images/offer.png)"
+                                  }
                                 }),
                                 _vm._v(" "),
                                 _c("div", [
@@ -1724,7 +1723,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        _vm._s(product.name) +
+                                        _vm._s(product.organization.name) +
                                           "\n                                                    "
                                       ),
                                       _c("span", { staticClass: "icon_star" }, [
@@ -1807,7 +1806,19 @@ var render = function() {
                               ]
                             ),
                             _vm._v(" "),
-                            _vm._m(5, true),
+                            _c(
+                              "div",
+                              { staticClass: "price_item_product_category" },
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "start_price_category_products"
+                                  },
+                                  [_vm._v(_vm._s(product.price) + " ₽/ кг")]
+                                )
+                              ]
+                            ),
                             _vm._v(" "),
                             _c(
                               "div",
@@ -1889,7 +1900,7 @@ var render = function() {
                                     ]
                                   ),
                                   _vm._v(" "),
-                                  _vm._m(6, true)
+                                  _vm._m(5, true)
                                 ])
                               ],
                               1
@@ -2044,16 +2055,6 @@ var staticRenderFns = [
       _c("div", { staticClass: "title_time_delivery" }, [_vm._v("Доставка")]),
       _vm._v(" "),
       _c("div", { staticClass: "time_delivery" }, [_vm._v("от 5 дней")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "price_item_product_category" }, [
-      _c("div", { staticClass: "start_price_category_products" }, [
-        _vm._v("46, 34 ₽/ кг")
-      ])
     ])
   },
   function() {

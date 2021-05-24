@@ -204,9 +204,9 @@
                                         <div :class="{ 'item_product_category' : listView,'tile_item_tile_item_product_category  col':tileView}" v-if="products.length" v-for="product in products">
                                             <div :class="{ 'info_item_offer_catalog' : listView,'tile_info_item_offer_catalog':tileView}">
                                                 <div :class="{ 'image_info_item_offer_catalog' : listView,'tile_image_info_item_offer_catalog':tileView}"
-                                                     :style="'background-image: url('+product.image+');'"></div>
+                                                     style="background-image: url(/images/offer.png);"></div>
                                                 <div>
-                                                    <div class="name_info_item_offer_catalog">{{ product.name }}
+                                                    <div class="name_info_item_offer_catalog">{{ product.organization.name }}
                                                         <span class="icon_star">
                                                             <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
                                                                  xmlns="http://www.w3.org/2000/svg">
@@ -241,7 +241,7 @@
                                                 </div>
                                             </div>
                                             <div class="price_item_product_category">
-                                                <div class="start_price_category_products">46, 34 ₽/ кг</div>
+                                                <div class="start_price_category_products">{{ product.price }} ₽/ кг</div>
                                             </div>
                                             <div class="container_item_offer_btn">
                                                 <router-link :to="{ path:'/catalog-page/'+product.id}">

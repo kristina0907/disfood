@@ -162,11 +162,11 @@ class OfferRepository implements OfferContract
 
     public function getOffersByCategory($category,$type = null,$product = null)
     {
-        return $this->offer->where('category_id',$category)->when((integer) $type,function ($query) use ($type,$product){
+
+
+        return $this->offer->where('category_id',$category)->when((integer) $type,function ($query) use ($type){
             $query->where('type_id',$type);
-            $query->when((integer) $product,function ($q) use ($product){
-                $q->where('product_id',$product);
-            });
         })->with(['organization','product','category','type','country','city'])->get();
+
     }
 }

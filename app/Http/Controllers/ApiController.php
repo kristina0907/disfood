@@ -295,7 +295,7 @@ class ApiController extends Controller
     {
         if(!empty($request->category))
         {
-            return $this->productService->getProductsByCatsAndTypes($request->category,$request->type);
+            return $this->offerService->getOffersByCategory($request->category,$request->type);
         }
     }
 

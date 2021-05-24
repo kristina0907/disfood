@@ -163,11 +163,11 @@ class OfferService
         return $this->offerRepository->getByUserId($id);
     }
 
-    public function getOffersByCategory($data)
+    public function getOffersByCategory($category,$type=null)
     {
-        if(!empty($data))
+        if(!empty($category))
         {
-            return $this->offerRepository->getOffersByCategory($data->category,$data->type);
+            return $this->offerRepository->getOffersByCategory($category,$type);
         }
     }
 

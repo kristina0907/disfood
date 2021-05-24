@@ -446,7 +446,7 @@
                 </div>
             </router-link>
             <div class="container_title_product_catalog">
-                <div class="title_product_catalog">{{ product.name }}</div>
+                <div class="title_product_catalog" v-if="product.name">{{ product.name }}</div>
                 <div class="offer_price_filter">
                     <div>
                         <label for="toggle-button" class="text">Показать цены с НДС</label>
@@ -466,7 +466,7 @@
                                 <div class="image_info_item_offer_catalog"
                                      style="background-image: url(/images/offer.png);"></div>
                                 <div>
-                                    <div class="name_info_item_offer_catalog">Агро Альянс
+                                    <div class="name_info_item_offer_catalog" v-if="product.organization">{{product.organization.name}}
                                         <span class="icon_star">
                                         <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
@@ -492,15 +492,15 @@
                                     <div class="services-slider">
                                         <div class="nav-container">
                                             <div class="slider-nav">
-                                                <div>
-                                                    <img :src="product.image">
+                                                <div v-if="product.product">
+                                                    <img :src="product.product.image">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="main-container">
                                             <div class="slider slider-main">
-                                                <div class="main_galery_img">
-                                                    <img :src="product.image">
+                                                <div class="main_galery_img" v-if="product.product">
+                                                    <img :src="product.product.image">
                                                 </div>
                                             </div>
                                         </div>
@@ -511,7 +511,7 @@
                             </div>
                             <div class="container_right_price_block">
                                 <div class="catalog_info_product">
-                                    <div class="price_catalog_info_product">от 46, 34 ₽/ кг</div>
+                                    <div class="price_catalog_info_product">от {{product.price}} ₽/ кг</div>
                                     <div class="count_offers_product">356 предложений</div>
                                     <div class="name_info_catalog_product">Стандарт <span>ГОСТ 6292-93</span></div>
                                     <div class="name_info_catalog_product">Сорт <span>1</span></div>
@@ -524,8 +524,8 @@
                             <div class="title_description_text_product">Описание</div>
 
                             <input type="checkbox" class="read-more-state" id="description" />
-                            <div class="read-more-wrap text_description_text_product">
-                                {{product.description}}
+                            <div class="read-more-wrap text_description_text_product" v-if="product.product">
+                                {{product.product.description}}
                                 <div class="radio read-more-target">
                                     <div>
                                         Продукт положительно влияет на сердечно-сосудистую систему. Он очищает кровь,
@@ -781,7 +781,7 @@
                             <div class="image_info_item_offer_catalog"
                                  style="background-image: url(/images/offer.png);"></div>
                             <div>
-                                <div class="name_info_item_offer_catalog">Агро Альянс
+                                <div class="name_info_item_offer_catalog" v-if="product.organization">{{product.organization.name}}
                                     <span class="icon_star">
                                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -804,20 +804,7 @@
                             <input type="checkbox" class="read-more-state" id="descriptionSupplier" />
                             <div class="read-more-wrap text_description_text_product">
                                 <div>
-                                    <p>«Агро-Альянс» сейчас – это:</p>
-                                    <ul>
-                                        <li>6 предприятий различной направленности (производственно-логистический центр в
-                                            Петербурге, филиал компании во Владивостоке, рисоперерабатывающий комплекс в
-                                            Краснодарском крае, Центральная крупяная компания в Орловской области, Сибирская
-                                            бакалейная компания в Новосибирске и макаронная фабрика в Орске);</li>
-                                        <li>более 50 наименований продукции разных сегментов: от привычной ароматной гречки
-                                            до экзотического киноа;</li>
-                                        <li>более 170 000 000 м2 собственного земельного фонда, на котором ежегодно
-                                            выращивается 48 000 тонн зернобобовых;</li>
-                                        <li>более 22 000 000 единиц фасованной продукции в месяц;</li>
-                                        <li>более 20 000 тонн общего месячного объёма продаж всей продукции в 30 странах
-                                            мира</li>
-                                    </ul>
+                                   {{product.description}}
                                 </div>
                                 <div class="radio read-more-target">
                                     <div>

@@ -308,7 +308,7 @@ class ApiController extends Controller
     {
         if(!empty($id))
         {
-            $product = $this->productService->getProductById($id);
+            $product = $this->offerService->getOfferById($id);
             return response()->json($product,200);
         }
         return response()->json('Error id is invalid',401);

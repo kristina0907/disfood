@@ -4048,6 +4048,9 @@ select option{
     cursor: pointer;
     text-align: center;
 }
+.play_company:hover svg path{
+    fill: #89CA65;
+}
 .play_company>div{
     margin-left: 15px;
     text-align: left;
@@ -4075,6 +4078,7 @@ select option{
 }
 .btn_register:hover{
     color: #71BF45;
+    box-shadow: 0 0 0 2px #89CA65;
 }
 .btn_learn_more{
     font-weight: 600;
@@ -4113,6 +4117,10 @@ select option{
     padding: 20px 40px;
     height: 60px;
     width: 323px;
+    cursor: pointer;
+}
+.btn_search_company:hover{
+    background: #89CA65;
 }
 .container_btn_search__company{
     display: flex;
@@ -4145,6 +4153,10 @@ select option{
     padding: 10px 30px;
     margin-right: 20px;
     margin-bottom: 20px;
+    cursor: pointer;
+}
+.item_search_category_company:hover{
+    background: #D4D8DB;
 }
 .delivery_company_block{
     background: #F0F2F4;
@@ -4225,7 +4237,6 @@ select option{
     margin-right: 30px;
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: center center;
 }
 .partners_company_block .row{
     margin-left: -10px;
@@ -4248,6 +4259,10 @@ select option{
     border-radius: 10px;
     border: 1px solid #71BF45;
     padding: 5px 15px;
+}
+.all_partners_company_block a:hover{
+    color: #71BF45;
+    box-shadow: 0 0 0 2px #89CA65;
 }
 .item_questions_company{
     background: #F0F2F4;
@@ -4325,6 +4340,7 @@ select option{
     line-height: 20px;
     color: #22262A;
     margin-bottom: 80px;
+    min-height: 80px;
     width: 80%;
 }
 .item_user_registration_company{
@@ -4366,6 +4382,9 @@ select option{
     border-radius: 10px;
     background: #71BF45;
     padding: 20px 40px;
+}
+.btn_user_registration_company a:hover{
+    background: #89CA65;
 }
 .text_item_list_user_registration_company{
     font-weight: normal;
@@ -4432,6 +4451,10 @@ select option{
     border: 1px solid #71BF45;
     padding: 5px 15px;
 }
+.all_news_company_block a:hover{
+    color: #71BF45;
+    box-shadow: 0 0 0 2px #89CA65;
+}
 .news_company_block{
     margin-bottom: 90px;
 }
@@ -4459,9 +4482,12 @@ select option{
 .item_list_news_company{
     padding-right: 20px;
 }
+.list_news .slick-prev, .list_news .slick-next{
+    z-index: 1;
+}
 
 .list_news .slick-list{padding:0 20% 0 0;}
-.slick-next:before {
+.list_news .slick-prev:before, .list_news .slick-next:before {
     content: '';
     position: absolute;
     width: 60px;
@@ -4475,6 +4501,22 @@ select option{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+.list_news .slick-prev:before{
+    right: -35px;
+    left: auto;
+}
+.list_news .slick-prev::after {
+    content: '';
+    position: absolute;
+    background: url(/public/images/arrow_left.png) no-repeat;
+    width: 10px;
+    height: 16px;
+    right: -8px;
+    top: 23px;
+}
+.list_news:hover .slick-prev::after {
+    background: url(/public/images/arrow_left1.png) no-repeat;
+}
 .list_news .slick-next::after {
     content: '';
     position: absolute;
@@ -4483,6 +4525,12 @@ select option{
     height: 16px;
     left: -8px;
     top: 23px;
+}
+.list_news:hover .slick-next::after {
+    background: url(/public/images/arrow1.png) no-repeat;
+}
+.slick-disabled {
+    display: none !important;
 }
 .sidebar_catalog_menu{
     position: fixed;

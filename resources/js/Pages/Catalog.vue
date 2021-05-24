@@ -5,14 +5,14 @@
         </div>
         <div class="container_catalog_products">
             <div class="content_catalog">
-                <sidebar-catalog @changefilter="changeFilter"></sidebar-catalog>
+                <sidebar-catalog ></sidebar-catalog>
                 <div class="content_catalog_block">
                             <div class="container_products_catalog">
                                 <div class="offer_item_product_catalog">
                                     <div class="offer_filter_item_product_catalog">
-                                        <div class="container_select_offer" v-if="categories.cats">
-                                            <multiselect v-model="selectedCategories"
-                                                         :options="categories.cats"
+                                       <div class="container_select_offer" v-if="categories">
+                                            <multiselect :value="categoryValue"
+                                                         :options="categories"
                                                          :multiple="false"
                                                          label="name"
                                                          track-by="name"
@@ -21,10 +21,11 @@
                                                          selectedLabel="Выбрано"
                                                          deselectLabel="Нажмите еще раз чтобы удалить"
                                                          :class="'select select_category'"
-                                                         @input = filterTypes
+                                                         @input = updateValueAction
                                             ></multiselect>
-                                            <div v-if="types.types && selectedCategories">
-                                                <multiselect v-model="selectedTypes"
+
+                                            <div v-if="filteredTypes && categoryValue">
+                                                <multiselect :value="typeValue"
                                                              :options="filteredTypes"
                                                              :multiple="false"
                                                              label="name"
@@ -34,9 +35,11 @@
                                                              selectedLabel="Выбрано"
                                                              deselectLabel="Нажмите еще раз чтобы удалить"
                                                              :class="'select select_type'"
+                                                             @input = updateTypeAction
                                                 ></multiselect>
                                             </div>
                                         </div>
+
                                         <div class="offer_quantity_block">
                                             <div class="text_prompt">Нужный объем</br> для закупки</div>
                                             <div class="offer_quantity_block_product">
@@ -171,7 +174,10 @@
                                 <div class="offer_product_category_block">
                                     <div class="header_offer_product_category_block">
                                         <div>
-                                            <div class="title_offer_product_category_block">Рис <span>349</span> </div>
+                                            <div class="title_offer_product_category_block">
+                                                <span v-if="typeValue.name">{{ typeValue.name }}</span>
+                                                <span v-else>{{categoryValue.name}}</span>
+                                                <span>{{products.length}}</span> </div>
                                             <div class="more_offer_product_category_block"><a href="">Показать все</a></div>
                                         </div>
                                         <div>
@@ -195,21 +201,21 @@
                                         </div>
                                     </div>
                                     <div :class="{ 'container_item_offer_catalog' : listView,'tile_container_item_offer_catalog row':tileView}">
-                                        <div :class="{ 'item_product_category' : listView,'tile_item_offer_catalog col':tileView}">
+                                        <div :class="{ 'item_product_category' : listView,'tile_item_offer_catalog col':tileView}" v-if="products.length" v-for="product in products">
                                             <div :class="{ 'info_item_offer_catalog' : listView,'tile_info_item_offer_catalog':tileView}">
                                                 <div :class="{ 'image_info_item_offer_catalog' : listView,'tile_image_info_item_offer_catalog':tileView}"
-                                                     style="background-image: url(./images/offer.png);"></div>
+                                                     :style="'background-image: url('+product.image+');'"></div>
                                                 <div>
-                                                    <div class="name_info_item_offer_catalog">Агро Альянс
+                                                    <div class="name_info_item_offer_catalog">{{ product.name }}
                                                         <span class="icon_star">
-                                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M5.54894 0.927052C5.8483 0.0057416 7.1517 0.00574088 7.45106 0.927052L8.29611 3.52786C8.42999 3.93989 8.81394 4.21885 9.24717 4.21885H11.9818C12.9505 4.21885 13.3533 5.45846 12.5696 6.02786L10.3572 7.63525C10.0067 7.8899 9.86008 8.34127 9.99396 8.75329L10.839 11.3541C11.1384 12.2754 10.0839 13.0415 9.30017 12.4721L7.08779 10.8647C6.7373 10.6101 6.2627 10.6101 5.91222 10.8647L3.69983 12.4721C2.91612 13.0415 1.86164 12.2754 2.16099 11.3541L3.00604 8.75329C3.13992 8.34127 2.99326 7.8899 2.64277 7.63525L0.430391 6.02787C-0.353323 5.45846 0.0494523 4.21885 1.01818 4.21885H3.75283C4.18606 4.21885 4.57001 3.93989 4.70389 3.52786L5.54894 0.927052Z"
-                                                        fill="#FFD789" />
-                                                </svg>
+                                                            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M5.54894 0.927052C5.8483 0.0057416 7.1517 0.00574088 7.45106 0.927052L8.29611 3.52786C8.42999 3.93989 8.81394 4.21885 9.24717 4.21885H11.9818C12.9505 4.21885 13.3533 5.45846 12.5696 6.02786L10.3572 7.63525C10.0067 7.8899 9.86008 8.34127 9.99396 8.75329L10.839 11.3541C11.1384 12.2754 10.0839 13.0415 9.30017 12.4721L7.08779 10.8647C6.7373 10.6101 6.2627 10.6101 5.91222 10.8647L3.69983 12.4721C2.91612 13.0415 1.86164 12.2754 2.16099 11.3541L3.00604 8.75329C3.13992 8.34127 2.99326 7.8899 2.64277 7.63525L0.430391 6.02787C-0.353323 5.45846 0.0494523 4.21885 1.01818 4.21885H3.75283C4.18606 4.21885 4.57001 3.93989 4.70389 3.52786L5.54894 0.927052Z"
+                                                                    fill="#FFD789" />
+                                                            </svg>
 
-                                            </span>
+                                                        </span>
                                                         <span class="text_star">4,5</span>
                                                     </div>
                                                     <div class="place_count_info_item_offer_catalog">
@@ -238,139 +244,9 @@
                                                 <div class="start_price_category_products">46, 34 ₽/ кг</div>
                                             </div>
                                             <div class="container_item_offer_btn">
-                                                <div class="make_deal">Подробнее</div>
-                                                <div class="doc_item_offer">
-                                                    <button class="bay_item_offer_catalog" type="button" id="dropdownMenuButton"
-                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M1.5 2H3.89566C4.83305 2 5.64468 2.65106 5.84803 3.56614L6.5 6.5M6.5 6.5L7.60424 12.5733C8.12296 15.4263 10.6077 17.5 13.5075 17.5H16.2106C19.012 17.5 21.4406 15.5615 22.0614 12.8297L23.0835 8.33243C23.2969 7.39379 22.5834 6.5 21.6208 6.5H6.5Z"
-                                                                stroke="#71BF45" stroke-width="2" stroke-linecap="round" />
-                                                            <circle cx="9" cy="21" r="1" stroke="#71BF45"
-                                                                    stroke-width="2" />
-                                                            <circle cx="21" cy="21" r="1" stroke="#71BF45"
-                                                                    stroke-width="2" />
-                                                        </svg>
-                                                    </button>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item" href="#">Документ <span>PDF</span></a>
-                                                        <a class="dropdown-item" href="#">Документ <span>PDF</span></a>
-                                                        <a class="dropdown-item" href="#">Документ <span>PDF</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div :class="{ 'item_product_category' : listView,'tile_item_offer_catalog col':tileView}">
-                                            <div class="info_item_offer_catalog">
-                                                <div class="image_info_item_offer_catalog"
-                                                     style="background-image: url(./images/offer.png);"></div>
-                                                <div>
-                                                    <div class="name_info_item_offer_catalog">Агро Альянс
-                                                        <span class="icon_star">
-                                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M5.54894 0.927052C5.8483 0.0057416 7.1517 0.00574088 7.45106 0.927052L8.29611 3.52786C8.42999 3.93989 8.81394 4.21885 9.24717 4.21885H11.9818C12.9505 4.21885 13.3533 5.45846 12.5696 6.02786L10.3572 7.63525C10.0067 7.8899 9.86008 8.34127 9.99396 8.75329L10.839 11.3541C11.1384 12.2754 10.0839 13.0415 9.30017 12.4721L7.08779 10.8647C6.7373 10.6101 6.2627 10.6101 5.91222 10.8647L3.69983 12.4721C2.91612 13.0415 1.86164 12.2754 2.16099 11.3541L3.00604 8.75329C3.13992 8.34127 2.99326 7.8899 2.64277 7.63525L0.430391 6.02787C-0.353323 5.45846 0.0494523 4.21885 1.01818 4.21885H3.75283C4.18606 4.21885 4.57001 3.93989 4.70389 3.52786L5.54894 0.927052Z"
-                                                        fill="#FFD789" />
-                                                </svg>
-
-                                            </span>
-                                                        <span class="text_star">4,5</span>
-                                                    </div>
-                                                    <div class="place_count_info_item_offer_catalog">
-                                                        <span>50кг</span>
-                                                        <span>25кг</span>
-                                                        <span>10кг</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="delivery_item_similar_products">
-                                                <div class="icon_delivery">
-                                                    <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <circle cx="12.5" cy="12" r="11" stroke="#71BF45"
-                                                                stroke-width="2" />
-                                                        <path d="M12.5 7V13L15 15.5" stroke="#71BF45" stroke-width="2"
-                                                              stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </div>
-                                                <div>
-                                                    <div class="title_time_delivery">Доставка</div>
-                                                    <div class="time_delivery">от 5 дней</div>
-                                                </div>
-                                            </div>
-                                            <div class="price_item_product_category">
-                                                <div class="start_price_category_products">46, 34 ₽/ кг</div>
-                                            </div>
-                                            <div class="container_item_offer_btn">
-                                                <div class="make_deal">Подробнее</div>
-                                                <div class="doc_item_offer">
-                                                    <button class="bay_item_offer_catalog" type="button" id="dropdownMenuButton"
-                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M1.5 2H3.89566C4.83305 2 5.64468 2.65106 5.84803 3.56614L6.5 6.5M6.5 6.5L7.60424 12.5733C8.12296 15.4263 10.6077 17.5 13.5075 17.5H16.2106C19.012 17.5 21.4406 15.5615 22.0614 12.8297L23.0835 8.33243C23.2969 7.39379 22.5834 6.5 21.6208 6.5H6.5Z"
-                                                                stroke="#71BF45" stroke-width="2" stroke-linecap="round" />
-                                                            <circle cx="9" cy="21" r="1" stroke="#71BF45"
-                                                                    stroke-width="2" />
-                                                            <circle cx="21" cy="21" r="1" stroke="#71BF45"
-                                                                    stroke-width="2" />
-                                                        </svg>
-                                                    </button>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item" href="#">Документ <span>PDF</span></a>
-                                                        <a class="dropdown-item" href="#">Документ <span>PDF</span></a>
-                                                        <a class="dropdown-item" href="#">Документ <span>PDF</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div :class="{ 'item_product_category' : listView,'tile_item_offer_catalog col':tileView}">
-                                            <div class="info_item_offer_catalog">
-                                                <div class="image_info_item_offer_catalog"
-                                                     style="background-image: url(./images/offer.png);"></div>
-                                                <div>
-                                                    <div class="name_info_item_offer_catalog">Агро Альянс
-                                                        <span class="icon_star">
-                                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M5.54894 0.927052C5.8483 0.0057416 7.1517 0.00574088 7.45106 0.927052L8.29611 3.52786C8.42999 3.93989 8.81394 4.21885 9.24717 4.21885H11.9818C12.9505 4.21885 13.3533 5.45846 12.5696 6.02786L10.3572 7.63525C10.0067 7.8899 9.86008 8.34127 9.99396 8.75329L10.839 11.3541C11.1384 12.2754 10.0839 13.0415 9.30017 12.4721L7.08779 10.8647C6.7373 10.6101 6.2627 10.6101 5.91222 10.8647L3.69983 12.4721C2.91612 13.0415 1.86164 12.2754 2.16099 11.3541L3.00604 8.75329C3.13992 8.34127 2.99326 7.8899 2.64277 7.63525L0.430391 6.02787C-0.353323 5.45846 0.0494523 4.21885 1.01818 4.21885H3.75283C4.18606 4.21885 4.57001 3.93989 4.70389 3.52786L5.54894 0.927052Z"
-                                                        fill="#FFD789" />
-                                                </svg>
-
-                                            </span>
-                                                        <span class="text_star">4,5</span>
-                                                    </div>
-                                                    <div class="place_count_info_item_offer_catalog">
-                                                        <span>50кг</span>
-                                                        <span>25кг</span>
-                                                        <span>10кг</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="delivery_item_similar_products">
-                                                <div class="icon_delivery">
-                                                    <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <circle cx="12.5" cy="12" r="11" stroke="#71BF45"
-                                                                stroke-width="2" />
-                                                        <path d="M12.5 7V13L15 15.5" stroke="#71BF45" stroke-width="2"
-                                                              stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </div>
-                                                <div>
-                                                    <div class="title_time_delivery">Доставка</div>
-                                                    <div class="time_delivery">от 5 дней</div>
-                                                </div>
-                                            </div>
-                                            <div class="price_item_product_category">
-                                                <div class="start_price_category_products">46, 34 ₽/ кг</div>
-                                            </div>
-                                            <div class="container_item_offer_btn">
-                                                <div class="make_deal">Подробнее</div>
+                                                <router-link :to="{ path:'/catalog-page/'+product.id}">
+                                                    <div class="make_deal">Подробнее</div>
+                                                </router-link>
                                                 <div class="doc_item_offer">
                                                     <button class="bay_item_offer_catalog" type="button" id="dropdownMenuButton"
                                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -407,92 +283,18 @@
 import NavbarCatalog from "../Сomponents/HeaderCatalog";
 import SidebarCatalog from "../Сomponents/SidebarCatalog";
 import Multiselect from "vue-multiselect";
+import {mapGetters,mapActions,mapState} from 'vuex';
+import catalog from "../Store/modules/catalog";
 export default {
     components: {SidebarCatalog, NavbarCatalog,Multiselect},
+
     data(){
         return{
-            categories:[],
-            types:[],
-            filteredTypes:[],
-            category:null,
-            catname:'',
-            type:null,
-            typename:'',
-            packages:[],
-            packnames:[],
-            products:[],
-            selectedCategories:'',
-            selectedTypes:'',
             tileView : false,
             listView : true,
         }
     },
-    mounted() {
-        this.getData();
-    },
     methods:{
-        changeFilter (data)
-        {
-            let self = this;
-            this.category = data.category;
-            this.type = data.type
-            this.packages  = data.packages;
-            if(data.catname)
-            {
-                data.catname.forEach(function (item,i){
-                    self.catname = item.name;
-                 })
-            }
-            if(data.typename)
-            {
-                data.typename.forEach(function (item,i){
-                    self.typename = item.name;
-                })
-            }
-            if(data.packnames)
-            {
-                self.packnames = []
-                data.packnames.forEach(function (item,i){
-                    self.packnames.push(item[0].name);
-                })
-            }
-            this.getFilterData(data);
-        },
-        getFilterData(data)
-        {
-            let self = this;
-            axios.get('/get/catalog/',{
-                params:data
-            }).then((response) => {
-                   //console.log(response.data)
-                    if (response.data !== 'undefined' && response.data !== null) {
-                        this.products = response.data;
-                    }
-            })
-        },
-        removePack(pack)
-        {
-            let self = this;
-            let newname = self.packnames.filter(function (item){
-                return item !== pack;
-            })
-            self.packnames = newname;
-            self.$emit('update-package',self.packnames);
-
-        },
-        removeType(type)
-        {
-            let self = this;
-
-            self.typename = '';
-            self.$emit('update-types',type);
-        },
-        removeCat(cat)
-        {
-            let self = this;
-            self.catname = '';
-            self.$emit('update-category',cat);
-        },
         getData()
         {
             axios.get('/get/categories/')
@@ -518,14 +320,6 @@ export default {
                     }
                 })
         },
-        filterTypes(event)
-        {
-            let self = this;
-            const name = self.types.types.filter(function (e) {
-                return e.category_id == event.id;
-            });
-            self.filteredTypes = name;
-        },
         changeToTileView()
         {
             let self = this;
@@ -537,9 +331,18 @@ export default {
             let self = this;
             self.tileView = false;
             self.listView = true;
-        }
+        },
+        ...mapActions('catalog',['updateValueAction','getCatalogData','getCatalogTypes','updateTypeAction']),
 
-    }
+
+    },
+    mounted() {
+        this.$store.dispatch('catalog/getCatalogData');
+        this.$store.dispatch('catalog/getCatalogTypes');
+    },
+    computed: {
+        ...mapState('catalog',['categories', 'categoryValue','types','typeValue','filteredTypes','products'])
+    },
 }
 </script>
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>

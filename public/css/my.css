@@ -39,3 +39,24 @@ select option:hover {
     height: 30px;
     overflow: hidden;
 }
+.container_list_sidebar_catalog_menu{
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+.scroll
+{
+    display: block;
+    position: fixed;
+    width: 100%;
+    top:0;
+    left:0;
+    background: #fff;
+    z-index: 999;
+
+}
+.header_catalog.scroll .navbar-nav .nav-link{
+    padding: 0;
+}

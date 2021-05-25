@@ -1,5 +1,5 @@
 <template>
-    <header class="header_catalog" :class="{'scroll': scrollPosition > 160}">
+    <header class="header_catalog scroll" >
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="/">
                 <svg width="135" height="34" viewBox="0 0 135 34" fill="none" xmlns="http://www.w3.org/2000/svg">

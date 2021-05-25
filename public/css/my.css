@@ -60,3 +60,11 @@ select option:hover {
 .header_catalog.scroll .navbar-nav .nav-link{
     padding: 0;
 }
+.container_catalog_products
+{
+    padding-top: 120px;
+}
+.container.content
+{
+    padding-top: 140px;
+}

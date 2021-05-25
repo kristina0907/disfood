@@ -4,12 +4,11 @@
             <UserLKHeader></UserLKHeader>
         </div>
         <div class="row">
-            <div class="main_container">
+            <div class="main_container col">
                 <div class="title_page">Мои сделки</div>
 
                 <div class="table_container table-responsive">
                     <div class="sort_taable">
-
                         <div class="item_sort" :class="{'active':flags[0]['allFlag']}" @click="allFilter('all')">Все <span>&#183;</span>  {{ orders.length }}</div>
                         <div class="item_sort" :class="{'active':flags[1]['newFlag']}" @click="valFilter('new')">Новые <span>&#183;</span> {{ countOffers('new') }}</div>
                         <div class="item_sort" :class="{'active':flags[2]['payingFlag']}" @click="valFilter('paying')">Оплата <span>&#183;</span> {{ countOffers('paying') }}</div>

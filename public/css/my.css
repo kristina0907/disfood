@@ -68,3 +68,28 @@ select option:hover {
 {
     padding-top: 140px;
 }
+.padding-0
+{
+    padding: 0 !important;
+}
+.btn-table
+{
+    color: #71BF45;
+    border-radius: 10px;
+    border: 1px solid #71BF45;
+    background: transparent;
+    padding: 10px 30px;
+    margin-right: 10px;
+    font-weight: 600;
+}
+.btn-table:hover
+{
+    color: #71BF45;
+    border-radius: 10px;
+    border: 1px solid #71BF45;
+    background: transparent;
+    padding: 10px 30px;
+    margin-right: 10px;
+    font-weight: 600;
+    text-decoration: none;
+}

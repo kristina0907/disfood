@@ -289,7 +289,10 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="name_info_item_offer_catalog">{{product.organization.name}} <span>&#183;</span> {{product.country.title_ru}}
+                                                        <div class="name_info_item_offer_catalog">{{product.organization.name}} <span>&#183;</span>
+                                                            <span v-if="product.country">
+                                                                {{product.country.title_ru}}
+                                                             </span>
                                                         </div>
                                                         <div
                                                             class="place_count_info_item_offer_catalog tile_place_count_info_item_offer_catalog">

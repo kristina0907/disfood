@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Lang;
 use InvalidArgumentException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use MoveMoveIo\DaData\Enums\BranchType;
 use MoveMoveIo\DaData\Enums\CompanyStatus;
 use MoveMoveIo\DaData\Enums\CompanyType;
 use MoveMoveIo\DaData\Enums\Language;
@@ -44,7 +45,7 @@ class DadataService implements DadataContract
 
     public function getCompanyByInn($data,$count)
     {
-        $dadata = DaDataCompany::prompt('сбербанк', 10, [CompanyStatus::ACTIVE], CompanyType::LEGAL);
+        $dadata = DaDataCompany::id($data, $count, null, BranchType::MAIN, CompanyType::LEGAL);
         return $dadata;
        //return DaDataCompany::id($data,$count);
     }

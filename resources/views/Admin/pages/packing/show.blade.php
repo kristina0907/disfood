@@ -58,8 +58,10 @@
                                                         <td>{{$pack->name}}</td>
                                                         <td>{{$pack->slug}}</td>
                                                         <td>
-                                                            @if($pack->category_id)
-                                                                <span class="badge bg-green">{{$pack->category->name}}</span>
+                                                            @if(count($pack->categories))
+                                                                @foreach($pack->categories as $cat)
+                                                                    <span class="badge bg-green">{{$cat->name}}</span>
+                                                                @endforeach
                                                             @else
                                                                 <span class="badge bg-red">Нет</span>
                                                             @endif

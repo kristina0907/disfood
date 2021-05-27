@@ -57,7 +57,6 @@ class PackingRepository implements PackingContract
         $packing = new $this->packing;
 
         $packing->name = $data['name'];
-        $packing->category_id = $data['category_id'];
         if (!empty($data['description'])) {
             $packing->description = $data['description'];
         }
@@ -69,7 +68,10 @@ class PackingRepository implements PackingContract
             $packing->image = $name;
         }
         $packing->save();
-
+        if(!empty($data['category']))
+        {
+            $packing->categories()->sync($data['category']);
+        }
         return $packing->fresh();
     }
 
@@ -85,7 +87,7 @@ class PackingRepository implements PackingContract
         $packing = $this->packing->find($id);
 
         $packing->name = $data['name'];
-        $packing->category_id = $data['category_id'];
+
         if (!empty($data['description'])) {
             $packing->description = $data['description'];
         }
@@ -104,7 +106,10 @@ class PackingRepository implements PackingContract
             $packing->active = true;
         }
         $packing->update();
-
+        if(!empty($data['category']))
+        {
+            $packing->categories()->sync($data['category']);
+        }
         return $packing;
     }
 

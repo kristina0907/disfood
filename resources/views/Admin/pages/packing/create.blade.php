@@ -36,7 +36,7 @@
                         <label for="category_id">Категория</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <select name="category_id" id="category_id">
+                                <select name="category[]" id="category_id" multiple>
                                     @if(!empty($categories))
                                         @foreach($categories as $cat)
                                             <option value="{{$cat->id}}">{{$cat->name}}</option>

@@ -49,7 +49,7 @@ class PackingService
         $validated = $data->validate([
             'name' => 'required|max:255',
             'image' => 'nullable|sometimes|image|mimes:jpeg,bmp,png,jpg,svg|max:2000',
-            'category_id' => 'required|integer',
+            'category' => 'required',
             'description'  =>  'string'
         ]);
 
@@ -70,7 +70,7 @@ class PackingService
         $validated = $data->validate([
             'name' => 'required|max:255',
             'image' => 'nullable|sometimes|image|mimes:jpeg,bmp,png,jpg,svg|max:2000',
-            'category_id' => 'required|integer',
+            'category' => 'required',
             'description'  =>  'string'
         ]);
 

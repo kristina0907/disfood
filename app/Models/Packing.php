@@ -40,12 +40,13 @@ class Packing extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(Category::class,'category_id');
+        return $this->belongsToMany(Category::class,'packages_categories','package_id','category_id');
     }
 }

@@ -56,8 +56,10 @@
                                                         <td><?php echo e($pack->name); ?></td>
                                                         <td><?php echo e($pack->slug); ?></td>
                                                         <td>
-                                                            <?php if($pack->category_id): ?>
-                                                                <span class="badge bg-green"><?php echo e($pack->category->name); ?></span>
+                                                            <?php if(count($pack->categories)): ?>
+                                                                <?php $__currentLoopData = $pack->categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                    <span class="badge bg-green"><?php echo e($cat->name); ?></span>
+                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                             <?php else: ?>
                                                                 <span class="badge bg-red">Нет</span>
                                                             <?php endif; ?>

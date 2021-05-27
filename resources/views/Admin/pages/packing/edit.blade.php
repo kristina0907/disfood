@@ -37,13 +37,16 @@
                         <label for="category_id">Категория</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <select name="category_id" id="category_id">
+                                <select name="category[]" id="category" multiple>
                                     @if(!empty($categories))
                                         @foreach($categories as $cat)
                                             <option value="{{$cat->id}}"
-                                            @if($cat->id == $packing->category_id)
-                                                selected
-                                            @endif
+                                            @foreach($packing->categories as $category)
+                                                @if($cat->id == $category->id)
+                                                    selected
+                                                @endif
+                                            @endforeach
+
                                             >{{$cat->name}}</option>
                                         @endforeach
                                     @endif

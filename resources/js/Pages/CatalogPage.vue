@@ -48,10 +48,8 @@
                                     </span>
                                         <span class="text_star">4,5</span>
                                     </div>
-                                    <div class="place_count_info_item_offer_catalog">
-                                        <span>50кг</span>
-                                        <span>25кг</span>
-                                        <span>10кг</span>
+                                    <div class="place_count_info_item_offer_catalog" v-if="product.category && product.category.packages">
+                                        <span v-for="pack in  product.category.packages">{{pack.name}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -63,25 +61,23 @@
                                         <div class="nav-container">
                                             <div class="slider-nav">
                                                 <div v-if="product.product">
-                                                    <img :src="product.product.image">
+                                                    <img :src="product.product.image" alt="">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="main-container">
                                             <div class="slider slider-main">
                                                 <div class="main_galery_img" v-if="product.product">
-                                                    <img :src="product.product.image">
+                                                    <img :src="product.product.image" alt="">
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
-
                                 </div>
                             </div>
                             <div class="container_right_price_block">
                                 <div class="catalog_info_product">
-                                    <div class="price_catalog_info_product">от {{product.price}} ₽/ кг</div>
+                                    <div class="price_catalog_info_product" v-if="product.price && product.type">от {{product.price}} ₽ / {{product.type.unit}} </div>
                                     <div class="count_offers_product">356 предложений</div>
                                     <div class="name_info_catalog_product">Стандарт <span>ГОСТ 6292-93</span></div>
                                     <div class="name_info_catalog_product">Сорт <span>1</span></div>
@@ -228,21 +224,25 @@
                                 <div class="title_item_catalog_info_delivery">
                                     Объем закупки
                                 </div>
-                                <div class="container_purchase_volume">
+                                <div class="container_purchase_volume" v-for="(pack, index) in packages" :key="index">
                                     <div class="item_purchase_volume">
-                                        <div class="title_packaging">Фасовка <span class="count_packaging">50 кг</span>
+                                        <div class="title_packaging">
+                                            Фасовка
+                                            <span class="count_packaging">
+                                                {{pack.package.name}}
+                                            </span>
                                         </div>
                                         <div>
                                             <div class="quantity-block">
-                                                <button class="quantity-arrow-minus" data-id="m2" @click="changeCount('minus')">
+                                                <button class="quantity-arrow-minus" data-id="m2" @click="changeCount('decrement',pack)">
                                                     <svg width="20" height="2" viewBox="0 0 20 2" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M1 1L19 1" stroke="#C8CCD1" stroke-width="2"
                                                               stroke-linecap="round" stroke-linejoin="round" />
                                                     </svg>
                                                 </button>
-                                                <input data-id="m2" class="quantity-num" type="number" v-model="countPackages" />
-                                                <button data-id="m2" class="quantity-arrow-plus" @click="changeCount('plus')">
+                                                <input data-id="m2" class="quantity-num" type="number" v-model="pack.value" />
+                                                <button data-id="m2" class="quantity-arrow-plus" @click="changeCount('increment',pack)">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M12 3V21" stroke="#C8CCD1" stroke-width="2"
@@ -254,7 +254,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="close_purchase_volume" @click="eraseCounter">
+                                    <div class="close_purchase_volume" @click="eraseCounter(pack)">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
                                             <path d="M6 6L18.7742 18.7742" stroke="#8898A8" stroke-width="2"
@@ -265,9 +265,9 @@
 
                                     </div>
                                 </div>
-                                <div class="add_packaging">
+                                <div class="add_packaging" v-if="product.category && product.category.packages">
                                     Добавить фасовку
-                                    <span>150 кг</span>
+                                    <span v-for="pack in filterPackages" @click="addPackingToOrder(pack)" >{{pack.name}}</span>
                                 </div>
                             </div>
                             <div class="total_item_catalog_info_delivery">
@@ -568,6 +568,8 @@ export default {
             product_id:this.$route.params.id,
             product:{},
             countPackages:0,
+            packages:[],
+            filterPackages:[],
         }
     },
     methods:{
@@ -575,29 +577,59 @@ export default {
         {
             let self = this;
             axios.get('/get/catalog/page/'+self.product_id).then((response) => {
-                console.log(response.data)
                 if (response.data !== 'undefined' && response.data !== null) {
                     this.product = response.data;
+                    this.filterPackages = response.data.category.packages;
                 }
             })
         },
-        changeCount(val)
+        changeCount(val,pack)
         {
+
+            let changePack = this.packages.find(function(item, index, array) {
+               return   item.package.id == pack.package.id
+            })
             switch (val){
-                case 'plus':
-                    this.countPackages++
+                case 'increment':
+                    changePack.value++
                     break;
-                case 'minus':
-                    if(this.countPackages >0)
+                case 'decrement':
+                    if( changePack.value >0)
                     {
-                        this.countPackages--;
+                        changePack.value--;
                     }
                     break;
             }
         },
-        eraseCounter()
+        eraseCounter(pack)
         {
-            this.countPackages = 0;
+            let changePack = this.packages.findIndex(function(item, index, array) {
+                return   item.package.id == pack.package.id
+            })
+
+            pack.value = 0;
+            this.filterPackages.push(pack.package);
+            this.packages.splice(changePack,1);
+
+        },
+        addPackingToOrder(pack)
+        {
+            this.packages.push(
+                {
+                    package:pack,
+                    value:0
+                }
+            )
+           this.filterPackages.forEach(function(item, index, array) {
+
+
+                if (item.id == pack.id)
+                {
+                    array.splice(index, 1);
+                }
+
+            })
+
         }
     },
     mounted(){

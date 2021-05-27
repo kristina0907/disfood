@@ -93,3 +93,11 @@ select option:hover {
     font-weight: 600;
     text-decoration: none;
 }
+.close_purchase_volume
+{
+    cursor: pointer;
+}
+.dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu .dropdown-item
+{
+    cursor: pointer;
+}

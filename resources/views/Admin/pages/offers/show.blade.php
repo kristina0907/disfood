@@ -85,7 +85,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            @if(!empty($offer->country))
+                                            @if(!empty($offer->country->title_ru))
                                                 {{$offer->country->title_ru}}
                                             @endif
                                         </td>

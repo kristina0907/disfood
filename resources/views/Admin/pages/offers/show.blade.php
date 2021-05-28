@@ -90,7 +90,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            @if(!empty($offer->city))
+                                            @if(!empty($offer->city->title_ru))
                                                 {{$offer->city->title_ru}}
                                             @endif
                                         </td>

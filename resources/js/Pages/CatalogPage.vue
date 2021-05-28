@@ -614,6 +614,14 @@ export default {
         {
            let summ   = 0;
            this.packages.forEach(item =>{
+               if(item.package.value == 'undefined' || item.package.value == 'null' || item.package.value == '' || item.package.value < 0)
+               {
+                   item.package.value = 0;
+               }
+               if(item.value == 'undefined' || item.value == 'null' || item.value == '' || item.value < 0)
+               {
+                   item.value = 0;
+               }
                let s = parseInt(item.package.value) * parseInt(item.value);
                summ = summ + s;
            })

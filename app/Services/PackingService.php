@@ -50,6 +50,7 @@ class PackingService
             'name' => 'required|max:255',
             'image' => 'nullable|sometimes|image|mimes:jpeg,bmp,png,jpg,svg|max:2000',
             'category' => 'required',
+            'value'=>'required|integer',
             'description'  =>  'string'
         ]);
 
@@ -71,6 +72,7 @@ class PackingService
             'name' => 'required|max:255',
             'image' => 'nullable|sometimes|image|mimes:jpeg,bmp,png,jpg,svg|max:2000',
             'category' => 'required',
+            'value'=>'required|integer',
             'description'  =>  'string'
         ]);
 

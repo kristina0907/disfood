@@ -60,6 +60,7 @@ class PackingRepository implements PackingContract
         if (!empty($data['description'])) {
             $packing->description = $data['description'];
         }
+        $packing->value = $data['value'];
         if($data->hasFile('image'))
         {
             $extension = $data->image->extension();
@@ -91,6 +92,7 @@ class PackingRepository implements PackingContract
         if (!empty($data['description'])) {
             $packing->description = $data['description'];
         }
+        $packing->value = $data['value'];
         if($data->hasFile('image'))
         {
             $extension = $data->image->extension();

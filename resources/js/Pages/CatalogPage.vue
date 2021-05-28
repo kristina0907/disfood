@@ -241,7 +241,7 @@
                                                               stroke-linecap="round" stroke-linejoin="round" />
                                                     </svg>
                                                 </button>
-                                                <input data-id="m2" class="quantity-num" type="number" v-model="pack.value" />
+                                                <input data-id="m2" class="quantity-num" type="number" v-model="pack.value" v-on:input="recalc"/>
                                                 <button data-id="m2" class="quantity-arrow-plus" @click="changeCount('increment',pack)">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -274,11 +274,11 @@
                                 <div class="total_price_item_catalog_info_delivery">
                                     <div class="title_total_item_catalog_info_delivery">Итого:</div>
                                     <div class="volume_total_item_catalog_info_delivery">
-                                        <div class="count_volume">40 000 кг</div>
+                                        <div class="count_volume">{{volume}} кг</div>
                                         <div class="dop_count_volume">Объем сделки</div>
                                     </div>
                                     <div class="volume_total_item_catalog_info_delivery">
-                                        <div class="count_volume">от 1 340 004 ₽</div>
+                                        <div class="count_volume">от {{summ}} ₽</div>
                                         <div class="dop_count_volume">Сумма сделки</div>
                                     </div>
                                 </div>
@@ -570,6 +570,8 @@ export default {
             countPackages:0,
             packages:[],
             filterPackages:[],
+            volume:0,
+            summ:0
         }
     },
     methods:{
@@ -592,14 +594,36 @@ export default {
             switch (val){
                 case 'increment':
                     changePack.value++
+                    this.recalc();
                     break;
                 case 'decrement':
                     if( changePack.value >0)
                     {
                         changePack.value--;
+                        this.recalc();
                     }
                     break;
             }
+        },
+        recalc()
+        {
+            this.calcVolume();
+            this.calcSumm();
+        },
+        calcVolume()
+        {
+           let summ   = 0;
+           this.packages.forEach(item =>{
+               let s = parseInt(item.package.value) * parseInt(item.value);
+               summ = summ + s;
+           })
+           this.volume = summ;
+        },
+        calcSumm()
+        {
+            let summ   = 0;
+            summ = parseInt(this.volume) * parseInt(this.product.price);
+            this.summ = summ;
         },
         eraseCounter(pack)
         {
@@ -610,6 +634,8 @@ export default {
             pack.value = 0;
             this.filterPackages.push(pack.package);
             this.packages.splice(changePack,1);
+            this.calcVolume();
+            this.calcSumm();
 
         },
         addPackingToOrder(pack)
@@ -621,15 +647,11 @@ export default {
                 }
             )
            this.filterPackages.forEach(function(item, index, array) {
-
-
                 if (item.id == pack.id)
                 {
                     array.splice(index, 1);
                 }
-
             })
-
         }
     },
     mounted(){

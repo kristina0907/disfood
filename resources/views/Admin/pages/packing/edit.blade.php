@@ -26,7 +26,12 @@
                                 <input type="text" id="name" class="form-control" value="{{old('name',$packing->name)}}" name="name" placeholder="Введите название фасовки..." required>
                             </div>
                         </div>
-
+                        <label for="value">Значение фасовки</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="number" id="value" class="form-control" name="value"  value="{{old('value',$packing->value)}}" placeholder="Введите название фасовки..." required>
+                            </div>
+                        </div>
                         <label for="category_id">Описание</label>
                         <div class="form-group">
                             <div class="form-line">

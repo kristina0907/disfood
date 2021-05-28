@@ -29,6 +29,7 @@
                                                 <th>slug</th>
                                                 <th>Категория</th>
                                                 <th>Описание</th>
+                                                <th>Значение</th>
                                                 <th>Активно</th>
                                                 <th>Дата создания</th>
                                                 <th>Действия</th>
@@ -42,6 +43,7 @@
                                                 <th>slug</th>
                                                 <th>Категория</th>
                                                 <th>Описание</th>
+                                                <th>Значение</th>
                                                 <th>Активно</th>
                                                 <th>Дата создания</th>
                                                 <th>Действия</th>
@@ -67,6 +69,7 @@
                                                             @endif
                                                         </td>
                                                         <td>{{$pack->description}}</td>
+                                                        <td>{{$pack->value}}</td>
                                                         <td>{{$pack->active}}</td>
                                                         <td>{{$pack->created_at}}</td>
                                                         <td>

@@ -20,7 +20,7 @@
                 <div class="offer_price_filter">
                     <div>
                         <label for="toggle-button" class="text">Показать цены с НДС</label>
-                        <input type="checkbox" name="toggle" id="toggle-button" class="toggle-button">
+                        <input type="checkbox" name="toggle" id="toggle-button" class="toggle-button" @click="changePrice">
                     </div>
                     <div class="dop_filter_currency">
                         <a class="active" href="">RUB (₽)</a>
@@ -77,8 +77,9 @@
                             </div>
                             <div class="container_right_price_block">
                                 <div class="catalog_info_product">
-                                    <div class="price_catalog_info_product" v-if="product.price && product.type">от {{product.price}} ₽ / {{product.type.unit}} </div>
-                                    <div class="count_offers_product">356 предложений</div>
+                                    <div class="price_catalog_info_product" v-if="product.price && product.type && !priceWithNDS">от {{product.price}} ₽ / {{product.type.unit}} </div>
+                                    <div class="price_catalog_info_product" v-if="product.price && product.type && priceWithNDS">от {{product.price_with_nds}} ₽ / {{product.type.unit}} </div>
+                                    <div class="count_offers_product" v-if="relatedOffers.length">Количество похожих предложений {{relatedOffers.length}} </div>
                                     <div class="name_info_catalog_product">Стандарт <span>ГОСТ 6292-93</span></div>
                                     <div class="name_info_catalog_product">Сорт <span>1</span></div>
                                     <div class="name_info_catalog_product">Содержание дроби <span>5%</span></div>
@@ -187,7 +188,7 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="pickUp" role="tabpanel" aria-labelledby="pickUp-tab">
-                                            <div class="item_product_input row">
+<!--                                            <div class="item_product_input row">
                                                 <div class="container_input_price col-md-12">
                                                     <div class="text_input">Куда доставить?</div>
                                                     <input type="text" value="Россия, Екатеринбург">
@@ -202,7 +203,7 @@
                                                         </svg>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                         </div>
                                     </div>
                                     <div class="deadlines_delivery">
@@ -232,27 +233,65 @@
                                                 {{pack.package.name}}
                                             </span>
                                         </div>
-                                        <div>
-                                            <div class="quantity-block">
-                                                <button class="quantity-arrow-minus" data-id="m2" @click="changeCount('decrement',pack)">
-                                                    <svg width="20" height="2" viewBox="0 0 20 2" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M1 1L19 1" stroke="#C8CCD1" stroke-width="2"
-                                                              stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </button>
-                                                <input data-id="m2" class="quantity-num" type="number" v-model="pack.value" v-on:input="recalc"/>
-                                                <button data-id="m2" class="quantity-arrow-plus" @click="changeCount('increment',pack)">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M12 3V21" stroke="#C8CCD1" stroke-width="2"
-                                                              stroke-linecap="round" stroke-linejoin="round" />
-                                                        <path d="M3 12L21 12" stroke="#C8CCD1" stroke-width="2"
-                                                              stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </button>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-10">
+                                                        <div class="quantity-block">
+                                                            <button class="quantity-arrow-minus" data-id="m2" @click="changeCount('decrement',pack)">
+                                                                <svg width="20" height="2" viewBox="0 0 20 2" fill="none"
+                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M1 1L19 1" stroke="#C8CCD1" stroke-width="2"
+                                                                          stroke-linecap="round" stroke-linejoin="round" />
+                                                                </svg>
+                                                            </button>
+                                                            <input data-id="m2"  class="quantity-num" type="number" v-model="pack.value" v-on:input="recalc" placeholder="штук"/>
+                                                            <button data-id="m2" class="quantity-arrow-plus" @click="changeCount('increment',pack)">
+                                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M12 3V21" stroke="#C8CCD1" stroke-width="2"
+                                                                          stroke-linecap="round" stroke-linejoin="round" />
+                                                                    <path d="M3 12L21 12" stroke="#C8CCD1" stroke-width="2"
+                                                                          stroke-linecap="round" stroke-linejoin="round" />
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        штук
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-10">
+                                                        <div class="quantity-block">
+                                                            <button class="quantity-arrow-minus" data-id="m2" @click="changeCount('decrement',pack)">
+                                                                <svg width="20" height="2" viewBox="0 0 20 2" fill="none"
+                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M1 1L19 1" stroke="#C8CCD1" stroke-width="2"
+                                                                          stroke-linecap="round" stroke-linejoin="round" />
+                                                                </svg>
+                                                            </button>
+                                                            <input data-id="m2"  class="quantity-num" type="number" v-model="volume" v-on:input="recalc" placeholder="кг"/>
+                                                            <button data-id="m2" class="quantity-arrow-plus" @click="changeCount('increment',pack)">
+                                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M12 3V21" stroke="#C8CCD1" stroke-width="2"
+                                                                          stroke-linecap="round" stroke-linejoin="round" />
+                                                                    <path d="M3 12L21 12" stroke="#C8CCD1" stroke-width="2"
+                                                                          stroke-linecap="round" stroke-linejoin="round" />
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        кг
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+
                                     </div>
                                     <div class="close_purchase_volume" @click="eraseCounter(pack)">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -282,7 +321,7 @@
                                         <div class="dop_count_volume">Сумма сделки</div>
                                     </div>
                                 </div>
-                                <div class="totlal_btn_item_catalog_info_delivery">
+                                <div class="totlal_btn_item_catalog_info_delivery" v-if="summ > 0">
                                     <button type="submit">Оформить заказ</button>
                                 </div>
                                 <div class="total_dopinfo_item_catalog_info_delivery">
@@ -401,7 +440,8 @@
                                 </div>
                             </div>
                             <div class="price_item_product_category">
-                                <div class="start_price_category_products">{{offer.price}} ₽/ кг</div>
+                                <div class="start_price_category_products" v-if="!priceWithNDS">{{offer.price}} ₽/ кг</div>
+                                <div class="start_price_category_products" v-if="priceWithNDS">{{offer.price_with_nds}} ₽/ кг</div>
                             </div>
                             <a :href="'/catalog-page/' + offer.id">
                                 <div class="make_deal">Подробнее</div>
@@ -448,7 +488,9 @@ export default {
             filterPackages:[],
             relatedOffers:[],
             volume:0,
-            summ:0
+            summ:0,
+            valueKG:0,
+            priceWithNDS:false,
         }
     },
     methods:{
@@ -470,7 +512,10 @@ export default {
                     })
 
         },
-
+        changePrice()
+        {
+            this.priceWithNDS = !this.priceWithNDS;
+        },
         changeCount(val,pack)
         {
 

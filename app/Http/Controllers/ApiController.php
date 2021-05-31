@@ -363,9 +363,30 @@ class ApiController extends Controller
         }
     }
 
+    /**
+     * @return mixed
+     */
+
     public function getNews()
     {
         return $this->simplePageService->getNews();
+    }
+
+    /**
+     * @param Request $request
+     */
+
+    public function setNewOffer(Request $request)
+    {
+        if(!empty($request))
+        {
+            $this->orderService->saveOrderData($request);
+        }
+    }
+
+    public function getLocation(Request $request)
+    {
+        dd($request->ip());
     }
 
 

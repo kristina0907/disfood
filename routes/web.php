@@ -33,6 +33,8 @@ Route::post('/set/company/and/register',[ApiController::class,'setCompanyAndRegi
 Route::get('/get/my-products/{id}',[ApiController::class,'getMyProducts']);
 Route::get('/get/newproduct/data',[ApiController::class,'getNewProductData']);
 
+
+Route::get('/get/location',[ApiController::class,'getLocation']);
 Route::get('/get/my-offers/{id}',[ApiController::class,'getMyOffers']);
 Route::post('/set/offer/new',[ApiController::class,'setNewOffer']);
 Route::get('/get/order/{id}',[ApiController::class,'getMyOrder']);

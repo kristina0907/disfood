@@ -322,7 +322,7 @@
                                     </div>
                                 </div>
                                 <div class="totlal_btn_item_catalog_info_delivery" v-if="summ > 0">
-                                    <button type="submit">Оформить заказ</button>
+                                    <button type="submit" @click="sendOffer">Оформить заказ</button>
                                 </div>
                                 <div class="total_dopinfo_item_catalog_info_delivery">
                                     <div class="total_icon_dopinfo_item_catalog_info_delivery">
@@ -494,7 +494,7 @@ export default {
         }
     },
     methods:{
-       async getData()
+        async getData()
         {
             let self = this;
             await axios.get('/get/catalog/page/'+self.product_id).then((response) => {
@@ -511,6 +511,22 @@ export default {
                         }
                     })
 
+        },
+        async sendOffer()
+        {
+            await axios.post('/set/offer/new',[
+                {
+                    'offer':this.product.id,
+                    'priceWithNDS':this.priceWithNDS,
+                    'packages':this.packages,
+                    'summ':this.summ,
+                    'volume':this.volume
+                }
+            ]).then((response) => {
+                if (response.data !== 'undefined' && response.data !== null) {
+                  console.log(response.data)
+                }
+            })
         },
         changePrice()
         {

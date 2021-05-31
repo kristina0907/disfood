@@ -81,6 +81,7 @@ export default {
         types:[],
         filteredTypes:[],
         products:[],
+        location:{},
     },
     getters: {
         typeValue: (state) => {
@@ -121,6 +122,10 @@ export default {
         SET_CATALOG_TYPES(state,data)
         {
             state.types = data;
+        },
+        SET_USER_LOCATION(state,data)
+        {
+          state.location = data;
         },
         SELECT_CATEGORY(state,{cat,type})
         {
@@ -172,6 +177,15 @@ export default {
                 .then(response => {
                     if (response.data !== 'undefined' && response.data !== null) {
                         commit('SET_CATALOG', response.data)
+                    }
+                });
+        },
+        async getUserIP({commit})
+        {
+            await axios.get('/get/location')
+                .then(response => {
+                    if (response.data !== 'undefined' && response.data !== null) {
+                        commit('SET_USER_LOCATION', response.data)
                     }
                 });
         },

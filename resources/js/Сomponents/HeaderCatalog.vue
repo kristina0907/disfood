@@ -51,7 +51,7 @@
                                 <circle cx="15" cy="13.75" r="3.75" stroke="#71BF45" stroke-width="2" />
                             </svg>
                         </span>
-                        {{location.location.value}}
+                        {{location.location.value}} 
                     </div>
                     <div class="phone_header">8 800 550 71 90</div>
                 </div>

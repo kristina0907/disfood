@@ -90,6 +90,10 @@ export default {
         categoryValue: (state) => {
             return state.categoryValue;
         },
+        location:(state) =>
+        {
+            return state.location;
+        }
     },
     mutations: {
         updateCategory (state, value)

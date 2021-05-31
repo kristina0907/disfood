@@ -406,14 +406,14 @@ export default {
             self.tileView = false;
             self.listView = true;
         },
-        ...mapActions('catalog',['updateValueAction','getCatalogData','getCatalogTypes','updateTypeAction']),
+        ...mapActions('catalog',['updateValueAction','getCatalogData','getCatalogTypes','updateTypeAction','getUserIP']),
 
 
     },
     mounted() {
         this.$store.dispatch('catalog/getCatalogData');
         this.$store.dispatch('catalog/getCatalogTypes');
-
+        /*this.$store.dispatch('catalog/getUserIP'); */
     },
     computed: {
         ...mapState('catalog',['categories', 'categoryValue','types','typeValue','filteredTypes','products'])

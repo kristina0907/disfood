@@ -41,7 +41,8 @@
                     </li>
                 </ul>
                 <div class="right_menu_block">
-                    <div class="adress_header"><span>
+                    <div class="adress_header" v-if="location">
+                        <span>
                             <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -50,7 +51,8 @@
                                 <circle cx="15" cy="13.75" r="3.75" stroke="#71BF45" stroke-width="2" />
                             </svg>
                         </span>
-                        Екатеринбург</div>
+                        {{location.value}}
+                    </div>
                     <div class="phone_header">8 800 550 71 90</div>
                 </div>
 
@@ -172,7 +174,7 @@
 <script>
 
 import vuescroll from 'vuescroll'
-import {mapActions} from 'vuex'
+import {mapActions, mapState} from 'vuex'
 export default {
     name:"navbar-catalog",
     components:{
@@ -239,7 +241,11 @@ export default {
     },
     mounted() {
         this.getData();
+        this.$store.dispatch('catalog/getUserIP');
         window.addEventListener('scroll', this.updateScroll);
-    }
+    },
+    computed: {
+        ...mapState('catalog',['location'])
+    },
 }
 </script>

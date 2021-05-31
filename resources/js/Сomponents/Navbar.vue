@@ -37,7 +37,7 @@
                                     <circle cx="15" cy="13.75" r="3.75" stroke="#71BF45" stroke-width="2" />
                                 </svg>
                             </span>
-                       {{catalog.state.location}}
+                       Екатеринбург
                    </div>
                </a></li>
            </ul>
@@ -45,12 +45,10 @@
 </template>
 
 <script>
-import {mapGetters,mapActions,mapState} from 'vuex';
-import catalog from "../Store/modules/catalog";
 export default {
     name:"navbar",
     mounted() {
-        this.$store.dispatch('catalog/getUserIP')
+        console.log('Component mounted.')
     }
 }
 </script>

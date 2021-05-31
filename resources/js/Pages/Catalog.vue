@@ -96,7 +96,7 @@
                                                             <div class="item_product_input row">
                                                                 <div class="container_input_price jd_tab_input col-md-8">
                                                                     <div class="text_input">Куда доставить?</div>
-                                                                    <input type="text" v-model="location.location.value" >
+                                                                    <input type="text" v-model="this.$store.getters['catalog/location'].value" >
                                                                     <div class="icon_price_input">
                                                                         <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
                                                                              xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +128,7 @@
                                                             <div class="item_product_input row">
                                                                 <div class="container_input_price col-md-12">
                                                                     <div class="text_input">Куда доставить?</div>
-                                                                    <input type="text" v-model="location.location.value">
+                                                                    <input type="text" v-model="this.$store.getters['catalog/location'].value">
                                                                     <div class="icon_price_input">
                                                                         <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
                                                                              xmlns="http://www.w3.org/2000/svg">

@@ -16,6 +16,7 @@ use App\Services\SimplePageService;
 use App\Services\TypeProductService;
 use App\Services\UserService;
 use Illuminate\Http\Request;
+use MoveMoveIo\DaData\Facades\DaDataAddress;
 
 
 class ApiController extends Controller
@@ -386,7 +387,16 @@ class ApiController extends Controller
 
     public function getLocation(Request $request)
     {
-        dd($request->ip());
+        $ip = $request->ip();
+        if($ip !== '127.0.0.1')
+        {
+            $dadata = DaDataAddress::iplocate($ip, 2);
+            if(!empty($dadata))
+            {
+                return response()->json($dadata,200);
+            }
+            return response()->json('error',402)
+        }
     }
 
 

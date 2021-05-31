@@ -15,6 +15,7 @@ use App\Services\ProductService;
 use App\Services\SimplePageService;
 use App\Services\TypeProductService;
 use App\Services\UserService;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use MoveMoveIo\DaData\Facades\DaDataAddress;
 
@@ -397,6 +398,7 @@ class ApiController extends Controller
             }
             return response()->json('error',402);
         }
+        return response()->json(['value'=>'office'],200);
     }
 
 

@@ -413,7 +413,7 @@ export default {
     mounted() {
         this.$store.dispatch('catalog/getCatalogData');
         this.$store.dispatch('catalog/getCatalogTypes');
-        this.$store.dispatch('catalog/getUserIP')
+
     },
     computed: {
         ...mapState('catalog',['categories', 'categoryValue','types','typeValue','filteredTypes','products'])

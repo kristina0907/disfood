@@ -395,7 +395,7 @@ class ApiController extends Controller
             {
                 return response()->json($dadata,200);
             }
-            return response()->json('error',402)
+            return response()->json('error',402);
         }
     }
 

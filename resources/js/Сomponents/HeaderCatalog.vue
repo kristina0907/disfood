@@ -41,7 +41,7 @@
                     </li>
                 </ul>
                 <div class="right_menu_block">
-                    <div class="adress_header" v-if="location">
+                    <div class="adress_header" v-if="location.location">
                         <span>
                             <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +51,7 @@
                                 <circle cx="15" cy="13.75" r="3.75" stroke="#71BF45" stroke-width="2" />
                             </svg>
                         </span>
-                        {{location.value}}
+                        {{location.location.value}}
                     </div>
                     <div class="phone_header">8 800 550 71 90</div>
                 </div>

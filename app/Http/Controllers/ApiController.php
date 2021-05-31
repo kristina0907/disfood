@@ -398,7 +398,9 @@ class ApiController extends Controller
             }
             return response()->json('error',402);
         }
-        return response()->json(['value'=>'office'],200);
+        return response()->json(['location'=>[
+            'location'=>['value'=>'office']
+        ]],200);
     }
 
 

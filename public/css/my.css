@@ -101,3 +101,7 @@ select option:hover {
 {
     cursor: pointer;
 }
+.add_packaging span
+{
+    cursor: pointer;
+}

@@ -78,6 +78,7 @@ class OrganizationService
             'fio_ceo' => 'required|string|max:255',
             'reason' => 'required|string|max:255',
             'user_id' => 'required|string',
+            'status_id' => 'required|string'
         ]);
 
         $result = $this->organizationRepository->save($data);
@@ -120,6 +121,7 @@ class OrganizationService
             'number_power_of_attorney' => 'required|integer',
             'date_power_of_attorney' => 'required|date',
             'user_id' => 'required|integer',
+            'status_id' => 'required|string'
         ]);
 
         DB::beginTransaction();

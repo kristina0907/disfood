@@ -25,6 +25,7 @@
                                 <th>Юр.Адрес</th>
                                 <th>Фио руководителя</th>
                                 <th>Номер телефона</th>
+                                <th>Статус</th>
                                 <th>Действия</th>
                             </tr>
                             </thead>
@@ -36,6 +37,7 @@
                                 <th>Юр.Адрес</th>
                                 <th>Фио руководителя</th>
                                 <th>Номер телефона</th>
+                                <th>Статус</th>
                                 <th>Действия</th>
                             </tr>
                             </tfoot>
@@ -60,6 +62,13 @@
                                         </td>
                                         <td>
                                             {{$organization->phone}}
+                                        </td>
+                                        <td>
+                                            @if(!empty($organization->status))
+                                                {{$organization->status->name}}
+                                            @else
+                                                Нет статуса
+                                            @endif
                                         </td>
                                         <td>
                                             <a href="/superadmin/organizations/edit/{{$organization->id}}" class="btn btn-success btn-circle waves-effect waves-circle waves-float"><i class="material-icons">edit</i></a>

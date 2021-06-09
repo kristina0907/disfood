@@ -80,12 +80,10 @@ class OrganizationRepository implements OrganizationContract
         $organization->name = $data->name;
         $organization->inn = $data->inn;
 
-        if(!empty($data->kpp))
-        {
+        if (!empty($data->kpp)) {
             $organization->kpp = $data->kpp;
         }
-        if(!empty($data->ogrn))
-        {
+        if (!empty($data->ogrn)) {
             $organization->ogrn = $data->ogrn;
         }
         $organization->adress = $data->adress;
@@ -93,21 +91,22 @@ class OrganizationRepository implements OrganizationContract
         $organization->bank_name = $data->bank_name;
         $organization->r_account = $data->r_account;
         $organization->kor_account = $data->kor_account;
-        $organization->fio_ceo  = $data->fio_ceo;
+        $organization->fio_ceo = $data->fio_ceo;
 
-        if(!empty($data->reason) && (string)$data->reason == (string)'power_of_attorney')
-        {
-            if(!empty($data->number_power_of_attorney))
-            {
+        if (!empty($data->reason) && (string)$data->reason == (string)'power_of_attorney') {
+            if (!empty($data->number_power_of_attorney)) {
                 $organization->number_power_of_attorney = $data->number_power_of_attorney;
             }
-            if(!empty($data->date_power_of_attorney))
-            {
+            if (!empty($data->date_power_of_attorney)) {
                 $organization->date_power_of_attorney = $data->date_power_of_attorney;
             }
         }
         $organization->reason = $data->reason;
         $organization->user_id = $data->user_id;
+        if (!empty($data->status_id))
+        {
+            $organization->status_id = $data->status_id;
+        }
         $organization->save();
 
         return $organization->fresh();
@@ -194,6 +193,10 @@ class OrganizationRepository implements OrganizationContract
         }
         $organization->reason = $data->reason;
         $organization->user_id = $data->user_id;
+        if (!empty($data->status_id))
+        {
+            $organization->status_id = $data->status_id;
+        }
         $organization->update();
 
         return $organization;

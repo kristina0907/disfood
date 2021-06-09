@@ -415,13 +415,12 @@ class ApiController extends Controller
      public function getCurrentUser()
      {
         $user = Auth::check();
-        if($user)
-        {
+        if($user) {
             $us = Auth::user();
             $user = $this->userService->getById($us->id);
             $output['user'] = $user;
-            $output['roles'] = $user->roles;
-            $output['organizations'] = $user->organizations;
+
+
             //dd($output);
             return response()->json($output,200);
         }

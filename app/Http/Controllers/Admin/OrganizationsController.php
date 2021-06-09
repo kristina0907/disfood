@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Organization;
 use App\Models\User;
 use App\Services\OrganizationService;
+use App\Services\OrganizationStatusService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -20,14 +21,17 @@ class OrganizationsController extends Controller
     protected $organizationService;
 
 
+    protected $statusService;
     /**
      * OrganizationsController constructor.
      * @param OrganizationService $organizationService
      */
 
-    public function __construct(OrganizationService $organizationService)
+
+    public function __construct(OrganizationService $organizationService,OrganizationStatusService $statusService)
     {
         $this->organizationService = $organizationService;
+        $this->statusService = $statusService;
     }
 
 
@@ -54,9 +58,9 @@ class OrganizationsController extends Controller
     {
         if(Gate::allows('create',Auth::user()))
         {
-           $clients = User::clients()->get();
-
-            return view('Admin.pages.organizations.create',['clients'=>$clients]);
+            $clients = User::clients()->get();
+            $statuses = $this->statusService->getAll();
+            return view('Admin.pages.organizations.create',['clients'=>$clients,'statuses'=>$statuses]);
         }
         abort(403,'Access Denied');
     }
@@ -89,8 +93,8 @@ class OrganizationsController extends Controller
         {
             $organization = $this->organizationService->getOrganizationById($id);
             $clients = User::clients()->get();
-
-            return view('Admin.pages.organizations.edit',['clients'=>$clients,'organization'=>$organization]);
+            $statuses = $this->statusService->getAll();
+            return view('Admin.pages.organizations.edit',['clients'=>$clients,'organization'=>$organization,'statuses'=>$statuses]);
         }
     }
 

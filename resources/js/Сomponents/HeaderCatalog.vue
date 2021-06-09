@@ -119,9 +119,11 @@
                     <div v-if="user && user.user.id" class="nav-item dropdown">
                         <div class="login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" @click="changeDropdown()"
                              aria-expanded="false">
-                            <div>
-                                <div class="name_company" v-if="user.organizations" v-for="org in user.organizations">{{org.name}}</div>
-                                <div class="accredited_company">Поставщик &#183; аккредитован</div>
+                            <div v-if="user.user.organizations" v-for="org in user.user.organizations">
+                                <div class="name_company">{{org.name}}</div>
+                                <div class="accredited_company" v-if="user.user.roles" v-for="role in user.user.roles">{{ role.name }}
+                                    &#183; {{org.status.name}}
+                                </div>
                             </div>
                             <div class="login_img">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -138,9 +140,11 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li class="dropdown-item-login">
                                 <div class="login">
-                                    <div>
-                                        <div class="name_company">Дары кубани</div>
-                                        <div class="accredited_company">Поставщик · аккредитован</div>
+                                    <div v-if="user.user.organizations" v-for="org in user.user.organizations">
+                                        <div class="name_company" v-if="user.user.organizations" v-for="org in user.user.organizations">{{org.name}}</div>
+                                        <div class="accredited_company" v-if="user.user.roles" v-for="role in user.user.roles">{{ role.name }}
+                                            &#183; {{org.status.name}}
+                                        </div>
                                     </div>
                                     <div class="login_img">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

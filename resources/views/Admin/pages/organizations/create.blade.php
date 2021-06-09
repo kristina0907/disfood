@@ -182,6 +182,19 @@
                             </div>
                         </div>
 
+                        <label for="user_id">Статус организации</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <select name="status_id" id="status_id">
+                                    @if(!empty($statuses))
+                                        @foreach($statuses as $status)
+                                            <option value="{{$status->id}}">{{$status->name}}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                        </div>
+
                         <input type="checkbox" id="active" name="active" class="filled-in">
                         <label for="active">Включено</label>
                         <br/>

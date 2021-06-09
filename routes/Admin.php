@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\TypeDeliveryController;
 use App\Http\Controllers\Admin\SimplePageController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\PageCategoryController;
+use App\Http\Controllers\OrganizationStatusController;
 
 /**
  *  Admin routes
@@ -114,6 +115,18 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/offers/edit/{id}',[OfferController::class,'edit'])->name('offers.edit');
     Route::get('/offers/delete/{id}',[OfferController::class,'delete'])->name('offers.delete');
     Route::post('/offers/update',[OfferController::class,'update'])->name('offers.update');
+
+
+    /**
+     *  Organization statuses routes
+     */
+
+    Route::get('/organizationstatuses', [OrganizationStatusController::class,'show'] )->name('organizationstatuses.show');
+    Route::get('/organizationstatuses/create',[OrganizationStatusController::class,'create'])->name('organizationstatuses.create');
+    Route::post('/organizationstatuses/create',[OrganizationStatusController::class,'store'])->name('organizationstatuses.store');
+    Route::get('/organizationstatuses/edit/{id}',[OrganizationStatusController::class,'edit'])->name('organizationstatuses.edit');
+    Route::get('/organizationstatuses/delete/{id}',[OrganizationStatusController::class,'delete'])->name('organizationstatuses.delete');
+    Route::post('/organizationstatuses/update',[OrganizationStatusController::class,'update'])->name('organizationstatuses.update');
 
     /**
      *  Countries routes

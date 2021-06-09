@@ -53,4 +53,13 @@ class Organization extends Model
     {
         return $this->belongsTo(User::class,'user_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+
+    public function status()
+    {
+        return $this->belongsTo(OrganizationStatus::class,'status_id');
+    }
 }

@@ -408,6 +408,10 @@ class ApiController extends Controller
         ],200);
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+
      public function getCurrentUser()
      {
         $user = Auth::check();

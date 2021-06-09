@@ -51,7 +51,7 @@
                                 <circle cx="15" cy="13.75" r="3.75" stroke="#71BF45" stroke-width="2" />
                             </svg>
                         </span>
-                        {{location.location.value}} 
+                        {{location.location.value}}
                     </div>
                     <div class="phone_header">8 800 550 71 90</div>
                 </div>
@@ -120,7 +120,7 @@
                         <div class="login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" @click="changeDropdown()"
                              aria-expanded="false">
                             <div>
-                                <div class="name_company">Дары кубани</div>
+                                <div class="name_company" v-if="user.organizations" v-for="org in user.organizations">{{org.name}}</div>
                                 <div class="accredited_company">Поставщик &#183; аккредитован</div>
                             </div>
                             <div class="login_img">

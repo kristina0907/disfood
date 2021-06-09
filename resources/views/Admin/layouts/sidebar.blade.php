@@ -100,6 +100,9 @@
                         <li>
                             <a href="/superadmin/organizations">Организации</a>
                         </li>
+                        <li>
+                            <a href="/superadmin/organizationstatuses">Статусы организаций</a>
+                        </li>
                     </ul>
                 </li>
 

@@ -64,7 +64,7 @@
                 </li>
                 <li class="dropdown_info_text dropdown-item-border">Переключиться на организацию</li>
                 <li  v-for="(org,index) in user.user.organizations" v-if="currentUserOrganization[0].id !== org.id">
-                    <a class="dropdown-item dropdown-item-border" href="#">
+                    <div class="dropdown-item dropdown-item-border" href="#">
                     <div class="item_company_list">
                         <div class="name_company_list" @click="changeCurrentOrganization(org.id)">
                             {{org.name}}
@@ -83,7 +83,7 @@
                                 stroke-linejoin="round" />
                         </svg>
                     </div>
-                </a></li>
+                </div></li>
                 <li>
                     <a class="dropdown-item dropdown-item-exit"
                        href="/logout"

@@ -65,8 +65,8 @@
                            Найти товары и поставщиков
                        </div>
                    </div>
-                   <div class="search_category_company" v-if="types.types">
-                       <div class="item_search_category_company" v-for="type in types.types">{{type.name}}</div>
+                   <div class="search_category_company" v-if="types">
+                       <div class="item_search_category_company" v-for="type in types">{{type.name}}</div>
                    </div>
                </div>
                <div class="user_registration_company_block">
@@ -488,7 +488,7 @@ import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
-
+import {mapGetters,mapActions,mapState} from 'vuex';
 export default {
     name:'frontpage',
     components:{
@@ -499,7 +499,6 @@ export default {
     },
     data(){
       return {
-          types:[],
           partners:[],
           news:[],
       }
@@ -507,21 +506,14 @@ export default {
     methods:{
       getCats()
       {
-          axios.get('/get/types/')
-              .then((response) => {
-
-                  if (response.data !== 'undefined' && response.data !== null) {
-                      this.types = response.data;
-                  }
-              })
-          axios.get('/get/partners/')
+          axios.get('/get/partners')
               .then((response) => {
 
                   if (response.data !== 'undefined' && response.data !== null) {
                       this.partners = response.data;
                   }
               })
-          axios.get('/get/news/')
+          axios.get('/get/news')
               .then((response) => {
 
                   if (response.data !== 'undefined' && response.data !== null) {
@@ -533,6 +525,9 @@ export default {
     mounted() {
         console.log('Component mounted.')
         this.getCats();
-    }
+    },
+    computed: {
+        ...mapState('catalog',['types']),
+    },
 }
 </script>

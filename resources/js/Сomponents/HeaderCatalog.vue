@@ -77,18 +77,6 @@
                 </div>
                 <div class="container_header_catalog_btn_info">
                     <div class="catalog_header_btn_info">
-                        <router-link :to="{name:'authorization'}">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M3 21.5L3.16547 20.4362C3.37405 19.0954 4.24842 17.9469 5.54504 17.5466C7.13654 17.0553 9.49052 16.5 12 16.5C14.5095 16.5 16.8635 17.0553 18.455 17.5466C19.7516 17.9469 20.6259 19.0954 20.8345 20.4362L21 21.5"
-                                    stroke="#22262A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path
-                                    d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                    stroke="#22262A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </router-link>
-                    </div>
-                    <div class="catalog_header_btn_info">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M13 4.5C13 5.05228 13.4477 5.5 14 5.5C14.5523 5.5 15 5.05228 15 4.5H13ZM5.42857 16C5.98086 16 6.42857 15.5523 6.42857 15C6.42857 14.4477 5.98086 14 5.42857 14V16ZM5 2H11V0H5V2ZM3 12V4H1V12H3ZM13 4V4.5H15V4H13ZM5.42857 14H5V16H5.42857V14ZM1 12C1 14.2091 2.79086 16 5 16V14C3.89543 14 3 13.1046 3 12H1ZM11 2C12.1046 2 13 2.89543 13 4H15C15 1.79086 13.2091 0 11 0V2ZM5 0C2.79086 0 1 1.79086 1 4H3C3 2.89543 3.89543 2 5 2V0Z"
@@ -112,7 +100,115 @@
                                   stroke-linejoin="round" />
                         </svg>
                     </div>
+                    <div v-if="user==null  || user == false">
+                        <!-- Button trigger modal -->
+                        <div class="login" data-toggle="modal" data-target="#loginModal">
+                            <div class="login_img">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167"
+                                            stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                            d="M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z"
+                                            stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-if="user && user.user.id" class="nav-item dropdown">
+                        <div class="login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" @click="changeDropdown()"
+                             aria-expanded="false">
+                            <div>
+                                <div class="name_company">Дары кубани</div>
+                                <div class="accredited_company">Поставщик &#183; аккредитован</div>
+                            </div>
+                            <div class="login_img">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167"
+                                            stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                            d="M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z"
+                                            stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="dropdown-item-login">
+                                <div class="login">
+                                    <div>
+                                        <div class="name_company">Дары кубани</div>
+                                        <div class="accredited_company">Поставщик · аккредитован</div>
+                                    </div>
+                                    <div class="login_img">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167" stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z" stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a class="dropdown-item dropdown-item-settings" href="#">Настройки</a></li>
+                            <li class="dropdown_info_text dropdown-item-border">Переключиться на покупателя</li>
+                            <li><a class="dropdown-item dropdown-item-border" href="#">
+                                <div class="item_company_list">
+                                    <div class="name_company_list">
+                                        Фирма-Ферма
+                                    </div>
+                                    <div class="category_company_list">
+                                        Покупатель
+                                    </div>
+                                </div>
+                                <div class="icon_company_list">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                                d="M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167"
+                                                stroke="#71BF45" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        <path
+                                                d="M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z"
+                                                stroke="#71BF45" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                            </a></li>
+                            <li><a class="dropdown-item dropdown-item-border" href="#">
+                                <div class="item_company_list">
+                                    <div class="name_company_list">
+                                        Фирма-Ферма
+                                    </div>
+                                    <div class="category_company_list">
+                                        Покупатель
+                                    </div>
+                                </div>
+                                <div class="icon_company_list">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                                d="M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167"
+                                                stroke="#71BF45" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        <path
+                                                d="M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z"
+                                                stroke="#71BF45" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                            </a></li>
+                            <li>
+                                <a class="dropdown-item dropdown-item-exit"
+                                   href="/logout"
+                                   onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();"
+                                >Выйти</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+
             </div>
         </div>
         <div class="sidebar_catalog_menu" :class="{'active': sidebarExpand}">
@@ -145,7 +241,7 @@
                 </div>
                 <div class="container_list_sidebar_catalog_menu">
                     <vue-scroll :ops="ops">
-                        <div class="btn-group dropright container_item_list_sidebar_catalog_menu" v-if="categories.cats.length" v-for="cat in categories.cats">
+                        <div class="btn-group dropright container_item_list_sidebar_catalog_menu" v-if="categories" v-for="cat in categories">
                             <div type="button" class="item_list_sidebar_catalog_menu" data-toggle="dropdown"
                                  aria-haspopup="true" aria-expanded="false" v-if="cat.id !== 8">
                                 <div class="img_title_item_list_catalog_menu">
@@ -161,14 +257,15 @@
                                     </svg>
                                 </div>
                             </div>
-                            <div class="dropdown-menu dropdown-menu_item_list_sidebar_catalog_menu" v-if="types.types">
-                                <a class="dropdown-item"  v-for="type in types.types" v-if="cat.id == type.category_id" @click="redirectToCatalog(cat,type)">{{type.name}}</a>
+                            <div class="dropdown-menu dropdown-menu_item_list_sidebar_catalog_menu" v-if="types">
+                                <a class="dropdown-item"  v-for="type in types" v-if="cat.id == type.category_id" @click="redirectToCatalog(cat,type)">{{type.name}}</a>
                             </div>
                         </div>
                     </vue-scroll>
                 </div>
 
         </div>
+
     </header>
 </template>
 <script>
@@ -183,8 +280,9 @@ export default {
     data(){
         return {
             sidebarExpand:false,
-            types:[],
-            categories:[],
+            isExpand:false,
+            //types:[],
+            //categories:[],
             scrollPosition:null,
             ops: {
                 scrollPanel: {
@@ -201,7 +299,7 @@ export default {
         }
     },
     methods: {
-        getData() {
+       /* getData() {
             axios.get('/get/types/')
                 .then((response) => {
 
@@ -221,7 +319,7 @@ export default {
         updateScroll() {
             this.scrollPosition = window.scrollY
         },
-
+*/
         redirectToCatalog(cat, type)
         {
             this.$store.dispatch('catalog/redirectToCatalog', {
@@ -235,17 +333,25 @@ export default {
                     }
                 }
             )
-
-
-        }
+        },
+        changeDropdown()
+        {
+            this.isExpand = !this.isExpand
+        },
+        ...mapActions('catalog',['updateValueAction','getCatalogData','getCatalogTypes','updateTypeAction','getUserIP']),
+        ...mapActions(['getUserData']),
     },
     mounted() {
-        this.getData();
+       // this.getData();
         this.$store.dispatch('catalog/getUserIP');
-        window.addEventListener('scroll', this.updateScroll);
+        this.$store.dispatch('catalog/getCatalogData');
+        this.$store.dispatch('catalog/getCatalogTypes');
+        this.$store.dispatch('getUserData');
+        //window.addEventListener('scroll', this.updateScroll);
     },
     computed: {
-        ...mapState('catalog',['location'])
+        ...mapState('catalog',['location','categories','types']),
+        ...mapState(['user'])
     },
 }
 </script>

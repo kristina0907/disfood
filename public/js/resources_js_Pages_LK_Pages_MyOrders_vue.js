@@ -164,7 +164,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -407,9 +406,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     changeDropdown: function changeDropdown() {
-      console.log(this.isExpand);
       this.isExpand = !this.isExpand;
-      console.log(this.isExpand);
     }
   }
 });
@@ -580,7 +577,7 @@ var render = function() {
     _c("div", { staticClass: "row" }, [_c("UserLKHeader")], 1),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "main_container" }, [
+      _c("div", { staticClass: "main_container col" }, [
         _c("div", { staticClass: "title_page" }, [_vm._v("Мои сделки")]),
         _vm._v(" "),
         _c("div", { staticClass: "table_container table-responsive" }, [

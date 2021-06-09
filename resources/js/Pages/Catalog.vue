@@ -371,7 +371,7 @@ export default {
     methods:{
         getData()
         {
-            axios.get('/get/categories/')
+           /* axios.get('/get/categories/')
                 .then((response) => {
 
                     if (response.data !== 'undefined' && response.data !== null) {
@@ -392,7 +392,7 @@ export default {
                     if (response.data !== 'undefined' && response.data !== null) {
                         this.packages = response.data;
                     }
-                })
+                })*/
         },
         changeToTileView()
         {
@@ -411,8 +411,8 @@ export default {
 
     },
     mounted() {
-        this.$store.dispatch('catalog/getCatalogData');
-        this.$store.dispatch('catalog/getCatalogTypes');
+        //this.$store.dispatch('catalog/getCatalogData');
+        //this.$store.dispatch('catalog/getCatalogTypes');
     },
     computed: {
         ...mapState('catalog',['categories', 'categoryValue','types','typeValue','filteredTypes','products','location'])

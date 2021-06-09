@@ -55,9 +55,9 @@ export default {
     name:"sidebar-catalog",
     data(){
         return {
-            categories:[],
+           /* categories:[],
             types:[],
-            packages:[],
+            packages:[],*/
             catChecked:{},
             typeChecked:{},
             packagesChecked:[],
@@ -72,7 +72,7 @@ export default {
     methods:{
         getData()
         {
-            axios.get('/get/categories/')
+           /* axios.get('/get/categories/')
                 .then((response) => {
 
                     if (response.data !== 'undefined' && response.data !== null) {
@@ -92,7 +92,7 @@ export default {
                     if (response.data !== 'undefined' && response.data !== null) {
                         this.packages = response.data;
                     }
-                })
+                })*/
         },
         sendFilter()
         {

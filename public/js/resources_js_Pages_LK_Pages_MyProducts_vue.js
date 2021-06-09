@@ -212,6 +212,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -444,9 +447,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     changeDropdown: function changeDropdown() {
-      console.log(this.isExpand);
       this.isExpand = !this.isExpand;
-      console.log(this.isExpand);
     }
   }
 });
@@ -616,126 +617,184 @@ var render = function() {
   return _c("div", { staticClass: "container-fluid" }, [
     _c("div", { staticClass: "row" }, [_c("UserLKHeader")], 1),
     _vm._v(" "),
-    _c("div", { staticClass: "content row" }, [
-      _c("div", { staticClass: "main_container" }, [
-        _c("div", { staticClass: "title_page" }, [_vm._v("Мои товары")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "table_container table-responsive" }, [
-          _c("div", { staticClass: "sort_taable" }, [
-            _c(
-              "div",
-              {
-                staticClass: "item_sort",
-                class: { active: _vm.allFlag },
-                on: { click: _vm.allFilter }
-              },
-              [
-                _vm._v("Все "),
-                _c("span", [_vm._v("·")]),
-                _vm._v(
-                  "\n                        " + _vm._s(_vm.products.length)
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "item_sort",
-                class: { active: _vm.activeflag },
-                on: { click: _vm.activeFilter }
-              },
-              [
-                _vm._v("Активные "),
-                _c("span", [_vm._v("·")]),
-                _vm._v(" " + _vm._s(_vm.countActive()))
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "item_sort",
-                class: { active: _vm.noactiveFlag },
-                on: { click: _vm.noactiveFilter }
-              },
-              [
-                _vm._v("Неактивные "),
-                _c("span", [_vm._v("·")]),
-                _vm._v(" " + _vm._s(_vm.countNoActive()))
-              ]
-            )
-          ]),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "content col padding-0" }, [
+        _c("div", { staticClass: "main_container" }, [
+          _c("div", { staticClass: "title_page" }, [_vm._v("Мои товары")]),
           _vm._v(" "),
-          _c("div", { staticClass: "search_table_btn" }, [
-            _c("div", { staticClass: "container_search_table" }, [
-              _c("div", { staticClass: "icon_search" }, [
-                _c(
-                  "svg",
-                  {
-                    attrs: {
-                      width: "24",
-                      height: "25",
-                      viewBox: "0 0 24 25",
-                      fill: "none",
-                      xmlns: "http://www.w3.org/2000/svg"
-                    }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M11 20.5C15.9706 20.5 20 16.4706 20 11.5C20 6.52944 15.9706 2.5 11 2.5C6.02944 2.5 2 6.52944 2 11.5C2 16.4706 6.02944 20.5 11 20.5Z",
-                        stroke: "#71BF45",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      attrs: {
-                        d: "M22 22.5L18 18.5",
-                        stroke: "#71BF45",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    })
-                  ]
-                )
-              ]),
+          _c("div", { staticClass: "table_container table-responsive" }, [
+            _c("div", { staticClass: "sort_taable" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "item_sort",
+                  class: { active: _vm.allFlag },
+                  on: { click: _vm.allFilter }
+                },
+                [
+                  _vm._v("Все "),
+                  _c("span", [_vm._v("·")]),
+                  _vm._v(
+                    "\n                            " +
+                      _vm._s(_vm.products.length)
+                  )
+                ]
+              ),
               _vm._v(" "),
-              _c("input", {
-                attrs: {
-                  type: "text",
-                  placeholder: "Найти товар по наименованию"
-                }
-              })
+              _c(
+                "div",
+                {
+                  staticClass: "item_sort",
+                  class: { active: _vm.activeflag },
+                  on: { click: _vm.activeFilter }
+                },
+                [
+                  _vm._v("Активные "),
+                  _c("span", [_vm._v("·")]),
+                  _vm._v(" " + _vm._s(_vm.countActive()))
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "item_sort",
+                  class: { active: _vm.noactiveFlag },
+                  on: { click: _vm.noactiveFilter }
+                },
+                [
+                  _vm._v("Неактивные "),
+                  _c("span", [_vm._v("·")]),
+                  _vm._v(" " + _vm._s(_vm.countNoActive()))
+                ]
+              )
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "container_btn_table" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn-table",
-                    attrs: {
-                      to: { name: "productadd" },
-                      "active-class": "active"
-                    }
-                  },
-                  [
-                    _c("span", [
+            _c("div", { staticClass: "search_table_btn" }, [
+              _c("div", { staticClass: "container_search_table" }, [
+                _c("div", { staticClass: "icon_search" }, [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        width: "24",
+                        height: "25",
+                        viewBox: "0 0 24 25",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 20.5C15.9706 20.5 20 16.4706 20 11.5C20 6.52944 15.9706 2.5 11 2.5C6.02944 2.5 2 6.52944 2 11.5C2 16.4706 6.02944 20.5 11 20.5Z",
+                          stroke: "#71BF45",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d: "M22 22.5L18 18.5",
+                          stroke: "#71BF45",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "text",
+                    placeholder: "Найти товар по наименованию"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "container_btn_table" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "btn-table",
+                      attrs: {
+                        to: { name: "productadd" },
+                        "active-class": "active"
+                      }
+                    },
+                    [
+                      _c("span", [
+                        _c(
+                          "svg",
+                          {
+                            attrs: {
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              xmlns: "http://www.w3.org/2000/svg"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d: "M12 3V21",
+                                stroke: "#71BF45",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d: "M3 12L21 12",
+                                stroke: "#71BF45",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" Добавить товар\n                            ")
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("button", [_vm._v("Утвердить цену")]),
+                  _vm._v(" "),
+                  _c("button", [_vm._v("Утвердить все")])
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("table", { staticClass: "table default_table table_product" }, [
+              _c("thead", [
+                _c("tr", [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Фото")]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [
+                    _vm._v("Наименование\n                                "),
+                    _c("span", { staticClass: "sort_col" }, [
                       _c(
                         "svg",
                         {
                           attrs: {
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
+                            width: "15",
+                            height: "9",
+                            viewBox: "0 0 15 9",
                             fill: "none",
                             xmlns: "http://www.w3.org/2000/svg"
                           }
@@ -743,18 +802,9 @@ var render = function() {
                         [
                           _c("path", {
                             attrs: {
-                              d: "M12 3V21",
-                              stroke: "#71BF45",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d: "M3 12L21 12",
-                              stroke: "#71BF45",
+                              d:
+                                "M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751",
+                              stroke: "#22262A",
                               "stroke-width": "2",
                               "stroke-linecap": "round",
                               "stroke-linejoin": "round"
@@ -762,310 +812,266 @@ var render = function() {
                           })
                         ]
                       )
-                    ]),
-                    _vm._v(" Добавить товар\n                        ")
-                  ]
-                ),
-                _vm._v(" "),
-                _c("button", [_vm._v("Утвердить цену")]),
-                _vm._v(" "),
-                _c("button", [_vm._v("Утвердить все")])
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("table", { staticClass: "table default_table table_product" }, [
-            _c("thead", [
-              _c("tr", [
-                _vm._m(0),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Фото")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [
-                  _vm._v("Наименование\n                            "),
-                  _c("span", { staticClass: "sort_col" }, [
-                    _c(
-                      "svg",
-                      {
-                        attrs: {
-                          width: "15",
-                          height: "9",
-                          viewBox: "0 0 15 9",
-                          fill: "none",
-                          xmlns: "http://www.w3.org/2000/svg"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751",
-                            stroke: "#22262A",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        })
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [
-                  _vm._v("Статус\n                            "),
-                  _c("span", { staticClass: "sort_col" }, [
-                    _c(
-                      "svg",
-                      {
-                        attrs: {
-                          width: "15",
-                          height: "9",
-                          viewBox: "0 0 15 9",
-                          fill: "none",
-                          xmlns: "http://www.w3.org/2000/svg"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751",
-                            stroke: "#22262A",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        })
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [
-                  _vm._v("Категория\n                        ")
-                ]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Тип")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [
-                  _vm._v("Регион погрузки")
-                ]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Фасовка")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [
-                  _vm._v("Текущий объём")
-                ]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [
-                  _vm._v(
-                    "Цена, кг / Цена, кг с НДС\n                            "
-                  ),
-                  _c("span", { staticClass: "sort_col" }, [
-                    _c(
-                      "svg",
-                      {
-                        attrs: {
-                          width: "15",
-                          height: "9",
-                          viewBox: "0 0 15 9",
-                          fill: "none",
-                          xmlns: "http://www.w3.org/2000/svg"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751",
-                            stroke: "#22262A",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        })
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "th",
-                  { staticClass: "price-term", attrs: { scope: "col" } },
-                  [_vm._v("Срок цены")]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.productsFilter, function(product) {
-                return _c("tr", [
-                  _vm._m(1, true),
-                  _vm._v(" "),
-                  _c("td", [
-                    _c("div", {
-                      staticClass: "image_product_table",
-                      style:
-                        "background-image: url(" + product.product.image + ");"
-                    })
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("td", { staticClass: "bold" }, [
-                    _vm._v(_vm._s(product.product.name))
-                  ]),
-                  _vm._v(" "),
-                  product.active
-                    ? _c("td", [_vm._v("Активно")])
-                    : _c("td", [_vm._v("Не активно")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(product.product.category.name))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(product.product.type.name))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(product.adress))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v("50 кг")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(product.capacity))]),
-                  _vm._v(" "),
-                  _c(
-                    "td",
-                    {
-                      staticClass: "nowrap modal_price",
-                      attrs: {
-                        "data-bs-toggle": "modal",
-                        "data-bs-target": "#changePrice"
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "price" }, [
-                        _vm._v(_vm._s(product.price) + " ₽")
-                      ]),
-                      _c("span", { staticClass: "price_nds" }, [
-                        _vm._v(
-                          _vm._s(_vm.calcNds(product.price)) +
-                            " ₽ НДС\n                        "
-                        )
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm._m(2, true)
-                ])
-              }),
-              0
-            )
-          ]),
-          _vm._v(" "),
-          _vm._m(3),
-          _vm._v(" "),
-          _c("div", { staticClass: "navigation_table" }, [
-            _vm._m(4),
-            _vm._v(" "),
-            _c("div", [
-              _c(
-                "nav",
-                { attrs: { "aria-label": "Page navigation example" } },
-                [
-                  _c("ul", { staticClass: "pagination" }, [
-                    _c("li", { staticClass: "page-item" }, [
+                  _c("th", { attrs: { scope: "col" } }, [
+                    _vm._v("Статус\n                                "),
+                    _c("span", { staticClass: "sort_col" }, [
                       _c(
-                        "a",
+                        "svg",
                         {
-                          staticClass: "page-link",
-                          attrs: { href: "#", "aria-label": "Previous" }
+                          attrs: {
+                            width: "15",
+                            height: "9",
+                            viewBox: "0 0 15 9",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
                         },
                         [
-                          _c("span", { attrs: { "aria-hidden": "true" } }, [
-                            _c(
-                              "svg",
-                              {
-                                attrs: {
-                                  width: "9",
-                                  height: "16",
-                                  viewBox: "0 0 9 16",
-                                  fill: "none",
-                                  xmlns: "http://www.w3.org/2000/svg"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d: "M8 1L1.03683 7.96317L8 14.9263",
-                                    stroke: "#22262A",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                })
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "sr-only" }, [
-                            _vm._v("Previous")
-                          ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(5),
-                    _vm._v(" "),
-                    _vm._m(6),
-                    _vm._v(" "),
-                    _vm._m(7),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "page-item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "page-link",
-                          attrs: { href: "#", "aria-label": "Next" }
-                        },
-                        [
-                          _c("span", { attrs: { "aria-hidden": "true" } }, [
-                            _c(
-                              "svg",
-                              {
-                                attrs: {
-                                  width: "9",
-                                  height: "16",
-                                  viewBox: "0 0 9 16",
-                                  fill: "none",
-                                  xmlns: "http://www.w3.org/2000/svg"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d: "M1 1L7.96317 7.96317L1 14.9263",
-                                    stroke: "#22262A",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                })
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "sr-only" }, [
-                            _vm._v("Next")
-                          ])
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751",
+                              stroke: "#22262A",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          })
                         ]
                       )
                     ])
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [
+                    _vm._v("Категория\n                            ")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Тип")]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [
+                    _vm._v("Регион погрузки")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Фасовка")]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [
+                    _vm._v("Текущий объём")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [
+                    _vm._v(
+                      "Цена, кг / Цена, кг с НДС\n                                "
+                    ),
+                    _c("span", { staticClass: "sort_col" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "15",
+                            height: "9",
+                            viewBox: "0 0 15 9",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751",
+                              stroke: "#22262A",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          })
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "th",
+                    { staticClass: "price-term", attrs: { scope: "col" } },
+                    [_vm._v("Срок цены")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.productsFilter, function(product) {
+                  return _c("tr", [
+                    _vm._m(1, true),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("div", {
+                        staticClass: "image_product_table",
+                        style:
+                          "background-image: url(" +
+                          product.product.image +
+                          ");"
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "bold" }, [
+                      _vm._v(_vm._s(product.product.name))
+                    ]),
+                    _vm._v(" "),
+                    product.active
+                      ? _c("td", [_vm._v("Активно")])
+                      : _c("td", [_vm._v("Не активно")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(product.product.category.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(product.product.type.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(product.adress))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("50 кг")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(product.capacity))]),
+                    _vm._v(" "),
+                    _c(
+                      "td",
+                      {
+                        staticClass: "nowrap modal_price",
+                        attrs: {
+                          "data-bs-toggle": "modal",
+                          "data-bs-target": "#changePrice"
+                        }
+                      },
+                      [
+                        _c("span", { staticClass: "price" }, [
+                          _vm._v(_vm._s(product.price) + " ₽")
+                        ]),
+                        _c("span", { staticClass: "price_nds" }, [
+                          _vm._v(
+                            _vm._s(_vm.calcNds(product.price)) +
+                              " ₽ НДС\n                        "
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(2, true)
                   ])
-                ]
+                }),
+                0
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "page_count" }, [
-              _vm._v(
-                "\n                        1-5 из 100\n                    "
-              )
+            _vm._m(3),
+            _vm._v(" "),
+            _c("div", { staticClass: "navigation_table" }, [
+              _vm._m(4),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "nav",
+                  { attrs: { "aria-label": "Page navigation example" } },
+                  [
+                    _c("ul", { staticClass: "pagination" }, [
+                      _c("li", { staticClass: "page-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link",
+                            attrs: { href: "#", "aria-label": "Previous" }
+                          },
+                          [
+                            _c("span", { attrs: { "aria-hidden": "true" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  attrs: {
+                                    width: "9",
+                                    height: "16",
+                                    viewBox: "0 0 9 16",
+                                    fill: "none",
+                                    xmlns: "http://www.w3.org/2000/svg"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d: "M8 1L1.03683 7.96317L8 14.9263",
+                                      stroke: "#22262A",
+                                      "stroke-width": "2",
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round"
+                                    }
+                                  })
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "sr-only" }, [
+                              _vm._v("Previous")
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _vm._m(6),
+                      _vm._v(" "),
+                      _vm._m(7),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "page-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link",
+                            attrs: { href: "#", "aria-label": "Next" }
+                          },
+                          [
+                            _c("span", { attrs: { "aria-hidden": "true" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  attrs: {
+                                    width: "9",
+                                    height: "16",
+                                    viewBox: "0 0 9 16",
+                                    fill: "none",
+                                    xmlns: "http://www.w3.org/2000/svg"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d: "M1 1L7.96317 7.96317L1 14.9263",
+                                      stroke: "#22262A",
+                                      "stroke-width": "2",
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round"
+                                    }
+                                  })
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "sr-only" }, [
+                              _vm._v("Next")
+                            ])
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "page_count" }, [
+                _vm._v(
+                  "\n                            1-5 из 100\n                        "
+                )
+              ])
             ])
           ])
         ])

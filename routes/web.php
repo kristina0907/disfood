@@ -38,6 +38,7 @@ Route::get('/get/location',[ApiController::class,'getLocation']);
 Route::get('/get/my-offers/{id}',[ApiController::class,'getMyOffers']);
 Route::post('/set/offer/new',[ApiController::class,'setNewOffer']);
 Route::get('/get/order/{id}',[ApiController::class,'getMyOrder']);
+Route::get('/get/currentuser',[ApiController::class,'getCurrentUser']);
 
 Route::get('/get/categories',[ApiController::class,'getCategories']);
 Route::get('/get/types',[ApiController::class,'getTypes']);

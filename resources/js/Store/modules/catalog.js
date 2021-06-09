@@ -1,79 +1,5 @@
 export default {
     namespaced:true,
-    /*
-    state:{
-        category:null,
-        type:null,
-        categories:[],
-        types:[],
-        packages:[]
-    },
-    mutations:{
-        SET_CATEGORIES(state,data)
-        {
-            state.categories = data;
-        },
-        SET_CATALOG_TYPES(state,data)
-        {
-            state.types = data;
-        },
-        SELECT_CATEGORY(state,{cat,type})
-        {
-            state.category = cat;
-            state.type = type;
-        },
-        UPDATE_CATEGORY(state, value) {
-            state.category = value
-        }
-    },
-    actions: {
-        updateCategoryAction ({ commit }, value) {
-            commit('UPDATE_CATEGORY', value)
-        },
-        async getCatalogData({commit})
-        {
-            await axios.get('/get/categories/')
-                .then(response => {
-                    if (response.data !== 'undefined' && response.data !== null) {
-                        commit('SET_CATEGORIES', response.data.cats)
-                    }
-                });
-                console.log(this.state)
-
-        },
-        async getCatalogTypes({commit})
-        {
-            await axios.get('/get/types/')
-                .then(response => {
-
-                    if (response.data !== 'undefined' && response.data !== null) {
-                        commit('SET_CATALOG_TYPES', response.data.types)
-                    }
-                })
-        },
-        redirectToCatalog({commit}, data)
-        {
-            commit('SELECT_CATEGORY',data);
-        },
-    },
-    getters: {
-        getCat: state => {
-            let cat = state.categories.filter(function (item){
-                return item.id == state.category;
-            })
-            return cat[0];
-        },
-        getType: state => {
-            return state.type;
-        },
-        getTypes: state => {
-            return state.types;
-        },
-        getCategories: state => {
-            return state.categories;
-        }
-
-    }*/
     state: {
         categoryValue: '',
         categories:[],
@@ -157,7 +83,7 @@ export default {
         },
         async getCatalogData({commit})
         {
-            await axios.get('/get/categories/')
+            await axios.get('/get/categories')
                 .then(response => {
                     if (response.data !== 'undefined' && response.data !== null) {
                         commit('SET_CATEGORIES', response.data.cats)
@@ -166,7 +92,7 @@ export default {
         },
         async getCatalogTypes({commit})
         {
-            await axios.get('/get/types/')
+            await axios.get('/get/types')
                 .then(response => {
 
                     if (response.data !== 'undefined' && response.data !== null) {

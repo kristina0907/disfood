@@ -196,9 +196,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     changeDropdown: function changeDropdown() {
-      console.log(this.isExpand);
       this.isExpand = !this.isExpand;
-      console.log(this.isExpand);
     }
   }
 });

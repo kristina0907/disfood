@@ -4,7 +4,7 @@
             <HeaderCatalog></HeaderCatalog>
         </div>
         <div class="row">
-            <div class="container container_register">
+            <div class="container container_register content">
                 <div class="row">
                     <div class="col xs-12 col-md-6">
                         <div class="title_reg">

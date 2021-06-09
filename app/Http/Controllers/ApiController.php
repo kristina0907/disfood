@@ -17,6 +17,7 @@ use App\Services\TypeProductService;
 use App\Services\UserService;
 use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use MoveMoveIo\DaData\Facades\DaDataAddress;
 
 
@@ -386,6 +387,11 @@ class ApiController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+
     public function getLocation(Request $request)
     {
         $ip = $request->ip();
@@ -402,5 +408,23 @@ class ApiController extends Controller
         ],200);
     }
 
+     public function getCurrentUser()
+     {
+        $user = Auth::check();
+        if($user)
+        {
+            $us = Auth::user();
+            $user = $this->userService->getById($us->id);
+            $output['user'] = $user;
+            $output['roles'] = $user->roles;
+            $output['organizations'] = $user->organizations;
+            //dd($output);
+            return response()->json($output,200);
+        }
+        else
+        {
+            return response()->json($user,201);
+        }
 
+     }
 }

@@ -173,6 +173,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -480,99 +489,129 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container_footer container-fluid" }, [
       _c("div", { staticClass: "row container_footer_block" }, [
-        _c("div", { staticClass: "col" }, [
-          _c("div", { staticClass: "title_footer_list" }, [_vm._v("Каталог")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "list_foter" }, [
-            _c("ul", [
-              _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Крупы")])]),
-              _vm._v(" "),
-              _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Масло")])]),
-              _vm._v(" "),
-              _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Сахар")])])
-            ])
-          ])
-        ]),
+        _c("div", { staticClass: "col-md-1" }),
         _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _c("div", { staticClass: "title_footer_list" }, [
-            _vm._v("О платформе")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "list_foter" }, [
-            _c("ul", [
-              _c("li", [
-                _c("a", { attrs: { href: "" } }, [
-                  _vm._v("Как работать с платформой")
+        _c("div", { staticClass: "col-md-10" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "title_footer_list" }, [
+                _vm._v("Каталог")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "list_foter" }, [
+                _c("ul", [
+                  _c("li", [
+                    _c("a", { attrs: { href: "" } }, [_vm._v("Крупы")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "" } }, [_vm._v("Масло")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "" } }, [_vm._v("Сахар")])
+                  ])
                 ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "title_footer_list" }, [
+                _vm._v("О платформе")
               ]),
               _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "" } }, [_vm._v("Доставка")])
+              _c("div", { staticClass: "list_foter" }, [
+                _c("ul", [
+                  _c("li", [
+                    _c("a", { attrs: { href: "" } }, [
+                      _vm._v("Как работать с платформой")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "" } }, [_vm._v("Доставка")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "" } }, [_vm._v("Поставщики")])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "title_footer_list" }, [_vm._v("Блог")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "list_foter" }, [
+                _c("ul", [
+                  _c("li", [
+                    _c("a", { attrs: { href: "" } }, [_vm._v("Новости")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "" } }, [
+                      _vm._v("Новости отрасли")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "" } }, [_vm._v("Новые фичи")])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "title_footer_list" }, [
+                _vm._v("О компании")
               ]),
               _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "" } }, [_vm._v("Поставщики")])
+              _c("div", { staticClass: "list_foter" }, [
+                _c("ul", [
+                  _c("li", [
+                    _c("a", { attrs: { href: "" } }, [_vm._v("О компании")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "" } }, [
+                      _vm._v("История коспании")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "" } }, [_vm._v("Партнеры")])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "title_footer_list" }, [
+                _vm._v("Контакты")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "list_foter" }, [
+                _c("ul", [
+                  _c("li", [
+                    _c("a", { attrs: { href: "" } }, [_vm._v("О компании")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "" } }, [
+                      _vm._v("История коспании")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "" } }, [_vm._v("Партнеры")])
+                  ])
+                ])
               ])
             ])
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _c("div", { staticClass: "title_footer_list" }, [_vm._v("Блог")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "list_foter" }, [
-            _c("ul", [
-              _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Новости")])]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "" } }, [_vm._v("Новости отрасли")])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "" } }, [_vm._v("Новые фичи")])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _c("div", { staticClass: "title_footer_list" }, [
-            _vm._v("О компании")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "list_foter" }, [
-            _c("ul", [
-              _c("li", [
-                _c("a", { attrs: { href: "" } }, [_vm._v("О компании")])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "" } }, [_vm._v("История коспании")])
-              ]),
-              _vm._v(" "),
-              _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Партнеры")])])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _c("div", { staticClass: "title_footer_list" }, [_vm._v("Контакты")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "list_foter" }, [
-            _c("ul", [
-              _c("li", [
-                _c("a", { attrs: { href: "" } }, [_vm._v("О компании")])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "" } }, [_vm._v("История коспании")])
-              ]),
-              _vm._v(" "),
-              _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Партнеры")])])
-            ])
-          ])
-        ])
+        _c("div", { staticClass: "col-md-1" })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row container_footer_block" }, [

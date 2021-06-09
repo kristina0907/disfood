@@ -549,9 +549,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     changeDropdown: function changeDropdown() {
-      console.log(this.isExpand);
       this.isExpand = !this.isExpand;
-      console.log(this.isExpand);
     }
   }
 });
@@ -575,7 +573,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.multiselect__select\n{\n    height: 42px;\n}\n.multiselect__select:before\n{\n    top: 91%;\n}\n.multiselect__tags\n{\n    min-height: 62px;\n    display: block;\n    padding: 11px 40px 0 8px;\n    border-radius: 10px;\n    border: 1px solid #c8ccd1;\n    background: #fff;\n    font-size: 14px;\n}\n.multiselect__tag\n{\n    position: relative;\n    display: inline-block;\n    padding: 12px 26px 12px 10px;\n    border-radius: 10px;\n    margin-right: 10px;\n    color: #fff;\n    line-height: 1;\n    background: #41b883;\n    margin-bottom: 5px;\n    white-space: nowrap;\n    overflow: hidden;\n    max-width: 100%;\n    text-overflow: ellipsis;\n}\n.multiselect__tag-icon\n{\n    line-height: 40px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.multiselect__select\r\n{\r\n    height: 42px;\n}\n.multiselect__select:before\r\n{\r\n    top: 91%;\n}\n.multiselect__tags\r\n{\r\n    min-height: 62px;\r\n    display: block;\r\n    padding: 11px 40px 0 8px;\r\n    border-radius: 10px;\r\n    border: 1px solid #c8ccd1;\r\n    background: #fff;\r\n    font-size: 14px;\n}\n.multiselect__tag\r\n{\r\n    position: relative;\r\n    display: inline-block;\r\n    padding: 12px 26px 12px 10px;\r\n    border-radius: 10px;\r\n    margin-right: 10px;\r\n    color: #fff;\r\n    line-height: 1;\r\n    background: #41b883;\r\n    margin-bottom: 5px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    max-width: 100%;\r\n    text-overflow: ellipsis;\n}\n.multiselect__tag-icon\r\n{\r\n    line-height: 40px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -599,7 +597,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.file-select > .select-button[data-v-1bc85401] {\n    padding: 1rem;\n\n    color: white;\n    background-color: #2EA169;\n\n    border-radius: .3rem;\n\n    text-align: center;\n    font-weight: bold;\n}\n.file-select > input[type=\"file\"][data-v-1bc85401] {\n    display: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.file-select > .select-button[data-v-1bc85401] {\r\n    padding: 1rem;\r\n\r\n    color: white;\r\n    background-color: #2EA169;\r\n\r\n    border-radius: .3rem;\r\n\r\n    text-align: center;\r\n    font-weight: bold;\n}\n.file-select > input[type=\"file\"][data-v-1bc85401] {\r\n    display: none;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

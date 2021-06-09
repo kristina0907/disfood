@@ -149,9 +149,7 @@ export default {
     methods:{
         changeDropdown()
         {
-            console.log(this.isExpand)
             this.isExpand = !this.isExpand
-            console.log(this.isExpand)
         }
     }
 }

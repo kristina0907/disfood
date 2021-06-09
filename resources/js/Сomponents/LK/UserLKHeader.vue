@@ -1,7 +1,7 @@
 <template>
     <header class="lk-header">
         <nav class="navbar navbar-expand-lg pad-bot-0">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <svg width="135" height="34" viewBox="0 0 135 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M8.81702 0.421143V8.16382C12.7622 8.16382 16.0435 8.11275 19.5656 8.12187C20.7128 8.12187 21.7124 8.49578 22.5769 9.20529C23.4269 9.92393 24.089 10.9271 24.5705 12.2221C25.0374 13.5098 25.28 15.0273 25.2891 16.7546C25.28 18.5147 25.0374 20.0469 24.5705 21.3546C24.089 22.6624 23.4305 23.6747 22.5769 24.3897C21.7178 25.1138 20.7128 25.4822 19.5656 25.4822L16.4265 25.6227C14.9054 28.158 13.4991 30.3431 11.3943 33.3453L19.6586 33.2286C21.7598 33.2012 23.6695 32.8218 25.3694 32.0375C27.073 31.2587 28.5248 30.1278 29.7396 28.676C30.9525 27.2186 31.8827 25.4768 32.5266 23.4504C33.1577 21.4148 33.4695 19.155 33.4568 16.6616C33.4477 14.2102 33.1194 11.9923 32.4609 10.0042C31.8025 8.01973 30.8741 6.30521 29.6557 4.8807C28.4409 3.45255 26.9836 2.35453 25.2946 1.58847C23.6093 0.824236 21.7306 0.432087 19.6586 0.421143H8.81702Z"
@@ -46,91 +46,7 @@
                         </router-link>
                     </li>
                 </ul>
-                <div class="nav-item dropdown">
-                    <div class="login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" @click="changeDropdown()"
-                         aria-expanded="false">
-                        <div>
-                            <div class="name_company">Дары кубани</div>
-                            <div class="accredited_company">Поставщик &#183; аккредитован</div>
-                        </div>
-                        <div class="login_img">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167"
-                                    stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path
-                                    d="M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z"
-                                    stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                    </div>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li class="dropdown-item-login">
-                            <div class="login">
-                                <div>
-                                    <div class="name_company">Дары кубани</div>
-                                    <div class="accredited_company">Поставщик · аккредитован</div>
-                                </div>
-                                <div class="login_img">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167" stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        <path d="M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z" stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item dropdown-item-settings" href="#">Настройки</a></li>
-                        <li class="dropdown_info_text dropdown-item-border">Переключиться на покупателя</li>
-                        <li><a class="dropdown-item dropdown-item-border" href="#">
-                            <div class="item_company_list">
-                                <div class="name_company_list">
-                                    Фирма-Ферма
-                                </div>
-                                <div class="category_company_list">
-                                    Покупатель
-                                </div>
-                            </div>
-                            <div class="icon_company_list">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167"
-                                        stroke="#71BF45" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path
-                                        d="M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z"
-                                        stroke="#71BF45" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </a></li>
-                        <li><a class="dropdown-item dropdown-item-border" href="#">
-                            <div class="item_company_list">
-                                <div class="name_company_list">
-                                    Фирма-Ферма
-                                </div>
-                                <div class="category_company_list">
-                                    Покупатель
-                                </div>
-                            </div>
-                            <div class="icon_company_list">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167"
-                                        stroke="#71BF45" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path
-                                        d="M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z"
-                                        stroke="#71BF45" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </a></li>
-                        <li><a class="dropdown-item dropdown-item-exit" href="#">Выйти</a></li>
-                    </ul>
-                </div>
+                <user-login-auth-button></user-login-auth-button>
             </div>
         </nav>
     </header>
@@ -139,8 +55,10 @@
 <script>
 
 
+import UserLoginAuthButton from "../UserLoginAuthButton";
+import {mapState} from "vuex";
 export default {
-    components: {},
+    components: {UserLoginAuthButton},
     data(){
         return {
             isExpand:false,
@@ -151,6 +69,9 @@ export default {
         {
             this.isExpand = !this.isExpand
         }
-    }
+    },
+    computed: {
+        ...mapState(['user'])
+    },
 }
 </script>

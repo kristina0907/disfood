@@ -34,7 +34,7 @@ Route::post('/set/company/and/register',[ApiController::class,'setCompanyAndRegi
 
 Route::get('/get/my-products/{id}',[ApiController::class,'getMyProducts']);
 Route::get('/get/newproduct/data',[ApiController::class,'getNewProductData']);
-
+Route::get('/change/currentOrganization/{id}',[ApiController::class,'changeCurrentOrganizationId']);
 
 Route::get('/get/location',[ApiController::class,'getLocation']);
 Route::get('/get/my-offers/{id}',[ApiController::class,'getMyOffers']);

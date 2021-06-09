@@ -430,4 +430,18 @@ class ApiController extends Controller
         }
 
      }
+
+    /**
+     * @param $id
+     */
+
+     public function changeCurrentOrganizationId($id)
+     {
+         if(!empty($id))
+         {
+             //TODO сделать проверку естьь ли у пользователя айди этой организации в организациях
+             $user = $this->userService->updateCurrentOrganization($id);
+             return response()->json(['user'=>$user],200);
+         }
+     }
 }

@@ -57,8 +57,33 @@ class User extends Authenticatable
 
     public function scopeClients($query)
     {
-        return $query->whereHas('roles',function ($q){
-            $q->where('slug','client');
+        return $query->whereHas('roles', function ($q) {
+            $q->where('slug', 'client');
+        });
+    }
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+
+    public function scopeTraders($query)
+    {
+        return $query->whereHas('roles', function ($q) {
+            $q->where('slug', 'supplier');
+        });
+    }
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+
+    public function scopeTradersOrClients($query)
+    {
+        return $query->whereHas('roles', function ($q) {
+            $q->where('slug', 'supplier');
+            $q->orWhere('slug','client');
         });
     }
 

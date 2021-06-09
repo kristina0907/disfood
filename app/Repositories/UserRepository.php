@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Contracts\UserContract;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserRepository implements UserContract
@@ -94,6 +95,22 @@ class UserRepository implements UserContract
         return $user->fresh();
     }
 
+
+    public function updateCurrentOrganization($data)
+    {
+        if(!empty($data))
+        {
+            $user =  Auth::user();
+            $user->current_organization_id = $data;
+            $user->update();
+            return $this->user
+            ->where('id', $user->id)
+            ->with(['organizations.status','organizations.owner','roles'])
+            ->first();
+
+        }
+    }
+
     /**
      * @param $data
      * @param $id
@@ -109,8 +126,10 @@ class UserRepository implements UserContract
         $user->email = $data->userEmail;
         $user->surname = $data->userSurname;
         $user->phone = $data->userPhone;
-        $user->password = Hash::make($data->userPassword);
-
+        if (!empty($data['userPassword']))
+        {
+            $user->password = Hash::make($data->userPassword);
+        }
         if(!empty($data->type))
         {
             if((string) $data->type === "company")

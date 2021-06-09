@@ -62,6 +62,25 @@ class UserService
 
     }
 
+    public function updateCurrentOrganization($data)
+    {
+        DB::beginTransaction();
+
+        try {
+            $result = $this->userRepository->updateCurrentOrganization($data);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::info($e->getMessage());
+
+            throw new InvalidArgumentException('Unable to update post data');
+        }
+
+        DB::commit();
+
+        return $result;
+    }
+
     /**
      * @param $data
      * @param $id

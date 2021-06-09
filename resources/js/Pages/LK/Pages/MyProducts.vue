@@ -146,11 +146,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="navigation_table">
+<!--                        <div class="navigation_table">
                             <div class="num_rows">
-                    <span>
-                        Количество сторок
-                    </span>
+                                <span>
+                                    Количество сторок
+                                </span>
                                 <div class="container_select_rows">
                                     <select name="" id="">
                                         <option value="">5</option>
@@ -192,7 +192,7 @@
                             <div class="page_count">
                                 1-5 из 100
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -219,7 +219,7 @@ export default {
     methods:{
         getProducts()
         {
-            axios.get('/get/my-products/1')
+            axios.get('/get/my-products/'+this.$store.getters.getUser.user.id)
                 .then((response)=>{
 
                     if(response.data !== 'undefined' && response.data !== null)

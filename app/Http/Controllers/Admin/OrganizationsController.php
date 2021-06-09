@@ -92,7 +92,7 @@ class OrganizationsController extends Controller
         if(Gate::allows('update',Auth::user()))
         {
             $organization = $this->organizationService->getOrganizationById($id);
-            $clients = User::clients()->get();
+            $clients = User::tradersOrClients()->get();
             $statuses = $this->statusService->getAll();
             return view('Admin.pages.organizations.edit',['clients'=>$clients,'organization'=>$organization,'statuses'=>$statuses]);
         }

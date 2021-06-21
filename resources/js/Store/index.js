@@ -1,12 +1,15 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import catalog from "./modules/catalog";
-
+import myproducts from "./modules/myproducts";
+import myorders from "./modules/myorders";
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
     modules:{
-        catalog
+        catalog,
+        myproducts,
+        myorders
     },
     state:{
       user:null,
@@ -50,8 +53,6 @@ const store = new Vuex.Store({
         },
         async changeCurrentOrganization({commit},data)
         {
-            console.log(data)
-
             await axios.get('/change/currentOrganization/'+data)
                 .then(response=>{
                     if(response.data !== 'undefined' && response.data !== null)
@@ -59,7 +60,6 @@ const store = new Vuex.Store({
                         commit('updateCurrentOrganization',response.data);
                     }
             });
-
         }
     }
 })

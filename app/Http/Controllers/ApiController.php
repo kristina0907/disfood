@@ -222,7 +222,7 @@ class ApiController extends Controller
      * @return mixed
      */
 
-    public function getMyOffers($id)
+    public function getMyOrders($id)
     {
         if (!empty($id)) {
             return $this->orderService->getOrdersByUserId($id);

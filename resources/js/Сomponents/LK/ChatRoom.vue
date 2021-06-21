@@ -21,8 +21,8 @@
                                 <div class="photo_sender_last_message"
                                      style="background-image: url(/images/photo.png);"></div>
                                 <div class="info_sender_last_message">
-                                    <div class="name_sender_last_message">{{message.author.name}}</div>
-                                    <div class="post_sender_last_message m-b-10" v-for="role in message.author.roles">
+                                    <div class="name_sender_last_message" v-if="message.author">{{message.author.name}}</div>
+                                    <div class="post_sender_last_message m-b-10" v-if="message.author.roles" v-for="role in message.author.roles">
                                         {{role.name}}
                                     </div>
                                 </div>
@@ -75,6 +75,8 @@
 
 <script>
 
+
+import {mapState} from "vuex";
 
 export default {
     name:'chat-room',
@@ -136,6 +138,10 @@ export default {
     },
     mounted() {
         this.getMessages();
-    }
+        this.$store.dispatch('getUserData');
+    },
+    computed: {
+        ...mapState(['user'])
+    },
 }
 </script>

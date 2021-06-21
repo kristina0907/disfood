@@ -218,12 +218,9 @@ export default {
         ...mapActions(['getUserData']),
     },
     mounted() {
-       // this.getData();
         this.$store.dispatch('catalog/getUserIP');
         this.$store.dispatch('catalog/getCatalogData');
         this.$store.dispatch('catalog/getCatalogTypes');
-     /*   this.$store.dispatch('getUserData');*/
-        //window.addEventListener('scroll', this.updateScroll);
     },
     computed: {
         ...mapState('catalog',['location','categories','types']),

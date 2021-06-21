@@ -10,7 +10,8 @@
                     <div class="table_container table-responsive">
                         <div class="sort_taable">
                             <div class="item_sort" :class="{'active':allFlag}" @click="allFilter">Все <span>&#183;</span>
-                                {{ products.length }}</div>
+                                {{ products.length }}
+                            </div>
                             <div class="item_sort" :class="{'active':activeflag}" @click="activeFilter">Активные <span>&#183;</span> {{ countActive() }}</div>
                             <div class="item_sort" :class="{'active':noactiveFlag}" @click="noactiveFilter">Неактивные <span>&#183;</span> {{ countNoActive() }}</div>
                         </div>
@@ -91,7 +92,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="product in productsFilter">
+                            <tr v-for="product in products">
                                 <td>
                                     <div class="checkbox">
                                         <input class="custom-checkbox" type="checkbox" id="color-2" name="color-2"
@@ -205,11 +206,11 @@
 
 
 import UserLKHeader from "../../../Сomponents/LK/UserLKHeader";
+import {mapState,mapActions} from "vuex";
 export default {
     components: {UserLKHeader},
     data(){
         return {
-            products:[],
             productsFilter:[],
             activeflag:false,
             noactiveFlag:false,
@@ -217,18 +218,7 @@ export default {
         }
     },
     methods:{
-        getProducts()
-        {
-            axios.get('/get/my-products/'+this.$store.getters.getUser.user.id)
-                .then((response)=>{
-
-                    if(response.data !== 'undefined' && response.data !== null)
-                    {
-                        this.products = response.data;
-                    }
-                    this.allFilter();
-                })
-        },
+        //TODO перенести все методы во vuex
         calcNds(price)
         {
             var nds = price * 10 / 100;
@@ -275,10 +265,16 @@ export default {
                 return product.active == false;
             });
             return positiveArr.length
-        }
+        },
+    },
+    computed: {
+        ...mapState('myproducts',['products']),
+        products() {
+            return this.$store.getters["myproducts/getMyProducts"]
+        },
     },
     mounted() {
-        this.getProducts();
+        this.$store.dispatch('myproducts/getProducts');
     }
 }
 </script>

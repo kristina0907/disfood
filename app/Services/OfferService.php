@@ -161,6 +161,12 @@ class OfferService
         return $this->offerRepository->getByUserId($id);
     }
 
+    /**
+     * @param $category
+     * @param null $type
+     * @return mixed
+     */
+
     public function getOffersByCategory($category,$type=null)
     {
         if(!empty($category))

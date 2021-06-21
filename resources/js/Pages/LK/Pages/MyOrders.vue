@@ -9,14 +9,18 @@
 
                 <div class="table_container table-responsive">
                     <div class="sort_taable">
-                        <div class="item_sort" :class="{'active':flags[0]['allFlag']}" @click="allFilter('all')">Все <span>&#183;</span>  {{ orders.length }}</div>
-                        <div class="item_sort" :class="{'active':flags[1]['newFlag']}" @click="valFilter('new')">Новые <span>&#183;</span> {{ countOffers('new') }}</div>
-                        <div class="item_sort" :class="{'active':flags[2]['payingFlag']}" @click="valFilter('paying')">Оплата <span>&#183;</span> {{ countOffers('paying') }}</div>
-                        <div class="item_sort" :class="{'active':flags[3]['acceptedFlag']}" @click="valFilter('accepted')">Подтвержден <span>&#183;</span>{{ countOffers('accepted') }}</div>
-                        <div class="item_sort" :class="{'active':flags[4]['pogruzkaFlag']}" @click="valFilter('pogruzka')">Погрузка <span>&#183;</span>{{countOffers('pogruzka')}}</div>
-                        <div class="item_sort" :class="{'active':flags[5]['deliveryFlag']}" @click="valFilter('delivery')">Доставляется <span>&#183;</span>{{countOffers('delivery')}}</div>
-                        <div class="item_sort" :class="{'active':flags[6]['completeFlag']}" @click="valFilter('complete')">Завершена <span>&#183;</span>{{countOffers('complete')}}</div>
-                        <div class="item_sort" :class="{'active':flags[7]['cancelledFlag']}" @click="valFilter('cancelled')">Не состоялась <span>&#183;</span> {{countOffers('cancelled')}}</div>
+                        <div class="item_sort" :class="{'active':flags[0]['allFlag']}" >Все <span>&#183;</span>
+                            <span v-if="orders">
+                            {{ orders.length }}
+                            </span>
+                        </div>
+                        <div class="item_sort" :class="{'active':flags[1]['newFlag']}" >Новые <span>&#183;</span> </div>
+                        <div class="item_sort" :class="{'active':flags[2]['payingFlag']}" >Оплата <span>&#183;</span> </div>
+                        <div class="item_sort" :class="{'active':flags[3]['acceptedFlag']}" >Подтвержден <span>&#183;</span></div>
+                        <div class="item_sort" :class="{'active':flags[4]['pogruzkaFlag']}" >Погрузка <span>&#183;</span></div>
+                        <div class="item_sort" :class="{'active':flags[5]['deliveryFlag']}" >Доставляется <span>&#183;</span></div>
+                        <div class="item_sort" :class="{'active':flags[6]['completeFlag']}" >Завершена <span>&#183;</span></div>
+                        <div class="item_sort" :class="{'active':flags[7]['cancelledFlag']}" >Не состоялась <span>&#183;</span> </div>
                     </div>
                     <div class="search_table">
                         <div class="icon_search">
@@ -81,7 +85,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="order in ordersFilter" @click="goToOrder(order.id)">
+                        <tr v-for="order in orders" @click="goToOrder(order.id)">
                                 <td>
                                     {{order.id}}
                                 </td>
@@ -154,6 +158,7 @@
 
 
 import UserLKHeader from "../../../Сomponents/LK/UserLKHeader";
+import {mapState} from "vuex";
 export default {
     components: {UserLKHeader},
     data(){
@@ -168,12 +173,12 @@ export default {
                 {completeFlag:false},
                 {cancelledFlag:false},
             ],
-            orders:[],
+            //orders:[],
             ordersFilter:[],
         }
     },
     methods: {
-        getOffers() {
+       /* getOffers() {
             axios.get('/get/my-offers/'+this.$store.getters.getUser.user.id)
                 .then((response) => {
 
@@ -182,8 +187,8 @@ export default {
                     }
                     this.allFilter('all');
                 })
-        },
-        allFilter(type) {
+        },*/
+       /* allFilter(type) {
             this.ordersFilter = this.orders;
             this.changeFlags(type);
 
@@ -195,12 +200,12 @@ export default {
             this.ordersFilter = positiveArr;
             this.changeFlags(type);
 
-        },
+        },*/
         goToOrder(id){
             var path = '/order-page/'+id;
             this.$router.push({ path: path,params:{id:id} });
         },
-        changeFlags(type)
+       /* changeFlags(type)
         {
             var str = type + 'Flag';
             this.flags.map(function (flag){
@@ -220,12 +225,18 @@ export default {
                 return order.status.slug == type;
             });
             return positiveArr.length
-        },
+        },*/
 
 
     },
+    computed: {
+        ...mapState('myorders',['orders']),
+        orders() {
+            return this.$store.getters["myorders/getOrders"]
+        },
+    },
     mounted() {
-        this.getOffers()
+        this.$store.dispatch('myorders/getMyOrders');
     }
 }
 </script>

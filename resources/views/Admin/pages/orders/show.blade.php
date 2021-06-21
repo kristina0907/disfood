@@ -53,7 +53,11 @@
                                                     <tr role="row" class="odd">
                                                         <td>{{$order->id}}</td>
                                                         <td>{{$order->organization->name}}</td>
-                                                        <td>{{$order->user->name}}</td>
+                                                        <td>
+                                                            @if(!empty($order->user))
+                                                                {{$order->user->name}}
+                                                            @endif
+                                                        </td>
                                                         <td>{{$order->from->title_ru}}</td>
                                                         <td>{{$order->delivery->title_ru}}</td>
                                                         <td>{{$order->offer->name}}</td>

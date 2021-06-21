@@ -71,7 +71,7 @@
                                          style="background-image: url(/images/photo.png);"></div>
                                     <div class="info_sender_last_message" v-if="lastMessage.author">
                                         <div class="name_sender_last_message">{{lastMessage.author.name}}</div>
-                                        <div class="post_sender_last_message" v-for="role in lastMessage.author.roles">{{role.name}}</div>
+                                        <div class="post_sender_last_message" v-if="lastMessage.author && lastMessage.author.roles" v-for="role in lastMessage.author.roles">{{role.name}}</div>
                                     </div>
                                 </div>
                                 <div class="time_last_message">{{lastMessage.created_at}}</div>

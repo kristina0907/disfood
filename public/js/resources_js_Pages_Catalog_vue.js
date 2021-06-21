@@ -398,19 +398,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     getData: function getData() {
       /* axios.get('/get/categories/')
            .then((response) => {
-                 if (response.data !== 'undefined' && response.data !== null) {
+                if (response.data !== 'undefined' && response.data !== null) {
                    this.categories = response.data;
                }
            })
-         axios.get('/get/types/')
+        axios.get('/get/types/')
            .then((response) => {
-                 if (response.data !== 'undefined' && response.data !== null) {
+                if (response.data !== 'undefined' && response.data !== null) {
                    this.types = response.data;
                }
            })
        axios.get('/get/packages/')
            .then((response) => {
-                 if (response.data !== 'undefined' && response.data !== null) {
+                if (response.data !== 'undefined' && response.data !== null) {
                    this.packages = response.data;
                }
            })*/
@@ -447,7 +447,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuescroll */ "./node_modules/vuescroll/dist/vuescroll.js");
 /* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuescroll__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _UserLoginAuthButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserLoginAuthButton */ "./resources/js/Сomponents/UserLoginAuthButton.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -618,117 +619,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "navbar-catalog",
   components: {
+    UserLoginAuthButton: _UserLoginAuthButton__WEBPACK_IMPORTED_MODULE_1__.default,
     vuescroll: (vuescroll__WEBPACK_IMPORTED_MODULE_0___default())
   },
   data: function data() {
@@ -752,24 +649,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   methods: _objectSpread(_objectSpread({
-    /* getData() {
-         axios.get('/get/types/')
-             .then((response) => {
-                   if (response.data !== 'undefined' && response.data !== null) {
-                     this.types = response.data;
-                 }
-             })
-           axios.get('/get/categories/')
-             .then((response) => {
-                   if (response.data !== 'undefined' && response.data !== null) {
-                     this.categories = response.data;
-                 }
-             })
-     },
-     updateScroll() {
-         this.scrollPosition = window.scrollY
-     },
-    */
     redirectToCatalog: function redirectToCatalog(cat, type) {
       var _this = this;
 
@@ -787,15 +666,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     changeDropdown: function changeDropdown() {
       this.isExpand = !this.isExpand;
     }
-  }, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)('catalog', ['updateValueAction', 'getCatalogData', 'getCatalogTypes', 'updateTypeAction', 'getUserIP'])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)(['getUserData'])),
+  }, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapActions)('catalog', ['updateValueAction', 'getCatalogData', 'getCatalogTypes', 'updateTypeAction', 'getUserIP'])), (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapActions)(['getUserData'])),
   mounted: function mounted() {
     // this.getData();
     this.$store.dispatch('catalog/getUserIP');
     this.$store.dispatch('catalog/getCatalogData');
     this.$store.dispatch('catalog/getCatalogTypes');
-    this.$store.dispatch('getUserData'); //window.addEventListener('scroll', this.updateScroll);
+    /*   this.$store.dispatch('getUserData');*/
+    //window.addEventListener('scroll', this.updateScroll);
   },
-  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapState)('catalog', ['location', 'categories', 'types'])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapState)(['user']))
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapState)('catalog', ['location', 'categories', 'types'])), (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapState)(['user']))
 });
 
 /***/ }),
@@ -885,19 +765,19 @@ __webpack_require__.r(__webpack_exports__);
     getData: function getData() {
       /* axios.get('/get/categories/')
            .then((response) => {
-                 if (response.data !== 'undefined' && response.data !== null) {
+                if (response.data !== 'undefined' && response.data !== null) {
                    this.categories = response.data;
                }
            })
        axios.get('/get/types/')
            .then((response) => {
-                 if (response.data !== 'undefined' && response.data !== null) {
+                if (response.data !== 'undefined' && response.data !== null) {
                    this.types = response.data;
                }
            })
        axios.get('/get/packages/')
            .then((response) => {
-                 if (response.data !== 'undefined' && response.data !== null) {
+                if (response.data !== 'undefined' && response.data !== null) {
                    this.packages = response.data;
                }
            })*/
@@ -966,6 +846,137 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'user-login-auth-button',
+  data: function data() {
+    return {};
+  },
+  methods: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(['changeCurrentOrganization'])),
+  mounted: function mounted() {
+    this.$store.dispatch('getUserData');
+  },
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)(['user', 'currentUserOrganization']))
+});
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Catalog.vue?vue&type=style&index=1&lang=css&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Catalog.vue?vue&type=style&index=1&lang=css& ***!
@@ -983,7 +994,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.select_category .multiselect__select,\r\n.select_category .multiselect__tags,\r\n.select_type .multiselect__select,\r\n.select_type .multiselect__tags\r\n{\r\n    height: 62px;\n}\n.select_category .multiselect__tags,\r\n.select_type .multiselect__tags\r\n{\r\n    min-height: 40px;\r\n    display: block;\r\n    padding: 8px 40px 0 8px;\r\n    border-radius: 10px;\r\n    border: 1px solid #C8CCD1;\r\n    background: #fff;\r\n    font-size: 14px;\n}\n.select_category .multiselect__placeholder,\r\n.select_type .multiselect__placeholder\r\n{\r\n    position: absolute;\r\n    top: 10px;\r\n    left: 20px;\r\n    font-weight: normal;\r\n    font-size: 12px;\r\n    line-height: 15px;\r\n    color: #66727E;\r\n    display: block !important;\n}\n.select_category .multiselect__select:before,\r\n.select_type .multiselect__select:before\r\n{\r\n    top: 55%;\n}\n.select_category:before\r\n{\r\n    content: 'Категория';\r\n    position: absolute;\r\n    top: 10px;\r\n    left: 20px;\r\n    font-weight: normal;\r\n    font-size: 12px;\r\n    line-height: 15px;\r\n    color: #66727E;\r\n    display: block;\r\n    z-index: 99;\n}\n.select_type\r\n{\r\n    position: relative;\r\n    width: 230px;\r\n    height: 40px;\r\n    margin: 0 auto;\n}\n.select_type:before\r\n{\r\n    content: 'Выберите тип товара';\r\n    position: absolute;\r\n    top: 10px;\r\n    left: 20px;\r\n    font-weight: normal;\r\n    font-size: 12px;\r\n    line-height: 15px;\r\n    color: #66727E;\r\n    display: block;\r\n    z-index: 99;\n}\n.select_category .multiselect__input,\r\n.select_category .multiselect__single,\r\n.select_type .multiselect__input,\r\n.select_type .multiselect__single\r\n{\r\n    padding-top: 20px;\r\n    padding-left: 12px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.select_category .multiselect__select,\n.select_category .multiselect__tags,\n.select_type .multiselect__select,\n.select_type .multiselect__tags\n{\n    height: 62px;\n}\n.select_category .multiselect__tags,\n.select_type .multiselect__tags\n{\n    min-height: 40px;\n    display: block;\n    padding: 8px 40px 0 8px;\n    border-radius: 10px;\n    border: 1px solid #C8CCD1;\n    background: #fff;\n    font-size: 14px;\n}\n.select_category .multiselect__placeholder,\n.select_type .multiselect__placeholder\n{\n    position: absolute;\n    top: 10px;\n    left: 20px;\n    font-weight: normal;\n    font-size: 12px;\n    line-height: 15px;\n    color: #66727E;\n    display: block !important;\n}\n.select_category .multiselect__select:before,\n.select_type .multiselect__select:before\n{\n    top: 55%;\n}\n.select_category:before\n{\n    content: 'Категория';\n    position: absolute;\n    top: 10px;\n    left: 20px;\n    font-weight: normal;\n    font-size: 12px;\n    line-height: 15px;\n    color: #66727E;\n    display: block;\n    z-index: 99;\n}\n.select_type\n{\n    position: relative;\n    width: 230px;\n    height: 40px;\n    margin: 0 auto;\n}\n.select_type:before\n{\n    content: 'Выберите тип товара';\n    position: absolute;\n    top: 10px;\n    left: 20px;\n    font-weight: normal;\n    font-size: 12px;\n    line-height: 15px;\n    color: #66727E;\n    display: block;\n    z-index: 99;\n}\n.select_category .multiselect__input,\n.select_category .multiselect__single,\n.select_type .multiselect__input,\n.select_type .multiselect__single\n{\n    padding-top: 20px;\n    padding-left: 12px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1135,6 +1146,45 @@ component.options.__file = "resources/js/Сomponents/SidebarCatalog.vue"
 
 /***/ }),
 
+/***/ "./resources/js/Сomponents/UserLoginAuthButton.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/Сomponents/UserLoginAuthButton.vue ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserLoginAuthButton.vue?vue&type=template&id=488559df& */ "./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=template&id=488559df&");
+/* harmony import */ var _UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserLoginAuthButton.vue?vue&type=script&lang=js& */ "./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__.render,
+  _UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Сomponents/UserLoginAuthButton.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Catalog.vue?vue&type=script&lang=js&":
 /*!*****************************************************************!*\
   !*** ./resources/js/Pages/Catalog.vue?vue&type=script&lang=js& ***!
@@ -1180,6 +1230,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarCatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SidebarCatalog.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SidebarCatalog.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarCatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UserLoginAuthButton.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -1230,6 +1296,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarCatalog_vue_vue_type_template_id_1e635c86___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarCatalog_vue_vue_type_template_id_1e635c86___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SidebarCatalog.vue?vue&type=template&id=1e635c86& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SidebarCatalog.vue?vue&type=template&id=1e635c86&");
+
+
+/***/ }),
+
+/***/ "./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=template&id=488559df&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=template&id=488559df& ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UserLoginAuthButton.vue?vue&type=template&id=488559df& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=template&id=488559df&");
 
 
 /***/ }),
@@ -2812,7 +2895,7 @@ var render = function() {
                   _vm._v(
                     "\n                    " +
                       _vm._s(_vm.location.location.value) +
-                      " \n                "
+                      "\n                "
                   )
                 ])
               : _vm._e(),
@@ -2881,409 +2964,132 @@ var render = function() {
           _vm._m(1)
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "container_header_catalog_btn_info" }, [
-          _c("div", { staticClass: "catalog_header_btn_info" }, [
-            _c(
-              "svg",
-              {
-                attrs: {
-                  width: "24",
-                  height: "24",
-                  viewBox: "0 0 24 24",
-                  fill: "none",
-                  xmlns: "http://www.w3.org/2000/svg"
-                }
-              },
-              [
-                _c("path", {
+        _c(
+          "div",
+          { staticClass: "container_header_catalog_btn_info" },
+          [
+            _c("div", { staticClass: "catalog_header_btn_info" }, [
+              _c(
+                "svg",
+                {
                   attrs: {
-                    d:
-                      "M13 4.5C13 5.05228 13.4477 5.5 14 5.5C14.5523 5.5 15 5.05228 15 4.5H13ZM5.42857 16C5.98086 16 6.42857 15.5523 6.42857 15C6.42857 14.4477 5.98086 14 5.42857 14V16ZM5 2H11V0H5V2ZM3 12V4H1V12H3ZM13 4V4.5H15V4H13ZM5.42857 14H5V16H5.42857V14ZM1 12C1 14.2091 2.79086 16 5 16V14C3.89543 14 3 13.1046 3 12H1ZM11 2C12.1046 2 13 2.89543 13 4H15C15 1.79086 13.2091 0 11 0V2ZM5 0C2.79086 0 1 1.79086 1 4H3C3 2.89543 3.89543 2 5 2V0Z",
-                    fill: "#22262A"
+                    width: "24",
+                    height: "24",
+                    viewBox: "0 0 24 24",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
                   }
-                }),
-                _vm._v(" "),
-                _c("rect", {
-                  attrs: {
-                    x: "10",
-                    y: "9",
-                    width: "12",
-                    height: "14",
-                    rx: "3",
-                    stroke: "#22262A",
-                    "stroke-width": "2"
-                  }
-                })
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "catalog_header_btn_info" }, [
-            _c(
-              "svg",
-              {
-                attrs: {
-                  width: "24",
-                  height: "24",
-                  viewBox: "0 0 24 24",
-                  fill: "none",
-                  xmlns: "http://www.w3.org/2000/svg"
-                }
-              },
-              [
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M1 2H3.39566C4.33305 2 5.14468 2.65106 5.34803 3.56614L6 6.5M6 6.5L7.10424 12.5733C7.62296 15.4263 10.1077 17.5 13.0075 17.5H15.7106C18.512 17.5 20.9406 15.5615 21.5614 12.8297L22.5835 8.33243C22.7969 7.39379 22.0834 6.5 21.1208 6.5H6Z",
-                    stroke: "#22262A",
-                    "stroke-width": "2",
-                    "stroke-linecap": "round"
-                  }
-                }),
-                _vm._v(" "),
-                _c("circle", {
-                  attrs: {
-                    cx: "8.5",
-                    cy: "21",
-                    r: "1",
-                    stroke: "#22262A",
-                    "stroke-width": "2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("circle", {
-                  attrs: {
-                    cx: "20.5",
-                    cy: "21",
-                    r: "1",
-                    stroke: "#22262A",
-                    "stroke-width": "2"
-                  }
-                })
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "catalog_header_btn_info" }, [
-            _c(
-              "svg",
-              {
-                attrs: {
-                  width: "24",
-                  height: "24",
-                  viewBox: "0 0 24 24",
-                  fill: "none",
-                  xmlns: "http://www.w3.org/2000/svg"
-                }
-              },
-              [
-                _c("circle", {
-                  attrs: {
-                    cx: "12",
-                    cy: "12",
-                    r: "11",
-                    stroke: "#22262A",
-                    "stroke-width": "2"
-                  }
-                }),
-                _vm._v(" "),
-                _c("path", {
-                  attrs: {
-                    d: "M12 7V13L14.5 15.5",
-                    stroke: "#22262A",
-                    "stroke-width": "2",
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round"
-                  }
-                })
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _vm.user == null || _vm.user == false
-            ? _c("div", [
-                _c(
-                  "div",
-                  {
-                    staticClass: "login",
+                },
+                [
+                  _c("path", {
                     attrs: {
-                      "data-toggle": "modal",
-                      "data-target": "#loginModal"
+                      d:
+                        "M13 4.5C13 5.05228 13.4477 5.5 14 5.5C14.5523 5.5 15 5.05228 15 4.5H13ZM5.42857 16C5.98086 16 6.42857 15.5523 6.42857 15C6.42857 14.4477 5.98086 14 5.42857 14V16ZM5 2H11V0H5V2ZM3 12V4H1V12H3ZM13 4V4.5H15V4H13ZM5.42857 14H5V16H5.42857V14ZM1 12C1 14.2091 2.79086 16 5 16V14C3.89543 14 3 13.1046 3 12H1ZM11 2C12.1046 2 13 2.89543 13 4H15C15 1.79086 13.2091 0 11 0V2ZM5 0C2.79086 0 1 1.79086 1 4H3C3 2.89543 3.89543 2 5 2V0Z",
+                      fill: "#22262A"
                     }
-                  },
-                  [
-                    _c("div", { staticClass: "login_img" }, [
-                      _c(
-                        "svg",
-                        {
-                          attrs: {
-                            width: "20",
-                            height: "20",
-                            viewBox: "0 0 20 20",
-                            fill: "none",
-                            xmlns: "http://www.w3.org/2000/svg"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
-                              stroke: "#71BF45",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
-                              stroke: "#71BF45",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          })
-                        ]
-                      )
-                    ])
-                  ]
-                )
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.user && _vm.user.id
-            ? _c("div", { staticClass: "nav-item dropdown" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "login",
+                  }),
+                  _vm._v(" "),
+                  _c("rect", {
                     attrs: {
-                      id: "navbarDropdown",
-                      role: "button",
-                      "data-bs-toggle": "dropdown",
-                      "aria-expanded": "false"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.changeDropdown()
-                      }
+                      x: "10",
+                      y: "9",
+                      width: "12",
+                      height: "14",
+                      rx: "3",
+                      stroke: "#22262A",
+                      "stroke-width": "2"
                     }
-                  },
-                  [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "login_img" }, [
-                      _c(
-                        "svg",
-                        {
-                          attrs: {
-                            width: "20",
-                            height: "20",
-                            viewBox: "0 0 20 20",
-                            fill: "none",
-                            xmlns: "http://www.w3.org/2000/svg"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
-                              stroke: "#71BF45",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
-                              stroke: "#71BF45",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          })
-                        ]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "dropdown-menu",
-                    attrs: { "aria-labelledby": "navbarDropdown" }
-                  },
-                  [
-                    _c("li", { staticClass: "dropdown-item-login" }, [
-                      _c("div", { staticClass: "login" }, [
-                        _vm._m(3),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "login_img" }, [
-                          _c(
-                            "svg",
-                            {
-                              attrs: {
-                                width: "20",
-                                height: "20",
-                                viewBox: "0 0 20 20",
-                                fill: "none",
-                                xmlns: "http://www.w3.org/2000/svg"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
-                                  stroke: "#71BF45",
-                                  "stroke-width": "2",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
-                                  stroke: "#71BF45",
-                                  "stroke-width": "2",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              })
-                            ]
-                          )
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(4),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass: "dropdown_info_text dropdown-item-border"
-                      },
-                      [_vm._v("Переключиться на покупателя")]
-                    ),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item dropdown-item-border",
-                          attrs: { href: "#" }
-                        },
-                        [
-                          _vm._m(5),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "icon_company_list" }, [
-                            _c(
-                              "svg",
-                              {
-                                attrs: {
-                                  width: "20",
-                                  height: "20",
-                                  viewBox: "0 0 20 20",
-                                  fill: "none",
-                                  xmlns: "http://www.w3.org/2000/svg"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
-                                    stroke: "#71BF45",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
-                                    stroke: "#71BF45",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                })
-                              ]
-                            )
-                          ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item dropdown-item-border",
-                          attrs: { href: "#" }
-                        },
-                        [
-                          _vm._m(6),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "icon_company_list" }, [
-                            _c(
-                              "svg",
-                              {
-                                attrs: {
-                                  width: "20",
-                                  height: "20",
-                                  viewBox: "0 0 20 20",
-                                  fill: "none",
-                                  xmlns: "http://www.w3.org/2000/svg"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
-                                    stroke: "#71BF45",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
-                                    stroke: "#71BF45",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                })
-                              ]
-                            )
-                          ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(7)
-                  ]
-                )
-              ])
-            : _vm._e()
-        ])
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "catalog_header_btn_info" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "24",
+                    height: "24",
+                    viewBox: "0 0 24 24",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M1 2H3.39566C4.33305 2 5.14468 2.65106 5.34803 3.56614L6 6.5M6 6.5L7.10424 12.5733C7.62296 15.4263 10.1077 17.5 13.0075 17.5H15.7106C18.512 17.5 20.9406 15.5615 21.5614 12.8297L22.5835 8.33243C22.7969 7.39379 22.0834 6.5 21.1208 6.5H6Z",
+                      stroke: "#22262A",
+                      "stroke-width": "2",
+                      "stroke-linecap": "round"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("circle", {
+                    attrs: {
+                      cx: "8.5",
+                      cy: "21",
+                      r: "1",
+                      stroke: "#22262A",
+                      "stroke-width": "2"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("circle", {
+                    attrs: {
+                      cx: "20.5",
+                      cy: "21",
+                      r: "1",
+                      stroke: "#22262A",
+                      "stroke-width": "2"
+                    }
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "catalog_header_btn_info" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "24",
+                    height: "24",
+                    viewBox: "0 0 24 24",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("circle", {
+                    attrs: {
+                      cx: "12",
+                      cy: "12",
+                      r: "11",
+                      stroke: "#22262A",
+                      "stroke-width": "2"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d: "M12 7V13L14.5 15.5",
+                      stroke: "#22262A",
+                      "stroke-width": "2",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round"
+                    }
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("user-login-auth-button")
+          ],
+          1
+        )
       ])
     ]),
     _vm._v(" "),
@@ -3554,100 +3360,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "search_header" }, [
       _c("input", { attrs: { type: "text", placeholder: "Найти товар" } })
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "name_company" }, [_vm._v("Дары кубани")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "accredited_company" }, [
-        _vm._v("Поставщик · аккредитован")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "name_company" }, [_vm._v("Дары кубани")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "accredited_company" }, [
-        _vm._v("Поставщик · аккредитован")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c(
-        "a",
-        {
-          staticClass: "dropdown-item dropdown-item-settings",
-          attrs: { href: "#" }
-        },
-        [_vm._v("Настройки")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "item_company_list" }, [
-      _c("div", { staticClass: "name_company_list" }, [
-        _vm._v(
-          "\n                                    Фирма-Ферма\n                                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "category_company_list" }, [
-        _vm._v(
-          "\n                                    Покупатель\n                                "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "item_company_list" }, [
-      _c("div", { staticClass: "name_company_list" }, [
-        _vm._v(
-          "\n                                    Фирма-Ферма\n                                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "category_company_list" }, [
-        _vm._v(
-          "\n                                    Покупатель\n                                "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c(
-        "a",
-        {
-          staticClass: "dropdown-item dropdown-item-exit",
-          attrs: {
-            href: "/logout",
-            onclick:
-              "event.preventDefault();\n                           document.getElementById('logout-form').submit();"
-          }
-        },
-        [_vm._v("Выйти")]
-      )
-    ])
   }
 ]
 render._withStripped = true
@@ -3819,6 +3531,399 @@ var staticRenderFns = [
           })
         ])
       ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=template&id=488559df&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=template&id=488559df& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm.user == null || _vm.user == false
+      ? _c("div", [
+          _c(
+            "div",
+            {
+              staticClass: "login",
+              attrs: { "data-toggle": "modal", "data-target": "#loginModal" }
+            },
+            [
+              _c("div", { staticClass: "login_img" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      width: "20",
+                      height: "20",
+                      viewBox: "0 0 20 20",
+                      fill: "none",
+                      xmlns: "http://www.w3.org/2000/svg"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
+                        stroke: "#71BF45",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
+                        stroke: "#71BF45",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    })
+                  ]
+                )
+              ])
+            ]
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.user && _vm.user.user.id
+      ? _c("div", { staticClass: "nav-item dropdown" }, [
+          _c(
+            "div",
+            {
+              staticClass: "login",
+              attrs: {
+                id: "navbarDropdown",
+                role: "button",
+                "data-bs-toggle": "dropdown",
+                "aria-expanded": "false"
+              },
+              on: {
+                click: function($event) {
+                  return _vm.changeDropdown()
+                }
+              }
+            },
+            [
+              _vm.currentUserOrganization
+                ? _c(
+                    "div",
+                    [
+                      _c("div", { staticClass: "name_company" }, [
+                        _vm._v(_vm._s(_vm.currentUserOrganization[0].name))
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.user.user.roles, function(role) {
+                        return _vm.user.user.roles
+                          ? _c("div", { staticClass: "accredited_company" }, [
+                              _vm._v(
+                                _vm._s(role.name) +
+                                  "\n                    · " +
+                                  _vm._s(
+                                    _vm.currentUserOrganization[0].status.name
+                                  ) +
+                                  "\n                "
+                              )
+                            ])
+                          : _vm._e()
+                      })
+                    ],
+                    2
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: "login_img" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      width: "20",
+                      height: "20",
+                      viewBox: "0 0 20 20",
+                      fill: "none",
+                      xmlns: "http://www.w3.org/2000/svg"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
+                        stroke: "#71BF45",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
+                        stroke: "#71BF45",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    })
+                  ]
+                )
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "ul",
+            {
+              staticClass: "dropdown-menu",
+              attrs: { "aria-labelledby": "navbarDropdown" }
+            },
+            [
+              _c("li", { staticClass: "dropdown-item-login" }, [
+                _c(
+                  "div",
+                  { staticClass: "login" },
+                  [
+                    _vm._l(_vm.user.user.organizations, function(org, index) {
+                      return _vm.user.user.organizations
+                        ? _c(
+                            "div",
+                            [
+                              _vm._l(_vm.user.user.organizations, function(
+                                org
+                              ) {
+                                return _vm.user.user.organizations && index == 0
+                                  ? _c("div", { staticClass: "name_company" }, [
+                                      _vm._v(_vm._s(org.name))
+                                    ])
+                                  : _vm._e()
+                              }),
+                              _vm._v(" "),
+                              _vm._l(_vm.user.user.roles, function(role) {
+                                return _vm.user.user.roles && index == 0
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "accredited_company" },
+                                      [
+                                        _vm._v(
+                                          _vm._s(role.name) +
+                                            "\n                            · " +
+                                            _vm._s(org.status.name) +
+                                            "\n                        "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              })
+                            ],
+                            2
+                          )
+                        : _vm._e()
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "login_img" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "20",
+                            viewBox: "0 0 20 20",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
+                              stroke: "#71BF45",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
+                              stroke: "#71BF45",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          })
+                        ]
+                      )
+                    ])
+                  ],
+                  2
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "li",
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "dropdown-item dropdown-item-settings",
+                      attrs: { to: { path: "/dashboard" } }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Личный кабинет\n                "
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "dropdown_info_text dropdown-item-border" },
+                [_vm._v("Переключиться на организацию")]
+              ),
+              _vm._v(" "),
+              _vm._l(_vm.user.user.organizations, function(org, index) {
+                return _vm.currentUserOrganization[0].id !== org.id
+                  ? _c("li", [
+                      _c(
+                        "div",
+                        { staticClass: "dropdown-item dropdown-item-border" },
+                        [
+                          _c("div", { staticClass: "item_company_list" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "name_company_list",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.changeCurrentOrganization(org.id)
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        " +
+                                    _vm._s(org.name) +
+                                    "\n                    "
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "icon_company_list" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "20",
+                                  viewBox: "0 0 20 20",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
+                                    stroke: "#71BF45",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
+                                    stroke: "#71BF45",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                })
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ])
+                  : _vm._e()
+              }),
+              _vm._v(" "),
+              _vm._m(1)
+            ],
+            2
+          )
+        ])
+      : _vm._e()
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "dropdown-item dropdown-item-settings",
+          attrs: { href: "#" }
+        },
+        [_vm._v("Настройки")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "dropdown-item dropdown-item-exit",
+          attrs: {
+            href: "/logout",
+            onclick:
+              "event.preventDefault();\n                           document.getElementById('logout-form').submit();"
+          }
+        },
+        [_vm._v("Выйти")]
+      )
     ])
   }
 ]

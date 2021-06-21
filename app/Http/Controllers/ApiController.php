@@ -379,7 +379,7 @@ class ApiController extends Controller
      * @param Request $request
      */
 
-    public function setNewOffer(Request $request)
+    public function setNewOrder(Request $request)
     {
         if(!empty($request))
         {
@@ -442,6 +442,14 @@ class ApiController extends Controller
              //TODO сделать проверку естьь ли у пользователя айди этой организации в организациях
              $user = $this->userService->updateCurrentOrganization($id);
              return response()->json(['user'=>$user],200);
+         }
+     }
+
+     public function setNewOffer(Request $request)
+     {
+         if(!empty($request))
+         {
+             $this->offerService->saveOfferData($request);
          }
      }
 }

@@ -13,7 +13,7 @@
                             </router-link>
 
                             <div class="title_create_product">Добавить товар</div>
-                            <form action="">
+                            <form>
                                 <div class="info_create_product">
                                     <div class="title_info_create_product">Цена</div>
                                     <div class="text_info_create_product">Действительна до 13:00 МСК</div>
@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="container_input_price col-md-6">
                                             <div class="text_input">Цена с НДС</div>
-                                            <input type="text" v-model="price">
+                                            <input type="text" v-model="priceWithNDS">
                                             <div class="icon_price_input">
                                                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -56,13 +56,13 @@
                                             можно разместить в каталоге</div>
                                     </div>
                                 </div>
-                                <button class="btn_submit_price" type="submit">Отправить товар на модерацию</button>
+                                <button class="btn_submit_price" type="button" @click="sendData">Отправить товар на модерацию</button>
                             </form>
                         </div>
                     </div>
                     <div class="xs-12 col-md-8">
                         <div class="right_container">
-                            <form action="">
+                            <form>
                                 <div class="item_container_product_block">
                                     <div class="title_container_product_block">Информация о товаре</div>
                                     <div class="item_product_input row">
@@ -299,6 +299,7 @@ export default {
             selectedTypes:null,
             selectedProduct:null,
             selectedPackings:[],
+            priceWithNDS:null,
 
 
         }
@@ -330,6 +331,27 @@ export default {
         {
             console.log(event.target.files);
             this.documents.push({file:event.target.files[0]});
+        },
+        sendData(event)
+        {
+            event.preventDefault();
+            axios.post('/set/new/offer', {
+                product_id:this.selectedProduct,
+                organization_inn:this.companyName,
+                inn:this.inn,
+                userName:this.userName,
+                userSurname:this.userSurname,
+                userPhone:this.userPhone,
+                userEmail:this.userEmail,
+                userPassword:this.userPassword,
+
+            }).then(response => {
+                if(response.status == 200)
+                {
+                    console.log(response.status)
+                   // this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' } });
+                }
+            });
         }
     },
     mounted() {

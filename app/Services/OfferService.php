@@ -47,8 +47,6 @@ class OfferService
     public function saveOfferData($data)
     {
         $validated = $data->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
             'product_id'    =>'required|integer',
             'organization_inn'=>'required',
             'country_id'=>'required',

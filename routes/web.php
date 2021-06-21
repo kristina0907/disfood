@@ -38,7 +38,7 @@ Route::get('/change/currentOrganization/{id}',[ApiController::class,'changeCurre
 
 Route::get('/get/location',[ApiController::class,'getLocation']);
 Route::get('/get/my-offers/{id}',[ApiController::class,'getMyOffers']);
-Route::post('/set/offer/new',[ApiController::class,'setNewOffer']);
+Route::post('/set/order/new',[ApiController::class,'setNewOrder']);
 Route::get('/get/order/{id}',[ApiController::class,'getMyOrder']);
 Route::get('/get/currentuser',[ApiController::class,'getCurrentUser']);
 
@@ -54,6 +54,8 @@ Route::get('/get/offer',[ApiController::class,'getFilterOfferData']);
 Route::get('/get/messages/{id}',[ApiController::class,'getOfferMessages']);
 Route::get('/get/last/message/{id}',[ApiController::class,'getLastMessageFromChat']);
 Route::post('/send/messages',[ApiController::class,'setOfferMessages']);
+
+Route::post('/set/new/offer',[ApiController::class,'setNewOffer']);
 
 
 

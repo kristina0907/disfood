@@ -11,7 +11,7 @@
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/disfood</jdbc-url>
+      <jdbc-url>jdbc:postgresql://108.61.190.143:5432/disfood</jdbc-url>
     </data-source>
     <data-source source="LOCAL" name="disfood@localhost [2]" uuid="19362a10-45b7-4be3-9869-4c2651edc1bf">
       <driver-ref>postgresql</driver-ref>

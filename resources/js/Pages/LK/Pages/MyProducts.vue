@@ -12,8 +12,8 @@
                             <div class="item_sort" :class="{'active':allFlag}" @click="allFilter">Все <span>&#183;</span>
                                 {{ products.length }}
                             </div>
-                            <div class="item_sort" :class="{'active':activeflag}" @click="activeFilter">Активные <span>&#183;</span> {{ countActive() }}</div>
-                            <div class="item_sort" :class="{'active':noactiveFlag}" @click="noactiveFilter">Неактивные <span>&#183;</span> {{ countNoActive() }}</div>
+                            <div class="item_sort" :class="{'active':activeflag}" @click="activeFilter">Активные <span>&#183;</span> {{ countActive }}</div>
+                            <div class="item_sort" :class="{'active':noactiveFlag}" @click="noactiveFilter">Неактивные <span>&#183;</span> {{ countNoActive }}</div>
                         </div>
                         <div class="search_table_btn">
                             <div class="container_search_table">
@@ -92,7 +92,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="product in products">
+                            <tr v-for="product in productsFilter">
                                 <td>
                                     <div class="checkbox">
                                         <input class="custom-checkbox" type="checkbox" id="color-2" name="color-2"
@@ -113,7 +113,7 @@
                                 <td>50 кг</td>
                                 <td>{{product.capacity}}</td>
                                 <td class="nowrap modal_price" data-bs-toggle="modal" data-bs-target="#changePrice"><span
-                                    class="price">{{ product.price }} ₽</span><span class="price_nds">{{calcNds(product.price)}} ₽ НДС
+                                    class="price">{{ product.price }} ₽</span><span class="price_nds">{{product.price_with_nds}} ₽ НДС
                             </span></td>
                                 <td class="nowrap price-term">до 13:00 МСК<span class="status_time_good">8ч</span></td>
                             </tr>
@@ -211,70 +211,18 @@ export default {
     components: {UserLKHeader},
     data(){
         return {
-            productsFilter:[],
-            activeflag:false,
-            noactiveFlag:false,
-            allFlag:true,
+
         }
     },
     methods:{
-        //TODO перенести все методы во vuex
-        calcNds(price)
-        {
-            var nds = price * 10 / 100;
-            return price + nds
-        },
-        allFilter()
-        {
-            this.productsFilter = this.products;
-            this.activeflag =false;
-            this.allFlag = true;
-            this.noactiveFlag =false;
-        },
-
-        activeFilter()
-        {
-            var positiveArr = this.products.filter(function(product) {
-                return product.active == true;
-            });
-           this.productsFilter = positiveArr;
-           this.activeflag =true;
-           this.allFlag = false;
-           this.noactiveFlag =false;
-        },
-        noactiveFilter()
-        {
-            var positiveArr = this.products.filter(function(product) {
-                return product.active == false;
-            });
-            this.productsFilter = positiveArr;
-            this.activeflag =false;
-            this.allFlag = false;
-            this.noactiveFlag =true;
-        },
-        countActive()
-        {
-            var positiveArr = this.products.filter(function(product) {
-                return product.active == true;
-            });
-            return positiveArr.length
-        },
-        countNoActive()
-        {
-            var positiveArr = this.products.filter(function(product) {
-                return product.active == false;
-            });
-            return positiveArr.length
-        },
+       ...mapActions('myproducts',['getProducts','allFilter','activeFilter','noactiveFilter'])
     },
     computed: {
-        ...mapState('myproducts',['products']),
-        products() {
-            return this.$store.getters["myproducts/getMyProducts"]
-        },
+        ...mapState('myproducts', ['products', 'productsFilter', 'activeflag', 'noactiveFlag', 'allFlag', 'countActive', 'countNoActive']),
+        ...mapState(['user'])
     },
     mounted() {
-        this.$store.dispatch('myproducts/getProducts');
+       this.$store.dispatch('myproducts/getProducts')
     }
 }
 </script>

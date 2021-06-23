@@ -9,18 +9,18 @@
 
                 <div class="table_container table-responsive">
                     <div class="sort_taable">
-                        <div class="item_sort" :class="{'active':flags[0]['allFlag']}" >Все <span>&#183;</span>
+                        <div class="item_sort" :class="{'active':flags[0]['allFlag']}" @click="changeFlags('all')">Все <span>&#183;</span>
                             <span v-if="orders">
                             {{ orders.length }}
                             </span>
                         </div>
-                        <div class="item_sort" :class="{'active':flags[1]['newFlag']}" >Новые <span>&#183;</span> </div>
-                        <div class="item_sort" :class="{'active':flags[2]['payingFlag']}" >Оплата <span>&#183;</span> </div>
-                        <div class="item_sort" :class="{'active':flags[3]['acceptedFlag']}" >Подтвержден <span>&#183;</span></div>
-                        <div class="item_sort" :class="{'active':flags[4]['pogruzkaFlag']}" >Погрузка <span>&#183;</span></div>
-                        <div class="item_sort" :class="{'active':flags[5]['deliveryFlag']}" >Доставляется <span>&#183;</span></div>
-                        <div class="item_sort" :class="{'active':flags[6]['completeFlag']}" >Завершена <span>&#183;</span></div>
-                        <div class="item_sort" :class="{'active':flags[7]['cancelledFlag']}" >Не состоялась <span>&#183;</span> </div>
+                        <div class="item_sort" :class="{'active':flags[1]['newFlag']}" @click="changeFlags('new')">Новые <span>&#183;</span>{{getCountOrders('new')}}</div>
+                        <div class="item_sort" :class="{'active':flags[2]['payingFlag']}" @click="changeFlags('paying')">Оплата <span>&#183;</span> {{getCountOrders('paying')}}</div>
+                        <div class="item_sort" :class="{'active':flags[3]['acceptedFlag']}" @click="changeFlags('accepted')">Подтвержден <span>&#183;</span>{{getCountOrders('accepted')}}</div>
+                        <div class="item_sort" :class="{'active':flags[4]['pogruzkaFlag']}" @click="changeFlags('pogruzka')">Погрузка <span>&#183;</span>{{getCountOrders('pogruzka')}}</div>
+                        <div class="item_sort" :class="{'active':flags[5]['deliveryFlag']}" @click="changeFlags('delivery')">Доставляется <span>&#183;</span>{{getCountOrders('delivery')}}</div>
+                        <div class="item_sort" :class="{'active':flags[6]['completeFlag']}" @click="changeFlags('complete')">Завершена <span>&#183;</span>{{getCountOrders('complete')}}</div>
+                        <div class="item_sort" :class="{'active':flags[7]['cancelledFlag']}" @click="changeFlags('cancelled')">Не состоялась <span>&#183;</span>{{getCountOrders('cancelled')}} </div>
                     </div>
                     <div class="search_table">
                         <div class="icon_search">
@@ -85,7 +85,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="order in orders" @click="goToOrder(order.id)">
+                        <tr v-for="order in ordersFilter" @click="goToOrder(order.id)">
                                 <td>
                                     {{order.id}}
                                 </td>
@@ -158,7 +158,7 @@
 
 
 import UserLKHeader from "../../../Сomponents/LK/UserLKHeader";
-import {mapState} from "vuex";
+import {mapActions, mapState} from "vuex";
 export default {
     components: {UserLKHeader},
     data(){
@@ -173,39 +173,20 @@ export default {
                 {completeFlag:false},
                 {cancelledFlag:false},
             ],
-            //orders:[],
-            ordersFilter:[],
         }
     },
     methods: {
-       /* getOffers() {
-            axios.get('/get/my-offers/'+this.$store.getters.getUser.user.id)
-                .then((response) => {
 
-                    if (response.data !== 'undefined' && response.data !== null) {
-                        this.orders = response.data;
-                    }
-                    this.allFilter('all');
-                })
-        },*/
-       /* allFilter(type) {
+        allFilter(type) {
             this.ordersFilter = this.orders;
             this.changeFlags(type);
 
         },
-        valFilter(type) {
-            var positiveArr = this.orders.filter(function (order) {
-                return order.status.slug == type;
-            });
-            this.ordersFilter = positiveArr;
-            this.changeFlags(type);
-
-        },*/
         goToOrder(id){
             var path = '/order-page/'+id;
             this.$router.push({ path: path,params:{id:id} });
         },
-       /* changeFlags(type)
+       changeFlags(type)
         {
             var str = type + 'Flag';
             this.flags.map(function (flag){
@@ -218,25 +199,24 @@ export default {
                     flag[Object.keys(flag).[0]] = false;
                 }
             })
+            this.valFilter(type)
         },
-        countOffers(type)
+        getCountOrders(type)
         {
             var positiveArr = this.orders.filter(function(order) {
                 return order.status.slug == type;
             });
-            return positiveArr.length
-        },*/
-
+           return positiveArr.length;
+        },
+        ...mapActions('myorders',['valFilter'])
 
     },
     computed: {
-        ...mapState('myorders',['orders']),
-        orders() {
-            return this.$store.getters["myorders/getOrders"]
-        },
+        ...mapState('myorders',['orders','ordersFilter','countOrders']),
     },
     mounted() {
         this.$store.dispatch('myorders/getMyOrders');
+
     }
 }
 </script>

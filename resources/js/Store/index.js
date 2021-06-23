@@ -6,6 +6,7 @@ import myorders from "./modules/myorders";
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
+    namespaced:true,
     modules:{
         catalog,
         myproducts,
@@ -41,9 +42,9 @@ const store = new Vuex.Store({
         }
     },
     actions: {
-        async getUserData({commit})
+        getUserData({commit})
         {
-            await axios.get('/get/currentuser')
+            axios.get('/get/currentuser')
                 .then(response => {
                     if (response.data !== 'undefined' && response.data !== null) {
                         commit('updateUser', response.data)

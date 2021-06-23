@@ -23,7 +23,7 @@ a:hover{
     font-weight: normal;
     padding-right: 0px !important;
     padding-left: 0px !important;
-    height: 100px;
+    //height: 100px;
 }
 .nav-item.active a{
     color: #71BF45;
@@ -1719,7 +1719,7 @@ header .dropdown-item.dropdown-item-settings{
     text-align: right;
 }
 .catalog_container{
-    padding: 42px 40px 80px;
+    padding: 130px 40px 80px;
 }
 .prev_product_catalog{
     font-weight: normal;
@@ -1788,7 +1788,7 @@ header .dropdown-item.dropdown-item-settings{
     margin-bottom: 20px;
 }
 .big_product_galery{
-    width: calc(100% -80px);
+    width: calc(100% - 80px);
     height: 445px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -2960,7 +2960,7 @@ input[type=number]{
   margin-left: 50px;
 } */
 
-@media (min-width: 1000) {
+@media (min-width: 1000px) {
     .slider-nav {
         display: none !important;
     }
@@ -4062,7 +4062,7 @@ select option{
     margin-bottom: 30px;
 }
 .container_main{
-    padding: 80px 240px;
+    padding: 130px 240px;
 }
 .title_about_company{
     font-weight: bold;

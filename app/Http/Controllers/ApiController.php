@@ -196,10 +196,16 @@ class ApiController extends Controller
      * @return mixed
      */
 
-    public function getMyProducts($id)
+    public function getMyProducts()
     {
-        if (!empty($id)) {
-            return $this->offerService->getOffersByUserId($id);
+        $user = Auth::user();
+        if (!empty($user) && !empty($user->id))
+        {
+            return $this->offerService->getOffersByUserId($user->id);
+        }
+        else
+        {
+            return response()->json('Error, id is not valid',401);
         }
     }
 
@@ -222,15 +228,18 @@ class ApiController extends Controller
      * @return mixed
      */
 
-    public function getMyOrders($id)
+    public function getMyOrders()
     {
-        if (!empty($id)) {
-            return $this->orderService->getOrdersByUserId($id);
+        $user = Auth::user();
+        if (!empty($user) && !empty($user->id))
+        {
+            return $this->orderService->getOrdersByUserId($user->id);
         }
         else
         {
             return response()->json('Error, id is not valid',401);
         }
+
     }
 
     /**

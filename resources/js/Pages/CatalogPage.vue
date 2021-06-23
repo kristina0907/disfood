@@ -475,7 +475,7 @@ export default {
             volume:0,
             summ:0,
             valueKG:0,
-            priceWithNDS:false,
+            priceWithNDS:0,
         }
     },
     methods:{
@@ -499,15 +499,15 @@ export default {
         },
         async sendOffer()
         {
-            await axios.post('/set/offer/new',[
+            await axios.post('/set/order/new',
                 {
-                    'offer':this.product.id,
+                    'offer_id':this.product.id,
                     'priceWithNDS':this.priceWithNDS,
                     'packages':this.packages,
                     'summ':this.summ,
                     'volume':this.volume
                 }
-            ]).then((response) => {
+            ).then((response) => {
                 if (response.data !== 'undefined' && response.data !== null) {
                   console.log(response.data)
                 }

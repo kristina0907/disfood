@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import catalog from "./modules/catalog";
 import myproducts from "./modules/myproducts";
 import myorders from "./modules/myorders";
+import catalogpage from "./modules/catalogpage";
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
@@ -10,7 +11,8 @@ const store = new Vuex.Store({
     modules:{
         catalog,
         myproducts,
-        myorders
+        myorders,
+        catalogpage
     },
     state:{
       user:null,

@@ -23,8 +23,8 @@
                         <input type="checkbox" name="toggle" id="toggle-button" class="toggle-button" @click="changePrice">
                     </div>
                     <div class="dop_filter_currency">
-                        <a class="active" href="">RUB (₽)</a>
-                        <a href="">USD ($)</a>
+                        <a :class="{'active': currency == 'RUB'}" @click="changeCurrency('RUB')">RUB (₽)</a>
+                        <a :class="{'active': currency == 'USD'}" @click="changeCurrency('USD')">USD ($)</a>
                     </div>
                 </div>
             </div>
@@ -140,18 +140,7 @@
                                         <div class="tab-pane fade" id="JD" role="tabpanel" aria-labelledby="JD-tab">
                                             <div class="item_product_input row">
                                                 <div class="container_input_price jd_tab_input col-md-7">
-                                                    <div class="text_input">Куда доставить?</div>
-                                                    <input type="text" v-if="location.location" :value="location.location.value">
-                                                    <div class="icon_price_input">
-                                                        <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M27.5 13.75C27.5 19.3471 19.2834 26.55 16.1735 29.0758C15.4852 29.6348 14.5148 29.6348 13.8265 29.0758C10.7166 26.55 2.5 19.3471 2.5 13.75C2.5 6.84644 8.09644 1.25 15 1.25C21.9036 1.25 27.5 6.84644 27.5 13.75Z"
-                                                                stroke="#71BF45" stroke-width="2" />
-                                                            <circle cx="15" cy="13.75" r="3.75" stroke="#71BF45"
-                                                                    stroke-width="2" />
-                                                        </svg>
-                                                    </div>
+                                                   <searchlocation></searchlocation>
                                                 </div>
                                                 <div class="container_input_price col-md-5">
                                                     <div class="text_input">Код станции</div>
@@ -172,18 +161,7 @@
                                              aria-labelledby="avto-tab">
                                             <div class="item_product_input row">
                                                 <div class="container_input_price col-md-12">
-                                                    <div class="text_input">Куда доставить?</div>
-                                                    <input type="text" v-if="location.location" :value="location.location.value">
-                                                    <div class="icon_price_input">
-                                                        <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M27.5 13.75C27.5 19.3471 19.2834 26.55 16.1735 29.0758C15.4852 29.6348 14.5148 29.6348 13.8265 29.0758C10.7166 26.55 2.5 19.3471 2.5 13.75C2.5 6.84644 8.09644 1.25 15 1.25C21.9036 1.25 27.5 6.84644 27.5 13.75Z"
-                                                                stroke="#71BF45" stroke-width="2" />
-                                                            <circle cx="15" cy="13.75" r="3.75" stroke="#71BF45"
-                                                                    stroke-width="2" />
-                                                        </svg>
-                                                    </div>
+                                                    <searchlocation></searchlocation>
                                                 </div>
                                             </div>
                                         </div>
@@ -222,7 +200,7 @@
                                                 <div class="row">
                                                     <div class="col-md-10">
                                                         <div class="quantity-block">
-                                                            <button class="quantity-arrow-minus" data-id="m2" @click="changeCount('decrement',pack)">
+                                                            <button class="quantity-arrow-minus" data-id="m2" @click="changeCount({'val':'decrement','pack':pack})">
                                                                 <svg width="20" height="2" viewBox="0 0 20 2" fill="none"
                                                                      xmlns="http://www.w3.org/2000/svg">
                                                                     <path d="M1 1L19 1" stroke="#C8CCD1" stroke-width="2"
@@ -230,7 +208,7 @@
                                                                 </svg>
                                                             </button>
                                                             <input data-id="m2"  class="quantity-num" type="number" v-model="pack.value" v-on:input="recalc" placeholder="штук"/>
-                                                            <button data-id="m2" class="quantity-arrow-plus" @click="changeCount('increment',pack)">
+                                                            <button data-id="m2" class="quantity-arrow-plus" @click="changeCount({'val':'increment','pack':pack})">
                                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                                      xmlns="http://www.w3.org/2000/svg">
                                                                     <path d="M12 3V21" stroke="#C8CCD1" stroke-width="2"
@@ -250,7 +228,7 @@
                                                 <div class="row">
                                                     <div class="col-md-10">
                                                         <div class="quantity-block">
-                                                            <button class="quantity-arrow-minus" data-id="m2" @click="changeCount('decrement',pack)">
+                                                            <button class="quantity-arrow-minus" data-id="m2" @click="changeCount({'val':'decrement','pack':pack})">
                                                                 <svg width="20" height="2" viewBox="0 0 20 2" fill="none"
                                                                      xmlns="http://www.w3.org/2000/svg">
                                                                     <path d="M1 1L19 1" stroke="#C8CCD1" stroke-width="2"
@@ -258,7 +236,7 @@
                                                                 </svg>
                                                             </button>
                                                             <input data-id="m2"  class="quantity-num" type="number" v-model="volume" v-on:input="recalc" placeholder="кг"/>
-                                                            <button data-id="m2" class="quantity-arrow-plus" @click="changeCount('increment',pack)">
+                                                            <button data-id="m2" class="quantity-arrow-plus" @click="changeCount({'val':'increment','pack':pack})">
                                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                                      xmlns="http://www.w3.org/2000/svg">
                                                                     <path d="M12 3V21" stroke="#C8CCD1" stroke-width="2"
@@ -306,7 +284,7 @@
                                     </div>
                                 </div>
                                 <div class="totlal_btn_item_catalog_info_delivery" v-if="summ > 0">
-                                    <button type="submit" @click="sendOffer">Оформить заказ</button>
+                                    <button type="submit" @click="sendOffer(product_id)">Оформить заказ</button>
                                 </div>
                                 <div class="total_dopinfo_item_catalog_info_delivery">
                                     <div class="total_icon_dopinfo_item_catalog_info_delivery">
@@ -460,145 +438,36 @@
 import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import HeaderCatalog from "../Сomponents/HeaderCatalog";
-import {mapState} from "vuex";
+import {mapActions, mapState} from "vuex";
+import Searchlocation from "../Сomponents/SearchLocation";
 export default {
     name:'catalog-page',
-    components: { VueSlickCarousel,HeaderCatalog },
+    components: {Searchlocation, VueSlickCarousel,HeaderCatalog },
     data(){
         return {
             product_id:this.$route.params.id,
-            product:{},
-            countPackages:0,
-            packages:[],
-            filterPackages:[],
-            relatedOffers:[],
-            volume:0,
-            summ:0,
-            valueKG:0,
-            priceWithNDS:0,
         }
     },
     methods:{
-        async getData()
-        {
-            let self = this;
-            await axios.get('/get/catalog/page/'+self.product_id).then((response) => {
-                if (response.data !== 'undefined' && response.data !== null) {
-                    self.product = response.data;
-                    self.filterPackages = response.data.category.packages;
-                }
-            })
-            await axios.get('/get/catalog/?category='+self.product.category_id+'&type='+ self.product.type_id)
-                    .then(response => {
-                        if (response.data !== 'undefined' && response.data !== null) {
-
-                            self.relatedOffers = response.data;
-                        }
-                    })
-
-        },
-        async sendOffer()
-        {
-            await axios.post('/set/order/new',
-                {
-                    'offer_id':this.product.id,
-                    'priceWithNDS':this.priceWithNDS,
-                    'packages':this.packages,
-                    'summ':this.summ,
-                    'volume':this.volume
-                }
-            ).then((response) => {
-                if (response.data !== 'undefined' && response.data !== null) {
-                  console.log(response.data)
-                }
-            })
-        },
-        changePrice()
-        {
-            this.priceWithNDS = !this.priceWithNDS;
-        },
-        changeCount(val,pack)
-        {
-
-            let changePack = this.packages.find(function(item, index, array) {
-               return   item.package.id == pack.package.id
-            })
-            switch (val){
-                case 'increment':
-                    changePack.value++
-                    this.recalc();
-                    break;
-                case 'decrement':
-                    if( changePack.value >0)
-                    {
-                        changePack.value--;
-                        this.recalc();
-                    }
-                    break;
-            }
-        },
-        recalc()
-        {
-            this.calcVolume();
-            this.calcSumm();
-        },
-        calcVolume()
-        {
-           let summ   = 0;
-           this.packages.forEach(item =>{
-               if(item.package.value == 'undefined' || item.package.value == 'null' || item.package.value == '' || item.package.value < 0)
-               {
-                   item.package.value = 0;
-               }
-               if(item.value == 'undefined' || item.value == 'null' || item.value == '' || item.value < 0)
-               {
-                   item.value = 0;
-               }
-               let s = parseInt(item.package.value) * parseInt(item.value);
-               summ = summ + s;
-           })
-           this.volume = summ;
-        },
-        calcSumm()
-        {
-            let summ   = 0;
-            summ = parseInt(this.volume) * parseInt(this.product.price);
-            this.summ = summ;
-        },
-        eraseCounter(pack)
-        {
-            let changePack = this.packages.findIndex(function(item, index, array) {
-                return   item.package.id == pack.package.id
-            })
-
-            pack.value = 0;
-            this.filterPackages.push(pack.package);
-            this.packages.splice(changePack,1);
-            this.calcVolume();
-            this.calcSumm();
-
-        },
-        addPackingToOrder(pack)
-        {
-            this.packages.push(
-                {
-                    package:pack,
-                    value:0
-                }
-            )
-           this.filterPackages.forEach(function(item, index, array) {
-                if (item.id == pack.id)
-                {
-                    array.splice(index, 1);
-                }
-            })
-        }
+        ...mapActions('catalogpage',[
+            'getData',
+            'getRelatedProducts',
+            'changePrice',
+            'changeCurrency',
+            'changeCount',
+            'recalc',
+            'eraseCounter',
+            'addPackingToOrder',
+            'sendOffer'
+        ]),
     },
-    mounted(){
-        this.getData();
+   async mounted(){
+        await this.$store.dispatch('catalogpage/getData',this.product_id);
+        await this.$store.dispatch('catalogpage/getRelatedProducts');
     },
     computed: {
-        ...mapState('catalog',['location'])
+        ...mapState('catalog',['location','currentUserOrganization']),
+        ...mapState('catalogpage',['product','filterPackages','relatedOffers','priceWithNDS','currency','packages','summ','volume'])
     },
 }
 </script>

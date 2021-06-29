@@ -8,6 +8,8 @@ export default {
         filteredTypes:[],
         products:[],
         location:{},
+        locationInput:'',
+        locationsTips:[],
     },
     getters: {
         typeValue: (state) => {
@@ -56,6 +58,7 @@ export default {
         SET_USER_LOCATION(state,data)
         {
           state.location = data;
+          state.locationInput = data.location.value;
         },
         SELECT_CATEGORY(state,{cat,type})
         {
@@ -70,6 +73,14 @@ export default {
         SET_CATALOG(state,data)
         {
             state.products = data;
+        },
+        updateLocationInput(state,data)
+        {
+            state.locationInput = data;
+        },
+        updateLocationTips(state,data)
+        {
+            state.locationsTips = data;
         }
     },
     actions: {
@@ -123,6 +134,23 @@ export default {
         {
             commit('SELECT_CATEGORY',data);
         },
+        async searchLocation({commit,state})
+        {
+
+            if(state.locationInput.length >= 5)
+            {
+               await setTimeout(function() {
+                     axios.get('/get/location/from/text/'+state.locationInput)
+                        .then(response => {
+                            if (response.data !== 'undefined' && response.data !== null) {
+                                commit('updateLocationTips', response.data)
+                            }
+                        });
+                }, 2000);
+
+            }
+
+        }
     }
 }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\CategoryService;
 use App\Services\ChatRoomService;
+use App\Services\CityService;
 use App\Services\DadataService;
 use App\Services\MessageService;
 use App\Services\OfferService;
@@ -103,6 +104,12 @@ class ApiController extends Controller
     protected $simplePageService;
 
     /**
+     * @var CityService
+     */
+
+    protected $cityService;
+
+    /**
      * ApiController constructor.
      * @param DadataService $daDataService
      */
@@ -119,7 +126,8 @@ class ApiController extends Controller
                                 ChatRoomService $chatRoomService,
                                 MessageService $messageService,
                                 PartnerService $partnerService,
-                                SimplePageService  $simplePageService
+                                SimplePageService  $simplePageService,
+                                CityService $cityService
     )
     {
         $this->daDataService = $daDataService;
@@ -135,6 +143,7 @@ class ApiController extends Controller
         $this->messageService = $messageService;
         $this->partnerService = $partnerService;
         $this->simplePageService = $simplePageService;
+        $this->cityService = $cityService;
     }
 
     /**
@@ -416,6 +425,30 @@ class ApiController extends Controller
         return response()->json(['location'=>['value'=>'office']
         ],200);
     }
+
+    public function getLocationFromText($text)
+    {
+        $result = '';
+        if(!empty($text))
+        {
+            $search = $this->cleanInputData($text);
+            $result = $this->cityService->searchByText($text);
+        }
+        return $result;
+    }
+
+    private function cleanInputData($string)
+    {
+        $input_text = str_replace("'",'',$string);
+        $input_text = str_replace('"','',$input_text);
+        $input_text = strip_tags($input_text);
+        $input_text = htmlspecialchars($input_text);
+        $input_text = stripslashes($input_text);
+        $input_text = pg_escape_string($input_text);
+
+        return $input_text;
+    }
+
 
     /**
      * @return \Illuminate\Http\JsonResponse

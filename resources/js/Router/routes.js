@@ -17,6 +17,11 @@ const routes = [
         name: 'delivery'
     },
     {
+        path:'/for-providers',
+        component: ()=>import('../Pages/ForProviders'),
+        name: 'forproviders'
+    },
+    {
         path:'/to-supplier',
         component: ()=>import('../Pages/ToSuppliers'),
         name: 'tosuppliers'

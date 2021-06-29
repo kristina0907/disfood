@@ -17,7 +17,7 @@
                                оптом, получить рекомендацию по цене и продвинуть свой товар
                            </div>
                            <div class="btn_about_company">
-                               <a class="btn_register" href="">Зарегистрироваться</a>
+                               <router-link class="btn_register" to="/authorization">Зарегистрироваться</router-link>
                                <a class="btn_learn_more" href="">Узнать подробнее</a>
                            </div>
                        </div>
@@ -154,7 +154,7 @@
                                    </div>
                                </div>
                                <div class="btn_user_registration_company">
-                                   <a href="">Зарегистрироваться</a>
+                                   <router-link to="/authorization">Зарегистрироваться</router-link>
                                </div>
                            </div>
                        </div>
@@ -237,7 +237,8 @@
                                    </div>
                                </div>
                                <div class="btn_user_registration_company">
-                                   <a href="">Стать поставщиком</a>
+
+                                   <router-link to="/authorization">Стать поставщиком</router-link>
                                </div>
                            </div>
                        </div>
@@ -359,7 +360,7 @@
                                Чтобы стать нашим поставщиком необходимо пройти регистрацию и соответствовать нашим требованиям:
                            </div>
                            <div class="btn_user_registration_company">
-                               <a href="">Стать поставщиком</a>
+                               <router-link to="/authorization">Стать поставщиком</router-link>
                            </div>
                        </div>
                        <div class="col-xs-12 col-md-3 icon_become_partner_company">

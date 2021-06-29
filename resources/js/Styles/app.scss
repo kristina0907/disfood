@@ -1055,9 +1055,10 @@ footer{
     color: #000000;
 }
 .container_footer_consultation{
-    margin-bottom: 40px;
+    padding-bottom: 40px;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 0;
 }
 .footer_bottom{
     background: #F0F2F4;

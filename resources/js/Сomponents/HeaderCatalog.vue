@@ -28,7 +28,7 @@
                         <router-link class="nav-link" :to="{name:'tosuppliers'}">Как покупать</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'about'}">Стать поставциком</router-link>
+                        <router-link class="nav-link" :to="{name:'forproviders'}">Стать поставциком</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{name:'about'}">О компании</router-link>
@@ -53,7 +53,7 @@
                         </span>
                         {{location.location.value}}
                     </div>
-                    <div class="phone_header">8 800 550 71 90</div>
+                    <div class="phone_header"><a href="tel:8-800-550-71-90">8 800 550 71 90</a></div>
                 </div>
 
             </div>

@@ -52,6 +52,9 @@ class OrderService
             'to_id'           => 'required|integer',
             'offer_id'        => 'required|integer',
             'status_id'       => 'required|integer',
+            'priceWithNDS'    => 'required',
+            'summ'            => 'required',
+            'volume'          => 'required',
         ]);
 
         $result = $this->orderRepository->save($data);

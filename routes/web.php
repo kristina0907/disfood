@@ -37,6 +37,7 @@ Route::get('/get/newproduct/data',[ApiController::class,'getNewProductData']);
 Route::get('/change/currentOrganization/{id}',[ApiController::class,'changeCurrentOrganizationId']);
 
 Route::get('/get/location',[ApiController::class,'getLocation']);
+Route::get('/get/location/from/text/{text}',[ApiController::class,'getLocationFromText']);
 Route::get('/get/my-orders',[ApiController::class,'getMyOrders']);
 Route::post('/set/order/new',[ApiController::class,'setNewOrder']);
 Route::get('/get/order/{id}',[ApiController::class,'getMyOrder']);

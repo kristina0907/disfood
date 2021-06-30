@@ -1,9 +1,9 @@
 <template>
     <div>
         <div class="text_input">Куда доставить?</div>
-        <input list="city" type="text" v-if="location.location" v-model="locationInput"  v-on:input="searchLocation">
+        <input list="city" type="text"  v-model="locationInput"  v-on:keyup="searchLocation">
         <datalist id="city">
-            <option :value="tip.title_ru + ' - '+tip.id" v-for="tip in locationsTips">{{tip.title_ru}}</option>
+            <option :value="tip.value" v-for="tip in locationsTips">{{tip.value}}</option>
         </datalist>
         <div class="icon_price_input">
             <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
@@ -36,7 +36,7 @@ import {mapActions, mapState} from "vuex";
             ]),
         },
         mounted() {
-           
+
         },
         computed: {
             ...mapState('catalog',['location','locationInput','locationsTips']),

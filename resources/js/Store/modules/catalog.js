@@ -58,7 +58,11 @@ export default {
         SET_USER_LOCATION(state,data)
         {
           state.location = data;
-          state.locationInput = data.location.value;
+          if(state.locationInput.length == 0)
+          {
+              state.locationInput = data.location.value;
+          }
+
         },
         SELECT_CATEGORY(state,{cat,type})
         {
@@ -80,7 +84,7 @@ export default {
         },
         updateLocationTips(state,data)
         {
-            state.locationsTips = data;
+            state.locationsTips = data.suggestions;
         }
     },
     actions: {
@@ -137,17 +141,14 @@ export default {
         async searchLocation({commit,state})
         {
 
-            if(state.locationInput.length >= 5)
+            if(state.locationInput.length >= 4)
             {
-               await setTimeout(function() {
-                     axios.get('/get/location/from/text/'+state.locationInput)
+                    await axios.get('/get/location/from/text/'+state.locationInput)
                         .then(response => {
                             if (response.data !== 'undefined' && response.data !== null) {
                                 commit('updateLocationTips', response.data)
                             }
                         });
-                }, 2000);
-
             }
 
         }

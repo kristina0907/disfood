@@ -95,18 +95,7 @@
                                                         <div class="tab-pane fade" id="JD" role="tabpanel" aria-labelledby="JD-tab">
                                                             <div class="item_product_input row">
                                                                 <div class="container_input_price jd_tab_input col-md-8">
-                                                                    <div class="text_input">Куда доставить?</div>
-                                                                    <input type="text" v-if="location.location" :value="location.location.value" >
-                                                                    <div class="icon_price_input">
-                                                                        <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                            <path
-                                                                                d="M27.5 13.75C27.5 19.3471 19.2834 26.55 16.1735 29.0758C15.4852 29.6348 14.5148 29.6348 13.8265 29.0758C10.7166 26.55 2.5 19.3471 2.5 13.75C2.5 6.84644 8.09644 1.25 15 1.25C21.9036 1.25 27.5 6.84644 27.5 13.75Z"
-                                                                                stroke="#71BF45" stroke-width="2" />
-                                                                            <circle cx="15" cy="13.75" r="3.75" stroke="#71BF45"
-                                                                                    stroke-width="2" />
-                                                                        </svg>
-                                                                    </div>
+                                                                    <searchlocation></searchlocation>
                                                                 </div>
                                                                 <div class="container_input_price col-md-4">
                                                                     <div class="text_input">Код станции</div>
@@ -127,18 +116,7 @@
                                                              aria-labelledby="avto-tab">
                                                             <div class="item_product_input row">
                                                                 <div class="container_input_price col-md-12">
-                                                                    <div class="text_input">Куда доставить?</div>
-                                                                    <input type="text" v-if="location.location" :value="location.location.value">
-                                                                    <div class="icon_price_input">
-                                                                        <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                            <path
-                                                                                d="M27.5 13.75C27.5 19.3471 19.2834 26.55 16.1735 29.0758C15.4852 29.6348 14.5148 29.6348 13.8265 29.0758C10.7166 26.55 2.5 19.3471 2.5 13.75C2.5 6.84644 8.09644 1.25 15 1.25C21.9036 1.25 27.5 6.84644 27.5 13.75Z"
-                                                                                stroke="#71BF45" stroke-width="2" />
-                                                                            <circle cx="15" cy="13.75" r="3.75" stroke="#71BF45"
-                                                                                    stroke-width="2" />
-                                                                        </svg>
-                                                                    </div>
+                                                                    <searchlocation></searchlocation>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -146,29 +124,14 @@
                                                              aria-labelledby="pickUp-tab">
                                                             <div class="item_product_input row">
                                                                 <div class="container_input_price col-md-12">
-                                                                    <div class="text_input">Куда доставить?</div>
-                                                                    <input type="text" value="Россия, Екатеринбург">
-                                                                    <div class="icon_price_input">
-                                                                        <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                            <path
-                                                                                d="M27.5 13.75C27.5 19.3471 19.2834 26.55 16.1735 29.0758C15.4852 29.6348 14.5148 29.6348 13.8265 29.0758C10.7166 26.55 2.5 19.3471 2.5 13.75C2.5 6.84644 8.09644 1.25 15 1.25C21.9036 1.25 27.5 6.84644 27.5 13.75Z"
-                                                                                stroke="#71BF45" stroke-width="2" />
-                                                                            <circle cx="15" cy="13.75" r="3.75" stroke="#71BF45"
-                                                                                    stroke-width="2" />
-                                                                        </svg>
-                                                                    </div>
+
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
-
-
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="offer_product_category_block">
@@ -358,9 +321,9 @@ import NavbarCatalog from "../Сomponents/HeaderCatalog";
 import SidebarCatalog from "../Сomponents/SidebarCatalog";
 import Multiselect from "vue-multiselect";
 import {mapGetters,mapActions,mapState} from 'vuex';
-import catalog from "../Store/modules/catalog";
+import Searchlocation from "../Сomponents/SearchLocation";
 export default {
-    components: {SidebarCatalog, NavbarCatalog,Multiselect},
+    components: {Searchlocation, SidebarCatalog, NavbarCatalog,Multiselect},
 
     data(){
         return{
@@ -369,31 +332,6 @@ export default {
         }
     },
     methods:{
-        getData()
-        {
-           /* axios.get('/get/categories/')
-                .then((response) => {
-
-                    if (response.data !== 'undefined' && response.data !== null) {
-                        this.categories = response.data;
-                    }
-                })
-
-            axios.get('/get/types/')
-                .then((response) => {
-
-                    if (response.data !== 'undefined' && response.data !== null) {
-                        this.types = response.data;
-                    }
-                })
-            axios.get('/get/packages/')
-                .then((response) => {
-
-                    if (response.data !== 'undefined' && response.data !== null) {
-                        this.packages = response.data;
-                    }
-                })*/
-        },
         changeToTileView()
         {
             let self = this;
@@ -411,8 +349,7 @@ export default {
 
     },
     mounted() {
-        //this.$store.dispatch('catalog/getCatalogData');
-        //this.$store.dispatch('catalog/getCatalogTypes');
+
     },
     computed: {
         ...mapState('catalog',['categories', 'categoryValue','types','typeValue','filteredTypes','products','location'])

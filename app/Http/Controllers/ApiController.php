@@ -20,6 +20,8 @@ use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use MoveMoveIo\DaData\Facades\DaDataAddress;
+use MoveMoveIo\DaData\Enums\Language;
+
 
 
 class ApiController extends Controller
@@ -432,7 +434,9 @@ class ApiController extends Controller
         if(!empty($text))
         {
             $search = $this->cleanInputData($text);
-            $result = $this->cityService->searchByText($text);
+            /*$result = $this->cityService->searchByText($search);*/
+            $result = DaDataAddress::prompt($search, 10, Language::RU);
+
         }
         return $result;
     }

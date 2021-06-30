@@ -173,7 +173,8 @@ export default {
                         'volume':state.volume,
                         'organization_id':rootState.currentUserOrganization[0].inn,
                         'user_id':rootState.user.user.id,
-                        'from_id':state.product.city_id
+                        'from_id':state.product.city_id,
+
                     }
                 ).then((response) => {
                     if (response.data !== 'undefined' && response.data !== null) {

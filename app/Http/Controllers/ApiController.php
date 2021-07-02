@@ -441,6 +441,11 @@ class ApiController extends Controller
         return $result;
     }
 
+    /**
+     * @param $string
+     * @return string
+     */
+
     private function cleanInputData($string)
     {
         $input_text = str_replace("'",'',$string);
@@ -453,6 +458,33 @@ class ApiController extends Controller
         return $input_text;
     }
 
+    /**
+     * @param Request $request
+     * @return array
+     */
+
+    public function searchByText(Request $request)
+    {
+        $output = array();
+        if(!empty($request) && !empty($request->search))
+        {
+            $req = $this->cleanInputData($request->search);
+            $output['products'] = $this->productService->searchByText($req);
+        }
+        return $output;
+    }
+
+    public function searchCatType(Request $request)
+    {
+
+        $output = array();
+        if(!empty($request->category_id) && (int)$request->category_id && !empty($request->type_id) && (int) $request->type_id)
+        {
+            $output['cat'] = $this->categoryService->getCategoryById($request->category_id);
+            $output['type'] = $this->typeService->getCategoryById($request->type_id);
+        }
+        return $output;
+    }
 
     /**
      * @return \Illuminate\Http\JsonResponse

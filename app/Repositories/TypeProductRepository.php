@@ -49,6 +49,18 @@ class TypeProductRepository implements TypeProductContract
     }
 
     /**
+     * @param $id
+     * @return mixed
+     */
+
+    public function getByCatId($cat_id)
+    {
+        return $this->type
+            ->where('category_id',$cat_id)
+            ->first();
+    }
+
+    /**
      * @param $data
      * @return mixed
      */

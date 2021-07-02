@@ -96,6 +96,16 @@ export default {
         {
           commit('updateType',value);
         },
+        updateFromSearch({commit,state},{category,type})
+        {
+              commit('updateCategory',category);
+              commit('updateType',type);
+              let data1 = {
+                    'type':state.typeValue.id,
+                    'cat':state.categoryValue.id
+              }
+              this.dispatch('catalog/getFilteredData',data1)
+        },
         async getCatalogData({commit})
         {
             await axios.get('/get/categories')

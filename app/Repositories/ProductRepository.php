@@ -144,5 +144,14 @@ class ProductRepository implements ProductContract
         })->get();
     }
 
+    /**
+     * @param $req
+     * @return mixed
+     */
 
+    public function searchByText($req)
+    {
+        $searched = $this->product->where('name','ILIKE','%'.$req.'%')->get();
+        return $searched;
+    }
 }

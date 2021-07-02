@@ -95,6 +95,17 @@ class TypeProductService
      * @return mixed
      */
 
+    public function getTypeByCategoryId($cat_id)
+    {
+        $type = $this->typeRepository->getByCatId($cat_id);
+        return $type;
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+
     public function deleteCategoryById($id)
     {
         if(!empty($id))

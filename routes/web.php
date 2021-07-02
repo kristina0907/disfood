@@ -58,6 +58,9 @@ Route::post('/send/messages',[ApiController::class,'setOfferMessages']);
 
 Route::post('/set/new/offer',[ApiController::class,'setNewOffer']);
 
+Route::get('/get/search/all',[ApiController::class,'searchByText']);
+Route::post('/get/cat/type',[ApiController::class,'searchCatType']);
+
 
 
 

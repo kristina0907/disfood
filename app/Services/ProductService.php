@@ -132,11 +132,26 @@ class ProductService
         }
     }
 
+    /**
+     * @param $cat
+     * @param null $type
+     * @return mixed
+     */
+
     public function getProductsByCatsAndTypes($cat,$type=null)
     {
         return  $this->productRepository->getProductsCatType($cat, $type);
     }
 
+    /**
+     * @param $req
+     * @return mixed
+     */
+
+    public function searchByText($req)
+    {
+        return $this->productRepository->searchByText($req);
+    }
 
 
 }

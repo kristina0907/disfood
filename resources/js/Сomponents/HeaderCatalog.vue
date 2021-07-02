@@ -72,7 +72,31 @@
                                 Каталог
                         </div>
                     <div class="search_header">
-                        <input type="text" placeholder="Найти товар">
+                        <input type="text" placeholder="Найти товар" v-model="searchBar" v-on:keyup="searchText">
+                        <div class="search-panel" v-if="Object.keys(searchResults).length">
+                            <div class="search-result-product" v-if="searchResults && searchResults.products">
+                                <div class="col-md-4" style="margin-top: 20px;margin-bottom: 20px;">
+                                    Продукты
+                                </div>
+                                <div class="col-md-12" v-for="product in searchResults.products">
+                                        <div class="row product-item">
+                                            <a href="#" @click="searchClickProduct(product.category_id,product.type_id)" class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <img :src="product.image" alt="" class="search-img" >
+                                                    </div>
+                                                    <div class="col-md-11">
+                                                        {{product.name}}
+                                                    </div>
+                                                </div>
+
+                                            </a>
+                                        </div>
+
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="container_header_catalog_btn_info">
@@ -177,8 +201,8 @@ export default {
         return {
             sidebarExpand:false,
             isExpand:false,
-            //types:[],
-            //categories:[],
+            searchBar:'',
+            searchResults:[],
             scrollPosition:null,
             ops: {
                 scrollPanel: {
@@ -196,6 +220,38 @@ export default {
     },
     methods: {
 
+        async searchText()
+        {
+            if(this.searchBar.length >= 3)
+            {
+                await axios.get('/get/search/all?search='+this.searchBar)
+                    .then(response => {
+                        if (response.data !== 'undefined' && response.data !== null) {
+                            this.searchResults = response.data
+                        }
+                    });
+            }else
+            {
+                this.searchResults = []
+            }
+        },
+        searchClickProduct(cat,type)
+        {
+             axios.post('/get/cat/type',{
+                 'category_id':cat,
+                 'type_id':type
+             }).then(response => {
+                    if (response.data !== 'undefined' && response.data !== null) {
+                        this.updateFromSearch({'category':response.data.cat,'type':response.data.type});
+                        if(this.$router.currentRoute.name !== 'catalog')
+                        {
+                            this.$router.push({'name':'catalog'})
+                        }
+                        this.searchBar = '';
+                        this.searchResults = []
+                    }
+                });
+        },
         redirectToCatalog(cat, type)
         {
             this.$store.dispatch('catalog/redirectToCatalog', {
@@ -214,7 +270,7 @@ export default {
         {
             this.isExpand = !this.isExpand
         },
-        ...mapActions('catalog',['updateValueAction','getCatalogData','getCatalogTypes','updateTypeAction','getUserIP']),
+        ...mapActions('catalog',['updateValueAction','getCatalogData','getCatalogTypes','updateTypeAction','getUserIP','updateFromSearch']),
         ...mapActions(['getUserData']),
     },
     mounted() {
@@ -223,8 +279,43 @@ export default {
         this.$store.dispatch('catalog/getCatalogTypes');
     },
     computed: {
-        ...mapState('catalog',['location','categories','types']),
+        ...mapState('catalog',['location','categories','types','categoryValue','typeValue']),
         ...mapState(['user'])
     },
 }
 </script>
+<style>
+.search-panel
+{
+    display: block;
+    position: fixed;
+    float: left;
+    width:1100px;
+    height:400px;
+    top: 120px;
+    background: #fafafa;
+}
+.search-panel a
+{
+    color:#000;
+    cursor: pointer;
+
+}
+.product-item
+{
+    margin: 2.5px 0;
+}
+.product-item:hover,
+.product-item:hover a
+{
+    background: #ccc;
+    text-decoration: none;
+    color: #fff;
+    cursor:pointer;
+}
+.search-img
+{
+    height: 50px;
+    width: auto;
+}
+</style>

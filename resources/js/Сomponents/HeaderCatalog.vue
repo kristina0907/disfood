@@ -42,6 +42,11 @@
                 </ul>
                 <div class="right_menu_block">
                     <div class="adress_header" v-if="location.location">
+                        <!-- The modal -->
+                        <b-modal id="my-modal">
+                           <searchlocation></searchlocation>
+                        </b-modal>
+
                         <span>
                             <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +56,7 @@
                                 <circle cx="15" cy="13.75" r="3.75" stroke="#71BF45" stroke-width="2" />
                             </svg>
                         </span>
-                        {{location.location.value}}
+                        <b-button v-b-modal="'my-modal'"> {{location.location.value}}</b-button>
                     </div>
                     <div class="phone_header"><a href="tel:8-800-550-71-90">8 800 550 71 90</a></div>
                 </div>
@@ -179,11 +184,16 @@
 import vuescroll from 'vuescroll'
 import {mapActions, mapState} from 'vuex'
 import UserLoginAuthButton from "./UserLoginAuthButton";
+import Searchlocation from "./SearchLocation";
+
+
 export default {
     name:"navbar-catalog",
     components:{
+        Searchlocation,
         UserLoginAuthButton,
-        vuescroll
+        vuescroll,
+
     },
     data(){
         return {
@@ -192,6 +202,7 @@ export default {
             searchBar:'',
             searchResults:[],
             scrollPosition:null,
+            changeModal:false,
             ops: {
                 scrollPanel: {
                     initialScrollY: false,
@@ -208,6 +219,20 @@ export default {
     },
     methods: {
 
+        openChangeLocation()
+        {
+            this.$modal.open(`
+                  <div>
+                    {{ message }}
+                    <button :click="onOk" }>ok</button>
+                  </div>
+                `, {
+                props: {
+                    message: 'here is a message',
+                    onOk: () => {console.log('ok')}
+                }
+            })
+        },
         async searchText()
         {
             if(this.searchBar.length >= 3)
@@ -306,4 +331,5 @@ export default {
     height: 50px;
     width: auto;
 }
+
 </style>

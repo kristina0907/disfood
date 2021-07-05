@@ -90,21 +90,25 @@
                                 <div class="col-md-6">
                                     <label for="countryInput">Страна</label>
                                     <div class="form-group">
-                                        <div class="form-line">
-                                            {{$offer->country->title_ru}}
-                                            <input type="text" autocomplete="off" value="{{old('country',$offer->country_id)}}" id="countryInput" list="countryList" class="form-control" name="country_id" placeholder="Введите название страны...">
-                                            <datalist id="countryList"></datalist>
-                                        </div>
+                                        @if($offer->country)
+                                            <div class="form-line">
+                                                {{$offer->country->title_ru}}
+                                                <input type="text" autocomplete="off" value="{{old('country',$offer->country_id)}}" id="countryInput" list="countryList" class="form-control" name="country_id" placeholder="Введите название страны...">
+                                                <datalist id="countryList"></datalist>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="cityInput">Город</label>
                                     <div class="form-group">
-                                        <div class="form-line">
-                                            {{$offer->city->title_ru}}
-                                            <input type="text" autocomplete="off" id="cityInput" value="{{old('city',$offer->city_id)}}" list="cityList" class="form-control" name="city_id" placeholder="Введите название города...">
-                                            <datalist id="cityList"></datalist>
-                                        </div>
+                                        @if(!empty($offer->country))
+                                            <div class="form-line">
+                                                {{$offer->city->title_ru}}
+                                                <input type="text" autocomplete="off" id="cityInput" value="{{old('city',$offer->city_id)}}" list="cityList" class="form-control" name="city_id" placeholder="Введите название города...">
+                                                <datalist id="cityList"></datalist>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

@@ -55,4 +55,12 @@ class Category extends Model
         return $this->belongsToMany(Packing::class,'packages_categories','category_id','package_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+
+    public function types()
+    {
+        return $this->hasMany(TypeProduct::class,'category_id');
+    }
 }

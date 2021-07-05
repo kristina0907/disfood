@@ -275,7 +275,7 @@ class ApiController extends Controller
 
     public function getCategories()
     {
-        $categories = $this->categoryService->getAll();
+        $categories = $this->categoryService->getNotEmpty();
         return response()->json(['cats'=>$categories],200);
     }
 

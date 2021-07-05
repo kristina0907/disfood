@@ -37,6 +37,14 @@ class CategoryService
     }
 
     /**
+     * @return mixed
+     */
+
+    public function getNotEmpty()
+    {
+        return $this->categoryRepository->getNotEmpty();
+    }
+    /**
      * @param $data
      * @return mixed
      */

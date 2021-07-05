@@ -34,6 +34,14 @@ class CategoryRepository implements CategoryContract
     }
 
     /**
+     * @return mixed
+     */
+
+    public function getNotEmpty()
+    {
+        return $this->category->whereHas('types')->get();
+    }
+    /**
      * @param $id
      * @return mixed
      */

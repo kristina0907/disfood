@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        Организации
+                        Предложения
                         <a href="/superadmin/offers/create" class="btn btn-success btn-circle waves-effect waves-circle waves-float">
                             <i class="material-icons">add</i>
                         </a>

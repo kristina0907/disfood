@@ -78,7 +78,11 @@
                                             :state="changeModal"
                                             required
                                             v-on:keyup="searchLocation"
+                                            list="my-list-id"
                                         ></b-form-input>
+                                        <datalist id="my-list-id">
+                                            <option v-for="location in locationsTips">{{ location.value }}</option>
+                                        </datalist>
                                     </b-form-group>
                                 </form>
                             </b-modal>

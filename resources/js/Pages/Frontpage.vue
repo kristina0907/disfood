@@ -66,7 +66,9 @@
                        </div>
                    </div>
                    <div class="search_category_company" v-if="types">
-                       <div class="item_search_category_company" v-for="type in types">{{type.name}}</div>
+                       <div class="item_search_category_company" v-for="type in types" @click="goToCategory(type)">
+                          {{type.name}}
+                       </div>
                    </div>
                </div>
                <div class="user_registration_company_block">
@@ -521,7 +523,14 @@ export default {
                       this.news = response.data;
                   }
               })
-      }
+      },
+      goToCategory(type)
+      {
+          console.log(type)
+          this.updateTypeAction(type);
+
+      },
+      ...mapActions('catalog',['updateTypeAction'])
     },
     mounted() {
         console.log('Component mounted.')

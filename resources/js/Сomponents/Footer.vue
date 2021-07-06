@@ -65,24 +65,13 @@
             <div class="row container_footer_block">
                 <div class="col">
                     <div class="title_footer_contact">Бесплатно по России</div>
-                    <div class="item_footer_contact_main"><a href="tel:+">8 800 550 71 90</a></div>
+                    <div class="item_footer_contact_main"><a href="tel:+8 800 550 71 90">8 800 550 71 90</a></div>
                 </div>
                 <div class="col">
                     <div class="title_footer_contact">Почта</div>
-                    <div class="item_footer_contact"><a href="mailto:">info@disfood.ru</a></div>
+                    <div class="item_footer_contact"><a href="mailto:info@disfood.ru">info@disfood.ru</a></div>
                 </div>
-                <div class="col">
-                    <div class="title_footer_contact">Отдел продаж</div>
-                    <div class="item_footer_contact"><a href="tel:+">+7 989 199 91 43</a></div>
-                </div>
-                <div class="col">
-                    <div class="title_footer_contact">Отдел закупки</div>
-                    <div class="item_footer_contact"><a href="tel:+">+7 989 199 91 43</a></div>
-                </div>
-                <div class="col">
-                    <div class="title_footer_contact">Бухгалтерия</div>
-                    <div class="item_footer_contact"><a href="tel:+">+7 989 199 91 43</a></div>
-                </div>
+
             </div>
             <div class="row container_footer_consultation">
                 <div class="col-xs-12 col-md-3"></div>

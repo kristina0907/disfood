@@ -43,20 +43,47 @@
                 <div class="right_menu_block">
                     <div class="adress_header" v-if="location.location">
                         <!-- The modal -->
-                        <b-modal id="my-modal">
-                           <searchlocation></searchlocation>
-                        </b-modal>
+                        <div>
+                            <b-button v-b-modal.modal-prevent-closing>
+                                {{locationInput}}
+                                <span>
+                                    <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M27.5 13.75C27.5 19.3471 19.2834 26.55 16.1735 29.0758C15.4852 29.6348 14.5148 29.6348 13.8265 29.0758C10.7166 26.55 2.5 19.3471 2.5 13.75C2.5 6.84644 8.09644 1.25 15 1.25C21.9036 1.25 27.5 6.84644 27.5 13.75Z"
+                                            stroke="#71BF45" stroke-width="2" />
+                                        <circle cx="15" cy="13.75" r="3.75" stroke="#71BF45" stroke-width="2" />
+                                    </svg>
+                                </span>
+                            </b-button>
 
-                        <span>
-                            <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M27.5 13.75C27.5 19.3471 19.2834 26.55 16.1735 29.0758C15.4852 29.6348 14.5148 29.6348 13.8265 29.0758C10.7166 26.55 2.5 19.3471 2.5 13.75C2.5 6.84644 8.09644 1.25 15 1.25C21.9036 1.25 27.5 6.84644 27.5 13.75Z"
-                                    stroke="#71BF45" stroke-width="2" />
-                                <circle cx="15" cy="13.75" r="3.75" stroke="#71BF45" stroke-width="2" />
-                            </svg>
-                        </span>
-                        <b-button v-b-modal="'my-modal'"> {{location.location.value}}</b-button>
+                            <b-modal
+                                id="modal-prevent-closing"
+                                ref="modal"
+                                title="Укажите город доставки"
+                                @show="resetModal"
+                                @hidden="resetModal"
+                                @ok="handleOk"
+                            >
+                                <form ref="form" @submit.stop.prevent="handleSubmit">
+                                    <b-form-group
+                                        label="Название города"
+                                        label-for="name-input"
+                                        invalid-feedback="Название города обязательно"
+                                        :state="changeModal"
+                                    >
+                                        <b-form-input
+                                            id="name-input"
+                                            v-model="locationInput"
+                                            :state="changeModal"
+                                            required
+                                            v-on:keyup="searchLocation"
+                                        ></b-form-input>
+                                    </b-form-group>
+                                </form>
+                            </b-modal>
+                        </div>
+
                     </div>
                     <div class="phone_header"><a href="tel:8-800-550-71-90">8 800 550 71 90</a></div>
                 </div>
@@ -202,7 +229,7 @@ export default {
             searchBar:'',
             searchResults:[],
             scrollPosition:null,
-            changeModal:false,
+            changeModal:'',
             ops: {
                 scrollPanel: {
                     initialScrollY: false,
@@ -218,19 +245,34 @@ export default {
         }
     },
     methods: {
-
-        openChangeLocation()
-        {
-            this.$modal.open(`
-                  <div>
-                    {{ message }}
-                    <button :click="onOk" }>ok</button>
-                  </div>
-                `, {
-                props: {
-                    message: 'here is a message',
-                    onOk: () => {console.log('ok')}
-                }
+        ...mapActions('catalog',[
+            'searchLocation'
+        ]),
+        checkFormValidity() {
+            const valid = this.$refs.form.checkValidity()
+            this.changeModal = valid
+            return valid
+        },
+        resetModal() {
+            this.changeModal = ''
+        },
+        handleOk(bvModalEvt) {
+            // Prevent modal from closing
+            console.log(bvModalEvt)
+            bvModalEvt.preventDefault()
+            // Trigger submit handler
+            this.handleSubmit()
+        },
+        handleSubmit() {
+            // Exit when the form isn't valid
+            if (!this.checkFormValidity()) {
+                return
+            }
+            // Push the name to submitted names
+           console.log('submit')
+            // Hide the modal manually
+            this.$nextTick(() => {
+                this.$bvModal.hide('modal-prevent-closing')
             })
         },
         async searchText()
@@ -293,7 +335,16 @@ export default {
     },
     computed: {
         ...mapState('catalog',['location','categories','types','categoryValue','typeValue']),
-        ...mapState(['user'])
+        ...mapState(['user']),
+        ...mapState('catalog',['location','locationInput','locationsTips']),
+        locationInput: {
+            get () {
+                return this.$store.state.catalog.locationInput
+            },
+            set (value) {
+                this.$store.commit('catalog/updateLocationInput',value)
+            }
+        }
     },
 }
 </script>

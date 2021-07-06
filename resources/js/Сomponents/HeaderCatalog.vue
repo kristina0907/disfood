@@ -44,7 +44,7 @@
                     <div class="adress_header" v-if="location.location">
                         <!-- The modal -->
                         <div>
-                            <b-button v-b-modal.modal-prevent-closing>
+                            <b-button variant="light" v-b-modal.modal-prevent-closing>
                                 {{locationInput}}
                                 <span>
                                     <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
@@ -89,7 +89,9 @@
                         </div>
 
                     </div>
-                    <div class="phone_header"><a href="tel:8-800-550-71-90">8 800 550 71 90</a></div>
+                    <div class="phone_header">
+                        <a style="color: #22262A" href="tel:8-800-550-71-90">8 800 550 71 90</a>
+                    </div>
                 </div>
 
             </div>

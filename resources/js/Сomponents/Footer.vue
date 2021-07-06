@@ -63,13 +63,25 @@
 
             </div>
             <div class="row container_footer_block">
-                <div class="col">
-                    <div class="title_footer_contact">Бесплатно по России</div>
-                    <div class="item_footer_contact_main"><a href="tel:+8 800 550 71 90">8 800 550 71 90</a></div>
-                </div>
-                <div class="col">
-                    <div class="title_footer_contact">Почта</div>
-                    <div class="item_footer_contact"><a href="mailto:info@disfood.ru">info@disfood.ru</a></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="title_footer_contact">Бесплатно по России</div>
+                            <div class="item_footer_contact_main"><a href="tel:+8 800 550 71 90">8 800 550 71 90</a></div>
+                        </div>
+                        <div class="col">
+                            <div class="title_footer_contact">Почта</div>
+                            <div class="item_footer_contact"><a href="mailto:info@disfood.ru">info@disfood.ru</a></div>
+                        </div>
+                        <div class="col">
+                            Адрес: 350058, Краснодарский край, город Краснодар, улица им Селезнева, дом 204/2, офис 209
+                            ООО «Дисфуд», ИНН 2312272412, КПП 231201001, ОГРН 1182375051088
+                        </div>
+                        <div class="col">
+                            Использование материалов с сайта только с согласия правообладателей
+                        </div>
+                    </div>
+
                 </div>
 
             </div>

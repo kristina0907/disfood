@@ -19,8 +19,13 @@
                     </div>
                 </div>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                    <li>
+                        <div class="text-user-login-button" >
+                            Войдите, чтобы делать покупки, и отслеживать заказы.
+                        </div>
+                    </li>
                     <li >
-                        <div class="dropdown-item dropdown-item-settings"  data-toggle="modal" data-target="#loginModal">
+                        <div class="dropdown-item dropdown-item-settings user-login-a"  data-toggle="modal" data-target="#loginModal">
                             Войти
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="51" viewBox="0 0 50 51" fill="none">
                                 <rect y="0.5" width="50" height="50" rx="25" fill="white"/>
@@ -30,7 +35,7 @@
                         </div>
                     </li>
                     <li>
-                        <router-link class="dropdown-item dropdown-item-settings" :to="{path:'/authorization'}">
+                        <router-link class="dropdown-item dropdown-item-settings user-login-a" :to="{path:'/authorization'}">
                            Регистрация
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="51" viewBox="0 0 50 51" fill="none">
                                 <rect y="0.5" width="50" height="50" rx="25" fill="white"/>
@@ -145,3 +150,26 @@ export default {
     },
 }
 </script>
+<style>
+.text-user-login-button
+{
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 20px;
+}
+.dropdown-item.dropdown-item-settings.user-login-a
+{
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #71BF45;
+    cursor: pointer;
+}
+header .dropdown-menu.show
+{
+    left:-70px;
+}
+</style>

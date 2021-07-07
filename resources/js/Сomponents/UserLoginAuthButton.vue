@@ -170,6 +170,6 @@ export default {
 }
 header .dropdown-menu.show
 {
-    left:-70px;
+    left:-50%;
 }
 </style>

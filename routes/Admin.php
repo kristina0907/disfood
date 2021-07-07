@@ -24,6 +24,8 @@ use App\Http\Controllers\Admin\SimplePageController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\PageCategoryController;
 use App\Http\Controllers\OrganizationStatusController;
+use App\Http\Controllers\Admin\FilterController;
+use App\Http\Controllers\Admin\FilterValuesController;
 
 /**
  *  Admin routes
@@ -280,5 +282,29 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/simplepages/edit/{id}',[SimplePageController::class,'edit'])->name('simplepages.edit');
     Route::get('/simplepages/delete/{id}',[SimplePageController::class,'delete'])->name('simplepages.delete');
     Route::post('/simplepages/update',[SimplePageController::class,'update'])->name('simplepages.update');
+
+
+    /**
+     * Filters routes
+     */
+
+    Route::get('/filters', [FilterController::class,'show'] )->name('filters.show');
+    Route::get('/filters/create',[FilterController::class,'create'])->name('filters.create');
+    Route::post('/filters/create',[FilterController::class,'store'])->name('filters.store');
+    Route::get('/filters/edit/{id}',[FilterController::class,'edit'])->name('filters.edit');
+    Route::get('/filters/delete/{id}',[FilterController::class,'delete'])->name('filters.delete');
+    Route::post('/filters/update',[FilterController::class,'update'])->name('filters.update');
+
+
+    /**
+     * FiltersValue routes
+     */
+
+    Route::get('/filtervalues', [FilterValuesController::class,'show'] )->name('filtervalues.show');
+    Route::get('/filtervalues/create',[FilterValuesController::class,'create'])->name('filtervalues.create');
+    Route::post('/filtervalues/create',[FilterValuesController::class,'store'])->name('filtervalues.store');
+    Route::get('/filtervalues/edit/{id}',[FilterValuesController::class,'edit'])->name('filtervalues.edit');
+    Route::get('/filtervalues/delete/{id}',[FilterValuesController::class,'delete'])->name('filtervalues.delete');
+    Route::post('/filtervalues/update',[FilterValuesController::class,'update'])->name('filtervalues.update');
 
 });

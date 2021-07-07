@@ -60,7 +60,20 @@
                         </li>
                     </ul>
                 </li>
-
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">radio_button_checked</i>
+                        <span>Фильтры</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="/superadmin/filters">Фильтры</a>
+                        </li>
+                        <li>
+                            <a href="/superadmin/filtervalues">Значения фильтров</a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">label_outline</i>

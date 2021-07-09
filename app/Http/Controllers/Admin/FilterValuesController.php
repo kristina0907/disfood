@@ -116,6 +116,11 @@ class FilterValuesController extends Controller
         abort(403,'Access Denied');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+
     public function delete($id)
     {
         if(Gate::allows('delete',Auth::user()))

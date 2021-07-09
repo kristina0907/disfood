@@ -36,4 +36,9 @@ class TypeProduct extends Model
     {
         return $this->belongsTo(Category::class,'category_id');
     }
+
+    public function filters()
+    {
+        return $this->belongsToMany(Filter::class,'filters_type_products','type_product_id','filter_id');
+    }
 }

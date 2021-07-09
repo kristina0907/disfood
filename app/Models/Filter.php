@@ -60,4 +60,13 @@ class Filter extends Model
     {
         return $this->hasMany(FilterValue::class,'filter_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+
+    public function offers()
+    {
+        return $this->belongsToMany(Offer::class,'filter_offers','filter_id','offer_id');
+    }
 }

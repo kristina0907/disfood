@@ -33,7 +33,7 @@ class TypeProductRepository implements TypeProductContract
 
     public function getAll()
     {
-        return $this->type->get();
+        return $this->type->with('filters.values')->get();
     }
 
     /**

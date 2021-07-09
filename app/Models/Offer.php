@@ -104,4 +104,22 @@ class Offer extends Model
     {
         return $this->belongsTo(TypeProduct::class,'type_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+
+    public function filters()
+    {
+        return $this->belongsToMany(Filter::class,'filter_offers','offer_id','filter_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+
+    public function values()
+    {
+        return $this->belongsToMany(FilterValue::class,'filter_offers','offer_id','value_id');
+    }
 }

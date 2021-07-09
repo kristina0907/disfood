@@ -5,6 +5,7 @@ export default {
         categories:[],
         typeValue:'',
         types:[],
+        packings:[],
         filteredTypes:[],
         products:[],
         location:{},
@@ -12,18 +13,46 @@ export default {
         locationsTips:[],
     },
     getters: {
+
+        /**
+         *
+         * @param state
+         * @returns {string}
+         */
+
         typeValue: (state) => {
             return state.typeValue;
         },
+
+        /**
+         *
+         * @param state
+         * @returns {string}
+         */
+
         categoryValue: (state) => {
             return state.categoryValue;
         },
+
+        /**
+         *
+         * @param state
+         * @returns {{}}
+         */
+
         location:(state) =>
         {
             return state.location;
         }
     },
     mutations: {
+
+        /**
+         *
+         * @param state
+         * @param value
+         */
+
         updateCategory (state, value)
         {
             state.categoryValue = value
@@ -38,6 +67,13 @@ export default {
             }
             this.dispatch('catalog/getFilteredData',data1)
         },
+
+        /**
+         *
+         * @param state
+         * @param value
+         */
+
         updateType(state,value)
         {
           state.typeValue = value;
@@ -47,14 +83,50 @@ export default {
           }
           this.dispatch('catalog/getFilteredData',data)
         },
+
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
         SET_CATEGORIES(state,data)
         {
             state.categories = data;
         },
+
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
         SET_CATALOG_TYPES(state,data)
         {
             state.types = data;
         },
+
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
+        SET_PACKINGS(state,data)
+        {
+            state.packings = data;
+        },
+
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
         SET_USER_LOCATION(state,data)
         {
           state.location = data;
@@ -62,8 +134,16 @@ export default {
           {
               state.locationInput = data.location.value;
           }
-
         },
+
+        /**
+         *
+         * @param state
+         * @param cat
+         * @param type
+         * @constructor
+         */
+
         SELECT_CATEGORY(state,{cat,type})
         {
             state.categoryValue = cat;
@@ -74,28 +154,73 @@ export default {
             }
             this.dispatch('catalog/getFilteredData',data)
         },
+
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
         SET_CATALOG(state,data)
         {
             state.products = data;
         },
+
+        /**
+         *
+         * @param state
+         * @param data
+         */
+
         updateLocationInput(state,data)
         {
             state.locationInput = data;
         },
+
+        /**
+         *
+         * @param state
+         * @param data
+         */
+
         updateLocationTips(state,data)
         {
             state.locationsTips = data.suggestions;
         }
     },
     actions: {
+
+        /**
+         *
+         * @param commit
+         * @param value
+         */
+
         updateValueAction ({ commit }, value)
         {
             commit('updateCategory', value);
         },
+
+        /**
+         *
+         * @param commit
+         * @param value
+         */
+
         updateTypeAction({commit},value)
         {
           commit('updateType',value);
         },
+
+        /**
+         *
+         * @param commit
+         * @param state
+         * @param category
+         * @param type
+         */
+
         updateFromSearch({commit,state},{category,type})
         {
               commit('updateCategory',category);
@@ -106,6 +231,13 @@ export default {
               }
               this.dispatch('catalog/getFilteredData',data1)
         },
+
+        /**
+         *
+         * @param commit
+         * @returns {Promise<void>}
+         */
+
         async getCatalogData({commit})
         {
             await axios.get('/get/categories')
@@ -115,6 +247,13 @@ export default {
                     }
                 });
         },
+
+        /**
+         *
+         * @param commit
+         * @returns {Promise<void>}
+         */
+
         async getCatalogTypes({commit})
         {
             await axios.get('/get/types')
@@ -125,6 +264,14 @@ export default {
                     }
                 })
         },
+
+        /**
+         *
+         * @param commit
+         * @param data
+         * @returns {Promise<void>}
+         */
+
         async getFilteredData({commit},data)
         {
 
@@ -135,6 +282,32 @@ export default {
                     }
                 });
         },
+
+        /**
+         *
+         * @param commit
+         * @returns {Promise<void>}
+         */
+
+        async getPackings({commit})
+        {
+            await axios.get('/get/newproduct/data').then(response => {
+                if(response.status == 200)
+                {
+                    if(response.data !== null)
+                    {
+                        commit('SET_PACKINGS',response.data.packings)
+                    }
+                }
+            });
+        },
+
+        /**
+         *
+         * @param commit
+         * @returns {Promise<void>}
+         */
+
         async getUserIP({commit})
         {
             await axios.get('/get/location')
@@ -144,13 +317,27 @@ export default {
                     }
                 });
         },
+
+        /**
+         *
+         * @param commit
+         * @param data
+         */
+
         redirectToCatalog({commit}, data)
         {
             commit('SELECT_CATEGORY',data);
         },
+
+        /**
+         *
+         * @param commit
+         * @param state
+         * @returns {Promise<void>}
+         */
+
         async searchLocation({commit,state})
         {
-
             if(state.locationInput.length >= 4)
             {
                     await axios.get('/get/location/from/text/'+state.locationInput)
@@ -160,7 +347,27 @@ export default {
                             }
                         });
             }
+        },
 
+        sendDataNewProduct({state,commit})
+        {
+            axios.post('/set/new/offer', {
+                product_id:this.selectedProduct,
+                organization_inn:this.companyName,
+                inn:this.inn,
+                userName:this.userName,
+                userSurname:this.userSurname,
+                userPhone:this.userPhone,
+                userEmail:this.userEmail,
+                userPassword:this.userPassword,
+
+            }).then(response => {
+                if(response.status == 200)
+                {
+                    console.log(response.status)
+                    // this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' } });
+                }
+            });
         }
     }
 }

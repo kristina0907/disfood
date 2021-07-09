@@ -1,56 +1,20 @@
 <template>
     <div class="sidebar_catalog">
-        <div class="container_filter_catalog">
-            <div class="item_filter_catalog">
-                <div class="title_filter_catalog">Тип фасовки</div>
-                <div class="radio">
-                    <input class="custom-radio" type="radio" id="packaging-1" name="packaging" value="indigo">
-                    <label for="packaging-1">Весовой</label>
-                </div>
-
-                <div class="radio">
-                    <input class="custom-radio" type="radio" id="packaging-2" name="packaging" value="red">
-                    <label for="packaging-2">Фасованнный</label>
-                </div>
-            </div>
-            <div class="item_filter_catalog">
-                <div class="title_filter_catalog">Страна производителя</div>
-                <input type="checkbox" class="read-more-state" id="countries" />
-                <div class="read-more-wrap">
-                    <div class="checkbox filter_checkbox">
-                        <input class="custom-checkbox" type="checkbox" id="country-1" name="country"
-                               value="indigo">
-                        <label for="country-1">Россия</label>
-                    </div>
-                    <div class="checkbox filter_checkbox">
-                        <input class="custom-checkbox" type="checkbox" id="country-2" name="country"
-                               value="indigo">
-                        <label for="country-2">Украина</label>
-                    </div>
-                    <div class="checkbox filter_checkbox">
-                        <input class="custom-checkbox" type="checkbox" id="country-3" name="country"
-                               value="indigo">
-                        <label for="country-3">Азербайджан</label>
-                    </div>
-                    <div class="checkbox filter_checkbox read-more-target">
-                        <input class="custom-checkbox" type="checkbox" id="country-5" name="country"
-                               value="indigo">
-                        <label for="country-5">Белоруссия</label>
-                    </div>
-                    <div class="checkbox filter_checkbox read-more-target">
-                        <input class="custom-checkbox" type="checkbox" id="country-6" name="country"
-                               value="indigo">
-                        <label for="country-6">Казахстан</label>
+        <div class="container_filter_catalog" v-if="typeValue && typeValue.filters.length">
+            <div class="item_filter_catalog" v-for="filter in typeValue.filters">
+                    <div class="title_filter_catalog">{{filter.name}}</div>
+                    <div class="radio" v-if="filter.values" v-for="(value,index) in filter.values">
+                        <input class="custom-radio" type="radio" :id="filter.slug+'-'+index" name="packaging" value="indigo">
+                        <label :for="filter.slug+'-'+index">{{value.value}}</label>
                     </div>
                 </div>
-                <label for="countries" class="read-more-trigger"></label>
-
-            </div>
         </div>
     </div>
 </template>
 
 <script>
+import {mapActions, mapState} from "vuex";
+
 export default {
     name:"sidebar-catalog",
     data(){
@@ -58,21 +22,22 @@ export default {
            /* categories:[],
             types:[],
             packages:[],*/
-            catChecked:{},
+           /* catChecked:{},
             typeChecked:{},
-            packagesChecked:[],
+            packagesChecked:[],*/
         }
     },
     mounted() {
-        this.getData();
+       /* this.getData();
         this.$parent.$on('update-package', this.changePackages);
         this.$parent.$on('update-types', this.changeTypes);
-        this.$parent.$on('update-category', this.changeCats);
+        this.$parent.$on('update-category', this.changeCats);*/
     },
     methods:{
-        getData()
+        //...mapActions('catalog',[''])
+         /* getData()
         {
-           /* axios.get('/get/categories/')
+            axios.get('/get/categories/')
                 .then((response) => {
 
                     if (response.data !== 'undefined' && response.data !== null) {
@@ -92,8 +57,9 @@ export default {
                     if (response.data !== 'undefined' && response.data !== null) {
                         this.packages = response.data;
                     }
-                })*/
-        },
+                })
+        },*/
+        /*
         sendFilter()
         {
             let self = this;
@@ -159,7 +125,10 @@ export default {
             let self = this;
             self.catChecked = '';
             this.sendFilter()
-        }
-    }
+        }*/
+    },
+    computed: {
+        ...mapState('catalog',['typeValue'])
+    },
 }
 </script>

@@ -56,7 +56,7 @@
                                             можно разместить в каталоге</div>
                                     </div>
                                 </div>
-                                <button class="btn_submit_price" type="button" @click="sendData">Отправить товар на модерацию</button>
+                                <button class="btn_submit_price" type="button" @click="sendDataNewProduct">Отправить товар на модерацию</button>
                             </form>
                         </div>
                     </div>
@@ -280,14 +280,15 @@
 import Multiselect from 'vue-multiselect';
 import UserLKHeader from "../../../Сomponents/LK/UserLKHeader";
 import FileSelect from "../../../Сomponents/FileSelect";
+import {mapActions, mapState} from "vuex";
 export default {
     components: {UserLKHeader,Multiselect,FileSelect},
     data(){
         return {
-            categories:[],
+            /*categories:[],
             types:[],
             products:[],
-            packings:[],
+            packings:[],*/
             capacity:0,
             adress:[
                 {adress:''}
@@ -305,6 +306,22 @@ export default {
         }
     },
     methods:{
+        ...mapActions('catalog',['getCatalogData','getCatalogTypes','getPackings','sendDataNewProduct']),
+
+        addAdress()
+        {
+            this.adress.push({
+                adress: '',
+            })
+        },
+
+        handleFileChange(event)
+        {
+            console.log(event.target.files);
+            this.documents.push({file:event.target.files[0]});
+        },
+
+        /*
         getData()
         {
             axios.get('/get/newproduct/data').then(response => {
@@ -352,11 +369,17 @@ export default {
                    // this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' } });
                 }
             });
-        }
+        }*/
     },
     mounted() {
-        this.getData();
-    }
+        //this.getData();
+        this.getCatalogData();
+        this.getCatalogTypes();
+        this.getPackings();
+    },
+    computed: {
+        ...mapState('catalog',['categories','types','products','packings'])
+    },
 }
 </script>
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>

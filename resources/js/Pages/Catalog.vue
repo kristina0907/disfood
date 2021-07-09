@@ -323,8 +323,12 @@ import Multiselect from "vue-multiselect";
 import {mapGetters,mapActions,mapState} from 'vuex';
 import Searchlocation from "../Сomponents/SearchLocation";
 export default {
-    components: {Searchlocation, SidebarCatalog, NavbarCatalog,Multiselect},
-
+    components: {
+        Searchlocation,
+        SidebarCatalog,
+        NavbarCatalog,
+        Multiselect
+    },
     data(){
         return{
             tileView : false,

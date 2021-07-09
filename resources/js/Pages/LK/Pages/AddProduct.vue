@@ -68,7 +68,7 @@
                                     <div class="item_product_input row">
                                         <div class="select_container col-md-4">
                                             <div class="select_text">Категория</div>
-                                            <select name="categories" id="categories" v-model="selectedCategory">
+                                            <select name="categories" id="categories" v-model="categoryValue" @click="filterTypes">
                                                 <option :value="category.id" v-for="category in categories">{{ category.name }}</option>
                                             </select>
                                         </div>
@@ -285,10 +285,6 @@ export default {
     components: {UserLKHeader,Multiselect,FileSelect},
     data(){
         return {
-            /*categories:[],
-            types:[],
-            products:[],
-            packings:[],*/
             capacity:0,
             adress:[
                 {adress:''}
@@ -301,12 +297,10 @@ export default {
             selectedProduct:null,
             selectedPackings:[],
             priceWithNDS:null,
-
-
         }
     },
     methods:{
-        ...mapActions('catalog',['getCatalogData','getCatalogTypes','getPackings','sendDataNewProduct']),
+        ...mapActions('addproduct',['getCatalogData','getCatalogTypes','getPackings','sendDataNewProduct','filterTypes']),
 
         addAdress()
         {
@@ -378,7 +372,8 @@ export default {
         this.getPackings();
     },
     computed: {
-        ...mapState('catalog',['categories','types','products','packings'])
+        ...mapState('addproduct',['categories','types','products','packings','categoryValue'])
+
     },
 }
 </script>

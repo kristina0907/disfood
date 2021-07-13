@@ -64,24 +64,18 @@ class OfferRepository implements OfferContract
 
     public function save($data)
     {
-        //dd($data['product_id']);
+
         $offer = new $this->offer;
 
-        $offer->name = $data['name'];
-        $offer->description = $data['description'];
-        $offer->country_id = $data['country_id'];
-        $offer->city_id = $data['city_id'];
-        $offer->adress = $data['adress'];
+        $offer->organization_id = $data['organization_id'];
         $offer->price = $data['price'];
+        $offer->price_with_nds = $data['price_with_nds'];
         $offer->capacity = $data['capacity'];
-        $offer->product_id = $data['product_id'];
-        $offer->category_id = $data['category_id'];
-        $offer->type_id = $data['type_id'];
-        if (!empty($data['organization_id']))
-        {
-            $offer->organization_id = $data['organization_id'];
-        }
-        //dd($offer, $data);
+        $offer->category_id = $data['category_id']['id'];
+        $offer->type_id = $data['type_id']['id'];
+
+        //TODO написать сохранение адресов, фильтров и фасовок
+        //dd($offer);
         $offer->save();
 
         return $offer->fresh();

@@ -6,6 +6,7 @@ use App\Services\CategoryService;
 use App\Services\ChatRoomService;
 use App\Services\CityService;
 use App\Services\DadataService;
+use App\Services\FilterService;
 use App\Services\MessageService;
 use App\Services\OfferService;
 use App\Services\OrderService;
@@ -106,6 +107,12 @@ class ApiController extends Controller
     protected $simplePageService;
 
     /**
+     * @var FilterService
+     */
+
+    protected $filterService;
+
+    /**
      * @var CityService
      */
 
@@ -114,6 +121,20 @@ class ApiController extends Controller
     /**
      * ApiController constructor.
      * @param DadataService $daDataService
+     * @param OrganizationService $organizationService
+     * @param UserService $userService
+     * @param ProductService $productService
+     * @param OfferService $offerService
+     * @param CategoryService $categoryService
+     * @param TypeProductService $typeService
+     * @param PackingService $packingService
+     * @param OrderService $orderService
+     * @param ChatRoomService $chatRoomService
+     * @param MessageService $messageService
+     * @param PartnerService $partnerService
+     * @param SimplePageService $simplePageService
+     * @param CityService $cityService
+     * @param FilterService $filterService
      */
 
     public function __construct(DadataService $daDataService,
@@ -129,7 +150,8 @@ class ApiController extends Controller
                                 MessageService $messageService,
                                 PartnerService $partnerService,
                                 SimplePageService  $simplePageService,
-                                CityService $cityService
+                                CityService $cityService,
+                                FilterService $filterService
     )
     {
         $this->daDataService = $daDataService;
@@ -146,6 +168,7 @@ class ApiController extends Controller
         $this->partnerService = $partnerService;
         $this->simplePageService = $simplePageService;
         $this->cityService = $cityService;
+        $this->filterService = $filterService;
     }
 
     /**
@@ -523,11 +546,28 @@ class ApiController extends Controller
          }
      }
 
+    /**
+     * @param Request $request
+     */
+
      public function setNewOffer(Request $request)
      {
          if(!empty($request))
          {
              $this->offerService->saveOfferData($request);
+         }
+     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+
+     public function getFiltersFromId($id)
+     {
+         if(!empty($id))
+         {
+             return $this->filterService->getByType_id($id);
          }
      }
 }

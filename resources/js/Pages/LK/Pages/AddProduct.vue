@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="container_input_price col-md-6">
                                             <div class="text_input">Цена с НДС</div>
-                                            <input type="text" v-model="priceWithNDS">
+                                            <input type="text" v-model="priceWithNds">
                                             <div class="icon_price_input">
                                                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -66,36 +66,63 @@
                                 <div class="item_container_product_block">
                                     <div class="title_container_product_block">Информация о товаре</div>
                                     <div class="item_product_input row">
-                                        <div class="select_container col-md-4">
-                                            <div class="select_text">Категория</div>
-                                            <select name="categories" id="categories" v-model="categoryValue" @click="filterTypes">
-                                                <option :value="category.id" v-for="category in categories">{{ category.name }}</option>
-                                            </select>
+                                        <div class="select_container mar-0-10">
+                                            <multiselect :value="categoryValue"
+                                                         :options="categories"
+                                                         :multiple="false"
+                                                         label="name"
+                                                         track-by="name"
+                                                         placeholder="Категория"
+                                                         selectLabel="Выберите категорию"
+                                                         selectedLabel="Выбрано"
+                                                         deselectLabel="Нажмите еще раз чтобы удалить"
+                                                         :class="'select select_category'"
+                                                         @input = filterTypes
+                                            ></multiselect>
                                         </div>
-                                        <div class="select_container col-md-4">
-                                            <div class="select_text">Тип</div>
-                                            <select name="types" id="types" v-model="selectedTypes">
-                                                <option :value="type.id" v-for="type in types">{{type.name}}</option>
-                                            </select>
-                                        </div>
-                                        <div class="select_container col-md-4">
-                                            <div class="select_text">Вид</div>
-                                            <select name="product" id="product" v-model="selectedProduct">
-                                                <option :value="product.id" v-for="product in products">{{ product.name }}</option>
-                                            </select>
+                                        <div class="select_container mar-0-10">
+                                            <div v-if="filteredTypes && categoryValue">
+                                                <multiselect :value="typeValue"
+                                                             :options="filteredTypes"
+                                                             :multiple="false"
+                                                             label="name"
+                                                             track-by="name"
+                                                             placeholder="Тип"
+                                                             selectLabel="Выберите тип товара"
+                                                             selectedLabel="Выбрано"
+                                                             deselectLabel="Нажмите еще раз чтобы удалить"
+                                                             :class="'select select_type'"
+                                                             @input = filterProducts
+                                                ></multiselect>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row item_container_product_block">
+                                    <div class="col-md-6" v-if="typeValue && filters.length" v-for="filter in typeValue.filters">
+                                        <div class="item_product_input row mar-0-10">
+                                                <div class="col-md-6 container_input_price">
+                                                    <div class="title_filter_catalog">{{filter.name}}</div>
+                                                    <select :id="'filter-'+filter.id" class="select select_type" @input = changeFilterValue(filter.id)>
+                                                        <option v-for="val in filter.values" :value="val.id">{{val.value}}</option>
+                                                    </select>
+                                                </div>
+                                                </div>
+
+                                        </div>
+                                </div>
+
+
                                 <div class="item_container_product_block">
                                     <div class="title_container_product_block">Объем в наличии и тип фасовки</div>
                                     <div class="item_product_input row">
                                         <div class="container_input_price col-md-6">
                                             <div class="text_input">Объем (кг)</div>
-                                            <input type="text" name="capacity" id="capacity" v-model="capacity"  value="0"/>
+                                            <input type="number" name="capacity" id="capacity" v-model="capacity"  value="0"/>
                                         </div>
                                         <div class="select_container col-md-6">
                                             <div class="select_text">Фасовка</div>
-                                            <multiselect v-model="selectedPackings"
+                                            <multiselect :value ="selectedPackings"
                                                          :options="packings"
                                                          :multiple="true"
                                                          label="name"
@@ -104,6 +131,7 @@
                                                          selectLabel="Выберите фасовку"
                                                          selectedLabel="Выбрано"
                                                          deselectLabel="Нажмите еще раз чтобы удалить"
+                                                         @input="setPackingsValue"
                                             ></multiselect>
                                         </div>
                                     </div>
@@ -113,7 +141,10 @@
                                     <div class="item_product_input row">
                                         <div class="container_input_price col-md-12 m-b-30" v-for="(adr, index) in adress" :key="index">
                                             <div class="text_input">Адрес</div>
-                                            <input type="text" value="" v-model="adr.adress">
+                                            <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)">
+                                            <datalist id="city">
+                                                <option :value="tip.value" v-for="tip in locationTips">{{tip.value}}</option>
+                                            </datalist>
                                             <div class="icon_price_input">
                                                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -285,22 +316,43 @@ export default {
     components: {UserLKHeader,Multiselect,FileSelect},
     data(){
         return {
-            capacity:0,
-            adress:[
-                {adress:''}
-            ],
             documents:[],
             photos:[],
-            price:0,
-            selectedCategory:null,
-            selectedTypes:null,
-            selectedProduct:null,
-            selectedPackings:[],
-            priceWithNDS:null,
+            locationTips:[],
         }
     },
     methods:{
-        ...mapActions('addproduct',['getCatalogData','getCatalogTypes','getPackings','sendDataNewProduct','filterTypes']),
+        ...mapActions('addproduct',[
+            'getCatalogData',
+            'getCatalogTypes',
+            'getPackings',
+            'sendDataNewProduct',
+            'filterTypes',
+            'filterProducts',
+            'setProductValue',
+            'addFilterValue',
+            'setPackingsValue',
+            'setCapacity',
+            'setPriceValue',
+            'setPriceWithNdsValue'
+        ]),
+        changeFilterValue(filter)
+        {
+            let val = document.getElementById('filter-'+filter)
+            this.$store.dispatch('addproduct/addFilterValue',{'filter':filter,'value':val.value});
+        },
+
+        searchLocation(data)
+        {
+            axios.get('/get/location/from/text/'+ data)
+                .then(response => {
+                    if (response.data !== 'undefined' && response.data !== null) {
+                        this.locationTips = response.data.suggestions
+                    }
+                });
+
+
+        },
 
         addAdress()
         {
@@ -372,8 +424,48 @@ export default {
         this.getPackings();
     },
     computed: {
-        ...mapState('addproduct',['categories','types','products','packings','categoryValue'])
-
+        ...mapState('addproduct',[
+            'categories',
+            'types',
+            'products',
+            'packings',
+            'categoryValue',
+            'filteredTypes',
+            'typeValue',
+            'filteredProducts',
+            'productValue',
+            'filters',
+            'filterValue',
+            'price',
+            'priceWithNds',
+            'capacity',
+            'selectedPackings',
+            'adress'
+        ]),
+        capacity: {
+            get(){
+                return this.$store.state["addproduct/capacity"]
+            },
+            set(newName){
+                return this.setCapacity(newName)
+            }
+        },
+        price: {
+            get(){
+                return this.$store.state["addproduct/price"]
+            },
+            set(newName){
+                return this.setPriceValue(newName)
+            }
+        },
+        priceWithNds: {
+            get(){
+                return this.$store.state["addproduct/priceWithNds"]
+            },
+            set(newName){
+                return this.setPriceWithNdsValue(newName)
+            }
+        }
     },
 }
 </script>
@@ -392,7 +484,7 @@ export default {
 {
     min-height: 62px;
     display: block;
-    padding: 11px 40px 0 8px;
+    padding: 20px 40px 0 8px;
     border-radius: 10px;
     border: 1px solid #c8ccd1;
     background: #fff;
@@ -417,5 +509,9 @@ export default {
 .multiselect__tag-icon
 {
     line-height: 40px;
+}
+.mar-0-10{
+    margin: 0 10px;
+    min-width:27%;
 }
 </style>

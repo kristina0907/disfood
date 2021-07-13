@@ -4,35 +4,31 @@ namespace App\Services;
 
 
 
-use App\Repositories\FilterRepository;
+use App\Repositories\OfferAdressesRepository;
 use Exception;
 use InvalidArgumentException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
-class FilterService
+class OfferAdressesService
 {
 
     /**
-     * @var FilterRepository
+     * @var OfferAdressesRepository
      */
 
-    protected $filterRepository;
+    protected $offerAdressesRepository;
 
     /**
-     * FilterService constructor.
-     * @param FilterRepository $filterRepository
+     * OfferAdressesService constructor.
+     * @param OfferAdressesRepository $offerAdressesRepository
      */
 
-    public function __construct(FilterRepository $filterRepository)
+    public function __construct(OfferAdressesRepository $offerAdressesRepository)
     {
-        $this->filterRepository = $filterRepository;
+        $this->offerAdressesRepository = $offerAdressesRepository;
     }
 
-    public function searchByText($req)
-    {
-        return $this->filterRepository->searchByText($req);
-    }
 
     /**
      * @return mixed
@@ -40,7 +36,7 @@ class FilterService
 
     public function getAll()
     {
-        return $this->filterRepository->getAll();
+        return $this->offerAdressesRepository->getAll();
     }
 
     /**
@@ -50,12 +46,8 @@ class FilterService
 
     public function saveData($data)
     {
-        $validated = $data->validate([
-            'name' => 'required|string|max:255',
-            'desc' => 'required|string'
-        ]);
 
-        $result = $this->filterRepository->save($data);
+        $result = $this->offerAdressesRepository->save($data);
 
         return $result;
 
@@ -69,15 +61,11 @@ class FilterService
 
     public function updateData($data,$id)
     {
-        $validated = $data->validate([
-            'name' => 'required|string|max:255',
-            'desc' => 'required|string'
-        ]);
 
         DB::beginTransaction();
 
         try {
-            $cat = $this->filterRepository->update($data, $id);
+            $cat = $this->offerAdressesRepository->update($data, $id);
 
         } catch (\Exception $e) {
             DB::rollBack();
@@ -98,20 +86,11 @@ class FilterService
 
     public function getById($id)
     {
-        $cat = $this->filterRepository->getById($id);
+        $cat = $this->offerAdressesRepository->getById($id);
         return $cat;
     }
 
-    /**
-     * @param $id
-     * @return mixed
-     */
 
-    public function getByType_id($id)
-    {
-        $cat = $this->filterRepository->getByTypeId($id);
-        return $cat;
-    }
 
     /**
      * @param $id
@@ -125,7 +104,7 @@ class FilterService
             DB::beginTransaction();
 
             try {
-                $category = $this->filterRepository->delete($id);
+                $category = $this->offerAdressesRepository->delete($id);
 
             } catch (\Exception $e) {
                 DB::rollBack();

@@ -55,6 +55,19 @@ class FilterRepository implements FilterContract
     }
 
     /**
+     * @param $id
+     * @return mixed
+     */
+
+    public function getByTypeId($id)
+    {
+        return $this->filter
+                ->whereHas('types',function ($q) use($id){
+                   $q->where('type_product_id',$id);
+                })->with('values')->get();
+    }
+
+    /**
      * @param $data
      * @return mixed
      */

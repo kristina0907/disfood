@@ -45,6 +45,8 @@ Route::get('/get/currentuser',[ApiController::class,'getCurrentUser']);
 
 Route::get('/get/categories',[ApiController::class,'getCategories']);
 Route::get('/get/types',[ApiController::class,'getTypes']);
+Route::get('/get/filters/{id}',[ApiController::class,'getFiltersFromId']);
+
 Route::get('/get/partners',[ApiController::class,'getPartners']);
 Route::get('/get/packages',[ApiController::class,'getPackages']);
 Route::get('/get/news',[ApiController::class,'getNews']);

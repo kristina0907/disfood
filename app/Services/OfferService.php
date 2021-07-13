@@ -47,26 +47,14 @@ class OfferService
     public function saveOfferData($data)
     {
         $validated = $data->validate([
-            'product_id'    =>'required|integer',
-            'organization_inn'=>'required',
-            'country_id'=>'required',
-            'city_id'=>'required',
-            'adress'=>'required|string',
-            'price'=>'required',
-            'capacity'=>'required',
-            'category_id'=>'required',
-            'type_id'=> 'required'
+            'organization_id'    =>'required|integer',
+            'price'              =>'required|integer',
+            'price_with_nds'     =>'required|integer',
+            'capacity'           =>'required|integer',
+            'category_id'        =>'required',
+            'type_id'            => 'required'
 
         ]);
-
-        if (!empty($data['organization_inn']))
-        {
-            $organization = Organization::where('inn',$data['organization_inn'])->first();
-            if(!empty($organization->id));
-            {
-                $data['organization_id'] = $organization->id;
-            }
-        }
 
         $result = $this->offerRepository->save($data);
 

@@ -53,7 +53,7 @@ export default {
 
                 await axios.get('/get/my-products/')
                     .then((response) => {
-
+                        console.log(response)
                         if (response.data !== 'undefined' && response.data !== null) {
                             commit('updateMyProducts',response.data);
                             commit('updateCountActive',response.data);

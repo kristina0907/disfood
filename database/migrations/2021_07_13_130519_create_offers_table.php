@@ -15,16 +15,20 @@ class CreateOffersTable extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
-            $table->text('name');
-            $table->text('description')->nullable();
-            $table->unsignedInteger('product_id');
             $table->unsignedInteger('organization_id');
-            $table->text('country')->nullable();
-            $table->text('city')->nullable();
-            $table->text('adress')->nullable();
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('type_id');
             $table->unsignedFloat('price');
+            $table->unsignedFloat('price_with_nds');
             $table->unsignedInteger('capacity')->default(0);
             $table->boolean('active')->default(true);
+            $table->timestamps();
+        });
+
+        Schema::create('offers_offer_adreses', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('offer_id');
+            $table->unsignedBigInteger('offer_adreses_id');
             $table->timestamps();
         });
     }
@@ -37,5 +41,6 @@ class CreateOffersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('offers');
+        Schema::dropIfExists('offers_offer_adreses');
     }
 }

@@ -415,6 +415,7 @@ export default {
                 adress:state.adress,
                 category_id: state.categoryValue,
                 type_id:state.typeValue,
+                filters:state.filterValue,
             }
 
             axios.post('/set/new/offer', data).then(response => {

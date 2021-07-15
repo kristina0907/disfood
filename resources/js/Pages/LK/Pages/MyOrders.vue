@@ -90,7 +90,7 @@
                                     {{order.id}}
                                 </td>
                                 <td>{{order.created_at}}</td>
-                                <td class="bold">{{order.offer.product.name}}</td>
+                                <td class="bold">{{order.offer}}</td>
                                 <td>10000 кг</td>
                                 <td>50кг</td>
                                 <td>20 734 349 р</td>

@@ -15,8 +15,15 @@ class CreateOfferAdressesTable extends Migration
     {
         Schema::create('offer_adresses', function (Blueprint $table) {
             $table->id();
-            $table->integer('country_id')->nullable();
-            $table->integer('city_id')->nullable();
+            $table->text('country_kladr_id')->nullable();
+            $table->text('region_kladr_id')->nullable();
+            $table->text('city_kladr_id')->nullable();
+            $table->text('country_name')->nullable();
+            $table->text('region_name')->nullable();
+            $table->text('city_name')->nullable();
+            $table->text('geo_lat')->nullable();
+            $table->text('geo_lon')->nullable();
+            $table->text('timezone')->nullable();
             $table->text('adress')->nullable();
             $table->timestamps();
         });

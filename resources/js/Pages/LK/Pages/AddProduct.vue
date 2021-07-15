@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="container_input_price col-md-6">
                                             <div class="text_input">Цена с НДС</div>
-                                            <input type="text" v-model="priceWithNds">
+                                            <input type="text" v-model="priceWithNds" name="price_with_nds" required>
                                             <div class="icon_price_input">
                                                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -77,6 +77,7 @@
                                                          selectedLabel="Выбрано"
                                                          deselectLabel="Нажмите еще раз чтобы удалить"
                                                          :class="'select select_category'"
+                                                         :aria-required="true"
                                                          @input = filterTypes
                                             ></multiselect>
                                         </div>
@@ -92,6 +93,7 @@
                                                              selectedLabel="Выбрано"
                                                              deselectLabel="Нажмите еще раз чтобы удалить"
                                                              :class="'select select_type'"
+                                                             :aria-required="true"
                                                              @input = filterProducts
                                                 ></multiselect>
                                             </div>
@@ -103,7 +105,7 @@
                                         <div class="item_product_input row mar-0-10">
                                                 <div class="col-md-6 container_input_price">
                                                     <div class="title_filter_catalog">{{filter.name}}</div>
-                                                    <select :id="'filter-'+filter.id" class="select select_type" @input = changeFilterValue(filter.id)>
+                                                    <select :id="'filter-'+filter.id" class="select select_type" @input = changeFilterValue(filter.id) required>
                                                         <option v-for="val in filter.values" :value="val.id">{{val.value}}</option>
                                                     </select>
                                                 </div>
@@ -132,6 +134,7 @@
                                                          selectedLabel="Выбрано"
                                                          deselectLabel="Нажмите еще раз чтобы удалить"
                                                          @input="setPackingsValue"
+                                                         :required="true"
                                             ></multiselect>
                                         </div>
                                     </div>
@@ -141,7 +144,7 @@
                                     <div class="item_product_input row">
                                         <div class="container_input_price col-md-12 m-b-30" v-for="(adr, index) in adress" :key="index">
                                             <div class="text_input">Адрес</div>
-                                            <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)">
+                                            <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)" required>
                                             <datalist id="city">
                                                 <option :value="tip.value" v-for="tip in locationTips">{{tip.value}}</option>
                                             </datalist>
@@ -352,6 +355,11 @@ export default {
                 });
 
 
+        },
+
+        selectAdress(adress)
+        {
+           console.log(adress)
         },
 
         addAdress()

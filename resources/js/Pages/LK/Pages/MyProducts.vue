@@ -102,14 +102,18 @@
                                 </td>
                                 <td>
                                     <div class="image_product_table"
-                                         :style="'background-image: url('+product.product.image+');'"></div>
+                                         :style="'background-image: url('+product.type.image+');'"></div>
                                 </td>
-                                <td class="bold">{{ product.product.name }}</td>
+                                <td class="bold">{{ product.type.name }}</td>
                                 <td v-if="product.active">Активно</td>
                                 <td v-else>Не активно</td>
-                                <td>{{ product.product.category.name }}</td>
-                                <td>{{ product.product.type.name }}</td>
-                                <td>{{product.adress}}</td>
+                                <td>{{ product.category.name }}</td>
+                                <td>{{ product.type.name }}</td>
+                                <td>
+                                    <div v-if="product.adresses.length" v-for="adress in product.adresses">
+                                       {{adress.region_name}}
+                                    </div>
+                                </td>
                                 <td>50 кг</td>
                                 <td>{{product.capacity}}</td>
                                 <td class="nowrap modal_price" data-bs-toggle="modal" data-bs-target="#changePrice"><span

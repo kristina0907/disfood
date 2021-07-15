@@ -40,6 +40,11 @@ class SimplePageService
         return $this->simplePageRepository->getAll();
     }
 
+    public function getNewsAll()
+    {
+        return $this->simplePageRepository->getNewsAll();
+    }
+
     /**
      * @param $data
      * @return mixed

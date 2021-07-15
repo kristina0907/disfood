@@ -407,7 +407,7 @@
                <div class="news_company_block">
                    <div class="header_news_company_block">
                        <div class="title_news_company_block">Новости</div>
-                       <div class="all_news_company_block"><a href="">Смотреть все</a></div>
+                       <div class="all_news_company_block"><router-link :to="{path:'allnews'}">Смотреть все</router-link></div>
                    </div>
                    <VueSlickCarousel :arrows="true" :dots="false" :slidesPerRow="2" class="list_news" v-if="news.length" >
                        <div class="item_list_news_company" v-for="page in news">

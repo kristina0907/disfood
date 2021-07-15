@@ -60,15 +60,15 @@
                                     <div class="services-slider">
                                         <div class="nav-container">
                                             <div class="slider-nav">
-                                                <div v-if="product.product">
-                                                    <img :src="product.product.image" alt="">
+                                                <div v-if="product.type">
+                                                    <img :src="product.type.image" alt="">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="main-container">
                                             <div class="slider slider-main">
-                                                <div class="main_galery_img" v-if="product.product">
-                                                    <img :src="product.product.image" alt="">
+                                                <div class="main_galery_img" v-if="product.type">
+                                                    <img :src="product.type.image" alt="">
                                                 </div>
                                             </div>
                                         </div>

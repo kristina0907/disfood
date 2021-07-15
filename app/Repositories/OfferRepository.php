@@ -6,7 +6,12 @@ namespace App\Repositories;
 
 use App\Contracts\OfferContract;
 use App\Models\Offer;
+use App\Models\OfferAdress;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Lang;
+use MoveMoveIo\DaData\Enums\Language;
+use MoveMoveIo\DaData\Facades\DaDataAddress;
 
 
 class OfferRepository implements OfferContract
@@ -53,7 +58,7 @@ class OfferRepository implements OfferContract
     {
         return $this->offer
             ->where('id', $id)
-            ->with(['product','organization','country','city','category.packages','type'])
+            ->with(['organization','category.packages','type'])
             ->first();
     }
 
@@ -74,12 +79,21 @@ class OfferRepository implements OfferContract
         $offer->category_id = $data['category_id']['id'];
         $offer->type_id = $data['type_id']['id'];
 
-        //TODO написать сохранение адресов, фильтров и фасовок
-        //dd($offer);
         $offer->save();
+        $adresses = $this->createAdresses($data);
+
+        if(!empty($adresses))
+        {
+            $offer->adresses()->sync($adresses);
+        }
+
+        $filters = $this->createFilters($data,$offer);
+
+        $packings = $this->createPackings($data,$offer);
 
         return $offer->fresh();
     }
+
 
     /**
      * @param $data
@@ -92,20 +106,13 @@ class OfferRepository implements OfferContract
 
         $offer = $this->offer->find($id);
 
-        $offer->name = $data['name'];
-        $offer->description = $data['description'];
-        $offer->country_id = $data['country_id'];
-        $offer->city_id = $data['city_id'];
-        $offer->adress = $data['adress'];
+        $offer->organization_id = $data['organization_id'];
         $offer->price = $data['price'];
+        $offer->price_with_nds = $data['price_with_nds'];
         $offer->capacity = $data['capacity'];
-        $offer->product_id = $data['product_id'];
-        $offer->category_id = $data['category_id'];
-        $offer->type_id = $data['type_id'];
-        if (!empty($data['organization_id']))
-        {
-            $offer->organization_id = $data['organization_id'];
-        }
+        $offer->category_id = $data['category_id']['id'];
+        $offer->type_id = $data['type_id']['id'];
+
         $offer->update();
 
         return $offer;
@@ -133,7 +140,9 @@ class OfferRepository implements OfferContract
     public function getByUserId($id)
     {
         $orgs = $this->getUserOrganizationId($id);
-        return $this->offer->whereIn('organization_id',$orgs)->with(['product','product.type','product.category'])->get();
+
+        return $this->offer->whereIn('organization_id',$orgs)
+            ->with(['organization','category','type','adresses'])->get();
     }
 
     /**
@@ -155,13 +164,93 @@ class OfferRepository implements OfferContract
         return $orgs;
     }
 
+    /**
+     * @param $category
+     * @param null $type
+     * @param null $product
+     * @return mixed
+     */
+
     public function getOffersByCategory($category,$type = null,$product = null)
     {
 
-
         return $this->offer->where('category_id',$category)->when((integer) $type,function ($query) use ($type){
             $query->where('type_id',$type);
-        })->with(['organization','product','category','type','country','city'])->get();
+        })->with(['organization','category','type'])->get();
 
+    }
+
+    /**
+     * @param $data
+     * @param $offer
+     */
+
+    public function createPackings($data,$offer)
+    {
+        if(!empty($data['packings']))
+        {
+            foreach($data['packings'] as $pack)
+            {
+                $offer->packings()->attach($pack['id']);
+            }
+        }
+    }
+
+    /**
+     * @param $data
+     * @param $offer
+     * @return bool
+     */
+
+    public function createFilters($data,$offer)
+    {
+
+        if(!empty($data['filters']))
+        {
+            foreach ($data['filters'] as $filter)
+            {
+                $rel = ['filter_id'=>$filter['filter'],'value_id'=>$filter['value']];
+                $offer->filters()->attach($offer->id,$rel);
+            }
+        }
+        return true;
+    }
+
+    /**
+     * @param $data
+     * @return array
+     */
+
+    private function createAdresses($data)
+    {
+        $output = array();
+        if(!empty($data['adress']))
+        {
+            foreach ($data['adress'] as $adress)
+            {
+
+                $result = DaDataAddress::standardization($adress['adress'],1,Language::RU);
+                if(!empty($result))
+                {
+                    foreach ($result as $adr)
+                    {
+                        $newAdr = new OfferAdress();
+                        $newAdr->country_kladr_id = $adr['region_kladr_id'];
+                        $newAdr->region_kladr_id = $adr['region_kladr_id'];
+                        $newAdr->city_kladr_id = $adr['city_kladr_id'];
+                        $newAdr->country_name = $adr['country'];
+                        $newAdr->region_name = $adr['region_with_type'];
+                        $newAdr->city_name = $adr['city'];
+                        $newAdr->geo_lat = $adr['geo_lat'];
+                        $newAdr->geo_lon = $adr['geo_lon'];
+                        $newAdr->timezone = $adr['timezone'];
+                        $newAdr->adress = $adr['source'];
+                        $newAdr->save();
+                        $output[] = $newAdr->id;
+                    }
+                }
+            }
+        }
+        return $output;
     }
 }

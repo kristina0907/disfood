@@ -51,7 +51,7 @@ export default {
         async getProducts({commit}) {
             console.log('getProducts')
 
-                await axios.get('/get/my-products/')
+                await axios.get('/get/my-products')
                     .then((response) => {
                         console.log(response)
                         if (response.data !== 'undefined' && response.data !== null) {

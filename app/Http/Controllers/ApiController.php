@@ -135,6 +135,7 @@ class ApiController extends Controller
      * @param SimplePageService $simplePageService
      * @param CityService $cityService
      * @param FilterService $filterService
+     * @param SimplePageService $simplePageService
      */
 
     public function __construct(DadataService $daDataService,
@@ -151,7 +152,8 @@ class ApiController extends Controller
                                 PartnerService $partnerService,
                                 SimplePageService  $simplePageService,
                                 CityService $cityService,
-                                FilterService $filterService
+                                FilterService $filterService,
+
     )
     {
         $this->daDataService = $daDataService;
@@ -451,6 +453,11 @@ class ApiController extends Controller
         ],200);
     }
 
+    /**
+     * @param $text
+     * @return \MoveMoveIo\DaData\DaDataAddress|string
+     */
+
     public function getLocationFromText($text)
     {
         $result = '';
@@ -458,7 +465,7 @@ class ApiController extends Controller
         {
             $search = $this->cleanInputData($text);
             /*$result = $this->cityService->searchByText($search);*/
-            $result = DaDataAddress::prompt($search, 10, Language::RU);
+            $result = DaDataAddress::prompt($search, 20, Language::RU);
 
         }
         return $result;
@@ -569,5 +576,20 @@ class ApiController extends Controller
          {
              return $this->filterService->getByType_id($id);
          }
+     }
+
+    /**
+     * @return mixed
+     */
+
+     public function getNewsAll()
+     {
+         return $this->simplePageService->getNewsAll();
+
+     }
+
+     public function getNewsPage($id)
+     {
+         return $this->simplePageService->getById($id);
      }
 }

@@ -17,6 +17,18 @@ const routes = [
         name: 'delivery'
     },
     {
+        path:'/allnews',
+        component: ()=>import('../Pages/AllNews'),
+        name: 'allnews'
+    },
+    {
+        path:'/news-page/:id',
+        component:()=> import('../Pages/NewsPage'),
+        name:'news-page',
+        props:true,
+
+    },
+    {
         path:'/for-providers',
         component: ()=>import('../Pages/ForProviders'),
         name: 'forproviders'

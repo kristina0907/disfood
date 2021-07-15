@@ -152,7 +152,7 @@ class ApiController extends Controller
                                 PartnerService $partnerService,
                                 SimplePageService  $simplePageService,
                                 CityService $cityService,
-                                FilterService $filterService,
+                                FilterService $filterService
 
     )
     {

@@ -162,7 +162,7 @@ export default {
             await axios.get('/get/catalog/page/'+productId).then((response) => {
                 if (response.data !== 'undefined' && response.data !== null) {
                     commit('updateProduct',response.data);
-                    commit('updateFilterPackages',response.data.category.packages);
+                    commit('updateFilterPackages',response.data.packings);
                 }
             })
         },

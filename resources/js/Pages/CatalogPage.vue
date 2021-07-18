@@ -48,8 +48,8 @@
                                     </span>
                                         <span class="text_star">4,5</span>
                                     </div>
-                                    <div class="place_count_info_item_offer_catalog" v-if="product.category && product.category.packages">
-                                        <span v-for="pack in  product.category.packages">{{pack.name}}</span>
+                                    <div class="place_count_info_item_offer_catalog" v-if="product.packings">
+                                        <span v-for="pack in  product.packings">{{pack.name}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -255,7 +255,7 @@
 
                                     </div>
                                 </div>
-                                <div class="add_packaging" v-if="product.category && product.category.packages">
+                                <div class="add_packaging" v-if="product.packings">
                                     Добавить фасовку
                                     <span v-for="pack in filterPackages" @click="addPackingToOrder(pack)" >{{pack.name}}</span>
                                 </div>
@@ -273,7 +273,9 @@
                                     </div>
                                 </div>
                                 <div class="totlal_btn_item_catalog_info_delivery" v-if="summ > 0">
-                                    <button type="submit" @click="sendOffer(product_id)">Оформить заказ</button>
+                                    <router-link to="/basket">
+                                        <button type="submit">Оформить заказ</button>
+                                    </router-link>
                                 </div>
                                 <div class="total_dopinfo_item_catalog_info_delivery">
                                     <div class="total_icon_dopinfo_item_catalog_info_delivery">

@@ -29,6 +29,11 @@ const routes = [
 
     },
     {
+        path:'/basket',
+        component:()=>import('../Pages/Basket'),
+        name:'basket-page',
+    },
+    {
         path:'/for-providers',
         component: ()=>import('../Pages/ForProviders'),
         name: 'forproviders'

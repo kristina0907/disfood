@@ -526,18 +526,20 @@ export default {
       },
       goToCategory(type)
       {
-          console.log(type)
-          this.updateTypeAction(type);
+          this.updateTypeActionFromFrontPage(type);
+          if(this.$route.name !== 'catalog')
+          {
+              this.$router.push({'name':'catalog'})
+          }
 
       },
-      ...mapActions('catalog',['updateTypeAction'])
+      ...mapActions('catalog',['updateTypeActionFromFrontPage'])
     },
     mounted() {
-        console.log('Component mounted.')
         this.getCats();
     },
     computed: {
-        ...mapState('catalog',['types']),
+        ...mapState('catalog',['types'])
     },
 }
 </script>

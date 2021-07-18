@@ -217,6 +217,22 @@ export default {
          *
          * @param commit
          * @param state
+         * @param value
+         */
+
+        updateTypeActionFromFrontPage({commit,state},value)
+        {
+            let cat = state.categories.filter(function (item)
+            {
+                return item.id === value.category_id;
+            })
+            commit('SELECT_CATEGORY',{'cat':cat[0],'type':value})
+        },
+
+        /**
+         *
+         * @param commit
+         * @param state
          * @param category
          * @param type
          */

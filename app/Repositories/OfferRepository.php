@@ -176,7 +176,7 @@ class OfferRepository implements OfferContract
 
         return $this->offer->where('category_id',$category)->when((integer) $type,function ($query) use ($type){
             $query->where('type_id',$type);
-        })->with(['organization','category','type'])->get();
+        })->with(['organization','category','type','adresses','packings','values.filter'])->get();
 
     }
 

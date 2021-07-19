@@ -11,6 +11,7 @@ export default {
         location:{},
         locationInput:'',
         locationsTips:[],
+        offers:[],
     },
     getters: {
 
@@ -171,6 +172,18 @@ export default {
          *
          * @param state
          * @param data
+         * @constructor
+         */
+
+        SET_OFFERS(state,data)
+        {
+            state.offers = data
+        },
+
+        /**
+         *
+         * @param state
+         * @param data
          */
 
         updateLocationInput(state,data)
@@ -197,8 +210,7 @@ export default {
          * @param value
          */
 
-        updateValueAction ({ commit }, value)
-        {
+        updateValueAction({commit}, value) {
             commit('updateCategory', value);
         },
 
@@ -208,9 +220,8 @@ export default {
          * @param value
          */
 
-        updateTypeAction({commit},value)
-        {
-          commit('updateType',value);
+        updateTypeAction({commit}, value) {
+            commit('updateType', value);
         },
 
         /**
@@ -220,13 +231,11 @@ export default {
          * @param value
          */
 
-        updateTypeActionFromFrontPage({commit,state},value)
-        {
-            let cat = state.categories.filter(function (item)
-            {
+        updateTypeActionFromFrontPage({commit, state}, value) {
+            let cat = state.categories.filter(function (item) {
                 return item.id === value.category_id;
             })
-            commit('SELECT_CATEGORY',{'cat':cat[0],'type':value})
+            commit('SELECT_CATEGORY', {'cat': cat[0], 'type': value})
         },
 
         /**
@@ -237,15 +246,14 @@ export default {
          * @param type
          */
 
-        updateFromSearch({commit,state},{category,type})
-        {
-              commit('updateCategory',category);
-              commit('updateType',type);
-              let data1 = {
-                    'type':state.typeValue.id,
-                    'cat':state.categoryValue.id
-              }
-              this.dispatch('catalog/getFilteredData',data1)
+        updateFromSearch({commit, state}, {category, type}) {
+            commit('updateCategory', category);
+            commit('updateType', type);
+            let data1 = {
+                'type': state.typeValue.id,
+                'cat': state.categoryValue.id
+            }
+            this.dispatch('catalog/getFilteredData', data1)
         },
 
         /**
@@ -254,8 +262,7 @@ export default {
          * @returns {Promise<void>}
          */
 
-        async getCatalogData({commit})
-        {
+        async getCatalogData({commit}) {
             await axios.get('/get/categories')
                 .then(response => {
                     if (response.data !== 'undefined' && response.data !== null) {
@@ -270,8 +277,7 @@ export default {
          * @returns {Promise<void>}
          */
 
-        async getCatalogTypes({commit})
-        {
+        async getCatalogTypes({commit}) {
             await axios.get('/get/types')
                 .then(response => {
 
@@ -288,15 +294,33 @@ export default {
          * @returns {Promise<void>}
          */
 
-        async getFilteredData({commit},data)
-        {
+        async getFilteredData({commit}, data) {
 
-            await axios.get('/get/catalog/?category='+data.cat+'&type='+ data.type)
+            await axios.get('/get/catalog/?category=' + data.cat + '&type=' + data.type)
                 .then(response => {
                     if (response.data !== 'undefined' && response.data !== null) {
                         commit('SET_CATALOG', response.data)
+                        commit('SET_OFFERS',response.data);
                     }
                 });
+        },
+
+        filterOfferValue({commit, state}, {filter, value})
+        {
+            let exist =[];
+            state.offers.filter(function (item){
+
+                if(item.values.length)
+                {
+                    item.values.map(function (val){
+                        if(val.id === value)
+                        {
+                            exist.push(item);
+                        }
+                    })
+                }
+            })
+            commit('SET_CATALOG',exist)
         },
 
         /**

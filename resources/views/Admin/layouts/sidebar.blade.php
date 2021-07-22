@@ -101,6 +101,9 @@
                         <li>
                             <a href="/superadmin/pagecategories">Категории страниц</a>
                         </li>
+                        <li>
+                            <a href="/superadmin/orderdocuments">Документы для заказов</a>
+                        </li>
                     </ul>
                 </li>
 

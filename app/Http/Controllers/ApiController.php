@@ -9,6 +9,7 @@ use App\Services\DadataService;
 use App\Services\FilterService;
 use App\Services\MessageService;
 use App\Services\OfferService;
+use App\Services\OrderDocumentService;
 use App\Services\OrderService;
 use App\Services\OrganizationService;
 use App\Services\PackingService;
@@ -119,6 +120,12 @@ class ApiController extends Controller
     protected $cityService;
 
     /**
+     * @var OrderDocumentService
+     */
+
+    protected $orderDocumentsService;
+
+    /**
      * ApiController constructor.
      * @param DadataService $daDataService
      * @param OrganizationService $organizationService
@@ -135,7 +142,7 @@ class ApiController extends Controller
      * @param SimplePageService $simplePageService
      * @param CityService $cityService
      * @param FilterService $filterService
-     * @param SimplePageService $simplePageService
+     * @param OrderDocumentService $orderDocumentsService
      */
 
     public function __construct(DadataService $daDataService,
@@ -152,7 +159,8 @@ class ApiController extends Controller
                                 PartnerService $partnerService,
                                 SimplePageService  $simplePageService,
                                 CityService $cityService,
-                                FilterService $filterService
+                                FilterService $filterService,
+                                OrderDocumentService $orderDocumentsService
 
     )
     {
@@ -171,6 +179,7 @@ class ApiController extends Controller
         $this->simplePageService = $simplePageService;
         $this->cityService = $cityService;
         $this->filterService = $filterService;
+        $this->orderDocumentsService = $orderDocumentsService;
     }
 
     /**
@@ -588,8 +597,22 @@ class ApiController extends Controller
 
      }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
+
      public function getNewsPage($id)
      {
          return $this->simplePageService->getById($id);
+     }
+
+    /**
+     * @return mixed
+     */
+
+     public function getOrderDocuments()
+     {
+         return $this->orderDocumentsService->getAll();
      }
 }

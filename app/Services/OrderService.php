@@ -48,11 +48,11 @@ class OrderService
         $validated = $data->validate([
             'organization_id' => 'required|integer',
             'user_id'         => 'required|integer',
-            'from_id'         => 'required|integer',
-            'to_id'           => 'required|integer',
+            //'from_id'         => 'required|integer',
+            //'to_id'           => 'required|integer',
             'offer_id'        => 'required|integer',
             'status_id'       => 'required|integer',
-            'priceWithNDS'    => 'required',
+            'price_with_nds'    => 'required',
             'summ'            => 'required',
             'volume'          => 'required',
         ]);

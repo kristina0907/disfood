@@ -15,15 +15,15 @@
                         <div class="total_transaction_cart">
                             <div class="item_total_transaction_cart">
                                 <div class="main_value_item_total_transaction_cart">Итого</div>
-                                <div class="main_value_item_total_transaction_cart">1 380 000 ₽</div>
+                                <div class="main_value_item_total_transaction_cart">{{ itogoSumm }} ₽</div>
                             </div>
                             <div class="item_total_transaction_cart">
                                 <div class="value_item_total_transaction_cart">Товар</div>
-                                <div class="value_item_total_transaction_cart">1 340 004 ₽</div>
+                                <div class="value_item_total_transaction_cart">{{totalSumm}} ₽</div>
                             </div>
                             <div class="item_total_transaction_cart">
                                 <div class="value_item_total_transaction_cart">Документы</div>
-                                <div class="value_item_total_transaction_cart">1 500 ₽</div>
+                                <div class="value_item_total_transaction_cart">{{totalDocsSumm}} ₽</div>
                             </div>
                             <div class="item_total_transaction_cart">
                                 <div class="value_item_total_transaction_cart">Доставка</div>
@@ -37,7 +37,7 @@
                             </div>
                             <div class="item_total_transaction_cart">
                                 <div class="title_item_total_transaction_cart">Объем сделки</div>
-                                <div class="value_item_total_transaction_cart">40 000 кг</div>
+                                <div class="value_item_total_transaction_cart">{{totalVolume}} кг</div>
                             </div>
                         </div>
                         <div class="info_block_product">
@@ -53,7 +53,7 @@
                             </div>
                             <div>Текущие цены действительны<br /> до 13:00 МСК</div>
                         </div>
-                        <button class="btn_submit_price" type="submit">Подтвердить сделку</button>
+                        <button class="btn_submit_price" type="submit" v-on:click="sendOrder">Подтвердить сделку</button>
                     </div>
                 </div>
                 <div class="xs-12 col-md-8 cart_right_container">
@@ -114,11 +114,11 @@
                                         </div>
                                         <div>
                                             <div class="title_delivery_main_info_item_cart_product">Объем</div>
-                                            <div class="description_delivery_main_info_item_cart_product">40 000 кг</div>
+                                            <div class="description_delivery_main_info_item_cart_product">{{totalVolume}} кг</div>
                                         </div>
                                         <div>
                                             <div class="title_delivery_main_info_item_cart_product">Сумма сделки</div>
-                                            <div class="description_delivery_main_info_item_cart_product">1 340 004 ₽</div>
+                                            <div class="description_delivery_main_info_item_cart_product">{{totalSumm}} ₽</div>
                                         </div>
                                     </div>
                                 </div>
@@ -157,11 +157,11 @@
                                         <tbody>
                                         <tr v-if="packages.length" v-for="pack in packages">
                                             <td>{{ pack.package.name }}</td>
-                                            <td>{{parseInt(pack.package.value) * parseInt(pack.value)}} кг</td>
+                                            <td>{{calcPackageVolume(pack.package.value,pack.value)}} кг</td>
                                             <td>{{product.price}} ₽</td>
-                                            <td>{{parseInt(product.price) * (parseInt(pack.package.value) * parseInt(pack.value))}} ₽</td>
+                                            <td>{{calcSummPackage(product.price ,pack.package.value ,pack.value)}} ₽</td>
                                             <td>20 000 ₽</td>
-                                            <td>{{parseInt(product.price) * (parseInt(pack.package.value) * parseInt(pack.value)) + parseInt(20000)}}  ₽</td>
+                                            <td>{{calcSummWithDelivery(product.price ,pack.package.value,pack.value ,20000)}}  ₽</td>
                                             <td>
                                                 <div class="settings_table_product">
                                                     <button type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -223,57 +223,12 @@
                             <div class="title_export_documentation">Экспортная документация</div>
                             <div class="info_export_documentation">Добавьте к сделке необходимые вам документы</div>
                             <div class="container_item_export_documentation row">
-                                <div class="col-md-4">
+                                <div class="col-md-4" v-if="orderDocuments.length" v-for="(doc,index) in orderDocuments">
                                     <div class="item_export_documentation">
                                         <div class="checkbox documentation_checkbox">
-                                            <input class="custom-checkbox doc_check" type="checkbox" id="doc-1" name="doc"
-                                                   value="indigo">
-                                            <label for="doc-1">Документ <span>+ 1 500 ₽</span></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="item_export_documentation active">
-                                        <div class="checkbox documentation_checkbox">
-                                            <input class="custom-checkbox doc_check" checked type="checkbox" id="doc-2" name="doc"
-                                                   value="indigo">
-                                            <label for="doc-2">Документ <span>+ 1 500 ₽</span></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="item_export_documentation">
-                                        <div class="checkbox documentation_checkbox">
-                                            <input class="custom-checkbox doc_check" type="checkbox" id="doc-3" name="doc"
-                                                   value="indigo">
-                                            <label for="doc-3">Документ <span>+ 1 500 ₽</span></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="item_export_documentation">
-                                        <div class="checkbox documentation_checkbox">
-                                            <input class="custom-checkbox doc_check" type="checkbox" id="doc-4" name="doc"
-                                                   value="indigo">
-                                            <label for="doc-4">Документ <span>+ 1 500 ₽</span></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="item_export_documentation">
-                                        <div class="checkbox documentation_checkbox">
-                                            <input class="custom-checkbox doc_check" type="checkbox" id="doc-5" name="doc"
-                                                   value="indigo">
-                                            <label for="doc-5">Документ <span>+ 1 500 ₽</span></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="item_export_documentation">
-                                        <div class="checkbox documentation_checkbox">
-                                            <input class="custom-checkbox doc_check" type="checkbox" id="doc-6" name="doc"
-                                                   value="indigo">
-                                            <label for="doc-6">Документ <span>+ 1 500 ₽</span></label>
+                                            <input class="custom-checkbox doc_check" type="checkbox" :id="'doc-'+index" :name="'doc-'+index"
+                                                   :value="doc.price" v-on:click="addDocumentToCalc(doc)">
+                                            <label :for="'doc-'+index">{{doc.name}} <span>+ {{ doc.price }} ₽</span></label>
                                         </div>
                                     </div>
                                 </div>
@@ -406,16 +361,62 @@
 
 <script>
 import HeaderCatalog from "../Сomponents/HeaderCatalog";
-import {mapState} from "vuex";
+import {mapActions, mapState} from "vuex";
 export default {
     components:{
         HeaderCatalog
     },
     mounted() {
-        console.log('Component mounted.')
+        this.getOrderDocuments()
+        this.calcTotalVolume(this.packages)
+        this.calcTotalSumm(this.product)
+        this.calcItogo();
+    },
+    methods:{
+        ...mapActions('basket',['getOrderDocuments','addDocumentToCalc','calcTotalVolume','calcTotalSumm','calcItogo','sendOrder']),
+
+        /**
+         *
+         * @param packvalue
+         * @param volume
+         * @returns {number}
+         */
+
+        calcPackageVolume(packvalue,volume)
+        {
+            return (parseInt(packvalue) * parseInt(volume));
+        },
+
+        /**
+         *
+         * @param price
+         * @param packValue
+         * @param volume
+         * @returns {number}
+         */
+
+        calcSummPackage(price,packValue,volume)
+        {
+            return parseInt(price) * (parseInt(packValue) * parseInt(volume))
+        },
+
+        /**
+         *
+         * @param price
+         * @param volume
+         * @param packValue
+         * @param delivery
+         * @returns {number}
+         */
+
+        calcSummWithDelivery(price,volume,packValue,delivery)
+        {
+            return parseInt(price) * (parseInt(volume) * parseInt(packValue)) + parseInt(delivery)
+        }
     },
     computed: {
         ...mapState('catalog',['location','currentUserOrganization']),
+        ...mapState('basket',['orderDocuments','selectedDocuments','totalVolume','totalSumm','itogoSumm','totalDocsSumm']),
         ...mapState('catalogpage',['product','filterPackages','relatedOffers','priceWithNDS','currency','packages','summ','volume'])
     },
 }

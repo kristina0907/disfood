@@ -305,11 +305,18 @@ export default {
                 });
         },
 
+        /**
+         *
+         * @param commit
+         * @param state
+         * @param filter
+         * @param value
+         */
+
         filterOfferValue({commit, state}, {filter, value})
         {
             let exist =[];
             state.offers.filter(function (item){
-
                 if(item.values.length)
                 {
                     item.values.map(function (val){
@@ -388,6 +395,12 @@ export default {
                         });
             }
         },
+
+        /**
+         *
+         * @param state
+         * @param commit
+         */
 
         sendDataNewProduct({state,commit})
         {

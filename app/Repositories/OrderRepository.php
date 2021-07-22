@@ -59,7 +59,7 @@ class OrderRepository implements OrderContract
     public function getByUserId($id)
     {
         return $this->order
-            ->where('user_id', $id)->with(['offer','offer.product','organization','delivery','status'])
+            ->where('user_id', $id)->with(['offer','offer.type','organization','delivery','status'])
             ->get();
     }
 
@@ -74,8 +74,12 @@ class OrderRepository implements OrderContract
         $order = new $this->order;
         $order->organization_id = $data['organization_id'];
         $order->user_id = $data['user_id'];
-        $order->from_id = $data['from_id'];
-        $order->to_id = $data['to_id'];
+        if(!empty($data['from_id']) && !empty($data['to_id']))
+        {
+            $order->from_id = $data['from_id'];
+            $order->to_id = $data['to_id'];
+        }
+
         $order->offer_id = $data['offer_id'];
         $order->status_id = $data['status_id'];
         $order->save();
@@ -94,8 +98,11 @@ class OrderRepository implements OrderContract
 
         $order = $this->order->find($id);
         $order->organization_id = $data['organization_id'];
-        $order->user_id = $data['user_id'];
-        $order->from_id = $data['from_id'];
+        if(!empty($data['from_id']) && !empty($data['to_id']))
+        {
+            $order->from_id = $data['from_id'];
+            $order->to_id = $data['to_id'];
+        }
         $order->to_id = $data['to_id'];
         $order->offer_id = $data['offer_id'];
         $order->status_id = $data['status_id'];

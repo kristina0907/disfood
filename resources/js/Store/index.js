@@ -5,6 +5,7 @@ import myproducts from "./modules/myproducts";
 import myorders from "./modules/myorders";
 import catalogpage from "./modules/catalogpage";
 import addproduct from "./modules/addproduct";
+import basket from "./modules/basket";
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
@@ -14,7 +15,8 @@ const store = new Vuex.Store({
         myproducts,
         myorders,
         catalogpage,
-        addproduct
+        addproduct,
+        basket
     },
     state:{
       user:null,

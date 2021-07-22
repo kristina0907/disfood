@@ -26,6 +26,8 @@ use App\Http\Controllers\Admin\PageCategoryController;
 use App\Http\Controllers\OrganizationStatusController;
 use App\Http\Controllers\Admin\FilterController;
 use App\Http\Controllers\Admin\FilterValuesController;
+use App\Http\Controllers\Admin\OrderDocumentController;
+
 
 /**
  *  Admin routes
@@ -306,5 +308,17 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/filtervalues/edit/{id}',[FilterValuesController::class,'edit'])->name('filtervalues.edit');
     Route::get('/filtervalues/delete/{id}',[FilterValuesController::class,'delete'])->name('filtervalues.delete');
     Route::post('/filtervalues/update',[FilterValuesController::class,'update'])->name('filtervalues.update');
+
+
+    /**
+     *  OrderDocuments routes
+     */
+
+    Route::get('/orderdocuments', [OrderDocumentController::class,'show'] )->name('orderdocuments.show');
+    Route::get('/orderdocuments/create',[OrderDocumentController::class,'create'])->name('orderdocuments.create');
+    Route::post('/orderdocuments/create',[OrderDocumentController::class,'store'])->name('orderdocuments.store');
+    Route::get('/orderdocuments/edit/{id}',[OrderDocumentController::class,'edit'])->name('orderdocuments.edit');
+    Route::get('/orderdocuments/delete/{id}',[OrderDocumentController::class,'delete'])->name('orderdocuments.delete');
+    Route::post('/orderdocuments/update',[OrderDocumentController::class,'update'])->name('orderdocuments.update');
 
 });

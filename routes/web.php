@@ -40,6 +40,8 @@ Route::get('/get/news/page/{id}',[ApiController::class,'getNewsPage']);
 
 Route::get('/change/currentOrganization/{id}',[ApiController::class,'changeCurrentOrganizationId']);
 
+Route::get('/get/orderdocuments',[ApiController::class,'getOrderDocuments']);
+
 Route::get('/get/location',[ApiController::class,'getLocation']);
 Route::get('/get/location/from/text/{text}',[ApiController::class,'getLocationFromText']);
 Route::get('/get/my-orders',[ApiController::class,'getMyOrders']);

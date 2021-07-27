@@ -19,8 +19,10 @@ const store = new Vuex.Store({
         basket
     },
     state:{
-      user:null,
-      currentUserOrganization:null,
+        user:null,
+        currentUserOrganization:null,
+        courseUSD:null,
+        currentCourse:'RUB',
     },
     getters: {
         getUser:(state) =>
@@ -33,9 +35,23 @@ const store = new Vuex.Store({
         }
     },
     mutations: {
+
+        /**
+         *
+         * @param state
+         * @param value
+         */
+
         updateUser(state, value) {
             state.user = value;
         },
+
+        /**
+         *
+         * @param state
+         * @param value
+         */
+
         updateCurrentOrganization(state,value)
         {
             if(value &&  value.user && value.user.current_organization_id && value.user.organizations)
@@ -45,9 +61,37 @@ const store = new Vuex.Store({
                 });
                 state.currentUserOrganization = org
             }
+        },
+
+        /**
+         *
+         * @param state
+         * @param data
+         */
+
+        updateCurrentCourse(state,data)
+        {
+            state.courseUSD = data;
+        },
+
+        /**
+         *
+         * @param state
+         * @param data
+         */
+
+        changeCurrentCurrency(state,data)
+        {
+            state.currentCourse = data;
         }
     },
     actions: {
+
+        /**
+         *
+         * @param commit
+         */
+
         getUserData({commit})
         {
             axios.get('/get/currentuser')
@@ -58,6 +102,14 @@ const store = new Vuex.Store({
                     }
                 });
         },
+
+        /**
+         *
+         * @param commit
+         * @param data
+         * @returns {Promise<void>}
+         */
+
         async changeCurrentOrganization({commit},data)
         {
             await axios.get('/change/currentOrganization/'+data)
@@ -67,6 +119,32 @@ const store = new Vuex.Store({
                         commit('updateCurrentOrganization',response.data);
                     }
             });
+        },
+
+        /**
+         *
+         * @param commit
+         * @returns {Promise<void>}
+         */
+
+        async getCurrentCourse({commit})
+        {
+            await axios.get('/get/current/courseusd')
+                .then(response=>{
+                    if(response.data !== 'undefined' && response.data !== null)
+                    {
+                        console.log(response.data)
+                        commit('updateCurrentCourse',response.data);
+                    }
+                });
+        },
+
+        changeCourse({commit},data)
+        {
+            if(data)
+            {
+                commit('changeCurrentCurrency',data)
+            }
         }
     }
 })

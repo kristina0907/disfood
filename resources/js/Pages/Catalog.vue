@@ -143,6 +143,23 @@
                                                 <span>{{products.length}}</span> </div>
                                             <div class="more_offer_product_category_block"><a href="">Показать все</a></div>
                                         </div>
+                                        <div class="dop_filter_product offer_dop_filter">
+                                            <div class="offer_price_filter">
+                                                <div>
+                                                    <label for="toggle-button" class="text">Показать цены с НДС</label>
+                                                    <input type="checkbox" name="toggle" id="toggle-button" class="toggle-button">
+                                                </div>
+                                                <div class="dop_filter_currency">
+                                                    <a :class="{'active': currentCourse === 'RUB' }"  href="#" @click="changeCourse('RUB')">RUB (₽)</a>
+                                                    <a :class="{'active': currentCourse === 'USD'}" href="#" @click="changeCourse('USD')">USD ($)</a>
+                                                </div>
+                                            </div>
+                                            <div class="select_dop_filter">
+                                                <select name="" id="">
+                                                    <option value="">Сортировать по цене</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                         <div>
                                             <div class="icon_list" @click="changeToListView">
                                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none" v-bind:style= "[listView ? {fill:'#71BF45'} : {fill:'black'}]"
@@ -163,6 +180,19 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <yandex-map
+                                        :coords="coords"
+                                        :zoom="4"
+                                    >
+                                        <div v-for="product in products">
+                                            <ymap-marker v-if="product.adresses" v-for="adress in product.adresses"
+                                                :coords="[adress.geo_lat , adress.geo_lon ]"
+                                                marker-id="123"
+                                                :hint-content="product.organization.name"
+                                            />
+                                        </div>
+
+                                    </yandex-map>
                                     <div :class="{ 'container_item_offer_catalog' : listView,'tile_container_item_offer_catalog row':tileView}">
                                             <div class="item_product_category" v-if="listView && products.length" v-for="product in products" >
                                                 <div class="info_item_offer_catalog">
@@ -203,7 +233,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="price_item_product_category">
-                                                    <div class="start_price_category_products">{{product.price}} ₽/ кг</div>
+                                                    <div class="start_price_category_products" v-if="currentCourse === 'RUB'">{{product.price}} ₽ / кг</div>
+                                                    <div class="start_price_category_products" v-else>{{ (parseFloat(product.price) / parseFloat(courseUSD.Value)).toFixed(2)}} $ / кг</div>
                                                 </div>
                                                 <div class="container_item_offer_btn">
                                                     <router-link :to="{'name':'catalog-page',params:{id:product.id}}">
@@ -333,6 +364,7 @@ export default {
         return{
             tileView : false,
             listView : true,
+            coords:[54, 39]
         }
     },
     methods:{
@@ -349,13 +381,15 @@ export default {
             self.listView = true;
         },
         ...mapActions('catalog',['updateValueAction','getCatalogData','getCatalogTypes','updateTypeAction','getUserIP']),
+        ...mapActions(['getCurrentCourse','changeCourse'])
 
 
     },
     mounted() {
-
+        this.getCurrentCourse()
     },
     computed: {
+        ...mapState(['courseUSD','currentCourse']),
         ...mapState('catalog',['categories', 'categoryValue','types','typeValue','filteredTypes','products','location'])
     },
 }
@@ -440,5 +474,9 @@ export default {
 {
     padding-top: 20px;
     padding-left: 12px;
+}
+.ymap-container{
+    height: 500px;
+    margin: 50px 0;
 }
 </style>

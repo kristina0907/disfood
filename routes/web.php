@@ -70,7 +70,7 @@ Route::get('/get/search/all',[ApiController::class,'searchByText']);
 Route::post('/get/cat/type',[ApiController::class,'searchCatType']);
 
 
-
+Route::get('/get/current/courseusd',[ApiController::class,'getCurrentCourseUsd']);
 
 Route::get('/{any?}',function (){
    return view('welcome');

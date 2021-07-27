@@ -615,4 +615,25 @@ class ApiController extends Controller
      {
          return $this->orderDocumentsService->getAll();
      }
+
+    /**
+     * @return mixed
+     */
+
+     public function getCurrentCourseUsd()
+     {
+         static $rates;
+
+         if ($rates === null) {
+             $rates = json_decode(file_get_contents('https://www.cbr-xml-daily.ru/daily_json.js'));
+         }
+         if (!empty($rates)) {
+             return response()->json($rates->Valute->USD,200);
+         }
+         else
+         {
+             return 1;
+         }
+
+     }
 }

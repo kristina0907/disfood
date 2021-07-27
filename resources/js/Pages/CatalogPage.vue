@@ -23,8 +23,8 @@
                         <input type="checkbox" name="toggle" id="toggle-button" class="toggle-button" @click="changePrice">
                     </div>
                     <div class="dop_filter_currency">
-                        <a :class="{'active': currency == 'RUB'}" @click="changeCurrency('RUB')">RUB (₽)</a>
-                        <a :class="{'active': currency == 'USD'}" @click="changeCurrency('USD')">USD ($)</a>
+                        <a :class="{'active': currentCourse === 'RUB' }"  href="#" @click="changeCourse('RUB')">RUB (₽)</a>
+                        <a :class="{'active': currentCourse === 'USD'}" href="#" @click="changeCourse('USD')">USD ($)</a>
                     </div>
                 </div>
             </div>
@@ -77,8 +77,11 @@
                             </div>
                             <div class="container_right_price_block">
                                 <div class="catalog_info_product">
-                                    <div class="price_catalog_info_product" v-if="product.price && product.type && !priceWithNDS">от {{product.price}} ₽ / {{product.type.unit}} </div>
-                                    <div class="price_catalog_info_product" v-if="product.price && product.type && priceWithNDS">от {{product.price_with_nds}} ₽ / {{product.type.unit}} </div>
+                                    <div class="price_catalog_info_product" v-if="!priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(product.price) / parseFloat(courseUSD.Value)).toFixed(2)}} $ / <span v-if="product.type">{{product.type.unit}}</span></div>
+                                    <div class="price_catalog_info_product" v-if="priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(product.price_with_nds) / parseFloat(courseUSD.Value)).toFixed(2)}} $  / <span v-if="product.type">{{product.type.unit}}</span></div>
+                                    <div class="price_catalog_info_product" v-if="!priceWithNDS && currentCourse === 'RUB'">{{product.price}} ₽ / <span v-if="product.type">{{product.type.unit}}</span></div>
+                                    <div class="price_catalog_info_product" v-if="priceWithNDS && currentCourse === 'RUB'">{{product.price_with_nds}} ₽ / <span v-if="product.type">{{product.type.unit}}</span></div>
+
                                     <div class="count_offers_product" v-if="relatedOffers.length">Количество похожих предложений {{relatedOffers.length}} </div>
                                     <div class="name_info_catalog_product">Стандарт <span>ГОСТ 6292-93</span></div>
                                     <div class="name_info_catalog_product">Сорт <span>1</span></div>
@@ -268,7 +271,8 @@
                                         <div class="dop_count_volume">Объем сделки</div>
                                     </div>
                                     <div class="volume_total_item_catalog_info_delivery">
-                                        <div class="count_volume">от {{summ}} ₽</div>
+                                        <div class="count_volume" v-if="currentCourse === 'RUB'">от {{summ}} ₽</div>
+                                        <div class="count_volume" v-else>от {{ (parseFloat(summ) / parseFloat(courseUSD.Value)).toFixed(2)}} $</div>
                                         <div class="dop_count_volume">Сумма сделки</div>
                                     </div>
                                 </div>
@@ -393,8 +397,10 @@
                                 </div>
                             </div>
                             <div class="price_item_product_category">
-                                <div class="start_price_category_products" v-if="!priceWithNDS">{{offer.price}} ₽/ кг</div>
-                                <div class="start_price_category_products" v-if="priceWithNDS">{{offer.price_with_nds}} ₽/ кг</div>
+                                <div class="start_price_category_products" v-if="!priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(offer.price) / parseFloat(courseUSD.Value)).toFixed(2)}} $ / кг</div>
+                                <div class="start_price_category_products" v-if="priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(offer.price_with_nds) / parseFloat(courseUSD.Value).toFixed(2))}} ₽  / кг</div>
+                                <div class="start_price_category_products" v-if="!priceWithNDS && currentCourse === 'RUB'">{{offer.price}} ₽ / кг</div>
+                                <div class="start_price_category_products" v-if="priceWithNDS && currentCourse === 'RUB'">{{offer.price_with_nds}} ₽ / кг</div>
                             </div>
                             <a :href="'/catalog-page/' + offer.id">
                                 <div class="make_deal">Подробнее</div>
@@ -451,14 +457,17 @@ export default {
             'addPackingToOrder',
             'sendOffer'
         ]),
+        ...mapActions(['getCurrentCourse','changeCourse'])
     },
    async mounted(){
         await this.$store.dispatch('catalogpage/getData',this.product_id);
         await this.$store.dispatch('catalogpage/getRelatedProducts');
+        await this.getCurrentCourse()
     },
     computed: {
         ...mapState('catalog',['location','currentUserOrganization']),
-        ...mapState('catalogpage',['product','filterPackages','relatedOffers','priceWithNDS','currency','packages','summ','volume'])
+        ...mapState('catalogpage',['product','filterPackages','relatedOffers','priceWithNDS','currency','packages','summ','volume']),
+        ...mapState(['currentCourse','courseUSD'])
     },
 }
 </script>

@@ -39,17 +39,20 @@
                                            d="M19.1253 79.3099C14.9302 75.1148 8.15345 75.1148 3.95834 79.3099C-0.236765 83.5051 -0.236765 90.2818 3.95834 94.4769L57.7417 148.26C59.8931 150.412 62.5823 151.38 65.379 151.38C68.1757 151.38 70.8649 150.304 73.0162 148.26C77.2113 144.065 77.2113 137.288 73.0162 133.093L19.1253 79.3099Z"
                                            fill="#51668F" />
                                    </svg>
-                                   <div class="play_company">
-                                       <svg width="125" height="125" viewBox="0 0 125 125" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                           <path fill-rule="evenodd" clip-rule="evenodd"
-                                                 d="M62.5 0C27.9822 0 0 27.9822 0 62.5C0 97.0178 27.9822 125 62.5 125C97.0178 125 125 97.0178 125 62.5C125 27.9822 97.0178 0 62.5 0ZM53.9443 84.2469L85.6111 65.9641C88.2777 64.4245 88.2777 60.5755 85.6111 59.0359L53.9443 40.7531C51.2777 39.2135 47.9443 41.138 47.9443 44.2172L47.9443 80.7828C47.9443 83.862 51.2777 85.7865 53.9443 84.2469Z"
-                                                 fill="#71BF45" />
-                                       </svg>
-                                       <div>
-                                           О компании<br />и платформе
+                                       <div class="play_company">
+                                           <a href="#videoModal" class="" data-toggle="modal">
+                                           <svg width="125" height="125" viewBox="0 0 125 125" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                               <path fill-rule="evenodd" clip-rule="evenodd"
+                                                     d="M62.5 0C27.9822 0 0 27.9822 0 62.5C0 97.0178 27.9822 125 62.5 125C97.0178 125 125 97.0178 125 62.5C125 27.9822 97.0178 0 62.5 0ZM53.9443 84.2469L85.6111 65.9641C88.2777 64.4245 88.2777 60.5755 85.6111 59.0359L53.9443 40.7531C51.2777 39.2135 47.9443 41.138 47.9443 44.2172L47.9443 80.7828C47.9443 83.862 51.2777 85.7865 53.9443 84.2469Z"
+                                                     fill="#71BF45" />
+                                           </svg>
+                                           </a>
+                                           <div>
+                                               О компании<br />и платформе
+                                           </div>
                                        </div>
-                                   </div>
+
                                </div>
                            </div>
                        </div>
@@ -480,7 +483,22 @@
                    </div>
                </div>
            </div>
-
+        <div id="videoModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">DISFOOD О компании
+                            и платформе</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe id="cartoonVideo" class="embed-responsive-item" width="100%" height="700" src="//www.youtube.com/embed/F6FIMzpU6yQ" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -543,3 +561,25 @@ export default {
     },
 }
 </script>
+
+<style>
+#videoModal
+{
+    width: 100%;
+    height: 100%;
+}
+.modal-dialog .modal-content{
+    width:80%;
+    margin: 0 auto;
+    height: 1000px;
+}
+.modal-dialog{
+    max-width: 100%;
+
+}
+.modal-dialog iframe{
+    margin: 0 auto;
+    display: block;
+
+}
+</style>

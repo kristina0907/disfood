@@ -169,24 +169,46 @@
                                     </div>
 
                                     <div class="item_product_document row">
-                                        <div class="col">
+                                        <div class="col col-md-4" v-if="documents.length" v-for="(image, key) in documents" :key="key">
                                             <div class="container_new_document uploaded">
                                                 <div class="form-group">
-                                                    <label for="file" class="btn btn-tertiary js-labelFile" >
-                                                    <input type="file" name="file" id="file1" class="input-file"  @change="handleFileChange"/>
-
-                                                        <span>Добавить</span>
-                                                        <svg width="16" height="12" viewBox="0 0 16 12" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M14.4001 1.70001L5.6001 10.5L1.6001 6.50001"
-                                                                  stroke="#71BF45" stroke-width="2" stroke-linecap="round" />
+                                                    <input
+                                                        type="file"
+                                                        id="document"
+                                                        multiple
+                                                        accept="image/jpeg"
+                                                        v-on:change="onFileChange"
+                                                        class="input-file"
+                                                    />
+                                                    <label for="document" class="btn btn-tertiary js-labelFile" >
+                                                        <span>{{image.name}}</span>
+                                                        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M14.4001 1.70001L5.6001 10.5L1.6001 6.50001" stroke="#71BF45" stroke-width="2" stroke-linecap="round"></path>
                                                         </svg>
-
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col">
+                                        <div class="col col-md-4">
+                                            <div class="container_new_document">
+                                                <div class="form-group">
+                                                    <input
+                                                        type="file"
+                                                        id="document"
+                                                        multiple
+                                                        accept="image/jpeg"
+                                                        v-on:change="onFileChange"
+                                                        class="input-file"
+                                                    />
+                                                    <label for="document" class="btn btn-tertiary js-labelFile" >
+                                                        <span>Добавить</span>
+                                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.42105 2.5C11.0779 2.5 12.4211 3.84315 12.4211 5.5L12.4211 8C12.4211 9.38071 13.5403 10.5 14.9211 10.5H17C18.6569 10.5 20 11.8431 20 13.5V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z" stroke="#22262A" stroke-width="2"></path>
+                                                            <path d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.23393 2.5C11.5937 2.5 13.8332 3.54186 15.3532 5.34691L18.1193 8.63163C19.3339 10.074 20 11.899 20 13.7847V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z" stroke="#22262A" stroke-width="2"></path>
+                                                        </svg>
+                                                    </label>
+                                                </div>
+                                            </div>
 
                                         </div>
 
@@ -197,53 +219,26 @@
                                         <div>Фото товара</div>
                                         <div class="help_text">Фото в форма JPG, PNG. Не более 5 Мб</div>
                                     </div>
-                                    <div class="item_product_photo row">
-                                        <div class="col">
-                                            <div class="container_new_photo uploaded"
-                                                 style="background-image: url('/images/product.png');">
+                                    <div class="item_product_photo row" v-if="images.length">
+                                        <div class="col col-md-3" v-for="(file, key) in images" :key="key">
+                                            <div class="container_new_photo uploaded image-result"   v-bind:style="{ backgroundImage: 'url(' + file.preview + ')' }">
                                                 <div class="form-group">
-                                                    <input type="file" name="file" id="file" class="input-file">
-                                                    <label for="file" class="btn btn-tertiary js-labelFile">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M1 6C1 4.89543 1.89543 4 3 4L21 4C22.1046 4 23 4.89543 23 6L23 18C23 19.1046 22.1046 20 21 20L3 20C1.89543 20 1 19.1046 1 18L1 6Z"
-                                                                stroke="#22262A" stroke-width="2" stroke-linejoin="round" />
-                                                            <path
-                                                                d="M1 19L14.7351 9.68806C15.3578 9.26587 16.1648 9.22887 16.8236 9.59232L23 13"
-                                                                stroke="#22262A" stroke-width="2" />
-                                                            <circle cx="6" cy="9" r="1" stroke="#22262A" stroke-width="2" />
-                                                        </svg>
-                                                    </label>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="col">
-                                            <div class="container_new_photo uploaded"
-                                                 style="background-image: url('/images/product.png');">
-                                                <div class="form-group">
-                                                    <input type="file" name="file" id="file" class="input-file">
-                                                    <label for="file" class="btn btn-tertiary js-labelFile">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M1 6C1 4.89543 1.89543 4 3 4L21 4C22.1046 4 23 4.89543 23 6L23 18C23 19.1046 22.1046 20 21 20L3 20C1.89543 20 1 19.1046 1 18L1 6Z"
-                                                                stroke="#22262A" stroke-width="2" stroke-linejoin="round" />
-                                                            <path
-                                                                d="M1 19L14.7351 9.68806C15.3578 9.26587 16.1648 9.22887 16.8236 9.59232L23 13"
-                                                                stroke="#22262A" stroke-width="2" />
-                                                            <circle cx="6" cy="9" r="1" stroke="#22262A" stroke-width="2" />
+                                                    <input type="file" name="file[]" id="image" class="input-file" accept="image/jpeg,png">
+                                                    <label for="image" class="btn btn-tertiary js-labelFile">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M1 6C1 4.89543 1.89543 4 3 4L21 4C22.1046 4 23 4.89543 23 6L23 18C23 19.1046 22.1046 20 21 20L3 20C1.89543 20 1 19.1046 1 18L1 6Z" stroke="#22262A" stroke-width="2" stroke-linejoin="round"></path>
+                                                            <path d="M1 19L14.7351 9.68806C15.3578 9.26587 16.1648 9.22887 16.8236 9.59232L23 13" stroke="#22262A" stroke-width="2"></path>
+                                                            <circle cx="6" cy="9" r="1" stroke="#22262A" stroke-width="2"></circle>
                                                         </svg>
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col">
+                                        <div class="col col-md-3">
                                             <div class="container_new_photo">
                                                 <div class="form-group">
-                                                    <input type="file" name="file" id="file" class="input-file">
-                                                    <label for="file" class="btn btn-tertiary js-labelFile">
+                                                    <input type="file" name="file[]" id="image-new" class="input-file"   v-on:change="onPhotoChange">
+                                                    <label for="image-new" class="btn btn-tertiary js-labelFile">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -258,30 +253,13 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col">
+                                    </div>
+                                    <div class="item_product_photo" v-else>
+                                        <div class="col col-md-4">
                                             <div class="container_new_photo">
                                                 <div class="form-group">
-                                                    <input type="file" name="file" id="file" class="input-file">
-                                                    <label for="file" class="btn btn-tertiary js-labelFile">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M1 6C1 4.89543 1.89543 4 3 4L21 4C22.1046 4 23 4.89543 23 6L23 18C23 19.1046 22.1046 20 21 20L3 20C1.89543 20 1 19.1046 1 18L1 6Z"
-                                                                stroke="#22262A" stroke-width="2" stroke-linejoin="round" />
-                                                            <path
-                                                                d="M1 19L14.7351 9.68806C15.3578 9.26587 16.1648 9.22887 16.8236 9.59232L23 13"
-                                                                stroke="#22262A" stroke-width="2" />
-                                                            <circle cx="6" cy="9" r="1" stroke="#22262A" stroke-width="2" />
-                                                        </svg>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="container_new_photo">
-                                                <div class="form-group">
-                                                    <input type="file" name="file" id="file" class="input-file">
-                                                    <label for="file" class="btn btn-tertiary js-labelFile">
+                                                    <input type="file" name="file[]" :id="'image'+key" class="input-file"  v-on:change="onPhotoChange">
+                                                    <label :for="'image'+key" class="btn btn-tertiary js-labelFile">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -315,12 +293,13 @@ import Multiselect from 'vue-multiselect';
 import UserLKHeader from "../../../Сomponents/LK/UserLKHeader";
 import FileSelect from "../../../Сomponents/FileSelect";
 import {mapActions, mapState} from "vuex";
+import vue2Dropzone from 'vue2-dropzone'
+import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 export default {
-    components: {UserLKHeader,Multiselect,FileSelect},
+    components: {UserLKHeader,Multiselect,FileSelect,vueDropzone: vue2Dropzone},
     data(){
         return {
-            documents:[],
-            photos:[],
+            //images:[],
             locationTips:[],
         }
     },
@@ -337,13 +316,75 @@ export default {
             'setPackingsValue',
             'setCapacity',
             'setPriceValue',
-            'setPriceWithNdsValue'
+            'setPriceWithNdsValue',
+            'addFileToDocuments',
+            'addFileToImages'
         ]),
+
+
+        onFileChange(e)
+        {
+            let vm = this;
+            var selectedFiles = e.target.files;
+            for (let i = 0; i < selectedFiles.length; i++) {
+                console.log(selectedFiles[i]);
+                vm.documents.push(selectedFiles[i]);
+            }
+
+        },
+
+        /**
+         *
+         * @param e
+         */
+
+        onPhotoChange(e)
+        {
+           /* let vm = this;
+            var selectedFiles = e.target.files;
+            for (let i = 0; i < selectedFiles.length; i++) {
+               // console.log(selectedFiles[i]);
+                vm.photos.push(selectedFiles[i]);
+            }
+
+            for (let i = 0; i < this.photos.length; i++) {
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                    console.log(this.$refs.image)
+                    this.$refs.image[i].src = reader.result;
+                    console.log(this.$refs.image[i].src);
+                };
+                reader.readAsDataURL(this.photos[i]);
+            }*/
+
+            let vm = this;
+            let selectedFiles = e.target.files;
+
+            for (var i = 0; i < selectedFiles.length; i++) {
+
+                let img = {
+                    file: selectedFiles[i],
+                    preview: null
+                };
+                let reader = new FileReader();
+                reader.addEventListener('load', () => {
+
+                    img.preview = reader.result;
+                    this.images.push(img);
+                });
+                console.log(this.images)
+                reader.readAsDataURL(selectedFiles[i]);
+            }
+
+        },
+
+
         changeFilterValue(filter)
         {
             let val = document.getElementById('filter-'+filter)
             this.$store.dispatch('addproduct/addFilterValue',{'filter':filter,'value':val.value});
         },
+
 
         searchLocation(data)
         {
@@ -353,14 +394,8 @@ export default {
                         this.locationTips = response.data.suggestions
                     }
                 });
-
-
         },
 
-        selectAdress(adress)
-        {
-           console.log(adress)
-        },
 
         addAdress()
         {
@@ -369,62 +404,17 @@ export default {
             })
         },
 
-        handleFileChange(event)
+        /*handleFileChange(event)
         {
             console.log(event.target.files);
             this.documents.push({file:event.target.files[0]});
-        },
+        },*/
 
-        /*
-        getData()
-        {
-            axios.get('/get/newproduct/data').then(response => {
-                if(response.status == 200)
-                {
-                    if(response.data !== null)
-                    {
-                        this.categories = response.data.categories;
-                        this.types = response.data.types;
-                        this.products = response.data.products;
-                        this.packings = response.data.packings;
-                    }
-                    //this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' } });
-                }
-            });
-        },
-        addAdress()
-        {
-            this.adress.push({
-                adress: '',
-            })
-        },
-        handleFileChange(event)
-        {
-            console.log(event.target.files);
-            this.documents.push({file:event.target.files[0]});
-        },
-        sendData(event)
-        {
-            event.preventDefault();
-            axios.post('/set/new/offer', {
-                product_id:this.selectedProduct,
-                organization_inn:this.companyName,
-                inn:this.inn,
-                userName:this.userName,
-                userSurname:this.userSurname,
-                userPhone:this.userPhone,
-                userEmail:this.userEmail,
-                userPassword:this.userPassword,
-
-            }).then(response => {
-                if(response.status == 200)
-                {
-                    console.log(response.status)
-                   // this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' } });
-                }
-            });
-        }*/
     },
+
+    /**
+     *
+     */
     mounted() {
         //this.getData();
         this.getCatalogData();
@@ -448,7 +438,9 @@ export default {
             'priceWithNds',
             'capacity',
             'selectedPackings',
-            'adress'
+            'adress',
+            'documents',
+            'images'
         ]),
         capacity: {
             get(){
@@ -521,5 +513,10 @@ export default {
 .mar-0-10{
     margin: 0 10px;
     min-width:27%;
+}
+.image-result {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 </style>

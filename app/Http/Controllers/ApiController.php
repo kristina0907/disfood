@@ -568,6 +568,7 @@ class ApiController extends Controller
 
      public function setNewOffer(Request $request)
      {
+
          if(!empty($request))
          {
              $this->offerService->saveOfferData($request);

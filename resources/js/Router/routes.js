@@ -111,6 +111,34 @@ const routes = [
         component:()=> import('../Pages/Offers'),
         name:'offers',
     },
+    {
+        path:'/settings/profile',
+        component:()=> import('../Pages/LK/Pages/Settings/SettingsProfile'),
+        name:'settingsprofile',
+    },
+    {
+        path:'/settings/addcompany',
+        component:()=> import('../Pages/LK/Pages/Settings/AddCompany'),
+        name:'settingsaddcompany',
+    },
+    {
+        path:'/settings/editcompany/:id',
+        component:()=> import('../Pages/LK/Pages/Settings/CompanyEdit'),
+        name:'settingseditcompany',
+        props: true,
+    },
+    {
+        path:'/settings/accreditation/:id',
+        component:()=> import('../Pages/LK/Pages/Settings/Accreditation'),
+        name:'settingsaccreditation',
+        props: true,
+    },
+    {
+        path:'/settings/accreditation/:id/success',
+        component:()=> import('../Pages/LK/Pages/Settings/AccreditationSuccess'),
+        name:'settingsaccreditationsuccess',
+        props: true,
+    },
 
 ]
 

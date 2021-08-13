@@ -19,6 +19,8 @@ export default {
         adress:[
             {adress:''}
         ],
+        documents:[],
+        images:[],
     },
     getters: {
 
@@ -45,6 +47,30 @@ export default {
 
     },
     mutations: {
+
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
+        SET_DOCUMENTS(state,data)
+        {
+          state.documents = data;
+        },
+
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
+        SET_IMAGES(state,data)
+        {
+            state.images = data;
+        },
 
         /**
          *
@@ -381,6 +407,28 @@ export default {
          * @param data
          */
 
+        addFileToDocuments({commit},data)
+        {
+          commit('SET_DOCUMENTS',data)
+        },
+
+        /**
+         *
+         * @param commit
+         * @param data
+         */
+
+        addFileToImages({commit},data)
+        {
+            commit('SET_IMAGES',data)
+        },
+
+        /**
+         *
+         * @param commit
+         * @param data
+         */
+
         setCapacity({commit},data)
         {
             commit('SET_CAPACITY',data)
@@ -405,8 +453,20 @@ export default {
 
         sendDataNewProduct({state,commit,rootState})
         {
-            //console.log(rootState)
-            let data = {
+            let formData = new FormData();
+
+            for( var i = 0; i < state.documents.length; i++ ){
+                let file = state.documents[i];
+                console.log(file)
+                formData.append('files[' + i + ']', file);
+            }
+            for( var i = 0; i < state.images.length; i++ ){
+                let file = state.images[i].file;
+                formData.append('images[' + i + ']', file);
+            }
+            console.log(formData)
+
+            /*let data = {
                 organization_id:rootState.user.user.current_organization_id,
                 price:state.price,
                 price_with_nds:state.priceWithNds,
@@ -416,9 +476,23 @@ export default {
                 category_id: state.categoryValue,
                 type_id:state.typeValue,
                 filters:state.filterValue,
-            }
-
-            axios.post('/set/new/offer', data).then(response => {
+                documents:formData,
+            }*/
+            formData.append('organization_id', rootState.user.user.current_organization_id);
+            formData.append('price',state.price);
+            formData.append('price_with_nds',state.priceWithNds);
+            formData.append('capacity',state.capacity);
+            formData.append('packings',JSON.stringify(state.selectedPackings));
+            formData.append('adress',JSON.stringify(state.adress));
+            formData.append('category_id',JSON.stringify(state.categoryValue));
+            formData.append('type_id',JSON.stringify(state.typeValue));
+            formData.append('filters',JSON.stringify(state.filterValue));
+            console.log(formData)
+            axios.post('/set/new/offer', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }).then(response => {
                 if(response.status == 200)
                 {
                     console.log(response.status)

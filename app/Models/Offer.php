@@ -103,4 +103,22 @@ class Offer extends Model
     {
         return $this->belongsToMany(Packing::class,'offers_packings','offer_id','packing_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+
+    public function documents()
+    {
+        return $this->hasMany(OfferDocument::class,'offer_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+
+    public function images()
+    {
+        return $this->hasMany(OfferImage::class,'offer_id');
+    }
 }

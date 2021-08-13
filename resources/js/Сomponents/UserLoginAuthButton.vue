@@ -93,7 +93,9 @@
                     </router-link>
                 </li>
                 <li>
-                    <a class="dropdown-item dropdown-item-settings" href="#">Настройки</a>
+                    <router-link class="dropdown-item dropdown-item-settings" :to="{path:'/settings/profile'}">
+                        Настройки
+                    </router-link>
                 </li>
                 <li class="dropdown_info_text dropdown-item-border">Переключиться на организацию</li>
                 <li  v-for="(org,index) in user.user.organizations" v-if="currentUserOrganization[0].id !== org.id">

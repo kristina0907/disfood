@@ -7,6 +7,8 @@ namespace App\Repositories;
 use App\Contracts\OfferContract;
 use App\Models\Offer;
 use App\Models\OfferAdress;
+use App\Models\OfferDocument;
+use App\Models\OfferImage;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Lang;
@@ -70,30 +72,134 @@ class OfferRepository implements OfferContract
     public function save($data)
     {
 
-        $offer = new $this->offer;
+        $tempData = array();
+        if(!empty($data->packings))
+        {
+            $tempData['packings'] = json_decode($data->packings,true);
+        }
+        if(!empty($data->adress))
+        {
+            $tempData['adress'] = json_decode($data->adress,true);
+        }
+        if(!empty($data->category_id))
+        {
+            $tempData['category_id'] = json_decode($data->category_id,true);
+        }
+        if(!empty($data->type_id))
+        {
+            $tempData['type_id'] = json_decode($data->type_id,true);
+        }
+        if(!empty($data->filters))
+        {
+            $tempData['filters'] = json_decode($data->filters,true);
+        }
 
+
+        $offer = new $this->offer;
         $offer->organization_id = $data['organization_id'];
         $offer->price = $data['price'];
         $offer->price_with_nds = $data['price_with_nds'];
         $offer->capacity = $data['capacity'];
-        $offer->category_id = $data['category_id']['id'];
-        $offer->type_id = $data['type_id']['id'];
+        $offer->category_id = $tempData['category_id']['id'];
+        $offer->type_id = $tempData['type_id']['id'];
 
         $offer->save();
-        $adresses = $this->createAdresses($data);
+        //TODO включить после оплаты апи
+        //$adresses = $this->createAdresses($data);
 
         if(!empty($adresses))
         {
             $offer->adresses()->sync($adresses);
         }
 
-        $filters = $this->createFilters($data,$offer);
+        $filters = $this->createFilters($tempData,$offer);
 
-        $packings = $this->createPackings($data,$offer);
+        $packings = $this->createPackings($tempData,$offer);
+
+        if(!empty($data['files']))
+        {
+            $files = $this->createDocuments($data,$offer);
+        }
+
+        if(!empty($data['images']))
+        {
+            $files = $this->createImages($data,$offer);
+        }
 
         return $offer->fresh();
     }
 
+    /**
+     * @param $data
+     * @param $offer
+     */
+
+    private function createDocuments($data,$offer)
+    {
+        if(!empty($data['files']))
+        {
+            foreach ($data['files'] as $file)
+            {
+                $extension = $file->extension();
+                $name = date('mdYHis') . uniqid();
+                $path = '/storage/images/offers/'. $offer->id .'/'. $name.'.' .$extension;
+                $file->storeAs('/public/images/offers/'. $offer->id .'/', $name.'.' .$extension);
+                $this->attachDocument($offer,$path);
+            }
+        }
+    }
+
+    /**
+     * @param $data
+     * @param $offer
+     */
+
+    private function createImages($data,$offer)
+    {
+        if(!empty($data['images']))
+        {
+            foreach ($data['images'] as $file)
+            {
+                $extension = $file->extension();
+                $name = date('mdYHis') . uniqid();
+                $path = '/storage/images/offers/'. $offer->id .'/images/'. $name.'.' .$extension;
+                $file->storeAs('/public/images/offers/'. $offer->id .'/images/', $name.'.' .$extension);
+                $this->attachImages($offer,$path);
+            }
+        }
+    }
+
+    /**
+     * @param $offer
+     * @param $path
+     */
+
+    private function attachImages($offer,$path)
+    {
+        if(!empty($offer) && !empty($path))
+        {
+            $doc = new OfferImage();
+            $doc->offer_id = $offer->id;
+            $doc->path = $path;
+            $doc->save();
+        }
+    }
+
+    /**
+     * @param $offer
+     * @param $path
+     */
+
+    private function attachDocument($offer,$path)
+    {
+        if(!empty($offer) && !empty($path))
+        {
+            $doc = new OfferDocument();
+            $doc->offer_id = $offer->id;
+            $doc->path = $path;
+            $doc->save();
+        }
+    }
 
     /**
      * @param $data
@@ -176,7 +282,7 @@ class OfferRepository implements OfferContract
 
         return $this->offer->where('category_id',$category)->when((integer) $type,function ($query) use ($type){
             $query->where('type_id',$type);
-        })->with(['organization','category','type','adresses','packings','values.filter'])->get();
+        })->with(['organization','category','type','adresses','packings','values.filter','documents'])->get();
 
     }
 

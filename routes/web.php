@@ -42,6 +42,8 @@ Route::get('/change/currentOrganization/{id}',[ApiController::class,'changeCurre
 
 Route::get('/get/orderdocuments',[ApiController::class,'getOrderDocuments']);
 
+Route::get('/get/my-companies',[ApiController::class,'getUserCompanies']);
+
 Route::get('/get/location',[ApiController::class,'getLocation']);
 Route::get('/get/location/from/text/{text}',[ApiController::class,'getLocationFromText']);
 Route::get('/get/my-orders',[ApiController::class,'getMyOrders']);

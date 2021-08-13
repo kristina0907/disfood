@@ -34,6 +34,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import YmapPlugin from 'vue-yandex-maps'
 
+
 const settings = {
     apiKey: '53005aaf-7abe-48bc-b280-d71526f61690',
     lang: 'ru_RU',
@@ -52,6 +53,7 @@ Vue.use(TablePlugin)
 Vue.use(Vuelidate)
 Vue.use(VueRouter);
 Vue.use(YmapPlugin, settings)
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -1,3 +1,5 @@
+
+import router from "../../Router";
 export default {
     namespaced:true,
     state: {
@@ -496,7 +498,7 @@ export default {
                 if(response.status == 200)
                 {
                     console.log(response.status)
-                    // this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' } });
+                    router.push({ name: 'addnewproductsuccess', query: { redirect: '/addnewproduct/success' } });
                 }
             });
         }

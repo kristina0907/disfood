@@ -48,8 +48,8 @@ class OfferService
     {
         $validated = $data->validate([
             'organization_id'    =>'required|integer',
-            'price'              =>'required|float',
-            'price_with_nds'     =>'required|float',
+            'price'              =>'required',
+            'price_with_nds'     =>'required',
             'capacity'           =>'required|integer',
             'category_id'        =>'required',
             'type_id'            => 'required'

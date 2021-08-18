@@ -139,6 +139,12 @@ const routes = [
         name:'settingsaccreditationsuccess',
         props: true,
     },
+    {
+        path:'/addnewproduct/success',
+        component:()=> import('../Pages/LK/Pages/AddProductSuccess'),
+        name:'addnewproductsuccess',
+        props: true,
+    },
 
 ]
 

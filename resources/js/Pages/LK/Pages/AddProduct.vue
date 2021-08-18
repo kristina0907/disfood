@@ -20,7 +20,7 @@
                                     <div class="container_price_item row">
                                         <div class="container_input_price col-md-6">
                                             <div class="text_input">Цена</div>
-                                            <input type="text"  v-model="price">
+                                            <input type="text"  :value="price" @input="setPriceValue($event.target.value)">
                                             <div class="icon_price_input">
                                                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="container_input_price col-md-6">
                                             <div class="text_input">Цена с НДС</div>
-                                            <input type="text" v-model="priceWithNds" name="price_with_nds" required>
+                                            <input type="text" :value="priceWithNds" name="price_with_nds" @input="setPriceWithNdsValue($event.target.value)" required>
                                             <div class="icon_price_input">
                                                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +120,7 @@
                                     <div class="item_product_input row">
                                         <div class="container_input_price col-md-6">
                                             <div class="text_input">Объем (кг)</div>
-                                            <input type="number" name="capacity" id="capacity" v-model="capacity"  value="0"/>
+                                            <input type="number" name="capacity" id="capacity" :value="capacity" @input="setCapacity($event.target.value)"/>
                                         </div>
                                         <div class="select_container col-md-6">
                                             <div class="select_text">Фасовка</div>
@@ -258,8 +258,8 @@
                                         <div class="col col-md-4">
                                             <div class="container_new_photo">
                                                 <div class="form-group">
-                                                    <input type="file" name="file[]" :id="'image'+key" class="input-file"  v-on:change="onPhotoChange">
-                                                    <label :for="'image'+key" class="btn btn-tertiary js-labelFile">
+                                                    <input type="file" name="file[]" :id="'image'" class="input-file"  v-on:change="onPhotoChange">
+                                                    <label :for="'image'" class="btn btn-tertiary js-labelFile">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -442,7 +442,7 @@ export default {
             'documents',
             'images'
         ]),
-        capacity: {
+       /* capacity: {
             get(){
                 return this.$store.state["addproduct/capacity"]
             },
@@ -465,7 +465,7 @@ export default {
             set(newName){
                 return this.setPriceWithNdsValue(newName)
             }
-        }
+        }*/
     },
 }
 </script>

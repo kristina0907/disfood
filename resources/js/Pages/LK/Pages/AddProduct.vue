@@ -105,7 +105,7 @@
                                         <div class="item_product_input row mar-0-10">
                                                 <div class="col-md-6 container_input_price">
                                                     <div class="title_filter_catalog">{{filter.name}}</div>
-                                                    <select :id="'filter-'+filter.id" class="select select_type" @input = changeFilterValue(filter.id) required>
+                                                    <select :id="'filter-'+filter.id" class="select select_type" @input = changeFilterValue(filter.id) multiple required>
                                                         <option  value="0" selected disabled>Не выбрано</option>
                                                         <option v-for="val in filter.values" :value="val.id">{{val.value}}</option>
                                                     </select>

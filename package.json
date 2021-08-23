@@ -29,6 +29,7 @@
     "dependencies": {
         "@burhanahmeed/vue-modal-2": "^1.1.11",
         "adminbsb-materialdesign": "^1.0.7",
+        "apexcharts": "^3.27.3",
         "bootstrap-vue": "^2.21.2",
         "handy-uploader": "^1.1.8",
         "v-autosuggest": "^1.0.3",

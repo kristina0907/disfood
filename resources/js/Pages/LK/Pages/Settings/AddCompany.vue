@@ -43,7 +43,7 @@
                                                 <div class="row item_company_field">
                                                     <div class="col-md-12 item_company_ots"><input type="text"
                                                                                                    placeholder="Название компании"></div>
-                                                    <div class="col-md-4"><input type="text" placeholder="ИНН"></div>
+                                                    <div class="col-md-4"><input type="text" placeholder="ИНН" @input="getInnFromBackend($event.target.value)"></div>
                                                     <div class="col-md-4"><input type="text" placeholder="ОГРН"></div>
                                                     <div class="col-md-4"><input type="text" placeholder="КПП"></div>
 
@@ -313,12 +313,19 @@
 
 import UserLKHeader from "../../../../Сomponents/LK/UserLKHeader";
 import Leftsidebar from "./Leftsidebar";
+import {mapActions, mapState} from "vuex";
 export default {
     components: {Leftsidebar, UserLKHeader},
     data(){
         return {
 
         }
-    }
+    },
+    methods:{
+        ...mapActions('addcompany',['getInnFromBackend'])
+    },
+    computed: {
+        ...mapState('addcompany',['companyName'])
+    },
 }
 </script>

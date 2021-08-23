@@ -76,9 +76,14 @@ class TypeProductRepository implements TypeProductContract
         }
         if($data->hasFile('image'))
         {
+            $name = rand(0,10000).time();
             $extension = $data->image->extension();
+            $data->image->storeAs('/public/images/types/', $name.".".$extension);
+            $type->image = '/storage/images/types/'. $name.".".$extension;
+
+           /* $extension = $data->image->extension();
             $data->image->storeAs('/public/images/types', $data['name'].".".$extension);
-            $type->image = '/public/images/types'. $data['name'].".".$extension;
+            $type->image = '/public/images/types'. $data['name'].".".$extension;*/
         }
         $type->save();
 

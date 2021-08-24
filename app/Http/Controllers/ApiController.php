@@ -599,6 +599,10 @@ class ApiController extends Controller
          }
      }
 
+    /**
+     * @param Request $request
+     */
+
      public function setNewOrganization(Request $request)
      {
         if(!empty($request))
@@ -606,6 +610,19 @@ class ApiController extends Controller
             $this->organizationService->saveOrganizationFromLK($request);
         }
      }
+
+    /**
+     * @param Request $request
+     */
+
+     public function setUpdateOrganization(Request $request)
+     {
+         if(!empty($request))
+         {
+             $this->organizationService->updateOrganizationFromLK($request);
+         }
+     }
+
 
     /**
      * @param $id

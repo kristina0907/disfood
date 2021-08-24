@@ -124,6 +124,8 @@ class OrganizationRepository implements OrganizationContract
         $organization = new $this->organization;
         $organization->name = $data->name;
         $organization->inn = $data->inn;
+        $organization->bik = $data->bik;
+
         if (!empty($data->kpp)) {
             $organization->kpp = $data->kpp;
         }
@@ -163,6 +165,57 @@ class OrganizationRepository implements OrganizationContract
 
 
         return $organization->fresh();
+    }
+
+    public function updateFromLk($data)
+    {
+        if(!empty($data->id))
+        {
+            $organization = $this->organization->find($data->id);
+            $organization->name = $data->name;
+            $organization->inn = $data->inn;
+            $organization->bik = $data->bik;
+
+            if (!empty($data->kpp)) {
+                $organization->kpp = $data->kpp;
+            }
+            if (!empty($data->ogrn)) {
+                $organization->ogrn = $data->ogrn;
+            }
+            $organization->adress = $data->adress;
+            $organization->phone = $data->phone;
+            $organization->bank_name = $data->bank_name;
+            $organization->r_account = $data->r_account;
+            $organization->kor_account = $data->kor_account;
+            $organization->fio_ceo = $data->fio_ceo;
+
+            $organization->reason = 'ustav';
+            if(Auth::user())
+            {
+                $organization->user_id = Auth::user()->id;
+            }
+
+            $organization->status_id = 1;
+            if($data->hasFile('logo'))
+            {
+                $name = rand(0,10000).time();
+                $extension = $data->logo->extension();
+                $data->logo->storeAs('/public/images/logo/', $name.".".$extension);
+                $organization->logo = '/storage/images/logo/'. $name.".".$extension;
+            }
+
+
+            $organization->save();
+
+
+            if(!empty($data['files']))
+            {
+                $files = $this->createDocuments($data,$organization);
+            }
+            $organization->update();
+
+            return $organization;
+        }
     }
 
     /**

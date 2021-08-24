@@ -115,6 +115,30 @@ class OrganizationService
 
     /**
      * @param $data
+     */
+
+    public function updateOrganizationFromLK($data)
+    {
+        $validated = $data->validate([
+            'name' => 'string|required|max:255',
+            'inn' => 'required|string',
+            'kpp' => 'string',
+            'ogrn' => 'string',
+            'adress' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'bank_name' => 'required|string|max:255',
+            'r_account' => 'required',
+            'kor_account' => 'required',
+            'fio_ceo' => 'required|string|max:255',
+        ]);
+
+        $result = $this->organizationRepository->updateFromLk($data);
+
+        return $result;
+    }
+
+    /**
+     * @param $data
      * @return mixed
      */
 

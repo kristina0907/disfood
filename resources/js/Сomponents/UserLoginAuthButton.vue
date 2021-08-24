@@ -53,7 +53,7 @@
             <div class="login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" @click="changeDropdown()"
                  aria-expanded="false">
                 <div v-if="currentUserOrganization" >
-                    <div class="name_company" >{{currentUserOrganization[0].name}}</div>
+                    <div class="name_company" v-if="currentUserOrganization">{{currentUserOrganization[0].name}}</div>
                     <div class="accredited_company" v-if="user.user.roles" v-for="role in user.user.roles">{{ role.name }}
                         &#183; {{currentUserOrganization[0].status.name}}
                     </div>

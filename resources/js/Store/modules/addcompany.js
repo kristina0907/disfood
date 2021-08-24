@@ -326,6 +326,7 @@ export default {
 
             formData.append('name',state.companyName);
             formData.append('inn',state.inn);
+            formData.append('bik',state.bik);
             formData.append('kpp',state.kpp);
             formData.append('ogrn', state.ogrn);
             formData.append('adress',state.urAdress);
@@ -336,8 +337,6 @@ export default {
             formData.append('fio_ceo',state.userSurname);
             formData.append('logo',state.logo);
 
-
-            console.log(formData)
             axios.post('/set/new/organization', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
@@ -346,7 +345,7 @@ export default {
                 if(response.status == 200)
                 {
                     console.log(response.status)
-                    //router.push({ name: 'addnewproductsuccess', query: { redirect: '/addnewproduct/success' } });
+                    router.push({ name: 'settingsprofile', query: { redirect: '/settings/profile' } });
                 }
             });
         }

@@ -11,13 +11,13 @@
                 <div class="right_container" v-if="org.id == id" v-for="org in user.user.organizations">
                     <div class="setting_info_company">
                         <div class="image_info_item_offer_catalog"
-                             style="background-image: url(/images/offer.png);"></div>
+                             :style="'background-image: url('+org.logo+');'"></div>
                         <div>
                             <div class="name_setting_info_company">
                                 {{org.name}}
                             </div>
                             <div class="setting_accredited_company" data-tooltip="Загрузите документы и заполните информацию.">
-                                Поставщик • аккредитован
+                                Поставщик • {{org.status.name}}
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                                         <td class="title_profile_information_item">ИНН</td>
                                         <td class="value_profile_information_item">
                                             <div class="row">
-                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="org.inn"></quick-edit>
+                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" @input="storeChanges(org)" v-model="org.inn"></quick-edit>
                                                 <span class="edit_profile_information_item">
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +53,7 @@
                                         <td class="title_profile_information_item">ОГРН</td>
                                         <td class="value_profile_information_item">
                                             <div class="row">
-                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="org.ogrn"></quick-edit>
+                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" @input="storeChanges(org)" v-model="org.ogrn"></quick-edit>
                                                 <span class="edit_profile_information_item">
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -71,7 +71,7 @@
                                         <td class="title_profile_information_item">КПП</td>
                                         <td class="value_profile_information_item">
                                             <div class="row">
-                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="org.kpp"></quick-edit>
+                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" @input="storeChanges(org)" v-model="org.kpp"></quick-edit>
                                                 <span class="edit_profile_information_item">
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -93,7 +93,7 @@
                                         <td class="title_profile_information_item">Руководитель</td>
                                         <td class="value_profile_information_item">
                                             <div class="row">
-                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="org.fio_ceo"></quick-edit>
+                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" @input="storeChanges(org)" v-model="org.fio_ceo"></quick-edit>
                                                 <span class="edit_profile_information_item">
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -119,7 +119,7 @@
                                         <td class="title_profile_information_item">Основание</td>
                                         <td class="value_profile_information_item value_profile_information_command">
                                             <div class="row">
-                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="org.reason"></quick-edit>
+                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" @input="storeChanges(org)" v-model="org.reason"></quick-edit>
                                                 <span class="edit_profile_information_item">
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -142,7 +142,7 @@
                                     <td class="title_profile_information_item">Телефон</td>
                                     <td class="value_profile_information_item">
                                         <div class="row">
-                                            <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="org.owner.phone"></quick-edit>
+                                            <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" @input="storeChanges(org)" v-model="org.phone"></quick-edit>
                                             <span class="edit_profile_information_item">
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -160,7 +160,7 @@
                                     <td class="title_profile_information_item">Юр. адрес</td>
                                     <td class="value_profile_information_item">
                                         <div class="row">
-                                            <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="org.adress"></quick-edit>
+                                            <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" @input="storeChanges(org)" v-model="org.adress"></quick-edit>
                                             <span class="edit_profile_information_item">
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -202,7 +202,7 @@
                                         <td class="title_profile_information_item">БИК</td>
                                         <td class="value_profile_information_item">
                                             <div class="row">
-                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="org.bik"></quick-edit>
+                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" @input="storeChanges(org)" v-model="org.bik"></quick-edit>
                                                 <span class="edit_profile_information_item">
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -220,7 +220,7 @@
                                         <td class="title_profile_information_item">Банк</td>
                                         <td class="value_profile_information_item">
                                             <div class="row">
-                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="org.bank_name"></quick-edit>
+                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" @input="storeChanges(org)" v-model="org.bank_name"></quick-edit>
                                                 <span class="edit_profile_information_item">
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -242,7 +242,7 @@
                                         <td class="title_profile_information_item">Корр. счет</td>
                                         <td class="value_profile_information_item">
                                             <div class="row">
-                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="org.kor_account"></quick-edit>
+                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" @input="storeChanges(org)" v-model="org.kor_account"></quick-edit>
                                                 <span class="edit_profile_information_item">
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -261,7 +261,7 @@
                                         <td class="title_profile_information_item">Расчет. счет</td>
                                         <td class="value_profile_information_item">
                                             <div class="row">
-                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="org.r_account"></quick-edit>
+                                                <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" @input="storeChanges(org)" v-model="org.r_account"></quick-edit>
                                                 <span class="edit_profile_information_item">
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -282,13 +282,13 @@
                     <div class="profile_information_block">
                         <div class="name_profile_information">Документы</div>
                         <div class="description_profile_information">Документы в форма PDF, DOC</div>
-                        <div class="setting_document_list profile_information_list">
+                        <div class="setting_document_list profile_information_list" v-if="org.documents.length">
 
-                            <div class="container_new_document uploaded">
+                            <div class="container_new_document uploaded" v-for="document in org.documents">
                                 <div class="form-group">
                                     <input type="file" name="file" id="file" class="input-file">
                                     <label for="file" class="btn btn-tertiary js-labelFile">
-                                        <span>Сертификат.PDF</span>
+                                        <span>ID {{document.id}}</span>
                                         <svg width="16" height="12" viewBox="0 0 16 12" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
                                             <path d="M14.4001 1.70001L5.6001 10.5L1.6001 6.50001" stroke="#71BF45"
@@ -299,7 +299,7 @@
                                 </div>
                             </div>
 
-                            <div class="container_new_document uploaded">
+<!--                            <div class="container_new_document uploaded">
                                 <div class="form-group">
                                     <input type="file" name="file" id="file" class="input-file">
                                     <label for="file" class="btn btn-tertiary js-labelFile">
@@ -357,7 +357,7 @@
                                         </svg>
                                     </label>
                                 </div>
-                            </div>
+                            </div>-->
 
                             <div class="container_new_document uploaded">
                                 <div class="form-group">
@@ -410,6 +410,7 @@ import Leftsidebar from "./Leftsidebar";
 import {mapState} from "vuex";
 
 import QuickEdit from 'vue-quick-edit';
+import router from "../../../../Router";
 
 export default {
     props: ['id'],
@@ -418,6 +419,19 @@ export default {
     data(){
         return {
             //org_id:this.$route.params.id,
+        }
+    },
+    methods:{
+        storeChanges(org)
+        {
+            axios.post('/set/update/organization', org)
+                .then(response => {
+                if(response.status == 200)
+                {
+                    console.log(response.status)
+                    //router.push({ name: 'settingsprofile', query: { redirect: '/settings/profile' } });
+                }
+            });
         }
     },
     computed: {

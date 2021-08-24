@@ -48,7 +48,7 @@ class UserRepository implements UserContract
     {
         return $this->user
             ->where('id', $id)
-            ->with(['organizations.status','organizations.owner','roles'])
+            ->with(['organizations.status','organizations.documents','organizations.owner','roles'])
             ->first();
     }
 

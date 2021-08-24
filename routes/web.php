@@ -29,6 +29,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//->middleware(['auth','IsAdmin']);
 
 Route::post('/get/inn/from/api',[ApiController::class,'getInnFromApi']);
+Route::post('/get/bank/from/bik',[ApiController::class,'getBankFromApi']);
 Route::post('/get/companyname/from/api',[ApiController::class,'getNameFromApi']);
 Route::post('/set/company/and/register',[ApiController::class,'setCompanyAndRegister']);
 
@@ -67,6 +68,8 @@ Route::get('/get/last/message/{id}',[ApiController::class,'getLastMessageFromCha
 Route::post('/send/messages',[ApiController::class,'setOfferMessages']);
 
 Route::post('/set/new/offer',[ApiController::class,'setNewOffer']);
+
+Route::post('/set/new/organization',[ApiController::class,'setNewOrganization']);
 
 Route::get('/get/search/all',[ApiController::class,'searchByText']);
 Route::post('/get/cat/type',[ApiController::class,'searchCatType']);

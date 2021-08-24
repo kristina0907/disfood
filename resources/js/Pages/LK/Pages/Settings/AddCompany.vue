@@ -32,21 +32,36 @@
                                                  aria-labelledby="company-tab">
                                                 <div class="row item_company_field">
                                                     <div class="col-md-12 item_company_ots">
-                                                        <input type="text" placeholder="Название компании">
+                                                        <input type="text" placeholder="Название компании" v-model="companyName" disabled>
+                                                        Введите ИНН название компании подставится автоматически
                                                     </div>
-                                                    <div class="col-md-4"><input type="text" placeholder="ИНН"></div>
-                                                    <div class="col-md-4"><input type="text" placeholder="ОГРН"></div>
-                                                    <div class="col-md-4"><input type="text" placeholder="КПП"></div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" placeholder="ИНН" @input="getInnFromBackend($event.target.value)" :value="inn">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" placeholder="ОГРН" v-model="ogrn">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" placeholder="КПП" v-model="kpp">
+                                                    </div>
 
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="IP" role="tabpanel" aria-labelledby="IP-tab">
                                                 <div class="row item_company_field">
-                                                    <div class="col-md-12 item_company_ots"><input type="text"
-                                                                                                   placeholder="Название компании"></div>
-                                                    <div class="col-md-4"><input type="text" placeholder="ИНН" @input="getInnFromBackend($event.target.value)"></div>
-                                                    <div class="col-md-4"><input type="text" placeholder="ОГРН"></div>
-                                                    <div class="col-md-4"><input type="text" placeholder="КПП"></div>
+                                                    <div class="col-md-12 item_company_ots">
+                                                        <input type="text" placeholder="Название компании" v-model="companyName" disabled>
+                                                        Введите ИНН название компании подставится автоматически
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" placeholder="ИНН" @input="getInnFromBackend($event.target.value)" :value="inn">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" placeholder="ОГРН" v-model="ogrn">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" placeholder="КПП" v-model="kpp">
+                                                    </div>
 
                                                 </div>
                                             </div>
@@ -58,8 +73,12 @@
                                         Ответственное лицо
                                     </div>
                                     <div class="row item_company_field">
-                                        <div class="col-md-6"><input type="text" placeholder="Фамилия"></div>
-                                        <div class="col-md-6"><input type="text" placeholder="Должность"></div>
+                                        <div class="col-md-6">
+                                            <input type="text" placeholder="Фамилия" :value="userSurname" @change="setUserSurname($event.target.value)">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" placeholder="Должность" :value="userDolgnost" @change="setUserDolgnost($event.target.value)">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="item_add_company">
@@ -151,8 +170,12 @@
                                         Контакты
                                     </div>
                                     <div class="row item_company_field">
-                                        <div class="col-md-6 item_company_ots"><input type="text" placeholder="Телефон"></div>
-                                        <div class="col-md-12 item_company_ots"><input type="text" placeholder="Юридический адрес"></div>
+                                        <div class="col-md-6 item_company_ots">
+                                            <input type="text" placeholder="Телефон" :value="userPhone" @change="setUserPhone($event.target.value)">
+                                        </div>
+                                        <div class="col-md-12 item_company_ots">
+                                            <input type="text" placeholder="Юридический адрес" :value="urAdress" disabled>
+                                        </div>
                                         <div class="col-md-12">
                                             <div class="checkbox add_company_checkbox">
                                                 <input class="custom-checkbox" type="checkbox" id="country-1" name="country"
@@ -160,7 +183,9 @@
                                                 <label for="country-1">Почтовый адрес совпадает с юридическим</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-12"><input type="text" placeholder="Почтовый адрес"></div>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Почтовый адрес" :value="postAdress" @change="setPostAdress($event.target.value)">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="item_add_company">
@@ -168,10 +193,19 @@
                                         Банковские Реквизиты
                                     </div>
                                     <div class="row item_company_field">
-                                        <div class="col-md-6 item_company_ots"><input type="text" placeholder="Наименование банка"></div>
-                                        <div class="col-md-6 item_company_ots"><input type="text" placeholder="БИК"></div>
-                                        <div class="col-md-6"><input type="text" placeholder="КОРР. Счет"></div>
-                                        <div class="col-md-6"><input type="text" placeholder="РАСЧ. Счет"></div>
+                                        <div class="col-md-6 item_company_ots">
+                                            <input type="text" placeholder="Наименование банка" v-model="bankName" disabled>
+                                            Введите БИК, название подставится автоматически
+                                        </div>
+                                        <div class="col-md-6 item_company_ots">
+                                            <input type="text" placeholder="БИК" :value="bik" @input="getBankAccountFromBackend($event.target.value)">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" placeholder="КОРР. Счет" :value="korr_account" disabled>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" placeholder="РАСЧ. Счет" :value="r_account"  @input="setRAccount($event.target.value)">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="item_add_company item_add_company_document">
@@ -181,90 +215,45 @@
                                     </div>
                                     <div class="setting_document_list profile_information_list">
 
-                                        <div class="container_new_document uploaded">
+                                        <div class="container_new_document uploaded"  v-if="documents.length" v-for="(image, key) in documents" :key="key">
                                             <div class="form-group">
-                                                <input type="file" name="file" id="file" class="input-file">
-                                                <label for="file" class="btn btn-tertiary js-labelFile">
-                                                    <span>Сертификат.PDF</span>
-                                                    <svg width="16" height="12" viewBox="0 0 16 12" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M14.4001 1.70001L5.6001 10.5L1.6001 6.50001"
-                                                              stroke="#71BF45" stroke-width="2" stroke-linecap="round"></path>
+                                                <input
+                                                    type="file"
+                                                    id="document"
+                                                    multiple
+                                                    accept="image/jpeg"
+                                                    v-on:change="onFileChange"
+                                                    class="input-file"
+                                                />
+                                                <label for="document" class="btn btn-tertiary js-labelFile" >
+                                                    <span>{{image.name}}</span>
+                                                    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M14.4001 1.70001L5.6001 10.5L1.6001 6.50001" stroke="#71BF45" stroke-width="2" stroke-linecap="round"></path>
                                                     </svg>
-
                                                 </label>
                                             </div>
                                         </div>
 
-                                        <div class="container_new_document uploaded">
-                                            <div class="form-group">
-                                                <input type="file" name="file" id="file" class="input-file">
-                                                <label for="file" class="btn btn-tertiary js-labelFile">
-                                                    <span>Сертификат.PDF</span>
-                                                    <svg width="16" height="12" viewBox="0 0 16 12" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M14.4001 1.70001L5.6001 10.5L1.6001 6.50001"
-                                                              stroke="#71BF45" stroke-width="2" stroke-linecap="round"></path>
-                                                    </svg>
-
-                                                </label>
-                                            </div>
-                                        </div>
 
                                         <div class="container_new_document uploaded">
                                             <div class="form-group">
-                                                <input type="file" name="file" id="file" class="input-file">
-                                                <label for="file" class="btn btn-tertiary js-labelFile">
+                                                <input
+                                                    type="file"
+                                                    id="document"
+                                                    multiple
+                                                    accept="image/jpeg"
+                                                    v-on:change="onFileChange"
+                                                    class="input-file"
+                                                />
+                                                <label for="document" class="btn btn-tertiary js-labelFile" >
                                                     <span>Добавить</span>
-                                                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.42105 2.5C11.0779 2.5 12.4211 3.84315 12.4211 5.5L12.4211 8C12.4211 9.38071 13.5403 10.5 14.9211 10.5H17C18.6569 10.5 20 11.8431 20 13.5V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                            stroke="#22262A" stroke-width="2"></path>
-                                                        <path
-                                                            d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.23393 2.5C11.5937 2.5 13.8332 3.54186 15.3532 5.34691L18.1193 8.63163C19.3339 10.074 20 11.899 20 13.7847V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                            stroke="#22262A" stroke-width="2"></path>
+                                                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.42105 2.5C11.0779 2.5 12.4211 3.84315 12.4211 5.5L12.4211 8C12.4211 9.38071 13.5403 10.5 14.9211 10.5H17C18.6569 10.5 20 11.8431 20 13.5V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z" stroke="#22262A" stroke-width="2"></path>
+                                                        <path d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.23393 2.5C11.5937 2.5 13.8332 3.54186 15.3532 5.34691L18.1193 8.63163C19.3339 10.074 20 11.899 20 13.7847V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z" stroke="#22262A" stroke-width="2"></path>
                                                     </svg>
                                                 </label>
                                             </div>
                                         </div>
-
-                                        <div class="container_new_document uploaded">
-                                            <div class="form-group">
-                                                <input type="file" name="file" id="file" class="input-file">
-                                                <label for="file" class="btn btn-tertiary js-labelFile">
-                                                    <span>Добавить</span>
-                                                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.42105 2.5C11.0779 2.5 12.4211 3.84315 12.4211 5.5L12.4211 8C12.4211 9.38071 13.5403 10.5 14.9211 10.5H17C18.6569 10.5 20 11.8431 20 13.5V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                            stroke="#22262A" stroke-width="2"></path>
-                                                        <path
-                                                            d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.23393 2.5C11.5937 2.5 13.8332 3.54186 15.3532 5.34691L18.1193 8.63163C19.3339 10.074 20 11.899 20 13.7847V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                            stroke="#22262A" stroke-width="2"></path>
-                                                    </svg>
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="container_new_document uploaded">
-                                            <div class="form-group">
-                                                <input type="file" name="file" id="file" class="input-file">
-                                                <label for="file" class="btn btn-tertiary js-labelFile">
-                                                    <span>Добавить</span>
-                                                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.42105 2.5C11.0779 2.5 12.4211 3.84315 12.4211 5.5L12.4211 8C12.4211 9.38071 13.5403 10.5 14.9211 10.5H17C18.6569 10.5 20 11.8431 20 13.5V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                            stroke="#22262A" stroke-width="2"></path>
-                                                        <path
-                                                            d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.23393 2.5C11.5937 2.5 13.8332 3.54186 15.3532 5.34691L18.1193 8.63163C19.3339 10.074 20 11.899 20 13.7847V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                            stroke="#22262A" stroke-width="2"></path>
-                                                    </svg>
-                                                </label>
-                                            </div>
-                                        </div>
-
                                     </div>
                                 </div>
                                 <div class="item_add_company">
@@ -274,11 +263,10 @@
                                         </div>
                                     </div>
                                     <div class="item_product_photo">
-
                                         <div class="container_new_photo">
                                             <div class="form-group">
-                                                <input type="file" name="file" id="file" class="input-file">
-                                                <label for="file" class="btn btn-tertiary js-labelFile">
+                                                <input type="file" name="logo" id="logo"  ref="logo"  @change="handleFileUpload" class="input-file">
+                                                <label for="logo" class="btn btn-tertiary js-labelFile">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
                                                         <path
@@ -297,7 +285,7 @@
                                 </div>
 
                                 <div class="send_moderation_block">
-                                    <button class="btn_send_moderation" type="submit">Отправить на модерацию</button>
+                                    <button class="btn_send_moderation" type="button" @click="sendForm">Отправить на модерацию</button>
                                 </div>
                             </form>
                         </div>
@@ -323,10 +311,60 @@ export default {
         }
     },
     methods:{
-        ...mapActions('addcompany',['getInnFromBackend'])
+        ...mapActions('addcompany',[
+            'getInnFromBackend',
+            'getBankAccountFromBackend',
+            'setUserSurname',
+            'setUserDolgnost',
+            'setUserPhone',
+            'setPostAdress',
+            'setRAccount',
+            'sendForm'
+        ]),
+
+        /**
+         *
+         * @param e
+         */
+
+        onFileChange(e)
+        {
+            let vm = this;
+            var selectedFiles = e.target.files;
+            for (let i = 0; i < selectedFiles.length; i++) {
+                console.log(selectedFiles[i]);
+                vm.documents.push(selectedFiles[i]);
+            }
+
+        },
+
+        /**
+         *
+         */
+
+        handleFileUpload(){
+            this.$store.dispatch('addcompany/uploadLogo',this.$refs.logo.files[0]);
+        }
     },
     computed: {
-        ...mapState('addcompany',['companyName'])
+        ...mapState('addcompany',[
+            'companyName',
+            'inn',
+            'ogrn',
+            'kpp',
+            'userSurname',
+            'userDolgnost',
+            'userPhone',
+            'userEmail',
+            'urAdress',
+            'postAdress',
+            'bankName',
+            'bik',
+            'korr_account',
+            'r_account',
+            'logo',
+            'documents'
+        ])
     },
 }
 </script>

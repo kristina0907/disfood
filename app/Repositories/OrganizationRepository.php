@@ -5,6 +5,8 @@ namespace App\Repositories;
 
 use App\Contracts\OrganizationContract;
 use App\Models\Organization;
+use App\Models\OrganizationDocument;
+use Illuminate\Support\Facades\Auth;
 
 class OrganizationRepository implements OrganizationContract
 {
@@ -110,6 +112,93 @@ class OrganizationRepository implements OrganizationContract
         $organization->save();
 
         return $organization->fresh();
+    }
+
+    /**
+     * @param $data
+     * @return mixed
+     */
+
+    public function saveFromLk($data)
+    {
+        $organization = new $this->organization;
+        $organization->name = $data->name;
+        $organization->inn = $data->inn;
+        if (!empty($data->kpp)) {
+            $organization->kpp = $data->kpp;
+        }
+        if (!empty($data->ogrn)) {
+            $organization->ogrn = $data->ogrn;
+        }
+        $organization->adress = $data->adress;
+        $organization->phone = $data->phone;
+        $organization->bank_name = $data->bank_name;
+        $organization->r_account = $data->r_account;
+        $organization->kor_account = $data->kor_account;
+        $organization->fio_ceo = $data->fio_ceo;
+
+        $organization->reason = 'ustav';
+        if(Auth::user())
+        {
+            $organization->user_id = Auth::user()->id;
+        }
+
+        $organization->status_id = 1;
+        if($data->hasFile('logo'))
+        {
+            $name = rand(0,10000).time();
+            $extension = $data->logo->extension();
+            $data->logo->storeAs('/public/images/logo/', $name.".".$extension);
+            $organization->logo = '/storage/images/logo/'. $name.".".$extension;
+        }
+
+
+        $organization->save();
+
+
+        if(!empty($data['files']))
+        {
+            $files = $this->createDocuments($data,$organization);
+        }
+
+
+        return $organization->fresh();
+    }
+
+    /**
+     * @param $data
+     * @param $offer
+     */
+
+    private function createDocuments($data,$offer)
+    {
+        if(!empty($data['files']))
+        {
+            foreach ($data['files'] as $file)
+            {
+                $extension = $file->extension();
+                $name = date('mdYHis') . uniqid();
+                $path = '/storage/images/organizations/'. $offer->id .'/'. $name.'.' .$extension;
+                $file->storeAs('/public/images/organizations/'. $offer->id .'/', $name.'.' .$extension);
+                $this->attachDocument($offer,$path);
+            }
+        }
+    }
+
+    /**
+     * @param $offer
+     * @param $path
+     */
+
+    private function attachDocument($offer,$path)
+    {
+        if(!empty($offer) && !empty($path))
+        {
+            $doc = new OrganizationDocument();
+            $doc->organization_id = $offer->id;
+            $doc->path = $path;
+            $doc->save();
+        }
     }
 
     /**

@@ -62,4 +62,13 @@ class Organization extends Model
     {
         return $this->belongsTo(OrganizationStatus::class,'status_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+
+    public function documents()
+    {
+        return $this->hasMany(OrganizationDocument::class,'organization_id');
+    }
 }

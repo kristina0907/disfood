@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\BikService;
 use App\Services\CategoryService;
 use App\Services\ChatRoomService;
 use App\Services\CityService;
@@ -126,6 +127,12 @@ class ApiController extends Controller
     protected $orderDocumentsService;
 
     /**
+     * @var BikService
+     */
+
+    protected $bikService;
+
+    /**
      * ApiController constructor.
      * @param DadataService $daDataService
      * @param OrganizationService $organizationService
@@ -160,7 +167,8 @@ class ApiController extends Controller
                                 SimplePageService  $simplePageService,
                                 CityService $cityService,
                                 FilterService $filterService,
-                                OrderDocumentService $orderDocumentsService
+                                OrderDocumentService $orderDocumentsService,
+                                BikService $bikService
 
     )
     {
@@ -180,6 +188,7 @@ class ApiController extends Controller
         $this->cityService = $cityService;
         $this->filterService = $filterService;
         $this->orderDocumentsService = $orderDocumentsService;
+        $this->bikService = $bikService;
     }
 
     /**
@@ -191,6 +200,21 @@ class ApiController extends Controller
     {
         return $this->daDataService->getCompanyByInn($request->inn, 10);
     }
+
+    /**
+     * @param Request $request
+     * @return mixed|void
+     */
+
+    public function getBankFromApi(Request $request)
+    {
+        if(!empty($request->bik))
+        {
+            $bik = $this->bikService->getByBik($request->bik);
+            return $bik;
+        }
+    }
+
 
     /**
      * @param Request $request
@@ -573,6 +597,14 @@ class ApiController extends Controller
          {
              $this->offerService->saveOfferData($request);
          }
+     }
+
+     public function setNewOrganization(Request $request)
+     {
+        if(!empty($request))
+        {
+            $this->organizationService->saveOrganizationFromLK($request);
+        }
      }
 
     /**

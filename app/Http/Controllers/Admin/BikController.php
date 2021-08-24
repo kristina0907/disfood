@@ -45,6 +45,11 @@ class BikController extends Controller
         return true;
     }
 
+    /**
+     * @param Request $request
+     * @return mixed|void
+     */
+
     public function findBik(Request $request)
     {
         if(!empty($request->bik))

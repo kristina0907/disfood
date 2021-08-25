@@ -422,6 +422,12 @@ export default {
         }
     },
     methods:{
+
+        /**
+         *
+         * @param org
+         */
+
         storeChanges(org)
         {
             axios.post('/set/update/organization', org)

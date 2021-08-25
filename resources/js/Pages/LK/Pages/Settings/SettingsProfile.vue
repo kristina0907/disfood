@@ -12,13 +12,13 @@
                 <div class="right_container" v-if="user && user.user">
                     <div class="title_settings">Профиль</div>
                     <div class="profile_information_block">
-                        <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="user.user.name"></quick-edit>
+                        <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" @input="storeChanges(user.user)" v-model="user.user.name"></quick-edit>
                         <table class="profile_information_list">
                             <tr class="profile_information_item">
                                 <td class="title_profile_information_item">Должность</td>
                                 <td class="value_profile_information_item">
                                     <div class="row">
-                                        <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="user.user.dolgnost"></quick-edit>
+                                        <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" @input="storeChanges(user.user)" v-model="user.user.dolgnost"></quick-edit>
                                         <span class="edit_profile_information_item">
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +36,7 @@
                                 <td class="title_profile_information_item">Телефон</td>
                                 <td class="value_profile_information_item">
                                     <div class="row">
-                                        <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="user.user.phone"></quick-edit>
+                                        <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" @input="storeChanges(user.user)" v-model="user.user.phone"></quick-edit>
                                         <span class="edit_profile_information_item">
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +54,7 @@
                                 <td class="title_profile_information_item">E-mail</td>
                                 <td class="value_profile_information_item">
                                     <div class="row">
-                                        <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="user.user.email"></quick-edit>
+                                        <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" @input="storeChanges(user.user)" v-model="user.user.email"></quick-edit>
                                         <span class="edit_profile_information_item">
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
@@ -71,7 +71,7 @@
                             <tr class="profile_information_item">
                                 <td class="title_profile_information_item">Пароль</td>
                                 <td class="value_profile_information_item"> <div class="row">
-                                    <quick-edit class="name_profile_information" emptyText="Не указано" buttonCancelText="Отмена" v-model="user.user.password"></quick-edit>
+                                    <quick-edit class="name_profile_information" emptyText="Введите новый пароль" buttonCancelText="Отмена" @input="storeChanges(user.user)" v-model="user.user.password"></quick-edit>
                                     <span class="edit_profile_information_item">
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
@@ -113,16 +113,16 @@
                                 <td class="title_profile_information_item">Этапы сделки</td>
                                 <td class="checkbox_profile_information_item">
                                     <div class="checkbox">
-                                        <input class="custom-checkbox" type="checkbox" id="country-1" name="country"
+                                        <input class="custom-checkbox" type="checkbox" id="country-3" name="country"
                                                value="indigo">
-                                        <label for="country-1">СМС</label>
+                                        <label for="country-3">СМС</label>
                                     </div>
                                 </td>
                                 <td class="checkbox_profile_information_item">
                                     <div class="checkbox">
-                                        <input class="custom-checkbox" type="checkbox" id="country-2" name="country"
+                                        <input class="custom-checkbox" type="checkbox" id="country-4" name="country"
                                                value="indigo" checked>
-                                        <label for="country-2">Почта</label>
+                                        <label for="country-4">Почта</label>
                                     </div>
                                 </td>
                             </tr>
@@ -130,16 +130,16 @@
                                 <td class="title_profile_information_item">Сообщения</td>
                                 <td class="checkbox_profile_information_item">
                                     <div class="checkbox">
-                                        <input class="custom-checkbox" type="checkbox" id="country-1" name="country"
+                                        <input class="custom-checkbox" type="checkbox" id="country-5" name="country"
                                                value="indigo">
-                                        <label for="country-1">СМС</label>
+                                        <label for="country-5">СМС</label>
                                     </div>
                                 </td>
                                 <td class="checkbox_profile_information_item">
                                     <div class="checkbox">
-                                        <input class="custom-checkbox" type="checkbox" id="country-2" name="country"
+                                        <input class="custom-checkbox" type="checkbox" id="country-6" name="country"
                                                value="indigo" checked>
-                                        <label for="country-2">Почта</label>
+                                        <label for="country-6">Почта</label>
                                     </div>
                                 </td>
                             </tr>
@@ -147,16 +147,16 @@
                                 <td class="title_profile_information_item">Рассылки</td>
                                 <td class="checkbox_profile_information_item">
                                     <div class="checkbox">
-                                        <input class="custom-checkbox" type="checkbox" id="country-1" name="country"
+                                        <input class="custom-checkbox" type="checkbox" id="country-7" name="country"
                                                value="indigo">
-                                        <label for="country-1">СМС</label>
+                                        <label for="country-7">СМС</label>
                                     </div>
                                 </td>
                                 <td class="checkbox_profile_information_item">
                                     <div class="checkbox">
-                                        <input class="custom-checkbox" type="checkbox" id="country-2" name="country"
+                                        <input class="custom-checkbox" type="checkbox" id="country-8" name="country"
                                                value="indigo" checked>
-                                        <label for="country-2">Почта</label>
+                                        <label for="country-8">Почта</label>
                                     </div>
                                 </td>
                             </tr>
@@ -188,6 +188,22 @@ export default {
     },
     methods:{
 
+        /**
+         *
+         * @param org
+         */
+
+        storeChanges(org)
+        {
+            axios.post('/set/update/profile', org)
+                .then(response => {
+                    if(response.status == 200)
+                    {
+                        console.log(response.status)
+                        //router.push({ name: 'settingsprofile', query: { redirect: '/settings/profile' } });
+                    }
+                });
+        }
     },
     computed: {
         ...mapState(['user'])

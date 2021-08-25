@@ -148,6 +148,44 @@ class UserRepository implements UserContract
     }
 
     /**
+     * @param $data
+     */
+
+    public function updateProfile($data)
+    {
+        if(!empty($data->id))
+        {
+            $user = $this->user->find($data->id);
+
+            $user->name = $data->name;
+            $user->email = $data->email;
+            $user->surname = $data->surname;
+            $user->phone = $data->phone;
+            if (!empty($data['password']))
+            {
+                $user->password = Hash::make($data->password);
+            }
+            if(!empty($data->type))
+            {
+                if((string) $data->type === "company")
+                {
+                    $user->roles()->sync([3]);
+                }
+                elseif ((string) $data->type === "ip")
+                {
+                    $user->roles()->sync([11]);
+                }
+            }
+
+            $user->update();
+
+            return $user;
+        }
+
+    }
+
+
+    /**
      * @param $id
      * @return mixed
      */

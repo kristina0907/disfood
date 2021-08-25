@@ -623,6 +623,18 @@ class ApiController extends Controller
          }
      }
 
+    /**
+     * @param Request $request
+     */
+
+     public function setUpdateProfile(Request $request)
+     {
+         if(!empty($request))
+         {
+             $this->userService->updateProfile($request);
+         }
+     }
+
 
     /**
      * @param $id

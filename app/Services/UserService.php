@@ -113,6 +113,33 @@ class UserService
 
         return $result;
 
+    }
+
+    /**
+     * @param $data
+     */
+
+    public function updateProfile($data)
+    {
+
+
+        DB::beginTransaction();
+
+        try {
+            $result = $this->userRepository->updateProfile($data);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::info($e->getMessage());
+
+            throw new InvalidArgumentException('Unable to update post data');
+        }
+
+        DB::commit();
+
+        return $result;
+
+
 
     }
 

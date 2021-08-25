@@ -94,7 +94,7 @@
                         </div>
 
                         <div id="chart">
-                            <vue-apex-charts type="line" height="275" :options="options" :series="options.series"></vue-apex-charts>
+                            <vue-apex-charts type="line" height="275" :options="options" :series="series"></vue-apex-charts>
                         </div>
                         <div class="more_about_price_prediction">
                             <div class="title_more_about_price_prediction">
@@ -339,19 +339,6 @@ export default {
                     curve: 'straight',
                     width: 3,
                 },
-                series: [
-                    {
-                        labels: {
-                            style: {
-                                colors: ['#22262A'],
-                                fontSize: '12px',
-                                lineHeight: '15px',
-                            },
-                        },
-                        name: "16 Июня 2021",
-                        data: [20, 40, 20, 60, 20, 70, 40, 20, 70, 40, 20, 30]
-                    }
-                ],
                 markers: {
                     size: 0,
                     colors: '#fff',
@@ -367,7 +354,8 @@ export default {
                 },
                 tooltip: {
                     custom: function ({ series, seriesIndex, dataPointIndex, w }) {
-                        return '<div class="info_chart_item"><div class="date_info_chart_item">16 Июня 2021</div><div class="price_info_chart_item">Цена<span>34 ₽/ кг</span></div></div>'
+                        return '<div class="info_chart_item">'+
+                            '<div class="date_info_chart_item">16 Июня 2021</div><div class="price_info_chart_item">Цена<span>34 ₽/ кг</span></div></div>'
                     }
                 },
                 xaxis: {
@@ -382,6 +370,19 @@ export default {
                 },
                 colors: ['#71BF45'],
             },
+            series: [
+                {
+                    labels: {
+                        style: {
+                            colors: ['#22262A'],
+                            fontSize: '12px',
+                            lineHeight: '15px',
+                        },
+                    },
+                    name: ["16 Июня 2021","20 июня 2021"],
+                    data: [20, 40, 20, 60, 20, 70, 40, 20, 70, 40, 20, 30]
+                }
+            ],
         }
     }
 }

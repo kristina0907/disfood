@@ -74,11 +74,19 @@ class OrderRepository implements OrderContract
         $order = new $this->order;
         $order->organization_id = $data['organization_id'];
         $order->user_id = $data['user_id'];
-        if(!empty($data['from_id']) && !empty($data['to_id']))
-        {
+        if (!empty($data['from_id']) && !empty($data['to_id'])) {
             $order->from_id = $data['from_id'];
             $order->to_id = $data['to_id'];
         }
+        $order->summ = $data['summ'];
+        $order->capacity = $data['volume'];
+        $order->price = $data['price'];
+        $order->with_nds = $data['price_with_nds'];
+        if (is_array($data['to_id']))
+        {
+            $order->to_id = $data['to_id']['value'];
+        }
+
 
         $order->offer_id = $data['offer_id'];
         $order->status_id = $data['status_id'];
@@ -103,6 +111,8 @@ class OrderRepository implements OrderContract
             $order->from_id = $data['from_id'];
             $order->to_id = $data['to_id'];
         }
+
+        $order->summ = $data['summ'];
         $order->to_id = $data['to_id'];
         $order->offer_id = $data['offer_id'];
         $order->status_id = $data['status_id'];

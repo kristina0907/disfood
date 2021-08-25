@@ -180,12 +180,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <yandex-map
+                                    <yandex-map v-if="coords"
                                         :coords="coords"
                                         :zoom="4"
                                     >
                                         <div v-for="product in products">
-                                            <ymap-marker v-if="product.adresses" v-for="adress in product.adresses"
+                                            <ymap-marker v-if="product.adresses && product.organization && product.organization.name" v-for="adress in product.adresses"
                                                 :coords="[adress.geo_lat , adress.geo_lon ]"
                                                 :marker-id="product.id"
                                                 v-bind:key="product.id"
@@ -200,7 +200,7 @@
                                                     <div class="image_info_item_offer_catalog"
                                                          style="background-image: url(/images/offer.png);"></div>
                                                     <div>
-                                                        <div class="name_info_item_offer_catalog">{{product.organization.name}}
+                                                        <div class="name_info_item_offer_catalog" v-if="product.organization">{{product.organization.name}}
                                                             <span class="icon_star">
                                                                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
                                                                      xmlns="http://www.w3.org/2000/svg">

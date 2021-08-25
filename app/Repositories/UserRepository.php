@@ -153,6 +153,7 @@ class UserRepository implements UserContract
 
     public function updateProfile($data)
     {
+        //dd($data);
         if(!empty($data->id))
         {
             $user = $this->user->find($data->id);
@@ -161,6 +162,17 @@ class UserRepository implements UserContract
             $user->email = $data->email;
             $user->surname = $data->surname;
             $user->phone = $data->phone;
+            $user->dolgnost = $data->dolgnost;
+
+            $user->new_order_post = $data->new_order_post;
+            $user->new_order_sms = $data->new_order_sms;
+            $user->part_order_post = $data->part_order_post;
+            $user->part_order_sms = $data->part_order_sms;
+            $user->message_sms = $data->message_sms;
+            $user->message_post = $data->message_post;
+            $user->subscribe_sms = $data->subscribe_sms;
+            $user->subscribe_post = $data->subscribe_post;
+
             if (!empty($data['password']))
             {
                 $user->password = Hash::make($data->password);

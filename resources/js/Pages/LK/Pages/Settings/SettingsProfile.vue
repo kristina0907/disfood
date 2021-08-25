@@ -97,14 +97,14 @@
                                 <td class="checkbox_profile_information_item">
                                     <div class="checkbox">
                                         <input class="custom-checkbox" type="checkbox" id="country-1" name="country"
-                                               value="indigo" checked>
+                                               value="indigo" v-model="user.user.new_order_sms" @input="storeChanges(user.user)">
                                         <label for="country-1">СМС</label>
                                     </div>
                                 </td>
                                 <td class="checkbox_profile_information_item">
                                     <div class="checkbox">
                                         <input class="custom-checkbox" type="checkbox" id="country-2" name="country"
-                                               value="indigo" checked>
+                                               value="indigo" @input="storeChanges(user.user)"  v-model="user.user.new_order_post">
                                         <label for="country-2">Почта</label>
                                     </div>
                                 </td>
@@ -114,14 +114,14 @@
                                 <td class="checkbox_profile_information_item">
                                     <div class="checkbox">
                                         <input class="custom-checkbox" type="checkbox" id="country-3" name="country"
-                                               value="indigo">
+                                               value="indigo" @input="storeChanges(user.user)"  v-model="user.user.part_order_sms" >
                                         <label for="country-3">СМС</label>
                                     </div>
                                 </td>
                                 <td class="checkbox_profile_information_item">
                                     <div class="checkbox">
                                         <input class="custom-checkbox" type="checkbox" id="country-4" name="country"
-                                               value="indigo" checked>
+                                               value="indigo" @input="storeChanges(user.user)"  v-model="user.user.part_order_post" >
                                         <label for="country-4">Почта</label>
                                     </div>
                                 </td>
@@ -131,14 +131,14 @@
                                 <td class="checkbox_profile_information_item">
                                     <div class="checkbox">
                                         <input class="custom-checkbox" type="checkbox" id="country-5" name="country"
-                                               value="indigo">
+                                               value="indigo" @input="storeChanges(user.user)"  v-model="user.user.message_sms">
                                         <label for="country-5">СМС</label>
                                     </div>
                                 </td>
                                 <td class="checkbox_profile_information_item">
                                     <div class="checkbox">
                                         <input class="custom-checkbox" type="checkbox" id="country-6" name="country"
-                                               value="indigo" checked>
+                                               value="indigo" @input="storeChanges(user.user)"  v-model="user.user.message_post">
                                         <label for="country-6">Почта</label>
                                     </div>
                                 </td>
@@ -148,14 +148,14 @@
                                 <td class="checkbox_profile_information_item">
                                     <div class="checkbox">
                                         <input class="custom-checkbox" type="checkbox" id="country-7" name="country"
-                                               value="indigo">
+                                               value="indigo" @input="storeChanges(user.user)"  v-model="user.user.subscribe_sms">
                                         <label for="country-7">СМС</label>
                                     </div>
                                 </td>
                                 <td class="checkbox_profile_information_item">
                                     <div class="checkbox">
                                         <input class="custom-checkbox" type="checkbox" id="country-8" name="country"
-                                               value="indigo" checked>
+                                               value="indigo" @input="storeChanges(user.user)"  v-model="user.user.subscribe_post">
                                         <label for="country-8">Почта</label>
                                     </div>
                                 </td>

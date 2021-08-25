@@ -262,7 +262,7 @@
                         </div>
                     </div>
                     <div class="advertising_dashboard"
-                         style="background-image: url(./assets/images/advertising_dashboard.jpg);">
+                         style="background-image: url('./img/advertising_dashboard.jpg');">
                         <div class="title_advertising_dashboard">
                             Снижение коммиссии<br />на сделки
                         </div>
@@ -274,6 +274,32 @@
                                 Для новый пользователей
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal_change_period" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 style="display: none;" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="title_madal_change_packaging">Период</div>
+
+                            <form action="">
+                                <div class="list_period">
+                                    <div class="item_period">1 м</div>
+                                    <div class="item_period">4 м</div>
+                                    <div class="item_period">1 г</div>
+                                    <div class="item_period my_item_period">Свой</div>
+                                </div>
+                                <div class="auto-jsCalendar" data-language="ru" data-day-format="DDD"></div>
+                                <div class="btn_summit">
+                                    <button type="submit">Применить 18.01 - 31.01</button>
+                                </div>
+                            </form>
+
+                        </div>
+
                     </div>
                 </div>
             </div>

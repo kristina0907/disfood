@@ -6150,3 +6150,291 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     color:#000;
     text-decoration: none;
 }
+
+.container_dashboard{
+    background: #F0F2F4;
+    padding: 45px 40px 30px;
+}
+.container_dashboard .row{
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.container_dashboard .row>div{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.transactions_current_period, .my_items, .advertising_dashboard, .help_partners, .contacting_those_support{
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 40px 40px 25px;
+    margin-bottom: 20px;
+    height: 265px;
+    position: relative;
+}
+.advertising_dashboard{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.icon_help_partners{
+    position: absolute;
+    right: 32px;
+    bottom: 52px;
+}
+.price_dynamics{
+    height: 550px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 40px;
+    margin-bottom: 20px;
+}
+.header_item_right_dashboard{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+.titile_header_item_right_dashboard{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #0E0F11;
+}
+.description_titile_header_item_dashboard{
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #66727E;
+    margin-top: 5px;
+}
+.date_transactions_current_period{
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #66727E;
+    margin-right: 15px;
+}
+.change_transactions_current_period{
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #71BF45;
+}
+.date_change_block{
+    display: flex;
+}
+.update_prices_my_items{
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #71BF45;
+}
+.item_values_dashboard{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color: #000000;
+    margin-bottom: 15px;
+}
+.title_values_dashboard{
+    min-width: 135px;
+}
+.title_values_dashboard:hover{
+    color: #61A73A;
+    cursor: pointer;
+}
+.title_advertising_dashboard{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    color: #FFFFFF;
+}
+.percent_advertising_dashboard{
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 50px;
+    color: #FFFFFF;
+}
+.description_advertising_dashboard{
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FFFFFF;
+}
+.list_values_dashboard, .info_advertising_dashboard {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    bottom: 25px;
+}
+.transactions_value_block{
+    display: flex;
+}
+.transactions_price_dynamics{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    margin-right: 20px;
+}
+.value_price_dynamics{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #71BF45;
+}
+.out_date_price{
+    color: #F56C4C;
+}
+.title_more_about_price_prediction{
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #66727E;
+}
+.title_more_about_price_prediction{
+    display: flex;
+}
+.title_more_about_price_prediction svg{
+    margin-right: 11px;
+}
+.title_more_about_price_prediction span{
+    color: #61A73A;
+}
+.more_about_price_prediction{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.prices_more_about_price_prediction{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-between;
+}
+.price_period_prediction{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    color: #0E0F11;
+}
+.period_prediction{
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 20px;
+    color: #66727E;
+}
+.period_prediction span{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    margin-left: 10px;
+}
+.increase_price{
+    color: #71BF45;
+}
+.decline_price{
+    color: #F56C4C;
+}
+.choose_period_price_dynamics{
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #66727E;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.price_dynamics .header_item_right_dashboard{
+    margin-bottom: 5px;
+}
+.apexcharts-toolbar{
+    display: none !important;
+}
+.apexcharts-canvas.apexcharts-theme-light{
+    width: 100% !important;
+    padding: 0;
+}
+.apexcharts-xcrosshairs, .apexcharts-ycrosshairs{
+    display: none;
+}
+.apexcharts-xaxis line, .apexcharts-xaxis-tick{
+    display: none;
+}
+.apexcharts-yaxis{
+    transform: translate(0, 0) !important;
+}
+.apexcharts-xaxistooltip{
+    display: none;
+}
+.select_product.select{
+    width: 100%;
+}
+.select_product .select__title {
+    padding: 10px 20px 10px;
+}
+.select_product .select__title::before, .select__title::after {
+    top: 20px;
+    right: 30px;
+}
+.select_product .select__content {
+    top: 35px;
+}
+.info_chart_item{
+    background: #F0F2F4;
+    border-radius: 5px;
+    padding: 10px;
+}
+.date_info_chart_item{
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #66727E;
+}
+.price_info_chart_item{
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 20px;
+    color: #000000;
+}
+.price_info_chart_item span{
+    margin-left: 15px;
+}
+.list_period{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 52px;
+}
+.item_period{
+    background: #F0F2F4;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-right: 10px;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #22262A;
+    cursor: pointer;
+}
+.my_item_period{
+    background: #CAE7BA;
+}
+#modal_change_period .modal-content {
+    padding: 50px 40px;
+    max-width: 460px;
+}
+.jsCalendar table{
+    width: 100%;
+    box-shadow:none;
+    margin: 0px;
+}
+.jsCalendar thead .jsCalendar-week-days th, .jsCalendar tbody td{
+    font-size: 15px;
+    color: #22262A;
+}
+.jsCalendar tbody td.jsCalendar-current{
+    background-color: #CAE7BA;
+}

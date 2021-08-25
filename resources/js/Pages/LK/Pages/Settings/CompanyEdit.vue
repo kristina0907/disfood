@@ -16,9 +16,12 @@
                             <div class="name_setting_info_company">
                                 {{org.name}}
                             </div>
-                            <div class="setting_accredited_company" data-tooltip="Загрузите документы и заполните информацию.">
-                                Поставщик • {{org.status.name}}
-                            </div>
+                            <router-link :to="{'name':'settingsaccreditation',params:{id:org.id}}">
+                                <div class="setting_accredited_company" data-tooltip="Загрузите документы и заполните информацию.">
+                                    Поставщик • {{org.status.name}}
+                                </div>
+                            </router-link>
+
                         </div>
                     </div>
                     <div class="setting_company_questions">

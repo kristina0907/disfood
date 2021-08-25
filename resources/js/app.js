@@ -33,6 +33,7 @@ import { BootstrapVue, IconsPlugin , DropdownPlugin, TablePlugin} from 'bootstra
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import YmapPlugin from 'vue-yandex-maps'
+import VueApexCharts from 'vue-apexcharts'
 
 
 const settings = {
@@ -53,6 +54,7 @@ Vue.use(TablePlugin)
 Vue.use(Vuelidate)
 Vue.use(VueRouter);
 Vue.use(YmapPlugin, settings)
+Vue.use(VueApexCharts)
 
 
 /**

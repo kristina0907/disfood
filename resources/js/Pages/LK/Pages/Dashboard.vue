@@ -93,7 +93,9 @@
                             </div>
                         </div>
 
-                        <div id="chart"></div>
+                        <div id="chart">
+                            <vue-apex-charts type="line" height="275" :options="options" :series="options.series"></vue-apex-charts>
+                        </div>
                         <div class="more_about_price_prediction">
                             <div class="title_more_about_price_prediction">
                                 <div>
@@ -313,11 +315,73 @@
 
 
 import UserLKHeader from "../../../Сomponents/LK/UserLKHeader";
+import VueApexCharts from 'vue-apexcharts'
 export default {
-    components: {UserLKHeader},
+    components: {UserLKHeader,VueApexCharts},
     data(){
         return {
-
+            options : {
+                chart: {
+                    height: 275,
+                    width: "100%",
+                    type: "line"
+                },
+                grid: {
+                    borderColor: '#D4D8DB',
+                    padding: {
+                        top: 0,
+                        right: 0,
+                        bottom: 0,
+                        left: 20
+                    },
+                },
+                stroke: {
+                    curve: 'straight',
+                    width: 3,
+                },
+                series: [
+                    {
+                        labels: {
+                            style: {
+                                colors: ['#22262A'],
+                                fontSize: '12px',
+                                lineHeight: '15px',
+                            },
+                        },
+                        name: "16 Июня 2021",
+                        data: [20, 40, 20, 60, 20, 70, 40, 20, 70, 40, 20, 30]
+                    }
+                ],
+                markers: {
+                    size: 0,
+                    colors: '#fff',
+                    strokeColor: '#71BF45',
+                    strokeWidth: 2,
+                    strokeOpacity: 1,
+                    strokeDashArray: 0,
+                    fillOpacity: 1,
+                    hover: {
+                        size: undefined,
+                        sizeOffset: 7
+                    }
+                },
+                tooltip: {
+                    custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+                        return '<div class="info_chart_item"><div class="date_info_chart_item">16 Июня 2021</div><div class="price_info_chart_item">Цена<span>34 ₽/ кг</span></div></div>'
+                    }
+                },
+                xaxis: {
+                    labels: {
+                        style: {
+                            colors: ['#22262A'],
+                            fontSize: '12px',
+                            lineHeight: '15px',
+                        },
+                    },
+                    categories: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
+                },
+                colors: ['#71BF45'],
+            },
         }
     }
 }

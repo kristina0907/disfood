@@ -1,3 +1,4 @@
+"use strict";
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_LK_Pages_MyMessages_vue"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/LK/Pages/MyMessages.vue?vue&type=script&lang=js&":
@@ -6,12 +7,189 @@
   \*********************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _omponents_LK_UserLKHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Сomponents/LK/UserLKHeader */ "./resources/js/Сomponents/LK/UserLKHeader.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -41,7 +219,6 @@ __webpack_require__.r(__webpack_exports__);
   \**********************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -135,7 +312,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   \**************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -147,6 +323,41 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -260,13 +471,64 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=style&index=0&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.text-user-login-button\n{\n    font-family: Montserrat;\n    font-weight: 400;\n    font-size: 15px;\n    line-height: 20px;\n    padding: 20px;\n}\n.dropdown-item.dropdown-item-settings.user-login-a\n{\n    font-family: Montserrat;\n    font-weight: 600;\n    font-size: 15px;\n    line-height: 20px;\n    color: #71BF45;\n    cursor: pointer;\n}\nheader .dropdown-menu.show\n{\n    left:-50%;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=style&index=0&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=style&index=0&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UserLoginAuthButton.vue?vue&type=style&index=0&lang=css& */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=style&index=0&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
 /***/ "./resources/js/Pages/LK/Pages/MyMessages.vue":
 /*!****************************************************!*\
   !*** ./resources/js/Pages/LK/Pages/MyMessages.vue ***!
   \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -305,7 +567,6 @@ component.options.__file = "resources/js/Pages/LK/Pages/MyMessages.vue"
   \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -344,22 +605,23 @@ component.options.__file = "resources/js/Сomponents/LK/UserLKHeader.vue"
   \*********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserLoginAuthButton.vue?vue&type=template&id=488559df& */ "./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=template&id=488559df&");
 /* harmony import */ var _UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserLoginAuthButton.vue?vue&type=script&lang=js& */ "./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserLoginAuthButton.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
   _UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
   _UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__.render,
   _UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
@@ -383,7 +645,6 @@ component.options.__file = "resources/js/Сomponents/UserLoginAuthButton.vue"
   \*****************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -399,7 +660,6 @@ __webpack_require__.r(__webpack_exports__);
   \******************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -415,7 +675,6 @@ __webpack_require__.r(__webpack_exports__);
   \**********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -425,13 +684,24 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=style&index=0&lang=css&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=style&index=0&lang=css& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UserLoginAuthButton.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=style&index=0&lang=css&");
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/LK/Pages/MyMessages.vue?vue&type=template&id=887264cc&":
 /*!***********************************************************************************!*\
   !*** ./resources/js/Pages/LK/Pages/MyMessages.vue?vue&type=template&id=887264cc& ***!
   \***********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyMessages_vue_vue_type_template_id_887264cc___WEBPACK_IMPORTED_MODULE_0__.render),
@@ -448,7 +718,6 @@ __webpack_require__.r(__webpack_exports__);
   \************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLKHeader_vue_vue_type_template_id_6c98f324___WEBPACK_IMPORTED_MODULE_0__.render),
@@ -465,7 +734,6 @@ __webpack_require__.r(__webpack_exports__);
   \****************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__.render),
@@ -482,7 +750,6 @@ __webpack_require__.r(__webpack_exports__);
   \**************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "render": () => (/* binding */ render),
@@ -495,12 +762,473 @@ var render = function() {
   return _c("div", { staticClass: "container-fluid" }, [
     _c("div", { staticClass: "row" }, [_c("UserLKHeader")], 1),
     _vm._v(" "),
-    _c("div", { staticClass: "content container" }, [
-      _vm._v("\n        Мои сообщения\n    ")
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "xs-12 col-md-4 left_container message_left_container" },
+        [
+          _c(
+            "div",
+            { staticClass: "left_container_info message_left_container_info" },
+            [
+              _c("div", { staticClass: "search_sidebar" }, [
+                _c("input", {
+                  attrs: {
+                    type: "text",
+                    id: "search_sidebar",
+                    placeholder: "Поиск"
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "icon_search_sidebar" }, [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 20C15.9706 20 20 15.9706 20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20Z",
+                          stroke: "#8898A8",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d: "M22 22L18 18",
+                          stroke: "#8898A8",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "icon_search_sidebar_clear" }, [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d: "M6 6L18.7742 18.7742",
+                          stroke: "#22262A",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d: "M6 18.7742L18.7742 5.99998",
+                          stroke: "#22262A",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      })
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(0)
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "xs-12 col-md-8" }, [
+        _c("div", { staticClass: "right_container" }, [
+          _c("div", { staticClass: "select_deal_container" }, [
+            _c("div", { staticClass: "image_select_deal" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    width: "87",
+                    height: "84",
+                    viewBox: "0 0 87 84",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M22.5033 7.41667C11.1815 7.41667 2.00334 16.7068 2.00334 28.1667V42C2.00334 42.8312 2.05162 43.651 2.14551 44.4567C2.05087 44.7737 2 45.11 2 45.4583V75.9808C2 78.9355 5.4239 80.5294 7.6402 78.6066L25.3527 63.2393C25.7164 62.9238 26.1818 62.75 26.6633 62.75H63.5033C74.8252 62.75 84.0033 53.4599 84.0033 42V28.1667C84.0033 16.7068 74.8252 7.41667 63.5033 7.41667H22.5033Z",
+                      stroke: "#71BF45",
+                      "stroke-width": "4"
+                    }
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text_select_deal" }, [
+              _vm._v("Выберите сделку")
+            ])
+          ])
+        ])
+      ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "deal_sidebar" }, [
+      _c(
+        "ul",
+        {
+          staticClass: "nav nav-tabs",
+          attrs: { id: "myTab", role: "tablist" }
+        },
+        [
+          _c("li", { staticClass: "nav-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link active",
+                attrs: {
+                  id: "all-tab",
+                  "data-toggle": "tab",
+                  href: "#all",
+                  role: "tab",
+                  "aria-controls": "all",
+                  "aria-selected": "true"
+                }
+              },
+              [_vm._v("Все")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: {
+                  id: "deal-tab",
+                  "data-toggle": "tab",
+                  href: "#deal",
+                  role: "tab",
+                  "aria-controls": "deal",
+                  "aria-selected": "false"
+                }
+              },
+              [_vm._v("Сделки")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: {
+                  id: "alerts-tab",
+                  "data-toggle": "tab",
+                  href: "#alerts",
+                  role: "tab",
+                  "aria-controls": "alerts",
+                  "aria-selected": "false"
+                }
+              },
+              [_vm._v("Оповещения")]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "tab-content", attrs: { id: "myTabContent" } }, [
+        _c(
+          "div",
+          {
+            staticClass: "tab-pane fade show active",
+            attrs: { id: "all", role: "tabpanel", "aria-labelledby": "all-tab" }
+          },
+          [
+            _c("div", { staticClass: "item_deal_sidebar" }, [
+              _c("div", { staticClass: "left_item_deal_sidebar" }, [
+                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
+                  _vm._v("Сделка 454 543")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text_item_deal_sidebar" }, [
+                  _vm._v(
+                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right_item_deal_sidebar" }, [
+                _c("div", { staticClass: "time_item_deal_sidebar" }, [
+                  _vm._v("19:00")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "item_deal_sidebar" }, [
+              _c("div", { staticClass: "left_item_deal_sidebar" }, [
+                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
+                  _vm._v("Сделка 454 543")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text_item_deal_sidebar" }, [
+                  _vm._v(
+                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам рекомендации. Обратите внимание Пока у нас недостаточно\n                                        данных о товаре,\n                                        чтобы давать вам рекомендации."
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right_item_deal_sidebar" }, [
+                _c("div", { staticClass: "time_item_deal_sidebar" }, [
+                  _vm._v("19:00")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "count_item_deal_sidebar" }, [
+                  _vm._v("10")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "item_deal_sidebar" }, [
+              _c("div", { staticClass: "left_item_deal_sidebar" }, [
+                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
+                  _vm._v("Сделка 454 543")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text_item_deal_sidebar" }, [
+                  _vm._v(
+                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right_item_deal_sidebar" }, [
+                _c("div", { staticClass: "time_item_deal_sidebar" }, [
+                  _vm._v("19:00")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "item_deal_sidebar" }, [
+              _c("div", { staticClass: "left_item_deal_sidebar" }, [
+                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
+                  _vm._v("Сделка 454 543")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text_item_deal_sidebar" }, [
+                  _vm._v(
+                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right_item_deal_sidebar" }, [
+                _c("div", { staticClass: "time_item_deal_sidebar" }, [
+                  _vm._v("19:00")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "item_deal_sidebar" }, [
+              _c("div", { staticClass: "left_item_deal_sidebar" }, [
+                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
+                  _vm._v("Сделка 454 543")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text_item_deal_sidebar" }, [
+                  _vm._v(
+                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right_item_deal_sidebar" }, [
+                _c("div", { staticClass: "time_item_deal_sidebar" }, [
+                  _vm._v("19:00")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "item_deal_sidebar" }, [
+              _c("div", { staticClass: "left_item_deal_sidebar" }, [
+                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
+                  _vm._v("Сделка 454 543")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text_item_deal_sidebar" }, [
+                  _vm._v(
+                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right_item_deal_sidebar" }, [
+                _c("div", { staticClass: "time_item_deal_sidebar" }, [
+                  _vm._v("19:00")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "item_deal_sidebar" }, [
+              _c("div", { staticClass: "left_item_deal_sidebar" }, [
+                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
+                  _vm._v("Сделка 454 543")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text_item_deal_sidebar" }, [
+                  _vm._v(
+                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right_item_deal_sidebar" }, [
+                _c("div", { staticClass: "time_item_deal_sidebar" }, [
+                  _vm._v("19:00")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "item_deal_sidebar" }, [
+              _c("div", { staticClass: "left_item_deal_sidebar" }, [
+                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
+                  _vm._v("Сделка 454 543")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text_item_deal_sidebar" }, [
+                  _vm._v(
+                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right_item_deal_sidebar" }, [
+                _c("div", { staticClass: "time_item_deal_sidebar" }, [
+                  _vm._v("19:00")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "item_deal_sidebar" }, [
+              _c("div", { staticClass: "left_item_deal_sidebar" }, [
+                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
+                  _vm._v("Сделка 454 543")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text_item_deal_sidebar" }, [
+                  _vm._v(
+                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right_item_deal_sidebar" }, [
+                _c("div", { staticClass: "time_item_deal_sidebar" }, [
+                  _vm._v("19:00")
+                ])
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "tab-pane fade",
+            attrs: {
+              id: "deal",
+              role: "tabpanel",
+              "aria-labelledby": "deal-tab"
+            }
+          },
+          [
+            _c("div", { staticClass: "item_deal_sidebar" }, [
+              _c("div", { staticClass: "left_item_deal_sidebar" }, [
+                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
+                  _vm._v("Сделка 454 543")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text_item_deal_sidebar" }, [
+                  _vm._v(
+                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right_item_deal_sidebar" }, [
+                _c("div", { staticClass: "time_item_deal_sidebar" }, [
+                  _vm._v("19:00")
+                ])
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "tab-pane fade",
+            attrs: {
+              id: "alerts",
+              role: "tabpanel",
+              "aria-labelledby": "alerts-tab"
+            }
+          },
+          [
+            _c("div", { staticClass: "item_deal_sidebar" }, [
+              _c("div", { staticClass: "left_item_deal_sidebar" }, [
+                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
+                  _vm._v("Сделка 454 543")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text_item_deal_sidebar" }, [
+                  _vm._v(
+                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right_item_deal_sidebar" }, [
+                _c("div", { staticClass: "time_item_deal_sidebar" }, [
+                  _vm._v("19:00")
+                ])
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -513,7 +1241,6 @@ render._withStripped = true
   \***************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "render": () => (/* binding */ render),
@@ -719,7 +1446,6 @@ render._withStripped = true
   \*******************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "render": () => (/* binding */ render),
@@ -732,52 +1458,205 @@ var render = function() {
   return _c("div", [
     _vm.user == null || _vm.user == false
       ? _c("div", [
-          _c(
-            "div",
-            {
-              staticClass: "login",
-              attrs: { "data-toggle": "modal", "data-target": "#loginModal" }
-            },
-            [
-              _c("div", { staticClass: "login_img" }, [
+          _c("div", { staticClass: "nav-item dropdown" }, [
+            _c(
+              "div",
+              {
+                staticClass: "login",
+                attrs: {
+                  id: "navbarDropdown1",
+                  role: "button",
+                  "data-bs-toggle": "dropdown",
+                  "aria-expanded": "false"
+                },
+                on: {
+                  click: function($event) {
+                    return _vm.changeDropdown()
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "login_img" }, [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        width: "20",
+                        height: "20",
+                        viewBox: "0 0 20 20",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
+                          stroke: "#71BF45",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
+                          stroke: "#71BF45",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      })
+                    ]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "dropdown-menu",
+                attrs: { "aria-labelledby": "navbarDropdown1" }
+              },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "dropdown-item dropdown-item-settings user-login-a",
+                      attrs: {
+                        "data-toggle": "modal",
+                        "data-target": "#loginModal"
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        Войти\n                        "
+                      ),
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "50",
+                            height: "51",
+                            viewBox: "0 0 50 51",
+                            fill: "none"
+                          }
+                        },
+                        [
+                          _c("rect", {
+                            attrs: {
+                              y: "0.5",
+                              width: "50",
+                              height: "50",
+                              rx: "25",
+                              fill: "white"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("rect", {
+                            attrs: {
+                              x: "17.6666",
+                              y: "24",
+                              width: "14.6667",
+                              height: "9.66667",
+                              rx: "2",
+                              stroke: "#71BF45",
+                              "stroke-width": "2"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M20.8334 23.8333V20.5C20.8334 19.3949 21.2724 18.3351 22.0538 17.5537C22.8352 16.7723 23.895 16.3333 25 16.3333C26.1051 16.3333 27.1649 16.7723 27.9463 17.5537C28.7277 18.3351 29.1667 19.3949 29.1667 20.5V23.8333",
+                              stroke: "#71BF45",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
                 _c(
-                  "svg",
-                  {
-                    attrs: {
-                      width: "20",
-                      height: "20",
-                      viewBox: "0 0 20 20",
-                      fill: "none",
-                      xmlns: "http://www.w3.org/2000/svg"
-                    }
-                  },
+                  "li",
                   [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
-                        stroke: "#71BF45",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
-                        stroke: "#71BF45",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    })
-                  ]
+                    _c(
+                      "router-link",
+                      {
+                        staticClass:
+                          "dropdown-item dropdown-item-settings user-login-a",
+                        attrs: { to: { path: "/authorization" } }
+                      },
+                      [
+                        _vm._v(
+                          "\n                       Регистрация\n                        "
+                        ),
+                        _c(
+                          "svg",
+                          {
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "50",
+                              height: "51",
+                              viewBox: "0 0 50 51",
+                              fill: "none"
+                            }
+                          },
+                          [
+                            _c("rect", {
+                              attrs: {
+                                y: "0.5",
+                                width: "50",
+                                height: "50",
+                                rx: "25",
+                                fill: "white"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M17.5 33.4167L17.5821 32.8886C17.7907 31.5477 18.6647 30.3964 19.9679 30.0183C21.2773 29.6384 23.0843 29.25 25 29.25C26.9157 29.25 28.7227 29.6384 30.0321 30.0183C31.3353 30.3964 32.2093 31.5477 32.4179 32.8886L32.5 33.4167",
+                                stroke: "#71BF45",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M25 25.5C27.3012 25.5 29.1667 23.6345 29.1667 21.3333C29.1667 19.0321 27.3012 17.1667 25 17.1667C22.6989 17.1667 20.8334 19.0321 20.8334 21.3333C20.8334 23.6345 22.6989 25.5 25 25.5Z",
+                                stroke: "#71BF45",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  ],
+                  1
                 )
-              ])
-            ]
-          )
+              ]
+            )
+          ])
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -804,9 +1683,11 @@ var render = function() {
                 ? _c(
                     "div",
                     [
-                      _c("div", { staticClass: "name_company" }, [
-                        _vm._v(_vm._s(_vm.currentUserOrganization[0].name))
-                      ]),
+                      _vm.currentUserOrganization
+                        ? _c("div", { staticClass: "name_company" }, [
+                            _vm._v(_vm._s(_vm.currentUserOrganization[0].name))
+                          ])
+                        : _vm._e(),
                       _vm._v(" "),
                       _vm._l(_vm.user.user.roles, function(role) {
                         return _vm.user.user.roles
@@ -977,7 +1858,24 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm._m(0),
+              _c(
+                "li",
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "dropdown-item dropdown-item-settings",
+                      attrs: { to: { path: "/settings/profile" } }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Настройки\n                "
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "li",
@@ -1070,14 +1968,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", [
-      _c(
-        "a",
-        {
-          staticClass: "dropdown-item dropdown-item-settings",
-          attrs: { href: "#" }
-        },
-        [_vm._v("Настройки")]
-      )
+      _c("div", { staticClass: "text-user-login-button" }, [
+        _vm._v(
+          "\n                        Войдите, чтобы делать покупки, и отслеживать заказы.\n                    "
+        )
+      ])
     ])
   },
   function() {

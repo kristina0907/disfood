@@ -8,6 +8,8 @@ import addproduct from "./modules/addproduct";
 import basket from "./modules/basket";
 import profile from "./modules/profile";
 import addcompany from "./modules/addcompany";
+import dashboard from "./modules/dashboard";
+
 
 Vue.use(Vuex);
 
@@ -21,7 +23,8 @@ const store = new Vuex.Store({
         addproduct,
         basket,
         profile,
-        addcompany
+        addcompany,
+        dashboard
     },
     state:{
         user:null,
@@ -30,10 +33,23 @@ const store = new Vuex.Store({
         currentCourse:'RUB',
     },
     getters: {
+        /**
+         *
+         * @param state
+         * @returns {null}
+         */
+
         getUser:(state) =>
         {
             return state.user;
         },
+
+        /**
+         *
+         * @param state
+         * @returns {null}
+         */
+
         getCurrentOrganization:(state)=>
         {
             return state.currentUserOrganization;

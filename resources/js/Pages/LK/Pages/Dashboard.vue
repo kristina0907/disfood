@@ -25,7 +25,7 @@
                             <div class="select__content">
                                 <input id="singleSelect0" class="select__input" type="radio" name="singleSelect" checked />
                                 <label for="singleSelect0" class="select__label">
-                                    <span>Добавьте товар в избранное чтобыотслеживать цену</span>
+                                    <span>Добавьте товар в избранное чтобы отслеживать цену</span>
                                     <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6 6L18.7742 18.7742" stroke="#22262A" stroke-width="2"
@@ -250,12 +250,8 @@
                         </div>
                         <div class="list_values_dashboard">
                             <div class="item_values_dashboard">
-                                <div class="title_values_dashboard">Сняты с продажи</div>
-                                <div class="quantity_values_dashboard">5</div>
-                            </div>
-                            <div class="item_values_dashboard">
                                 <div class="title_values_dashboard">Актуальная цена</div>
-                                <div class="quantity_values_dashboard">5</div>
+                                <div class="quantity_values_dashboard" v-if="dashboard.offers">{{dashboard.offers.length}}</div>
                             </div>
                             <div class="item_values_dashboard">
                                 <div class="title_values_dashboard">Неактуальная цена</div>
@@ -316,6 +312,7 @@
 
 import UserLKHeader from "../../../Сomponents/LK/UserLKHeader";
 import VueApexCharts from 'vue-apexcharts'
+import {mapActions, mapGetters, mapState} from "vuex";
 export default {
     components: {UserLKHeader,VueApexCharts},
     data(){
@@ -384,6 +381,17 @@ export default {
                 }
             ],
         }
-    }
+    },
+    methods:{
+      ...mapActions('dashboard',['getOffers','getOrders'])
+    },
+    mounted() {
+        this.$store.dispatch('dashboard/getOffers');
+
+    },
+    computed:{
+
+        ...mapState(['dashboard',['offers','orders']])
+    },
 }
 </script>

@@ -311,6 +311,58 @@ class ApiController extends Controller
 
     }
 
+
+    public function getMyOrdersByCats()
+    {
+        $filtered = [];
+        $user = Auth::user();
+        if (!empty($user) && !empty($user->id))
+        {
+            $orders =  $this->orderService->getOrdersByUserId($user->id);
+
+            if(!empty($orders))
+            {
+                $filtered['new'] = $this->calcOrderItems($orders,5);
+                $filtered['payment'] = $this->calcOrderItems($orders,1) ;
+                $filtered['cancelled'] = $this->calcOrderItems($orders,10);
+                $filtered['complete'] = $this->calcOrderItems($orders,9);
+                return  $filtered;
+            }
+        }
+        else
+        {
+            return response()->json('Error, id is not valid',401);
+        }
+    }
+
+    private function  calcOrderItems($orders,$status)
+    {
+
+        $summ = 0;
+        $items = array();
+        foreach ($orders as $order)
+        {
+            if($order->status_id == $status)
+            {
+                $items[] = $order;
+            }
+        }
+
+        if(!empty($items))
+        {
+            foreach ($items as $item)
+            {
+                $summ = (float)$summ + (float) $item->summ;
+            }
+        }
+
+
+        $output = [];
+        $output['summ'] = $summ;
+        $output['items'] = $items;
+        return $output;
+    }
+
     /**
      * @param $id
      * @return \Illuminate\Http\JsonResponse|mixed

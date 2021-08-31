@@ -3,7 +3,7 @@ export default {
     namespaced:true,
     state: {
         orders:[],
-        offers:[]
+        offers:[],
     },
     getters: {
 
@@ -52,6 +52,18 @@ export default {
             state.offers = data;
         },
 
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
+        SET_FILTERED_ORDERS(state,data)
+        {
+            state.filteredOrders = data;
+        }
+
 
     },
     actions: {
@@ -64,7 +76,7 @@ export default {
 
         async getOrders({commit})
         {
-            await axios.get('/get/orders')
+            await axios.get('/get/my-orders/by-cats')
                 .then(response => {
                     if (response.data !== 'undefined' && response.data !== null) {
                         commit('SET_ORDERS', response.data)
@@ -86,7 +98,7 @@ export default {
                        commit('SET_OFFERS', response.data)
                    }
                })
-       }
+       },
 
 
     }

@@ -48,6 +48,7 @@ Route::get('/get/my-companies',[ApiController::class,'getUserCompanies']);
 Route::get('/get/location',[ApiController::class,'getLocation']);
 Route::get('/get/location/from/text/{text}',[ApiController::class,'getLocationFromText']);
 Route::get('/get/my-orders',[ApiController::class,'getMyOrders']);
+Route::get('/get/my-orders/by-cats',[ApiController::class,'getMyOrdersByCats']);
 Route::post('/set/order/new',[ApiController::class,'setNewOrder']);
 Route::get('/get/order/{id}',[ApiController::class,'getMyOrder']);
 Route::get('/get/currentuser',[ApiController::class,'getCurrentUser']);

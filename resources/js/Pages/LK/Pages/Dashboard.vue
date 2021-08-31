@@ -220,26 +220,26 @@
                                 <div class="change_transactions_current_period">Цены</div>
                             </div>
                         </div>
-                        <div class="list_values_dashboard">
+                        <div class="list_values_dashboard" v-if="dashboard.orders">
                             <div class="item_values_dashboard">
                                 <div class="title_values_dashboard">Новые</div>
-                                <div class="quantity_values_dashboard">5</div>
-                                <div class="price_values_dashboard">300 000 ₽</div>
+                                <div class="quantity_values_dashboard" v-if="dashboard.orders.new">{{dashboard.orders.new.items.length}}</div>
+                                <div class="price_values_dashboard" v-if="dashboard.orders.new">{{dashboard.orders.new.summ}} ₽</div>
                             </div>
                             <div class="item_values_dashboard">
                                 <div class="title_values_dashboard">Ожидают оплаты</div>
-                                <div class="quantity_values_dashboard">5</div>
-                                <div class="price_values_dashboard">300 000 ₽</div>
+                                <div class="quantity_values_dashboard" v-if="dashboard.orders.payment">{{dashboard.orders.payment.items.length}}</div>
+                                <div class="price_values_dashboard" v-if="dashboard.orders.payment" >{{dashboard.orders.payment.summ}} ₽</div>
                             </div>
                             <div class="item_values_dashboard">
                                 <div class="title_values_dashboard">Отмены</div>
-                                <div class="quantity_values_dashboard">5</div>
-                                <div class="price_values_dashboard">300 000 ₽</div>
+                                <div class="quantity_values_dashboard" v-if="dashboard.orders.cancelled" >{{dashboard.orders.cancelled.items.length}}</div>
+                                <div class="price_values_dashboard" v-if="dashboard.orders.cancelled" >{{dashboard.orders.cancelled.summ}} ₽</div>
                             </div>
                             <div class="item_values_dashboard">
                                 <div class="title_values_dashboard">Завершены</div>
-                                <div class="quantity_values_dashboard">5</div>
-                                <div class="price_values_dashboard">300 000 ₽</div>
+                                <div class="quantity_values_dashboard" v-if="dashboard.orders.complete">{{dashboard.orders.complete.items.length}}</div>
+                                <div class="price_values_dashboard" v-if="dashboard.orders.complete">{{dashboard.orders.complete.summ}} ₽</div>
                             </div>
                         </div>
                     </div>
@@ -255,7 +255,7 @@
                             </div>
                             <div class="item_values_dashboard">
                                 <div class="title_values_dashboard">Неактуальная цена</div>
-                                <div class="quantity_values_dashboard out_date_price">5</div>
+                                <div class="quantity_values_dashboard out_date_price">0</div>
                             </div>
                         </div>
                     </div>
@@ -313,6 +313,7 @@
 import UserLKHeader from "../../../Сomponents/LK/UserLKHeader";
 import VueApexCharts from 'vue-apexcharts'
 import {mapActions, mapGetters, mapState} from "vuex";
+import dashboard from "../../../Store/modules/dashboard";
 export default {
     components: {UserLKHeader,VueApexCharts},
     data(){
@@ -380,13 +381,19 @@ export default {
                     data: [20, 40, 20, 60, 20, 70, 40, 20, 70, 40, 20, 30]
                 }
             ],
+            new:[],
+            payment:[],
+            cancelled:[],
+            complete:[],
         }
     },
     methods:{
-      ...mapActions('dashboard',['getOffers','getOrders'])
+      ...mapActions('dashboard',['getOffers','getOrders']),
+
     },
-    mounted() {
-        this.$store.dispatch('dashboard/getOffers');
+   mounted() {
+         this.$store.dispatch('dashboard/getOffers');
+         this.$store.dispatch('dashboard/getOrders');
 
     },
     computed:{

@@ -39,7 +39,7 @@
                                                         <div class="panel-footer" v-if="search_data.length">
                                                             <ul class="list-group">
                                                                 <a href="#" class="list-group-item" v-for="data1 in search_data"  @click="getName(data1.data.name.full_with_opf,data1.data.inn)">
-                                                                    {{ data1.data.name.full_with_opf}} <br/>
+                                                                    {{ data1.value}} <br/>
                                                                     <span class="color_success">ИНН {{data1.data.inn}}</span></a>
                                                             </ul>
                                                         </div>

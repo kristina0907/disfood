@@ -412,7 +412,7 @@
                        <div class="title_news_company_block">Новости</div>
                        <div class="all_news_company_block"><router-link :to="{path:'allnews'}">Смотреть все</router-link></div>
                    </div>
-                   <VueSlickCarousel :arrows="true" :dots="false" :slidesPerRow="2" class="list_news" v-if="news.length" >
+                   <VueSlickCarousel v-bind="settings" class="list_news" v-if="news.length" >
                       <div class="item_list_news_company" v-for="page in news">
                           <router-link :to="{path:'/news-page/'+page.id}">
                               <div class="img_item_list_news_company" :style="'background-image: url(/storage'+page.image+');'">
@@ -525,6 +525,17 @@ export default {
       return {
           partners:[],
           news:[],
+          settings:
+          {
+              "centerMode": true,
+              "centerPadding": "20px",
+              "focusOnSelect": true,
+              "infinite": true,
+              "slidesToShow": 2,
+              "speed": 500,
+              "arrows":true
+          }
+
       }
     },
     methods:{

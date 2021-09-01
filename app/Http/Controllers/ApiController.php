@@ -311,6 +311,9 @@ class ApiController extends Controller
 
     }
 
+    /**
+     * @return array|\Illuminate\Http\JsonResponse|void
+     */
 
     public function getMyOrdersByCats()
     {
@@ -334,6 +337,12 @@ class ApiController extends Controller
             return response()->json('Error, id is not valid',401);
         }
     }
+
+    /**
+     * @param $orders
+     * @param $status
+     * @return array
+     */
 
     private function  calcOrderItems($orders,$status)
     {

@@ -81,7 +81,7 @@
                                 </svg>
 
                             </div>
-                            <div class="download_contract">
+                            <div class="download_contract" v-if="loadingDoc">
                                 <div class="title_download_contract">Загрузите подписаный договор</div>
                                 <div class="download_contract_block">
                                     <div class="container_download_contract_block">
@@ -143,7 +143,7 @@ export default {
     components: {Leftsidebar, UserLKHeader},
     data(){
         return {
-
+            loadingDoc:false,
         }
     },
     computed: {

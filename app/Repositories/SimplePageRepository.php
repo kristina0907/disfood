@@ -163,7 +163,7 @@ class SimplePageRepository implements SimplePageContract
 
     public function getNews()
     {
-        return $this->page->where('category_id',1)->get();
+        return $this->page->where('category_id',3)->get();
     }
 
 

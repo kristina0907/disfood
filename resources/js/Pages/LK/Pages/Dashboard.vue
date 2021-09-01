@@ -246,7 +246,9 @@
                     <div class="my_items">
                         <div class="header_item_right_dashboard">
                             <div class="titile_header_item_right_dashboard">Мои товары</div>
-                            <div class="update_prices_my_items">Обновить цены у 5 позиций</div>
+                            <router-link :to="{path:'/my-products'}">
+                                <div class="update_prices_my_items" v-if="dashboard.offers">Обновить цены у {{dashboard.offers.length}} позиций</div>
+                            </router-link>
                         </div>
                         <div class="list_values_dashboard">
                             <div class="item_values_dashboard">

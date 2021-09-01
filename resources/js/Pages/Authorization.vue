@@ -13,46 +13,7 @@
                         </div>
                         <div class="reg_form">
                             <form>
-                                <div class="item_reg_block">
-                                    <div class="container_item_reg_input">
-                                        <div>
-                                            <div class="container_item_providere active">
-                                                <div class="item_provider">
-                                                    <div class="title_provider">Покупатель</div>
-                                                    <div class="description_provider">Получите доступ к 1000 товаров и сделкам
-                                                    </div>
-                                                </div>
-                                                <div class="icon_provider">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M1 2H3.39566C4.33305 2 5.14468 2.65106 5.34803 3.56614L6 6.5M6 6.5L7.10424 12.5733C7.62296 15.4263 10.1077 17.5 13.0075 17.5H15.7106C18.512 17.5 20.9406 15.5615 21.5614 12.8297L22.5835 8.33243C22.7969 7.39379 22.0834 6.5 21.1208 6.5H6Z"
-                                                            stroke="white" stroke-width="2" stroke-linecap="round" />
-                                                        <circle cx="8.5" cy="21" r="1" stroke="white" stroke-width="2" />
-                                                        <circle cx="20.5" cy="21" r="1" stroke="white" stroke-width="2" />
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="container_item_providere">
-                                                <div class="item_provider">
-                                                    <div class="title_provider">Поставщик</div>
-                                                    <div class="description_provider">Размещайте товары и проводите сделки</div>
-                                                </div>
-                                                <div class="icon_provider">
-                                                    <svg width="22" height="23" viewBox="0 0 22 23" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M10.3079 1.65797C10.5645 1.0432 11.4355 1.0432 11.6921 1.65797L13.8937 6.93186C13.9962 7.17755 14.2214 7.35045 14.4852 7.38616L20.2876 8.17148C20.9378 8.25948 21.1695 9.08097 20.6612 9.49579L16.1809 13.1518C15.9594 13.3326 15.86 13.6235 15.9244 13.902L17.3568 20.0919C17.5119 20.762 16.7583 21.27 16.1953 20.8748L11.4309 17.5309C11.1723 17.3494 10.8277 17.3494 10.5691 17.5309L5.8047 20.8749C5.24167 21.27 4.48807 20.7621 4.64315 20.0919L6.07545 13.902C6.1399 13.6235 6.04042 13.3326 5.81895 13.1518L1.3388 9.49578C0.830477 9.08096 1.06222 8.25948 1.7124 8.17149L7.51479 7.38616C7.77862 7.35045 8.00375 7.17755 8.10631 6.93186L10.3079 1.65797Z"
-                                                            stroke="#71BF45" stroke-width="2" stroke-miterlimit="3.3292"
-                                                            stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="item_reg_block">
                                     <div class="title_item_reg_block">
                                         Реквизиты

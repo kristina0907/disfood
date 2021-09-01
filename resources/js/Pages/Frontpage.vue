@@ -403,9 +403,9 @@
                            </div>
                        </div>
                    </div>
-                   <div class="all_partners_company_block">
+<!--                   <div class="all_partners_company_block">
                        <a href="">Показать всех</a>
-                   </div>
+                   </div>-->
                </div>
                <div class="news_company_block">
                    <div class="header_news_company_block">

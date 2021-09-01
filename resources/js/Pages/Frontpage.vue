@@ -413,13 +413,16 @@
                        <div class="all_news_company_block"><router-link :to="{path:'allnews'}">Смотреть все</router-link></div>
                    </div>
                    <VueSlickCarousel :arrows="true" :dots="false" :slidesPerRow="2" class="list_news" v-if="news.length" >
-                       <div class="item_list_news_company" v-for="page in news">
-                           <div class="img_item_list_news_company" :style="'background-image: url(/storage'+page.image+');'">
-                           </div>
-                           <div class="title_item_list_news_company">{{page.title}}</div>
-                           <div class="category_news_item_list_news_company">
-                               Новости
-                           </div>
+                      <div class="item_list_news_company" v-for="page in news">
+                          <router-link :to="{path:'/news-page/'+page.id}">
+                              <div class="img_item_list_news_company" :style="'background-image: url(/storage'+page.image+');'">
+                              </div>
+                              <div class="title_item_list_news_company">{{page.title}}</div>
+                              <div class="category_news_item_list_news_company">
+                                  Новости
+                              </div>
+                          </router-link>
+
                        </div>
                    </VueSlickCarousel>
                </div>

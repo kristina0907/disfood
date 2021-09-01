@@ -395,11 +395,11 @@
                <div class="partners_company_block">
                    <div class="title_partners_company_block">Наши партнеры</div>
                    <div class="row" v-if="partners.partners">
-                       <div class="col-xs-12 col-md-3 padding_item_partners_company" v-for="partner in partners.partners">
-                           <div class="item_partners_company">
-                               <div class="img_item_partners_company"
-                                    :style="'background-image: url(/storage/'+ partner.image + ');'"></div>
-                               <div class="name_item_partners_company">{{partner.name}}</div>
+                       <div class="col-xs-12 col-md-3 padding_item_partners_company"  v-for="partner in partners.partners">
+                           <div class="item_partners_company" :style="'background-image: url(/storage/'+ partner.image + ');background-repeat:no-repeat; border:1px solid #fafafa; background-size:auto 100%;background-position:center;min-height:100px;'">
+<!--                               <div class="img_item_partners_company"
+                                    :style="'background-image: url(/storage/'+ partner.image + ');'"></div>-->
+<!--                               <div class="name_item_partners_company">{{partner.name}}</div>-->
                            </div>
                        </div>
                    </div>

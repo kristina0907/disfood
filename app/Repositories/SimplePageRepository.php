@@ -42,7 +42,7 @@ class SimplePageRepository implements SimplePageContract
 
     public function getNewsAll()
     {
-        return $this->page->where('category_id',1)->where('public',1)->get();
+        return $this->page->where('category_id',3)->where('public',1)->get();
     }
 
     /**

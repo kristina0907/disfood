@@ -35,10 +35,7 @@ select option:hover {
 .ck-editor__editable {
     min-height: 500px;
 }
-.title_item_list_news_company{
-    height: 30px;
-    overflow: hidden;
-}
+
 .container_list_sidebar_catalog_menu{
     display: block;
     position: relative;

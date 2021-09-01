@@ -90,15 +90,15 @@
                                     {{order.id}}
                                 </td>
                                 <td>{{order.created_at}}</td>
-                                <td class="bold">{{order.offer.type.name}}</td>
+                                <td class="bold" v-if="order.offer">{{order.offer.type.name}}</td>
                                 <td>10000 кг</td>
                                 <td>50кг</td>
                                 <td>20 734 349 р</td>
                                 <td>Самовывоз</td>
-                                <td>{{order.organization.name}}</td>
+                                <td v-if="order.organization">{{order.organization.name}}</td>
                                 <td>{{  }}</td>
                                 <td class="status_table">
-                                    <span class="status_completed">{{ order.status.name }}</span>
+                                    <span class="status_completed" v-if="order.status">{{ order.status.name }}</span>
                                 </td>
                         </tr>
                         </tbody>

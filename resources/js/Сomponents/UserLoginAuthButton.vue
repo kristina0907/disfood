@@ -18,7 +18,7 @@
                         </svg>
                     </div>
                 </div>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                <ul class="dropdown-menu inset-plus" aria-labelledby="navbarDropdown1">
                     <li>
                         <div class="text-user-login-button" >
                             Войдите, чтобы делать покупки, и отслеживать заказы.

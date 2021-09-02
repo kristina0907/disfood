@@ -136,18 +136,8 @@
                 </div>
                 <div class="container_header_catalog_btn_info">
                     <div class="catalog_header_btn_info">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M13 4.5C13 5.05228 13.4477 5.5 14 5.5C14.5523 5.5 15 5.05228 15 4.5H13ZM5.42857 16C5.98086 16 6.42857 15.5523 6.42857 15C6.42857 14.4477 5.98086 14 5.42857 14V16ZM5 2H11V0H5V2ZM3 12V4H1V12H3ZM13 4V4.5H15V4H13ZM5.42857 14H5V16H5.42857V14ZM1 12C1 14.2091 2.79086 16 5 16V14C3.89543 14 3 13.1046 3 12H1ZM11 2C12.1046 2 13 2.89543 13 4H15C15 1.79086 13.2091 0 11 0V2ZM5 0C2.79086 0 1 1.79086 1 4H3C3 2.89543 3.89543 2 5 2V0Z"
-                                fill="#22262A" />
-                            <rect x="10" y="9" width="12" height="14" rx="3" stroke="#22262A" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <div class="catalog_header_btn_info">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="11" stroke="#22262A" stroke-width="2" />
-                            <path d="M12 7V13L14.5 15.5" stroke="#22262A" stroke-width="2" stroke-linecap="round"
-                                  stroke-linejoin="round" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="23" viewBox="0 0 26 23" fill="none">
+                            <path d="M20.3333 8.01449C20.3333 6.15413 19.5607 4.36997 18.1855 3.0545C16.8102 1.73902 14.9449 1 13 1C11.0551 1 9.18982 1.73902 7.81455 3.0545C6.43928 4.36997 5.66667 6.15413 5.66667 8.01449C5.66667 13.9484 3.21304 16.809 1.86406 17.9333C1.6615 18.1021 1.79337 18.5362 2.05706 18.5362H8.52214C8.6391 18.5362 8.74073 18.6154 8.77521 18.7271C8.99911 19.4529 9.99866 22 13 22C16.0013 22 17.0009 19.4529 17.2248 18.7271C17.2593 18.6154 17.3609 18.5362 17.4779 18.5362H23.9429C24.2066 18.5362 24.3385 18.1021 24.1359 17.9333C22.787 16.809 20.3333 13.9484 20.3333 8.01449Z" stroke="#22262A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
                    <user-login-auth-button></user-login-auth-button>

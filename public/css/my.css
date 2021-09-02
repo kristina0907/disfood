@@ -109,3 +109,41 @@ select option:hover {
     align-items: center;
     width: 60% !important;
 }
+
+.inset-plus
+{
+    inset:3px auto auto 0px !important;
+}
+
+#videoModal .modal-content
+{
+    background: transparent;
+    border:0px;
+}
+.btn_user_registration_company a:hover{
+    color:#fff;
+    text-decoration: none;
+}
+.link_item_questions_company a:hover
+{
+    color:#61A73A;
+}
+.item_list_news_company a,
+.item_list_news_company .title_item_list_news_company
+{
+    color:#61A73A;
+    text-decoration: none;
+}
+.item_list_news_company a:hover,
+.item_list_news_company a:hover .title_item_list_news_company
+{
+    color:#74d43e;
+    text-decoration: none;
+}
+
+.item_footer_contact_main a:hover,
+.item_footer_contact a:hover
+{
+    color: #61A73A;
+    text-decoration: none;
+}

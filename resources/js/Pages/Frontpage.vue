@@ -489,12 +489,8 @@
         <div id="videoModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">DISFOOD О компании
-                            и платформе</h5>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
                     <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" style="color:#fff">&times;</button>
                         <div class="embed-responsive embed-responsive-16by9">
                             <iframe id="cartoonVideo" class="embed-responsive-item" width="100%" height="700" src="//www.youtube.com/embed/F6FIMzpU6yQ" allowfullscreen></iframe>
                         </div>

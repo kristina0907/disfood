@@ -4557,26 +4557,26 @@ select option{
 .list_news .slick-prev::after {
     content: '';
     position: absolute;
-    background: url(/public/images/arrow_left.png) no-repeat;
+    background: url('/images/arrow_left.png') no-repeat;
     width: 10px;
     height: 16px;
     right: -8px;
     top: 23px;
 }
 .list_news:hover .slick-prev::after {
-    background: url(/public/images/arrow_left1.png) no-repeat;
+    background: url('/images/arrow_left1.png') no-repeat;
 }
 .list_news .slick-next::after {
     content: '';
     position: absolute;
-    background: url(/public/images/arrow.png) no-repeat;
+    background: url('/images/arrow.png') no-repeat;
     width: 10px;
     height: 16px;
     left: -8px;
     top: 23px;
 }
 .list_news:hover .slick-next::after {
-    background: url(/public/images/arrow1.png) no-repeat;
+    background: url('/images/arrow1.png') no-repeat;
 }
 .slick-disabled {
     display: none !important;

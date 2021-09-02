@@ -67,7 +67,8 @@ const routes = [
     {
         path:'/successauth',
         component:()=>import('../Pages/AuthorizationSuccess'),
-        name:'authorization-success'
+        name:'authorization-success',
+        props: true,
     },
     {
         path:'/user-cabinet',

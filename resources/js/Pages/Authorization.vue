@@ -417,7 +417,7 @@ export default {
                    if(response.status == 200)
                    {
                        console.log(response.status)
-                       this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' } });
+                       this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' },params:{email:this.userEmail} });
                    }
                });
            }

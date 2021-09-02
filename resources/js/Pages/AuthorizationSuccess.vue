@@ -4,14 +4,15 @@
             <div class="col xs-12 col-md-7">
                 <div class="title_success_reg">
                     <div class="color_success">Спасибо!</div>
-                    <div>Данные отправлены</div>
+                    <div>Подтвердите регистрацию</div>
                 </div>
                 <div class="text_info_success">
-                    На вашу почту <span>example@mail.ru</span> отплавлено письмо с подтвержединем о регистрации
+                    На вашу почту <span>{{email}}</span> отправлено письмо для подтверждения регистрации.
+                    Перейдите по ссылке из письма для продолжения работы на платформе.
                 </div>
-                <div class="container_btn_login">
+<!--                <div class="container_btn_login">
                     <router-link :to="{name:'cabinet'}" class="btn_login">Войти в кабинет</router-link>
-                </div>
+                </div>-->
 
             </div>
             <div class="col xs-12 col-md-5">
@@ -114,7 +115,7 @@
  export default {
     data(){
         return {
-
+            email:this.$attrs.email,
         }
     }
  }

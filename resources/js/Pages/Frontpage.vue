@@ -578,16 +578,16 @@ export default {
     width: 100%;
     height: 100%;
 }
-.modal-dialog .modal-content{
+#videoModal .modal-dialog .modal-content{
     width:80%;
     margin: 0 auto;
     height: 1000px;
 }
-.modal-dialog{
+#videoModal .modal-dialog{
     max-width: 100%;
 
 }
-.modal-dialog iframe{
+#videoModal .modal-dialog iframe{
     margin: 0 auto;
     display: block;
 

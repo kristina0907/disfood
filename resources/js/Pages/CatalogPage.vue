@@ -408,13 +408,8 @@
                             <div class="doc_item_offer">
                                 <button class="bay_item_offer_catalog" type="button" id="dropdownMenuButton"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M1.5 2H3.89566C4.83305 2 5.64468 2.65106 5.84803 3.56614L6.5 6.5M6.5 6.5L7.60424 12.5733C8.12296 15.4263 10.6077 17.5 13.5075 17.5H16.2106C19.012 17.5 21.4406 15.5615 22.0614 12.8297L23.0835 8.33243C23.2969 7.39379 22.5834 6.5 21.6208 6.5H6.5Z"
-                                            stroke="#71BF45" stroke-width="2" stroke-linecap="round" />
-                                        <circle cx="9" cy="21" r="1" stroke="#71BF45" stroke-width="2" />
-                                        <circle cx="21" cy="21" r="1" stroke="#71BF45" stroke-width="2" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="19" viewBox="0 0 25 19" fill="none">
+                                        <path d="M1.5 4C1.5 2.34315 2.84315 1 4.5 1H8.89023C9.60636 1 10.2989 1.25618 10.8426 1.72223L12.6574 3.27777C13.2011 3.74382 13.8936 4 14.6098 4H20.5C22.1569 4 23.5 5.34315 23.5 7V15C23.5 16.6569 22.1569 18 20.5 18H4.5C2.84315 18 1.5 16.6569 1.5 15V4Z" stroke="#71BF45" stroke-width="2"/>
                                     </svg>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

@@ -12,6 +12,8 @@ export default {
         locationInput:'',
         locationsTips:[],
         offers:[],
+        priceWithNDS:false,
+        currency:'RUB',
     },
     getters: {
 
@@ -200,7 +202,29 @@ export default {
         updateLocationTips(state,data)
         {
             state.locationsTips = data.suggestions;
-        }
+        },
+
+        /**
+         *
+         * @param state
+         * @param value
+         */
+
+        changePrice(state,value)
+        {
+            state.priceWithNDS = !state.priceWithNDS;
+        },
+
+        /**
+         *
+         * @param state
+         * @param value
+         */
+
+        changeCurrency(state,value)
+        {
+            state.currency = value;
+        },
     },
     actions: {
 
@@ -421,7 +445,30 @@ export default {
                     // this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' } });
                 }
             });
-        }
+        },
+
+
+        /**
+         *
+         * @param commit
+         */
+
+        changePrice({commit})
+        {
+            commit('changePrice');
+        },
+
+        /**
+         *
+         * @param commit
+         * @param value
+         */
+
+        changeCurrency({commit},value)
+        {
+            //TODO решить с парсингом валюты
+            commit('changeCurrency',value);
+        },
     }
 }
 

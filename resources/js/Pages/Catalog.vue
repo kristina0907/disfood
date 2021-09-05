@@ -211,10 +211,8 @@
                                                             </span>
                                                             <span class="text_star">4,5</span>
                                                         </div>
-                                                        <div class="place_count_info_item_offer_catalog">
-                                                            <span>50кг</span>
-                                                            <span>25кг</span>
-                                                            <span>10кг</span>
+                                                        <div class="place_count_info_item_offer_catalog" v-if="product.packings">
+                                                            <span v-for="pack in product.packings">{{pack.name}}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -234,8 +232,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="price_item_product_category">
-                                                    <div class="start_price_category_products" v-if="currentCourse === 'RUB'">{{product.price}} ₽ / кг</div>
-                                                    <div class="start_price_category_products" v-else>{{ (parseFloat(product.price) / parseFloat(courseUSD.Value)).toFixed(2)}} $ / кг</div>
+                                                    <div class="start_price_category_products" v-if="!priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(product.price) / parseFloat(courseUSD.Value)).toFixed(2)}} $ / кг</div>
+                                                    <div class="start_price_category_products" v-if="priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(product.price_with_nds) / parseFloat(courseUSD.Value).toFixed(2))}} ₽  / кг</div>
+                                                    <div class="start_price_category_products" v-if="!priceWithNDS && currentCourse === 'RUB'">{{product.price}} ₽ / кг</div>
+                                                    <div class="start_price_category_products" v-if="priceWithNDS && currentCourse === 'RUB'">{{product.price_with_nds}} ₽ / кг</div>
+<!--                                                    <div class="start_price_category_products" v-if="currentCourse === 'RUB'">{{product.price}} ₽ / кг</div>
+                                                    <div class="start_price_category_products" v-else>{{ (parseFloat(product.price) / parseFloat(courseUSD.Value)).toFixed(2)}} $ / кг</div>-->
                                                 </div>
                                                 <div class="container_item_offer_btn">
                                                     <router-link :to="{'name':'catalog-page',params:{id:product.id}}">
@@ -363,7 +365,7 @@ export default {
             self.tileView = false;
             self.listView = true;
         },
-        ...mapActions('catalog',['updateValueAction','getCatalogData','getCatalogTypes','updateTypeAction','getUserIP']),
+        ...mapActions('catalog',['updateValueAction','getCatalogData','getCatalogTypes','updateTypeAction','getUserIP','changePrice','changeCurrency']),
         ...mapActions(['getCurrentCourse','changeCourse'])
 
 
@@ -373,7 +375,7 @@ export default {
     },
     computed: {
         ...mapState(['courseUSD','currentCourse']),
-        ...mapState('catalog',['categories', 'categoryValue','types','typeValue','filteredTypes','products','location'])
+        ...mapState('catalog',['categories', 'categoryValue','types','typeValue','filteredTypes','products','location','priceWithNDS','currency'])
     },
 }
 </script>

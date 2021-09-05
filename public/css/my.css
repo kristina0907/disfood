@@ -147,3 +147,14 @@ select option:hover {
     color: #61A73A;
     text-decoration: none;
 }
+
+.name_profile_information,
+.vue-quick-edit__link
+{
+    color: #22262A !important;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    color: #000000;
+    font-family: 'Montserrat';
+}

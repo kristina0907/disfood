@@ -197,7 +197,7 @@
                                                         type="file"
                                                         id="document"
                                                         multiple
-                                                        accept="image/jpeg"
+                                                        accept="application/pdf,application/docx"
                                                         v-on:change="onFileChange"
                                                         class="input-file"
                                                     />
@@ -238,7 +238,7 @@
                                         <div class="col col-md-3">
                                             <div class="container_new_photo">
                                                 <div class="form-group">
-                                                    <input type="file" name="file[]" id="image-new" class="input-file"   v-on:change="onPhotoChange">
+                                                    <input type="file" name="file[]" id="image-new" class="input-file" accept="image/jpeg,image/png"  v-on:change="onPhotoChange">
                                                     <label for="image-new" class="btn btn-tertiary js-labelFile">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
@@ -259,7 +259,7 @@
                                         <div class="col col-md-4">
                                             <div class="container_new_photo">
                                                 <div class="form-group">
-                                                    <input type="file" name="file[]" :id="'image'" class="input-file"  v-on:change="onPhotoChange">
+                                                    <input type="file" name="file[]" :id="'image'" class="input-file"  accept="image/jpeg,image/png" v-on:change="onPhotoChange">
                                                     <label :for="'image'" class="btn btn-tertiary js-labelFile">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">

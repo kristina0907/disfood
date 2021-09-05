@@ -250,7 +250,7 @@
                                                                 <path d="M1.5 4C1.5 2.34315 2.84315 1 4.5 1H8.89023C9.60636 1 10.2989 1.25618 10.8426 1.72223L12.6574 3.27777C13.2011 3.74382 13.8936 4 14.6098 4H20.5C22.1569 4 23.5 5.34315 23.5 7V15C23.5 16.6569 22.1569 18 20.5 18H4.5C2.84315 18 1.5 16.6569 1.5 15V4Z" stroke="#71BF45" stroke-width="2"/>
                                                             </svg>
                                                         </button>
-                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-if="product.documents">
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-if="product.documents && product.documents.length">
                                                             <a class="dropdown-item" :href="document.path" v-for="document in product.documents" target="_blank">Документ</a>
                                                         </div>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-else>
@@ -313,7 +313,7 @@
                                                                         <path d="M1.5 4C1.5 2.34315 2.84315 1 4.5 1H8.89023C9.60636 1 10.2989 1.25618 10.8426 1.72223L12.6574 3.27777C13.2011 3.74382 13.8936 4 14.6098 4H20.5C22.1569 4 23.5 5.34315 23.5 7V15C23.5 16.6569 22.1569 18 20.5 18H4.5C2.84315 18 1.5 16.6569 1.5 15V4Z" stroke="#71BF45" stroke-width="2"/>
                                                                     </svg>
                                                                 </button>
-                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-if="product.documents">
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-if="product.documents && product.documents.length">
                                                                     <a class="dropdown-item" :href="document.path" v-for="document in product.documents" target="_blank">Документ</a>
                                                                 </div>
                                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-else>

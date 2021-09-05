@@ -316,6 +316,9 @@
                                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-if="product.documents">
                                                                     <a class="dropdown-item" :href="document.path" v-for="document in product.documents" target="_blank">Документ</a>
                                                                 </div>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-else>
+                                                                    У данного предложения дополнительные документы отсутствуют
+                                                                </div>
                                                             </div>
                                                         </div>
 

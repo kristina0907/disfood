@@ -158,3 +158,10 @@ select option:hover {
     color: #000000;
     font-family: 'Montserrat';
 }
+
+#filters .select.select_type
+{
+    border: 1px solid #c8ccd1;
+    border-radius: 10px;
+    overflow-y: auto;
+}

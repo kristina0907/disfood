@@ -100,7 +100,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row item_container_product_block">
+                                <div id="filters" class="row item_container_product_block">
                                     <div class="col-md-6" v-if="typeValue && filters.length" v-for="(filter) in typeValue.filters">
                                         <div class="item_product_input row mar-0-10">
                                                 <div class="col-md-6 container_input_price">

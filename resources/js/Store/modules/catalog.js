@@ -14,6 +14,7 @@ export default {
         offers:[],
         priceWithNDS:false,
         currency:'RUB',
+        capacity:20000,
     },
     getters: {
 
@@ -225,6 +226,46 @@ export default {
         {
             state.currency = value;
         },
+
+        /**
+         *
+         * @param state
+         */
+
+        changeCapacityPlus(state)
+        {
+            state.capacity = parseInt(state.capacity) + parseInt(20000);
+        },
+
+        /**
+         *
+         * @param state
+         */
+
+        changeCapacityMinus(state)
+        {
+            if(parseInt(state.capacity) > parseInt(20000))
+            {
+                state.capacity = parseInt(state.capacity) - parseInt(20000);
+            }
+            else
+            {
+                state.capacity = 20000;
+            }
+        },
+
+        updateCapacity(state,value)
+        {
+            if(parseInt(value) >= parseInt(20000))
+            {
+                state.capacity = parseInt(value)
+            }
+            else
+            {
+                state.capacity = parseInt(20000);
+            }
+        }
+
     },
     actions: {
 
@@ -469,6 +510,38 @@ export default {
             //TODO решить с парсингом валюты
             commit('changeCurrency',value);
         },
+
+        /**
+         *
+         * @param commit
+         */
+
+        minusCapacity({commit})
+        {
+            commit('changeCapacityMinus');
+        },
+
+        /**
+         *
+         * @param commit
+         */
+
+        plusCapacity({commit})
+        {
+            commit('changeCapacityPlus');
+        },
+
+        /**
+         *
+         * @param commit
+         * @param value
+         */
+
+        setCapacity({commit},value)
+        {
+            commit('updateCapacity',value);
+            console.log('setCapacity')
+        }
     }
 }
 

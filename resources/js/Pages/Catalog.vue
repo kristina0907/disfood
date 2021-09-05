@@ -41,18 +41,18 @@
                                         </div>
 
                                         <div class="offer_quantity_block">
-                                            <div class="text_prompt">Нужный объем</br> для закупки</div>
+                                            <div class="text_prompt">Нужный объем</br> для закупки (кг)</div>
                                             <div class="offer_quantity_block_product">
                                                 <div class="quantity-block">
-                                                    <button class="quantity-arrow-minus" data-id="m1">
+                                                    <button class="quantity-arrow-minus" data-id="m1" @click="minusCapacity">
                                                         <svg width="20" height="2" viewBox="0 0 20 2" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M1 1L19 1" stroke="#C8CCD1" stroke-width="2"
                                                                   stroke-linecap="round" stroke-linejoin="round" />
                                                         </svg>
                                                     </button>
-                                                    <input data-id="m1" class="quantity-num" type="number" value="1" />
-                                                    <button data-id="m1" class="quantity-arrow-plus">
+                                                    <input data-id="m1" class="quantity-num" type="number" disabled :value="capacity" @focusout="setCapacity($event.target.value)" />
+                                                    <button data-id="m1" class="quantity-arrow-plus" @click="plusCapacity">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M12 3V21" stroke="#C8CCD1" stroke-width="2"
@@ -141,7 +141,7 @@
                                                 <span v-if="typeValue.name">{{ typeValue.name }}</span>
                                                 <span v-else>{{categoryValue.name}}</span>
                                                 <span>{{products.length}}</span> </div>
-                                            <div class="more_offer_product_category_block"><a href="">Показать все</a></div>
+                                            <div class="more_offer_product_category_block"><a href="" @click.prevent="showMap">Показать на карте</a></div>
                                         </div>
                                         <div class="dop_filter_product offer_dop_filter">
                                             <div class="offer_price_filter">
@@ -183,6 +183,7 @@
                                     <yandex-map v-if="coords"
                                         :coords="coords"
                                         :zoom="4"
+                                        :class="{'active-map':showmap}"
                                     >
                                         <div v-for="product in products">
                                             <ymap-marker v-if="product.adresses && product.organization && product.organization.name" v-for="adress in product.adresses"
@@ -355,33 +356,64 @@ export default {
         return{
             tileView : false,
             listView : true,
-            coords:[54, 39]
+            coords:[54, 39],
+            showmap:false,
         }
     },
     methods:{
+
+        /**
+         *
+         */
+
         changeToTileView()
         {
             let self = this;
             self.tileView = true;
             self.listView = false;
         },
+
+        /**
+         *
+         */
+
         changeToListView()
         {
             let self = this;
             self.tileView = false;
             self.listView = true;
         },
-        ...mapActions('catalog',['updateValueAction','getCatalogData','getCatalogTypes','updateTypeAction','getUserIP','changePrice','changeCurrency']),
+
+        /**
+         *
+         */
+        showMap()
+        {
+            this.showmap = !this.showmap;
+        },
+        ...mapActions('catalog',[
+            'updateValueAction',
+            'getCatalogData',
+            'getCatalogTypes',
+            'updateTypeAction',
+            'getUserIP',
+            'changePrice',
+            'changeCurrency',
+            'plusCapacity',
+            'minusCapacity',
+            'setCapacity'
+        ]),
         ...mapActions(['getCurrentCourse','changeCourse'])
 
 
     },
     mounted() {
-        this.getCurrentCourse()
+        this.getCurrentCourse();
+        this.$store.dispatch('catalog/setCapacity');
     },
     computed: {
         ...mapState(['courseUSD','currentCourse']),
-        ...mapState('catalog',['categories', 'categoryValue','types','typeValue','filteredTypes','products','location','priceWithNDS','currency'])
+        ...mapState('catalog',['categories', 'categoryValue','types','typeValue','filteredTypes','products','location','priceWithNDS','currency','capacity'])
     },
 }
 </script>
@@ -469,5 +501,9 @@ export default {
 .ymap-container{
     height: 500px;
     margin: 50px 0;
+    display: none;
+}
+.active-map{
+    display: block;
 }
 </style>

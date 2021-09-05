@@ -243,7 +243,7 @@
                                                     <router-link :to="{'name':'catalog-page',params:{id:product.id}}">
                                                         <div class="make_deal">Подробнее</div>
                                                     </router-link>
-                                                    <div class="doc_item_offer" v-if="product.documents">
+                                                    <div class="doc_item_offer">
                                                         <button class="bay_item_offer_catalog" type="button" id="dropdownMenuButton"
                                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="19" viewBox="0 0 25 19" fill="none">
@@ -252,6 +252,9 @@
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-if="product.documents">
                                                             <a class="dropdown-item" :href="document.path" v-for="document in product.documents" target="_blank">Документ</a>
+                                                        </div>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-else>
+                                                            У данного предложения дополнительные документы отсутствуют
                                                         </div>
                                                     </div>
                                                 </div>

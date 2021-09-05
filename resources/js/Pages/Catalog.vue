@@ -147,7 +147,7 @@
                                             <div class="offer_price_filter">
                                                 <div>
                                                     <label for="toggle-button" class="text">Показать цены с НДС</label>
-                                                    <input type="checkbox" name="toggle" id="toggle-button" class="toggle-button">
+                                                    <input type="checkbox" name="toggle" id="toggle-button" class="toggle-button" @click="changePrice">
                                                 </div>
                                                 <div class="dop_filter_currency">
                                                     <a :class="{'active': currentCourse === 'RUB' }"  href="#" @click="changeCourse('RUB')">RUB (₽)</a>

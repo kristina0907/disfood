@@ -241,7 +241,7 @@
                                                     type="file"
                                                     id="document"
                                                     multiple
-                                                    accept="image/jpeg"
+                                                    accept="image/jpeg,image/png,application/pdf"
                                                     v-on:change="onFileChange"
                                                     class="input-file"
                                                 />
@@ -265,7 +265,7 @@
                                     <div class="item_product_photo">
                                         <div class="container_new_photo">
                                             <div class="form-group">
-                                                <input type="file" name="logo" id="logo"  ref="logo"  @change="handleFileUpload" class="input-file">
+                                                <input type="file" name="logo" id="logo"  ref="logo"  @change="handleFileUpload"   accept="image/jpeg,image/png" class="input-file">
                                                 <label for="logo" class="btn btn-tertiary js-labelFile">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">

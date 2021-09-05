@@ -59,7 +59,7 @@ class OrderRepository implements OrderContract
     public function getByUserId($id)
     {
         return $this->order
-            ->where('user_id', $id)->with(['offer','offer.type','organization','delivery','status'])
+            ->where('user_id', $id)->with(['offer','offer.type','organization','delivery','status','packages'])
             ->get();
     }
 

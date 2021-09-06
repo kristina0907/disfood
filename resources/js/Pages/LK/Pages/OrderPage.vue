@@ -179,6 +179,9 @@ export default {
     },
     methods:
     {
+        /**
+         *
+         */
         getData()
         {
             axios.get('/get/order/'+ this.orderid)
@@ -189,6 +192,11 @@ export default {
                     }
                 })
         },
+
+        /**
+         *
+         */
+
         getLastMessage()
         {
             axios.get('/get/last/message/'+ this.orderid)
@@ -198,15 +206,35 @@ export default {
                     }
                 })
         },
+
+        /**
+         *
+         * @param data
+         */
+
         changeLastMessage(data)
         {
             let self = this;
             self.lastMessage = data.lastMessage;
         },
+
+        /**
+         *
+         * @param price
+         * @param capacity
+         * @returns {number}
+         */
+
         summPackage(price,capacity)
         {
             return price * capacity;
         },
+
+        /**
+         *
+         * @returns {number}
+         */
+
         summAll()
         {
             let summ = 0;
@@ -219,6 +247,12 @@ export default {
 
             return summ;
         },
+
+        /**
+         *
+         * @returns {number}
+         */
+
         capacityAll()
         {
             let summ = 0;

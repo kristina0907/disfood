@@ -267,6 +267,7 @@ export default {
                     summ:state.itogoSumm,
                     from_id:rootState.catalogpage.product.adresses.adress,
                     to_id:rootState.catalog.location.location,
+                    packings:state.packages,
                     /*capacity:state.capacity,
                     packings:state.selectedPackings,
                     adress:state.adress,

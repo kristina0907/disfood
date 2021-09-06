@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="xs-12 col-md-4 cart_left_container">
                     <div class="left_container_info">
-                        <div class="prev_page">Назад</div>
+                        <div class="prev_page" style="cursor: pointer" @click="returnBack">Назад</div>
                         <div class="transaction_name">Сделка № 3234</div>
                         <div class="info_transaction">
                             <div class="status_transaction">{{packages.length}} товар(ов)</div>
@@ -412,7 +412,13 @@ export default {
         calcSummWithDelivery(price,volume,packValue,delivery)
         {
             return parseInt(price) * (parseInt(volume) * parseInt(packValue)) + parseInt(delivery)
+        },
+
+        returnBack()
+        {
+            this.$router.back();
         }
+
     },
     computed: {
         ...mapState('catalog',['location','currentUserOrganization']),

@@ -88,6 +88,7 @@ class OrderRepository implements OrderContract
         }
 
 
+
         $order->offer_id = $data['offer_id'];
         $order->status_id = $data['status_id'];
         $order->save();

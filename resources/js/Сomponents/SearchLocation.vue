@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="text_input">Куда доставить?</div>
-        <input list="city" type="text"  v-model="locationInput"  v-on:keyup="searchLocation">
+<!--        <input list="city" type="text"  v-model="locationInput"  v-on:keyup="searchLocation">
         <datalist id="city">
             <option :value="tip.value" v-for="tip in locationsTips">{{tip.value}}</option>
         </datalist>
@@ -14,32 +14,74 @@
                 <circle cx="15" cy="13.75" r="3.75" stroke="#71BF45"
                         stroke-width="2" />
             </svg>
-        </div>
+        </div>-->
+        <multiselect
+            v-model="locationInput"
+            id="ajax"
+            label="value"
+            track-by="value"
+            placeholder="Куда доставить?"
+            open-direction="bottom"
+            :options="locationsTips"
+            :multiple="false"
+            :searchable="true"
+            :loading="isLoading"
+            :internal-search="false"
+            :clear-on-select="false"
+            :close-on-select="true"
+            :options-limit="300"
+            :limit="3"
+            :show-no-results="false"
+            :hide-selected="true"
+            @search-change="searchLocation"
+        >
+        </multiselect>
+
     </div>
 </template>
 
 <script>
 import {mapActions, mapState} from "vuex";
-
+import Multiselect from 'vue-multiselect'
     export default
     {
         name:"searchlocation",
+        components: {
+            Multiselect
+        },
         data()
         {
             return {
-
+               /* isLoading : false,
+                location:'',
+                locationsTips:[]*/
             }
         },
         methods:{
             ...mapActions('catalog',[
                'searchLocation'
             ]),
+           /* async searchLocation(data)
+            {
+                console.log(data)
+                if(data.length >= 4)
+                {
+                    this.isLoading = true;
+                    await axios.get('/get/location/from/text/'+ data)
+                        .then(response => {
+                            if (response.data !== 'undefined' && response.data !== null) {
+                                 this.locationsTips = response.data.suggestions
+                            }
+                        });
+                }
+                this.isLoading = false;
+            },*/
         },
         mounted() {
 
         },
         computed: {
-            ...mapState('catalog',['location','locationInput','locationsTips']),
+            ...mapState('catalog',['location','locationInput','locationsTips','isLoading']),
             locationInput: {
                 get () {
                     return this.$store.state.catalog.locationInput

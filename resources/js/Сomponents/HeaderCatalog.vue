@@ -45,7 +45,7 @@
                         <!-- The modal -->
                         <div>
                             <b-button variant="light" v-b-modal.modal-prevent-closing>
-                                {{locationInput}}
+                                {{locationInput.value}}
                                 <span>
                                     <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -110,28 +110,7 @@
                                 Каталог
                         </div>
                     <div class="search_header">
-                        <input type="text" placeholder="Найти товар" v-model="searchBar" v-on:keyup="searchText">
-                        <div class="search-panel" v-if="Object.keys(searchResults).length">
-                            <div class="search-result-product" v-if="searchResults && searchResults.products">
-                                <div class="col-md-4" style="margin-top: 20px;margin-bottom: 20px;">
-                                    Продукты
-                                </div>
-                                <div class="col-md-12" v-for="product in searchResults.products">
-                                        <div class="row product-item">
-                                            <a href="#" @click="searchClickProduct(product.category_id,product.type_id)" class="col-md-12">
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <img :src="product.image" alt="" class="search-img" >
-                                                    </div>
-                                                    <div class="col-md-11">
-                                                        {{product.name}}
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
+                        <search-bar></search-bar>
                     </div>
                 </div>
                 <div class="container_header_catalog_btn_info">
@@ -208,11 +187,13 @@ import vuescroll from 'vuescroll'
 import {mapActions, mapState} from 'vuex'
 import UserLoginAuthButton from "./UserLoginAuthButton";
 import Searchlocation from "./SearchLocation";
+import SearchBar from "./SearchBar";
 
 
 export default {
     name:"navbar-catalog",
     components:{
+        SearchBar,
         Searchlocation,
         UserLoginAuthButton,
         vuescroll,
@@ -344,39 +325,4 @@ export default {
     },
 }
 </script>
-<style>
-.search-panel
-{
-    display: block;
-    position: fixed;
-    float: left;
-    width:1100px;
-    height:400px;
-    top: 120px;
-    background: #fafafa;
-}
-.search-panel a
-{
-    color:#000;
-    cursor: pointer;
 
-}
-.product-item
-{
-    margin: 2.5px 0;
-}
-.product-item:hover,
-.product-item:hover a
-{
-    background: #ccc;
-    text-decoration: none;
-    color: #fff;
-    cursor:pointer;
-}
-.search-img
-{
-    height: 50px;
-    width: auto;
-}
-
-</style>

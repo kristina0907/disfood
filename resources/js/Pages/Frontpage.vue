@@ -62,7 +62,7 @@
                    <div class="title_search_company_block">Найти товар</div>
                    <div class="container_btn_search__company">
                        <div class="search_header">
-                           <input type="text" placeholder="Введите название продукта">
+                          <search-bar></search-bar>
                        </div>
                        <div class="btn_search_company">
                            Найти товары и поставщиков
@@ -509,9 +509,11 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 import {mapGetters,mapActions,mapState} from 'vuex';
+import SearchBar from "../Сomponents/SearchBar";
 export default {
     name:'frontpage',
     components:{
+        SearchBar,
         NavbarCatalog,
         HeaderCatalog,
         VueSlickCarousel,

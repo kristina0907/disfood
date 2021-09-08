@@ -15,6 +15,7 @@ export default {
         priceWithNDS:false,
         currency:'RUB',
         capacity:20000,
+        isLoading:false,
     },
     getters: {
 
@@ -202,7 +203,7 @@ export default {
 
         updateLocationTips(state,data)
         {
-            state.locationsTips = data.suggestions;
+            state.locationsTips = data;
         },
 
         /**
@@ -253,6 +254,12 @@ export default {
                 state.capacity = 20000;
             }
         },
+
+        /**
+         *
+         * @param state
+         * @param value
+         */
 
         updateCapacity(state,value)
         {
@@ -448,17 +455,20 @@ export default {
          * @returns {Promise<void>}
          */
 
-        async searchLocation({commit,state})
+        async searchLocation({commit,state},data)
         {
-            if(state.locationInput.length >= 4)
+
+            if(data.length >= 4)
             {
-                    await axios.get('/get/location/from/text/'+state.locationInput)
+                    state.isLoading = true;
+                    await axios.get('/get/location/from/text/'+ data)
                         .then(response => {
                             if (response.data !== 'undefined' && response.data !== null) {
-                                commit('updateLocationTips', response.data)
+                                commit('updateLocationTips', response.data.suggestions)
                             }
                         });
             }
+            state.isLoading = false;
         },
 
         /**

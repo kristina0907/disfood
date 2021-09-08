@@ -134,6 +134,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="offer_product_category_block">
                                     <div class="header_offer_product_category_block">
                                         <div>

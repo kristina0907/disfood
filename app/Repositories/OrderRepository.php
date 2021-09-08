@@ -7,6 +7,7 @@ namespace App\Repositories;
 use App\Contracts\OrderContract;
 use App\Models\Offer;
 use App\Models\Order;
+use App\Models\TypePackageOrder;
 
 
 class OrderRepository implements OrderContract
@@ -46,7 +47,7 @@ class OrderRepository implements OrderContract
     {
         return $this->order
             ->where('id', $id)->with([
-                'offer','status','organization','from','delivery','packages.package','typeDelivery','history.status',
+                'offer.type','status','organization','from','delivery','packages.package','typeDelivery','history.status',
             ])
             ->first();
     }
@@ -70,7 +71,7 @@ class OrderRepository implements OrderContract
 
     public function save($data)
     {
-        //dd($data);
+       // dd($data);
         $order = new $this->order;
         $order->organization_id = $data['organization_id'];
         $order->user_id = $data['user_id'];
@@ -87,11 +88,34 @@ class OrderRepository implements OrderContract
             $order->to_id = $data['to_id']['value'];
         }
 
-
-
         $order->offer_id = $data['offer_id'];
         $order->status_id = $data['status_id'];
         $order->save();
+
+        if(!empty($data['packings']) && count($data['packings']) > 0)
+        {
+            foreach ($data['packings'] as $packing)
+            {
+                $pack = new TypePackageOrder();
+                $pack->order_id = $order->id;
+                $pack->offer_id = $order->offer_id;
+                $pack->package_id = $packing['package']['id'];
+                $pack->capacity = $packing['value'];
+                $pack->price = $order->price;
+                $pack->save();
+            }
+        }
+
+        if(!empty($data['documents']) && count($data['documents']) > 0)
+        {
+            $ids = array();
+            foreach ($data['documents'] as $doc)
+            {
+               // dd($doc);
+                $ids[] = $doc['id'];
+            }
+            $order->documents()->sync($ids);
+        }
 
         return $order->fresh();
     }

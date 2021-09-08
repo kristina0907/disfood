@@ -120,4 +120,13 @@ class Order extends Model
     {
         return $this->hasMany(OrderHistory::class,'order_id','id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+
+    public function documents()
+    {
+        return $this->belongsToMany(OrderDocument::class, 'orders_documents_attached','order_id','order_document_id');
+    }
 }

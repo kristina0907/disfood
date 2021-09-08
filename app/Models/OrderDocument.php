@@ -36,4 +36,14 @@ class OrderDocument extends Model
         'active'  => 'boolean',
         'belongs_to_preset' => 'string',
     ];
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+
+    public function orders()
+    {
+        return $this->belongsToMany(OrderDocument::class, 'orders_documents_attached','order_document_id','order_id');
+    }
 }

@@ -131,12 +131,12 @@
                                 <td class="bold">
                                     <div class="product_container_table">
                                         <div class="image_product_table"
-                                             :style="'background-image: url('+order.offer.product.image+');'"></div>
-                                        <div>{{order.offer.product.name}}</div>
+                                             :style="'background-image: url('+order.offer.type.image+');'"></div>
+                                        <div>{{order.offer.type.name}}</div>
                                     </div>
                                 </td>
                                 <td>{{pack.package.name}}</td>
-                                <td>{{pack.capacity}} кг</td>
+                                <td>{{parseFloat(pack.capacity) * parseFloat(pack.package.value)}} кг</td>
                                 <td>{{pack.price}} Р / кг</td>
                                 <td class="sum_table">{{summPackage(pack.price,pack.capacity)}} Р</td>
                             </tr>

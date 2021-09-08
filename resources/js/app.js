@@ -37,8 +37,9 @@ import VueApexCharts from 'vue-apexcharts'
 
 
 const settings = {
-    apiKey: '53005aaf-7abe-48bc-b280-d71526f61690',
     lang: 'ru_RU',
+    apiKey: '53005aaf-7abe-48bc-b280-d71526f61690',
+
     coordorder: 'latlong',
     version: '2.1'
 }

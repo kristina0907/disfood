@@ -138,7 +138,7 @@
                                 <td>{{pack.package.name}}</td>
                                 <td>{{parseFloat(pack.capacity) * parseFloat(pack.package.value)}} кг</td>
                                 <td>{{pack.price}} Р / кг</td>
-                                <td class="sum_table">{{summPackage(pack.price,pack.capacity)}} Р</td>
+                                <td class="sum_table">{{summPackage(pack.price,pack.capacity,pack.package.value)}} Р</td>
                             </tr>
                             </tbody>
                         </table>
@@ -225,9 +225,9 @@ export default {
          * @returns {number}
          */
 
-        summPackage(price,capacity)
+        summPackage(price,capacity,value)
         {
-            return price * capacity;
+            return parseFloat(price) * (parseFloat(capacity) * parseFloat(value));
         },
 
         /**
@@ -241,7 +241,7 @@ export default {
             if(this.order.packages)
             {
                 this.order.packages.map(function (item){
-                    summ = parseFloat(summ) + (parseFloat(item.capacity) * parseFloat(item.price));
+                    summ = parseFloat(summ) + ((parseFloat(item.capacity) * parseFloat(item.package.value)) * parseFloat(item.price));
                 });
             }
 

@@ -134,7 +134,20 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="container_filter_result" v-if="selectedFilters.length">
+                                    <div class="item_filter_result" v-for="filter in selectedFilters">
+                                        {{filter}}
+                                        <span @click="deleteFilter(filter)">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M5 5L15.6452 15.6452" stroke="#8898A8" stroke-width="2"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M5 15.6451L15.6452 4.99998" stroke="#8898A8" stroke-width="2"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
                                 <div class="offer_product_category_block">
                                     <div class="header_offer_product_category_block">
                                         <div>
@@ -196,6 +209,8 @@
                                         </div>
 
                                     </yandex-map>
+
+
                                     <div :class="{ 'container_item_offer_catalog' : listView,'tile_container_item_offer_catalog row':tileView}">
                                             <div class="item_product_category" v-if="listView && products.length" v-for="product in products" >
                                                 <div class="info_item_offer_catalog">
@@ -235,7 +250,7 @@
                                                 </div>
                                                 <div class="price_item_product_category">
                                                     <div class="start_price_category_products" v-if="!priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(product.price) / parseFloat(courseUSD.Value)).toFixed(2)}} $ / кг</div>
-                                                    <div class="start_price_category_products" v-if="priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(product.price_with_nds) / parseFloat(courseUSD.Value).toFixed(2))}} ₽  / кг</div>
+                                                    <div class="start_price_category_products" v-if="priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(product.price_with_nds) / parseFloat(courseUSD.Value).toFixed(2))}} $  / кг</div>
                                                     <div class="start_price_category_products" v-if="!priceWithNDS && currentCourse === 'RUB'">{{product.price}} ₽ / кг</div>
                                                     <div class="start_price_category_products" v-if="priceWithNDS && currentCourse === 'RUB'">{{product.price_with_nds}} ₽ / кг</div>
 <!--                                                    <div class="start_price_category_products" v-if="currentCourse === 'RUB'">{{product.price}} ₽ / кг</div>
@@ -402,7 +417,8 @@ export default {
             'changeCurrency',
             'plusCapacity',
             'minusCapacity',
-            'setCapacity'
+            'setCapacity',
+            'deleteFilter'
         ]),
         ...mapActions(['getCurrentCourse','changeCourse'])
 
@@ -414,7 +430,7 @@ export default {
     },
     computed: {
         ...mapState(['courseUSD','currentCourse']),
-        ...mapState('catalog',['categories', 'categoryValue','types','typeValue','filteredTypes','products','location','priceWithNDS','currency','capacity'])
+        ...mapState('catalog',['categories', 'categoryValue','types','typeValue','filteredTypes','products','location','priceWithNDS','currency','capacity','selectedFilters'])
     },
 }
 </script>

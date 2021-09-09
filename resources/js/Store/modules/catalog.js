@@ -16,6 +16,7 @@ export default {
         currency:'RUB',
         capacity:20000,
         isLoading:false,
+        selectedFilters:[],
     },
     getters: {
 
@@ -271,6 +272,44 @@ export default {
             {
                 state.capacity = parseInt(20000);
             }
+        },
+
+        /**
+         *
+         * @param state
+         * @param value
+         */
+
+        updateSelectedFilters(state,value)
+        {
+            let exist = false;
+            let output = [];
+
+            if(state.selectedFilters.length > 0)
+            {
+                exist = state.selectedFilters.filter(function (item)
+                {
+                    return item === value;
+                })
+                if(exist.length >0)
+                {
+                    output = state.selectedFilters.filter(function(item)
+                    {
+                        return item !== value;
+                    })
+                    state.selectedFilters = output;
+                }
+                else
+                {
+                    state.selectedFilters.push(value);
+                }
+                console.log(exist)
+            }
+            else
+            {
+                state.selectedFilters.push(value);
+            }
+
         }
 
     },
@@ -385,7 +424,7 @@ export default {
          * @param value
          */
 
-        filterOfferValue({commit, state}, {filter, value})
+        filterOfferValue({commit, state}, {filter, value,name})
         {
             let exist =[];
             state.offers.filter(function (item){
@@ -399,7 +438,8 @@ export default {
                     })
                 }
             })
-            commit('SET_CATALOG',exist)
+            commit('SET_CATALOG',exist);
+            commit('updateSelectedFilters',name)
         },
 
         /**
@@ -551,6 +591,25 @@ export default {
         {
             commit('updateCapacity',value);
             console.log('setCapacity')
+        },
+
+        deleteFilter({commit,state},value)
+        {
+            let exist =[];
+            state.offers.filter(function (item){
+                if(item.values.length)
+                {
+                    item.values.map(function (val){
+                        if(val.value === value)
+                        {
+                            exist.push(item);
+                        }
+                    })
+                }
+            })
+            commit('SET_CATALOG',exist);
+            commit('updateSelectedFilters',value)
+           // commit('updateSelectedFilters',value);
         }
     }
 }

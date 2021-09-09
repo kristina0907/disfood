@@ -259,8 +259,8 @@ export default {
             {
                  axios.post('/set/updateprices',{'output':output})
                     .then(response => {
-                        if (response.data !== 'undefined' && response.data !== null) {
-
+                        if (response.status == 200) {
+                            this.$router.go();
                         }
                     });
             }
@@ -275,8 +275,8 @@ export default {
             {
                 axios.post('/set/updateprices',{'output':this.products})
                     .then(response => {
-                        if (response.data !== 'undefined' && response.data !== null) {
-
+                        if (response.status == 200) {
+                            this.$router.go();
                         }
                     });
             }

@@ -214,8 +214,8 @@ class OfferRepository implements OfferContract
         $offer = $this->offer->find($id);
 
         $offer->organization_id = $data['organization_id'];
-        $offer->price = $data['price'];
-        $offer->price_with_nds = $data['price_with_nds'];
+        $offer->price = (float)$data['price'];
+        $offer->price_with_nds = (float)$data['price_with_nds'];
         $offer->capacity = $data['capacity'];
         $offer->category_id = $data['category_id'];
         $offer->type_id = $data['type_id'];

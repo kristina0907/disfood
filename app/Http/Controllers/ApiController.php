@@ -611,6 +611,37 @@ class ApiController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @return bool|void
+     */
+
+    public function updatePrices(Request $request)
+    {
+       if(!empty($request) && !empty($request->output))
+       {
+           foreach ($request->output as $item) {
+               $this->offerService->updateOfferDataFromLk($item,$item['id']);
+           }
+           return true;
+       }
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse|void
+     */
+
+    public function updatePriceProduct(Request $request)
+    {
+        if(!empty($request) && !empty($request->product))
+        {
+            $this->offerService->updateOfferDataFromLk($request->product,$request['id']);
+            return response()->json('success',200);
+        }
+        return response()->json('error, bad request',404);
+    }
+
+    /**
      * @return \Illuminate\Http\JsonResponse
      */
 

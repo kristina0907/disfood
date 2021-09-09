@@ -11,6 +11,7 @@ use App\Models\OfferDocument;
 use App\Models\OfferImage;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Lang;
 use MoveMoveIo\DaData\Enums\Language;
 use MoveMoveIo\DaData\Facades\DaDataAddress;
@@ -216,9 +217,9 @@ class OfferRepository implements OfferContract
         $offer->price = $data['price'];
         $offer->price_with_nds = $data['price_with_nds'];
         $offer->capacity = $data['capacity'];
-        $offer->category_id = $data['category_id']['id'];
-        $offer->type_id = $data['type_id']['id'];
-
+        $offer->category_id = $data['category_id'];
+        $offer->type_id = $data['type_id'];
+        $offer->updated_at = Carbon::now();
         $offer->update();
 
         return $offer;

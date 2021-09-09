@@ -55,7 +55,8 @@ Vue.use(TablePlugin)
 Vue.use(Vuelidate)
 Vue.use(VueRouter);
 Vue.use(YmapPlugin, settings)
-Vue.use(VueApexCharts)
+Vue.use(VueApexCharts);
+Vue.use(require('vue-moment'));
 
 
 /**

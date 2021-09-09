@@ -103,16 +103,16 @@
                                 <div id="filters" class="row item_container_product_block">
                                     <div class="col-md-6" v-if="typeValue && filters.length" v-for="(filter) in typeValue.filters">
                                         <div class="item_product_input row mar-0-10">
-                                                <div class="col-md-6 container_input_price">
-                                                    <div class="title_filter_catalog">{{filter.name}}</div>
-                                                    <select :id="'filter-'+filter.id" style="height: auto" class="select select_type" @input = changeFilterValue(filter.id) multiple required>
-                                                        <option  value="0" selected disabled>Не выбрано</option>
-                                                        <option v-for="val in filter.values" :value="val.id">{{val.value}}</option>
-                                                    </select>
-                                                </div>
-                                                </div>
-
+                                            <div class="col-md-6 container_input_price">
+                                                <div class="title_filter_catalog">{{filter.name}}</div>
+                                                <select :id="'filter-'+filter.id" style="height: auto" class="select select_type" @input = changeFilterValue(filter.id) multiple required>
+                                                    <option  value="0" selected disabled>Не выбрано</option>
+                                                    <option v-for="val in filter.values" :value="val.id">{{val.value}}</option>
+                                                </select>
+                                            </div>
                                         </div>
+
+                                    </div>
                                 </div>
 
 
@@ -341,22 +341,22 @@ export default {
 
         onPhotoChange(e)
         {
-           /* let vm = this;
-            var selectedFiles = e.target.files;
-            for (let i = 0; i < selectedFiles.length; i++) {
-               // console.log(selectedFiles[i]);
-                vm.photos.push(selectedFiles[i]);
-            }
+            /* let vm = this;
+             var selectedFiles = e.target.files;
+             for (let i = 0; i < selectedFiles.length; i++) {
+                // console.log(selectedFiles[i]);
+                 vm.photos.push(selectedFiles[i]);
+             }
 
-            for (let i = 0; i < this.photos.length; i++) {
-                let reader = new FileReader();
-                reader.onload = (e) => {
-                    console.log(this.$refs.image)
-                    this.$refs.image[i].src = reader.result;
-                    console.log(this.$refs.image[i].src);
-                };
-                reader.readAsDataURL(this.photos[i]);
-            }*/
+             for (let i = 0; i < this.photos.length; i++) {
+                 let reader = new FileReader();
+                 reader.onload = (e) => {
+                     console.log(this.$refs.image)
+                     this.$refs.image[i].src = reader.result;
+                     console.log(this.$refs.image[i].src);
+                 };
+                 reader.readAsDataURL(this.photos[i]);
+             }*/
 
             let vm = this;
             let selectedFiles = e.target.files;
@@ -443,30 +443,30 @@ export default {
             'documents',
             'images'
         ]),
-       /* capacity: {
-            get(){
-                return this.$store.state["addproduct/capacity"]
-            },
-            set(newName){
-                return this.setCapacity(newName)
-            }
-        },
-        price: {
-            get(){
-                return this.$store.state["addproduct/price"]
-            },
-            set(newName){
-                return this.setPriceValue(newName)
-            }
-        },
-        priceWithNds: {
-            get(){
-                return this.$store.state["addproduct/priceWithNds"]
-            },
-            set(newName){
-                return this.setPriceWithNdsValue(newName)
-            }
-        }*/
+        /* capacity: {
+             get(){
+                 return this.$store.state["addproduct/capacity"]
+             },
+             set(newName){
+                 return this.setCapacity(newName)
+             }
+         },
+         price: {
+             get(){
+                 return this.$store.state["addproduct/price"]
+             },
+             set(newName){
+                 return this.setPriceValue(newName)
+             }
+         },
+         priceWithNds: {
+             get(){
+                 return this.$store.state["addproduct/priceWithNds"]
+             },
+             set(newName){
+                 return this.setPriceWithNdsValue(newName)
+             }
+         }*/
     },
 }
 </script>

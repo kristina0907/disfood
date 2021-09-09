@@ -40,8 +40,8 @@
                                     </svg>
                                 </span> Добавить товар
                                 </router-link>
-                                <button>Утвердить цену</button>
-                                <button>Утвердить все</button>
+                                <button @click.prevent="acceptedPrice">Утвердить цену</button>
+                                <button @click.prevent="acceptedPriceAll">Утвердить все</button>
                             </div>
                         </div>
                         <table class="table default_table table_product">
@@ -49,9 +49,9 @@
                             <tr>
                                 <th scope="col">
                                     <div class="checkbox">
-                                        <input class="custom-checkbox" type="checkbox" id="color-1" name="color-1"
-                                               value="indigo">
-                                        <label for="color-1"></label>
+                                        <input class="custom-checkbox" type="checkbox" id="color-all" name="color-all"
+                                               value="indigo" v-model="selectAll">
+                                        <label for="color-all"></label>
                                     </div>
                                 </th>
                                 <th scope="col">Фото</th>
@@ -62,16 +62,16 @@
                                     <path d="M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751" stroke="#22262A"
                                           stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
-                            </span>
-                                </th>
-                                <th scope="col">Статус
-                                    <span class="sort_col">
-                                <svg width="15" height="9" viewBox="0 0 15 9" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751" stroke="#22262A"
-                                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </span>
+                                </span>
+                                    </th>
+                                    <th scope="col">Статус
+                                        <span class="sort_col">
+                                    <svg width="15" height="9" viewBox="0 0 15 9" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751" stroke="#22262A"
+                                              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
                                 </th>
                                 <th scope="col">Категория
                                 </th>
@@ -81,12 +81,12 @@
                                 <th scope="col">Текущий объём</th>
                                 <th scope="col">Цена, кг / Цена, кг с НДС
                                     <span class="sort_col">
-                                <svg width="15" height="9" viewBox="0 0 15 9" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751" stroke="#22262A"
-                                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </span>
+                                        <svg width="15" height="9" viewBox="0 0 15 9" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751" stroke="#22262A"
+                                                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
                                 </th>
                                 <th class="price-term" scope="col">Срок цены</th>
                             </tr>
@@ -95,9 +95,9 @@
                             <tr v-for="product in productsFilter">
                                 <td>
                                     <div class="checkbox">
-                                        <input class="custom-checkbox" type="checkbox" id="color-2" name="color-2"
-                                               value="indigo">
-                                        <label for="color-2"></label>
+                                        <input class="custom-checkbox" type="checkbox" :id="'color-'+product.id" :name="'color-'+product.id"
+                                               value="indigo" v-model="selected" :value="product.id" number>
+                                        <label :for="'color-'+product.id"></label>
                                     </div>
                                 </td>
                                 <td>
@@ -116,10 +116,15 @@
                                 </td>
                                 <td>50 кг</td>
                                 <td>{{product.capacity}}</td>
-                                <td class="nowrap modal_price" data-bs-toggle="modal" data-bs-target="#changePrice"><span
-                                    class="price">{{ product.price }} ₽</span><span class="price_nds">{{product.price_with_nds}} ₽ НДС
-                            </span></td>
-                                <td class="nowrap price-term">до 13:00 МСК<span class="status_time_good">8ч</span></td>
+                                <td class="nowrap modal_price" data-bs-toggle="modal" data-bs-target="#changePrice" @click="currentProduct = product">
+                                    <span class="price">
+                                        {{ product.price }} ₽
+                                    </span>
+                                    <span class="price_nds">
+                                        {{product.price_with_nds}} ₽ НДС
+                                    </span>
+                                </td>
+                                <td class="nowrap price-term">{{product.updated_at | moment("D-MM-YYYY") }} МСК<span class="status_time_good">8ч</span></td>
                             </tr>
 
 
@@ -132,19 +137,27 @@
                                     <div class="modal-body">
                                         <form action="">
                                             <div class="title_madal_price">Изменение цены</div>
-                                            <div class="modal_name_product">Рис круглый шлифованный</div>
+                                            <div class="modal_name_product" v-if="currentProduct.type">{{currentProduct.type.name}}</div>
                                             <div class="container_modal_old_price">
                                                 <div class="title_modal_old_price">Старая цена</div>
                                                 <div class="modal_old_price">
-                                                    <span>46 Р</span>
-                                                    <span class="modal_old_price_nds">46 Р НДС</span>
+                                                    <span v-if="currentProduct">{{currentProduct.price}} Р</span>
+                                                    <span class="modal_old_price_nds" v-if="currentProduct">{{currentProduct.price_with_nds}} Р НДС</span>
                                                 </div>
                                             </div>
-                                            <div class="modal_input"><input type="text" value="46 Р"></div>
                                             <div class="modal_input">
-                                                <div class="model_price_percent">13%</div><input type="text" value="46 Р НДС">
+                                                <input type="text" v-if="currentProduct" :value="currentProduct.price" @input="currentProduct.price = $event.target.value">
                                             </div>
-                                            <div><button class="modal_btn_change_price" type="submit">Применить</button></div>
+                                            <div class="modal_input">
+                                                <div class="model_price_percent">13%</div>
+                                                <input type="text"  v-if="currentProduct" :value="currentProduct.price_with_nds" @input="currentProduct.price_with_nds = $event.target.value">
+                                            </div>
+                                            <div>
+                                                <button class="modal_btn_change_price"
+                                                        type="submit"
+                                                        v-if="currentProduct && currentProduct.price > 0 && currentProduct.price_with_nds > 0"
+                                                        @click.prevent="sendPrice(currentProduct.id,currentProduct)">Применить</button>
+                                            </div>
                                         </form>
                                     </div>
 
@@ -215,15 +228,94 @@ export default {
     components: {UserLKHeader},
     data(){
         return {
-
+            selected: [],
+            currentProduct:{},
         }
     },
     methods:{
-       ...mapActions('myproducts',['getProducts','allFilter','activeFilter','noactiveFilter'])
+       ...mapActions('myproducts',['getProducts','allFilter','activeFilter','noactiveFilter']),
+
+        /**
+         * send selected products to update price
+         */
+        acceptedPrice()
+        {
+            let output = [];
+            if(this.selected.length > 0)
+            {
+                for(let i=0;i < this.selected.length;i++)
+                {
+                   for (let j=0; j< this.products.length;j++)
+                   {
+                       if(this.selected[i] === this.products[j].id)
+                       {
+                           output.push(this.products[j]);
+                       }
+                   }
+
+                }
+            }
+            if(output.length > 0)
+            {
+                 axios.post('/set/updateprices',{'output':output})
+                    .then(response => {
+                        if (response.data !== 'undefined' && response.data !== null) {
+
+                        }
+                    });
+            }
+        },
+
+        /**
+         *  send all products to update price
+         */
+        acceptedPriceAll()
+        {
+            if(this.products.length > 0)
+            {
+                axios.post('/set/updateprices',{'output':this.products})
+                    .then(response => {
+                        if (response.data !== 'undefined' && response.data !== null) {
+
+                        }
+                    });
+            }
+        },
+
+        sendPrice(id,product)
+        {
+            if(product && id)
+            {
+                axios.post('/set/updateprice/product',{'product':product,'id':id})
+                    .then(response => {
+                        if (response.status == 200) {
+                            this.$router.go();
+                        }
+                    });
+            }
+        }
     },
     computed: {
         ...mapState('myproducts', ['products', 'productsFilter', 'activeflag', 'noactiveFlag', 'allFlag', 'countActive', 'countNoActive']),
-        ...mapState(['user'])
+        ...mapState(['user']),
+
+        selectAll: {
+                get: function () {
+                    return this.products ? this.selected.length == this.products.length : false;
+                },
+                set: function (value) {
+                    var selected = [];
+
+                    if (value) {
+                        this.products.forEach(function (product) {
+                            selected.push(product.id);
+                        });
+                    }
+
+                    this.selected = selected;
+                }
+        }
+
     },
     mounted() {
        this.$store.dispatch('myproducts/getProducts')

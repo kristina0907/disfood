@@ -50,6 +50,10 @@ Route::get('/get/location/from/text/{text}',[ApiController::class,'getLocationFr
 Route::get('/get/my-orders',[ApiController::class,'getMyOrders']);
 Route::get('/get/my-orders/by-cats',[ApiController::class,'getMyOrdersByCats']);
 Route::post('/set/order/new',[ApiController::class,'setNewOrder']);
+
+Route::post('/set/updateprices',[ApiController::class,'updatePrices']);
+Route::post('/set/updateprice/product',[ApiController::class,'updatePriceProduct']);
+
 Route::get('/get/order/{id}',[ApiController::class,'getMyOrder']);
 Route::get('/get/currentuser',[ApiController::class,'getCurrentUser']);
 

@@ -108,6 +108,12 @@ const routes = [
         name:'productadd',
     },
     {
+        path:'/product-edit/:id',
+        component:()=> import('../Pages/LK/Pages/EditProduct'),
+        name:'productedit',
+        props:true,
+    },
+    {
         path:'/offers',
         component:()=> import('../Pages/Offers'),
         name:'offers',

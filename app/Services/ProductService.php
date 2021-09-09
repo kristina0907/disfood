@@ -61,6 +61,19 @@ class ProductService
 
     /**
      * @param $data
+     * @return mixed
+     */
+
+    public function saveProductDataFromLK($data)
+    {
+        $result = $this->productRepository->update($data);
+
+        return $result;
+
+    }
+
+    /**
+     * @param $data
      * @param $id
      * @return mixed
      */

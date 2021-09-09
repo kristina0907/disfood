@@ -101,6 +101,32 @@ class OfferService
     }
 
     /**
+     * @param $data
+     * @param $id
+     * @return mixed
+     */
+
+    public function updateOfferDataFromLk($data,$id)
+    {
+
+        DB::beginTransaction();
+
+        try {
+            $cat = $this->offerRepository->update($data, $id);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::info($e->getMessage());
+
+            throw new InvalidArgumentException('Unable to update post data');
+        }
+
+        DB::commit();
+
+        return $cat;
+    }
+
+    /**
      * @param $id
      * @return mixed
      */

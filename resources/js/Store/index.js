@@ -9,6 +9,7 @@ import basket from "./modules/basket";
 import profile from "./modules/profile";
 import addcompany from "./modules/addcompany";
 import dashboard from "./modules/dashboard";
+import editproduct from "./modules/editproduct";
 
 
 Vue.use(Vuex);
@@ -24,7 +25,8 @@ const store = new Vuex.Store({
         basket,
         profile,
         addcompany,
-        dashboard
+        dashboard,
+        editproduct
     },
     state:{
         user:null,
@@ -159,6 +161,12 @@ const store = new Vuex.Store({
                     }
                 });
         },
+
+        /**
+         *
+         * @param commit
+         * @param data
+         */
 
         changeCourse({commit},data)
         {

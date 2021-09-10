@@ -12,7 +12,7 @@
                                 <div class="prev_page">Назад</div>
                             </router-link>
 
-                            <div class="title_create_product">Добавить товар</div>
+                            <div class="title_create_product">Редактировать товар</div>
                             <form>
                                 <div class="info_create_product">
                                     <div class="title_info_create_product">Цена</div>
@@ -305,23 +305,12 @@ export default {
         }
     },
     methods:{
-        ...mapActions('addproduct',[
-            'getCatalogData',
-            'getCatalogTypes',
-            'getPackings',
-            'sendDataNewProduct',
-            'filterTypes',
-            'filterProducts',
-            'setProductValue',
-            'addFilterValue',
-            'setPackingsValue',
-            'setCapacity',
-            'setPriceValue',
-            'setPriceWithNdsValue',
-            'addFileToDocuments',
-            'addFileToImages'
-        ]),
 
+
+        /**
+         *
+         * @param e
+         */
 
         onFileChange(e)
         {
@@ -341,22 +330,6 @@ export default {
 
         onPhotoChange(e)
         {
-            /* let vm = this;
-             var selectedFiles = e.target.files;
-             for (let i = 0; i < selectedFiles.length; i++) {
-                // console.log(selectedFiles[i]);
-                 vm.photos.push(selectedFiles[i]);
-             }
-
-             for (let i = 0; i < this.photos.length; i++) {
-                 let reader = new FileReader();
-                 reader.onload = (e) => {
-                     console.log(this.$refs.image)
-                     this.$refs.image[i].src = reader.result;
-                     console.log(this.$refs.image[i].src);
-                 };
-                 reader.readAsDataURL(this.photos[i]);
-             }*/
 
             let vm = this;
             let selectedFiles = e.target.files;
@@ -379,6 +352,10 @@ export default {
 
         },
 
+        /**
+         *
+         * @param filter
+         */
 
         changeFilterValue(filter)
         {
@@ -386,6 +363,10 @@ export default {
             this.$store.dispatch('addproduct/addFilterValue',{'filter':filter,'value':val.value});
         },
 
+        /**
+         *
+         * @param data
+         */
 
         searchLocation(data)
         {
@@ -397,6 +378,9 @@ export default {
                 });
         },
 
+        /**
+         *
+         */
 
         addAdress()
         {
@@ -405,11 +389,7 @@ export default {
             })
         },
 
-        /*handleFileChange(event)
-        {
-            console.log(event.target.files);
-            this.documents.push({file:event.target.files[0]});
-        },*/
+
 
     },
 
@@ -417,56 +397,11 @@ export default {
      *
      */
     mounted() {
-        //this.getData();
-        this.getCatalogData();
-        this.getCatalogTypes();
-        this.getPackings();
+
     },
     computed: {
-        ...mapState('addproduct',[
-            'categories',
-            'types',
-            'products',
-            'packings',
-            'categoryValue',
-            'filteredTypes',
-            'typeValue',
-            'filteredProducts',
-            'productValue',
-            'filters',
-            'filterValue',
-            'price',
-            'priceWithNds',
-            'capacity',
-            'selectedPackings',
-            'adress',
-            'documents',
-            'images'
-        ]),
-        /* capacity: {
-             get(){
-                 return this.$store.state["addproduct/capacity"]
-             },
-             set(newName){
-                 return this.setCapacity(newName)
-             }
-         },
-         price: {
-             get(){
-                 return this.$store.state["addproduct/price"]
-             },
-             set(newName){
-                 return this.setPriceValue(newName)
-             }
-         },
-         priceWithNds: {
-             get(){
-                 return this.$store.state["addproduct/priceWithNds"]
-             },
-             set(newName){
-                 return this.setPriceWithNdsValue(newName)
-             }
-         }*/
+
+
     },
 }
 </script>

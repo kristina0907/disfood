@@ -100,22 +100,22 @@
                                         <label :for="'color-'+product.id"></label>
                                     </div>
                                 </td>
-                                <td>
+                                <td @click.prevent="redirectToEdit(product.id)">
                                     <div class="image_product_table"
                                          :style="'background-image: url('+product.type.image+');'"></div>
                                 </td>
-                                <td class="bold">{{ product.type.name }}</td>
-                                <td v-if="product.active">Активно</td>
+                                <td class="bold" @click.prevent="redirectToEdit(product.id)">{{ product.type.name }}</td>
+                                <td v-if="product.active" @click.prevent="redirectToEdit(product.id)">Активно</td>
                                 <td v-else>Не активно</td>
-                                <td>{{ product.category.name }}</td>
-                                <td>{{ product.type.name }}</td>
-                                <td>
+                                <td @click.prevent="redirectToEdit(product.id)">{{ product.category.name }}</td>
+                                <td @click.prevent="redirectToEdit(product.id)">{{ product.type.name }}</td>
+                                <td @click.prevent="redirectToEdit(product.id)">
                                     <div v-if="product.adresses.length" v-for="adress in product.adresses">
                                        {{adress.region_name}}
                                     </div>
                                 </td>
-                                <td>50 кг</td>
-                                <td>{{product.capacity}}</td>
+                                <td @click.prevent="redirectToEdit(product.id)">50 кг</td>
+                                <td @click.prevent="redirectToEdit(product.id)">{{product.capacity}}</td>
                                 <td class="nowrap modal_price" data-bs-toggle="modal" data-bs-target="#changePrice" @click="currentProduct = product">
                                     <span class="price">
                                         {{ product.price }} ₽
@@ -282,6 +282,12 @@ export default {
             }
         },
 
+        /**
+         *
+         * @param id
+         * @param product
+         */
+
         sendPrice(id,product)
         {
             if(product && id)
@@ -292,6 +298,14 @@ export default {
                             this.$router.go();
                         }
                     });
+            }
+        },
+
+        redirectToEdit(id)
+        {
+            if(id)
+            {
+                this.$router.push({name:'productedit',params:{'id':id}})
             }
         }
     },
@@ -322,3 +336,11 @@ export default {
     }
 }
 </script>
+
+<style>
+.default_table tbody tr:hover
+{
+    background: #fafafa;
+    cursor:pointer;
+}
+</style>

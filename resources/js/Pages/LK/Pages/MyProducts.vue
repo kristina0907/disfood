@@ -55,7 +55,7 @@
                                     </div>
                                 </th>
                                 <th scope="col">Фото</th>
-                                <th scope="col">Наименование
+                                <th scope="col" @click="sortName">Наименование
                                     <span class="sort_col">
                                 <svg width="15" height="9" viewBox="0 0 15 9" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -64,7 +64,7 @@
                                 </svg>
                                 </span>
                                     </th>
-                                    <th scope="col">Статус
+                                    <th scope="col"  @click="sortPrice" >Статус
                                         <span class="sort_col">
                                     <svg width="15" height="9" viewBox="0 0 15 9" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -79,7 +79,7 @@
                                 <th scope="col">Регион погрузки</th>
                                 <th scope="col">Фасовка</th>
                                 <th scope="col">Текущий объём</th>
-                                <th scope="col">Цена, кг / Цена, кг с НДС
+                                <th scope="col"  @click="sortPrice('price')">Цена, кг / Цена, кг с НДС
                                     <span class="sort_col">
                                         <svg width="15" height="9" viewBox="0 0 15 9" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
@@ -230,10 +230,59 @@ export default {
         return {
             selected: [],
             currentProduct:{},
+            sortByPrice:false,
+            sortByName:false,
         }
     },
     methods:{
        ...mapActions('myproducts',['getProducts','allFilter','activeFilter','noactiveFilter']),
+
+
+        /**
+         *  sorting price column
+         */
+
+        sortPrice()
+        {
+
+            if(!this.sortByPrice)
+            {
+                this.productsFilter.sort(function(a,b){
+                    return a.price - b.price
+                });
+                this.sortByPrice = true;
+            }
+            else
+            {
+                this.productsFilter.sort(function(a,b){
+                    return  b.price - a.price
+                });
+                this.sortByPrice = false;
+            }
+
+        },
+
+        /**
+         * sorting By name
+         */
+
+        sortName()
+        {
+            if(!this.sortByName)
+            {
+                this.productsFilter.sort(function(a,b){
+                    return a.type.name - b.type.name
+                });
+                this.sortByName = true;
+            }
+            else
+            {
+                this.productsFilter.sort(function(a,b){
+                    return  b.type.name - a.type.name
+                });
+                this.sortByName = false;
+            }
+        },
 
         /**
          * send selected products to update price
@@ -300,6 +349,11 @@ export default {
                     });
             }
         },
+
+        /**
+         *
+         * @param id
+         */
 
         redirectToEdit(id)
         {

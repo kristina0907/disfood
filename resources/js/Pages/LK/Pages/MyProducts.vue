@@ -272,16 +272,26 @@ export default {
             if(!this.sortByName)
             {
                 this.productsFilter.sort(function(a,b){
-                    console.log(a)
-                    return a.type.name - b.type.name
+                    var nameA=a.type.name.toLowerCase(),
+                        nameB=b.type.name.toLowerCase()
+                    if (nameA < nameB) //сортируем строки по возрастанию
+                        return -1
+                    if (nameA > nameB)
+                        return 1
+                    return 0 // Никакой сортировки
                 });
                 this.sortByName = true;
             }
             else
             {
                 this.productsFilter.sort(function(a,b){
-                    console.log(a)
-                    return  b.type.name - a.type.name
+                    var nameA=a.type.name.toLowerCase(),
+                        nameB=b.type.name.toLowerCase()
+                    if (nameA > nameB) //сортируем строки по возрастанию
+                        return -1
+                    if (nameA < nameB)
+                        return 1
+                    return 0 // Никакой сортировки
                 });
                 this.sortByName = false;
             }

@@ -64,7 +64,7 @@
                                 </svg>
                                 </span>
                                     </th>
-                                    <th scope="col"  @click="sortPrice" >Статус
+                                    <th scope="col"  @click="sortStatus" >Статус
                                         <span class="sort_col">
                                     <svg width="15" height="9" viewBox="0 0 15 9" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -232,6 +232,7 @@ export default {
             currentProduct:{},
             sortByPrice:false,
             sortByName:false,
+            sortByStatus:false,
         }
     },
     methods:{
@@ -271,6 +272,7 @@ export default {
             if(!this.sortByName)
             {
                 this.productsFilter.sort(function(a,b){
+                    console.log(a)
                     return a.type.name - b.type.name
                 });
                 this.sortByName = true;
@@ -278,9 +280,32 @@ export default {
             else
             {
                 this.productsFilter.sort(function(a,b){
+                    console.log(a)
                     return  b.type.name - a.type.name
                 });
                 this.sortByName = false;
+            }
+        },
+
+        /**
+         *  Sorting by status
+         */
+
+        sortStatus()
+        {
+            if(!this.sortByStatus)
+            {
+                this.productsFilter.sort(function(a,b){
+                    return a.active - b.active
+                });
+                this.sortByStatus = true;
+            }
+            else
+            {
+                this.productsFilter.sort(function(a,b){
+                    return  b.active - a.active
+                });
+                this.sortByStatus = false;
             }
         },
 

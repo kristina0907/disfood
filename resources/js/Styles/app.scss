@@ -6446,3 +6446,96 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .jsCalendar tbody td.jsCalendar-current{
     background-color: #CAE7BA;
 }
+
+.title_news{
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40px;
+    color: #0E0F11;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.item_list_news{
+    margin-bottom: 57px;
+}
+.img_item_list_news {
+    border-radius: 10px;
+    width: 100%;
+    height: 270px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 30px;
+}
+.news_company_block .row{
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.news_company_block .row>div{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.tab_news .tab-content{
+    margin-top: 60px;
+}
+.tab_news .nav-tabs .nav-link {
+    padding: 10px 30px;
+    background: #F0F2F4;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #22262A;
+    margin-right: 20px;
+    border: 0;
+}
+.tab_news .nav-tabs .nav-item.show .nav-link, .tab_news .nav-tabs .nav-link.active {
+    color: #22262A;
+    background: #D4D8DB;
+    border:0;
+}
+.tab_news .nav-tabs {
+    border-bottom: 0;
+    justify-content: center;
+}
+.news_pagination .pagination{
+    justify-content: center;
+}
+.title_detailed_news{
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 50px;
+    color: #0E0F11;
+    margin-bottom: 20px;
+}
+.bread_crumbs{
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+}
+.head_detailed_news{
+    margin-bottom: 37px;
+}
+.detailed_news_img{
+    height: 500px;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.detailed_news_content{
+    width: 79%;
+    margin-bottom: 90px;
+}
+.container_document_footer{
+    border-top: 1px solid #D4D8DB;
+    padding: 19px 0 18px;
+}
+.container_document_footer a{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000000;
+    margin-right: 20px;
+}

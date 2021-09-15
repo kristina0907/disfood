@@ -83,6 +83,7 @@
                                     <div class="price_catalog_info_product" v-if="priceWithNDS && currentCourse === 'RUB'">{{product.price_with_nds}} ₽ / <span v-if="product.type">{{product.type.unit}}</span></div>
 
                                     <div class="count_offers_product" v-if="relatedOffers.length">Количество похожих предложений {{relatedOffers.length}} </div>
+
                                     <div class="name_info_catalog_product">Стандарт <span>ГОСТ 6292-93</span></div>
                                     <div class="name_info_catalog_product">Сорт <span>1</span></div>
                                     <div class="name_info_catalog_product">Содержание дроби <span>5%</span></div>
@@ -227,7 +228,7 @@
                                                                           stroke-linecap="round" stroke-linejoin="round" />
                                                                 </svg>
                                                             </button>
-                                                            <input data-id="m2"  class="quantity-num" type="number" v-model="volume" v-on:input="recalc" placeholder="кг"/>
+                                                            <input data-id="m2"  class="quantity-num" type="number" v-model="volume" v-on:input="recalc" placeholder="Тонн"/>
                                                             <button data-id="m2" class="quantity-arrow-plus" @click="changeCount({'val':'increment','pack':pack})">
                                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                                      xmlns="http://www.w3.org/2000/svg">
@@ -240,7 +241,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        кг
+                                                        Тонн
                                                     </div>
                                                 </div>
                                             </div>

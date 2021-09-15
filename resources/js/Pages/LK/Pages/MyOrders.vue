@@ -34,7 +34,7 @@
                         </div>
                         <input type="text" placeholder="Найти сделку по дате или номеру договора">
                     </div>
-                    <table class="table default_table">
+                    <table  id="my-table" class="table default_table">
                         <thead>
                         <tr>
                             <th scope="col">№
@@ -117,6 +117,14 @@
                         </tr>
                         </tbody>
                     </table>
+                    <p class="mt-3">Current Page: {{ currentPage }}</p>
+                    <b-pagination
+                        v-model="currentPage"
+                        :total-rows="rows"
+                        :per-page="perPage"
+                        aria-controls="my-table"
+                        >
+                    </b-pagination>
 <!--                    <div class="navigation_table">
                         <div class="num_rows">
                               <span>
@@ -187,6 +195,8 @@ export default {
                 {completeFlag:false},
                 {cancelledFlag:false},
             ],
+            perPage: 3,
+            currentPage: 1,
         }
     },
     methods: {
@@ -227,6 +237,9 @@ export default {
     },
     computed: {
         ...mapState('myorders',['orders','ordersFilter','countOrders']),
+        rows() {
+            return this.ordersFilter.length
+        }
     },
     mounted() {
         this.$store.dispatch('myorders/getMyOrders');

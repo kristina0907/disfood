@@ -34,6 +34,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import YmapPlugin from 'vue-yandex-maps'
 import VueApexCharts from 'vue-apexcharts'
+import Paginate from 'vuejs-paginate'
 
 
 const settings = {
@@ -57,7 +58,7 @@ Vue.use(VueRouter);
 Vue.use(YmapPlugin, settings)
 Vue.use(VueApexCharts);
 Vue.use(require('vue-moment'));
-
+Vue.use(Paginate);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

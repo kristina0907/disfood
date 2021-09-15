@@ -74,7 +74,7 @@ class Offer extends Model
 
     public function filters()
     {
-        return $this->belongsToMany(Filter::class,'filter_offers','offer_id','filter_id','','value_id');
+        return $this->belongsToMany(Filter::class,'filter_offers','offer_id','filter_id');
     }
 
     /**

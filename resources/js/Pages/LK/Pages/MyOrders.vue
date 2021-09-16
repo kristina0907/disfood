@@ -34,7 +34,7 @@
                         </div>
                         <input type="text" placeholder="Найти сделку по дате или номеру договора">
                     </div>
-                    <table  id="my-table" class="table default_table">
+                    <table   class="table default_table">
                         <thead>
                         <tr>
                             <th scope="col">№
@@ -84,8 +84,8 @@
                             </th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr v-for="order in ordersFilter" @click="goToOrder(order.id)">
+                        <tbody id="my-table">
+                        <tr v-for="order in paginateOrders" @click="goToOrder(order.id)" v-bind:key="order.id">
                                 <td>
                                     {{order.id}}
                                 </td>
@@ -117,14 +117,35 @@
                         </tr>
                         </tbody>
                     </table>
-                    <p class="mt-3">Current Page: {{ currentPage }}</p>
-                    <b-pagination
-                        v-model="currentPage"
-                        :total-rows="rows"
-                        :per-page="perPage"
-                        aria-controls="my-table"
+
+                    <div class="navigation_table">
+                        <div class="num_rows">
+                              <span>
+                                  Количество сторок
+                              </span>
+                            <div class="container_select_rows">
+                                <select name="" id="">
+                                    <option value="">5</option>
+                                    <option value="">10</option>
+                                </select>
+                            </div>
+                        </div>
+                        <b-pagination
+                            v-model="currentPage"
+                            :total-rows="rows"
+                            :per-page="perPage"
+                            aria-controls="my-table"
+                            first-number
+                            last-number
+                            align="center"
+                            class="pagination"
                         >
-                    </b-pagination>
+                        </b-pagination>
+                        <div class="page_count">
+                            {{perPage}} из {{rows}}
+                        </div>
+                    </div>
+
 <!--                    <div class="navigation_table">
                         <div class="num_rows">
                               <span>
@@ -195,21 +216,38 @@ export default {
                 {completeFlag:false},
                 {cancelledFlag:false},
             ],
-            perPage: 3,
+            perPage: 5,
             currentPage: 1,
         }
     },
     methods: {
+
+        /**
+         *
+         * @param type
+         */
 
         allFilter(type) {
             this.ordersFilter = this.orders;
             this.changeFlags(type);
 
         },
+
+        /**
+         *
+         * @param id
+         */
+
         goToOrder(id){
             var path = '/order-page/'+id;
             this.$router.push({ path: path,params:{id:id} });
         },
+
+        /**
+         *
+         * @param type
+         */
+
        changeFlags(type)
         {
             var str = type + 'Flag';
@@ -225,6 +263,13 @@ export default {
             })
             this.valFilter(type)
         },
+
+        /**
+         *
+         * @param type
+         * @returns {number}
+         */
+
         getCountOrders(type)
         {
             var positiveArr = this.orders.filter(function(order) {
@@ -236,11 +281,32 @@ export default {
 
     },
     computed: {
+
+
         ...mapState('myorders',['orders','ordersFilter','countOrders']),
+
+        /**
+         *
+         * @returns {number}
+         */
+
         rows() {
             return this.ordersFilter.length
-        }
+        },
+
+        /**
+         *
+         * @returns {*[]}
+         */
+
+        paginateOrders () {
+            return this.ordersFilter.slice(
+                (this.currentPage - 1) * this.perPage,
+                this.currentPage * this.perPage
+            )
+        },
     },
+
     mounted() {
         this.$store.dispatch('myorders/getMyOrders');
 

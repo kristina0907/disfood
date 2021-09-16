@@ -124,9 +124,9 @@
                                   Количество сторок
                               </span>
                             <div class="container_select_rows">
-                                <select name="" id="">
-                                    <option value="">5</option>
-                                    <option value="">10</option>
+                                <select v-model="perPage" id="">
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
                                 </select>
                             </div>
                         </div>

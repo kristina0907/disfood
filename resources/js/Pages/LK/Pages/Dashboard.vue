@@ -222,22 +222,22 @@
                         </div>
                         <div class="list_values_dashboard" v-if="dashboard.orders">
                             <div class="item_values_dashboard">
-                                <div class="title_values_dashboard col-md-4">Новые</div>
+                                <div class="title_values_dashboard col-md-4" @click="updateActiveTabAction('new')">Новые</div>
                                 <div class="quantity_values_dashboard col-md-4 text-center" v-if="dashboard.orders.new">{{dashboard.orders.new.items.length}}</div>
                                 <div class="price_values_dashboard col-md-4 text-right" v-if="dashboard.orders.new">{{dashboard.orders.new.summ}} ₽</div>
                             </div>
                             <div class="item_values_dashboard">
-                                <div class="title_values_dashboard col-md-4">Ожидают оплаты</div>
+                                <div class="title_values_dashboard col-md-4" @click="updateActiveTabAction('paying')">Ожидают оплаты</div>
                                 <div class="quantity_values_dashboard col-md-4 text-center" v-if="dashboard.orders.payment">{{dashboard.orders.payment.items.length}}</div>
                                 <div class="price_values_dashboard col-md-4 text-right" v-if="dashboard.orders.payment" >{{dashboard.orders.payment.summ}} ₽</div>
                             </div>
                             <div class="item_values_dashboard">
-                                <div class="title_values_dashboard col-md-4">Отмены</div>
+                                <div class="title_values_dashboard col-md-4" @click="updateActiveTabAction('cancelled')">Отмены</div>
                                 <div class="quantity_values_dashboard col-md-4 text-center" v-if="dashboard.orders.cancelled" >{{dashboard.orders.cancelled.items.length}}</div>
                                 <div class="price_values_dashboard col-md-4 text-right" v-if="dashboard.orders.cancelled" >{{dashboard.orders.cancelled.summ}} ₽</div>
                             </div>
                             <div class="item_values_dashboard">
-                                <div class="title_values_dashboard col-md-4">Завершены</div>
+                                <div class="title_values_dashboard col-md-4" @click="updateActiveTabAction('complete')">Завершены</div>
                                 <div class="quantity_values_dashboard col-md-4 text-center" v-if="dashboard.orders.complete">{{dashboard.orders.complete.items.length}}</div>
                                 <div class="price_values_dashboard col-md-4 text-right" v-if="dashboard.orders.complete">{{dashboard.orders.complete.summ}} ₽</div>
                             </div>
@@ -391,7 +391,7 @@ export default {
     },
     methods:{
       ...mapActions('dashboard',['getOffers','getOrders']),
-
+      ...mapActions('myorders',['updateActiveTabAction'])
     },
    mounted() {
          this.$store.dispatch('dashboard/getOffers');
@@ -400,7 +400,8 @@ export default {
     },
     computed:{
 
-        ...mapState(['dashboard',['offers','orders']])
+        ...mapState(['dashboard',['offers','orders']]),
+
     },
 }
 </script>

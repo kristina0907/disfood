@@ -9,18 +9,18 @@
 
                 <div class="table_container table-responsive">
                     <div class="sort_taable">
-                        <div class="item_sort" :class="{'active':flags[0]['allFlag']}" @click="changeFlags('all')">Все <span>&#183;</span>
+                        <div class="item_sort" :class="{'active':activeTab === 'all'}" @click="changeFlags('all')">Все <span>&#183;</span>
                             <span v-if="orders">
                             {{ orders.length }}
                             </span>
                         </div>
-                        <div class="item_sort" :class="{'active':flags[1]['newFlag']}" @click="changeFlags('new')">Новые <span>&#183;</span>{{getCountOrders('new')}}</div>
-                        <div class="item_sort" :class="{'active':flags[2]['payingFlag']}" @click="changeFlags('paying')">Оплата <span>&#183;</span> {{getCountOrders('paying')}}</div>
-                        <div class="item_sort" :class="{'active':flags[3]['acceptedFlag']}" @click="changeFlags('accepted')">Подтвержден <span>&#183;</span>{{getCountOrders('accepted')}}</div>
-                        <div class="item_sort" :class="{'active':flags[4]['pogruzkaFlag']}" @click="changeFlags('pogruzka')">Погрузка <span>&#183;</span>{{getCountOrders('pogruzka')}}</div>
-                        <div class="item_sort" :class="{'active':flags[5]['deliveryFlag']}" @click="changeFlags('delivery')">Доставляется <span>&#183;</span>{{getCountOrders('delivery')}}</div>
-                        <div class="item_sort" :class="{'active':flags[6]['completeFlag']}" @click="changeFlags('complete')">Завершена <span>&#183;</span>{{getCountOrders('complete')}}</div>
-                        <div class="item_sort" :class="{'active':flags[7]['cancelledFlag']}" @click="changeFlags('cancelled')">Не состоялась <span>&#183;</span>{{getCountOrders('cancelled')}} </div>
+                        <div class="item_sort" :class="{'active':activeTab === 'new'}" @click="changeFlags('new')">Новые <span>&#183;</span>{{getCountOrders('new')}}</div>
+                        <div class="item_sort" :class="{'active':activeTab === 'paying'}" @click="changeFlags('paying')">Оплата <span>&#183;</span> {{getCountOrders('paying')}}</div>
+                        <div class="item_sort" :class="{'active':activeTab === 'accepted'}"  @click="changeFlags('accepted')">Подтвержден <span>&#183;</span>{{getCountOrders('accepted')}}</div>
+                        <div class="item_sort" :class="{'active':activeTab === 'pogruzka'}" @click="changeFlags('pogruzka')">Погрузка <span>&#183;</span>{{getCountOrders('pogruzka')}}</div>
+                        <div class="item_sort" :class="{'active':activeTab === 'delivery'}" @click="changeFlags('delivery')">Доставляется <span>&#183;</span>{{getCountOrders('delivery')}}</div>
+                        <div class="item_sort" :class="{'active':activeTab === 'complete'}" @click="changeFlags('complete')">Завершена <span>&#183;</span>{{getCountOrders('complete')}}</div>
+                        <div class="item_sort" :class="{'active':activeTab === 'cancelled'}" @click="changeFlags('cancelled')">Не состоялась <span>&#183;</span>{{getCountOrders('cancelled')}} </div>
                     </div>
                     <div class="search_table">
                         <div class="icon_search">
@@ -206,16 +206,6 @@ export default {
     components: {UserLKHeader},
     data(){
         return {
-            flags:[
-                {allFlag:true},
-                {newFlag:false},
-                {payingFlag:false},
-                {acceptedFlag:false},
-                {pogruzkaFlag:false},
-                {deliveryFlag:false},
-                {completeFlag:false},
-                {cancelledFlag:false},
-            ],
             perPage: 5,
             currentPage: 1,
         }
@@ -250,17 +240,8 @@ export default {
 
        changeFlags(type)
         {
-            var str = type + 'Flag';
-            this.flags.map(function (flag){
-                if(str == Object.keys(flag).[0])
-                {
-                    flag[str] = true;
-                }
-                else
-                {
-                    flag[Object.keys(flag).[0]] = false;
-                }
-            })
+
+            this.activeTab = type;
             this.valFilter(type)
         },
 
@@ -283,7 +264,7 @@ export default {
     computed: {
 
 
-        ...mapState('myorders',['orders','ordersFilter','countOrders']),
+        ...mapState('myorders',['orders','ordersFilter','countOrders','activeTab']),
 
         /**
          *

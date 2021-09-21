@@ -31,6 +31,7 @@ class AltaSoftController extends Controller
 
     public function getRailwayStation(Request $request)
     {
+
         if(!empty($request->type) && !empty($request->index))
         {
             $search = $this->altasoftService->getRailwayStation($request->type,$request->index);

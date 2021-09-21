@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\AltaSoftController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,7 @@ Route::get('/get/my-companies',[ApiController::class,'getUserCompanies']);
 
 Route::get('/get/location',[ApiController::class,'getLocation']);
 Route::get('/get/location/from/text/{text}',[ApiController::class,'getLocationFromText']);
+
 Route::get('/get/my-orders',[ApiController::class,'getMyOrders']);
 Route::get('/get/my-orders/by-cats',[ApiController::class,'getMyOrdersByCats']);
 Route::post('/set/order/new',[ApiController::class,'setNewOrder']);
@@ -67,7 +69,9 @@ Route::get('/get/news',[ApiController::class,'getNews']);
 
 Route::get('/get/catalog',[ApiController::class,'getFilterCatalogData']);
 Route::get('/get/catalog/page/{id}',[ApiController::class,'getCatalogPageData']);
+
 Route::get('/get/offer',[ApiController::class,'getFilterOfferData']);
+
 Route::get('/get/messages/{id}',[ApiController::class,'getOfferMessages']);
 Route::get('/get/last/message/{id}',[ApiController::class,'getLastMessageFromChat']);
 Route::post('/send/messages',[ApiController::class,'setOfferMessages']);
@@ -83,6 +87,9 @@ Route::post('/get/cat/type',[ApiController::class,'searchCatType']);
 
 
 Route::get('/get/current/courseusd',[ApiController::class,'getCurrentCourseUsd']);
+
+
+Route::get('/get/railway/station',[AltaSoftController::class,'getRailwayStation']);
 
 Route::get('/{any?}',function (){
    return view('welcome');

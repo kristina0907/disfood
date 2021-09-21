@@ -28,7 +28,7 @@ class AltaSoftApiService
         }
         else
         {
-            $this->ApiKey = "572B4FAA90703868483E906E1C67AD12 ";
+            $this->ApiKey = "3045BEEE61B46CFA453770A1A2C2B2E7";
         }
     }
 
@@ -112,6 +112,7 @@ class AltaSoftApiService
     {
         // Convert xml string into an object
         $new = simplexml_load_string($data);
+
 
         // Convert into json
         $con = json_encode($new);

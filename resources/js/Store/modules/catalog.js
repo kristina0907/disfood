@@ -17,6 +17,7 @@ export default {
         capacity:20000,
         isLoading:false,
         selectedFilters:[],
+        railwayStations:[],
     },
     getters: {
 
@@ -310,6 +311,17 @@ export default {
                 state.selectedFilters.push(value);
             }
 
+        },
+
+        /**
+         *
+         * @param state
+         * @param value
+         */
+
+        updateRailwayStations(state,value)
+        {
+            state.railwayStations = value;
         }
 
     },
@@ -590,8 +602,14 @@ export default {
         setCapacity({commit},value)
         {
             commit('updateCapacity',value);
-            console.log('setCapacity')
         },
+
+        /**
+         *
+         * @param commit
+         * @param state
+         * @param value
+         */
 
         deleteFilter({commit,state},value)
         {
@@ -610,6 +628,23 @@ export default {
             commit('SET_CATALOG',exist);
             commit('updateSelectedFilters',value)
            // commit('updateSelectedFilters',value);
+        },
+
+
+        async getRailwayStation({commit,state})
+        {
+            if(state.locationInput.data)
+            {
+                await  axios.get('/get/railway/station?type=fst&index='+ state.locationInput.data.city)
+                    .then(response => {
+                        if(response.status == 200)
+                        {
+                            console.log(response.data)
+                            commit('updateRailwayStations',response.data.search.stations)
+                        }
+                    });
+            }
+
         }
     }
 }

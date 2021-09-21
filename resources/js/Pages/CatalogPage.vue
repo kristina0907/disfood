@@ -124,7 +124,7 @@
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item">
                                             <a class="nav-link" id="home-tab" data-toggle="tab" href="#JD" role="tab"
-                                               aria-controls="JD" aria-selected="false"><span> &#183;</span>
+                                               aria-controls="JD" aria-selected="false" @click="getRailwayStation"><span> &#183;</span>
                                                 ЖД</a>
                                         </li>
                                         <li class="nav-item">
@@ -453,7 +453,9 @@ export default {
             'addPackingToOrder',
             'sendOffer'
         ]),
-        ...mapActions(['getCurrentCourse','changeCourse'])
+        ...mapActions(['getCurrentCourse','changeCourse']),
+        ...mapActions('catalog',['getRailwayStation'])
+
     },
    async mounted(){
         await this.$store.dispatch('catalogpage/getData',this.product_id);
@@ -461,7 +463,7 @@ export default {
         await this.getCurrentCourse()
     },
     computed: {
-        ...mapState('catalog',['location','currentUserOrganization']),
+        ...mapState('catalog',['location','currentUserOrganization','locationInput']),
         ...mapState('catalogpage',['product','filterPackages','relatedOffers','priceWithNDS','currency','packages','summ','volume']),
         ...mapState(['currentCourse','courseUSD'])
     },

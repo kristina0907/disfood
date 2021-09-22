@@ -102,7 +102,7 @@
                                 </div>
                                 <div id="filters" class="row item_container_product_block">
                                     <div class="col-md-6" v-if="typeValue && filters.length" v-for="(filter) in typeValue.filters">
-                                        <div class="item_product_input row mar-0-10">
+<!--                                        <div class="item_product_input row mar-0-10">
                                                 <div class="col-md-6 container_input_price">
                                                     <div class="title_filter_catalog">{{filter.name}}</div>
                                                     <select :id="'filter-'+filter.id" style="height: auto" class="select select_type" @input = changeFilterValue(filter.id) multiple required>
@@ -111,8 +111,21 @@
                                                     </select>
                                                 </div>
                                                 </div>
-
+-->
+                                        <multiselect :value ="selectedFilters"
+                                                     :options="filter.values"
+                                                     :multiple="true"
+                                                     label="value"
+                                                     track-by="value"
+                                                     :placeholder="filter.name"
+                                                     :selectLabel="filter.name"
+                                                     selectedLabel="Выбрано"
+                                                     deselectLabel="Нажмите еще раз чтобы удалить"
+                                                     
+                                                     :required="true"
+                                        ></multiselect>
                                         </div>
+
                                 </div>
 
 
@@ -302,6 +315,7 @@ export default {
         return {
             //images:[],
             locationTips:[],
+            selectedFilters:[]
         }
     },
     methods:{

@@ -155,7 +155,16 @@
                                                 <span v-if="typeValue.name">{{ typeValue.name }}</span>
                                                 <span v-else>{{categoryValue.name}}</span>
                                                 <span>{{products.length}}</span> </div>
-                                            <div class="more_offer_product_category_block"><a href="" @click.prevent="showMap">Показать на карте</a></div>
+                                            <div class="more_offer_product_category_block">
+                                                <a href="" @click.prevent="showMap">
+                                                    <span v-if="!showmap">
+                                                        Показать на карте
+                                                    </span>
+                                                    <span v-else>
+                                                        Скрыть карту
+                                                    </span>
+                                                </a>
+                                            </div>
                                         </div>
                                         <div class="dop_filter_product offer_dop_filter">
                                             <div class="offer_price_filter">

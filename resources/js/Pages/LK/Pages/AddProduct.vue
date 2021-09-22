@@ -112,16 +112,17 @@
                                                 </div>
                                                 </div>
 -->
-                                        <multiselect :value ="selectedFilters"
+                                        <multiselect
                                                      :options="filter.values"
                                                      :multiple="true"
                                                      label="value"
                                                      track-by="value"
+                                                     :id="'filter-'+filter.id"
                                                      :placeholder="filter.name"
                                                      :selectLabel="filter.name"
                                                      selectedLabel="Выбрано"
                                                      deselectLabel="Нажмите еще раз чтобы удалить"
-                                                     
+                                                     @input="changeFilterValue(filter.id)"
                                                      :required="true"
                                         ></multiselect>
                                         </div>

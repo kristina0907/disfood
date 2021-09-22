@@ -214,31 +214,31 @@
                 <div class="col-xs-12 col-md-5">
                     <div class="transactions_current_period">
                         <div class="header_item_right_dashboard">
-                            <div class="titile_header_item_right_dashboard">Сделки за текущий период</div>
-                            <div class="date_change_block">
-                                <div class="date_transactions_current_period">Сделки</div>
-                                <div class="change_transactions_current_period">Цены</div>
+                            <div class="titile_header_item_right_dashboard col-md-5">Сделки за текущий период</div>
+                            <div class="date_change_block col-md-7">
+                                    <div class="date_transactions_current_period col-md-6 text-right">Сделки</div>
+                                    <div class="change_transactions_current_period col-md-6 text-right">Цены</div>
                             </div>
                         </div>
                         <div class="list_values_dashboard" v-if="dashboard.orders">
                             <div class="item_values_dashboard">
                                 <div class="title_values_dashboard col-md-4" @click="updateActiveTabAction('new')">Новые</div>
-                                <div class="quantity_values_dashboard col-md-4 text-center" v-if="dashboard.orders.new">{{dashboard.orders.new.items.length}}</div>
+                                <div class="quantity_values_dashboard col-md-4 text-right" v-if="dashboard.orders.new">{{dashboard.orders.new.items.length}}</div>
                                 <div class="price_values_dashboard col-md-4 text-right" v-if="dashboard.orders.new">{{dashboard.orders.new.summ}} ₽</div>
                             </div>
                             <div class="item_values_dashboard">
                                 <div class="title_values_dashboard col-md-4" @click="updateActiveTabAction('paying')">Ожидают оплаты</div>
-                                <div class="quantity_values_dashboard col-md-4 text-center" v-if="dashboard.orders.payment">{{dashboard.orders.payment.items.length}}</div>
+                                <div class="quantity_values_dashboard col-md-4 text-right" v-if="dashboard.orders.payment">{{dashboard.orders.payment.items.length}}</div>
                                 <div class="price_values_dashboard col-md-4 text-right" v-if="dashboard.orders.payment" >{{dashboard.orders.payment.summ}} ₽</div>
                             </div>
                             <div class="item_values_dashboard">
                                 <div class="title_values_dashboard col-md-4" @click="updateActiveTabAction('cancelled')">Отмены</div>
-                                <div class="quantity_values_dashboard col-md-4 text-center" v-if="dashboard.orders.cancelled" >{{dashboard.orders.cancelled.items.length}}</div>
+                                <div class="quantity_values_dashboard col-md-4 text-right" v-if="dashboard.orders.cancelled" >{{dashboard.orders.cancelled.items.length}}</div>
                                 <div class="price_values_dashboard col-md-4 text-right" v-if="dashboard.orders.cancelled" >{{dashboard.orders.cancelled.summ}} ₽</div>
                             </div>
                             <div class="item_values_dashboard">
                                 <div class="title_values_dashboard col-md-4" @click="updateActiveTabAction('complete')">Завершены</div>
-                                <div class="quantity_values_dashboard col-md-4 text-center" v-if="dashboard.orders.complete">{{dashboard.orders.complete.items.length}}</div>
+                                <div class="quantity_values_dashboard col-md-4 text-right" v-if="dashboard.orders.complete">{{dashboard.orders.complete.items.length}}</div>
                                 <div class="price_values_dashboard col-md-4 text-right" v-if="dashboard.orders.complete">{{dashboard.orders.complete.summ}} ₽</div>
                             </div>
                         </div>

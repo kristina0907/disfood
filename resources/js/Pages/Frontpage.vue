@@ -68,9 +68,9 @@
                            Найти товары и поставщиков
                        </div>
                    </div>
-                   <div class="search_category_company" v-if="types">
-                       <div class="item_search_category_company" v-for="type in types" @click="goToCategory(type)">
-                          {{type.name}}
+                   <div class="search_category_company" v-if="categories">
+                       <div class="item_search_category_company" v-for="cat in categories" @click="goToCategory(cat)">
+                          {{cat.name}}
                        </div>
                    </div>
                </div>
@@ -569,7 +569,7 @@ export default {
         this.getCats();
     },
     computed: {
-        ...mapState('catalog',['types'])
+        ...mapState('catalog',['categories'])
     },
 }
 </script>

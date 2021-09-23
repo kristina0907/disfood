@@ -154,9 +154,9 @@ export default {
         SELECT_CATEGORY(state,{cat,type})
         {
             state.categoryValue = cat;
-            state.typeValue = type;
+            //state.typeValue = type;
             let data = {
-                'type':state.typeValue.id,
+                //'type':state.typeValue.id,
                 'cat':state.categoryValue.id
             }
             this.dispatch('catalog/getFilteredData',data)
@@ -355,10 +355,10 @@ export default {
          */
 
         updateTypeActionFromFrontPage({commit, state}, value) {
-            let cat = state.categories.filter(function (item) {
+           /* let cat = state.categories.filter(function (item) {
                 return item.id === value.category_id;
-            })
-            commit('SELECT_CATEGORY', {'cat': cat[0], 'type': value})
+            })*/
+            commit('SELECT_CATEGORY', {'cat': value})
         },
 
         /**

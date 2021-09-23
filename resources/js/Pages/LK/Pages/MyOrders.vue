@@ -121,7 +121,7 @@
                     <div class="navigation_table">
                         <div class="num_rows">
                               <span>
-                                  Количество сторок
+                                  Количество строк
                               </span>
                             <div class="container_select_rows">
                                 <select v-model="perPage" id="">
@@ -129,6 +129,7 @@
                                     <option value="10">10</option>
                                 </select>
                             </div>
+
                         </div>
                         <b-pagination
                             v-model="currentPage"
@@ -201,13 +202,20 @@
 
 
 import UserLKHeader from "../../../Сomponents/LK/UserLKHeader";
+import Multiselect from 'vue-multiselect'
+
 import {mapActions, mapState} from "vuex";
 export default {
-    components: {UserLKHeader},
+    components: {UserLKHeader,Multiselect},
     data(){
         return {
             perPage: 5,
             currentPage: 1,
+            options: [
+                { name: '5' },
+                { name: '10' }
+            ],
+            value:[]
         }
     },
     methods: {

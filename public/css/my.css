@@ -182,3 +182,13 @@ a:-webkit-any-link,
 a:-webkit-any-link:hover{
     text-decoration: none;
 }
+.prev_product_catalog:hover,
+.prev_page:hover
+{
+    color:#71BF45;
+}
+header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu
+{
+    max-height: 700px;
+    overflow-y: auto;
+}

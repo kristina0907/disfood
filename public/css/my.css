@@ -192,16 +192,40 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu
     max-height: 700px;
     overflow-y: auto;
 }
-::-webkit-scrollbar {
+::-webkit-scrollbar
+{
     width: 0.2em;
     height: 0.2em
 }
-::-webkit-scrollbar-button {
+::-webkit-scrollbar-button
+{
     background: #ccc
 }
-::-webkit-scrollbar-track-piece {
+::-webkit-scrollbar-track-piece
+{
     background: #888
 }
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb
+{
     background: #eee
 }
+.delevery_tab_product .container_input_price input
+{
+    border: 0px solid #C8CCD1;
+    min-height: 50px;
+
+}
+.more_offer_product_category_block a
+{
+    width: 171px;
+    display: block;
+    text-align: center;
+}
+/*.delevery_tab_product  .multiselect__tags
+{
+    min-height: 60px;
+}
+.item_product_input .select_type .multiselect__single {
+    padding-top: 20px;
+    padding-left: 12px;
+}*/

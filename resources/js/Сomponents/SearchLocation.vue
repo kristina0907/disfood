@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="text_input">Куда доставить?</div>
+<!--        <div class="text_input">Куда доставить?</div>-->
 <!--        <input list="city" type="text"  v-model="locationInput"  v-on:keyup="searchLocation">
         <datalist id="city">
             <option :value="tip.value" v-for="tip in locationsTips">{{tip.value}}</option>
@@ -52,8 +52,8 @@ import Multiselect from 'vue-multiselect'
         data()
         {
             return {
-               /* isLoading : false,
-                location:'',
+                //isLoading : false,
+               /* location:'',
                 locationsTips:[]*/
             }
         },

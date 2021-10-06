@@ -102,29 +102,27 @@
                                 </div>
                                 <div id="filters" class="row item_container_product_block">
                                     <div class="col-md-6" v-if="typeValue && filters.length" v-for="(filter) in typeValue.filters">
-<!--                                        <div class="item_product_input row mar-0-10">
+                                           <div class="item_product_input row mar-0-10">
                                                 <div class="col-md-6 container_input_price">
                                                     <div class="title_filter_catalog">{{filter.name}}</div>
-                                                    <select :id="'filter-'+filter.id" style="height: auto" class="select select_type" @input = changeFilterValue(filter.id) multiple required>
+                                                    <div v-for="(val,index) in filter.values" class="radio">
+                                                        <input :id="'filter-'+filter.id+index"
+                                                               style="height: auto"
+                                                               class="custom-radio"
+                                                               type="checkbox"
+                                                               :value="val.id"
+                                                               name="scales"
+                                                               @input = changeFilterValue(filter.id,val.id)
+                                                        />
+                                                        <label :for="'filter-'+filter.id+index">{{val.value}}</label>
+                                                    </div>
+
+<!--                                                    <select :id="'filter-'+filter.id" style="height: auto" class="select select_type" @input = changeFilterValue(filter.id) multiple required>
                                                         <option  value="0" selected disabled>Не выбрано</option>
                                                         <option v-for="val in filter.values" :value="val.id">{{val.value}}</option>
-                                                    </select>
+                                                    </select>-->
                                                 </div>
-                                                </div>
--->
-                                        <multiselect
-                                                     :options="filter.values"
-                                                     :multiple="true"
-                                                     label="value"
-                                                     track-by="value"
-                                                     :id="'filter-'+filter.id"
-                                                     :placeholder="filter.name"
-                                                     :selectLabel="filter.name"
-                                                     selectedLabel="Выбрано"
-                                                     deselectLabel="Нажмите еще раз чтобы удалить"
-                                                     @input="changeFilterValue(filter.id)"
-                                                     :required="true"
-                                        ></multiselect>
+                                           </div>
                                         </div>
 
                                 </div>
@@ -395,10 +393,9 @@ export default {
         },
 
 
-        changeFilterValue(filter)
+        changeFilterValue(filter,val)
         {
-            let val = document.getElementById('filter-'+filter)
-            this.$store.dispatch('addproduct/addFilterValue',{'filter':filter,'value':val.value});
+            this.$store.dispatch('addproduct/addFilterValue',{'filter':filter,'value':val});
         },
 
 

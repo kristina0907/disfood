@@ -215,11 +215,25 @@ export default {
            }
            else
            {
-               let exist = state.filterValue.filter(function(item){
-                   return item.filter !== data.filter
-               })
-               state.filterValue = exist;
-               state.filterValue.push(data)
+
+               let exist = false;
+
+               for(let i=0;i< state.filterValue.length;i++)
+               {
+                   let item = state.filterValue[i];
+                   if(parseInt(item.filter) === parseInt(data.filter) && parseInt(item.value) === parseInt(data.value))
+                   {
+                       console.log(i)
+                       exist = true;
+                       state.filterValue.splice(i,1)
+                   }
+               }
+
+               if(!exist)
+               {
+                   state.filterValue.push(data)
+               }
+
            }
 
         },

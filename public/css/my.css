@@ -221,6 +221,35 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu
     display: block;
     text-align: center;
 }
+
+.btn.btn-green
+{
+    color: #fff;
+    background-color: #71BF45;
+    border-color: #71BF45;
+}
+
+.btn.btn-green:hover
+{
+    background-color: #89CA65;
+    color:#fff;
+}
+.default_table.table td
+{
+    padding: 15px 12px;
+}
+
+.delevery_tab_product .multiselect__tags
+{
+    height: 60px;
+}
+.delevery_tab_product .multiselect__single
+{
+    padding-top: 15px;
+    padding-left: 12px;
+    margin-bottom: 8px
+}
+
 /*.delevery_tab_product  .multiselect__tags
 {
     min-height: 60px;

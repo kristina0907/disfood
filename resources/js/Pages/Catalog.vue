@@ -41,7 +41,7 @@
                                         </div>
 
                                         <div class="offer_quantity_block">
-                                            <div class="text_prompt">Нужный объем</br> для закупки (кг)</div>
+                                            <div class="text_prompt">Нужный объем<br/> для закупки (кг)</div>
                                             <div class="offer_quantity_block_product">
                                                 <div class="quantity-block">
                                                     <button class="quantity-arrow-minus" data-id="m1" @click="minusCapacity">

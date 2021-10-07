@@ -249,7 +249,12 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu
     padding-left: 12px;
     margin-bottom: 8px
 }
-
+.doc_item_offer .dropdown-menu.show
+{
+    -webkit-box-shadow: 4px 4px 13px -5px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 13px -5px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 13px -5px rgba(34, 60, 80, 0.2);
+}
 /*.delevery_tab_product  .multiselect__tags
 {
     min-height: 60px;

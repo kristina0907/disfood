@@ -1,7 +1,10 @@
 <template>
     <div class="container container_register_success">
         <div class="row">
-            <div class="col xs-12 col-md-7">
+            <HeaderCatalog></HeaderCatalog>
+        </div>
+        <div class="row">
+            <div class="col xs-12 col-md-7" style="margin-top: 115px;">
                 <div class="title_success_reg">
                     <div class="color_success">Спасибо!</div>
                     <div>Подтвердите регистрацию</div>
@@ -112,7 +115,12 @@
 </template>
 
 <script>
+import HeaderCatalog from "../Сomponents/HeaderCatalog";
+
  export default {
+     components:{
+         HeaderCatalog,
+     },
     data(){
         return {
             email:this.$attrs.email,

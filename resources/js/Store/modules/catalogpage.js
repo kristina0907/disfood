@@ -146,7 +146,43 @@ export default {
                     array.splice(index, 1);
                 }
             })
+        },
+
+        /**
+         *
+         * @param state
+         */
+
+        erasePackings(state)
+        {
+          state.packages = [];
+        },
+
+        /**
+         *
+         * @param state
+         * @param value
+         */
+
+        deletePacking(state,value)
+        {
+
+
+                state.packages = state.packages.filter(function(item){
+                    return item.package.id !== value.package.id
+                });
+                if(state.packages.length)
+                {
+                    return true
+                }
+                else
+                {
+                    router.push('/')
+                }
         }
+
+
+
     },
     actions: {
 
@@ -192,6 +228,27 @@ export default {
         changePrice({commit})
         {
            commit('changePrice');
+        },
+
+        /**
+         *
+         * @param commit
+         */
+
+        eraseBasket({commit})
+        {
+            commit('erasePackings')
+        },
+
+        /**
+         *
+         * @param commit
+         * @param value
+         */
+
+        deletePackage({commit},value)
+        {
+            commit('deletePacking',value)
         },
 
         /**

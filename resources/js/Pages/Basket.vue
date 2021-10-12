@@ -82,7 +82,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="delite_item_cart_product">
+                                    <div class="delite_item_cart_product" style="cursor: pointer" @click="deleteProducts">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -176,7 +176,7 @@
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                         <a class="dropdown-item" href="#">Изменить</a>
-                                                        <a class="dropdown-item" href="#">Удалить</a>
+                                                        <a class="dropdown-item" href="#" @click="deletePackage(pack)">Удалить</a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -374,7 +374,7 @@ export default {
     },
     methods:{
         ...mapActions('basket',['getOrderDocuments','addDocumentToCalc','calcTotalVolume','calcTotalSumm','calcItogo','sendOrder']),
-
+        ...mapActions('catalogpage',['eraseBasket','deletePackage']),
         /**
          *
          * @param packvalue
@@ -385,6 +385,15 @@ export default {
         calcPackageVolume(packvalue,volume)
         {
             return (parseInt(packvalue) * parseInt(volume));
+        },
+
+        deleteProducts()
+        {
+            this.eraseBasket();
+            /*this.calcTotalSumm();
+            this.calcTotalVolume();
+            this.calcItogo();*/
+            this.$router.push('/')
         },
 
         /**

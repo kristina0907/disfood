@@ -277,10 +277,10 @@
                                                             </svg>
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-if="product.documents && product.documents.length">
-                                                            <a class="dropdown-item" :href="document.path" v-for="document in product.documents" target="_blank">Документ</a>
+                                                            <a class="dropdown-item" :href="document.path" v-for="document in product.documents" target="_blank">Документ <span class="span-pdf">PDF</span></a>
                                                         </div>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-else>
-                                                            У данного предложения дополнительные документы отсутствуют
+                                                            <div class="dropdown-item">У данного предложения дополнительные документы отсутствуют</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -340,10 +340,10 @@
                                                                     </svg>
                                                                 </button>
                                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-if="product.documents && product.documents.length">
-                                                                    <a class="dropdown-item" :href="document.path" v-for="document in product.documents" target="_blank">Документ</a>
+                                                                    <a class="dropdown-item" :href="document.path" v-for="document in product.documents" target="_blank">Документ <span class="span-pdf">PDF</span></a>
                                                                 </div>
                                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-else>
-                                                                    У данного предложения дополнительные документы отсутствуют
+                                                                    <div class="dropdown-item">У данного предложения дополнительные документы отсутствуют</div>
                                                                 </div>
                                                             </div>
                                                         </div>

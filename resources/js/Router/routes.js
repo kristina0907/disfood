@@ -152,6 +152,7 @@ const routes = [
         name:'addnewproductsuccess',
         props: true,
     },
+    { path: "*", component:()=> import('../Pages/404'), }
 
 ]
 

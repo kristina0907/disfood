@@ -54,9 +54,6 @@ select option:hover {
     z-index: 999;
 
 }
-.header_catalog.scroll .navbar-nav .nav-link{
-    padding: 0;
-}
 .container_catalog_products
 {
     padding-top: 120px;

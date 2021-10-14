@@ -3,16 +3,48 @@
         <div class="row">
             <HeaderCatalog></HeaderCatalog>
         </div>
-
-        <div class="container content">
-            <div class="col-md-8">
-                <div class="card-header">Все новости</div>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="col-md-12">
-                            <h1 class="col-md-12">{{news.title}}</h1>
-                            <div class="col-md-12">
-                                {{news.body}}
+        <div class="container_main">
+            <div class="news_company_block">
+                <div class="head_detailed_news">
+                    <div class="title_detailed_news">{{news.title}}</div>
+                    <div class="bread_crumbs">Новости  •  Индустрия</div>
+                </div>
+                <div class="detailed_news_img" style="background-image: url(./assets/images/news.png)"></div>
+                <div  v-html="news.body" class="detailed_news_content"></div>
+                <div class="news_company_block">
+                    <div class="header_news_company_block">
+                        <div class="title_news_company_block">Другие новости</div>
+                        <div class="all_news_company_block"><a href="">См. все</a></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4">
+                            <div class="item_list_news">
+                                <div class="img_item_list_news" style="background-image: url(./assets/images/news.png);">
+                                </div>
+                                <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
+                                <div class="category_news_item_list_news_company">
+                                    Новости • Индустрия
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <div class="item_list_news">
+                                <div class="img_item_list_news" style="background-image: url(./assets/images/news.png);">
+                                </div>
+                                <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
+                                <div class="category_news_item_list_news_company">
+                                    Новости • Индустрия
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <div class="item_list_news">
+                                <div class="img_item_list_news" style="background-image: url(./assets/images/news.png);">
+                                </div>
+                                <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
+                                <div class="category_news_item_list_news_company">
+                                    Новости • Индустрия
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -28,29 +28,23 @@
 <script>
 
 import HeaderCatalog from "../Сomponents/HeaderCatalog";
+import {mapActions, mapState} from "vuex";
 export default {
     components:{
         HeaderCatalog
     },
     data(){
         return {
-            news:[]
         }
     },
     methods:{
-        getNews()
-        {
-            axios.get('/get/news/all')
-                .then(response => {
-                    if (response.data !== 'undefined' && response.data !== null) {
-                        this.news = response.data
-                    }
-                })
-        }
+       ...mapActions['allnews',['getNews']]
     },
     mounted() {
-        this.getNews();
-        console.log('Component mounted.')
-    }
+        this.$store.dispatch('allnews/getNews');
+    },
+    computed: {
+        ...mapState('allnews',['news'])
+    },
 }
 </script>

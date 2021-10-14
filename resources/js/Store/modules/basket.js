@@ -269,12 +269,7 @@ export default {
                     to_id:rootState.catalog.location.location,
                     packings:rootState.catalogpage.packages,
                     documents:state.selectedDocuments,
-                    /*capacity:state.capacity,
-                    packings:state.selectedPackings,
-                    adress:state.adress,
-                    category_id: state.categoryValue,
-                    type_id:state.typeValue,
-                    filters:state.filterValue,*/
+
                 }
                 //console.log(data)
                  axios.post('/set/order/new', data).then(response => {
@@ -282,6 +277,7 @@ export default {
                         {
                             console.log(response.status)
                             // this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' } });
+                                //router.push({ name: 'authorization', query: { redirect: '/successauth' } });
                         }
                  });
             }

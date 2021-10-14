@@ -10,6 +10,7 @@ import profile from "./modules/profile";
 import addcompany from "./modules/addcompany";
 import dashboard from "./modules/dashboard";
 import editproduct from "./modules/editproduct";
+import allnews from "./modules/allnews";
 
 
 Vue.use(Vuex);
@@ -26,7 +27,8 @@ const store = new Vuex.Store({
         profile,
         addcompany,
         dashboard,
-        editproduct
+        editproduct,
+        allnews
     },
     state:{
         user:null,

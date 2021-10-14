@@ -32,7 +32,12 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-7">
-                        <div class="offer_map" id="map"></div>
+                        <yandex-map
+                            ref="map1"
+                            :coords="coords"
+                            class="map offer_map"
+                        >
+                        </yandex-map>
                     </div>
                 </div>
             </div>
@@ -86,10 +91,25 @@
 
 <script>
 import HeaderCatalog from "../Сomponents/HeaderCatalog";
+import {yandexMap, ymapMarker} from "vue-yandex-maps/src";
 export default {
     components:{
-        HeaderCatalog
+        HeaderCatalog,
+        yandexMap,
+        ymapMarker,
     },
+    data: () => ({
+        coords: [34, 34],
+        showMaps: false,
+        markers,
+        passedMap1: [],
+        passedMap2: [],
+        passedMap3: [],
+        myMap1: {},
+        myMap2: {},
+        myMap3: {},
+        userLat: 33.7,
+    }),
     mounted() {
         console.log('Component mounted.')
     }

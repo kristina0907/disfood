@@ -9,7 +9,7 @@
                     <div class="title_detailed_news">{{news.title}}</div>
                     <div class="bread_crumbs">Новости  •  Индустрия</div>
                 </div>
-                <div class="detailed_news_img" style="background-image: url(./assets/images/news.png)"></div>
+                <div class="detailed_news_img" v-bind:style="{ backgroundImage: 'url(/storage' + n.image + ')' }"></div>
                 <div  v-html="news.body" class="detailed_news_content"></div>
                 <div class="news_company_block">
                     <div class="header_news_company_block">
@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-md-4">
                             <div class="item_list_news">
-                                <div class="img_item_list_news" style="background-image: url(./assets/images/news.png);">
+                                <div class="img_item_list_news" v-bind:style="{ backgroundImage: 'url(/storage' + n.image + ')' }">
                                 </div>
                                 <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
                                 <div class="category_news_item_list_news_company">
@@ -29,7 +29,7 @@
                         </div>
                         <div class="col-xs-12 col-md-4">
                             <div class="item_list_news">
-                                <div class="img_item_list_news" style="background-image: url(./assets/images/news.png);">
+                                <div class="img_item_list_news" v-bind:style="{ backgroundImage: 'url(/storage' + n.image + ')' }">
                                 </div>
                                 <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
                                 <div class="category_news_item_list_news_company">
@@ -39,7 +39,7 @@
                         </div>
                         <div class="col-xs-12 col-md-4">
                             <div class="item_list_news">
-                                <div class="img_item_list_news" style="background-image: url(./assets/images/news.png);">
+                                <div class="img_item_list_news" v-bind:style="{ backgroundImage: 'url(/storage' + n.image + ')' }">
                                 </div>
                                 <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
                                 <div class="category_news_item_list_news_company">

@@ -301,7 +301,7 @@ a:hover {
 
 .container_select_rows:after {
   content: "";
-  background-image: url("/public/images/select_arrow.svg");
+  background-image: url("/resources/images/select_arrow.svg");
   position: absolute;
   background-repeat: no-repeat;
   background-position: center;
@@ -1391,7 +1391,7 @@ footer {
 
 .select_container:after {
   content: "";
-  background-image: url("/public/images/select_arrow.svg");
+  background-image: url("/resources/images/select_arrow.svg");
   position: absolute;
   background-repeat: no-repeat;
   background-position: center;
@@ -2858,7 +2858,7 @@ input[type=number] {
 
 .select_dop_filter:after {
   content: "";
-  background-image: url("/public/images/select_arrow.svg");
+  background-image: url("/resources/images/select_arrow.svg");
   position: absolute;
   background-repeat: no-repeat;
   background-position: center;

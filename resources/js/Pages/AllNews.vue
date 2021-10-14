@@ -31,7 +31,7 @@
                             <div class="row">
                                 <div v-if="news.length" v-for="n in news" class="col-xs-12 col-md-4">
                                     <div class="item_list_news">
-                                        <div class="img_item_list_news" v-bind:style="{ backgroundImage: 'url(' + n.image + ')' }">
+                                        <div class="img_item_list_news" v-bind:style="{ backgroundImage: 'url(/storage' + n.image + ')' }">
                                         </div>
                                         <router-link :to="{'name':'news-page',params:{id:n.id}}">
                                             <div class="title_item_list_news_company">{{n.title}}</div>

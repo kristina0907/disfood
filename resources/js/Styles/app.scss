@@ -6904,3 +6904,38 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
         padding: 20px;
     }
 }
+
+.container_select_table_page{
+    position: relative;
+}
+.select_table_page{
+    padding: 15px 0px 15px 20px;
+    width: 103px;
+    height: 40px;
+    border: 1px solid #C8CCD1;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.option_table_page{
+    position: absolute;
+    border: 1px solid #C8CCD1;
+    border-radius: 0px 0px 10px 10px;
+    width: 100%;
+    top: 83%;
+    border-top: 0;
+    padding: 10px 20px 7px;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+}
+.option_table_page>div{
+    padding: 3px 0;
+    cursor: pointer;
+}

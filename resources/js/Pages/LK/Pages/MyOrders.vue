@@ -117,81 +117,42 @@
                         </tr>
                         </tbody>
                     </table>
-
-                    <div class="navigation_table">
-                        <div class="num_rows">
+                </div>
+                <div class="navigation_table">
+                    <div class="num_rows">
                               <span>
                                   Количество строк
                               </span>
-                            <div class="container_select_rows">
-                                <select v-model="perPage" id="">
-                                    <option value="5">5</option>
-                                    <option value="10">10</option>
-                                </select>
+                        <div class="container_select_table_page">
+                            <div class="select_table_page" v-on:click='showDropdown'>
+                                <span>{{ quantityPage }}</span>
+                                <span>
+                                    <svg width="13" height="7" viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.66675 1L6.66675 6L11.6667 1" stroke="#22262A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
                             </div>
-
-                        </div>
-                        <b-pagination
-                            v-model="currentPage"
-                            :total-rows="rows"
-                            :per-page="perPage"
-                            aria-controls="my-table"
-                            first-number
-                            last-number
-                            align="center"
-                            class="pagination"
-                        >
-                        </b-pagination>
-                        <div class="page_count">
-                            {{perPage}} из {{rows}}
+                            <div class="option_table_page" v-if="isShowDropdown">
+                                <template>
+                                    <div v-for="col in colPage" @click="changeCountPage(col)">{{ col }}</div>
+                                </template>
+                            </div>
                         </div>
                     </div>
-
-<!--                    <div class="navigation_table">
-                        <div class="num_rows">
-                              <span>
-                                  Количество сторок
-                              </span>
-                            <div class="container_select_rows">
-                                <select name="" id="">
-                                    <option value="">5</option>
-                                    <option value="">10</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div>
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                          <span aria-hidden="true">
-                                            <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                              <path d="M8 1L1.03683 7.96317L8 14.9263" stroke="#22262A" stroke-width="2" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                            </svg></span>
-                                                                    <span class="sr-only">Previous</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                            <li class="page-item">
-                                                                <a class="page-link" href="#" aria-label="Next">
-                                          <span aria-hidden="true">
-                                            <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                              <path d="M1 1L7.96317 7.96317L1 14.9263" stroke="#22262A" stroke-width="2" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                            </svg></span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div class="page_count">
-                            1-5 из 100
-                        </div>
-                    </div>-->
+                    <b-pagination
+                        v-model="currentPage"
+                        :total-rows="rows"
+                        :per-page="perPage"
+                        aria-controls="my-table"
+                        first-number
+                        last-number
+                        align="center"
+                        class="pagination"
+                    >
+                    </b-pagination>
+                    <div class="page_count">
+                        {{perPage}} из {{rows}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -211,11 +172,14 @@ export default {
         return {
             perPage: 5,
             currentPage: 1,
+            colPage:['5','10'],
             options: [
                 { name: '5' },
                 { name: '10' }
             ],
-            value:[]
+            quantityPage:5,
+            value:[],
+            isShowDropdown: false,
         }
     },
     methods: {
@@ -258,7 +222,13 @@ export default {
          * @param type
          * @returns {number}
          */
-
+        showDropdown() {
+            this.isShowDropdown=!this.isShowDropdown
+        },
+        changeCountPage(count){
+            this.quantityPage = count;
+            this.isShowDropdown=!this.isShowDropdown;
+        },
         getCountOrders(type)
         {
             var positiveArr = this.orders.filter(function(order) {

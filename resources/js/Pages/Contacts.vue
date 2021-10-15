@@ -27,16 +27,21 @@
                         <div class="contact__info_item">
                             <p class="contact__info_item_title">Главный офис</p>
                             <p class="contact__info_item_text">
-                                г. Краснодар,<br/>ул. Пушкина дом Колотушкина
+                                г. Краснодар,<br/>ул. им Селезнева 204/2, офис 209
                             </p>
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-7">
                         <yandex-map
-                            ref="map1"
                             :coords="coords"
+                            ref="map1"
                             class="map offer_map"
                         >
+                            <ymap-marker
+                                :coords="coords"
+                                :icon="markerIcon"
+                                marker-id="123123"
+                            />
                         </yandex-map>
                     </div>
                 </div>
@@ -99,16 +104,31 @@ export default {
         ymapMarker,
     },
     data: () => ({
-        coords: [34, 34],
-        showMaps: false,
-        markers,
-        passedMap1: [],
-        passedMap2: [],
-        passedMap3: [],
-        myMap1: {},
-        myMap2: {},
-        myMap3: {},
-        userLat: 33.7,
+        coords: [45.017563, 39.052388],
+        markerIcon: {
+            layout: 'default#imageWithContent',
+            imageHref: '',
+            imageSize: [52, 58],
+            imageOffset: [0, 0],
+            contentOffset: [0, 0],
+            contentLayout: '<svg width="52" height="58" viewBox="0 0 52 58" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
+                '<g filter="url(#filter0_d_3561:42565)">\n' +
+                '<path d="M42.8687 19.5089C42.8687 27.1046 32.8309 36.7845 28.3233 40.7486C27.0842 41.8382 25.2689 41.8382 24.0298 40.7486C19.5222 36.7845 9.48442 27.1046 9.48442 19.5089C9.48442 9.71393 16.9577 1.77353 26.1765 1.77353C35.3954 1.77353 42.8687 9.71393 42.8687 19.5089Z" fill="#89CA65" stroke="white" stroke-width="3.54708"/>\n' +
+                '<ellipse cx="26.1765" cy="19.5089" rx="5.00764" ry="5.32062" stroke="white" stroke-width="3.54708"/>\n' +
+                '</g>\n' +
+                '<defs>\n' +
+                '<filter id="filter0_d_3561:42565" x="-0.948158" y="0" width="54.2494" height="57.5276" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">\n' +
+                '<feFlood flood-opacity="0" result="BackgroundImageFix"/>\n' +
+                '<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>\n' +
+                '<feOffset dy="7.09415"/>\n' +
+                '<feGaussianBlur stdDeviation="3.54708"/>\n' +
+                '<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>\n' +
+                '<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_3561:42565"/>\n' +
+                '<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_3561:42565" result="shape"/>\n' +
+                '</filter>\n' +
+                '</defs>\n' +
+                '</svg>'
+        }
     }),
     mounted() {
         console.log('Component mounted.')

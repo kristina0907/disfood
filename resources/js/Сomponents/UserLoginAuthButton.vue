@@ -70,7 +70,7 @@
                     </svg>
                 </div>
             </div>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu dropdown-menu-login" aria-labelledby="navbarDropdown">
                 <li class="dropdown-item-login">
                     <div class="login">
                         <div v-if="user.user.organizations" v-for="(org,index) in user.user.organizations">

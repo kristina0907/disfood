@@ -50,6 +50,7 @@ header .navbar {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 }
 .name_company{
     font-size: 15px;
@@ -75,6 +76,7 @@ header .navbar {
     border-radius: 5px;
     padding: 0.5px 13px;
     margin-top: 5px;
+    white-space: nowrap;
 }
 .main_container{
     background: #F0F2F4;
@@ -1496,13 +1498,19 @@ header .dropdown-item{
     padding: 15px 20px 20px;
 }
 header .dropdown-menu.show {
-    left: -30px;
-    width: 120%;
-    top: -10%;
+    right: 0px !important;
+    width: auto;
+    min-width: 210px;
+    top: -100% !important;
     box-shadow: 0px 4px 20px rgb(0 0 0 / 10%);
     border: 1px;
     margin: 0;
     border-radius: 10px;
+}
+header.lk-header .nav-item.dropdown ul{
+    margin-top: 50px !important;
+    right: 0!important;
+    left: -30%;
 }
 header .dropdown-menu{
     padding: 0;
@@ -1517,6 +1525,13 @@ header .dropdown-item.dropdown-item-exit{
     line-height: 20px;
     color: #22262A;
     padding: 10px 20px;
+}
+.user-login-a{
+    display: flex;
+}
+.user-login-a svg{
+    min-width: 50px;
+    margin-left: 15px;
 }
 .dropdown_info_text{
     font-weight: 600;
@@ -1739,6 +1754,9 @@ header .dropdown-item.dropdown-item-settings{
 }
 .dropdown-item-login{
     padding: 20px 20px 10px;
+}
+header .dropdown-menu.dropdown-menu-login.show{
+    min-width: 250px;
 }
 .dropdown-item-login .name_company {
     font-size: 15px;

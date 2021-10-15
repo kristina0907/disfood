@@ -5683,6 +5683,10 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 }
 .sidebar_company_item span{
     margin-left: 14px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
 }
 .title_settings{
     font-weight: 600;
@@ -5702,6 +5706,9 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     font-size: 24px;
     line-height: 30px;
     color: #000000;
+}
+.name_profile_information .vue-quick-edit__link--is-clickable{
+    border-bottom: 0;
 }
 .profile_information_item{
     vertical-align: middle;
@@ -6959,4 +6966,61 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .option_table_page>div{
     padding: 3px 0;
     cursor: pointer;
+}
+.value_profile_information_item .vue-quick-edit__input{
+   background-color: transparent;
+    border: 1px solid #C8CCD1;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    padding: 20px;
+
+}
+.value_profile_information_item .vue-quick-edit__button{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #71BF45;
+    border-radius: 10px;
+    border: 1px solid #71BF45;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: inline-block;
+    height: auto;
+}
+.value_profile_information_item .vue-quick-edit__button--ok{
+    background-color: #71BF45;
+    color: #FFFFFF;
+}
+.value_profile_information_item .vue-quick-edit__button--ok:hover{
+    background: #89CA65;
+}
+.value_profile_information_item .vue-quick-edit__button--cancel:hover{
+    box-shadow: 0 0 0 2px #89ca65;
+}
+.value_profile_information_item .vue-quick-edit__buttons{
+    margin-top: 0;
+    display: flex !important;
+    align-items: center;
+}
+.value_profile_information_item .name_profile_information.vue-quick-edit{
+    display: flex;
+    align-items: center;
+    color: #22262A;
+}
+.value_profile_information_item>.row{
+    align-items: center;
+}
+.value_profile_information_item:hover svg path{
+    stroke: #71BF45;
+}
+.value_profile_information_item:hover span{
+    color: #71BF45;
+}
+.name_profile_information .vue-quick-edit__link--is-clickable:hover{
+    color: #22262A;
+}
+.name_profile_information:hover .vue-quick-edit__link--is-clickable{
+    color: #71BF45;
 }

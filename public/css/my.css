@@ -145,10 +145,10 @@ select option:hover {
     text-decoration: none;
 }
 
-.name_profile_information,
+.name_profile_information
 .vue-quick-edit__link
 {
-    color: #22262A !important;
+    color: #22262A;
     font-weight: 400;
     font-size: 15px;
     line-height: 30px;

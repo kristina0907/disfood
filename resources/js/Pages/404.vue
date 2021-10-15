@@ -1,4 +1,5 @@
 <template>
+    <div>
         <div class="row">
             <HeaderNavbar></HeaderNavbar>
         </div>
@@ -618,6 +619,7 @@
                 </div>
             </div>
         </div>
+    </div>
 </template>
 
 <script>

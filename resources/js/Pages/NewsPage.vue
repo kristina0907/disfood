@@ -9,17 +9,17 @@
                     <div class="title_detailed_news">{{news.title}}</div>
                     <div class="bread_crumbs">Новости  •  Индустрия</div>
                 </div>
-                <div class="detailed_news_img" v-bind:style="{ backgroundImage: 'url(/storage' + n.image + ')' }"></div>
+                <div class="detailed_news_img" v-bind:style="{ backgroundImage: 'url(/storage' + news.image + ')' }"></div>
                 <div  v-html="news.body" class="detailed_news_content"></div>
                 <div class="news_company_block">
                     <div class="header_news_company_block">
                         <div class="title_news_company_block">Другие новости</div>
-                        <div class="all_news_company_block"><a href="">См. все</a></div>
+                        <div class="all_news_company_block"><router-link :to="{path:'allnews'}">Смотреть все</router-link></div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-md-4">
                             <div class="item_list_news">
-                                <div class="img_item_list_news" v-bind:style="{ backgroundImage: 'url(/storage' + n.image + ')' }">
+                                <div class="img_item_list_news" v-bind:style="{ backgroundImage: 'url(/storage' + news.image + ')' }">
                                 </div>
                                 <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
                                 <div class="category_news_item_list_news_company">
@@ -29,7 +29,7 @@
                         </div>
                         <div class="col-xs-12 col-md-4">
                             <div class="item_list_news">
-                                <div class="img_item_list_news" v-bind:style="{ backgroundImage: 'url(/storage' + n.image + ')' }">
+                                <div class="img_item_list_news" v-bind:style="{ backgroundImage: 'url(/storage' + news.image + ')' }">
                                 </div>
                                 <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
                                 <div class="category_news_item_list_news_company">
@@ -39,7 +39,7 @@
                         </div>
                         <div class="col-xs-12 col-md-4">
                             <div class="item_list_news">
-                                <div class="img_item_list_news" v-bind:style="{ backgroundImage: 'url(/storage' + n.image + ')' }">
+                                <div class="img_item_list_news" v-bind:style="{ backgroundImage: 'url(/storage' + news.image + ')' }">
                                 </div>
                                 <div class="title_item_list_news_company">Цены на молочные продукты увеличат в ближайшее время</div>
                                 <div class="category_news_item_list_news_company">

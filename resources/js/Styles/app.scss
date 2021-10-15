@@ -4448,8 +4448,9 @@ select option{
 .item_user_registration_company{
     border: 1px solid #C8CCD1;
     border-radius: 10px;
-    padding: 60px;
+    padding: 60px 60px 120px;
     margin-bottom: 60px;
+    position: relative;
 }
 .item_user_registration_company.active{
     border: 5px solid #71BF45;
@@ -4497,6 +4498,10 @@ select option{
 .user_registration_company_block .row>div{
     padding-left: 10px;
     padding-right: 10px;
+}
+.user_registration_company_block .btn_user_registration_company{
+    position: absolute;
+    bottom: 60px;
 }
 .become_partner_company_block{
     border: 1px solid #C8CCD1;
@@ -4610,27 +4615,25 @@ select option{
 .list_news .slick-prev::after {
     content: '';
     position: absolute;
-    background: url(/resources/images/arrow_left.png) no-repeat;
-    width: 10px;
-    height: 16px;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='8' height='13' viewBox='0 0 8 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.5 1.5L1.5 6.5L6.5 11.5' stroke='%2371BF45' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E ");
+    width: 8px;
+    height: 13px;
     right: -8px;
     top: 23px;
 }
-.list_news:hover .slick-prev::after {
-    background: url(/resources/images/arrow_left1.png) no-repeat;
-}
+
 .list_news .slick-next::after {
     content: '';
     position: absolute;
-    background: url(/resources/images/arrow.png) no-repeat;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='8' height='13' viewBox='0 0 8 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 1.5L6.5 6.5L1.5 11.5' stroke='%2371BF45' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E ");
     width: 10px;
     height: 16px;
     left: -8px;
     top: 23px;
 }
-.list_news:hover .slick-next::after {
-    background: url(/resources/images/arrow1.png) no-repeat;
-}
+
 .slick-disabled {
     display: none !important;
 }

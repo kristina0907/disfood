@@ -3625,7 +3625,6 @@ input[type=number]{
     border-radius: 10px;
     padding: 5px 15px;
     border: 1px solid #71BF45;
-    margin-left: 20px;
 }
 .header_offer_product_category_block{
     display: flex;
@@ -6933,6 +6932,24 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     }
 }
 
+.select_table_sort{
+    padding: 15px 20px;
+    height: 40px;
+    border: 1px solid #C8CCD1;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.select_table_sort svg{
+    margin-left: 15px;
+}
 .container_select_table_page{
     position: relative;
 }
@@ -6950,6 +6967,7 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
 .option_table_page{
     position: absolute;

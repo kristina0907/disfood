@@ -149,12 +149,12 @@
                                     </div>
                                 </div>
                                 <div class="offer_product_category_block">
+                                    <div class="title_offer_product_category_block">
+                                        <span v-if="typeValue.name">{{ typeValue.name }}</span>
+                                        <span v-else>{{categoryValue.name}}</span>
+                                        <span>{{products.length}}</span> </div>
                                     <div class="header_offer_product_category_block">
                                         <div>
-                                            <div class="title_offer_product_category_block">
-                                                <span v-if="typeValue.name">{{ typeValue.name }}</span>
-                                                <span v-else>{{categoryValue.name}}</span>
-                                                <span>{{products.length}}</span> </div>
                                             <div class="more_offer_product_category_block">
                                                 <a href="" @click.prevent="showMap">
                                                     <span v-if="!showmap">
@@ -178,9 +178,21 @@
                                                 </div>
                                             </div>
                                             <div class="select_dop_filter">
-                                                <select name="" id="">
-                                                    <option value="">Сортировать по цене</option>
-                                                </select>
+                                                <div class="container_select_table_page">
+                                                    <div class="select_table_sort" v-on:click='showDropdown'>
+                                                        <span>{{ sortValue }}</span>
+                                                        <span>
+                                                        <svg width="13" height="7" viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M1.66675 1L6.66675 6L11.6667 1" stroke="#22262A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        </svg>
+                                                    </span>
+                                                    </div>
+                                                    <div class="option_table_page" v-if="isShowDropdown">
+                                                        <template>
+                                                            <div v-for="item in sort" @click="changeCountPage(item.name)">{{ item.name }}</div>
+                                                        </template>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div>
@@ -383,6 +395,11 @@ export default {
             listView : true,
             coords:[54, 39],
             showmap:false,
+            sort:[
+                {name:'Сортировать по цене', val:'price'}
+            ],
+            isShowDropdown: false,
+            sortValue:'Сортировать по цене'
         }
     },
     methods:{
@@ -390,7 +407,13 @@ export default {
         /**
          *
          */
-
+        showDropdown() {
+            this.isShowDropdown=!this.isShowDropdown
+        },
+        changeCountPage(count){
+            this.sortValue = count;
+            this.isShowDropdown=!this.isShowDropdown;
+        },
         changeToTileView()
         {
             let self = this;

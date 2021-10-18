@@ -4684,6 +4684,7 @@ select option{
     cursor: pointer;
 }
 .img_item_list_catalog_menu{
+    min-width: 56px;
     width: 56px;
     height: 56px;
     background-repeat: no-repeat;
@@ -4707,11 +4708,15 @@ select option{
 .container_item_list_sidebar_catalog_menu{
     display: flex;
     margin-bottom: 10px;
+    width: 100%;
 }
 .img_title_item_list_catalog_menu{
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+.icon_item_list_catalog_menu{
+    margin-left: 10px;
 }
 .container_item_list_sidebar_catalog_menu:hover,.container_item_list_sidebar_catalog_menu.show{
     background: #F0F2F4;

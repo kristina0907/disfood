@@ -2773,7 +2773,7 @@ input[type=number]{
     margin-right: 45px;
 }
 .search_header{
-    width: calc(100% - 330px);
+    width: 100%;
     position: relative;
 }
 .content_catalog{
@@ -4220,8 +4220,9 @@ select option{
     color: #FFFFFF;
     padding: 20px 40px;
     height: 60px;
-    width: 323px;
     cursor: pointer;
+    white-space: nowrap;
+    border-radius: 0px 10px 10px 0px;
 }
 .btn_search_company:hover{
     background: #89CA65;
@@ -4231,7 +4232,6 @@ select option{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    overflow: hidden;
     width: 100%;
     background: #FFFFFF;
     border: 1px solid #71BF45;

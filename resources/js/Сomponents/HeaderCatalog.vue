@@ -45,7 +45,7 @@
                         <!-- The modal -->
                         <div>
                             <b-button variant="light" v-b-modal.modal-prevent-closing>
-                                {{locationInput.value}}
+                                {{location.location.value}}
                                 <span>
                                     <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -61,6 +61,8 @@
                                 id="modal-prevent-closing"
                                 ref="modal"
                                 title="Укажите город доставки"
+                                ok-title="Сохранить"
+                                cancel-title="Отмена"
                                 @show="resetModal"
                                 @hidden="resetModal"
                                 @ok="handleOk"
@@ -291,17 +293,12 @@ export default {
                 type:type
             }).then(
                 ()=>{
-                    /*if(this.$route.name !== 'catalog')
-                    {
-                        this.$router.push({'name':'catalog'})
-                    }*/
                     let path = '/catalog/category/'+cat.id;
                     if(this.$route.path !== path)
                     {
-                        this.$router.replace({'path':'/catalog/category/'+cat.id,params:cat})
+                        this.$router.replace({'path':'/catalog/category/'+cat.id+'/'+type.id,params:cat})
                     }
                    this.sidebarExpand = false;
-
                 }
             )
         },

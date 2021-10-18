@@ -431,7 +431,7 @@ export default {
     },
     computed: {
         ...mapState('catalog',['location','currentUserOrganization']),
-        ...mapState('basket',['orderDocuments','selectedDocuments','totalVolume','totalSumm','itogoSumm','totalDocsSumm']),
+        ...mapState('basket',['orderDocuments','selectedDocuments','totalVolume','totalSumm','itogoSumm','totalDocsSumm','orderSuccefullyCreated']),
         ...mapState('catalogpage',['product','filterPackages','relatedOffers','priceWithNDS','currency','packages','summ','volume'])
     },
 }

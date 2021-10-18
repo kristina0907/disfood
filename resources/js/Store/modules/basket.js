@@ -8,6 +8,7 @@ export default {
         totalSumm:0.00,
         itogoSumm:0,
         totalDocsSumm:0,
+        orderSuccefullyCreated:false,
     },
     getters: {
 
@@ -130,6 +131,17 @@ export default {
         SET_TOTAL_DOCUMENTS_SUMM(state,data)
         {
             state.totalDocsSumm = data;
+        },
+
+        /**
+         *
+         * @param state
+         * @constructor
+         */
+
+        SET_ORDER_CREATED_SUCCESSFULLY(state)
+        {
+            state.orderSuccefullyCreated = true;
         }
 
     },
@@ -251,7 +263,7 @@ export default {
             commit('SET_TOTAL_DOCUMENTS_SUMM',total)
         },
 
-        sendOrder({state,rootState})
+        sendOrder({state,rootState,commit})
         {
 
             if(rootState.user.user.current_organization_id){
@@ -276,6 +288,7 @@ export default {
                         if(response.status == 200)
                         {
                             console.log(response.status)
+                            commit('SET_ORDER_CREATED_SUCCESSFULLY');
                             // this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' } });
                                 //router.push({ name: 'authorization', query: { redirect: '/successauth' } });
                         }

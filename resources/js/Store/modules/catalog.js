@@ -62,6 +62,7 @@ export default {
 
         updateCategory (state, value)
         {
+            console.log(value)
             state.categoryValue = value
             let data = state.types.filter( item =>{
                 return item.category_id === state.categoryValue.id;
@@ -73,6 +74,18 @@ export default {
                 'cat':state.categoryValue.id
             }
             this.dispatch('catalog/getFilteredData',data1)
+        },
+
+        /**
+         *
+         * @param state
+         * @param value
+         * @constructor
+         */
+
+        SET_CATEGORY_VALUE(state,value)
+        {
+            state.categoryValue = value
         },
 
         /**
@@ -153,12 +166,26 @@ export default {
 
         SELECT_CATEGORY(state,{cat,type})
         {
+
             state.categoryValue = cat;
-            //state.typeValue = type;
-            let data = {
-                //'type':state.typeValue.id,
-                'cat':state.categoryValue.id
+            let data = null;
+            if(type !== null && type !==undefined )
+            {
+                state.typeValue = type;
+
+                data = {
+                    'type':state.typeValue.id,
+                    'cat':state.categoryValue.id
+                }
             }
+            else
+            {
+                data = {
+                    'cat':state.categoryValue.id
+                }
+            }
+
+
             this.dispatch('catalog/getFilteredData',data)
         },
 
@@ -355,9 +382,6 @@ export default {
          */
 
         updateTypeActionFromFrontPage({commit, state}, value) {
-           /* let cat = state.categories.filter(function (item) {
-                return item.id === value.category_id;
-            })*/
             commit('SELECT_CATEGORY', {'cat': value})
         },
 
@@ -419,13 +443,15 @@ export default {
 
         async getFilteredData({commit}, data) {
 
-            await axios.get('/get/catalog/?category=' + data.cat + '&type=' + data.type)
+            await axios.get('/get/catalog?category=' + data.cat + '&type=' + data.type)
                 .then(response => {
                     if (response.data !== 'undefined' && response.data !== null) {
                         commit('SET_CATALOG', response.data)
                         commit('SET_OFFERS',response.data);
                     }
                 });
+            console.log(data)
+            await commit('SET_CATEGORY_VALUE',data.cat);
         },
 
         /**

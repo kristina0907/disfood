@@ -302,7 +302,7 @@
                                                     <div class="tile_item_product_category">
                                                         <div class="tile_info_item_offer_catalog">
                                                             <div class="tile_image_info_item_offer_catalog"
-                                                                 style="background-image: url(/images/offer.png);"></div>
+                                                                 :style="'background-image: url('+product.organization.logo+');'"></div>
                                                             <div>
                                                                 <div class="star_info_item_offer_catalog">
                                                             <span class="icon_star">
@@ -323,11 +323,8 @@
                                                                 {{product.country.title_ru}}
                                                              </span>
                                                         </div>
-                                                        <div
-                                                            class="place_count_info_item_offer_catalog tile_place_count_info_item_offer_catalog">
-                                                            <span>50кг</span>
-                                                            <span>25кг</span>
-                                                            <span>10кг</span>
+                                                        <div class="place_count_info_item_offer_catalog" v-if="product.packings">
+                                                            <span v-for="pack in product.packings">{{pack.name}}</span>
                                                         </div>
                                                         <div class="delivery_item_similar_products">
                                                             <div class="icon_delivery">
@@ -395,11 +392,13 @@ export default {
             listView : true,
             coords:[54, 39],
             showmap:false,
+            refreshFlag:false,
             sort:[
                 {name:'Сортировать по цене', val:'price'},
                 {name:'Сортировать по имени', val:'name'},
             ],
             category_id:this.$route.params.category,
+            type_id:this.$route.params.type,
             isShowDropdown: false,
             sortValue:'Сортировать по цене'
         }
@@ -412,10 +411,20 @@ export default {
         showDropdown() {
             this.isShowDropdown=!this.isShowDropdown
         },
+
+        /**
+         *
+         * @param count
+         */
+
         changeCountPage(count){
             this.sortValue = count;
             this.isShowDropdown=!this.isShowDropdown;
         },
+
+        /**
+         *
+         */
         changeToTileView()
         {
             let self = this;
@@ -441,6 +450,14 @@ export default {
         {
             this.showmap = !this.showmap;
         },
+
+        checkRefreshData()
+        {
+            if(!this.categoryValue && !this.typeValue)
+            {
+                this.refreshFlag = true;
+            }
+        },
         ...mapActions('catalog',[
             'updateValueAction',
             'getCatalogData',
@@ -452,7 +469,8 @@ export default {
             'plusCapacity',
             'minusCapacity',
             'setCapacity',
-            'deleteFilter'
+            'deleteFilter',
+            'getFilteredData'
         ]),
         ...mapActions(['getCurrentCourse','changeCourse'])
 
@@ -460,6 +478,15 @@ export default {
     },
     mounted() {
         this.getCurrentCourse();
+        this.checkRefreshData();
+        if(this.refreshFlag)
+        {
+            let data = {
+                cat:this.category_id,
+                type:this.type_id
+            }
+            this.$store.dispatch('catalog/getFilteredData',data)
+        }
         this.$store.dispatch('catalog/setCapacity');
     },
     computed: {

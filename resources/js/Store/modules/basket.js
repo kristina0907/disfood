@@ -139,9 +139,9 @@ export default {
          * @constructor
          */
 
-        SET_ORDER_CREATED_SUCCESSFULLY(state)
+        UPDATE_ORDER_CREATED_SUCCESSFULLY(state)
         {
-            state.orderSuccefullyCreated = true;
+            state.orderSuccefullyCreated = !state.orderSuccefullyCreated;
         }
 
     },
@@ -263,6 +263,13 @@ export default {
             commit('SET_TOTAL_DOCUMENTS_SUMM',total)
         },
 
+        /**
+         *
+         * @param state
+         * @param rootState
+         * @param commit
+         */
+
         sendOrder({state,rootState,commit})
         {
 
@@ -283,32 +290,32 @@ export default {
                     documents:state.selectedDocuments,
 
                 }
-                //console.log(data)
-                 axios.post('/set/order/new', data).then(response => {
+                axios.post('/set/order/new', data).then(response => {
                         if(response.status == 200)
                         {
                             console.log(response.status)
-                            commit('SET_ORDER_CREATED_SUCCESSFULLY');
+                            commit('UPDATE_ORDER_CREATED_SUCCESSFULLY');
                             // this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' } });
                                 //router.push({ name: 'authorization', query: { redirect: '/successauth' } });
                         }
-                 });
+                });
             }
             else
             {
                 router.push({ name: 'authorization', query: { redirect: '/authorization' } });
             }
+        },
 
+        /**
+         *
+         * @param commit
+         */
 
-           /* axios.post('/set/new/offer', data).then(response => {
-                if(response.status == 200)
-                {
-                    console.log(response.status)
-                    // this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' } });
-                }
-            });*/
+        redirectAfterModalClick({commit})
+        {
+            router.push({ name: 'frontpage' });
+            commit('UPDATE_ORDER_CREATED_SUCCESSFULLY');
         }
-
 
     }
 }

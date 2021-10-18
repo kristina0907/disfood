@@ -292,7 +292,7 @@
                                                             <a class="dropdown-item" :href="document.path" v-for="document in product.documents" target="_blank">Документ <span class="span-pdf">PDF</span></a>
                                                         </div>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-else>
-                                                            <div class="dropdown-item">У данного предложения <br/>документы отсутствуют</div>
+                                                            <div class="dropdown-item">У данного предложения документы отсутствуют</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -355,7 +355,7 @@
                                                                     <a class="dropdown-item" :href="document.path" v-for="document in product.documents" target="_blank">Документ <span class="span-pdf">PDF</span></a>
                                                                 </div>
                                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-else>
-                                                                    <div class="dropdown-item">У данного предложения <br/> документы отсутствуют</div>
+                                                                    <div class="dropdown-item">У данного предложения  документы отсутствуют</div>
                                                                 </div>
                                                             </div>
                                                         </div>

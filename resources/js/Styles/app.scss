@@ -58,6 +58,7 @@ header .navbar {
     text-align: right;
     color: #22262A;
     font-weight: 600;
+    white-space: nowrap;
 }
 .login_img{
     background: #FFFFFF;
@@ -77,6 +78,8 @@ header .navbar {
     padding: 0.5px 13px;
     margin-top: 5px;
     white-space: nowrap;
+    display: inline-block;
+    float: right;
 }
 .main_container{
     background: #F0F2F4;
@@ -2170,9 +2173,6 @@ input[type=number]{
     line-height: 20px;
     color: #3E5078;
     margin-right: 40px;
-}
-.adress_header span{
-    margin-right: 10px;
 }
 .adress_header svg{
     width: 15px;
@@ -6985,6 +6985,7 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     font-size: 15px;
     line-height: 20px;
     color: #66727E;
+    background: #ffffff;
 }
 .option_table_page>div{
     padding: 3px 0;

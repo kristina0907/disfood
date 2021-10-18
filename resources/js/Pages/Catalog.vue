@@ -394,7 +394,8 @@ export default {
             showmap:false,
             refreshFlag:false,
             sort:[
-                {name:'Сортировать по цене', val:'price'}
+                {name:'Сортировать по цене', val:'price'},
+                {name:'Сортировать по имени', val:'name'},
             ],
             category_id:this.$route.params.category,
             type_id:this.$route.params.type,

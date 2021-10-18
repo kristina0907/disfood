@@ -323,11 +323,8 @@
                                                                 {{product.country.title_ru}}
                                                              </span>
                                                         </div>
-                                                        <div
-                                                            class="place_count_info_item_offer_catalog tile_place_count_info_item_offer_catalog">
-                                                            <span>50кг</span>
-                                                            <span>25кг</span>
-                                                            <span>10кг</span>
+                                                        <div class="place_count_info_item_offer_catalog" v-if="product.packings">
+                                                            <span v-for="pack in product.packings">{{pack.name}}</span>
                                                         </div>
                                                         <div class="delivery_item_similar_products">
                                                             <div class="icon_delivery">

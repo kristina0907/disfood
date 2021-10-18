@@ -62,6 +62,7 @@ export default {
 
         updateCategory (state, value)
         {
+            console.log(value)
             state.categoryValue = value
             let data = state.types.filter( item =>{
                 return item.category_id === state.categoryValue.id;
@@ -73,6 +74,18 @@ export default {
                 'cat':state.categoryValue.id
             }
             this.dispatch('catalog/getFilteredData',data1)
+        },
+
+        /**
+         *
+         * @param state
+         * @param value
+         * @constructor
+         */
+
+        SET_CATEGORY_VALUE(state,value)
+        {
+            state.categoryValue = value
         },
 
         /**
@@ -437,6 +450,8 @@ export default {
                         commit('SET_OFFERS',response.data);
                     }
                 });
+            console.log(data)
+            await commit('SET_CATEGORY_VALUE',data.cat);
         },
 
         /**

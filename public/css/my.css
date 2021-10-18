@@ -99,12 +99,11 @@ select option:hover {
 {
     cursor: pointer;
 }
-.container_btn_search_header
+gti.container_btn_search_header
 {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 60% !important;
 }
 
 .inset-plus

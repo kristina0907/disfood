@@ -16,7 +16,7 @@
             </svg>
         </div>-->
         <multiselect
-            v-model="locationInput"
+            v-model="locationDeliveryInput"
             id="ajax"
             label="value"
             track-by="value"
@@ -27,6 +27,7 @@
             :searchable="true"
             :loading="isLoading"
             :internal-search="false"
+            :class="'select select_location'"
             :clear-on-select="false"
             :close-on-select="true"
             :options-limit="300"

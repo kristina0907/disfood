@@ -396,7 +396,8 @@ export default {
             coords:[54, 39],
             showmap:false,
             sort:[
-                {name:'Сортировать по цене', val:'price'}
+                {name:'Сортировать по цене', val:'price'},
+                {name:'Сортировать по имени', val:'name'},
             ],
             category_id:this.$route.params.category,
             isShowDropdown: false,

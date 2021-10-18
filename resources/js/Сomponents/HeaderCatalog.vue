@@ -291,17 +291,12 @@ export default {
                 type:type
             }).then(
                 ()=>{
-                    /*if(this.$route.name !== 'catalog')
-                    {
-                        this.$router.push({'name':'catalog'})
-                    }*/
                     let path = '/catalog/category/'+cat.id;
                     if(this.$route.path !== path)
                     {
-                        this.$router.replace({'path':'/catalog/category/'+cat.id,params:cat})
+                        this.$router.replace({'path':'/catalog/category/'+cat.id+'/'+type.id,params:cat})
                     }
                    this.sidebarExpand = false;
-
                 }
             )
         },

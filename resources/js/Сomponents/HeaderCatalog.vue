@@ -61,6 +61,8 @@
                                 id="modal-prevent-closing"
                                 ref="modal"
                                 title="Укажите город доставки"
+                                ok-title="Сохранить"
+                                cancel-title="Отмена"
                                 @show="resetModal"
                                 @hidden="resetModal"
                                 @ok="handleOk"

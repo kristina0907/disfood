@@ -45,7 +45,7 @@
                         <!-- The modal -->
                         <div>
                             <b-button variant="light" v-b-modal.modal-prevent-closing>
-                                {{locationInput.value}}
+                                {{location.location.value}}
                                 <span>
                                     <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">

@@ -430,7 +430,7 @@ export default {
 
         async getFilteredData({commit}, data) {
 
-            await axios.get('/get/catalog/?category=' + data.cat + '&type=' + data.type)
+            await axios.get('/get/catalog?category=' + data.cat + '&type=' + data.type)
                 .then(response => {
                     if (response.data !== 'undefined' && response.data !== null) {
                         commit('SET_CATALOG', response.data)

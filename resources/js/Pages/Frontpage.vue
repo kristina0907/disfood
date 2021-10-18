@@ -556,10 +556,12 @@ export default {
       },
       goToCategory(type)
       {
-          this.updateTypeActionFromFrontPage(type);
+          //console.log(type)
+          //this.updateTypeActionFromFrontPage(type);
           if(this.$route.name !== 'catalog')
           {
-              this.$router.push({'name':'catalog'})
+              //this.$router.push({'name':'catalog'})
+              this.$router.replace({'path':'/catalog/category/'+type.id})
           }
 
       },

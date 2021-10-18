@@ -302,7 +302,7 @@
                                                     <div class="tile_item_product_category">
                                                         <div class="tile_info_item_offer_catalog">
                                                             <div class="tile_image_info_item_offer_catalog"
-                                                                 style="background-image: url(/images/offer.png);"></div>
+                                                                 :style="'background-image: url('+product.organization.logo+');'"></div>
                                                             <div>
                                                                 <div class="star_info_item_offer_catalog">
                                                             <span class="icon_star">
@@ -395,10 +395,12 @@ export default {
             listView : true,
             coords:[54, 39],
             showmap:false,
+            refreshFlag:false,
             sort:[
                 {name:'Сортировать по цене', val:'price'}
             ],
             category_id:this.$route.params.category,
+            type_id:this.$route.params.type,
             isShowDropdown: false,
             sortValue:'Сортировать по цене'
         }
@@ -411,10 +413,20 @@ export default {
         showDropdown() {
             this.isShowDropdown=!this.isShowDropdown
         },
+
+        /**
+         *
+         * @param count
+         */
+
         changeCountPage(count){
             this.sortValue = count;
             this.isShowDropdown=!this.isShowDropdown;
         },
+
+        /**
+         *
+         */
         changeToTileView()
         {
             let self = this;
@@ -440,6 +452,14 @@ export default {
         {
             this.showmap = !this.showmap;
         },
+
+        checkRefreshData()
+        {
+            if(!this.categoryValue && !this.typeValue)
+            {
+                this.refreshFlag = true;
+            }
+        },
         ...mapActions('catalog',[
             'updateValueAction',
             'getCatalogData',
@@ -451,7 +471,8 @@ export default {
             'plusCapacity',
             'minusCapacity',
             'setCapacity',
-            'deleteFilter'
+            'deleteFilter',
+            'getFilteredData'
         ]),
         ...mapActions(['getCurrentCourse','changeCourse'])
 
@@ -459,6 +480,15 @@ export default {
     },
     mounted() {
         this.getCurrentCourse();
+        this.checkRefreshData();
+        if(this.refreshFlag)
+        {
+            let data = {
+                cat:this.category_id,
+                type:this.type_id
+            }
+            this.$store.dispatch('catalog/getFilteredData',data)
+        }
         this.$store.dispatch('catalog/setCapacity');
     },
     computed: {

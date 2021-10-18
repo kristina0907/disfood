@@ -373,7 +373,7 @@ export default {
         this.calcItogo();
     },
     methods:{
-        ...mapActions('basket',['getOrderDocuments','addDocumentToCalc','calcTotalVolume','calcTotalSumm','calcItogo','sendOrder']),
+        ...mapActions('basket',['getOrderDocuments','addDocumentToCalc','calcTotalVolume','calcTotalSumm','calcItogo','sendOrder','redirectAfterModalClick']),
         ...mapActions('catalogpage',['eraseBasket','deletePackage']),
         /**
          *

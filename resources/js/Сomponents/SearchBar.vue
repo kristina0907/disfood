@@ -7,7 +7,7 @@
                     <div class="search-result_product-item">
                         <a href="#" @click="searchClickProduct(product.category_id,product.type_id)">
                             <div class="title_search-result_product-item">{{product.name}}</div>
-                            <div class="price_search-result_product-item"><spa class="provider_search-result_product-item">36 поставщиков,</spa> от 75 ₽/ кг</div>
+                            <div class="price_search-result_product-item"><span class="provider_search-result_product-item">36 поставщиков,</span> от 75 ₽/ кг</div>
                         </a>
                     </div>
                 </div>

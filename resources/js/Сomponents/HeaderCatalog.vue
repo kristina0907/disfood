@@ -159,7 +159,7 @@
                                  aria-haspopup="true" aria-expanded="false" v-if="cat.id !== 8">
                                 <div class="img_title_item_list_catalog_menu">
                                     <div class="img_item_list_catalog_menu"
-                                         style="background-image: url(./images/similar.png);"></div>
+                                         :style="'background-image: url('+ cat.image +');'"></div>
                                     <div class="title_item_list_catalog_menu">{{cat.name}}</div>
                                 </div>
                                 <div class="icon_item_list_catalog_menu">
@@ -291,10 +291,17 @@ export default {
                 type:type
             }).then(
                 ()=>{
-                    if(this.$route.name !== 'catalog')
+                    /*if(this.$route.name !== 'catalog')
                     {
                         this.$router.push({'name':'catalog'})
+                    }*/
+                    let path = '/catalog/category/'+cat.id;
+                    if(this.$route.path !== path)
+                    {
+                        this.$router.replace({'path':'/catalog/category/'+cat.id,params:cat})
                     }
+                   this.sidebarExpand = false;
+
                 }
             )
         },

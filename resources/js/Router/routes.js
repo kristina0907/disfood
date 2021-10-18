@@ -49,9 +49,10 @@ const routes = [
         name: 'contacts'
     },
     {
-        path:'/catalog',
+        path:'/catalog/category/:category',
         component: ()=>import('../Pages/Catalog'),
-        name: 'catalog'
+        name: 'catalog',
+        props:true,
     },
     {
         path:'/catalog-page/:id',

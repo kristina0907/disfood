@@ -398,6 +398,7 @@ export default {
             sort:[
                 {name:'Сортировать по цене', val:'price'}
             ],
+            category_id:this.$route.params.category,
             isShowDropdown: false,
             sortValue:'Сортировать по цене'
         }

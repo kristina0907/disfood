@@ -250,6 +250,7 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu
     -webkit-box-shadow: 0px 0px 27px -4px rgba(34, 60, 80, 0.2);
     -moz-box-shadow: 0px 0px 27px -4px rgba(34, 60, 80, 0.2);
     box-shadow: 0px 0px 27px -4px rgba(34, 60, 80, 0.2);
+    border-radius: 10px;
 }
 
 .span-pdf

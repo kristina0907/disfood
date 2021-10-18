@@ -2552,7 +2552,6 @@ input[type=number]{
 .doc_item_offer .dropdown-menu:after {
     content: " ";
     position: absolute;
-    left: 20px;
     top: -23px;
     border: 14px solid transparent;
     border-bottom: 10px solid #ffffff;
@@ -2560,7 +2559,6 @@ input[type=number]{
 .doc_item_offer .dropdown-menu::before {
     content: " ";
     position: absolute;
-    left: 20px;
     top: -24px;
     border: 14px solid transparent;
     border-bottom: 10px solid #d5d6d6;

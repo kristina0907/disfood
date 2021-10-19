@@ -476,18 +476,18 @@ export default {
 
 
     },
-    mounted() {
-        this.getCurrentCourse();
-        this.checkRefreshData();
+    async mounted() {
+        await this.getCurrentCourse();
+        await this.checkRefreshData();
         if(this.refreshFlag)
         {
-            let data = {
+           let data = {
                 cat:this.category_id,
                 type:this.type_id
             }
-            this.$store.dispatch('catalog/getFilteredData',data)
+            await this.$store.dispatch('catalog/getFilteredData',data)
         }
-        this.$store.dispatch('catalog/setCapacity');
+        await this.$store.dispatch('catalog/setCapacity');
     },
     computed: {
         ...mapState(['courseUSD','currentCourse']),

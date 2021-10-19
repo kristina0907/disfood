@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar_catalog">
-        <div class="container_filter_catalog" v-if="typeValue && typeValue.filters.length">
+        <div class="container_filter_catalog">
             <div class="item_filter_catalog" v-for="filter in typeValue.filters">
                     <div class="title_filter_catalog">{{filter.name}}</div>
                     <div class="radio" v-if="filter.values" v-for="(value,index) in filter.values">

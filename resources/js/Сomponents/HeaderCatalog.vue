@@ -325,6 +325,7 @@ export default {
 
         redirectToCatalog(cat, type)
         {
+            //console.log(cat)
             this.$store.dispatch('catalog/redirectToCatalog', {
                 cat:cat,
                 type:type

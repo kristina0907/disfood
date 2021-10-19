@@ -161,7 +161,7 @@ const store = new Vuex.Store({
                 .then(response=>{
                     if(response.data !== 'undefined' && response.data !== null)
                     {
-                        console.log(response.data)
+                        //console.log(response.data)
                         commit('updateCurrentCourse',response.data);
                     }
                 });

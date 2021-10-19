@@ -92,6 +92,18 @@ export default {
          *
          * @param state
          * @param value
+         * @constructor
+         */
+
+        SET_TYPE_VALUE(state,value)
+        {
+            state.typeValue = value
+        },
+
+        /**
+         *
+         * @param state
+         * @param value
          */
 
         updateType(state,value)
@@ -450,12 +462,27 @@ export default {
                         commit('SET_OFFERS',response.data);
                     }
                 });
-            //console.log(data)
-            let cat = state.categories.filter((item)=>{
-                return parseInt(item.id) === parseInt(data.cat);
-            })
-            console.log(cat)
-            await commit('SET_CATEGORY_VALUE',data.cat);
+
+
+            if(data.cat !== null && data.cat !== undefined && data.cat)
+            {
+                let category = state.categories.filter((item)=>{
+                    return parseInt(item.id) === parseInt(data.cat)
+                })
+                commit('SET_CATEGORY_VALUE',category);
+            }
+
+
+            if(data.type !== null && data.type !== undefined && data.type)
+            {
+                let typeVal = state.types.filter((item)=>{
+                    return parseInt(item.id) === parseInt(data.type)
+                })
+
+
+                commit('SET_TYPE_VALUE',typeVal);
+            }
+
         },
 
         /**

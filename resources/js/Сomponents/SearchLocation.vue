@@ -5,7 +5,7 @@
             id="ajax"
             label="value"
             track-by="value"
-            placeholder="Куда доставить?"
+            placeholder=""
             open-direction="bottom"
             :options="locationsTips"
             :multiple="false"

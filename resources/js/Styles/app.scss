@@ -8,6 +8,12 @@ input, button, textarea, input:focus, button:focus, textarea:focus {outline:none
 a:hover{
     text-decoration: none;
 }
+hr{
+    margin-top: 0;
+    margin-bottom: 30px;
+    border: 0;
+    border-top: 1px solid #C8CCD1;
+}
 header .navbar {
     padding: 0 40px;
     box-shadow: 0px 1px 0px #D4D8DB;
@@ -466,6 +472,54 @@ tbody.collapse.in {
     border-right: 1px solid #d4d8db;
     min-height: calc(100vh - 100px);
 }
+.transaction-tabs.nav-tabs{
+    border-bottom: 0;
+}
+.transaction-tabs.nav-tabs .nav-link.active, .transaction-tabs.nav-tabs .nav-item.show .nav-link {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #FFFFFF;
+    border-radius: 10px 10px 0 0;
+    background-color: #71BF45;
+    border: 0;
+    padding: 15px;
+}
+.transaction-tabs.nav-tabs .nav-link.active:hover{
+    background: #89CA65;
+    color: #FFFFFF;
+}
+.transaction-tabs.nav-tabs .nav-link {
+    border: 0;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    padding: 15px;
+}
+.transaction-tabs.nav-tabs .nav-link:hover {
+    color: #71BF45;
+}
+.transaction-tabs.nav-tabs  .nav-item{
+    width: 50%;
+    text-align: center;
+}
+.info-transaction_block{
+    background: #FFFFFF;
+    border-radius: 0px 0px 10px 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+.title_block_transaction.document_title_transaction{
+   margin-bottom: 14px;
+}
+.description_title_block_transaction{
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color: #8898A8;
+    margin-bottom: 20px;
+}
 .transaction_name{
     font-weight: 600;
     font-size: 40px;
@@ -477,9 +531,6 @@ tbody.collapse.in {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: 1px solid #C8CCD1;
-    padding-bottom: 30px;
-    margin-bottom: 30px;
 }
 .left_container_info{
     padding: 50px 25px;
@@ -541,7 +592,7 @@ tbody.collapse.in {
     line-height: 20px;
     color: #0E0F11;
 }
-.where_from_transaction,.where_transaction{
+.where_from_transaction,.where_transaction,.document_order_save{
     background: #FFFFFF;
     border-radius: 10px;
     padding: 16px 20px;
@@ -552,6 +603,24 @@ tbody.collapse.in {
     flex-direction: row;
     align-items: center;
     margin-bottom: 5px;
+    height: 70px;
+}
+.document_order_save{
+    margin-bottom: 10px;
+}
+.delivery_help_documents{
+    border-bottom: 1px solid #C8CCD1;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+.container_document_order_save{
+    margin-bottom: 20px;
+}
+.document_order_save span{
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    margin-left: 14px;
 }
 .where_transaction{
     margin-bottom: 20px;
@@ -1431,6 +1500,56 @@ footer{
 .container_message_file .input-file + .js-labelFile .icon:before{content:"\f093"}
 .container_message_file .input-file + .js-labelFile.has-file .icon:before{content:"\f00c";color:#5AAC7B}
 
+.container_document_transaction{
+    border-radius: 10px;
+}
+.container_document_transaction .btn-tertiary{
+    width: 70%;
+    height: 40px;
+    overflow: hidden;
+    border: 1px solid #71BF45;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #71BF45;
+}
+.container_document_transaction.error_loading_document .btn-tertiary{
+    border: 1px solid #F56C4C;
+}
+.container_document_transaction.error_loading_document .btn-tertiary:hover{
+    border: 1px solid #F56C4C;
+    color: #22262A;
+}
+.container_document_transaction span{
+    margin-left: 13px;
+    color: #71BF45;
+}
+.container_document_transaction .btn-tertiary:hover,.container_new_photo .btn-tertiary:focus{
+    box-shadow: 0 0 0 2px #89ca65;
+}
+.container_document_transaction .input-file{
+    width:.1px;
+    height:.1px;
+    opacity:0;
+    overflow:hidden;
+    position:absolute;
+    z-index:-1
+}
+.container_document_transaction .input-file + .js-labelFile{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    padding:0 10px;
+    cursor:pointer
+}
+.container_document_transaction .input-file + .js-labelFile .icon:before{content:"\f093"}
+.container_document_transaction .input-file + .js-labelFile.has-file .icon:before{content:"\f00c";color:#5AAC7B}
+
 .new_adress{
     font-size: 15px;
     line-height: 20px;
@@ -1783,7 +1902,7 @@ header .dropdown-menu.dropdown-menu-login.show{
     text-align: right;
 }
 .catalog_container{
-    padding: 42px 40px 80px;
+    padding: 135px 0px 0px;
 }
 .prev_product_catalog{
     font-weight: normal;
@@ -2790,7 +2909,6 @@ input[type=number]{
 .container_row_head_product{
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
 }
 .tab_product_nav {

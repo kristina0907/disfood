@@ -3,6 +3,9 @@
         <input type="text" placeholder="Найти товар" v-model="searchBar" v-on:keyup="searchText">
         <div class="search-panel" v-if="Object.keys(searchResults).length">
             <div class="search-result-product" v-if="searchResults && searchResults.products">
+                <div v-show="Object.keys(searchResults.products).length == 0" class="search-result_product-item">
+                    <div class="title_search-result_product-item">По вашему запросу ничего не найдено</div>
+                </div>
                 <div v-for="product in searchResults.products">
                     <div class="search-result_product-item">
                         <a href="#" @click="searchClickProduct(product.category_id,product.type_id)">

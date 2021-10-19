@@ -441,7 +441,7 @@ export default {
          * @returns {Promise<void>}
          */
 
-        async getFilteredData({commit}, data) {
+        async getFilteredData({commit,state}, data) {
 
             await axios.get('/get/catalog?category=' + data.cat + '&type=' + data.type)
                 .then(response => {
@@ -450,7 +450,11 @@ export default {
                         commit('SET_OFFERS',response.data);
                     }
                 });
-            console.log(data)
+            //console.log(data)
+            let cat = state.categories.filter((item)=>{
+                return parseInt(item.id) === parseInt(data.cat);
+            })
+            console.log(cat)
             await commit('SET_CATEGORY_VALUE',data.cat);
         },
 

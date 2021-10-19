@@ -293,10 +293,9 @@ export default {
                 axios.post('/set/order/new', data).then(response => {
                         if(response.status == 200)
                         {
-                            console.log(response.status)
                             commit('UPDATE_ORDER_CREATED_SUCCESSFULLY');
                             // this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' } });
-                                //router.push({ name: 'authorization', query: { redirect: '/successauth' } });
+                            //router.push({ name: 'authorization', query: { redirect: '/successauth' } });
                         }
                 });
             }

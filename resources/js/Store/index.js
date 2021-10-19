@@ -11,6 +11,8 @@ import addcompany from "./modules/addcompany";
 import dashboard from "./modules/dashboard";
 import editproduct from "./modules/editproduct";
 import allnews from "./modules/allnews";
+import searchlocation from "./modules/searchlocation";
+
 
 
 Vue.use(Vuex);
@@ -28,7 +30,8 @@ const store = new Vuex.Store({
         addcompany,
         dashboard,
         editproduct,
-        allnews
+        allnews,
+        searchlocation
     },
     state:{
         user:null,

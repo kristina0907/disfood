@@ -60,13 +60,11 @@ export default {
          * @param value
          */
 
-        updateCategory (state, value)
+        async updateCategory (state, value)
         {
-            console.log(value)
+
             state.categoryValue = value
-            let data = state.types.filter( item =>{
-                return item.category_id === state.categoryValue.id;
-            })
+            let data = await this.dispatch('catalog/getFilteredTypes');
             state.filteredTypes = data;
             state.typeValue = '';
             let data1 = {
@@ -343,7 +341,6 @@ export default {
                 {
                     state.selectedFilters.push(value);
                 }
-                console.log(exist)
             }
             else
             {
@@ -361,10 +358,53 @@ export default {
         updateRailwayStations(state,value)
         {
             state.railwayStations = value;
+        },
+
+        /**
+         *
+         * @param state
+         * @param value
+         * @constructor
+         */
+
+        SET_FILTERED_TYPES(state,value)
+        {
+            state.filteredTypes = value;
         }
+
+
 
     },
     actions: {
+
+        /**
+         *
+         * @param state
+         * @returns {*[]}
+         */
+
+        getFilteredTypes({state})
+        {
+            let output = state.types.filter( item =>{
+                return item.category_id === state.categoryValue.id;
+            })
+            return output;
+        },
+
+
+        /**
+         *
+         * @param commit
+         */
+
+        setFilteredTypesRefresh({commit,state})
+        {
+            let output = state.types.filter( item =>{
+                return item.category_id === state.categoryValue.id;
+            })
+
+            commit('SET_FILTERED_TYPES',output)
+        },
 
         /**
          *
@@ -466,20 +506,14 @@ export default {
 
             if(data.cat !== null && data.cat !== undefined && data.cat)
             {
-                let category = state.categories.filter((item)=>{
-                    return parseInt(item.id) === parseInt(data.cat)
-                })
+                let category = state.categories.find(item=>parseInt(item.id) === parseInt(data.cat))
                 commit('SET_CATEGORY_VALUE',category);
             }
 
 
             if(data.type !== null && data.type !== undefined && data.type)
             {
-                let typeVal = state.types.filter((item)=>{
-                    return parseInt(item.id) === parseInt(data.type)
-                })
-
-
+                let typeVal = state.types.find(item=>parseInt(item.id) === parseInt(data.type))
                 commit('SET_TYPE_VALUE',typeVal);
             }
 

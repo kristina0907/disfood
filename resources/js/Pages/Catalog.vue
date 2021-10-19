@@ -470,7 +470,8 @@ export default {
             'minusCapacity',
             'setCapacity',
             'deleteFilter',
-            'getFilteredData'
+            'getFilteredData',
+            'setFilteredTypesRefresh'
         ]),
         ...mapActions(['getCurrentCourse','changeCourse'])
 
@@ -486,6 +487,7 @@ export default {
                 type:this.type_id
             }
             await this.$store.dispatch('catalog/getFilteredData',data)
+            await this.$store.dispatch('catalog/setFilteredTypesRefresh');
         }
         await this.$store.dispatch('catalog/setCapacity');
     },

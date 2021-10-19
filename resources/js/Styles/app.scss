@@ -1389,6 +1389,9 @@ footer{
     padding-top: 100%;
     float: left;
 }
+.item_add_company .container_new_photo.container_edit_logo .btn-tertiary{
+    margin: 0;
+}
 .container_new_photo .btn-tertiary{
     width: 100%;
     margin: auto;
@@ -6081,6 +6084,10 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .item_add_company{
     margin-bottom: 60px;
 }
+.item_add_company.item_add_company_logo{
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
 .item_add_company .container_new_photo .btn-tertiary {
     width: 90px;
     height: 90px;
@@ -7028,6 +7035,17 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .order_modal__info{
     text-align: center;
 }
+.modal_make_order{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    background: rgb(51 51 51/ 0.7);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: 0;
+}
 .modal_make_order .modal-dialog {
     max-width:910px;
 }
@@ -7165,4 +7183,36 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 }
 .name_profile_information:hover .vue-quick-edit__link--is-clickable{
     color: #71BF45;
+}
+.general_manager_block{
+    background: #FAFAFA;
+    border-radius: 10px;
+    padding: 75px 102px;
+    margin-bottom: 95px;
+}
+.activity_company_block{
+    margin-bottom: 100px;
+}
+.item_activity_company{
+    border: 1px solid #D4D8DB;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 30px 30px 58px;
+}
+.icon_item_activity_company{
+    text-align: right;
+}
+.title_item_activity_company{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #22262A;
+    margin-bottom: 20px;
+}
+.text_item_activity_company{
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    width: 85%;
 }

@@ -361,26 +361,30 @@
                                     </label>
                                 </div>
                             </div>-->
-
-                            <div class="container_new_document uploaded">
-                                <div class="form-group">
-                                    <input type="file" name="file" id="file" class="input-file">
-                                    <label for="file" class="btn btn-tertiary js-labelFile">
-                                        <span>Добавить</span>
-                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.42105 2.5C11.0779 2.5 12.4211 3.84315 12.4211 5.5L12.4211 8C12.4211 9.38071 13.5403 10.5 14.9211 10.5H17C18.6569 10.5 20 11.8431 20 13.5V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                stroke="#22262A" stroke-width="2"></path>
-                                            <path
-                                                d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.23393 2.5C11.5937 2.5 13.8332 3.54186 15.3532 5.34691L18.1193 8.63163C19.3339 10.074 20 11.899 20 13.7847V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                stroke="#22262A" stroke-width="2"></path>
-                                        </svg>
-                                    </label>
+                        </div>
+                    </div>
+                    <div class="profile_information_block">
+                        <div class="name_profile_information">Логотип</div>
+                        <div class="description_profile_information">Изображение в формате PNG, JPG. Не более 2мб, 200х200px</div>
+                            <div class="item_add_company item_add_company_logo">
+                                <div class="container_new_photo container_edit_logo">
+                                    <div class="form-group">
+                                        <input type="file" name="file" id="file" class="input-file">
+                                        <label for="file" class="btn btn-tertiary js-labelFile">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M1 6C1 4.89543 1.89543 4 3 4L21 4C22.1046 4 23 4.89543 23 6L23 18C23 19.1046 22.1046 20 21 20L3 20C1.89543 20 1 19.1046 1 18L1 6Z"
+                                                    stroke="#22262A" stroke-width="2" stroke-linejoin="round" />
+                                                <path
+                                                    d="M1 19L14.7351 9.68806C15.3578 9.26587 16.1648 9.22887 16.8236 9.59232L23 13"
+                                                    stroke="#22262A" stroke-width="2" />
+                                                <circle cx="6" cy="9" r="1" stroke="#22262A" stroke-width="2" />
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-
-                        </div>
                     </div>
                     <div class="send_moderation">
                         <div class="send_moderation_block">

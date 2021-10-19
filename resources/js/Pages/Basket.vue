@@ -240,8 +240,7 @@
 
         </div>
         <!-- Modal -->
-        <div class="modal fade modal_make_order" id="modal_make_order" tabindex="-1" aria-labelledby="exampleModalLabel"
-             style="display: none;" aria-hidden="true">
+        <div class="show modal_make_order" v-show="orderSuccefullyCreated" id="modal_make_order" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body order_modal__info">

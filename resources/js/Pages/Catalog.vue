@@ -501,12 +501,14 @@ export default {
 .select_category .multiselect__select,
 .select_category .multiselect__tags,
 .select_type .multiselect__select,
-.select_type .multiselect__tags
+.select_type .multiselect__tags,
+.select_location .multiselect__tags
 {
     height: 62px;
 }
 .select_category .multiselect__tags,
-.select_type .multiselect__tags
+.select_type .multiselect__tags,
+.select_location .multiselect__tags
 {
     min-height: 40px;
     display: block;
@@ -530,11 +532,12 @@ export default {
 
 }
 .select_category .multiselect__select:before,
-.select_type .multiselect__select:before
+.select_type .multiselect__select:before,
+.select_location .multiselect__select:before
 {
     top: 55%;
 }
-.select_category:before
+.select_category:before, .select_location:before
 {
     content: 'Категория';
     position: absolute;
@@ -546,6 +549,15 @@ export default {
     color: #66727E;
     display: block;
     z-index: 99;
+}
+.select_location:before{
+    content: 'Куда доставить';
+}
+.select_location .multiselect__placeholder{
+    display: none;
+}
+.select_location .multiselect__select{
+    height: 62px;
 }
 .select_type
 {
@@ -571,7 +583,8 @@ export default {
 .select_category .multiselect__input,
 .select_category .multiselect__single,
 .select_type .multiselect__input,
-.select_type .multiselect__single
+.select_type .multiselect__single,
+.select_location .multiselect__single
 {
     padding-top: 20px;
     padding-left: 12px;

@@ -227,33 +227,56 @@ export default {
         ...mapActions('catalog',[
             'searchLocation'
         ]),
+
+        /**
+         *
+         * @returns {boolean}
+         */
+
         checkFormValidity() {
             const valid = this.$refs.form.checkValidity()
             this.changeModal = valid
             return valid
         },
+
+        /**
+         *
+         */
+
         resetModal() {
             this.changeModal = ''
         },
+
+        /**
+         *
+         * @param bvModalEvt
+         */
+
         handleOk(bvModalEvt) {
-            // Prevent modal from closing
-            console.log(bvModalEvt)
             bvModalEvt.preventDefault()
             // Trigger submit handler
             this.handleSubmit()
         },
+
+        /**
+         *
+         */
+
         handleSubmit() {
             // Exit when the form isn't valid
             if (!this.checkFormValidity()) {
                 return
             }
-            // Push the name to submitted names
-           console.log('submit')
-            // Hide the modal manually
             this.$nextTick(() => {
                 this.$bvModal.hide('modal-prevent-closing')
             })
         },
+
+        /**
+         *
+         * @returns {Promise<void>}
+         */
+
         async searchText()
         {
             if(this.searchBar.length >= 3)
@@ -269,6 +292,13 @@ export default {
                 this.searchResults = []
             }
         },
+
+        /**
+         *
+         * @param cat
+         * @param type
+         */
+
         searchClickProduct(cat,type)
         {
              axios.post('/get/cat/type',{
@@ -286,6 +316,13 @@ export default {
                     }
                 });
         },
+
+        /**
+         *
+         * @param cat
+         * @param type
+         */
+
         redirectToCatalog(cat, type)
         {
             this.$store.dispatch('catalog/redirectToCatalog', {
@@ -302,6 +339,11 @@ export default {
                 }
             )
         },
+
+        /**
+         *
+         */
+
         changeDropdown()
         {
             this.isExpand = !this.isExpand

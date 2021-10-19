@@ -10,7 +10,6 @@
             :options="locationsTips"
             :multiple="false"
             :searchable="true"
-            :loading="isLoading"
             :internal-search="false"
             :class="'select select_location'"
             :clear-on-select="false"
@@ -41,21 +40,23 @@ import Multiselect from 'vue-multiselect'
             }
         },
         methods:{
-            ...mapActions('catalog',[
-               'searchLocation'
-            ]),
+            ...mapActions('searchlocation',['updateDeliveryInput','searchLocation'])
         },
         mounted() {
 
         },
         computed: {
-            ...mapState('catalog',['location','locationInput','locationsTips','isLoading']),
-            locationInput: {
+            ...mapState('searchlocation',[
+                'locationDeliveryInput',
+                'locationsTips'
+            ]),
+            locationDeliveryInput: {
                 get () {
-                    return this.$store.state.catalog.locationInput
+                    return this.$store.state.searchlocation.locationDeliveryInput
                 },
                 set (value) {
-                    this.$store.commit('catalog/updateLocationInput',value)
+
+                    this.$store.dispatch('searchlocation/updateDeliveryInput',value)
                 }
             }
         },

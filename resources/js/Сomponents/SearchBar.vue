@@ -47,6 +47,30 @@
                  this.searchResults = []
              }
          },
+
+         /**
+          *
+          * @param cat
+          * @param type
+          */
+
+         searchClickProduct(cat,type)
+         {
+             axios.post('/get/cat/type',{
+                 'category_id':cat,
+                 'type_id':type
+             }).then(response => {
+                 if (response.data !== 'undefined' && response.data !== null) {
+                     this.updateFromSearch({'category':response.data.cat,'type':response.data.type});
+                     if(this.$router.currentRoute.name !== 'catalog')
+                     {
+                         this.$router.push({'name':'catalog'})
+                     }
+                     this.searchBar = '';
+                     this.searchResults = []
+                 }
+             });
+         },
      }
  }
 </script>

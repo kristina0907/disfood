@@ -7184,3 +7184,35 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .name_profile_information:hover .vue-quick-edit__link--is-clickable{
     color: #71BF45;
 }
+.general_manager_block{
+    background: #FAFAFA;
+    border-radius: 10px;
+    padding: 75px 102px;
+    margin-bottom: 95px;
+}
+.activity_company_block{
+    margin-bottom: 100px;
+}
+.item_activity_company{
+    border: 1px solid #D4D8DB;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 30px 30px 58px;
+}
+.icon_item_activity_company{
+    text-align: right;
+}
+.title_item_activity_company{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #22262A;
+    margin-bottom: 20px;
+}
+.text_item_activity_company{
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    width: 85%;
+}

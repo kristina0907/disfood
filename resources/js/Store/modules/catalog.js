@@ -73,7 +73,7 @@ export default {
                 'type':state.typeValue.id,
                 'cat':state.categoryValue.id
             }
-            //this.dispatch('catalog/getFilteredData',data1)
+            this.dispatch('catalog/getFilteredData',data1)
             router.replace({'path':'/catalog/category/'+state.categoryValue.id})
         },
 
@@ -110,14 +110,14 @@ export default {
         updateType(state,value)
         {
           state.typeValue = value;
-         /* let data = {
+          let data = {
               'type':state.typeValue.id,
               'cat':state.categoryValue.id
-          }*/
+          }
 
-            router.replace({'path':'/catalog/category/'+state.categoryValue.id+'/'+state.typeValue.id})
+          router.replace({'path':'/catalog/category/'+state.categoryValue.id+'/'+state.typeValue.id})
 
-          //this.dispatch('catalog/getFilteredData',data)
+          this.dispatch('catalog/getFilteredData',data)
         },
 
         /**

@@ -1527,10 +1527,10 @@ footer{
 }
 .container_document_transaction span{
     margin-left: 13px;
+    color: #71BF45;
 }
 .container_document_transaction .btn-tertiary:hover,.container_new_photo .btn-tertiary:focus{
-    color:#888;
-    border-color:#888
+    box-shadow: 0 0 0 2px #89ca65;
 }
 .container_document_transaction .input-file{
     width:.1px;

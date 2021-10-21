@@ -7353,6 +7353,9 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     left: 40px;
     bottom: 3px;
     z-index: 2;
+    -webkit-transition: all 3s ease-in-out;
+    -moz-transition: all 3s ease-in-out;
+    -o-transition: all 3s ease-in-out;
 }
 .step_container{
     position: absolute;
@@ -7427,25 +7430,6 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 }
 .animation_container.year2018 .bg_history{
     animation: fon2018 5s ease 0s 1 normal forwards;
-}
-.animation_container.year2017 .bl_min_car{
-    animation: carBlMin2017 5s ease 0s 1 normal forwards;
-}
-.animation_container.year2018 .bl_min_car{
-    animation: carBlMin2018 5s ease 0s 1 normal forwards;
-}
-
-@keyframes  carBlMin2017{
-    100% {
-        opacity: 1;
-        transform: translateX(450px);
-    }
-}
-@keyframes  carBlMin2018{
-    100% {
-        opacity: 1;
-        transform: translateX(900px);
-    }
 }
 
 @keyframes fon2018 {

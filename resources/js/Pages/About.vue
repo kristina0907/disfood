@@ -738,7 +738,7 @@
                 <div class="animation_container" :class="'year'+yearActive">
                     <div class="bg_history"></div>
                     <div class="road">
-                        <div class="bl_min_car"></div>
+                        <div class="bl_min_car" :style="{ transform: 'translateX('+ cordMinCar+'px)'}"></div>
                         <div class="step_container">
                             <div v-for="item in history" class="step_item" :class="{active : yearActive == item.year}">
                                 <div class="step_img" @click="changeYear(item.year)">
@@ -953,8 +953,8 @@ export default {
                 {'year': 2019, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'},
                 {'year': 2020, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'},
                 {'year': 2021, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'}
-            ]
-
+            ],
+            cordMinCar:0
         }
     },
     methods:{
@@ -976,6 +976,11 @@ export default {
                 })
         },
         changeYear(year){
+            if(year > this.yearActive){
+                this.cordMinCar += 410;
+            }else{
+                this.cordMinCar -= 410;
+            }
             this.yearActive = year;
         },
     },

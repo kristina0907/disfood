@@ -609,7 +609,7 @@
             </div>
             <div class="general_manager_block">
                 <div class="img_general_manager">
-                    <img src="./images/general.png" alt="">
+                    <img src="/img/general.png" alt="">
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -731,6 +731,30 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="history_company_block">
+                <div class="title_advantages_company_block">История компании</div>
+                <div class="animation_container" :class="'year'+yearActive">
+                    <div class="bg_history"></div>
+                    <div class="road">
+                        <div class="bl_min_car"></div>
+                        <div class="step_container">
+                            <div v-for="item in history" class="step_item" :class="{active : yearActive == item.year}">
+                                <div class="step_img" @click="changeYear(item.year)">
+                                    <svg width="69" height="20" viewBox="0 0 69 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M67 10C67 10.3792 66.7212 11.1716 65.1582 12.2427C63.6595 13.2697 61.3599 14.2743 58.3384 15.1501C52.3221 16.894 43.8933 18 34.5 18C25.1067 18 16.6779 16.894 10.6616 15.1501C7.64009 14.2743 5.34046 13.2697 3.84177 12.2427C2.27884 11.1716 2 10.3792 2 10C2 9.6208 2.27884 8.8284 3.84177 7.75733C5.34046 6.73029 7.64009 5.72567 10.6616 4.84986C16.6779 3.10601 25.1067 2 34.5 2C43.8933 2 52.3221 3.10601 58.3384 4.84986C61.3599 5.72567 63.6595 6.73029 65.1582 7.75733C66.7212 8.8284 67 9.6208 67 10Z" fill="#8D8D8D" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                <div class="step_info">
+                                    <div class="step_year">{{item.year}}</div>
+                                    <div class="step_title">{{item.title}}</div>
+                                    <div class="step_text">{{item.text}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="advantages_company_block">
@@ -920,7 +944,16 @@ export default {
                     "slidesToShow": 2,
                     "speed": 500,
                     "arrows":true
-                }
+                },
+            yearActive:2016,
+            history:[
+                {'year': 2016, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'},
+                {'year': 2017, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'},
+                {'year': 2018, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'},
+                {'year': 2019, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'},
+                {'year': 2020, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'},
+                {'year': 2021, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'}
+            ]
 
         }
     },
@@ -942,46 +975,13 @@ export default {
                     }
                 })
         },
-        goToCategory(type)
-        {
-            //console.log(type)
-            //this.updateTypeActionFromFrontPage(type);
-            if(this.$route.name !== 'catalog')
-            {
-                //this.$router.push({'name':'catalog'})
-                this.$router.replace({'path':'/catalog/category/'+type.id})
-            }
-
+        changeYear(year){
+            this.yearActive = year;
         },
-        ...mapActions('catalog',['updateTypeActionFromFrontPage'])
     },
     mounted() {
         this.getCats();
     },
-    computed: {
-        ...mapState('catalog',['categories'])
-    },
 }
 </script>
 
-<style>
-#videoModal
-{
-    width: 100%;
-    height: 100%;
-}
-#videoModal .modal-dialog .modal-content{
-    width:80%;
-    margin: 0 auto;
-    height: 1000px;
-}
-#videoModal .modal-dialog{
-    max-width: 100%;
-
-}
-#videoModal .modal-dialog iframe{
-    margin: 0 auto;
-    display: block;
-
-}
-</style>

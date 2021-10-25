@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-5">
-                        <div class="img_corn">
+                        <div class="img_about_company">
                             <svg width="710" height="540" viewBox="0 0 710 540" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M102.5 39C57.6669 94.1667 -16.5998 223.2 45.0002 298C122 391.5 421.5 236 558 249C667.2 259.4 704.167 361.667 709 411.5" stroke="#D4D8DB" stroke-dasharray="10 10"/>
                                 <g style="mix-blend-mode:multiply">
@@ -608,19 +608,23 @@
                 </div>
             </div>
             <div class="general_manager_block">
-
-                <div class="img_car" style="background-image: url('./images/car.png');"></div>
+                <div class="img_general_manager">
+                    <img src="/img/general.png" alt="">
+                </div>
                 <div class="row">
                     <div class="col-md-6">
-
                     </div>
                     <div class="col-md-6">
-                        <div class="">
+                        <div class="text_general_manager">
                             <p>Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой песчаной голой норе, где не на что сесть и нечего съесть. Нет, нора была хоббичья, а значит — благоустроенная.
                             </p>
                             <p>Она начиналась идеально круглой, как иллюминатор, дверью, выкрашенной зеленой краской, с сияющей медной ручкой точно посередине. Дверь отворялась внутрь, в длинный коридор, похожий на железнодорожный туннель, но туннель без гари и без дыма и тоже очень благоустроенный: стены там были обшиты панелями, пол выложен плитками и устлан ковром, вдоль стен стояли полированные стулья, и всюду были прибиты крючочки для шляп и пальто, так как хоббит любил гостей.
                             </p>
                         </div>
+                        <div class="name_general_manager">
+                            Олейничук Виталий
+                        </div>
+                        <div class="position_general_manager">Генеральный директор</div>
                     </div>
                 </div>
             </div>
@@ -654,7 +658,7 @@
                     </div>
                     <div class="col-xs-12 col-md-3 padding_item_questions_company">
                         <div class="item_activity_company">
-                            <div class="icon_item_activity_company">
+                            <div class="icon_item_activity_company active">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0_4020:45271)">
                                         <path d="M27.0992 7.87617C26.117 5.59682 25.0436 3.76664 23.909 2.43668C22.5312 0.821903 21.0999 0.00317383 19.6547 0.00317383C18.2095 0.00317383 16.7782 0.821903 15.4005 2.43674C14.9642 2.94815 14.5371 3.53409 14.1207 4.19039C11.8038 1.28538 9.52282 -0.0861815 7.49202 0.217275C6.06263 0.430849 4.768 1.45208 3.64406 3.25278C2.71834 4.73584 1.92721 6.70441 1.29258 9.10394C0.189203 13.2763 -0.274917 18.2423 0.164008 21.1803C0.929885 26.3062 5.35488 29.9977 10.3891 29.9977C10.8957 29.9977 11.4085 29.9604 11.9243 29.8832C13.0115 29.7208 14.0537 29.3913 15.0275 28.9039C16.4206 29.6036 17.9924 29.9984 19.6548 29.9984C25.3592 29.9984 30 25.3575 30 19.6531C29.9999 16.6826 28.8071 11.8397 27.0992 7.87617ZM11.7435 28.6723C6.7695 29.4158 2.11799 25.9734 1.37485 20.9994C1.02293 18.6439 1.28824 13.909 2.47623 9.417C3.73834 4.64484 5.63249 1.73303 7.67296 1.42811C9.30309 1.1846 11.3471 2.56542 13.452 5.32295C13.0244 6.09791 12.6097 6.94922 12.2102 7.87623C10.5023 11.8397 9.30954 16.6826 9.30954 19.6532C9.30954 23.161 11.0649 26.2661 13.7428 28.1377C13.1022 28.3899 12.4332 28.5693 11.7435 28.6723ZM19.6547 28.7741C14.6254 28.7741 10.5338 24.6824 10.5338 19.6531C10.5338 17.2715 11.4958 12.6278 13.3345 8.36062C13.775 7.33834 14.2334 6.41467 14.7028 5.5967C14.7079 5.58844 14.7126 5.58006 14.7173 5.57156C16.3252 2.77799 18.0616 1.22737 19.6548 1.22737C21.7179 1.22737 24.0215 3.82735 25.975 8.36062C27.8136 12.6278 28.7757 17.2714 28.7757 19.6531C28.7756 24.6824 24.684 28.7741 19.6547 28.7741Z" fill="#71BF45"/>
@@ -727,6 +731,32 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="history_company_block">
+                <div class="title_advantages_company_block">История компании</div>
+                <div class="animation_container" :class="'year'+yearActive">
+                    <div class="bg_history" :style="{ backgroundPosition: cordFon+'%  0%'}"></div>
+                    <div class="road">
+                        <div class="bl_min_car visibleCar"  :class="{bl_big_car:yearActive >= 2019}" :style="{ transform: 'translateX('+ cordMinCar+'px)'}"></div>
+                        <div class="gr_car" :class="{visibleCar : yearActive >= 2021}" :style="{ transform: 'translateX('+ cordGrCar+'px)'}"></div>
+                        <div class="or_car" :class="{visibleCar : yearActive >= 2020}" :style="{ transform: 'translateX('+ cordOrCar+'px)'}"></div>
+                        <div class="step_container" :style="{ left: corSlider+'px'}">
+                            <div v-for="item in history" class="step_item" :class="{active : yearActive == item.year}">
+                                <div class="step_img" @click="changeYear(item.year)">
+                                    <svg width="69" height="20" viewBox="0 0 69 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M67 10C67 10.3792 66.7212 11.1716 65.1582 12.2427C63.6595 13.2697 61.3599 14.2743 58.3384 15.1501C52.3221 16.894 43.8933 18 34.5 18C25.1067 18 16.6779 16.894 10.6616 15.1501C7.64009 14.2743 5.34046 13.2697 3.84177 12.2427C2.27884 11.1716 2 10.3792 2 10C2 9.6208 2.27884 8.8284 3.84177 7.75733C5.34046 6.73029 7.64009 5.72567 10.6616 4.84986C16.6779 3.10601 25.1067 2 34.5 2C43.8933 2 52.3221 3.10601 58.3384 4.84986C61.3599 5.72567 63.6595 6.73029 65.1582 7.75733C66.7212 8.8284 67 9.6208 67 10Z" fill="#8D8D8D" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                <div class="step_info">
+                                    <div class="step_year">{{item.year}}</div>
+                                    <div class="step_title">{{item.title}}</div>
+                                    <div class="step_text">{{item.text}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="advantages_company_block">
@@ -823,7 +853,31 @@
                     </div>
                 </div>
             </div>
-            <div class="partners_company_block">
+            <div class="consultation_manager_block">
+                <div class="title_advantages_company_block">Получите консультацию менеджера</div>
+                <form class="consultation_manager_form" action="">
+                    <div class="row">
+                    <div class="col-xs-12 col-md-3">
+                        <input type="text" placeholder="Имя">
+                    </div>
+                    <div class="col-xs-12 col-md-3">
+                        <input type="text" placeholder="Телефон">
+                    </div>
+                    <div class="col-xs-12 col-md-3">
+                        <div class="select_container">
+                            <select name="" id="">
+                                <option value="">Тема обращения</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-3">
+                        <button>Заказать консультацию</button>
+                    </div>
+                </div>
+                </form>
+                <div class="privacy_consultation_manager">Нажимая на кнопку “Заказать консультацию” Вы соглашаетесь с <a href="">Политикой конфиденциальности</a></div>
+            </div>
+            <div class="partners_about_company_block">
                 <div class="title_partners_company_block">Наши партнеры</div>
                 <div class="row" v-if="partners.partners">
                     <div class="col-xs-12 col-md-3 padding_item_partners_company"  v-for="partner in partners.partners">
@@ -838,7 +892,7 @@
                                        <a href="">Показать всех</a>
                                    </div>-->
             </div>
-            <div class="news_company_block">
+            <div class="news_about_company_block">
                 <div class="header_news_company_block">
                     <div class="title_news_company_block">Новости</div>
                     <div class="all_news_company_block"><router-link :to="{path:'allnews'}">Смотреть все</router-link></div>
@@ -856,18 +910,6 @@
 
                     </div>
                 </VueSlickCarousel>
-            </div>
-        </div>
-        <div id="videoModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" style="color:#fff">&times;</button>
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe id="cartoonVideo" class="embed-responsive-item" width="100%" height="700" src="//www.youtube.com/embed/F6FIMzpU6yQ" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -904,8 +946,22 @@ export default {
                     "slidesToShow": 2,
                     "speed": 500,
                     "arrows":true
-                }
-
+                },
+            yearActive:2016,
+            history:[
+                {'year': 2016, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'},
+                {'year': 2017, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'},
+                {'year': 2018, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'},
+                {'year': 2019, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'},
+                {'year': 2020, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'},
+                {'year': 2021, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'}
+            ],
+            cordMinCar:0,
+            cordFon:0,
+            corSlider:180,
+            cordBigCar:600,
+            cordOrCar:-250,
+            cordGrCar:-250
         }
     },
     methods:{
@@ -926,46 +982,97 @@ export default {
                     }
                 })
         },
-        goToCategory(type)
-        {
-            //console.log(type)
-            //this.updateTypeActionFromFrontPage(type);
-            if(this.$route.name !== 'catalog')
-            {
-                //this.$router.push({'name':'catalog'})
-                this.$router.replace({'path':'/catalog/category/'+type.id})
-            }
+        changeYear(year){
+            if(year > this.yearActive){
+                switch (year) {
+                    case 2016:
+                        this.cordMinCar = 0;
+                        this.cordFon = 0;
+                        this.corSlider = 180;
+                        break;
+                    case 2017:
+                        this.cordMinCar = 410;
+                        this.cordFon = 0;
+                        this.corSlider = 180;
+                        break;
+                    case 2018:
+                        this.cordMinCar = 900;
+                        this.cordFon = 21;
+                        setTimeout(() => {
+                            this.cordMinCar = 450;
+                            this.corSlider = -274;
+                        }, 3000);
+                        break;
+                    case 2019:
+                        this.cordMinCar = 800;
 
+                        setTimeout(() => {
+                            this.cordMinCar = 800;
+                        }, 900);
+                        setTimeout(() => {
+                            this.cordMinCar = 350;
+                            this.cordFon = 72;
+                            this.corSlider = -765;
+                        }, 4000);
+                        break;
+                    case 2020:
+                        this.cordMinCar = 800;
+                        this.cordOrCar = 790;
+                        setTimeout(() => {
+                            this.cordMinCar = 350;
+                            this.cordFon = 72;
+                            this.cordOrCar = 340;
+                            this.corSlider = -1216;
+                        }, 3000);
+                        break;
+                    case 2021:
+                        this.cordMinCar = 800;
+                        this.cordOrCar = 790;
+                        this.cordGrCar = 760;
+                        setTimeout(() => {
+                            this.cordFon = 103;
+                            this.cordMinCar = 300;
+                            this.cordOrCar = 290;
+                            this.cordGrCar = 260;
+                            this.corSlider = -1720;
+                        }, 3000);
+                        break;
+                }
+            }else{
+                switch (year) {
+                    case 2016:
+                        this.cordMinCar = 0;
+                        this.cordFon = 0;
+                        this.corSlider = 180;
+                        break;
+                    case 2017:
+                        this.cordMinCar = 410;
+                        this.cordFon = 0;
+                        this.corSlider = 180;
+                        break;
+                    case 2018:
+                        this.cordMinCar = 450;
+                        this.corSlider = -274;
+                        break;
+                    case 2019:
+                        this.cordMinCar = 350;
+                        this.cordFon = 72;
+                            this.corSlider = -765;
+                        break;
+                    case 2020:
+                        this.cordMinCar = 350;
+                        this.cordFon = 72;
+                        this.cordOrCar = 340;
+                        this.corSlider = -1216;
+                        break;
+                }
+            }
+            this.yearActive = year;
         },
-        ...mapActions('catalog',['updateTypeActionFromFrontPage'])
     },
     mounted() {
         this.getCats();
     },
-    computed: {
-        ...mapState('catalog',['categories'])
-    },
 }
 </script>
 
-<style>
-#videoModal
-{
-    width: 100%;
-    height: 100%;
-}
-#videoModal .modal-dialog .modal-content{
-    width:80%;
-    margin: 0 auto;
-    height: 1000px;
-}
-#videoModal .modal-dialog{
-    max-width: 100%;
-
-}
-#videoModal .modal-dialog iframe{
-    margin: 0 auto;
-    display: block;
-
-}
-</style>

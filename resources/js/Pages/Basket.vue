@@ -59,18 +59,19 @@
                 <div class="xs-12 col-md-8 cart_right_container">
                     <div class="right_container">
                         <div class="title_cart_block">Товар</div>
-                        <div class="item_cart_product" v-if="product">
-                            <div class="number_item_cart_product">1</div>
-                            <div class="main_info_item_cart_product">
-                                <div class="description_main_info_item_cart_product">
-                                    <div class="left_description_main_info_item_cart_product" v-if="product.type">
-                                        <div class="img_main_info_item_cart_product"
-                                             :style="'background-image: url('+product.type.image+');background-size:cover;'"></div>
-                                        <div>
-                                            <div class="title_main_info_item_cart_product">{{product.type.name}}</div>
-                                            <div class="company_reting_main_info_item_cart_product">
-                                                <span class="name_company_main_info_item_cart_product">{{product.organization.name}}</span>
-                                                <span>
+                        <div v-if="packages && packages.length">
+                            <div class="item_cart_product">
+                                <div class="number_item_cart_product">1</div>
+                                <div class="main_info_item_cart_product">
+                                    <div class="description_main_info_item_cart_product">
+                                        <div class="left_description_main_info_item_cart_product" v-if="product.type">
+                                            <div class="img_main_info_item_cart_product"
+                                                 :style="'background-image: url('+product.type.image+');background-size:cover;'"></div>
+                                            <div>
+                                                <div class="title_main_info_item_cart_product">{{product.type.name}}</div>
+                                                <div class="company_reting_main_info_item_cart_product">
+                                                    <span class="name_company_main_info_item_cart_product">{{product.organization.name}}</span>
+                                                    <span>
                                                 <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -78,57 +79,57 @@
                                                         fill="#FFD789" />
                                                 </svg>
                                             </span>
-                                                <span class="reting_main_info_item_cart_product">4,5</span>
+                                                    <span class="reting_main_info_item_cart_product">4,5</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="delite_item_cart_product" style="cursor: pointer" @click="deleteProducts">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M3.80874 20.1498L3.05125 5H20.9487L20.1913 20.1498C20.1114 21.7464 18.7936 23 17.195 23H6.805C5.20637 23 3.88857 21.7464 3.80874 20.1498Z"
+                                                    stroke="#8898A8" stroke-width="2" />
+                                                <path d="M8 5H16V3C16 1.89543 15.1046 1 14 1H10C8.89543 1 8 1.89543 8 3V5Z"
+                                                      stroke="#8898A8" stroke-width="2" />
+                                                <path d="M1 5H23" stroke="#8898A8" stroke-width="2" stroke-linecap="round" />
+                                                <path d="M15 11V16" stroke="#8898A8" stroke-width="2" stroke-linecap="round" />
+                                                <path d="M9 11V16" stroke="#8898A8" stroke-width="2" stroke-linecap="round" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="delivery_main_info_item_cart_product">
+                                        <div class="left_delivery_main_info_item_cart_product">
+                                            <div class="title_delivery_main_info_item_cart_product">ЖД Доставка</div>
+                                            <div>
+                                                <span class="pointA">A</span>
+                                                <span class="point_title_A" v-if="product.adresses" v-for="adress in product.adresses">{{adress.country_name}}, {{adress.city_name}}</span>
+                                                <span class="point_line">–</span>
+                                                <span class="pointB">B</span>
+                                                <span class="point_title_B" v-if="location.location">{{location.location.value}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="rigth_delivery_main_info_item_cart_product">
+                                            <div>
+                                                <div class="title_delivery_main_info_item_cart_product">Доставка</div>
+                                                <div class="description_delivery_main_info_item_cart_product">от 5 дней</div>
+                                            </div>
+                                            <div>
+                                                <div class="title_delivery_main_info_item_cart_product">Объем</div>
+                                                <div class="description_delivery_main_info_item_cart_product">{{totalVolume}} кг</div>
+                                            </div>
+                                            <div>
+                                                <div class="title_delivery_main_info_item_cart_product">Сумма сделки</div>
+                                                <div class="description_delivery_main_info_item_cart_product">{{totalSumm}} ₽</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="delite_item_cart_product" style="cursor: pointer" @click="deleteProducts">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M3.80874 20.1498L3.05125 5H20.9487L20.1913 20.1498C20.1114 21.7464 18.7936 23 17.195 23H6.805C5.20637 23 3.88857 21.7464 3.80874 20.1498Z"
-                                                stroke="#8898A8" stroke-width="2" />
-                                            <path d="M8 5H16V3C16 1.89543 15.1046 1 14 1H10C8.89543 1 8 1.89543 8 3V5Z"
-                                                  stroke="#8898A8" stroke-width="2" />
-                                            <path d="M1 5H23" stroke="#8898A8" stroke-width="2" stroke-linecap="round" />
-                                            <path d="M15 11V16" stroke="#8898A8" stroke-width="2" stroke-linecap="round" />
-                                            <path d="M9 11V16" stroke="#8898A8" stroke-width="2" stroke-linecap="round" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="delivery_main_info_item_cart_product">
-                                    <div class="left_delivery_main_info_item_cart_product">
-                                        <div class="title_delivery_main_info_item_cart_product">ЖД Доставка</div>
-                                        <div>
-                                            <span class="pointA">A</span>
-                                            <span class="point_title_A" v-if="product.adresses" v-for="adress in product.adresses">{{adress.country_name}}, {{adress.city_name}}</span>
-                                            <span class="point_line">–</span>
-                                            <span class="pointB">B</span>
-                                            <span class="point_title_B" v-if="location.location">{{location.location.value}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="rigth_delivery_main_info_item_cart_product">
-                                        <div>
-                                            <div class="title_delivery_main_info_item_cart_product">Доставка</div>
-                                            <div class="description_delivery_main_info_item_cart_product">от 5 дней</div>
-                                        </div>
-                                        <div>
-                                            <div class="title_delivery_main_info_item_cart_product">Объем</div>
-                                            <div class="description_delivery_main_info_item_cart_product">{{totalVolume}} кг</div>
-                                        </div>
-                                        <div>
-                                            <div class="title_delivery_main_info_item_cart_product">Сумма сделки</div>
-                                            <div class="description_delivery_main_info_item_cart_product">{{totalSumm}} ₽</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table default_table cart_table_product">
-                                        <thead>
-                                        <tr>
-                                            <th scope="col">Фасовка</th>
-                                            <th scope="col">Объём
-                                                <span class="sort_col">
+                                    <div class="table-responsive">
+                                        <table class="table default_table cart_table_product">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Фасовка</th>
+                                                <th scope="col">Объём
+                                                    <span class="sort_col">
                                                     <svg width="15" height="9" viewBox="0 0 15 9" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751"
@@ -136,11 +137,11 @@
                                                               stroke-linejoin="round" />
                                                     </svg>
                                                 </span>
-                                            </th>
-                                            <th scope="col">Цена за кг
-                                            </th>
-                                            <th scope="col">Стоимость закупки
-                                                <span class="sort_col">
+                                                </th>
+                                                <th scope="col">Цена за кг
+                                                </th>
+                                                <th scope="col">Стоимость закупки
+                                                    <span class="sort_col">
                                                     <svg width="15" height="9" viewBox="0 0 15 9" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M1.72223 1.69751L7.52487 7.50015L13.3275 1.69751"
@@ -148,91 +149,97 @@
                                                               stroke-linejoin="round" />
                                                     </svg>
                                                 </span>
-                                            </th>
-                                            <th scope="col">Стоимость доставки</th>
-                                            <th scope="col">Итог</th>
-                                            <th scope="col"></th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr v-if="packages.length" v-for="pack in packages">
-                                            <td>{{ pack.package.name }}</td>
-                                            <td>{{calcPackageVolume(pack.package.value,pack.value)}} кг</td>
-                                            <td>{{product.price}} ₽</td>
-                                            <td>{{calcSummPackage(product.price ,pack.package.value ,pack.value)}} ₽</td>
-                                            <td>20 000 ₽</td>
-                                            <td>{{calcSummWithDelivery(product.price ,pack.package.value,pack.value ,20000)}}  ₽</td>
-                                            <td>
-                                                <div class="settings_table_product">
-                                                    <button type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M4 7H20" stroke="#22262A" stroke-width="2"
-                                                                  stroke-linecap="round" />
-                                                            <path d="M8 17H20" stroke="#22262A" stroke-width="2"
-                                                                  stroke-linecap="round" />
-                                                        </svg>
-                                                    </button>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item" href="#">Изменить</a>
-                                                        <a class="dropdown-item" href="#" @click="deletePackage(pack)">Удалить</a>
+                                                </th>
+                                                <th scope="col">Стоимость доставки</th>
+                                                <th scope="col">Итог</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr v-if="packages.length" v-for="pack in packages">
+                                                <td>{{ pack.package.name }}</td>
+                                                <td>{{calcPackageVolume(pack.package.value,pack.value)}} кг</td>
+                                                <td>{{product.price}} ₽</td>
+                                                <td>{{calcSummPackage(product.price ,pack.package.value ,pack.value)}} ₽</td>
+                                                <td>20 000 ₽</td>
+                                                <td>{{calcSummWithDelivery(product.price ,pack.package.value,pack.value ,20000)}}  ₽</td>
+                                                <td>
+                                                    <div class="settings_table_product">
+                                                        <button type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M4 7H20" stroke="#22262A" stroke-width="2"
+                                                                      stroke-linecap="round" />
+                                                                <path d="M8 17H20" stroke="#22262A" stroke-width="2"
+                                                                      stroke-linecap="round" />
+                                                            </svg>
+                                                        </button>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                            <a class="dropdown-item" href="#">Изменить</a>
+                                                            <a class="dropdown-item" href="#" @click="deletePackage(pack)">Удалить</a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="title_cart_block">Дополнительные услуги</div>
-                        <div class="container_dop_services">
-                            <div class="header_dop_services">
-                                <div class="title_header_dop_services">ЖД Доставка</div>
-                                <div class="container_info_header_dop_services">
-                                    <div class="info_header_dop_services">
-                                        <div class="title_info_header_dop_services">Доставка</div>
-                                        <div class="value_info_header_dop_services">от 5 дней</div>
-                                    </div>
-                                    <div class="info_header_dop_services">
-                                        <div class="title_info_header_dop_services">Стоимость</div>
-                                        <div class="value_info_header_dop_services">40 000 Р</div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
-                            <div class="body_dop_services">
-                                <div>
-                                    <div class="item_point">
-                                        <div class="pointA_dop_services">A</div>
-                                        <div class="point_title_A_dop_services"v-if="product.adresses" v-for="adress in product.adresses">{{adress.country_name}}, {{adress.city_name}}</div>
-                                    </div>
-                                    <div class="point_line_verticale"></div>
-                                    <div class="item_point">
-                                        <div class="pointB_dop_services">B</div>
-                                        <div class="point_title_B_dop_services" v-if="location.location">{{location.location.value}}</div>
+                            <div class="title_cart_block">Дополнительные услуги</div>
+                            <div class="container_dop_services">
+                                <div class="header_dop_services">
+                                    <div class="title_header_dop_services">ЖД Доставка</div>
+                                    <div class="container_info_header_dop_services">
+                                        <div class="info_header_dop_services">
+                                            <div class="title_info_header_dop_services">Доставка</div>
+                                            <div class="value_info_header_dop_services">от 5 дней</div>
+                                        </div>
+                                        <div class="info_header_dop_services">
+                                            <div class="title_info_header_dop_services">Стоимость</div>
+                                            <div class="value_info_header_dop_services">40 000 Р</div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div>
-                                    <button data-toggle="modal" data-target="#modal_change_delivery"
-                                            class="btn_change_delivery" type="submit">Изменить</button>
+                                <div class="body_dop_services">
+                                    <div>
+                                        <div class="item_point">
+                                            <div class="pointA_dop_services">A</div>
+                                            <div class="point_title_A_dop_services"v-if="product.adresses" v-for="adress in product.adresses">{{adress.country_name}}, {{adress.city_name}}</div>
+                                        </div>
+                                        <div class="point_line_verticale"></div>
+                                        <div class="item_point">
+                                            <div class="pointB_dop_services">B</div>
+                                            <div class="point_title_B_dop_services" v-if="location.location">{{location.location.value}}</div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button data-toggle="modal" data-target="#modal_change_delivery"
+                                                class="btn_change_delivery" type="submit">Изменить</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="container_export_documentation">
-                            <div class="title_export_documentation">Экспортная документация</div>
-                            <div class="info_export_documentation">Добавьте к сделке необходимые вам документы</div>
-                            <div class="container_item_export_documentation row">
-                                <div class="col-md-4" v-if="orderDocuments.length" v-for="(doc,index) in orderDocuments">
-                                    <div class="item_export_documentation">
-                                        <div class="checkbox documentation_checkbox">
-                                            <input class="custom-checkbox doc_check" type="checkbox" :id="'doc-'+index" :name="'doc-'+index"
-                                                   :value="doc.price" v-on:click="addDocumentToCalc(doc)">
-                                            <label :for="'doc-'+index">{{doc.name}} <span>+ {{ doc.price }} ₽</span></label>
+                            <div class="container_export_documentation">
+                                <div class="title_export_documentation">Экспортная документация</div>
+                                <div class="info_export_documentation">Добавьте к сделке необходимые вам документы</div>
+                                <div class="container_item_export_documentation row">
+                                    <div class="col-md-4" v-if="orderDocuments.length" v-for="(doc,index) in orderDocuments">
+                                        <div class="item_export_documentation">
+                                            <div class="checkbox documentation_checkbox">
+                                                <input class="custom-checkbox doc_check" type="checkbox" :id="'doc-'+index" :name="'doc-'+index"
+                                                       :value="doc.price" v-on:click="addDocumentToCalc(doc)">
+                                                <label :for="'doc-'+index">{{doc.name}} <span>+ {{ doc.price }} ₽</span></label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="delite_card_product" v-else>
+                            <div class="title_delite_card_product">Товар не добавлен</div>
+                            <div class="text_delite_card_product">Товар не добавлен или был удален. Пожалуйста, добавьте товар в корзину.</div>
+                            <a class="btn_delite_card_product" href="/">Вернуться на главную страницу</a>
                         </div>
                     </div>
                 </div>
@@ -541,8 +548,9 @@ export default {
             this.eraseBasket();
             /*this.calcTotalSumm();
             this.calcTotalVolume();
-            this.calcItogo();*/
-            this.$router.push('/')
+            this.calcItogo();
+             this.$router.push('/')
+            */
         },
 
         /**

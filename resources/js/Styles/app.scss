@@ -550,6 +550,7 @@ tbody.collapse.in {
     border-radius: 10px;
     padding: 5px 15px;
     margin-right: 20px;
+    margin-bottom: 30px;
 }
 .total_transaction, .delivery_transaction{
     border-bottom: 1px solid #C8CCD1;
@@ -1297,6 +1298,9 @@ footer{
     color: #FFFFFF;
     padding: 20px;
     border: 0;
+}
+.btn_submit_price:hover{
+    background: #89CA65;
 }
 .item_product_input{
     display: flex;
@@ -3225,6 +3229,39 @@ input[type=number]{
 .cart_right_container{
     background: #F0F2F4;
 }
+.delite_card_product{
+    padding: 30px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    margin: 30px 0px;
+}
+.title_delite_card_product{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    color: #22262A;
+    margin-bottom: 10px;
+}
+.text_delite_card_product{
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color: #22262A;
+    margin-bottom: 24px;
+}
+.btn_delite_card_product{
+    padding: 10px 30px;
+    background: #71BF45;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+.btn_delite_card_product:hover{
+    color: #FFFFFF;
+    background: #89CA65;
+}
 .cart_right_container .right_container{
     padding: 50px 35px;
 }
@@ -3552,6 +3589,7 @@ input[type=number]{
     line-height: 20px;
     color: #8898A8;
     margin-left: 10px;
+    white-space: nowrap;
 }
 .documentation_checkbox.checkbox {
     text-align: left;

@@ -11,9 +11,12 @@
                             Создайте аккаунт<br/>
                             в Disfood Market
                         </div>
+                        <div class="server_error" v-show="serverError">{{serverError}}</div>
                         <div class="reg_form">
-                            <form>
-
+                            <form  id="app"
+                                   @submit="sendData"
+                                   method="post"
+                                   novalidate="true">
                                 <div class="item_reg_block">
                                     <div class="title_item_reg_block">
                                         Реквизиты
@@ -34,8 +37,7 @@
                                             <div class="tab-pane fade show active" id="company" role="tabpanel" aria-labelledby="company-tab">
                                                 <div class="container_item_reg_input">
                                                     <div>
-
-                                                        <input type="text" placeholder="Название компании" v-model="companyName" :class="{ 'form-group--error': $v.companyName.$error }" @keyup="getCompanyName()" autocomplete="off"  />
+                                                        <input type="text" placeholder="Название компании" v-model="companyName" @keyup="getCompanyName()" autocomplete="off"  />
                                                         <div class="panel-footer" v-if="search_data.length">
                                                             <ul class="list-group">
                                                                 <a href="#" class="list-group-item" v-for="data1 in search_data"  @click="getName(data1.data.name.full_with_opf,data1.data.inn)">
@@ -43,24 +45,19 @@
                                                                     <span class="color_success">ИНН {{data1.data.inn}}</span></a>
                                                             </ul>
                                                         </div>
-                                                        <div class="error" v-if="!$v.companyName.required">Поле обязательно для заполнения</div>
-                                                        <div class="error" v-if="!$v.companyName.minLength">ИНН должен содержать минимум {{$v.companyName.$params.minLength.min}} знаков.</div>
+                                                        <div class="error_input" v-show="errors.companyName">{{errors.companyName}}</div>
                                                     </div>
                                                     <div>
-                                                        <masked-input  type="text" placeholder="ИНН" v-model="inn" mask="1111111111" :class="{ 'form-group--error': $v.inn.$error }" v-on:input="getInn()" required />
-                                                        <div class="error" v-if="!$v.inn.required">Поле обязательно для заполнения</div>
-                                                        <div class="error" v-if="!$v.inn.minLength">ИНН должен содержать минимум {{$v.inn.$params.minLength.min}} знаков</div>
+                                                        <masked-input  type="text" placeholder="ИНН" v-model="inn" mask="1111111111" v-on:input="getInn()" required />
+                                                        <div class="error_input" v-show="errors.inn">{{errors.inn}}</div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="IP" role="tabpanel" aria-labelledby="IP-tab">
-                                                <div class="container_item_reg_input">
-                                                    <div><input type="text" placeholder="Имя" v-model="userName"></div>
-                                                    <div><input type="text" placeholder="Фамилия" v-model="userSurname"></div>
+                                                <div class="item_reg_input_one">
+                                                    <masked-input  type="text" placeholder="ИНН" v-model="inn" mask="111111111111" v-on:input="getInn()" required />
+                                                    <div class="error_input" v-show="errors.inn">{{errors.inn}}</div>
                                                 </div>
-                                                <div class="item_reg_input_one"><masked-input  type="text" placeholder="ИНН" v-model="inn" mask="111111111111" :class="{ 'form-group--error': $v.inn.$error }" v-on:input="getInn()" required /></div>
-                                                <div class="error" v-if="!$v.inn.required">Поле обязательно для заполнения</div>
-                                                <div class="error" v-if="!$v.inn.minLength">ИНН должен содержать минимум {{$v.inn.$params.minLength.min}} знаков.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -72,21 +69,21 @@
                                     <div class="container_item_reg_input">
                                         <div>
                                             <input type="text" placeholder="Имя" v-model="userName" required />
-                                            <div class="error" v-if="!$v.userName.required">Имя обязательно для заполнения.</div>
+                                            <div class="error_input" v-show="errors.userName">{{errors.userName}}</div>
                                         </div>
                                         <div>
                                             <input type="text" placeholder="Фамилия" v-model="userSurname" required />
-                                            <div class="error" v-if="!$v.userSurname.required">Фамилия обязательно для заполнения.</div>
+                                            <div class="error_input" v-show="errors.userSurname">{{errors.userSurname}}</div>
                                         </div>
                                     </div>
                                     <div class="container_item_reg_input">
                                         <div>
                                             <masked-input type="text" placeholder="Телефон" v-model="userPhone"  mask="\+\7 (111) 111-1111" />
-                                            <div class="error" v-if="!$v.userPhone.required">Телефон обязателен для заполнения.</div>
+                                            <div class="error_input" v-show="errors.userPhone">{{errors.userPhone}}</div>
                                         </div>
                                         <div>
                                             <input type="email" placeholder="E-mail" v-model="userEmail" required />
-                                            <div class="error" v-if="!$v.userEmail.required">Email обязателен для заполнения.</div>
+                                            <div class="error_input" v-show="errors.userEmail">{{errors.userEmail}}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -99,8 +96,7 @@
                                     <div class="container_item_reg_input">
                                         <div>
                                             <input type="password" placeholder="Введите пароль" v-model="userPassword">
-                                            <div class="error" v-if="!$v.userPassword.required">Пароль обязателен для заполнения.</div>
-                                            <div class="error" v-if="!$v.userPassword.minLength">Пароль должен состоять миимум из 8 символов.</div>
+                                            <div class="error_input" v-show="errors.userPassword">{{errors.userPassword}}</div>
                                             <div class="icon_password">
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -119,7 +115,7 @@
                                         </div>
                                         <div>
                                             <input type="password" placeholder="Повторите пароль" v-model="userPasswordConfirmation">
-                                            <div class="error" v-if="!$v.userPasswordConfirmation.sameAsPassword">Пароли должны совпадать.</div>
+                                            <div class="error_input" v-show="errors.userPasswordConfirmation">Пароли должны совпадать.</div>
                                             <div class="icon_password">
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -143,7 +139,7 @@
                                         <label for="color-2">Даю согласие на обработку персональных данных</label>
                                     </div>
                                     <div class="btn_summit">
-                                        <button type="submit" @click="sendData">Зарегистрироваться</button>
+                                        <button type="submit">Зарегистрироваться</button>
                                     </div>
                                 </div>
                             </form>
@@ -295,63 +291,25 @@ import HeaderCatalog from "../Сomponents/HeaderCatalog";
 export default {
     data() {
        return{
-
-               type:'company',
-               companyName:'',
-               inn:'',
-               userName:'',
-               userSurname:'',
-               userPhone:'',
-               userEmail:'',
-               userPassword:'',
-               userPasswordConfirmation:'',
-               userCheckPersonalData:true,
-               search_data:[]
+           errors:[],
+           type:'company',
+           companyName:'',
+           inn:'',
+           userName:'',
+           userSurname:'',
+           userPhone:'',
+           userEmail:'',
+           userPassword:'',
+           userPasswordConfirmation:'',
+           userCheckPersonalData:true,
+           search_data:[],
+           serverError:''
 
        }
     },
     components:{
         HeaderCatalog,
                 MaskedInput,
-    },
-    validations: {
-        inn: {
-            required,
-            minLength: minLength(10),
-            maxLength: maxLength(12)
-
-        },
-        companyName:{
-            required:requiredIf(function(e){
-                if(this.type && this.type == "company")
-                {
-                    return true
-                }
-                else{
-                    return false
-                }
-            }),
-            minLength:minLength(5),
-        },
-        userName:{
-          required
-        },
-        userSurname:{
-          required
-        },
-        userPassword:{
-          required,
-          minLength:minLength(8)
-        },
-        userPasswordConfirmation: {
-            sameAsPassword: sameAs('userPassword')
-        },
-        userEmail:{
-            required
-        },
-        userPhone:{
-            required
-        }
     },
     methods:{
        changeType(type) {
@@ -400,9 +358,44 @@ export default {
            this.inn = inn;
            this.search_data = [];
        },
+        validations:function() {
+            this.errors = [];
+            if(this.type == 'company' && !this.companyName) this.errors.userName = "Название обязательно для заполнения";
+            if(!this.userName) this.errors.userName = "Имя обязательно для заполнения";
+            if(!this.userSurname) this.errors.userSurname = "Фамилия обязательно для заполнения";
+            if(!this.userPhone) this.errors.userPhone = "Телефон обязательн для заполнения";
+            if(!this.inn){
+                this.errors.inn = "ИНН обязателен для заполнения";
+            }else if((this.inn).indexOf('_') > -1){
+                this.errors.inn = "ИНН должен содержать минимум 10 знаков"
+            }
+            if(!this.userEmail) {
+                this.errors.userEmail = "Email обязателен для заполнения.";
+            } else if(!this.validEmail(this.userEmail)) {
+                this.errors.userEmail = "Неправильный Email";
+            }
+            if(!this.userPassword){
+                this.errors.userPassword = "Пароль обязателен для заполнения";
+            }else if(!this.validPassword(this.userPassword)){
+                this.errors.userPassword = "Пароль слишком простой"
+            }
+            if(this.userPassword !== this.userPasswordConfirmation) this.errors.userPasswordConfirmation = "Пароли не совпадают";
+
+            if(Object.keys(this.errors).length > 0) return false;
+            else return true;
+
+        },
+        validEmail:function(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        },
+        validPassword:function (password){
+           var re =  /^[A-Za-z]\w{8,14}$/;
+           return re.test(password);
+        },
        sendData(e){
            e.preventDefault();
-           if(!this.$v.anyDirty){
+           if(this.validations()){
                axios.post('/set/company/and/register', {
                    type:this.type,
                    companyName:this.companyName,
@@ -418,10 +411,11 @@ export default {
                    {
                        console.log(response.status)
                        this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' },params:{email:this.userEmail} });
+                   }else{
+                      this.serverError = response;
                    }
                });
            }
-
        }
     },
     mounted() {

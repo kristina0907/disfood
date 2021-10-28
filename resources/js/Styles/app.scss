@@ -7222,6 +7222,7 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .name_profile_information:hover .vue-quick-edit__link--is-clickable{
     color: #71BF45;
 }
+
 .general_manager_block{
     background: #FAFAFA;
     border-radius: 10px;
@@ -7576,4 +7577,9 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 }
 .step_item.active .step_img:before{
   opacity: 1;
+}
+
+.error_input{
+    color: red;
+    font-size: 14px;
 }

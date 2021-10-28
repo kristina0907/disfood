@@ -73,7 +73,7 @@
             <ul class="dropdown-menu dropdown-menu-login" aria-labelledby="navbarDropdown">
                 <li class="dropdown-item-login">
                     <div class="login">
-                        <div v-if="user.user.organizations" v-for="(org,index) in user.user.organizations">
+                        <div class="login_info" v-if="user.user.organizations" v-for="(org,index) in user.user.organizations">
                             <div class="name_company" v-if="user.user.organizations && index == 0" v-for="org in user.user.organizations">{{org.name}}</div>
                             <div class="accredited_company" v-if="user.user.roles && index == 0" v-for="role in user.user.roles">{{ role.name }}
                                 &#183; {{org.status.name}}

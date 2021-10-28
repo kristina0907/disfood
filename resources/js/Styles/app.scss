@@ -75,6 +75,9 @@ header .navbar {
     font-weight: normal;
     cursor: pointer;
 }
+ul .accredited_company{
+    float: left;
+}
 .accredited_company{
     font-size: 10px;
     line-height: 20px;
@@ -1909,7 +1912,7 @@ header .dropdown-menu.dropdown-menu-login.show{
     text-align: right;
 }
 .catalog_container{
-    padding: 135px 0px 0px;
+    padding: 180px 0px 0px;
 }
 .prev_product_catalog{
     font-weight: normal;
@@ -2316,6 +2319,16 @@ input[type=number]{
 }
 .header_catalog .navbar-nav .nav-link {
     padding: 31px 0;
+}
+header.header_catalog .dropdown-menu-login.show{
+min-width: 280px;
+}
+.login_info{
+    width: 75%;
+}
+.login_img{
+    width: 25%;
+    min-width:50px;
 }
 .catalog_menu{
     background: #71BF45;

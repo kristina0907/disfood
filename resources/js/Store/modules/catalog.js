@@ -278,9 +278,21 @@ export default {
          * @param state
          */
 
-        changeCapacityPlus(state)
+        changeCapacityPlus(state,type)
         {
-            state.capacity = parseInt(state.capacity) + parseInt(20000);
+            let range = 20000;
+            switch (type) {
+                case 'auto':
+                    range = 20000;
+                    break;
+                case 'train':
+                    range = 67000;
+                    break;
+                case 'pickup':
+                    range = 10000;
+                    break;
+            }
+            state.capacity = parseInt(state.capacity) + parseInt(range);
         },
 
         /**
@@ -288,15 +300,27 @@ export default {
          * @param state
          */
 
-        changeCapacityMinus(state)
+        changeCapacityMinus(state,type)
         {
-            if(parseInt(state.capacity) > parseInt(20000))
+            let range = 20000;
+            switch (type) {
+                case 'auto':
+                    range = 20000;
+                    break;
+                case 'train':
+                    range = 67000;
+                    break;
+                case 'pickup':
+                    range = 10000;
+                    break;
+            }
+            if(parseInt(state.capacity) > range)
             {
-                state.capacity = parseInt(state.capacity) - parseInt(20000);
+                state.capacity = parseInt(state.capacity) - parseInt(range);
             }
             else
             {
-                state.capacity = 20000;
+                state.capacity = range;
             }
         },
 
@@ -675,9 +699,9 @@ export default {
          * @param commit
          */
 
-        minusCapacity({commit})
+        minusCapacity({commit},type)
         {
-            commit('changeCapacityMinus');
+            commit('changeCapacityMinus',type);
         },
 
         /**
@@ -685,9 +709,9 @@ export default {
          * @param commit
          */
 
-        plusCapacity({commit})
+        plusCapacity({commit},type)
         {
-            commit('changeCapacityPlus');
+            commit('changeCapacityPlus',type);
         },
 
         /**

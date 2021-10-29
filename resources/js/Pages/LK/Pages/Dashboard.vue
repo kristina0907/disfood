@@ -1,9 +1,10 @@
 <template>
-    <div class="container-fluid">
-        <div class="row">
-            <UserLKHeader></UserLKHeader>
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <UserLKHeader></UserLKHeader>
+            </div>
         </div>
-
         <div class="container_dashboard">
             <div class="row">
                 <div class="col-xs-12 col-md-7">
@@ -28,68 +29,68 @@
                                     <span>Добавьте товар в избранное чтобы отслеживать цену</span>
                                     <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 6L18.7742 18.7742" stroke="#22262A" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M6 18.7742L18.7742 5.99998" stroke="#22262A" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
+                                    <path d="M6 6L18.7742 18.7742" stroke="#22262A" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M6 18.7742L18.7742 5.99998" stroke="#22262A" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
                                 </label>
                                 <input id="singleSelect1" class="select__input" type="radio" name="singleSelect" />
                                 <label for="singleSelect1" class="select__label">
                                     <span>Агроальянс. Рис круглый шлифованый</span>
                                     <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 6L18.7742 18.7742" stroke="#22262A" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M6 18.7742L18.7742 5.99998" stroke="#22262A" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span></label>
+                                    <path d="M6 6L18.7742 18.7742" stroke="#22262A" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M6 18.7742L18.7742 5.99998" stroke="#22262A" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span></label>
                                 <input id="singleSelect2" class="select__input" type="radio" name="singleSelect" />
                                 <label for="singleSelect2" class="select__label">
                                     <span>Агроальянс. Рис круглый шлифованый</span>
                                     <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 6L18.7742 18.7742" stroke="#22262A" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M6 18.7742L18.7742 5.99998" stroke="#22262A" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span></label>
+                                    <path d="M6 6L18.7742 18.7742" stroke="#22262A" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M6 18.7742L18.7742 5.99998" stroke="#22262A" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span></label>
                                 <input id="singleSelect3" class="select__input" type="radio" name="singleSelect" />
                                 <label for="singleSelect3" class="select__label">
                                     <span>Агроальянс. Рис круглый шлифованый</span>
                                     <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 6L18.7742 18.7742" stroke="#22262A" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M6 18.7742L18.7742 5.99998" stroke="#22262A" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span></label>
+                                    <path d="M6 6L18.7742 18.7742" stroke="#22262A" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M6 18.7742L18.7742 5.99998" stroke="#22262A" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span></label>
                                 <input id="singleSelect4" class="select__input" type="radio" name="singleSelect" />
                                 <label for="singleSelect4" class="select__label">
                                     <span>Агроальянс. Рис круглый шлифованый</span>
                                     <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 6L18.7742 18.7742" stroke="#22262A" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M6 18.7742L18.7742 5.99998" stroke="#22262A" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span></label>
+                                    <path d="M6 6L18.7742 18.7742" stroke="#22262A" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M6 18.7742L18.7742 5.99998" stroke="#22262A" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span></label>
                                 <input id="singleSelect5" class="select__input" type="radio" name="singleSelect" />
                                 <label for="singleSelect5" class="select__label">
                                     <span>Агроальянс. Рис круглый шлифованый</span>
                                     <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 6L18.7742 18.7742" stroke="#22262A" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M6 18.7742L18.7742 5.99998" stroke="#22262A" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span></label>
+                                    <path d="M6 6L18.7742 18.7742" stroke="#22262A" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M6 18.7742L18.7742 5.99998" stroke="#22262A" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span></label>
                             </div>
                         </div>
 
@@ -216,8 +217,8 @@
                         <div class="header_item_right_dashboard">
                             <div class="titile_header_item_right_dashboard col-md-5">Сделки за текущий период</div>
                             <div class="date_change_block col-md-7">
-                                    <div class="date_transactions_current_period col-md-6 text-right">Сделки</div>
-                                    <div class="change_transactions_current_period col-md-6 text-right">Цены</div>
+                                <div class="date_transactions_current_period col-md-6 text-right">Сделки</div>
+                                <div class="change_transactions_current_period col-md-6 text-right">Цены</div>
                             </div>
                         </div>
                         <div class="list_values_dashboard" v-if="dashboard.orders">
@@ -304,8 +305,9 @@
                 </div>
             </div>
         </div>
-
     </div>
+
+
 
 </template>
 

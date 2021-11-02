@@ -345,6 +345,7 @@ tbody.collapse.in {
 }
 .table_product.default_table.table td{
     padding: 10px 20px;
+    white-space: nowrap;
 }
 .table tbody+tbody {
     border-top: 1px solid #dee2e6;
@@ -805,7 +806,7 @@ tbody.collapse.in {
 }
 .container_search_table{
     position: relative;
-    width: 50%;
+    width: 40%;
 }
 .container_search_table input{
     border: 0;
@@ -829,11 +830,54 @@ tbody.collapse.in {
     margin-right: 10px;
     font-weight: 600;
 }
+.container_btn_table button:hover{
+    box-shadow: 0 0 0 2px #89ca65;
+}
+.container_btn_table a:hover{
+    box-shadow: 0 0 0 2px #89ca65;
+}
 .container_btn_table span{
+    margin-right: 10px;
+}
+tbody.table_change_price tr{
+    background: #C4C4C4;
+}
+.td_change_price{
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    height: 70px;
+}
+.td_change_price input{
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    border: 0;
+    width: 100%;
+}
+.td_change_price div{
+    border-bottom: 2px solid #C8CCD1;
+    padding: 5px 0;
+    width: 106px;
+}
+.td_change_price div.container_change_price{
+    width: 70px;
     margin-right: 10px;
 }
 .container_btn_table button:last-child{
     margin-right: 0px;
+}
+.container_btn_table button.btn_cancel_change_prices{
+    color: #8898A8;
+    border: 1px solid #8898A8;
+}
+.container_btn_table button.btn_cancel_change_prices:hover{
+    color: #71BF45;
+}
+.change_price_error{
+    color: red;
+    font-size: 18px;
+    margin-top: 30px;
 }
 .title_reg{
     font-weight: 600;

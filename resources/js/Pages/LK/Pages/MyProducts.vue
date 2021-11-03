@@ -94,7 +94,7 @@
                             </tr>
                             </thead>
                             <tbody :class="{table_change_price : changePriceStatus}">
-                            <tr v-for="product in productsFilter">
+                            <tr v-for="product in productsFilter" :class="{active: selected.indexOf(product.id) != -1}">
                                 <td>
                                     <div class="checkbox">
                                         <input class="custom-checkbox" type="checkbox" :id="'color-'+product.id" :name="'color-'+product.id"
@@ -118,7 +118,7 @@
                                 </td>
                                 <td @click.prevent="redirectToEdit(product.id)">50 кг</td>
                                 <td @click.prevent="redirectToEdit(product.id)">{{product.capacity}}</td>
-                                <td v-show="!changePriceStatus" class="modal_price" data-bs-toggle="modal" data-bs-target="#changePrice" @click="currentProduct = product">
+                                <td v-if="!changePriceStatus || (selected.indexOf(product.id) == -1)" class="modal_price" data-bs-toggle="modal" data-bs-target="#changePrice" @click="currentProduct = product">
                                     <span class="price">
                                         {{ product.price }} ₽
                                     </span>
@@ -126,12 +126,12 @@
                                         {{product.price_with_nds}} ₽ НДС
                                     </span>
                                 </td>
-                                <td v-show="changePriceStatus" class="td_change_price">
+                                <td v-if="changePriceStatus && (selected.indexOf(product.id) != -1)" class="td_change_price">
                                     <div class="container_change_price">
-                                        <input type="text" :value="product.price + ' ₽'">
+                                        <input type="text" :value="product.price"> <span>₽</span>
                                     </div>
                                     <div>
-                                        <input type="text" :value="product.price_with_nds + ' НДС ₽'">
+                                        <input type="text" :value="product.price_with_nds"> <span>НДС ₽</span>
                                     </div>
                                 </td>
                                 <td class="price-term">{{product.updated_at | moment("D-MM-YYYY") }} МСК<span class="status_time_good">8ч</span></td>
@@ -337,8 +337,10 @@ export default {
          *  send products to update price
          */
         changePrices(){
+            console.log(this.selected);
             if(this.selected.length > 0){
                 this.changePriceStatus = true;
+                this.changePriceError = false;
             }else{
                 this.changePriceError = true;
             }

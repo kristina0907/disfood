@@ -839,7 +839,7 @@ tbody.collapse.in {
 .container_btn_table span{
     margin-right: 10px;
 }
-tbody.table_change_price tr{
+tbody.table_change_price tr.active{
     background: #C4C4C4;
 }
 .td_change_price{
@@ -853,16 +853,30 @@ tbody.table_change_price tr{
     line-height: 20px;
     color: #66727E;
     border: 0;
-    width: 100%;
+    width: 50%;
+}
+.td_change_price span{
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+}
+.td_change_price:focus input{
+    color: #22262A;
 }
 .td_change_price div{
     border-bottom: 2px solid #C8CCD1;
     padding: 5px 0;
     width: 106px;
 }
+.td_change_price div:focus{
+    border-bottom: 2px solid #71BF45;
+}
 .td_change_price div.container_change_price{
     width: 70px;
     margin-right: 10px;
+}
+.td_change_price div.container_change_price input{
+    width: 80%;
 }
 .container_btn_table button:last-child{
     margin-right: 0px;

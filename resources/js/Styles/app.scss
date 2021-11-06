@@ -7447,10 +7447,10 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .bg_history{
     background-image: url(/img/bg_history.png);
     background-repeat: no-repeat;
-    background-position : -4%  0% ;
+    background-position : 0%  0% ;
     height: 155px;
-    width: auto;
-    margin-left: 17%;
+    width: 100%;
+    margin-left: 300px;
     position: relative;
     -webkit-transition: all 3s ease;
     -moz-transition: all 3s ease;
@@ -7465,7 +7465,6 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     height: 89px;
     width: 89px;
     position: absolute;
-    left: 40px;
     bottom: 3px;
     z-index: 2;
     -webkit-transition: all 3s ease;
@@ -7517,21 +7516,23 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 }
 .step_container{
     position: absolute;
-    width: 100%;
+    width: 2480px;
     left: 180px;
     top: -6px;
     display: flex;
-    width: 100%;
+    justify-content: space-between;
     -webkit-transition: all 3s ease;
     -moz-transition: all 3s ease;
     -o-transition: all 3s ease;
+}
+.step_item{
+    width: 15%;
 }
 .step_img{
     background-repeat: no-repeat;
     height: 20px;
     width: 69px;
     min-width: 69px;
-    margin-right: 418px;
     cursor: pointer;
     margin-left: -35px;
     position: relative;
@@ -7611,39 +7612,6 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
-}
-
-.animation_container.year2018 .bg_history{
-    animation: fon2018 5s ease 0s 1 normal forwards;
-}
-.animation_container.year2017 .bl_min_car{
-    animation: carBlMin2017 5s ease 0s 1 normal forwards;
-}
-.animation_container.year2018 .bl_min_car{
-    animation: carBlMin2018 5s ease 0s 1 normal forwards;
-}
-
-@keyframes  carBlMin2017{
-    100% {
-        opacity: 1;
-        transform: translateX(450px);
-    }
-}
-@keyframes  carBlMin2018{
-    100% {
-        opacity: 1;
-        transform: translateX(900px);
-    }
-}
-
-@keyframes fon2018 {
-    0% {
-        background-position: 0% 0%;
-    }
-
-    100% {
-        background-position: 21% 0%;
-    }
 }
 .step_item.active .step_img:before{
   opacity: 1;

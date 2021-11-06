@@ -736,9 +736,9 @@
             <div class="history_company_block">
                 <div class="title_advantages_company_block">История компании</div>
                 <div class="animation_container" :class="'year'+yearActive">
-                    <div class="bg_history" :style="{ backgroundPosition: cordFon+'%  0%'}"></div>
+                    <div class="bg_history" :style="{ backgroundPosition: cordFon+'%  0%', marginLeft :leftFon +'px'}"></div>
                     <div class="road">
-                        <div class="bl_min_car visibleCar"  :class="{bl_big_car:yearActive >= 2019}" :style="{ transform: 'translateX('+ cordMinCar+'px)'}"></div>
+                        <div class="bl_min_car visibleCar"  :class="{bl_big_car:yearActive >= 2019}" :style="{ transform: 'translateX('+ cordMinCar+'px)' }"></div>
                         <div class="gr_car" :class="{visibleCar : yearActive >= 2021}" :style="{ transform: 'translateX('+ cordGrCar+'px)'}"></div>
                         <div class="or_car" :class="{visibleCar : yearActive >= 2020}" :style="{ transform: 'translateX('+ cordOrCar+'px)'}"></div>
                         <div class="step_container" :style="{ left: corSlider+'px'}">
@@ -956,12 +956,13 @@ export default {
                 {'year': 2020, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'},
                 {'year': 2021, 'title':'Заголовок №1','text':'Жил-был в норе под землей хоббит. Не в какой-то там мерзкой грязной сырой норе, где со всех сторон торчат хвосты червей и противно пахнет плесенью, но и не в сухой'}
             ],
-            cordMinCar:0,
+            cordMinCar:40,
             cordFon:0,
             corSlider:180,
             cordBigCar:600,
             cordOrCar:-250,
-            cordGrCar:-250
+            cordGrCar:-250,
+            leftFon:300
         }
     },
     methods:{
@@ -986,84 +987,92 @@ export default {
             if(year > this.yearActive){
                 switch (year) {
                     case 2016:
-                        this.cordMinCar = 0;
+                        this.cordMinCar = 40;
                         this.cordFon = 0;
+                        this.leftFon = 300;
                         this.corSlider = 180;
                         break;
                     case 2017:
-                        this.cordMinCar = 410;
+                        this.cordMinCar = 460;
                         this.cordFon = 0;
+                        this.leftFon = 300;
                         this.corSlider = 180;
                         break;
                     case 2018:
-                        this.cordMinCar = 900;
-                        this.cordFon = 21;
+                        this.cordMinCar = 880;
                         setTimeout(() => {
-                            this.cordMinCar = 450;
-                            this.corSlider = -274;
+                            this.cordFon = 24;
+                            this.leftFon = 240;
+                            this.cordMinCar = 460;
+                            this.corSlider = -240;
                         }, 3000);
                         break;
                     case 2019:
-                        this.cordMinCar = 800;
-
-                        setTimeout(() => {
-                            this.cordMinCar = 800;
-                        }, 900);
+                        this.cordMinCar = 760;
                         setTimeout(() => {
                             this.cordMinCar = 350;
-                            this.cordFon = 72;
-                            this.corSlider = -765;
-                        }, 4000);
+                            this.cordFon = 49;
+                            this.leftFon = 200;
+                            this.corSlider = -660;
+                        }, 3000);
                         break;
                     case 2020:
-                        this.cordMinCar = 800;
-                        this.cordOrCar = 790;
+                        this.cordMinCar = 760;
+                        this.cordOrCar = 750;
                         setTimeout(() => {
                             this.cordMinCar = 350;
-                            this.cordFon = 72;
+                            this.leftFon = 200;
+                            this.cordFon = 78;
                             this.cordOrCar = 340;
-                            this.corSlider = -1216;
+                            this.corSlider = -1080;
                         }, 3000);
                         break;
                     case 2021:
-                        this.cordMinCar = 800;
-                        this.cordOrCar = 790;
-                        this.cordGrCar = 760;
+                        this.cordMinCar = 760;
+                        this.cordOrCar = 750;
+                        this.cordGrCar = 720;
                         setTimeout(() => {
-                            this.cordFon = 103;
+                            this.cordFon = 106;
+                            this.leftFon = 100;
                             this.cordMinCar = 300;
                             this.cordOrCar = 290;
                             this.cordGrCar = 260;
-                            this.corSlider = -1720;
+                            this.corSlider = -1550;
                         }, 3000);
                         break;
                 }
             }else{
                 switch (year) {
                     case 2016:
-                        this.cordMinCar = 0;
+                        this.cordMinCar = 40;
                         this.cordFon = 0;
+                        this.leftFon = 300;
                         this.corSlider = 180;
                         break;
                     case 2017:
-                        this.cordMinCar = 410;
+                        this.cordMinCar = 460;
                         this.cordFon = 0;
+                        this.leftFon = 300;
                         this.corSlider = 180;
                         break;
                     case 2018:
-                        this.cordMinCar = 450;
-                        this.corSlider = -274;
+                        this.cordFon = 24;
+                        this.leftFon = 240;
+                        this.cordMinCar = 460;
+                        this.corSlider = -240;
                         break;
                     case 2019:
                         this.cordMinCar = 350;
-                        this.cordFon = 72;
-                            this.corSlider = -765;
+                        this.cordFon = 49;
+                        this.leftFon = 200;
+                        this.corSlider = -660;
                         break;
                     case 2020:
                         this.cordMinCar = 350;
-                        this.cordFon = 72;
+                        this.leftFon = 200;
+                        this.cordFon = 78;
                         this.cordOrCar = 340;
-                        this.corSlider = -1216;
+                        this.corSlider = -1080;
                         break;
                 }
             }

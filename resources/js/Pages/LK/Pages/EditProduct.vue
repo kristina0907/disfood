@@ -298,14 +298,32 @@ import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 export default {
     components: {UserLKHeader,Multiselect,FileSelect,vueDropzone: vue2Dropzone},
+    props: ['id'],
     data(){
         return {
             //images:[],
             locationTips:[],
+            selectedFilters:[]
         }
     },
     methods:{
-
+        ...mapActions('editproduct',[
+            'getCatalogData',
+            'getCatalogTypes',
+            'getPackings',
+            'sendDataNewProduct',
+            'filterTypes',
+            'filterProducts',
+            'setProductValue',
+            'addFilterValue',
+            'setPackingsValue',
+            'setCapacity',
+            'setPriceValue',
+            'setPriceWithNdsValue',
+            'addFileToDocuments',
+            'addFileToImages',
+            'getProductById'
+        ]),
 
         /**
          *
@@ -397,10 +415,33 @@ export default {
      *
      */
     mounted() {
-
+        this.getCatalogData();
+        this.getCatalogTypes();
+        this.getPackings();
+        this.getProductById(this.id)
     },
     computed: {
-
+        ...mapState('editproduct',[
+            'categories',
+            'types',
+            'products',
+            'packings',
+            'categoryValue',
+            'filteredTypes',
+            'typeValue',
+            'filteredProducts',
+            'productValue',
+            'filters',
+            'filterValue',
+            'price',
+            'priceWithNds',
+            'capacity',
+            'selectedPackings',
+            'adress',
+            'documents',
+            'images',
+            'currentProduct'
+        ])
 
     },
 }

@@ -343,10 +343,11 @@ export default {
             }
             if(output.length > 0)
             {
+                console.log(output)
                  axios.post('/set/updateprices',{'output':output})
                     .then(response => {
                         if (response.status == 200) {
-                            this.$router.go();
+                           // this.$router.go();
                         }
                     });
             }

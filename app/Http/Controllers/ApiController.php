@@ -790,4 +790,40 @@ class ApiController extends Controller
          }
 
      }
+
+    /**
+     * @param $id
+     * @return mixed|void
+     */
+
+     public function getProductFromId($id)
+     {
+         if(!empty($id) && (int) $id)
+         {
+             return $this->offerService->getOfferById($id);
+         }
+         else
+         {
+             return response()->json('Invalid ID',404);
+         }
+     }
+
+     public function loginAjax(Request $request)
+     {
+         $auth = false;
+         $credentials = $request->only('email', 'password');
+
+         if (Auth::attempt($credentials, $request->has('remember'))) {
+             $auth = true; // Success
+         }
+
+         if($auth)
+         {
+             return response()->json(Auth::user(),200);
+         }
+         else
+         {
+             return response()->json('Error,Email or Password invalid',305);
+         }
+     }
 }

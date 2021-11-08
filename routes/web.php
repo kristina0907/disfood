@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 
 Auth::routes();
-
+Route::post('/auth/loginajax', [ApiController::class,'loginAjax']);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//->middleware(['auth','IsAdmin']);
@@ -36,6 +36,7 @@ Route::post('/set/company/and/register',[ApiController::class,'setCompanyAndRegi
 
 Route::get('/get/my-products',[ApiController::class,'getMyProducts']);
 Route::get('/get/newproduct/data',[ApiController::class,'getNewProductData']);
+Route::get('/get/productfromid/{id}',[ApiController::class,'getProductFromId']);
 
 Route::get('/get/news/all',[ApiController::class,'getNewsAll']);
 Route::get('/get/news/page/{id}',[ApiController::class,'getNewsPage']);

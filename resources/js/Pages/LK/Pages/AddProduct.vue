@@ -341,7 +341,7 @@ export default {
             let vm = this;
             var selectedFiles = e.target.files;
             for (let i = 0; i < selectedFiles.length; i++) {
-                console.log(selectedFiles[i]);
+                //console.log(selectedFiles[i]);
                 vm.documents.push(selectedFiles[i]);
             }
 
@@ -354,22 +354,6 @@ export default {
 
         onPhotoChange(e)
         {
-           /* let vm = this;
-            var selectedFiles = e.target.files;
-            for (let i = 0; i < selectedFiles.length; i++) {
-               // console.log(selectedFiles[i]);
-                vm.photos.push(selectedFiles[i]);
-            }
-
-            for (let i = 0; i < this.photos.length; i++) {
-                let reader = new FileReader();
-                reader.onload = (e) => {
-                    console.log(this.$refs.image)
-                    this.$refs.image[i].src = reader.result;
-                    console.log(this.$refs.image[i].src);
-                };
-                reader.readAsDataURL(this.photos[i]);
-            }*/
 
             let vm = this;
             let selectedFiles = e.target.files;
@@ -417,11 +401,6 @@ export default {
             })
         },
 
-        /*handleFileChange(event)
-        {
-            console.log(event.target.files);
-            this.documents.push({file:event.target.files[0]});
-        },*/
 
     },
 
@@ -455,30 +434,6 @@ export default {
             'documents',
             'images'
         ]),
-       /* capacity: {
-            get(){
-                return this.$store.state["addproduct/capacity"]
-            },
-            set(newName){
-                return this.setCapacity(newName)
-            }
-        },
-        price: {
-            get(){
-                return this.$store.state["addproduct/price"]
-            },
-            set(newName){
-                return this.setPriceValue(newName)
-            }
-        },
-        priceWithNds: {
-            get(){
-                return this.$store.state["addproduct/priceWithNds"]
-            },
-            set(newName){
-                return this.setPriceWithNdsValue(newName)
-            }
-        }*/
     },
 }
 </script>

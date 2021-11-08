@@ -29,7 +29,7 @@
                                 <input type="text" placeholder="Найти товар по наименованию">
                             </div>
                             <div class="container_btn_table">
-                                <router-link :to="{name:'productadd'}" v-show="!changePriceStatus" class="btn-table" active-class="active">
+                                <router-link :to="{name:'productadd'}" class="btn-table" active-class="active">
                                 <span>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -40,10 +40,8 @@
                                     </svg>
                                 </span> Добавить товар
                                 </router-link>
-                                <button v-show="!changePriceStatus" @click.prevent="changePrices">Изменить цены</button>
-                                <button v-show="!changePriceStatus" @click.prevent="acceptedPrice">Утвердить цену</button>
+                                <button @click.prevent="acceptedPrice">Утвердить цену</button>
                                 <button @click.prevent="acceptedPriceAll">Утвердить все</button>
-                                <button class="btn_cancel_change_prices" v-show="changePriceStatus" @click.prevent="cancelChangePrices">Отменить</button>
                             </div>
                         </div>
                         <table class="table default_table table_product">
@@ -93,8 +91,8 @@
                                 <th class="price-term" scope="col">Срок цены</th>
                             </tr>
                             </thead>
-                            <tbody :class="{table_change_price : changePriceStatus}">
-                            <tr v-for="product in productsFilter" :class="{active: selected.indexOf(product.id) != -1}">
+                            <tbody>
+                            <tr v-for="product in productsFilter">
                                 <td>
                                     <div class="checkbox">
                                         <input class="custom-checkbox" type="checkbox" :id="'color-'+product.id" :name="'color-'+product.id"
@@ -118,7 +116,7 @@
                                 </td>
                                 <td @click.prevent="redirectToEdit(product.id)">50 кг</td>
                                 <td @click.prevent="redirectToEdit(product.id)">{{product.capacity}}</td>
-                                <td v-if="!changePriceStatus || (selected.indexOf(product.id) == -1)" class="modal_price" data-bs-toggle="modal" data-bs-target="#changePrice" @click="currentProduct = product">
+                                <td class="nowrap modal_price" data-bs-toggle="modal" data-bs-target="#changePrice" @click="currentProduct = product">
                                     <span class="price">
                                         {{ product.price }} ₽
                                     </span>
@@ -126,21 +124,12 @@
                                         {{product.price_with_nds}} ₽ НДС
                                     </span>
                                 </td>
-                                <td v-if="changePriceStatus && (selected.indexOf(product.id) != -1)" class="td_change_price">
-                                    <div class="container_change_price">
-                                        <input type="text" :value="product.price"> <span>₽</span>
-                                    </div>
-                                    <div>
-                                        <input type="text" :value="product.price_with_nds"> <span>НДС ₽</span>
-                                    </div>
-                                </td>
-                                <td class="price-term">{{product.updated_at | moment("D-MM-YYYY") }} МСК<span class="status_time_good">8ч</span></td>
+                                <td class="nowrap price-term">{{product.updated_at | moment("D-MM-YYYY") }} МСК<span class="status_time_good">8ч</span></td>
                             </tr>
 
 
                             </tbody>
                         </table>
-                        <div class="change_price_error" v-if="changePriceError">Выберите товары</div>
                         <!-- Modal -->
                         <div class="modal fade modal_change_price" id="changePrice" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
@@ -244,8 +233,6 @@ export default {
             sortByPrice:false,
             sortByName:false,
             sortByStatus:false,
-            changePriceStatus:false,
-            changePriceError:false
         }
     },
     methods:{
@@ -333,22 +320,7 @@ export default {
                 this.sortByStatus = false;
             }
         },
-        /**
-         *  send products to update price
-         */
-        changePrices(){
-            console.log(this.selected);
-            if(this.selected.length > 0){
-                this.changePriceStatus = true;
-                this.changePriceError = false;
-            }else{
-                this.changePriceError = true;
-            }
 
-        },
-        cancelChangePrices(){
-            this.changePriceStatus = false;
-        },
         /**
          * send selected products to update price
          */
@@ -371,11 +343,10 @@ export default {
             }
             if(output.length > 0)
             {
-                console.log(output)
                  axios.post('/set/updateprices',{'output':output})
                     .then(response => {
                         if (response.status == 200) {
-                           // this.$router.go();
+                            this.$router.go();
                         }
                     });
             }

@@ -50,16 +50,13 @@
                                     </svg>
                                 </span> Добавить товар
                                 </router-link>
-<<<<<<< HEAD
-                                <button @click.prevent="acceptedPrice">Утвердить цену</button>
-                                <button @click.prevent="acceptedPriceAll">Утвердить все</button>
-=======
+
                                 <button v-show="!changePriceStatus" @click.prevent="changePrices">Изменить цены</button>
                                 <button v-show="!changePriceStatus" @click.prevent="acceptedPrice">Утвердить цену</button>
                                 <button v-if="!changePriceStatus" @click.prevent="acceptedPriceAll">Утвердить все</button>
                                 <button v-else @click.prevent="acceptedPricesAll">Утвердить все</button>
                                 <button class="btn_cancel_change_prices" v-show="changePriceStatus" @click.prevent="cancelChangePrices">Отменить</button>
->>>>>>> dev
+
                             </div>
                         </div>
                         <table class="table default_table table_product">

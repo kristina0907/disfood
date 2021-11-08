@@ -823,6 +823,9 @@ tbody.collapse.in {
     margin-left: 8px;
     cursor: pointer;
 }
+.multiselect__select:before{
+    display: none;
+}
 .container_search_table input{
     border: 0;
     margin-left: 39px;

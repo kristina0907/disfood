@@ -439,7 +439,7 @@ export default {
                 axios.post('/set/updateprice/product',{'product':product,'id':id})
                     .then(response => {
                         if (response.status == 200) {
-                            // this.$router.go();
+                            this.$router.go();
                         }
                     });
             }

@@ -44,15 +44,15 @@
                                             <div class="text_prompt">Нужный объем<br/> для закупки (кг)</div>
                                             <div class="offer_quantity_block_product">
                                                 <div class="quantity-block">
-                                                    <button class="quantity-arrow-minus" data-id="m1" @click="minusCapacity">
+                                                    <button class="quantity-arrow-minus" data-id="m1" @click="minusCapacity(deliveryType)">
                                                         <svg width="20" height="2" viewBox="0 0 20 2" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M1 1L19 1" stroke="#C8CCD1" stroke-width="2"
                                                                   stroke-linecap="round" stroke-linejoin="round" />
                                                         </svg>
                                                     </button>
-                                                    <input data-id="m1" class="quantity-num" type="number" disabled :value="capacity" @focusout="setCapacity($event.target.value)" />
-                                                    <button data-id="m1" class="quantity-arrow-plus" @click="plusCapacity">
+                                                    <input data-id="m1" class="quantity-num" type="number" disabled :value="capacity"/>
+                                                    <button data-id="m1" class="quantity-arrow-plus" @click="plusCapacity(deliveryType)">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M12 3V21" stroke="#C8CCD1" stroke-width="2"
@@ -72,19 +72,19 @@
                                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                                         <li class="nav-item">
                                                             <a class="nav-link" id="home-tab" data-toggle="tab" href="#JD"
-                                                               role="tab" aria-controls="JD" aria-selected="false"><span>
+                                                               role="tab" aria-controls="JD" aria-selected="false" @click="changeType('train')"><span>
                                                         &#183;</span>
                                                                 ЖД</a>
                                                         </li>
                                                         <li class="nav-item">
                                                             <a class="nav-link active" id="avto-tab" data-toggle="tab" href="#avto"
-                                                               role="tab" aria-controls="avto" aria-selected="true"><span>
+                                                               role="tab" aria-controls="avto" aria-selected="true" @click="changeType('auto')"><span>
                                                         &#183;</span>
                                                                 Авто</a>
                                                         </li>
                                                         <li class="nav-item">
                                                             <a class="nav-link" id="pickUp-tab" data-toggle="tab" href="#pickUp "
-                                                               role="tab" aria-controls="pickUp" aria-selected="false"><span>
+                                                               role="tab" aria-controls="pickUp" aria-selected="false" @click="changeType('pickup')"><span>
                                                         &#183;</span>
                                                                 Самовывоз</a>
                                                         </li>
@@ -388,6 +388,7 @@ export default {
     },
     data(){
         return{
+            deliveryType: 'auto',
             tileView : false,
             listView : true,
             coords:[54, 39],
@@ -404,7 +405,9 @@ export default {
         }
     },
     methods:{
-
+        changeType(type) {
+            this.deliveryType = type;
+        },
         /**
          *
          */

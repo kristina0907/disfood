@@ -90,7 +90,6 @@ a:hover {
 
 .main_container {
   background: #F0F2F4;
-  min-height: 90vh;
   padding: 50px 40px;
 }
 
@@ -4107,9 +4106,6 @@ input[type=number] {
 /*
 MY SCRIPT
 */
-.content {
-  min-height: 800px;
-}
 
 .lk-header {
   width: 100%;
@@ -4139,9 +4135,6 @@ select option:hover {
 /*
 MY SCRIPT
 */
-.content {
-  min-height: 800px;
-}
 
 .lk-header {
   width: 100%;

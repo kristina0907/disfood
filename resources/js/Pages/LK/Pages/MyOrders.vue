@@ -1,10 +1,11 @@
 <template>
-    <div class="container-fluid">
-        <div class="row">
-            <UserLKHeader></UserLKHeader>
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <UserLKHeader></UserLKHeader>
+            </div>
         </div>
-        <div class="row">
-            <div class="main_container col">
+        <div class="main_container">
                 <div class="title_page">Мои сделки</div>
 
                 <div class="table_container table-responsive">
@@ -86,34 +87,34 @@
                         </thead>
                         <tbody id="my-table">
                         <tr v-for="order in paginateOrders" @click="goToOrder(order.id)" v-bind:key="order.id">
-                                <td>
-                                    {{order.id}}
-                                </td>
-                                <td>{{order.created_at}}</td>
-                                <td class="bold">
+                            <td>
+                                {{order.id}}
+                            </td>
+                            <td>{{order.created_at}}</td>
+                            <td class="bold">
                                    <span v-if="order.offer">
                                         {{order.offer.type.name}}
                                    </span>
-                                </td>
-                                <td>{{order.capacity}} кг</td>
-                                <td>
+                            </td>
+                            <td>{{order.capacity}} кг</td>
+                            <td>
                                     <span v-if="order.packages" v-for="pack in order.packages">
                                         {{pack.name}}
                                     </span>
-                                </td>
-                                <td>{{order.summ}} р</td>
-                                <td>Самовывоз</td>
-                                <td>
+                            </td>
+                            <td>{{order.summ}} р</td>
+                            <td>Самовывоз</td>
+                            <td>
                                     <span v-if="order.organization">
                                         {{order.organization.name}}
                                     </span>
-                                </td>
-                                <td>{{  }}</td>
-                                <td class="status_table">
+                            </td>
+                            <td>{{  }}</td>
+                            <td class="status_table">
                                     <span class="status_completed" v-if="order.status">
                                         {{ order.status.name }}
                                     </span>
-                                </td>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -155,7 +156,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </template>
 

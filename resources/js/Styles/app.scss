@@ -92,7 +92,6 @@ ul .accredited_company{
 }
 .main_container{
     background: #F0F2F4;
-    min-height: 90vh;
     padding: 50px 40px;
 }
 .sort_taable{
@@ -346,6 +345,7 @@ tbody.collapse.in {
 }
 .table_product.default_table.table td{
     padding: 10px 20px;
+    white-space: nowrap;
 }
 .table tbody+tbody {
     border-top: 1px solid #dee2e6;
@@ -806,7 +806,7 @@ tbody.collapse.in {
 }
 .container_search_table{
     position: relative;
-    width: 50%;
+    width: 40%;
 }
 .container_search_table input{
     border: 0;
@@ -830,11 +830,68 @@ tbody.collapse.in {
     margin-right: 10px;
     font-weight: 600;
 }
+.container_btn_table button:hover{
+    box-shadow: 0 0 0 2px #89ca65;
+}
+.container_btn_table a:hover{
+    box-shadow: 0 0 0 2px #89ca65;
+}
 .container_btn_table span{
     margin-right: 10px;
 }
+tbody.table_change_price tr.active{
+    background: #C4C4C4;
+}
+.td_change_price{
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    height: 70px;
+}
+.td_change_price input{
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    border: 0;
+    width: 50%;
+}
+.td_change_price span{
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+}
+.td_change_price:focus input{
+    color: #22262A;
+}
+.td_change_price div{
+    border-bottom: 2px solid #C8CCD1;
+    padding: 5px 0;
+    width: 106px;
+}
+.td_change_price div:focus{
+    border-bottom: 2px solid #71BF45;
+}
+.td_change_price div.container_change_price{
+    width: 70px;
+    margin-right: 10px;
+}
+.td_change_price div.container_change_price input{
+    width: 80%;
+}
 .container_btn_table button:last-child{
     margin-right: 0px;
+}
+.container_btn_table button.btn_cancel_change_prices{
+    color: #8898A8;
+    border: 1px solid #8898A8;
+}
+.container_btn_table button.btn_cancel_change_prices:hover{
+    color: #71BF45;
+}
+.change_price_error{
+    color: red;
+    font-size: 18px;
+    margin-top: 30px;
 }
 .title_reg{
     font-weight: 600;
@@ -7390,10 +7447,10 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .bg_history{
     background-image: url(/img/bg_history.png);
     background-repeat: no-repeat;
-    background-position : -4%  0% ;
+    background-position : 0%  0% ;
     height: 155px;
-    width: auto;
-    margin-left: 17%;
+    width: 100%;
+    margin-left: 300px;
     position: relative;
     -webkit-transition: all 3s ease;
     -moz-transition: all 3s ease;
@@ -7408,7 +7465,6 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     height: 89px;
     width: 89px;
     position: absolute;
-    left: 40px;
     bottom: 3px;
     z-index: 2;
     -webkit-transition: all 3s ease;
@@ -7460,21 +7516,23 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 }
 .step_container{
     position: absolute;
-    width: 100%;
+    width: 2480px;
     left: 180px;
     top: -6px;
     display: flex;
-    width: 100%;
+    justify-content: space-between;
     -webkit-transition: all 3s ease;
     -moz-transition: all 3s ease;
     -o-transition: all 3s ease;
+}
+.step_item{
+    width: 15%;
 }
 .step_img{
     background-repeat: no-repeat;
     height: 20px;
     width: 69px;
     min-width: 69px;
-    margin-right: 418px;
     cursor: pointer;
     margin-left: -35px;
     position: relative;
@@ -7554,39 +7612,6 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
-}
-
-.animation_container.year2018 .bg_history{
-    animation: fon2018 5s ease 0s 1 normal forwards;
-}
-.animation_container.year2017 .bl_min_car{
-    animation: carBlMin2017 5s ease 0s 1 normal forwards;
-}
-.animation_container.year2018 .bl_min_car{
-    animation: carBlMin2018 5s ease 0s 1 normal forwards;
-}
-
-@keyframes  carBlMin2017{
-    100% {
-        opacity: 1;
-        transform: translateX(450px);
-    }
-}
-@keyframes  carBlMin2018{
-    100% {
-        opacity: 1;
-        transform: translateX(900px);
-    }
-}
-
-@keyframes fon2018 {
-    0% {
-        background-position: 0% 0%;
-    }
-
-    100% {
-        background-position: 21% 0%;
-    }
 }
 .step_item.active .step_img:before{
   opacity: 1;

@@ -81,8 +81,8 @@
                                                          @input = filterTypes
                                             ></multiselect>
                                         </div>
-                                        <div class="select_container mar-0-10">
-                                            <div v-if="filteredTypes && categoryValue">
+                                        <div v-if="filteredTypes && categoryValue" class="select_container mar-0-10">
+                                            <div>
                                                 <multiselect :value="typeValue"
                                                              :options="filteredTypes"
                                                              :multiple="false"

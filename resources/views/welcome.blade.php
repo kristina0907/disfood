@@ -43,14 +43,15 @@
                   </div>
                   <div class="modal-body">
                       <div class="card-body">
-                          <form method="POST" action="/login">
+                          <form  @submit="sendData"
+                                 method="post">
                               @csrf
 
                               <div class="form-group row">
                                   <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                                   <div class="col-md-6">
-                                      <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                      <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" v-model="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                       @error('email')
                                       <span class="invalid-feedback" role="alert">
@@ -64,7 +65,7 @@
                                   <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Пароль') }}</label>
 
                                   <div class="col-md-6">
-                                      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" v-model="password" name="password" required autocomplete="current-password">
 
                                       @error('password')
                                       <span class="invalid-feedback" role="alert">
@@ -105,5 +106,35 @@
               </div>
           </div>
       </div>
+      <script>
+          export default {
+              data() {
+                  return{
+                      serverError:'',
+                      email:'',
+                      password:''
+                  }
+              },
+              methods:{
+                  sendData(e){
+                      e.preventDefault();
+                      axios.post('/auth/loginajax', {
+                          email:this.email,
+                          password:this.password,
+
+                      }).then(response => {
+                          console.log(response);
+                          if(response.status == 200)
+                          {
+                              console.log(response.status)
+                              // this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' },params:{email:this.userEmail} });
+                          }else{
+                              this.serverError = response;
+                          }
+                      });
+                  }
+              },
+          }
+      </script>
     </body>
 </html>

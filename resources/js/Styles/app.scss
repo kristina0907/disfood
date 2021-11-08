@@ -804,9 +804,24 @@ tbody.collapse.in {
 .register_checkbox .custom-checkbox+label::before {
     margin-right: 15px;
 }
+.container_search_select{
+    display: flex;
+    align-items: center;
+}
 .container_search_table{
     position: relative;
-    width: 40%;
+    min-width: 280px;
+}
+.col_select_table{
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    color: #71BF45;
+    margin-left: 40px;
+}
+.col_select_table span{
+    margin-left: 8px;
+    cursor: pointer;
 }
 .container_search_table input{
     border: 0;

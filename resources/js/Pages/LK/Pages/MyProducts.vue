@@ -16,17 +16,27 @@
                             <div class="item_sort" :class="{'active':noactiveFlag}" @click="noactiveFilter">Неактивные <span>&#183;</span> {{ countNoActive }}</div>
                         </div>
                         <div class="search_table_btn">
-                            <div class="container_search_table">
-                                <div class="icon_search">
-                                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M11 20.5C15.9706 20.5 20 16.4706 20 11.5C20 6.52944 15.9706 2.5 11 2.5C6.02944 2.5 2 6.52944 2 11.5C2 16.4706 6.02944 20.5 11 20.5Z"
-                                            stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M22 22.5L18 18.5" stroke="#71BF45" stroke-width="2" stroke-linecap="round"
-                                              stroke-linejoin="round" />
-                                    </svg>
+                            <div class="container_search_select">
+                                <div class="container_search_table">
+                                    <div class="icon_search">
+                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M11 20.5C15.9706 20.5 20 16.4706 20 11.5C20 6.52944 15.9706 2.5 11 2.5C6.02944 2.5 2 6.52944 2 11.5C2 16.4706 6.02944 20.5 11 20.5Z"
+                                                stroke="#71BF45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M22 22.5L18 18.5" stroke="#71BF45" stroke-width="2" stroke-linecap="round"
+                                                  stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <input type="text" placeholder="Найти товар по наименованию">
                                 </div>
-                                <input type="text" placeholder="Найти товар по наименованию">
+                                <div v-if="selected.length > 0" class="col_select_table">Выбранo {{selected.length}}
+                                    <span @click.prevent="cancelChangePrices">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 6L18.7742 18.7742" stroke="#8898A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 18.7744L18.7742 6.00022" stroke="#8898A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </span>
+                                </div>
                             </div>
                             <div class="container_btn_table">
                                 <router-link :to="{name:'productadd'}" v-show="!changePriceStatus" class="btn-table" active-class="active">
@@ -42,7 +52,8 @@
                                 </router-link>
                                 <button v-show="!changePriceStatus" @click.prevent="changePrices">Изменить цены</button>
                                 <button v-show="!changePriceStatus" @click.prevent="acceptedPrice">Утвердить цену</button>
-                                <button @click.prevent="acceptedPriceAll">Утвердить все</button>
+                                <button v-if="!changePriceStatus" @click.prevent="acceptedPriceAll">Утвердить все</button>
+                                <button v-else @click.prevent="acceptedPricesAll">Утвердить все</button>
                                 <button class="btn_cancel_change_prices" v-show="changePriceStatus" @click.prevent="cancelChangePrices">Отменить</button>
                             </div>
                         </div>
@@ -94,7 +105,7 @@
                             </tr>
                             </thead>
                             <tbody :class="{table_change_price : changePriceStatus}">
-                            <tr v-for="product in productsFilter" :class="{active: selected.indexOf(product.id) != -1}">
+                            <tr v-for="(product,index) in productsFilter" :class="{active: selected.indexOf(product.id) != -1}">
                                 <td>
                                     <div class="checkbox">
                                         <input class="custom-checkbox" type="checkbox" :id="'color-'+product.id" :name="'color-'+product.id"
@@ -128,10 +139,10 @@
                                 </td>
                                 <td v-if="changePriceStatus && (selected.indexOf(product.id) != -1)" class="td_change_price">
                                     <div class="container_change_price">
-                                        <input type="text" :value="product.price"> <span>₽</span>
+                                        <input type="text" :value="product.price"  @change.prevent="changeInputPrices(index,$event.target.value)"> <span>₽</span>
                                     </div>
                                     <div>
-                                        <input type="text" :value="product.price_with_nds"> <span>НДС ₽</span>
+                                        <input type="text" :value="product.price_with_nds" @change.prevent="changeInputPricesNds(index,$event.target.value)"> <span>НДС ₽</span>
                                     </div>
                                 </td>
                                 <td class="price-term">{{product.updated_at | moment("D-MM-YYYY") }} МСК<span class="status_time_good">8ч</span></td>
@@ -245,7 +256,8 @@ export default {
             sortByName:false,
             sortByStatus:false,
             changePriceStatus:false,
-            changePriceError:false
+            changePriceError:false,
+            newPrice: []
         }
     },
     methods:{
@@ -336,6 +348,23 @@ export default {
         /**
          *  send products to update price
          */
+        changeInputPrices(key,value){
+            this.products[key].price = value;
+        },
+        changeInputPricesNds(key,value){
+            this.products[key].price_with_nds = value;
+        },
+        acceptedPricesAll(){
+            if((this.products).length > 0)
+            {
+                axios.post('/set/updateprices',{'output':this.products})
+                    .then(response => {
+                        if (response.status == 200) {
+                            this.$router.go();
+                        }
+                    });
+            }
+        },
         changePrices(){
             console.log(this.selected);
             if(this.selected.length > 0){
@@ -348,6 +377,7 @@ export default {
         },
         cancelChangePrices(){
             this.changePriceStatus = false;
+            this.selected = [];
         },
         /**
          * send selected products to update price
@@ -409,7 +439,7 @@ export default {
                 axios.post('/set/updateprice/product',{'product':product,'id':id})
                     .then(response => {
                         if (response.status == 200) {
-                            this.$router.go();
+                            // this.$router.go();
                         }
                     });
             }

@@ -2,6 +2,7 @@
     <div class="app">
         <router-view></router-view>
         <foot></foot>
+        <login-modal/>
     </div>
 </template>
 
@@ -20,6 +21,7 @@
             Head: () => import('./Сomponents/Header'),
             Foot: () => import('./Сomponents/Footer'),
             Autocomplete: () => import('./Сomponents/Autocomplete'),
+            LoginModal: () => import('./Сomponents/LoginModal'),
         }
     }
 

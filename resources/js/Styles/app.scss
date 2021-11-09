@@ -798,8 +798,13 @@ tbody.collapse.in {
 .checkbox {
     text-align: center;
 }
-.checkbox.register_checkbox{
+.checkbox.register_checkbox, .checkbox.remember_checkbox{
     text-align: left;
+}
+.remember_checkbox .custom-checkbox + label {
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
 }
 .register_checkbox .custom-checkbox+label::before {
     margin-right: 15px;
@@ -1799,6 +1804,24 @@ header .dropdown-item.dropdown-item-settings{
     padding: 5px;
     margin-left: 10px;
 }
+.modal-link{
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+}
+.modal-link:hover{
+    color: #71BF45;
+}
+.modal_error{
+    font-size: 15px;
+    line-height: 20px;
+    color: red;
+    margin-top: 10px;
+}
 .modal_input{
     position: relative;
     margin-bottom: 20px;
@@ -1823,7 +1846,7 @@ header .dropdown-item.dropdown-item-settings{
     right: 20px;
     top: 20px;
 }
-.modal_btn_change_price{
+.modal_btn_change_price, .modal_btn{
     background: #71BF45;
     border-radius: 10px;
     font-weight: 600;
@@ -1834,6 +1857,9 @@ header .dropdown-item.dropdown-item-settings{
     width: 100%;
     border: 0;
     margin-top: 20px;
+}
+.modal_btn:hover{
+    background: #89CA65;
 }
 .modal_change_price .modal-body {
     padding: 40px;

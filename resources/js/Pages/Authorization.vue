@@ -286,12 +286,14 @@
 import { required, minLength, between,requiredIf,maxLength,sameAs} from 'vuelidate/lib/validators';
 import MaskedInput from 'vue-masked-input';
 import HeaderCatalog from "../Сomponents/HeaderCatalog";
-
+import VueTelInput from 'vue-tel-input'
+import 'vue-tel-input/dist/vue-tel-input.css';
 
 export default {
     data() {
        return{
            errors:[],
+           phone:'',
            type:'company',
            companyName:'',
            inn:'',
@@ -309,7 +311,8 @@ export default {
     },
     components:{
         HeaderCatalog,
-                MaskedInput,
+        MaskedInput,
+        VueTelInput
     },
     methods:{
        changeType(type) {

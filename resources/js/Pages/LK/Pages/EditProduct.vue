@@ -67,7 +67,7 @@
                                     <div class="title_container_product_block">Информация о товаре</div>
                                     <div class="item_product_input row">
                                         <div class="select_container mar-0-10">
-                                            <multiselect :value="currentProduct.category"
+                                            <multiselect :value="categoryValue"
                                                          :options="categories"
                                                          :multiple="false"
                                                          label="name"
@@ -83,7 +83,7 @@
                                         </div>
                                         <div v-if="filteredTypes && currentProduct.category" class="select_container mar-0-10">
                                             <div>
-                                                <multiselect :value="currentProduct.type"
+                                                <multiselect :value="typeValue"
                                                              :options="filteredTypes"
                                                              :multiple="false"
                                                              label="name"
@@ -101,7 +101,7 @@
                                     </div>
                                 </div>
                                 <div id="filters" class="row item_container_product_block">
-                                    <div class="col-md-6" v-if="currentProduct.type && currentProduct.filters.length" v-for="(filter) in currentProduct.filters">
+                                    <div class="col-md-6" v-if="typeValue && filters.length" v-for="(filter) in filters">
                                         <div class="item_product_input row mar-0-10">
                                             <div class="col-md-6 container_input_price">
                                                 <div class="title_filter_catalog">{{filter.name}}</div>
@@ -121,11 +121,11 @@
                                     <div class="item_product_input row">
                                         <div class="container_input_price col-md-6">
                                             <div class="text_input">Объем (кг)</div>
-                                            <input type="number" name="capacity" id="capacity" :value="currentProduct.capacity" @input="setCapacity($event.target.value)"/>
+                                            <input type="number" name="capacity" id="capacity" :value="capacity" @input="setCapacity($event.target.value)"/>
                                         </div>
                                         <div class="select_container col-md-6">
                                             <div class="select_text">Фасовка</div>
-                                            <multiselect :value ="currentProduct.packings"
+                                            <multiselect :value ="selectedPackings"
                                                          :options="packings"
                                                          :multiple="true"
                                                          label="name"
@@ -143,7 +143,7 @@
                                 <div class="item_container_product_block">
                                     <div class="title_container_product_block">Вариант доставки</div>
                                     <div class="item_product_input row">
-                                        <div class="container_input_price col-md-12 m-b-30" v-for="(adr, index) in currentProduct.adresses" :key="index">
+                                        <div class="container_input_price col-md-12 m-b-30" v-for="(adr, index) in adresses" :key="index">
                                             <div class="text_input">Адрес</div>
                                             <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)" required>
                                             <datalist id="city">

@@ -137,7 +137,9 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
      */
 
     Route::post('/countries/findsearch',[CountryController::class,'findByText']);
-
+    Route::get('/countries',[CountryController::class,'getCountries']);
+    Route::get('/countries/edit/{id}',[CountryController::class,'edit'])->name('countries.edit');
+    Route::post('/countries/update',[CountryController::class,'update'])->name('countries.update');
     /**
      * Cities routes
      */

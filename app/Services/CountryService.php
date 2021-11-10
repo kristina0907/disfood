@@ -30,6 +30,11 @@ class CountryService
         $this->countryRepository = $countryRepository;
     }
 
+    /**
+     * @param $req
+     * @return mixed
+     */
+
     public function searchByText($req)
     {
         return $this->countryRepository->searchByText($req);

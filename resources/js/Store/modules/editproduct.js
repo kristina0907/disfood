@@ -503,6 +503,11 @@ export default {
                         commit('SET_CURRENT_PRODUCT', response.data)
                     }
                 })
+        },
+
+        sendDataUpdateProduct({commit},data)
+        {
+
         }
 
     }

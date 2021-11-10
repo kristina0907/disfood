@@ -104,6 +104,9 @@
                         <li>
                             <a href="/superadmin/orderdocuments">Документы для заказов</a>
                         </li>
+                        <li>
+                            <a href="/superadmin/countries">Страны</a>
+                        </li>
                     </ul>
                 </li>
 

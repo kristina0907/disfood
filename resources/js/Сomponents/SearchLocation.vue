@@ -2,7 +2,7 @@
     <div>
         <multiselect
             v-model="locationDeliveryInput"
-            id="ajax"
+            name="ajax"
             label="value"
             track-by="value"
             placeholder=""

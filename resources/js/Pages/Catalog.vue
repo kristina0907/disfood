@@ -149,23 +149,8 @@
                                     </div>
                                 </div>
                                 <div class="offer_product_category_block">
-                                    <div class="title_offer_product_category_block">
-                                        <span v-if="typeValue.name">{{ typeValue.name }}</span>
-                                        <span v-else>{{categoryValue.name}}</span>
-                                        <span>{{products.length}}</span> </div>
+
                                     <div class="header_offer_product_category_block">
-                                        <div>
-                                            <div class="more_offer_product_category_block">
-                                                <a href="" @click.prevent="showMap">
-                                                    <span v-if="!showmap">
-                                                        Показать на карте
-                                                    </span>
-                                                    <span v-else>
-                                                        Скрыть карту
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
                                         <div class="dop_filter_product offer_dop_filter">
                                             <div class="offer_price_filter">
                                                 <div>
@@ -201,7 +186,7 @@
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                                           d="M17.5 11C19.1569 11 20.5 12.3431 20.5 14V17C20.5 18.6569 19.1569 20 17.5 20H3.5C1.84315 20 0.5 18.6569 0.5 17V14C0.5 12.3431 1.84315 11 3.5 11H17.5ZM17.5 13H3.5C2.94772 13 2.5 13.4477 2.5 14V17C2.5 17.5523 2.94772 18 3.5 18H17.5C18.0523 18 18.5 17.5523 18.5 17V14C18.5 13.4477 18.0523 13 17.5 13ZM17.5 0C19.1569 0 20.5 1.34315 20.5 3V6C20.5 7.65685 19.1569 9 17.5 9H3.5C1.84315 9 0.5 7.65685 0.5 6V3C0.5 1.34315 1.84315 0 3.5 0H17.5ZM17.5 2H3.5C2.94772 2 2.5 2.44772 2.5 3V6C2.5 6.55228 2.94772 7 3.5 7H17.5C18.0523 7 18.5 6.55228 18.5 6V3C18.5 2.44772 18.0523 2 17.5 2Z"
-                                                          />
+                                                    />
                                                 </svg>
 
                                             </div>
@@ -210,36 +195,61 @@
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                                           d="M17.5 11C19.1569 11 20.5 12.3431 20.5 14V17C20.5 18.6569 19.1569 20 17.5 20H14.5C12.8431 20 11.5 18.6569 11.5 17V14C11.5 12.3431 12.8431 11 14.5 11H17.5ZM6.5 11C8.15685 11 9.5 12.3431 9.5 14V17C9.5 18.6569 8.15685 20 6.5 20H3.5C1.84315 20 0.5 18.6569 0.5 17V14C0.5 12.3431 1.84315 11 3.5 11H6.5ZM17.5 13H14.5C13.9477 13 13.5 13.4477 13.5 14V17C13.5 17.5523 13.9477 18 14.5 18H17.5C18.0523 18 18.5 17.5523 18.5 17V14C18.5 13.4477 18.0523 13 17.5 13ZM6.5 13H3.5C2.94772 13 2.5 13.4477 2.5 14V17C2.5 17.5523 2.94772 18 3.5 18H6.5C7.05228 18 7.5 17.5523 7.5 17V14C7.5 13.4477 7.05228 13 6.5 13ZM6.5 0C8.15685 0 9.5 1.34315 9.5 3V6C9.5 7.65685 8.15685 9 6.5 9H3.5C1.84315 9 0.5 7.65685 0.5 6V3C0.5 1.34315 1.84315 0 3.5 0H6.5ZM17.5 0C19.1569 0 20.5 1.34315 20.5 3V6C20.5 7.65685 19.1569 9 17.5 9H14.5C12.8431 9 11.5 7.65685 11.5 6V3C11.5 1.34315 12.8431 0 14.5 0H17.5ZM6.5 2H3.5C2.94772 2 2.5 2.44772 2.5 3V6C2.5 6.55228 2.94772 7 3.5 7H6.5C7.05228 7 7.5 6.55228 7.5 6V3C7.5 2.44772 7.05228 2 6.5 2ZM17.5 2H14.5C13.9477 2 13.5 2.44772 13.5 3V6C13.5 6.55228 13.9477 7 14.5 7H17.5C18.0523 7 18.5 6.55228 18.5 6V3C18.5 2.44772 18.0523 2 17.5 2Z"
-                                                         />
+                                                    />
                                                 </svg>
                                             </div>
                                         </div>
                                     </div>
-                                    <yandex-map v-if="coords"
-                                        :coords="coords"
-                                        :zoom="4"
-                                        :class="{'active-map':showmap}"
-                                    >
-                                        <div v-for="product in products">
-                                            <ymap-marker v-if="product.adresses && product.organization && product.organization.name" v-for="adress in product.adresses"
-                                                :coords="[adress.geo_lat , adress.geo_lon ]"
-                                                :marker-id="product.id"
-                                                v-bind:key="product.id"
-                                                :hint-content="product.organization.name"
-                                            />
+
+                                    <div class="row" v-if="listView && products" v-for="(product,index) in products">
+                                        <div class="title_offer_product_category_block m-t-b-45 col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-2 pad-50-10">
+                                                    {{ index }} {{product.length}}
+                                                </div>
+                                                <div class="col-md-2 pad-50-10">
+                                                    <div class="more_offer_product_category_block">
+                                                        <a href="#" @click.prevent="showMap">
+                                                    <span v-if="!showmap">
+                                                        Показать на карте
+                                                    </span>
+                                                            <span v-else>
+                                                        Скрыть карту
+                                                    </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 right-block-button">
+
+                                                </div>
+                                            </div>
+
                                         </div>
+                                        <yandex-map v-if="coords"
+                                                    :coords="coords"
+                                                    :zoom="4"
+                                                    :class="{'active-map':showmap}"
+                                        >
+                                            <div v-for="item in product">
+                                                <ymap-marker v-if="item.adresses && item.organization && item.organization.name" v-for="adress in item.adresses"
+                                                             :coords="[adress.geo_lat , adress.geo_lon ]"
+                                                             :marker-id="item.id"
+                                                             v-bind:key="item.id"
+                                                             :hint-content="item.organization.name"
+                                                />
+                                            </div>
 
-                                    </yandex-map>
-
-
-                                    <div :class="{ 'container_item_offer_catalog' : listView,'tile_container_item_offer_catalog row':tileView}">
-                                            <div class="item_product_category" v-if="listView && products.length" v-for="product in products" >
-                                                <div class="info_item_offer_catalog">
-                                                    <div class="image_info_item_offer_catalog"
-                                                         style="background-image: url(/images/offer.png);"></div>
-                                                    <div>
-                                                        <div class="name_info_item_offer_catalog" v-if="product.organization">{{product.organization.name}}
-                                                            <span class="icon_star">
+                                        </yandex-map>
+                                        <div :class="{ 'col-md-12' : listView,'tile_container_item_offer_catalog col-md-12':tileView}">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="item_product_category col-md-12"  v-for="item in product">
+                                                        <div class="info_item_offer_catalog">
+                                                            <div class="image_info_item_offer_catalog"
+                                                                 :style="'background-image: url('+item.organization.logo+')'"></div>
+                                                            <div>
+                                                                <div class="name_info_item_offer_catalog" v-if="item.organization">{{item.organization.name}}
+                                                                    <span class="icon_star">
                                                                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
                                                                      xmlns="http://www.w3.org/2000/svg">
                                                                     <path
@@ -247,62 +257,106 @@
                                                                         fill="#FFD789" />
                                                                 </svg>
                                                             </span>
-                                                            <span class="text_star">4,5</span>
+                                                                    <span class="text_star">4,5</span>
+                                                                </div>
+                                                                <div class="place_count_info_item_offer_catalog" v-if="item.packings">
+                                                                    <span v-for="pack in item.packings">{{pack.name}}</span>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="place_count_info_item_offer_catalog" v-if="product.packings">
-                                                            <span v-for="pack in product.packings">{{pack.name}}</span>
+                                                        <div class="delivery_item_similar_products">
+                                                            <div class="icon_delivery">
+                                                                <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                    <circle cx="12.5" cy="12" r="11" stroke="#71BF45"
+                                                                            stroke-width="2" />
+                                                                    <path d="M12.5 7V13L15 15.5" stroke="#71BF45" stroke-width="2"
+                                                                          stroke-linecap="round" stroke-linejoin="round" />
+                                                                </svg>
+                                                            </div>
+                                                            <div>
+                                                                <div class="title_time_delivery">Доставка</div>
+                                                                <div class="time_delivery">от 5 дней</div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="delivery_item_similar_products">
-                                                    <div class="icon_delivery">
-                                                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <circle cx="12.5" cy="12" r="11" stroke="#71BF45"
-                                                                    stroke-width="2" />
-                                                            <path d="M12.5 7V13L15 15.5" stroke="#71BF45" stroke-width="2"
-                                                                  stroke-linecap="round" stroke-linejoin="round" />
-                                                        </svg>
-                                                    </div>
-                                                    <div>
-                                                        <div class="title_time_delivery">Доставка</div>
-                                                        <div class="time_delivery">от 5 дней</div>
-                                                    </div>
-                                                </div>
-                                                <div class="price_item_product_category">
-                                                    <div class="start_price_category_products" v-if="!priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(product.price) / parseFloat(courseUSD.Value)).toFixed(2)}} $ / кг</div>
-                                                    <div class="start_price_category_products" v-if="priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(product.price_with_nds) / parseFloat(courseUSD.Value).toFixed(2))}} $  / кг</div>
-                                                    <div class="start_price_category_products" v-if="!priceWithNDS && currentCourse === 'RUB'">{{product.price}} ₽ / кг</div>
-                                                    <div class="start_price_category_products" v-if="priceWithNDS && currentCourse === 'RUB'">{{product.price_with_nds}} ₽ / кг</div>
-<!--                                                    <div class="start_price_category_products" v-if="currentCourse === 'RUB'">{{product.price}} ₽ / кг</div>
-                                                    <div class="start_price_category_products" v-else>{{ (parseFloat(product.price) / parseFloat(courseUSD.Value)).toFixed(2)}} $ / кг</div>-->
-                                                </div>
-                                                <div class="container_item_offer_btn">
-                                                    <router-link :to="{'name':'catalog-page',params:{id:product.id}}">
-                                                        <div class="make_deal">Подробнее</div>
-                                                    </router-link>
-                                                    <div class="doc_item_offer">
-                                                        <button class="bay_item_offer_catalog" type="button" id="dropdownMenuButton"
-                                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="19" viewBox="0 0 25 19" fill="none">
-                                                                <path d="M1.5 4C1.5 2.34315 2.84315 1 4.5 1H8.89023C9.60636 1 10.2989 1.25618 10.8426 1.72223L12.6574 3.27777C13.2011 3.74382 13.8936 4 14.6098 4H20.5C22.1569 4 23.5 5.34315 23.5 7V15C23.5 16.6569 22.1569 18 20.5 18H4.5C2.84315 18 1.5 16.6569 1.5 15V4Z" stroke="#71BF45" stroke-width="2"/>
-                                                            </svg>
-                                                        </button>
-                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-if="product.documents && product.documents.length">
-                                                            <a class="dropdown-item" :href="document.path" v-for="document in product.documents" target="_blank">Документ <span class="span-pdf">PDF</span></a>
+                                                        <div class="price_item_product_category">
+                                                            <div class="start_price_category_products" v-if="!priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(item.price) / parseFloat(courseUSD.Value)).toFixed(2)}} $ / кг</div>
+                                                            <div class="start_price_category_products" v-if="priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(item.price_with_nds) / parseFloat(courseUSD.Value).toFixed(2))}} $  / кг</div>
+                                                            <div class="start_price_category_products" v-if="!priceWithNDS && currentCourse === 'RUB'">{{item.price}} ₽ / кг</div>
+                                                            <div class="start_price_category_products" v-if="priceWithNDS && currentCourse === 'RUB'">{{item.price_with_nds}} ₽ / кг</div>
                                                         </div>
-                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-else>
-                                                            <div class="dropdown-item">У данного предложения документы отсутствуют</div>
+                                                        <div class="container_item_offer_btn">
+                                                            <router-link :to="{'name':'catalog-page',params:{id:item.id}}">
+                                                                <div class="make_deal">Подробнее</div>
+                                                            </router-link>
+                                                            <div class="doc_item_offer">
+                                                                <button class="bay_item_offer_catalog" type="button" id="dropdownMenuButton"
+                                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="19" viewBox="0 0 25 19" fill="none">
+                                                                        <path d="M1.5 4C1.5 2.34315 2.84315 1 4.5 1H8.89023C9.60636 1 10.2989 1.25618 10.8426 1.72223L12.6574 3.27777C13.2011 3.74382 13.8936 4 14.6098 4H20.5C22.1569 4 23.5 5.34315 23.5 7V15C23.5 16.6569 22.1569 18 20.5 18H4.5C2.84315 18 1.5 16.6569 1.5 15V4Z" stroke="#71BF45" stroke-width="2"/>
+                                                                    </svg>
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-if="item.documents && item.documents.length">
+                                                                    <a class="dropdown-item" :href="document.path" v-for="document in item.documents" target="_blank">Документ <span class="span-pdf">PDF</span></a>
+                                                                </div>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-else>
+                                                                    <div class="dropdown-item">У данного предложения документы отсутствуют</div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="tile_item_offer_catalog col" v-if="tileView && products.length" v-for="product in products">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="row" v-if="tileView && products" v-for="(product,index) in products">
+                                            <div class="title_offer_product_category_block m-t-b-45 col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-2 pad-50-10">
+                                                        {{ index }} {{product.length}}
+                                                    </div>
+                                                    <div class="col-md-2 pad-50-10">
+                                                        <div class="more_offer_product_category_block">
+                                                            <a href="#" @click.prevent="showMap">
+                                                    <span v-if="!showmap">
+                                                        Показать на карте
+                                                    </span>
+                                                                <span v-else>
+                                                        Скрыть карту
+                                                    </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8 right-block-button">
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <yandex-map v-if="coords"
+                                                        :coords="coords"
+                                                        :zoom="4"
+                                                        :class="{'active-map':showmap}"
+                                            >
+                                                <div v-for="item in product">
+                                                    <ymap-marker v-if="item.adresses && item.organization && item.organization.name" v-for="adress in item.adresses"
+                                                                 :coords="[adress.geo_lat , adress.geo_lon ]"
+                                                                 :marker-id="item.id"
+                                                                 v-bind:key="item.id"
+                                                                 :hint-content="item.organization.name"
+                                                    />
+                                                </div>
+
+                                            </yandex-map>
+                                            <div class="tile_item_offer_catalog col"  v-for="item in product">
                                                 <div class="tile_item_product_category">
                                                     <div class="tile_item_product_category">
                                                         <div class="tile_info_item_offer_catalog">
                                                             <div class="tile_image_info_item_offer_catalog"
-                                                                 :style="'background-image: url('+product.organization.logo+');'"></div>
+                                                                 :style="'background-image: url('+item.organization.logo+');'"></div>
                                                             <div>
                                                                 <div class="star_info_item_offer_catalog">
                                                             <span class="icon_star">
@@ -318,13 +372,13 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="name_info_item_offer_catalog">{{product.organization.name}} <span>&#183;</span>
-                                                            <span v-if="product.country">
-                                                                {{product.country.title_ru}}
+                                                        <div class="name_info_item_offer_catalog">{{item.organization.name}} <span>&#183;</span>
+                                                            <span v-if="item.country">
+                                                                {{item.country.title_ru}}
                                                              </span>
                                                         </div>
-                                                        <div class="place_count_info_item_offer_catalog" v-if="product.packings">
-                                                            <span v-for="pack in product.packings">{{pack.name}}</span>
+                                                        <div class="place_count_info_item_offer_catalog" v-if="item.packings">
+                                                            <span v-for="pack in item.packings">{{pack.name}}</span>
                                                         </div>
                                                         <div class="delivery_item_similar_products">
                                                             <div class="icon_delivery">
@@ -340,7 +394,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="tile_price_document_block">
-                                                            <div class="tile_start_price_category_products">{{product.price}} ₽/ кг</div>
+                                                            <div class="tile_start_price_category_products">{{item.price}} ₽/ кг</div>
                                                             <div class="doc_item_offer">
                                                                 <button class="tile_bay_item_offer_catalog" type="button" id="dropdownMenuButton"
                                                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -348,8 +402,8 @@
                                                                         <path d="M1.5 4C1.5 2.34315 2.84315 1 4.5 1H8.89023C9.60636 1 10.2989 1.25618 10.8426 1.72223L12.6574 3.27777C13.2011 3.74382 13.8936 4 14.6098 4H20.5C22.1569 4 23.5 5.34315 23.5 7V15C23.5 16.6569 22.1569 18 20.5 18H4.5C2.84315 18 1.5 16.6569 1.5 15V4Z" stroke="#71BF45" stroke-width="2"/>
                                                                     </svg>
                                                                 </button>
-                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-if="product.documents && product.documents.length">
-                                                                    <a class="dropdown-item" :href="document.path" v-for="document in product.documents" target="_blank">Документ <span class="span-pdf">PDF</span></a>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-if="item.documents && item.documents.length">
+                                                                    <a class="dropdown-item" :href="document.path" v-for="document in item.documents" target="_blank">Документ <span class="span-pdf">PDF</span></a>
                                                                 </div>
                                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" v-else>
                                                                     <div class="dropdown-item">У данного предложения  документы отсутствуют</div>
@@ -357,13 +411,16 @@
                                                             </div>
                                                         </div>
 
-                                                        <router-link :to="{'name':'catalog-page',params:{id:product.id}}">
+                                                        <router-link :to="{'name':'catalog-page',params:{id:item.id}}">
                                                             <div class="tile_make_deal">Подробнее</div>
                                                         </router-link>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
                                     </div>
+
+
                                 </div>
                             </div>
                         </div>

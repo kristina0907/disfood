@@ -61,7 +61,7 @@ class OfferRepository implements OfferContract
     {
         return $this->offer
             ->where('id', $id)
-            ->with(['organization','packings','type','adresses','filters','values'])
+            ->with(['organization','packings','type','adresses','filters.values','values','category'])
             ->first();
     }
 

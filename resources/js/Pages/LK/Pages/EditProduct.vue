@@ -20,7 +20,7 @@
                                     <div class="container_price_item row">
                                         <div class="container_input_price col-md-6">
                                             <div class="text_input">Цена</div>
-                                            <input type="text"  :value="price" @input="setPriceValue($event.target.value)">
+                                            <input type="text"  :value="currentProduct.price" @input="setPriceValue($event.target.value)">
                                             <div class="icon_price_input">
                                                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="container_input_price col-md-6">
                                             <div class="text_input">Цена с НДС</div>
-                                            <input type="text" :value="priceWithNds" name="price_with_nds" @input="setPriceWithNdsValue($event.target.value)" required>
+                                            <input type="text" :value="currentProduct.price_with_nds" name="price_with_nds" @input="setPriceWithNdsValue($event.target.value)" required>
                                             <div class="icon_price_input">
                                                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@
                                             можно разместить в каталоге</div>
                                     </div>
                                 </div>
-                                <button class="btn_submit_price" type="button" @click="sendDataNewProduct">Отправить товар на модерацию</button>
+                                <button class="btn_submit_price" type="button" @click="sendDataUpdateProduct">Отправить товар на модерацию</button>
                             </form>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                                     <div class="title_container_product_block">Информация о товаре</div>
                                     <div class="item_product_input row">
                                         <div class="select_container mar-0-10">
-                                            <multiselect :value="categoryValue"
+                                            <multiselect :value="currentProduct.category"
                                                          :options="categories"
                                                          :multiple="false"
                                                          label="name"
@@ -81,9 +81,9 @@
                                                          @input = filterTypes
                                             ></multiselect>
                                         </div>
-                                        <div v-if="filteredTypes && categoryValue" class="select_container mar-0-10">
+                                        <div v-if="filteredTypes && currentProduct.category" class="select_container mar-0-10">
                                             <div>
-                                                <multiselect :value="typeValue"
+                                                <multiselect :value="currentProduct.type"
                                                              :options="filteredTypes"
                                                              :multiple="false"
                                                              label="name"
@@ -101,7 +101,7 @@
                                     </div>
                                 </div>
                                 <div id="filters" class="row item_container_product_block">
-                                    <div class="col-md-6" v-if="typeValue && filters.length" v-for="(filter) in typeValue.filters">
+                                    <div class="col-md-6" v-if="currentProduct.type && currentProduct.filters.length" v-for="(filter) in currentProduct.filters">
                                         <div class="item_product_input row mar-0-10">
                                             <div class="col-md-6 container_input_price">
                                                 <div class="title_filter_catalog">{{filter.name}}</div>
@@ -121,11 +121,11 @@
                                     <div class="item_product_input row">
                                         <div class="container_input_price col-md-6">
                                             <div class="text_input">Объем (кг)</div>
-                                            <input type="number" name="capacity" id="capacity" :value="capacity" @input="setCapacity($event.target.value)"/>
+                                            <input type="number" name="capacity" id="capacity" :value="currentProduct.capacity" @input="setCapacity($event.target.value)"/>
                                         </div>
                                         <div class="select_container col-md-6">
                                             <div class="select_text">Фасовка</div>
-                                            <multiselect :value ="selectedPackings"
+                                            <multiselect :value ="currentProduct.packings"
                                                          :options="packings"
                                                          :multiple="true"
                                                          label="name"
@@ -143,7 +143,7 @@
                                 <div class="item_container_product_block">
                                     <div class="title_container_product_block">Вариант доставки</div>
                                     <div class="item_product_input row">
-                                        <div class="container_input_price col-md-12 m-b-30" v-for="(adr, index) in adress" :key="index">
+                                        <div class="container_input_price col-md-12 m-b-30" v-for="(adr, index) in currentProduct.adresses" :key="index">
                                             <div class="text_input">Адрес</div>
                                             <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)" required>
                                             <datalist id="city">
@@ -311,7 +311,7 @@ export default {
             'getCatalogData',
             'getCatalogTypes',
             'getPackings',
-            'sendDataNewProduct',
+            'sendDataUpdateProduct',
             'filterTypes',
             'filterProducts',
             'setProductValue',
@@ -414,6 +414,7 @@ export default {
     /**
      *
      */
+
     mounted() {
         this.getCatalogData();
         this.getCatalogTypes();

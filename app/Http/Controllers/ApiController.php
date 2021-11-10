@@ -6,6 +6,7 @@ use App\Services\BikService;
 use App\Services\CategoryService;
 use App\Services\ChatRoomService;
 use App\Services\CityService;
+use App\Services\CountryService;
 use App\Services\DadataService;
 use App\Services\FilterService;
 use App\Services\MessageService;
@@ -132,6 +133,13 @@ class ApiController extends Controller
 
     protected $bikService;
 
+
+    /**
+     * @var CountryService
+     */
+
+    protected $countryService;
+
     /**
      * ApiController constructor.
      * @param DadataService $daDataService
@@ -168,7 +176,8 @@ class ApiController extends Controller
                                 CityService $cityService,
                                 FilterService $filterService,
                                 OrderDocumentService $orderDocumentsService,
-                                BikService $bikService
+                                BikService $bikService,
+                                CountryService $countryService
 
     )
     {
@@ -189,6 +198,7 @@ class ApiController extends Controller
         $this->filterService = $filterService;
         $this->orderDocumentsService = $orderDocumentsService;
         $this->bikService = $bikService;
+        $this->countryService = $countryService;
     }
 
     /**
@@ -808,6 +818,11 @@ class ApiController extends Controller
          }
      }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+
      public function loginAjax(Request $request)
      {
          $auth = false;
@@ -825,5 +840,14 @@ class ApiController extends Controller
          {
              return response()->json('Error,Email or Password invalid',305);
          }
+     }
+
+    /**
+     * @return mixed
+     */
+
+     public function getCountries()
+     {
+         return $this->countryService->getAll();
      }
 }

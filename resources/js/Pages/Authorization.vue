@@ -77,6 +77,23 @@
                                         </div>
                                     </div>
                                     <div class="container_item_reg_input">
+                                        <div class="select_container mar-0-10">
+                                            <multiselect :value="countries"
+                                                         :options="countries"
+                                                         :multiple="false"
+                                                         label="name"
+                                                         track-by="name"
+                                                         placeholder="Страна"
+                                                         selectLabel="Выберите страну"
+                                                         selectedLabel="Выбрано"
+                                                         deselectLabel="Нажмите еще раз чтобы удалить"
+                                                         :class="'select select_category'"
+                                                         :aria-required="true"
+                                                         @input = filterTypes
+                                            ></multiselect>
+                                        </div>
+                                    </div>
+                                    <div class="container_item_reg_input">
                                         <div>
                                             <masked-input type="text" placeholder="Телефон" v-model="userPhone"  mask="\+\7 (111) 111-1111" />
                                             <div class="error_input" v-show="errors.userPhone">{{errors.userPhone}}</div>
@@ -286,8 +303,6 @@
 import { required, minLength, between,requiredIf,maxLength,sameAs} from 'vuelidate/lib/validators';
 import MaskedInput from 'vue-masked-input';
 import HeaderCatalog from "../Сomponents/HeaderCatalog";
-import VueTelInput from 'vue-tel-input'
-import 'vue-tel-input/dist/vue-tel-input.css';
 
 export default {
     data() {
@@ -305,14 +320,14 @@ export default {
            userPasswordConfirmation:'',
            userCheckPersonalData:true,
            search_data:[],
-           serverError:''
+           serverError:'',
+           countries:[]
 
        }
     },
     components:{
         HeaderCatalog,
         MaskedInput,
-        VueTelInput
     },
     methods:{
        changeType(type) {
@@ -354,6 +369,12 @@ export default {
                 name:str
             }).then(response => {
                 this.search_data = response.data.suggestions;
+            });
+        },
+        getCountries(){
+            axios.post('/get/countries', {
+            }).then(response => {
+                this.countries = response.data.countries;
             });
         },
        getName:function(name,inn) {
@@ -422,7 +443,7 @@ export default {
        }
     },
     mounted() {
-        console.log('Component mounted.')
+        this.getCountries();
     }
 }
 </script>

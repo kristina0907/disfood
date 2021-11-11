@@ -4064,6 +4064,56 @@ min-width: 280px;
 .select_container_category.select_container:after {
     right: 20px;
 }
+.container_item_reg_input > div.select_countries{
+    width: 100%;
+}
+.reg_form .select_countries .multiselect__tags input {
+    border: 0;
+    padding: 0;
+}
+.select_countries .multiselect.select{
+    width: 100%;
+}
+.select_countries .multiselect__tags {
+    min-height: 62px;
+    display: block;
+    padding: 20px 40px 0px 20px;
+    border-radius: 10px;
+    border: 1px solid #c8ccd1;
+    background: #fff;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.select_countries .multiselect__content{
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+.select_countries .multiselect__element span{
+    width: 100%;
+    display: block;
+}
+.select_countries .multiselect__element{
+    padding:10px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+.select_countries .multiselect__element:hover{
+    background: #F0F2F4;
+}
+.multiselect__content-wrapper{
+    position: absolute;
+    background: #ffffff;
+    z-index: 1;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: scroll;
+    top: 55px;
+    border: 1px solid #c8ccd1;
+    border-radius: 0 0 10px 10px;
+    padding: 10px 0;
+}
 .text_prompt{
     font-weight: normal;
     font-size: 15px;

@@ -17,6 +17,31 @@
                                    @submit="sendData"
                                    method="post"
                                    novalidate="true">
+                                <div class="select_container select_countries">
+                                    <multiselect
+                                        v-model="countriesVal"
+                                        :options="countries"
+                                        label="title_ru"
+                                        track-by="title_ru"
+                                        placeholder="Страна"
+                                        selectLabel="Выберите страну"
+                                        selectedLabel="Выбрано"
+                                        deselectLabel="Нажмите еще раз чтобы удалить"
+                                        :required="true"
+                                        :multiple="false"
+                                        :searchable="true"
+                                        :internal-search="true"
+                                        :class="'select'"
+                                        :clear-on-select="false"
+                                        :close-on-select="true"
+                                        :options-limit="300"
+                                        :limit="3"
+                                        :show-no-results="false"
+                                        :hide-selected="true"
+                                        @select="changeCode"
+
+                                    ></multiselect>
+                                </div>
                                 <div class="item_reg_block">
                                     <div class="title_item_reg_block">
                                         Реквизиты
@@ -77,25 +102,8 @@
                                         </div>
                                     </div>
                                     <div class="container_item_reg_input">
-                                        <div class="select_container mar-0-10">
-                                            <multiselect :value="countries"
-                                                         :options="countries"
-                                                         :multiple="false"
-                                                         label="name"
-                                                         track-by="name"
-                                                         placeholder="Страна"
-                                                         selectLabel="Выберите страну"
-                                                         selectedLabel="Выбрано"
-                                                         deselectLabel="Нажмите еще раз чтобы удалить"
-                                                         :class="'select select_category'"
-                                                         :aria-required="true"
-                                                         @input = filterTypes
-                                            ></multiselect>
-                                        </div>
-                                    </div>
-                                    <div class="container_item_reg_input">
                                         <div>
-                                            <masked-input type="text" placeholder="Телефон" v-model="userPhone"  mask="\+\7 (111) 111-1111" />
+                                            <masked-input type="text" placeholder="Телефон" v-model="userPhone"  :mask="'\+\'+codeTel + '(111) 111-1111'" />
                                             <div class="error_input" v-show="errors.userPhone">{{errors.userPhone}}</div>
                                         </div>
                                         <div>
@@ -303,6 +311,7 @@
 import { required, minLength, between,requiredIf,maxLength,sameAs} from 'vuelidate/lib/validators';
 import MaskedInput from 'vue-masked-input';
 import HeaderCatalog from "../Сomponents/HeaderCatalog";
+import Multiselect from 'vue-multiselect';
 
 export default {
     data() {
@@ -321,13 +330,15 @@ export default {
            userCheckPersonalData:true,
            search_data:[],
            serverError:'',
-           countries:[]
-
+           countries: [],
+           countriesVal:'',
+           codeTel:"7"
        }
     },
     components:{
         HeaderCatalog,
         MaskedInput,
+        Multiselect,
     },
     methods:{
        changeType(type) {
@@ -355,7 +366,7 @@ export default {
 
                 })
         },
-       getCompanyName() {
+        getCompanyName() {
             let self = this;
             let str = self.companyName.replace('_','');
             if(str.length >= 5)
@@ -363,7 +374,7 @@ export default {
                 this.getData(str)
             }
         },
-       getData:function(str){
+        getData:function(str){
             this.search_data = [];
             axios.post('/get/companyname/from/api', {
                 name:str
@@ -372,12 +383,17 @@ export default {
             });
         },
         getCountries(){
-            axios.post('/get/countries', {
+            axios.get('/get/countries', {
             }).then(response => {
-                this.countries = response.data.countries;
+                if(response.status == 200){
+                    this.countries = response.data;
+                }
             });
         },
-       getName:function(name,inn) {
+        changeCode(val){
+          this.codeTel=(val.code).replace('+', '');
+        },
+        getName:function(name,inn) {
            this.companyName = name;
            this.inn = inn;
            this.search_data = [];
@@ -417,7 +433,7 @@ export default {
            var re =  /^[A-Za-z]\w{8,14}$/;
            return re.test(password);
         },
-       sendData(e){
+        sendData(e){
            e.preventDefault();
            if(this.validations()){
                axios.post('/set/company/and/register', {

@@ -161,44 +161,48 @@
                             <div class="help_partners">
                                 <div class="header_item_right_dashboard">
                                     <div class="titile_header_item_right_dashboard">
-                                        <div>Помощь для партнеров</div>
-                                        <div class="description_titile_header_item_dashboard">Все о том как работать с
-                                            Disfood Market</div>
+                                            <div>В разработке</div>
+<!--                                        <div>Помощь для партнеров</div>-->
+<!--                                        <div class="description_titile_header_item_dashboard">Все о том как работать с-->
+<!--                                            Disfood Market</div>-->
                                     </div>
                                 </div>
-                                <div class="icon_help_partners">
-                                    <svg width="88" height="81" viewBox="0 0 88 81" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="30.5" width="57" height="57" rx="28.5" fill="#CAE7BA" />
-                                        <path
-                                            d="M67.5024 23.5H12.5024C11.1217 23.5 10.0024 24.6193 10.0024 26V66C10.0024 67.3807 11.1217 68.5 12.5024 68.5H67.5024C68.8832 68.5 70.0024 67.3807 70.0024 66V26C70.0024 24.6193 68.8832 23.5 67.5024 23.5Z"
-                                            stroke="#51668F" stroke-width="6" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path
-                                            d="M52.5 23.5V18.5C52.5 17.1739 51.9732 15.9021 51.0355 14.9645C50.0979 14.0268 48.8261 13.5 47.5 13.5H32.5C31.1739 13.5 29.9021 14.0268 28.9645 14.9645C28.0268 15.9021 27.5 17.1739 27.5 18.5V23.5"
-                                            stroke="#51668F" stroke-width="6" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path
-                                            d="M70.0026 40.4717C60.8847 45.7468 50.5339 48.5166 40 48.5001C29.468 48.5166 19.1188 45.7478 10.0021 40.4743"
-                                            stroke="#51668F" stroke-width="6" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M36.25 38.5H43.75" stroke="#51668F" stroke-width="6" stroke-linecap="round"
-                                              stroke-linejoin="round" />
-                                    </svg>
+<!--                                <div class="icon_help_partners">-->
+<!--                                    <svg width="88" height="81" viewBox="0 0 88 81" fill="none"-->
+<!--                                         xmlns="http://www.w3.org/2000/svg">-->
+<!--                                        <rect x="30.5" width="57" height="57" rx="28.5" fill="#CAE7BA" />-->
+<!--                                        <path-->
+<!--                                            d="M67.5024 23.5H12.5024C11.1217 23.5 10.0024 24.6193 10.0024 26V66C10.0024 67.3807 11.1217 68.5 12.5024 68.5H67.5024C68.8832 68.5 70.0024 67.3807 70.0024 66V26C70.0024 24.6193 68.8832 23.5 67.5024 23.5Z"-->
+<!--                                            stroke="#51668F" stroke-width="6" stroke-linecap="round"-->
+<!--                                            stroke-linejoin="round" />-->
+<!--                                        <path-->
+<!--                                            d="M52.5 23.5V18.5C52.5 17.1739 51.9732 15.9021 51.0355 14.9645C50.0979 14.0268 48.8261 13.5 47.5 13.5H32.5C31.1739 13.5 29.9021 14.0268 28.9645 14.9645C28.0268 15.9021 27.5 17.1739 27.5 18.5V23.5"-->
+<!--                                            stroke="#51668F" stroke-width="6" stroke-linecap="round"-->
+<!--                                            stroke-linejoin="round" />-->
+<!--                                        <path-->
+<!--                                            d="M70.0026 40.4717C60.8847 45.7468 50.5339 48.5166 40 48.5001C29.468 48.5166 19.1188 45.7478 10.0021 40.4743"-->
+<!--                                            stroke="#51668F" stroke-width="6" stroke-linecap="round"-->
+<!--                                            stroke-linejoin="round" />-->
+<!--                                        <path d="M36.25 38.5H43.75" stroke="#51668F" stroke-width="6" stroke-linecap="round"-->
+<!--                                              stroke-linejoin="round" />-->
+<!--                                    </svg>-->
 
-                                </div>
+<!--                                </div>-->
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-6">
                             <div class="contacting_those_support">
                                 <div class="header_item_right_dashboard">
                                     <div class="titile_header_item_right_dashboard">
-                                        <div>Обращение в тех. поддержку</div>
-                                        <div class="description_titile_header_item_dashboard">Среднее время ответа 1 час
+                                        <div>В разработке</div>
+                                        <div style="opacity: 0">
+                                            <div>Обращение в тех. поддержку</div>
+                                            <div class="description_titile_header_item_dashboard">Среднее время ответа 1 час
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="list_values_dashboard">
+                                <div class="list_values_dashboard" style="opacity: 0">
                                     <div class="item_values_dashboard">
                                         <div class="title_values_dashboard">Открытые</div>
                                         <div class="quantity_values_dashboard">5</div>

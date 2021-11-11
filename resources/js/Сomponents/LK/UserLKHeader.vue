@@ -40,11 +40,11 @@
                             Мои сделки
                         </router-link>
                     </li>
-                    <li class="nav-item">
-                        <router-link :to="{name:'my-messages'}" class="nav-link" active-class="active">
-                            Сообщения
-                        </router-link>
-                    </li>
+<!--                    <li class="nav-item">-->
+<!--                        <router-link :to="{name:'my-messages'}" class="nav-link" active-class="active">-->
+<!--                            Сообщения-->
+<!--                        </router-link>-->
+<!--                    </li>-->
                 </ul>
                 <user-login-auth-button></user-login-auth-button>
             </div>

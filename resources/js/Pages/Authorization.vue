@@ -103,7 +103,7 @@
                                     </div>
                                     <div class="container_item_reg_input">
                                         <div>
-                                            <masked-input type="text" placeholder="Телефон" v-model="userPhone"  :mask="'\+\'+codeTel + '(111) 111-1111'" />
+                                            <masked-input type="text" placeholder="Телефон" v-model="userPhone"  :mask="codeTel + '(111) 111-1111'" />
                                             <div class="error_input" v-show="errors.userPhone">{{errors.userPhone}}</div>
                                         </div>
                                         <div>

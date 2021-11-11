@@ -245,7 +245,7 @@
                                                 <div class="row">
                                                     <div class="item_product_category col-md-12"  v-for="item in product">
                                                         <div class="info_item_offer_catalog">
-                                                            <div class="image_info_item_offer_catalog" v-if="item.organization.logo"
+                                                            <div class="image_info_item_offer_catalog" v-if="item.organization && item.organization.logo"
                                                                  :style="'background-image: url('+item.organization.logo+')'"></div>
                                                             <div>
                                                                 <div class="name_info_item_offer_catalog" v-if="item.organization">{{item.organization.name}}

@@ -4100,7 +4100,15 @@ min-width: 280px;
     cursor: pointer;
     width: 100%;
 }
-.select_countries .multiselect__element:hover{
+.select_countries .multiselect__element{
+    padding:10px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+.item_container_product_block .select_countries .multiselect__element{
+    padding:0px 20px;
+}
+.multiselect__element:hover{
     background: #F0F2F4;
 }
 .multiselect__content-wrapper{
@@ -7332,6 +7340,38 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 }
 .option_select_theme>div:hover{
     background: #F0F2F4;
+}
+.search_name_company{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    margin-top: -8px;
+    max-height: 280px;
+    overflow-y: scroll;
+    border: 1px solid #C8CCD1;
+    border-radius: 0 0 10px 10px;
+}
+.delivery_options_item{
+    margin-bottom: 40px;
+}
+.search_name_company .list-group-item{
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    border: 0;
+    border-radius: 0;
+    padding: 10px 20px;
+}
+.search_name_company .list-group-item:hover{
+    background: #F0F2F4;
+}
+.multiselect__option--highlight {
+    background: transparent !important;
+    outline: none;
+    color: #35495e !important;
+}
+.multiselect__option:after {
+    display: none;
 }
 .container_select_table_page{
     position: relative;

@@ -475,9 +475,7 @@ export default {
     padding: 12px 26px 12px 10px;
     border-radius: 10px;
     margin-right: 10px;
-    color: #fff;
     line-height: 1;
-    background: #41b883;
     margin-bottom: 5px;
     white-space: nowrap;
     overflow: hidden;

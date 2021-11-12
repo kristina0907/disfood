@@ -63,7 +63,7 @@
                                                 <div class="container_item_reg_input">
                                                     <div>
                                                         <input type="text" placeholder="Название компании" v-model="companyName" @keyup="getCompanyName()" autocomplete="off"  />
-                                                        <div class="panel-footer" v-if="search_data.length">
+                                                        <div class="search_name_company" v-if="search_data.length">
                                                             <ul class="list-group">
                                                                 <a href="#" class="list-group-item" v-for="data1 in search_data"  @click="getName(data1.data.name.full_with_opf,data1.data.inn)">
                                                                     {{ data1.value}} <br/>

@@ -32,6 +32,11 @@
                     </svg>
                     <span>{{org.name}}</span>
                 </router-link>
+                <div class="sidebar_accreditation_company_item">
+                    <router-link :to="{path:'/accreditation/customer'}">
+                        &mdash; Аккредитация
+                    </router-link>
+                </div>
 
             </div>
         </div>

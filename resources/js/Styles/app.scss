@@ -6013,8 +6013,6 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     font-size: 15px;
     line-height: 20px;
     color: #66727E;
-    display: flex;
-    align-items: center;
     margin-bottom: 34px;
 }
 .sidebar_company_item span{
@@ -6023,6 +6021,19 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     font-size: 15px;
     line-height: 20px;
     color: #66727E;
+}
+.sidebar_accreditation_company_item{
+    margin-top: 14px;
+}
+.sidebar_accreditation_company_item a{
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    position: relative;
+}
+.sidebar_accreditation_company_item a:hover{
+    color: #71BF45;
 }
 .title_settings{
     font-weight: 600;
@@ -6320,7 +6331,22 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .item_add_company .container_new_photo{
     margin-right: 20px;
 }
-.add_company_checkbox .custom-checkbox+label {
+.accreditation_company_checkbox{
+    text-align: left;
+}
+.question_company_checkbox{
+    text-align: left;
+    margin-bottom: 20px;
+}
+.question_company_checkbox .custom-checkbox+label{
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    font-size: 15px;
+    line-height: 20px;
+    color: #000000;
+}
+.add_company_checkbox .custom-checkbox+label,  .accreditation_company_checkbox .custom-checkbox+label{
     display: inline-flex;
     align-items: center;
     user-select: none;
@@ -6359,6 +6385,17 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 }
 .step_main_block{
     width: 70%;
+}
+.step_profile_accreditation_question{
+    margin-bottom: 40px;
+    margin-top: 25px;
+}
+.title_question_item{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #22262A;
+    margin-bottom: 30px;
 }
 .step_profile_accreditation_block{
     margin-bottom: 40px;
@@ -6436,6 +6473,20 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     border-radius: 10px;
     margin-bottom: 40px;
 }
+.btn_next_question{
+    padding: 20px 40px;
+    background: #F0F2F4;
+    border-radius: 10px;
+    border: 0;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+}
+.btn_next_question:hover{
+    color: #FFFFFF;
+    background: #89CA65;
+}
 .btn_next_step{
     padding: 20px 40px;
     background: #71BF45;
@@ -6448,6 +6499,7 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 }
 .btn_next_step:hover{
     background: #89CA65;
+    color: #FFFFFF;
 }
 .active_half_step .half_step:first-child{
     background: #71BF45;
@@ -6470,6 +6522,7 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     align-items: center;
     margin-top: 20px;
     margin-bottom: 40px;
+    cursor: pointer;
 }
 .save_contract span{
     margin-right: 19px;
@@ -6603,9 +6656,11 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 }
 .btn_become_supplier:hover{
     background: #89CA65;
+    color: #FFFFFF;
 }
 .btn_step_complete:hover{
     box-shadow: 0 0 0 2px #89ca65;
+    color: #71BF45;
 }
 .container_dashboard{
     background: #F0F2F4;

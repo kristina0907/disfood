@@ -14,6 +14,28 @@ hr{
     border: 0;
     border-top: 1px solid #C8CCD1;
 }
+label {
+    margin-bottom: 0;
+}
+.mr_0{
+    margin: 0 !important;
+}
+.btn_transparent{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #71BF45;
+    border-radius: 10px;
+    border: 1px solid #71BF45;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: inline-block;
+    background: transparent;
+}
+.btn_transparent:hover{
+    box-shadow: 0 0 0 2px #89ca65;
+    color: #71BF45;
+}
 header .navbar {
     padding: 0 40px;
     box-shadow: 0px 1px 0px #D4D8DB;
@@ -4105,6 +4127,51 @@ min-width: 280px;
     cursor: pointer;
     width: 100%;
 }
+
+.select_question_checkbox .multiselect.select{
+    width: 100%;
+}
+.select_question_checkbox .multiselect__tags {
+    min-height: 62px;
+    display: block;
+    padding: 30px 40px 0px 20px;
+    border-radius: 10px;
+    border: 1px solid #c8ccd1;
+    background: #fff;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.select_question_checkbox .multiselect__content{
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+.select_question_checkbox .multiselect__element span{
+    width: 100%;
+    display: block;
+}
+.select_question_checkbox .multiselect__element{
+    padding:10px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+.select_question_checkbox .multiselect__element{
+    padding:10px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+.placeholder_select{
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #66727E;
+    position: absolute;
+    top:10px;
+    left:20px;
+}
+
+
 .item_container_product_block .select_countries .multiselect__element{
     padding:0px 20px;
 }
@@ -6397,6 +6464,14 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     color: #22262A;
     margin-bottom: 30px;
 }
+.description_question_item{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #22262A;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
 .step_profile_accreditation_block{
     margin-bottom: 40px;
 }
@@ -7853,4 +7928,46 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 }
 .select_container .error_input{
     margin-top: 30px;
+}
+
+.container_value_range{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #66727E;
+    margin-bottom: 10px;
+}
+.value_question_range{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #66727E;
+    margin-top: 20px;
+}
+.value_question_range span{
+    color: #71BF45;
+    font-weight: bold;
+}
+.custom_range.vue-range-slider.slider-component{
+   padding: 0 !important; 
+}
+.custom_range.vue-range-slider.slider-component .slider {
+    border-radius: 10px;
+    background-color: #F0F2F4;
+}
+.custom_range.vue-range-slider.slider-component .slider .slider-process {
+    border-radius: 10px;
+    background-color: #71BF45;
+}
+.custom_range.vue-range-slider.slider-component .slider .slider-dot{
+    background: #FFFFFF;
+    border: 1px solid #71BF45;
+    box-sizing: border-box;
+    box-shadow: none;
+    width: 24px !important;
+    height: 24px !important;
+    top:-10px !important;
 }

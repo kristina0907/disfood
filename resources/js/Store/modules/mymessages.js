@@ -5,6 +5,8 @@ export default {
         messages:[],
         messagesFromId:[],
         currentOffer:null,
+        newMessage :'',
+        newFiles:[],
     },
     getters: {
 
@@ -54,6 +56,18 @@ export default {
         SET_CURRENT_OFFER(state,data)
         {
             state.currentOffer = data;
+        },
+
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
+        SET_NEW_MESSAGE(state,data)
+        {
+            state.messagesFromId = state.messagesFromId.push(data);
         }
     },
     actions: {
@@ -90,6 +104,26 @@ export default {
                         commit('SET_CURRENT_OFFER',data);
                     }
                 });
+        },
+
+        /**
+         *
+         * @param commit
+         * @param dispatch
+         * @param data
+         * @returns {Promise<void>}
+         */
+
+        async sendMessage({commit,dispatch},data)
+        {
+          await axios.post('/send/messages',data)
+              .then((response)=>{
+                  if(response.data !== 'undefined' && response.data !== null)
+                  {
+                      dispatch('showMessages',data.room)
+                      dispatch('getMessages',data.user_id)
+                  }
+              })
         }
 
 

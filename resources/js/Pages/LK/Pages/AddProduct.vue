@@ -360,6 +360,10 @@ export default {
             'addFileToImages'
         ]),
 
+        /**
+         *
+         * @param e
+         */
 
         onFileChange(e)
         {
@@ -401,6 +405,11 @@ export default {
 
         },
 
+        /**
+         *
+         * @param filter
+         * @param val
+         */
 
         changeFilterValue(filter,val)
         {
@@ -418,13 +427,21 @@ export default {
                 });
         },
 
-
+        /**
+         *
+         */
         addAdress()
         {
             this.adress.push({
                 adress: '',
             })
         },
+
+        /**
+         *
+         * @returns {boolean}
+         */
+
         validations:function() {
             this.errors = [];
             if(this.price <= 0) this.errors.price = "Цена обязательна для заполнения";
@@ -444,6 +461,12 @@ export default {
             else return true;
 
         },
+
+        /**
+         *
+         * @param e
+         */
+
         sendData(e){
             e.preventDefault();
             if(this.validations()){

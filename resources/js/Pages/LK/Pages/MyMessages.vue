@@ -57,15 +57,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="deal" role="tabpanel" aria-labelledby="deal-tab">
-                                <div class="item_deal_sidebar">
-                                    <div class="left_item_deal_sidebar">
-                                        <div class="tile_item_deal_sidebar">Сделка 454 543</div>
-                                        <div class="text_item_deal_sidebar">Пока у нас недостаточно данных о товаре,
-                                            чтобы давать вам </div>
+                            <div class="tab-pane fade" id="deal" role="tabpanel" aria-labelledby="deal-tab" v-if="messages">
+                                <div class="item_deal_sidebar" v-for="(message,index) in messages">
+                                    <div class="left_item_deal_sidebar" @click="showMessage(index)">
+                                        <div class="tile_item_deal_sidebar">Сделка {{index}}</div>
+                                        <div class="text_item_deal_sidebar">
+                                            {{message[message.length - 1].message}}
+                                        </div>
                                     </div>
                                     <div class="right_item_deal_sidebar">
-                                        <div class="time_item_deal_sidebar">19:00</div>
+                                        <div class="time_item_deal_sidebar"> {{message[message.length - 1].created_at | moment("HH:MM D-MM-YYYY")}}</div>
                                     </div>
                                 </div>
                             </div>
@@ -155,13 +156,13 @@
                                 </div>
                             </div>-->
                         </div>
-                        <div class="container_message">
+                        <div id="containerMessage" class="container_message">
                             <div class="list_message_date">
                                 <div class="item_message" v-if="messagesFromId" v-for="message in messagesFromId">
                                     <div class="top_message">
                                         <div class="sender_message">
                                             <div class="photo_sender_message"
-                                                 style="background-image: url(./assets/images/photo.png);"></div>
+                                                 style="background-image: url('/img/logo.svg');"></div>
                                             <div class="info_sender_message">
                                                 <div class="name_sender_message">{{message.author.name}}</div>
                                                 <div class="post_sender_message">{{message.author.dolgnost}}</div>
@@ -175,6 +176,45 @@
 
                                 </div>
                             </div>
+                        </div>
+                        <div class="container_footer_message">
+                            <form action="">
+                                <div class="container_input_message">
+                                    <input type="text" placeholder="Сообщение ..." v-model="message">
+                                    <div class="container_message_file">
+                                        <div class="form-group">
+                                            <input
+                                                type="file"
+                                                name="file[]"
+                                                id="file"
+                                                class="input-file"
+                                                v-on:change="onFileChange"
+                                                multiple
+                                                accept="image/jpeg"
+                                            >
+                                            <label for="file" class="btn btn-tertiary js-labelFile">
+                                                <svg width="23" height="25" viewBox="0 0 23 25" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M21.981 11.6672L12.0815 21.5667C12.0815 21.5667 7.48528 26.1629 3.24264 21.9203C-1 17.6776 3.59619 13.0814 3.59619 13.0814L13.8492 2.82837C13.8492 2.82837 16.6777 -5.7091e-05 19.5061 2.82837C22.3345 5.6568 19.5061 8.48522 19.5061 8.48522L9.6066 18.3847C9.6066 18.3847 8.19239 19.7989 6.77817 18.3847C5.36396 16.9705 6.77817 15.5563 6.77817 15.5563L15.9706 6.3639"
+                                                        stroke="#8898A8" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                </svg>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn_send_message">
+                                    <button type="submit" @click.prevent="sendMessage">
+                                        <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M1.72693 11.827C0.899184 11.5087 0.864737 10.3503 1.6721 9.98331L20.407 1.46743C21.2482 1.08508 22.1135 1.95043 21.7312 2.7916L13.2153 21.5265C12.8483 22.3339 11.69 22.2994 11.3716 21.4717L8.85208 14.9209C8.7505 14.6568 8.5418 14.4481 8.27771 14.3466L1.72693 11.827Z"
+                                                stroke="white" stroke-width="2" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -192,11 +232,11 @@ export default {
     components: {UserLKHeader},
     data(){
         return {
-
+            message:''
         }
     },
     methods:{
-        ...mapActions['mymessages',['getMessages','showMessages']],
+        ...mapActions['mymessages',['getMessages','showMessages','sendMessage']],
 
         /**
          *
@@ -206,13 +246,76 @@ export default {
         showMessage(id)
         {
             this.$store.dispatch('mymessages/showMessages',id);
+        },
+
+        sendMessage()
+        {
+            let self = this;
+            let message = self.message;
+            let author = ''
+
+            if(this.user && this.user.user)
+            {
+                author = this.user.user.id;
+            }
+
+            let chat_room = this.currentOffer;
+            //console.log(chat_room);
+            if(author)
+            {
+                let data = {
+                    message:message,
+                    author:author,
+                    room:chat_room
+                }
+                this.$store.dispatch('mymessages/sendMessage',data)
+            }
+
+        },
+
+        /**
+         *
+         */
+
+        scroll() {
+            let scroll = document.getElementById('containerMessage');
+            if(scroll)
+            {
+                document.getElementById('containerMessage').scrollTop = document.getElementById('containerMessage').scrollHeight;
+            }
+
+        },
+
+        /**
+         *
+         * @param e
+         */
+
+        onFileChange(e)
+        {
+            let vm = this;
+            var selectedFiles = e.target.files;
+            for (let i = 0; i < selectedFiles.length; i++) {
+                //console.log(selectedFiles[i]);
+                vm.newFiles.push(selectedFiles[i]);
+            }
         }
     },
     mounted() {
         this.$store.dispatch('mymessages/getMessages');
     },
+    updated() {
+        this.scroll();
+    },
     computed: {
-        ...mapState('mymessages',['messages','messagesFromId','currentOffer'])
+        ...mapState('mymessages',[
+            'messages',
+            'messagesFromId',
+            'currentOffer',
+            'newMessage',
+            'newFiles'
+        ]),
+        ...mapState(['user'])
     },
 }
 </script>

@@ -48,6 +48,17 @@ class MessageRepository implements MessageContract
             ->first();
     }
 
+    public function getByUserId($id)
+    {
+        return $this->message->where('user_id',$id)->get()->groupBy('chat_room_id');
+    }
+
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+
     public function getByIdWithRelations($id)
     {
         return $this->message

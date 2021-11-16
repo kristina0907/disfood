@@ -98,6 +98,12 @@ class MessageService
         return $cat;
     }
 
+    public function getByUserId($id)
+    {
+        $cat = $this->messageRepository->getByUserId($id);
+        return $cat;
+    }
+
     /**
      * @param $id
      * @return mixed
@@ -136,6 +142,10 @@ class MessageService
         return $this->messageRepository->getByOfferId($id);
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
 
     public function getLastByOfferId($id)
     {

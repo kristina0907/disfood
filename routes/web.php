@@ -78,6 +78,7 @@ Route::get('/get/offer',[ApiController::class,'getFilterOfferData']);
 Route::get('/get/messages/{id}',[ApiController::class,'getOfferMessages']);
 Route::get('/get/last/message/{id}',[ApiController::class,'getLastMessageFromChat']);
 Route::post('/send/messages',[ApiController::class,'setOfferMessages']);
+Route::get('/get/my/messages/all',[ApiController::class,'getMyMessagesAll']);
 
 Route::post('/set/new/offer',[ApiController::class,'setNewOffer']);
 

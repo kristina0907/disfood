@@ -864,10 +864,20 @@
                         <input type="text" placeholder="Телефон">
                     </div>
                     <div class="col-xs-12 col-md-3">
-                        <div class="select_container">
-                            <select name="" id="">
-                                <option value="">Тема обращения</option>
-                            </select>
+                        <div class="container_select_table_page">
+                            <div class="select_theme" v-on:click='showDropdown'>
+                                <span>{{ theme }}</span>
+                                <span>
+                                    <svg width="13" height="7" viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.66675 1L6.66675 6L11.6667 1" stroke="#22262A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="option_select_theme" v-if="isShowDropdown">
+                                <template>
+                                    <div v-for="item in themes" @click="changeCountPage(item)">{{ item }}</div>
+                                </template>
+                            </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-3">
@@ -962,10 +972,20 @@ export default {
             cordBigCar:600,
             cordOrCar:-250,
             cordGrCar:-250,
-            leftFon:300
+            leftFon:300,
+            theme:"Тема обращения",
+            isShowDropdown: false,
+            themes:["Тема обращения 1","Тема обращения 2"],
         }
     },
     methods:{
+        showDropdown() {
+            this.isShowDropdown=!this.isShowDropdown
+        },
+        changeCountPage(count){
+            this.theme = count;
+            this.isShowDropdown=!this.isShowDropdown;
+        },
         getCats()
         {
             axios.get('/get/partners')

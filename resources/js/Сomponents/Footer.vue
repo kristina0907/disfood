@@ -1,7 +1,7 @@
 <template>
     <footer>
-        <div class="container_footer container-fluid">
-            <div class="container_footer_block" style="display: flex;flex-wrap: wrap">
+        <div class="container_footer">
+            <div class="container_footer_block row" style="display: flex;flex-wrap: wrap">
                 <div class="col">
                     <div class="title_footer_list">Каталог</div>
                 </div>

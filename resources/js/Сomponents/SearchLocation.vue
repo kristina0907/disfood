@@ -5,7 +5,7 @@
             name="ajax"
             label="value"
             track-by="value"
-            placeholder=""
+            placeholder="Город"
             open-direction="bottom"
             :options="locationsTips"
             :multiple="false"

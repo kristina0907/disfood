@@ -164,6 +164,14 @@
                                     </div>
                                     <div class="item_container_product_block">
                                         <div class="title_container_product_block">Вариант доставки</div>
+                                        <div class="delivery_options_item row">
+                                            <div class="col-md-6">
+                                               <search-countries/>
+                                            </div>
+                                            <div class="select_container col-md-6">
+                                                <search-location/>
+                                            </div>
+                                        </div>
                                         <div class="item_product_input row">
                                             <div class="container_input_price col-md-12 m-b-30" v-for="(adr, index) in adress" :key="index">
                                                 <div class="text_input">Адрес</div>
@@ -179,9 +187,6 @@
                                                     </svg>
                                                 </div>
                                                 <div class="error_input" v-if="errors.adress">{{errors.adress}}</div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="new_adress" @click="addAdress">Добавить адрес</div>
                                             </div>
 
                                         </div>
@@ -315,11 +320,13 @@
 import Multiselect from 'vue-multiselect';
 import UserLKHeader from "../../../Сomponents/LK/UserLKHeader";
 import FileSelect from "../../../Сomponents/FileSelect";
+import SearchCountries from "../../../Сomponents/SearchCountries";
+import SearchLocation from "../../../Сomponents/SearchLocation";
 import {mapActions, mapState} from "vuex";
 import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 export default {
-    components: {UserLKHeader,Multiselect,FileSelect,vueDropzone: vue2Dropzone},
+    components: {UserLKHeader,Multiselect,FileSelect, SearchCountries,SearchLocation, vueDropzone: vue2Dropzone},
     data(){
         return {
             //images:[],
@@ -507,9 +514,7 @@ export default {
     padding: 12px 26px 12px 10px;
     border-radius: 10px;
     margin-right: 10px;
-    color: #fff;
     line-height: 1;
-    background: #41b883;
     margin-bottom: 5px;
     white-space: nowrap;
     overflow: hidden;

@@ -51,11 +51,11 @@
                                 </span> Добавить товар
                                 </router-link>
 
-                                <button v-show="!changePriceStatus" @click.prevent="changePrices">Изменить цены</button>
-                                <button v-show="!changePriceStatus" @click.prevent="acceptedPrice">Утвердить цену</button>
-                                <button v-if="!changePriceStatus" @click.prevent="acceptedPriceAll">Утвердить все</button>
-                                <button v-else @click.prevent="acceptedPricesAll">Утвердить все</button>
-                                <button class="btn_cancel_change_prices" v-show="changePriceStatus" @click.prevent="cancelChangePrices">Отменить</button>
+                                <button v-show="!changePriceStatus && productsFilter.length" @click.prevent="changePrices">Изменить цены</button>
+                                <button v-show="!changePriceStatus && productsFilter.length" @click.prevent="acceptedPrice">Утвердить цену</button>
+                                <button v-if="!changePriceStatus && productsFilter.length" @click.prevent="acceptedPriceAll">Утвердить все</button>
+                                <button v-if="changePriceStatus && productsFilter.length" v-else @click.prevent="acceptedPricesAll">Утвердить все</button>
+                                <button class="btn_cancel_change_prices" v-show="changePriceStatus && productsFilter.length" @click.prevent="cancelChangePrices">Отменить</button>
 
                             </div>
                         </div>

@@ -135,22 +135,40 @@ const routes = [
         name:'settingseditcompany',
         props: true,
     },
-    {
-        path:'/settings/accreditation/:id',
-        component:()=> import('../Pages/LK/Pages/Settings/Accreditation'),
-        name:'settingsaccreditation',
-        props: true,
-    },
-    {
-        path:'/settings/accreditation/:id/success',
-        component:()=> import('../Pages/LK/Pages/Settings/AccreditationSuccess'),
-        name:'settingsaccreditationsuccess',
-        props: true,
-    },
+    // {
+    //     path:'/settings/accreditation/:id',
+    //     component:()=> import('../Pages/LK/Pages/Accreditation/Accreditation'),
+    //     name:'settingsaccreditation',
+    //     props: true,
+    // },
+    // {
+    //     path:'/settings/accreditation/:id/success',
+    //     component:()=> import('../Pages/LK/Pages/Settings/AccreditationSuccess'),
+    //     name:'settingsaccreditationsuccess',
+    //     props: true,
+    // },
     {
         path:'/addnewproduct/success',
         component:()=> import('../Pages/LK/Pages/AddProductSuccess'),
         name:'addnewproductsuccess',
+        props: true,
+    },
+    {
+        path:'/accreditation/customer',
+        component:()=> import('../Pages/LK/Pages/Accreditation/AccreditationCustomer'),
+        name:'accreditation',
+        props: true,
+    },
+    {
+        path:'/accreditation/success',
+        component:()=> import('../Pages/LK/Pages/Accreditation/AccreditationSuccess'),
+        name:'accreditation',
+        props: true,
+    },
+    {
+        path:'/accreditation/provider',
+        component:()=> import('../Pages/LK/Pages/Accreditation/AccreditationProvider'),
+        name:'accreditation',
         props: true,
     },
     { path: "*", component:()=> import('../Pages/404'), }

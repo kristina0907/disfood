@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
     font-style: normal;
 }
 input, button, textarea, input:focus, button:focus, textarea:focus {outline:none;}
@@ -13,6 +13,28 @@ hr{
     margin-bottom: 30px;
     border: 0;
     border-top: 1px solid #C8CCD1;
+}
+label {
+    margin-bottom: 0;
+}
+.mr_0{
+    margin: 0 !important;
+}
+.btn_transparent{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #71BF45;
+    border-radius: 10px;
+    border: 1px solid #71BF45;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: inline-block;
+    background: transparent;
+}
+.btn_transparent:hover{
+    box-shadow: 0 0 0 2px #89ca65;
+    color: #71BF45;
 }
 header .navbar {
     padding: 0 40px;
@@ -1244,7 +1266,7 @@ footer{
     color: #000000;
     width: 95%;
 }
-.email_footer_info{
+.col-md-6.email_footer_info{
     padding-left: 30px;
 }
 .container_footer_consultation{
@@ -1293,7 +1315,8 @@ footer{
     display: flex;
 }
 .container_register_success{
-    padding: 60px 0;
+    padding: 60px 0 0;
+    margin-top: 100px;
 }
 .reg_img svg{
     width: 80%;
@@ -4099,7 +4122,60 @@ min-width: 280px;
     cursor: pointer;
     width: 100%;
 }
-.select_countries .multiselect__element:hover{
+.select_countries .multiselect__element{
+    padding:10px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.select_question_checkbox .multiselect.select{
+    width: 100%;
+}
+.select_question_checkbox .multiselect__tags {
+    min-height: 62px;
+    display: block;
+    padding: 30px 40px 0px 20px;
+    border-radius: 10px;
+    border: 1px solid #c8ccd1;
+    background: #fff;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.select_question_checkbox .multiselect__content{
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+.select_question_checkbox .multiselect__element span{
+    width: 100%;
+    display: block;
+}
+.select_question_checkbox .multiselect__element{
+    padding:10px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+.select_question_checkbox .multiselect__element{
+    padding:10px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+.placeholder_select{
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #66727E;
+    position: absolute;
+    top:10px;
+    left:20px;
+}
+
+
+.item_container_product_block .select_countries .multiselect__element{
+    padding:0px 20px;
+}
+.multiselect__element:hover{
     background: #F0F2F4;
 }
 .multiselect__content-wrapper{
@@ -6004,8 +6080,6 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     font-size: 15px;
     line-height: 20px;
     color: #66727E;
-    display: flex;
-    align-items: center;
     margin-bottom: 34px;
 }
 .sidebar_company_item span{
@@ -6014,6 +6088,19 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     font-size: 15px;
     line-height: 20px;
     color: #66727E;
+}
+.sidebar_accreditation_company_item{
+    margin-top: 14px;
+}
+.sidebar_accreditation_company_item a{
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    position: relative;
+}
+.sidebar_accreditation_company_item a:hover{
+    color: #71BF45;
 }
 .title_settings{
     font-weight: 600;
@@ -6311,7 +6398,22 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .item_add_company .container_new_photo{
     margin-right: 20px;
 }
-.add_company_checkbox .custom-checkbox+label {
+.accreditation_company_checkbox{
+    text-align: left;
+}
+.question_company_checkbox{
+    text-align: left;
+    margin-bottom: 20px;
+}
+.question_company_checkbox .custom-checkbox+label{
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    font-size: 15px;
+    line-height: 20px;
+    color: #000000;
+}
+.add_company_checkbox .custom-checkbox+label,  .accreditation_company_checkbox .custom-checkbox+label{
     display: inline-flex;
     align-items: center;
     user-select: none;
@@ -6350,6 +6452,25 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 }
 .step_main_block{
     width: 70%;
+}
+.step_profile_accreditation_question{
+    margin-bottom: 40px;
+    margin-top: 25px;
+}
+.title_question_item{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #22262A;
+    margin-bottom: 30px;
+}
+.description_question_item{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #22262A;
+    margin-bottom: 30px;
+    margin-top: 20px;
 }
 .step_profile_accreditation_block{
     margin-bottom: 40px;
@@ -6427,6 +6548,20 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     border-radius: 10px;
     margin-bottom: 40px;
 }
+.btn_next_question{
+    padding: 20px 40px;
+    background: #F0F2F4;
+    border-radius: 10px;
+    border: 0;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+}
+.btn_next_question:hover{
+    color: #FFFFFF;
+    background: #89CA65;
+}
 .btn_next_step{
     padding: 20px 40px;
     background: #71BF45;
@@ -6439,6 +6574,7 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 }
 .btn_next_step:hover{
     background: #89CA65;
+    color: #FFFFFF;
 }
 .active_half_step .half_step:first-child{
     background: #71BF45;
@@ -6461,6 +6597,7 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     align-items: center;
     margin-top: 20px;
     margin-bottom: 40px;
+    cursor: pointer;
 }
 .save_contract span{
     margin-right: 19px;
@@ -6594,9 +6731,11 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 }
 .btn_become_supplier:hover{
     background: #89CA65;
+    color: #FFFFFF;
 }
 .btn_step_complete:hover{
     box-shadow: 0 0 0 2px #89ca65;
+    color: #71BF45;
 }
 .container_dashboard{
     background: #F0F2F4;
@@ -7293,6 +7432,77 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .select_table_sort svg{
     margin-left: 15px;
 }
+.select_theme{
+    background: #FFFFFF;
+    border: 1px solid #C8CCD1;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    height: 62px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+}
+.select_theme svg{
+    position: absolute;
+    right: 20px;
+    top:30px;
+}
+.option_select_theme{
+    position: absolute;
+    border: 1px solid #C8CCD1;
+    border-radius: 0px 0px 10px 10px;
+    width: 100%;
+    top: 52px;
+    border-top: 0;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    background: #ffffff;
+    padding-bottom: 5px;
+}
+.option_select_theme>div{
+    padding: 5px 0;
+    cursor: pointer;
+    padding: 10px 20px 7px;
+}
+.option_select_theme>div:hover{
+    background: #F0F2F4;
+}
+.search_name_company{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    margin-top: -8px;
+    max-height: 280px;
+    overflow-y: scroll;
+    border: 1px solid #C8CCD1;
+    border-radius: 0 0 10px 10px;
+}
+.delivery_options_item{
+    margin-bottom: 40px;
+}
+.search_name_company .list-group-item{
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    border: 0;
+    border-radius: 0;
+    padding: 10px 20px;
+}
+.search_name_company .list-group-item:hover{
+    background: #F0F2F4;
+}
+.multiselect__option--highlight {
+    background: transparent !important;
+    outline: none;
+    color: #35495e !important;
+}
+.multiselect__option:after {
+    display: none;
+}
 .container_select_table_page{
     position: relative;
 }
@@ -7718,4 +7928,46 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 }
 .select_container .error_input{
     margin-top: 30px;
+}
+
+.container_value_range{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #66727E;
+    margin-bottom: 10px;
+}
+.value_question_range{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #66727E;
+    margin-top: 20px;
+}
+.value_question_range span{
+    color: #71BF45;
+    font-weight: bold;
+}
+.custom_range.vue-range-slider.slider-component{
+   padding: 0 !important; 
+}
+.custom_range.vue-range-slider.slider-component .slider {
+    border-radius: 10px;
+    background-color: #F0F2F4;
+}
+.custom_range.vue-range-slider.slider-component .slider .slider-process {
+    border-radius: 10px;
+    background-color: #71BF45;
+}
+.custom_range.vue-range-slider.slider-component .slider .slider-dot{
+    background: #FFFFFF;
+    border: 1px solid #71BF45;
+    box-sizing: border-box;
+    box-shadow: none;
+    width: 24px !important;
+    height: 24px !important;
+    top:-10px !important;
 }

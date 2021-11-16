@@ -1,7 +1,6 @@
 <template>
     <div>
         <div v-if="user==null  || user == false">
-
             <div class="nav-item dropdown">
                 <div class="login" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" @click="changeDropdown()"
                      aria-expanded="false">

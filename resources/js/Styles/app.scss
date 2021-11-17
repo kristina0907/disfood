@@ -5154,8 +5154,8 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     padding: 50px 0 0;
 }
 .message_left_container{
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0  !important;
+    padding-right: 0 !important;
 }
 .select_deal_container{
     display: flex;
@@ -5258,6 +5258,9 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     flex-direction: row;
     justify-content: space-between;
     cursor: pointer;
+}
+.item_deal_sidebar:hover{
+    background: #FFFFFF;
 }
 .item_deal_sidebar.active{
     background: #ffffff;

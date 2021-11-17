@@ -464,6 +464,7 @@ export default {
     methods:{
         changeType(type) {
             this.deliveryType = type;
+            this.setCapacity(type);
         },
         /**
          *

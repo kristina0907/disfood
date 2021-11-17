@@ -361,7 +361,7 @@ export default {
 
                    if(response.data !== 'undefined' && response.data !== null && response.data.suggestions !== 'undefined' && response.data.suggestions !== null)
                    {
-                       this.companyName = response.data.suggestions['0'].data.name.full_with_opf;
+                       this.companyName = response.data.suggestions['0'].data.name.short_with_opf;
                    }
 
                 })

@@ -59,7 +59,7 @@
 
                             </div>
                         </div>
-                        <table class="table default_table table_product">
+                     <table class="table default_table table_product">
                             <thead>
                             <tr>
                                 <th scope="col">
@@ -106,10 +106,8 @@
                                 <th class="price-term" scope="col">Срок цены</th>
                             </tr>
                             </thead>
-
                             <tbody :class="{table_change_price : changePriceStatus}">
                             <tr v-for="(product,index) in productsFilter" :class="{active: selected.indexOf(product.id) != -1}">
-
                                 <td>
                                     <div class="checkbox">
                                         <input class="custom-checkbox" type="checkbox" :id="'color-'+product.id" :name="'color-'+product.id"
@@ -133,7 +131,7 @@
                                 </td>
                                 <td @click.prevent="redirectToEdit(product.id)">50 кг</td>
                                 <td @click.prevent="redirectToEdit(product.id)">{{product.capacity}}</td>
-                                <td class="nowrap modal_price" data-bs-toggle="modal" data-bs-target="#changePrice" @click="currentProduct = product">
+                                <td v-if="!changePriceStatus || (selected.indexOf(product.id) == -1)" class="modal_price" data-bs-toggle="modal" data-bs-target="#changePrice" @click="currentProduct = product">
                                     <span class="price">
                                         {{ product.price }} ₽
                                     </span>
@@ -141,9 +139,6 @@
                                         {{product.price_with_nds}} ₽ НДС
                                     </span>
                                 </td>
-
-                                <td class="nowrap price-term">{{product.updated_at | moment("D-MM-YYYY") }} МСК<span class="status_time_good">8ч</span></td>
-
                                 <td v-if="changePriceStatus && (selected.indexOf(product.id) != -1)" class="td_change_price">
                                     <div class="container_change_price">
                                         <input type="text" :value="product.price"  @change.prevent="changeInputPrices(index,$event.target.value)"> <span>₽</span>
@@ -153,12 +148,12 @@
                                     </div>
                                 </td>
                                 <td class="price-term">{{product.updated_at | moment("D-MM-YYYY") }} МСК<span class="status_time_good">8ч</span></td>
-
                             </tr>
 
 
                             </tbody>
                         </table>
+
                         <!-- Modal -->
                         <div class="modal fade modal_change_price" id="changePrice" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">

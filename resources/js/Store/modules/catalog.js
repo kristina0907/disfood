@@ -332,14 +332,19 @@ export default {
 
         updateCapacity(state,value)
         {
-            if(parseInt(value) >= parseInt(20000))
-            {
-                state.capacity = parseInt(value)
+            let range = 20000;
+            switch (value) {
+                case 'auto':
+                    range = 20000;
+                    break;
+                case 'train':
+                    range = 67000;
+                    break;
+                case 'pickup':
+                    range = 10000;
+                    break;
             }
-            else
-            {
-                state.capacity = parseInt(20000);
-            }
+            state.capacity = range;
         },
 
         /**

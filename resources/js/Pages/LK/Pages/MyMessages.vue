@@ -45,21 +45,24 @@
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab" v-if="messages">
-                                <div class="item_deal_sidebar" v-for="(message,index) in messages">
-                                    <div class="left_item_deal_sidebar" @click="showMessage(index)">
-                                        <div class="tile_item_deal_sidebar">Сделка {{index}}</div>
-                                        <div class="text_item_deal_sidebar">
-                                            {{message[message.length - 1].message}}
+                                <div v-for="(message,index) in messages">
+                                    <div class="item_deal_sidebar" @click="showMessage(index)" :class="{active: index == active}">
+                                        <div class="left_item_deal_sidebar">
+                                            <div class="tile_item_deal_sidebar">Сделка {{index}}</div>
+                                            <div class="text_item_deal_sidebar">
+                                                {{message[message.length - 1].message}}
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="right_item_deal_sidebar">
-                                        <div class="time_item_deal_sidebar"> {{message[message.length - 1].created_at | moment("HH:MM D-MM-YYYY")}}</div>
+                                        <div class="right_item_deal_sidebar">
+                                            <div class="time_item_deal_sidebar"> {{message[message.length - 1].created_at | moment("HH:MM D-MM-YYYY")}}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="deal" role="tabpanel" aria-labelledby="deal-tab" v-if="messages">
-                                <div class="item_deal_sidebar" v-for="(message,index) in messages">
-                                    <div class="left_item_deal_sidebar" @click="showMessage(index)">
+                                <div v-for="(message,index) in messages">
+                                    <div class="item_deal_sidebar" @click="showMessage(index)" :class="{active: index == active}">
+                                    <div class="left_item_deal_sidebar">
                                         <div class="tile_item_deal_sidebar">Сделка {{index}}</div>
                                         <div class="text_item_deal_sidebar">
                                             {{message[message.length - 1].message}}
@@ -69,6 +72,8 @@
                                         <div class="time_item_deal_sidebar"> {{message[message.length - 1].created_at | moment("HH:MM D-MM-YYYY")}}</div>
                                     </div>
                                 </div>
+                                </div>
+                                
                             </div>
                             <div class="tab-pane fade" id="alerts" role="tabpanel" aria-labelledby="alerts-tab">
                                 <div class="item_deal_sidebar">
@@ -232,7 +237,8 @@ export default {
     components: {UserLKHeader},
     data(){
         return {
-            message:''
+            message:'',
+            active:''
         }
     },
     methods:{
@@ -245,6 +251,7 @@ export default {
 
         showMessage(id)
         {
+            this.active = id;
             this.$store.dispatch('mymessages/showMessages',id);
         },
 

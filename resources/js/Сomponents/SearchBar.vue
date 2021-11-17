@@ -92,6 +92,7 @@
     box-shadow: 0px 4px 20px rgba(34, 54, 74, 0.05);
     border-radius: 10px;
     padding: 15px 0;
+    z-index: 1;
 }
 .search-result_product-item{
     padding: 10px 20px;

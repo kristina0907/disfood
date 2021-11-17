@@ -515,6 +515,15 @@ class ApiController extends Controller
         }
     }
 
+
+    public function getMyMessagesAll()
+    {
+        if(Auth::user())
+        {
+            return $this->messageService->getByUserId(Auth::user()->id);
+        }
+    }
+
     /**
      * @return mixed
      */

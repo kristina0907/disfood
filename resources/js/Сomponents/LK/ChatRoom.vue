@@ -107,13 +107,21 @@ export default {
             event.preventDefault();
             let self = this;
             let message = self.newMessage;
-            let author = 11;//TODO подтянуть сюда user_id
+            let author = ''
+
+            if(this.user && this.user.user)
+            {
+                 author = this.user.user.id;
+            }
+
             let chat_room = self.$attrs.offerId;
-            axios.post('/send/messages',{
-                message:message,
-                author:author,
-                room:chat_room
-            }).then((response)=>{
+            if(author)
+            {
+                axios.post('/send/messages',{
+                    message:message,
+                    author:author,
+                    room:chat_room
+                }).then((response)=>{
 
                     if(response.data !== 'undefined' && response.data !== null)
                     {
@@ -123,7 +131,9 @@ export default {
                     self.$emit('changeLastMessage', {
                         lastMessage: response.data,
                     })
-            })
+                })
+            }
+
         },
         scroll() {
             document.getElementById('cont').scrollTop = document.getElementById('cont').scrollHeight;

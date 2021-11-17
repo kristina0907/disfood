@@ -278,12 +278,12 @@ class OfferRepository implements OfferContract
      * @return mixed
      */
 
-    public function getOffersByCategory($category,$type = null,$product = null)
+    public function getOffersByCategory($category,$type = null)
     {
 
         return $this->offer->where('category_id',$category)->when((integer) $type,function ($query) use ($type){
             $query->where('type_id',$type);
-        })->with(['organization','category','type','adresses','packings','values.filter','documents'])->get();
+        })->with(['organization','category','type','adresses','packings','values.filter','documents'])->get()->groupBy('type.name');
 
     }
 

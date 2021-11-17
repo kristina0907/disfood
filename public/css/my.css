@@ -256,11 +256,30 @@ a:-webkit-any-link:hover{
     letter-spacing: 0em;
     text-align: left;
 }
-/*.delevery_tab_product  .multiselect__tags
-{
-    min-height: 60px;
+.m-t-b-45{
+    margin-top:45px;
+    margin-bottom: 45px;
 }
-.item_product_input .select_type .multiselect__single {
-    padding-top: 20px;
-    padding-left: 12px;
-}*/
+.item_product_category
+{
+    border:1px solid #D4D8DB;
+}
+.item_product_category:first-child
+{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.pad-50-10
+{
+    padding: 50px 10px;
+}
+.right-block-button
+{
+    display: flex;
+}
+
+.right-block-button ~ .right-block-button
+{
+    display: none;
+}
+

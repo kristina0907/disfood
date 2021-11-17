@@ -12,7 +12,7 @@ import dashboard from "./modules/dashboard";
 import editproduct from "./modules/editproduct";
 import allnews from "./modules/allnews";
 import searchlocation from "./modules/searchlocation";
-
+import mymessages from "./modules/mymessages";
 
 
 Vue.use(Vuex);
@@ -31,7 +31,8 @@ const store = new Vuex.Store({
         dashboard,
         editproduct,
         allnews,
-        searchlocation
+        searchlocation,
+        mymessages
     },
     state:{
         user:null,

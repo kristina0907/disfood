@@ -27,7 +27,9 @@ use App\Http\Controllers\OrganizationStatusController;
 use App\Http\Controllers\Admin\FilterController;
 use App\Http\Controllers\Admin\FilterValuesController;
 use App\Http\Controllers\Admin\OrderDocumentController;
-
+use App\Http\Controllers\Admin\AccreditationController;
+use App\Http\Controllers\Admin\QuizController;
+use App\Http\Controllers\Admin\QuizQuestionsController;
 
 /**
  *  Admin routes
@@ -141,6 +143,40 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/countries/edit/{id}',[CountryController::class,'edit'])->name('countries.edit');
     Route::post('/countries/update',[CountryController::class,'update'])->name('countries.update');
     Route::get('/countries/delete/{id}',[CountryController::class,'delete'])->name('countries.delete');
+
+    /**
+     *  ACCREDITATION ROUTES
+     */
+
+    Route::get('/accreditations',[AccreditationController::class,'getAccreditations']);
+    Route::get('/accreditations/create',[AccreditationController::class,'create'])->name('accreditations.create');
+    Route::post('/accreditations/create',[AccreditationController::class,'store'])->name('accreditations.store');
+    Route::get('/accreditations/edit/{id}',[AccreditationController::class,'edit'])->name('accreditations.edit');
+    Route::post('/accreditations/update',[AccreditationController::class,'update'])->name('accreditations.update');
+    Route::get('/accreditations/delete/{id}',[AccreditationController::class,'delete'])->name('accreditations.delete');
+
+    /**
+     *  QUIZ ROUTES
+     */
+
+    Route::get('/quiz',[QuizController::class,'show']);
+    Route::get('/quiz/create',[QuizController::class,'create'])->name('quiz.create');
+    Route::post('/quiz/create',[QuizController::class,'store'])->name('quiz.store');
+    Route::get('/quiz/edit/{id}',[QuizController::class,'edit'])->name('quiz.edit');
+    Route::post('/quiz/update',[QuizController::class,'update'])->name('quiz.update');
+    Route::get('/quiz/delete/{id}',[QuizController::class,'delete'])->name('quiz.delete');
+
+    /**
+     *  QUIZ QUESTIONS ROUTES
+     */
+
+    Route::get('/quizquestions',[QuizQuestionsController::class,'show']);
+    Route::get('/quizquestions/create',[QuizQuestionsController::class,'create'])->name('quizquestions.create');
+    Route::post('/quizquestions/create',[QuizQuestionsController::class,'store'])->name('quizquestions.store');
+    Route::get('/quizquestions/edit/{id}',[QuizQuestionsController::class,'edit'])->name('quizquestions.edit');
+    Route::post('/quizquestions/update',[QuizQuestionsController::class,'update'])->name('quizquestions.update');
+    Route::get('/quizquestions/delete/{id}',[QuizQuestionsController::class,'delete'])->name('quizquestions.delete');
+
     /**
      * Cities routes
      */

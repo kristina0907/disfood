@@ -177,7 +177,7 @@ export default {
                 }
                 else
                 {
-                    router.push('/')
+                    //router.push('/')
                 }
         }
 

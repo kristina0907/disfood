@@ -48,6 +48,11 @@ class MessageRepository implements MessageContract
             ->first();
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
+
     public function getByUserId($id)
     {
         return $this->message->where('user_id',$id)->get()->groupBy('chat_room_id');
@@ -142,6 +147,11 @@ class MessageRepository implements MessageContract
     {
         return $this->message->where('chat_room_id',$id)->with(['author.roles','room'])->get();
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
 
     public function getLastByOfferId($id)
     {

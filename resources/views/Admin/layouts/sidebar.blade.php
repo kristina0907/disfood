@@ -174,6 +174,9 @@
                         <li>
                             <a href="/superadmin/quizquestions">Вопросы</a>
                         </li>
+                        <li>
+                            <a href="/superadmin/quizquestionsvalues">Варианты ответов</a>
+                        </li>
                     </ul>
                 </li>
                 <li>

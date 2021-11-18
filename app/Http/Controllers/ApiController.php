@@ -17,6 +17,7 @@ use App\Services\OrganizationService;
 use App\Services\PackingService;
 use App\Services\PartnerService;
 use App\Services\ProductService;
+use App\Services\QuizService;
 use App\Services\SimplePageService;
 use App\Services\TypeProductService;
 use App\Services\UserService;
@@ -141,7 +142,12 @@ class ApiController extends Controller
     protected $countryService;
 
     /**
-     * ApiController constructor.
+     * @var QuizService
+     */
+
+    protected $quizService;
+
+    /**
      * @param DadataService $daDataService
      * @param OrganizationService $organizationService
      * @param UserService $userService
@@ -158,6 +164,9 @@ class ApiController extends Controller
      * @param CityService $cityService
      * @param FilterService $filterService
      * @param OrderDocumentService $orderDocumentsService
+     * @param BikService $bikService
+     * @param CountryService $countryService
+     * @param QuizService $quizService
      */
 
     public function __construct(DadataService $daDataService,
@@ -177,7 +186,8 @@ class ApiController extends Controller
                                 FilterService $filterService,
                                 OrderDocumentService $orderDocumentsService,
                                 BikService $bikService,
-                                CountryService $countryService
+                                CountryService $countryService,
+                                QuizService $quizService
 
     )
     {
@@ -199,6 +209,7 @@ class ApiController extends Controller
         $this->orderDocumentsService = $orderDocumentsService;
         $this->bikService = $bikService;
         $this->countryService = $countryService;
+        $this->quizService = $quizService;
     }
 
     /**
@@ -617,6 +628,11 @@ class ApiController extends Controller
         return $output;
     }
 
+    /**
+     * @param Request $request
+     * @return array
+     */
+
     public function searchCatType(Request $request)
     {
 
@@ -671,8 +687,6 @@ class ApiController extends Controller
             $us = Auth::user();
             $user = $this->userService->getById($us->id);
             $output['user'] = $user;
-
-
             //dd($output);
             return response()->json($output,200);
         }
@@ -703,7 +717,6 @@ class ApiController extends Controller
 
      public function setNewOffer(Request $request)
      {
-
          if(!empty($request))
          {
              $this->offerService->saveOfferData($request);
@@ -858,5 +871,19 @@ class ApiController extends Controller
      public function getCountries()
      {
          return $this->countryService->getAll();
+     }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse|void
+     */
+
+     protected function getAccreditationQuiz()
+     {
+         $quiz = $this->quizService->getByIdWithRelations(1);
+         //dd($quiz)
+         if(!empty($quiz))
+         {
+             return response()->json($quiz,200);
+         }
      }
 }

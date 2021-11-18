@@ -30,6 +30,8 @@ Route::post('/auth/loginajax', [ApiController::class,'loginAjax']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//->middleware(['auth','IsAdmin']);
 
 
+Route::get('/get/accreditation/quiz',[ApiController::class,'getAccreditationQuiz']);
+
 Route::get('/get/countries',[ApiController::class,'getCountries']);
 Route::post('/get/inn/from/api',[ApiController::class,'getInnFromApi']);
 Route::post('/get/bank/from/bik',[ApiController::class,'getBankFromApi']);

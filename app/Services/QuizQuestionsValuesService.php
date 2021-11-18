@@ -4,31 +4,30 @@ namespace App\Services;
 
 
 
-use App\Repositories\AccreditationRepository;
-use App\Repositories\BikRepository;
-use App\Repositories\QuizRepository;
+
+use App\Repositories\QuizQuestionsValuesRepository;
 use Exception;
 use InvalidArgumentException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
-class QuizService
+class QuizQuestionsValuesService
 {
 
 
     /**
-     * @var QuizRepository
+     * @var QuizQuestionsValuesRepository
      */
 
-    protected $quizRepository;
+    protected $valueRepository;
 
     /**
-     * @param QuizRepository $quizRepository
+     * @param QuizQuestionsValuesRepository $valueRepository
      */
 
-    public function __construct(QuizRepository  $quizRepository)
+    public function __construct(QuizQuestionsValuesRepository  $valueRepository)
     {
-        $this->quizRepository = $quizRepository;
+        $this->valueRepository = $valueRepository;
     }
 
     /**
@@ -37,7 +36,7 @@ class QuizService
 
     public function getAll()
     {
-        return $this->quizRepository->getAll();
+        return $this->valueRepository->getAll();
     }
 
     /**
@@ -48,10 +47,11 @@ class QuizService
     public function save($data)
     {
         $validated = $data->validate([
-            'name'               => 'required',
+            'value_name'               => 'required',
+            'question_id'               => 'required',
         ]);
 
-        $result = $this->quizRepository->save($data);
+        $result = $this->valueRepository->save($data);
 
         return $result;
 
@@ -66,13 +66,14 @@ class QuizService
     public function update($data,$id)
     {
         $validated = $data->validate([
-            'name'               => 'required',
+            'value_name'         => 'required',
+            'question_id'        => 'required',
         ]);
 
         DB::beginTransaction();
 
         try {
-            $cat = $this->quizRepository->update($data, $id);
+            $cat = $this->valueRepository->update($data, $id);
 
         } catch (\Exception $e) {
             DB::rollBack();
@@ -93,20 +94,10 @@ class QuizService
 
     public function getById($id)
     {
-        $cat = $this->quizRepository->getById($id);
+        $cat = $this->valueRepository->getById($id);
         return $cat;
     }
 
-    /**
-     * @param $id
-     * @return mixed
-     */
-
-    public function getByIdWithRelations($id)
-    {
-        $cat = $this->quizRepository->getByIdWithRelations($id);
-        return $cat;
-    }
 
     /**
      * @param $id
@@ -120,7 +111,7 @@ class QuizService
             DB::beginTransaction();
 
             try {
-                $category = $this->quizRepository->delete($id);
+                $category = $this->valueRepository->delete($id);
 
             } catch (\Exception $e) {
                 DB::rollBack();

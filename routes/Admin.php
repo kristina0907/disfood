@@ -30,7 +30,7 @@ use App\Http\Controllers\Admin\OrderDocumentController;
 use App\Http\Controllers\Admin\AccreditationController;
 use App\Http\Controllers\Admin\QuizController;
 use App\Http\Controllers\Admin\QuizQuestionsController;
-
+use App\Http\Controllers\Admin\QuizQuestionsValuesController;
 /**
  *  Admin routes
  */
@@ -176,6 +176,17 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/quizquestions/edit/{id}',[QuizQuestionsController::class,'edit'])->name('quizquestions.edit');
     Route::post('/quizquestions/update',[QuizQuestionsController::class,'update'])->name('quizquestions.update');
     Route::get('/quizquestions/delete/{id}',[QuizQuestionsController::class,'delete'])->name('quizquestions.delete');
+
+    /**
+     *  QUIZ QUESTION VALUES ROUTES
+     */
+
+    Route::get('/quizquestionsvalues',[QuizQuestionsValuesController::class,'show']);
+    Route::get('/quizquestionsvalues/create',[QuizQuestionsValuesController::class,'create'])->name('quizquestionsvalues.create');
+    Route::post('/quizquestionsvalues/create',[QuizQuestionsValuesController::class,'store'])->name('quizquestionsvalues.store');
+    Route::get('/quizquestionsvalues/edit/{id}',[QuizQuestionsValuesController::class,'edit'])->name('quizquestionsvalues.edit');
+    Route::post('/quizquestionsvalues/update',[QuizQuestionsValuesController::class,'update'])->name('quizquestionsvalues.update');
+    Route::get('/quizquestionsvalues/delete/{id}',[QuizQuestionsValuesController::class,'delete'])->name('quizquestionsvalues.delete');
 
     /**
      * Cities routes

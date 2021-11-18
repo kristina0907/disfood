@@ -46,7 +46,13 @@ class QuizRepository implements QuizContract
             ->first();
     }
 
-
+    public function getByIdWithRelations($id)
+    {
+        return $this->quiz
+            ->where('id', $id)
+            ->with('questions.values')
+            ->first();
+    }
 
     /**
      * @param $data

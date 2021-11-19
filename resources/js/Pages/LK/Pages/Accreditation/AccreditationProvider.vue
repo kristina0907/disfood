@@ -538,7 +538,7 @@ export default {
             'filterProducts',
             'setProductValue',
             'filterSelect',
-            
+
         ]),
     changeStep() {
          if(this.step == 4){
@@ -547,7 +547,7 @@ export default {
          else{
             this.step++;
          }
-     
+
     },
   },
   mounted() {
@@ -567,6 +567,7 @@ export default {
             'filteredProducts',
             'productValue',
             'selectValue',
+            'answer'
         ]),
     },
 };

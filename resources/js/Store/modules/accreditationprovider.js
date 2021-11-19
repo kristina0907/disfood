@@ -73,6 +73,13 @@ export default {
             state.selectValue = data;
         },
 
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
         SET_CATEGORY_VALUE(state, data) {
             state.categoryValue = data;
         },
@@ -157,6 +164,17 @@ export default {
             state.productValue = data;
         },
 
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
+        SET_ANSWER(state,data)
+        {
+            state.answer.push(data);
+        }
 
     },
     actions: {
@@ -209,9 +227,10 @@ export default {
             commit('SET_SELECT_VALUE', data);
             let val = [];
             console.log(data);
+            commit('SET_ANSWER');
             val.question_id = data.question_id;
             // state.answer.push(val);
-           
+
         },
 
 
@@ -258,12 +277,19 @@ export default {
             commit('SET_TYPE_VALUE', data);
         },
 
+        /**
+         *
+         * @param commit
+         * @param state
+         * @param data
+         */
+
         addFilterValue({commit, state}, data)
         {
            commit('SET_FILTER_VALUE',data);
         },
 
-    
+
         /**
          *
          * @param commit

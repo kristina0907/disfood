@@ -226,10 +226,9 @@ export default {
          filterSelect({commit, state}, data) {
             commit('SET_SELECT_VALUE', data);
             let val = [];
-            console.log(data);
-            commit('SET_ANSWER');
             val.question_id = data.question_id;
-            // state.answer.push(val);
+            val.value_id = data.id;
+            commit('SET_ANSWER',val);
 
         },
 

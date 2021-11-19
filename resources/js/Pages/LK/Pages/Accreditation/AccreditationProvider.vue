@@ -154,7 +154,7 @@
                             deselectLabel="Нажмите еще раз чтобы удалить"
                             :value="selectValue"
                             :options="question.values"
-                            :multiple="true"
+                            :multiple="false"
                             :searchable="false"
                             :allow-empty="false"
                             label="value_name"

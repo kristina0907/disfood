@@ -243,7 +243,7 @@
                                         <div :class="{ 'col-md-12' : listView,'tile_container_item_offer_catalog col-md-12':tileView}">
                                             <div class="col-md-12">
                                                 <div class="row">
-                                                    <div class="item_product_category col-md-12"  v-for="item in product">
+                                                    <div class="item_product_category col-md-12" v-if="index < 3"  v-for="(item,index) in product">
                                                         <div class="info_item_offer_catalog">
                                                             <div class="image_info_item_offer_catalog" v-if="item.organization && item.organization.logo"
                                                                  :style="'background-image: url('+item.organization.logo+')'"></div>

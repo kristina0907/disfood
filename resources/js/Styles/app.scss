@@ -1742,6 +1742,11 @@ header .dropdown-menu.show {
     margin: 0;
     border-radius: 10px;
 }
+header .dropdown-item.active, .dropdown-item:active {
+    color: #22262A !important;
+    text-decoration: none;
+    background-color: transparent !important;
+}
 header.lk-header .nav-item.dropdown ul{
     margin-top: 50px !important;
     right: 0!important;
@@ -4134,13 +4139,16 @@ min-width: 280px;
 .select_question_checkbox .multiselect__tags {
     min-height: 62px;
     display: block;
-    padding: 30px 40px 0px 20px;
+    padding: 20px 40px 0px 20px;
     border-radius: 10px;
     border: 1px solid #c8ccd1;
     background: #fff;
     font-size: 14px;
     width: 100%;
     margin-bottom: 30px;
+}
+.select_question_checkbox.pd_select .multiselect__tags {
+    padding: 30px 40px 0px 20px;
 }
 .select_question_checkbox .multiselect__content{
     list-style: none;

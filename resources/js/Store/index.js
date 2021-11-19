@@ -13,6 +13,7 @@ import editproduct from "./modules/editproduct";
 import allnews from "./modules/allnews";
 import searchlocation from "./modules/searchlocation";
 import mymessages from "./modules/mymessages";
+import accreditationprovider from "./modules/accreditationprovider";
 
 
 Vue.use(Vuex);
@@ -32,7 +33,8 @@ const store = new Vuex.Store({
         editproduct,
         allnews,
         searchlocation,
-        mymessages
+        mymessages,
+        accreditationprovider
     },
     state:{
         user:null,

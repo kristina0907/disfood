@@ -156,19 +156,19 @@ const routes = [
     {
         path:'/accreditation/customer',
         component:()=> import('../Pages/LK/Pages/Accreditation/AccreditationCustomer'),
-        name:'accreditation',
+        name:'accreditationcustomer',
         props: true,
     },
     {
         path:'/accreditation/success',
         component:()=> import('../Pages/LK/Pages/Accreditation/AccreditationSuccess'),
-        name:'accreditation',
+        name:'accreditationsuccess',
         props: true,
     },
     {
         path:'/accreditation/provider',
         component:()=> import('../Pages/LK/Pages/Accreditation/AccreditationProvider'),
-        name:'accreditation',
+        name:'accreditationprovider',
         props: true,
     },
     { path: "*", component:()=> import('../Pages/404'), }

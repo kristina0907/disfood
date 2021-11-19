@@ -31,6 +31,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::get('/get/accreditation/quiz',[ApiController::class,'getAccreditationQuiz']);
+Route::post('/set/accreditation/quiz',[ApiController::class,'setAccreditationQuiz']);
 
 Route::get('/get/countries',[ApiController::class,'getCountries']);
 Route::post('/get/inn/from/api',[ApiController::class,'getInnFromApi']);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AccreditationAnswersService;
 use App\Services\BikService;
 use App\Services\CategoryService;
 use App\Services\ChatRoomService;
@@ -148,6 +149,12 @@ class ApiController extends Controller
     protected $quizService;
 
     /**
+     * @var AccreditationAnswersService
+     */
+
+    protected $accreditationAnswerService;
+
+    /**
      * @param DadataService $daDataService
      * @param OrganizationService $organizationService
      * @param UserService $userService
@@ -167,6 +174,7 @@ class ApiController extends Controller
      * @param BikService $bikService
      * @param CountryService $countryService
      * @param QuizService $quizService
+     * @param AccreditationAnswersService $accreditationAnswerService
      */
 
     public function __construct(DadataService $daDataService,
@@ -187,7 +195,8 @@ class ApiController extends Controller
                                 OrderDocumentService $orderDocumentsService,
                                 BikService $bikService,
                                 CountryService $countryService,
-                                QuizService $quizService
+                                QuizService $quizService,
+                                AccreditationAnswersService $accreditationAnswerService
 
     )
     {
@@ -210,6 +219,7 @@ class ApiController extends Controller
         $this->bikService = $bikService;
         $this->countryService = $countryService;
         $this->quizService = $quizService;
+        $this->accreditationAnswerService  = $accreditationAnswerService;
     }
 
     /**
@@ -880,10 +890,22 @@ class ApiController extends Controller
      protected function getAccreditationQuiz()
      {
          $quiz = $this->quizService->getByIdWithRelations(1);
-         //dd($quiz)
+
          if(!empty($quiz))
          {
              return response()->json($quiz,200);
+         }
+     }
+
+    /**
+     * @param Request $request
+     */
+
+     public function setAccreditationQuiz(Request $request)
+     {
+         if(!empty($request))
+         {
+            $this->accreditationAnswerService->save($request->answers);
          }
      }
 }

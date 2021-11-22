@@ -299,18 +299,26 @@ export default {
          *
          * @param state
          * @param commit
-         * 
+         *
          */
 
         sendDataAnswrer({state,commit,rootState})
         {
             console.log("rootState",rootState);
-            let formData = new FormData();
+
+            let data = {
+                'organization_id': rootState.user.user.current_organization_id,
+                'category_id'    : state.categoryValue,
+                'type_id'        : state.typeValue,
+                'answer'         : state.answer
+            }
+
+          /*  let formData = new FormData();
             formData.append('organization_id', rootState.user.user.current_organization_id);
             formData.append('category_id',JSON.stringify(state.categoryValue));
             formData.append('type_id',JSON.stringify(state.typeValue));
-            formData.append('answer',JSON.stringify(state.answer));
-            console.log("formData",formData);
+            formData.append('answer',JSON.stringify(state.answer));*/
+            console.log(data);
             axios.post('/set/accreditation/quiz', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
@@ -319,7 +327,7 @@ export default {
                 if(response.status == 200)
                 {
                     console.log(response.status)
-                    router.push({ name: 'addnewproductsuccess', query: { redirect: '/addnewproduct/success' } });
+                    //router.push({ name: 'addnewproductsuccess', query: { redirect: '/addnewproduct/success' } });
                 }
             });
         }

@@ -6559,6 +6559,9 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     border-radius: 10px;
     margin-bottom: 40px;
 }
+.error_answer{
+    color: red;
+}
 .btn_next_question{
     padding: 20px 40px;
     background: #F0F2F4;
@@ -6568,6 +6571,9 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     font-size: 15px;
     line-height: 20px;
     color: #66727E;
+    display: inline-block;
+    margin-right: 20px;
+    cursor: pointer;
 }
 .btn_next_question:hover{
     color: #FFFFFF;

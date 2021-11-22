@@ -173,7 +173,7 @@ export default {
 
         SET_ANSWER(state,data)
         {
-            state.answer.push(data);
+            state.answer = data;
         }
 
     },
@@ -223,14 +223,8 @@ export default {
          * @param data
          */
 
-         filterSelect({commit, state}, data) {
-            commit('SET_SELECT_VALUE', data);
-            let val = [];
-            console.log(data);
-            commit('SET_ANSWER');
-            val.question_id = data.question_id;
-            // state.answer.push(val);
-
+         setAnswer({commit, state}, data) {
+            commit('SET_ANSWER',data);
         },
 
 
@@ -305,18 +299,19 @@ export default {
          *
          * @param state
          * @param commit
+         * 
          */
 
-        sendDataNewProduct({state,commit,rootState})
+        sendDataAnswrer({state,commit,rootState})
         {
+            console.log("rootState",rootState);
             let formData = new FormData();
-
             formData.append('organization_id', rootState.user.user.current_organization_id);
             formData.append('category_id',JSON.stringify(state.categoryValue));
             formData.append('type_id',JSON.stringify(state.typeValue));
-            formData.append('filters',JSON.stringify(state.filterValue));
-            console.log(formData)
-            axios.post('/set/new/offer', formData, {
+            formData.append('answer',JSON.stringify(state.answer));
+            console.log("formData",formData);
+            axios.post('/set/accreditation/quiz', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

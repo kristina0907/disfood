@@ -20,7 +20,7 @@
             :limit="3"
             :show-no-results="false"
             :hide-selected="true"
-            @select="changeCode"
+            @select="changeCode()"
 
         ></multiselect>
     </div>

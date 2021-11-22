@@ -179,10 +179,104 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    ChatRoom: _omponents_LK_ChatRoom__WEBPACK_IMPORTED_MODULE_0__.default
+    ChatRoom: _omponents_LK_ChatRoom__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
@@ -192,6 +286,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    /**
+     *
+     */
     getData: function getData() {
       var _this = this;
 
@@ -201,6 +298,10 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
+
+    /**
+     *
+     */
     getLastMessage: function getLastMessage() {
       var _this2 = this;
 
@@ -210,24 +311,46 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
+
+    /**
+     *
+     * @param data
+     */
     changeLastMessage: function changeLastMessage(data) {
       var self = this;
       self.lastMessage = data.lastMessage;
     },
-    summPackage: function summPackage(price, capacity) {
-      return price * capacity;
+
+    /**
+     *
+     * @param price
+     * @param capacity
+     * @returns {number}
+     */
+    summPackage: function summPackage(price, capacity, value) {
+      return parseFloat(price) * (parseFloat(capacity) * parseFloat(value));
     },
+
+    /**
+     *
+     * @returns {number}
+     */
     summAll: function summAll() {
       var summ = 0;
 
       if (this.order.packages) {
         this.order.packages.map(function (item) {
-          summ = parseFloat(summ) + parseFloat(item.capacity) * parseFloat(item.price);
+          summ = parseFloat(summ) + parseFloat(item.capacity) * parseFloat(item["package"].value) * parseFloat(item.price);
         });
       }
 
       return summ;
     },
+
+    /**
+     *
+     * @returns {number}
+     */
     capacityAll: function capacityAll() {
       var summ = 0;
 
@@ -367,24 +490,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       event.preventDefault();
       var self = this;
       var message = self.newMessage;
-      var author = 11; //TODO подтянуть сюда user_id
+      var author = '';
+
+      if (this.user && this.user.user) {
+        author = this.user.user.id;
+      }
 
       var chat_room = self.$attrs.offerId;
-      axios.post('/send/messages', {
-        message: message,
-        author: author,
-        room: chat_room
-      }).then(function (response) {
-        if (response.data !== 'undefined' && response.data !== null) {
-          _this2.messages.push(response.data);
 
-          _this2.newMessage = '';
-        }
+      if (author) {
+        axios.post('/send/messages', {
+          message: message,
+          author: author,
+          room: chat_room
+        }).then(function (response) {
+          if (response.data !== 'undefined' && response.data !== null) {
+            _this2.messages.push(response.data);
 
-        self.$emit('changeLastMessage', {
-          lastMessage: response.data
+            _this2.newMessage = '';
+          }
+
+          self.$emit('changeLastMessage', {
+            lastMessage: response.data
+          });
         });
-      });
+      }
     },
     scroll: function scroll() {
       document.getElementById('cont').scrollTop = document.getElementById('cont').scrollHeight;
@@ -425,8 +555,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _OrderPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _OrderPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _OrderPage_vue_vue_type_template_id_0bcaedeb___WEBPACK_IMPORTED_MODULE_0__.render,
   _OrderPage_vue_vue_type_template_id_0bcaedeb___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -463,8 +593,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _ChatRoom_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ChatRoom_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _ChatRoom_vue_vue_type_template_id_2587a2ec___WEBPACK_IMPORTED_MODULE_0__.render,
   _ChatRoom_vue_vue_type_template_id_2587a2ec___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -492,7 +622,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OrderPage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/LK/Pages/OrderPage.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -507,7 +637,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatRoom_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ChatRoom.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/LK/ChatRoom.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatRoom_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatRoom_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -569,183 +699,640 @@ var render = function() {
               _c("div", { staticClass: "prev_page" }, [_vm._v("Назад")])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "transaction_name" }, [
-              _vm._v("Сделка №" + _vm._s(_vm.order.id))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "info_transaction" }, [
-              _c("div", { staticClass: "status_transaction" }, [
-                _vm._v("Оплата")
-              ]),
+            _c("div", [
+              _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "create_transaction" }, [
-                _vm._v("Создана " + _vm._s(_vm.order.created_at))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "total_transaction" }, [
-              _c("div", { staticClass: "title_block_transaction" }, [
-                _vm._v("Итого")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "sum_transaction" }, [
-                _vm._v("Сумма сделки: "),
-                _c("span", [_vm._v(_vm._s(_vm.summAll()) + " ₽")]),
-                _vm._v(" "),
-                _c("span", { staticClass: "nds" }, [_vm._v("НДС")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "volume_transaction" }, [
-                _vm._v("Объем сделки: "),
-                _c("span", [_vm._v(_vm._s(_vm.capacityAll()) + " кг")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "delivery_transaction" },
-              [
-                _c("div", { staticClass: "title_block_transaction" }, [
-                  _vm._v("Доставка")
+              _c("div", { staticClass: "info-transaction_block" }, [
+                _c("div", { staticClass: "transaction_name" }, [
+                  _vm._v("Сделка №" + _vm._s(_vm.order.id))
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "where_from_transaction" }, [
-                  _c("div", { staticClass: "icon_where" }, [
-                    _c(
-                      "svg",
-                      {
-                        attrs: {
-                          width: "25",
-                          height: "25",
-                          viewBox: "0 0 25 25",
-                          fill: "none",
-                          xmlns: "http://www.w3.org/2000/svg"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M5.20825 14.8779L12.4999 21.8749L19.7916 14.8779",
-                            stroke: "#8898A8",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("line", {
-                          attrs: {
-                            x1: "1",
-                            y1: "-1",
-                            x2: "17.4719",
-                            y2: "-1",
-                            transform:
-                              "matrix(1.19249e-08 -1 -1 -1.19249e-08 11.4915 21.5967)",
-                            stroke: "#8898A8",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round"
-                          }
-                        })
-                      ]
-                    )
+                _c("div", { staticClass: "info_transaction" }, [
+                  _c("div", { staticClass: "status_transaction" }, [
+                    _vm._v("Оплата")
                   ]),
                   _vm._v(" "),
-                  _vm.order.from
-                    ? _c("div", [
-                        _vm._v(
-                          _vm._s(_vm.order.from.region_ru) +
-                            ", " +
-                            _vm._s(_vm.order.from.title_ru)
-                        )
-                      ])
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "where_transaction" }, [
-                  _c("div", { staticClass: "icon_where" }, [
-                    _c(
-                      "svg",
-                      {
-                        attrs: {
-                          width: "25",
-                          height: "26",
-                          viewBox: "0 0 25 26",
-                          fill: "none",
-                          xmlns: "http://www.w3.org/2000/svg"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M22.9166 11.4584C22.9166 16.0129 16.3878 21.8434 13.6677 24.0749C12.9822 24.6373 12.0177 24.6373 11.3321 24.0749C8.61203 21.8434 2.08325 16.0129 2.08325 11.4584C2.08325 5.70545 6.74695 1.04175 12.4999 1.04175C18.2529 1.04175 22.9166 5.70545 22.9166 11.4584Z",
-                            stroke: "#8898A8",
-                            "stroke-width": "2"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("ellipse", {
-                          attrs: {
-                            cx: "12.5",
-                            cy: "11.4583",
-                            rx: "3.125",
-                            ry: "3.125",
-                            stroke: "#8898A8",
-                            "stroke-width": "2"
-                          }
-                        })
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm.order.delivery
-                    ? _c("div", [
-                        _vm._v(
-                          _vm._s(_vm.order.delivery.region_ru) +
-                            ", " +
-                            _vm._s(_vm.order.delivery.title_ru)
-                        )
-                      ])
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
-                _vm._l(_vm.order.type_delivery, function(del) {
-                  return _vm.order.type_delivery
-                    ? _c("div", { staticClass: "type_transaction" }, [
-                        _vm._v("Тип доставки: "),
-                        _c("span", [_vm._v(_vm._s(del.name))])
-                      ])
-                    : _vm._e()
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "partner_transaction" }, [
-                  _vm._v("Контрагент: "),
-                  _vm.order.organization
-                    ? _c("span", [_vm._v(_vm._s(_vm.order.organization.name))])
-                    : _vm._e()
-                ])
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "history_transaction" },
-              [
-                _c("div", { staticClass: "title_block_transaction" }, [
-                  _vm._v("История сделки")
-                ]),
-                _vm._v(" "),
-                _vm._l(_vm.order.history, function(history) {
-                  return _c("div", { staticClass: "date_active_transaction" }, [
-                    _vm._v(_vm._s(history.created_at)),
-                    _c("span", [_vm._v(_vm._s(history.status.name))])
+                  _c("div", { staticClass: "create_transaction" }, [
+                    _vm._v("Создана " + _vm._s(_vm.order.created_at))
                   ])
-                })
-              ],
-              2
-            )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "tab-content", attrs: { id: "myTabContent" } },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-pane fade show active",
+                      attrs: {
+                        id: "information",
+                        role: "tabpanel",
+                        "aria-labelledby": "information-tab"
+                      }
+                    },
+                    [
+                      _c("div", [
+                        _c("div", { staticClass: "total_transaction" }, [
+                          _c(
+                            "div",
+                            { staticClass: "title_block_transaction" },
+                            [_vm._v("Итого")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "sum_transaction" }, [
+                            _vm._v("Сумма сделки: "),
+                            _c("span", [_vm._v(_vm._s(_vm.summAll()) + " ₽")]),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "nds" }, [_vm._v("НДС")])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "volume_transaction" }, [
+                            _vm._v("Объем сделки: "),
+                            _c("span", [
+                              _vm._v(_vm._s(_vm.capacityAll()) + " кг")
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "delivery_transaction" },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "title_block_transaction" },
+                              [_vm._v("Доставка")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "where_from_transaction" },
+                              [
+                                _c("div", { staticClass: "icon_where" }, [
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        width: "25",
+                                        height: "25",
+                                        viewBox: "0 0 25 25",
+                                        fill: "none",
+                                        xmlns: "http://www.w3.org/2000/svg"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d:
+                                            "M5.20825 14.8779L12.4999 21.8749L19.7916 14.8779",
+                                          stroke: "#8898A8",
+                                          "stroke-width": "2",
+                                          "stroke-linecap": "round",
+                                          "stroke-linejoin": "round"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("line", {
+                                        attrs: {
+                                          x1: "1",
+                                          y1: "-1",
+                                          x2: "17.4719",
+                                          y2: "-1",
+                                          transform:
+                                            "matrix(1.19249e-08 -1 -1 -1.19249e-08 11.4915 21.5967)",
+                                          stroke: "#8898A8",
+                                          "stroke-width": "2",
+                                          "stroke-linecap": "round"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.order.from
+                                  ? _c("div", [
+                                      _vm._v(
+                                        _vm._s(_vm.order.from.region_ru) +
+                                          ", " +
+                                          _vm._s(_vm.order.from.title_ru)
+                                      )
+                                    ])
+                                  : _vm._e()
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "where_transaction" }, [
+                              _c("div", { staticClass: "icon_where" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      width: "25",
+                                      height: "26",
+                                      viewBox: "0 0 25 26",
+                                      fill: "none",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M22.9166 11.4584C22.9166 16.0129 16.3878 21.8434 13.6677 24.0749C12.9822 24.6373 12.0177 24.6373 11.3321 24.0749C8.61203 21.8434 2.08325 16.0129 2.08325 11.4584C2.08325 5.70545 6.74695 1.04175 12.4999 1.04175C18.2529 1.04175 22.9166 5.70545 22.9166 11.4584Z",
+                                        stroke: "#8898A8",
+                                        "stroke-width": "2"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("ellipse", {
+                                      attrs: {
+                                        cx: "12.5",
+                                        cy: "11.4583",
+                                        rx: "3.125",
+                                        ry: "3.125",
+                                        stroke: "#8898A8",
+                                        "stroke-width": "2"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _vm.order.delivery
+                                ? _c("div", [
+                                    _vm._v(
+                                      _vm._s(_vm.order.delivery.region_ru) +
+                                        ", " +
+                                        _vm._s(_vm.order.delivery.title_ru)
+                                    )
+                                  ])
+                                : _vm._e()
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.order.type_delivery, function(del) {
+                              return _vm.order.type_delivery
+                                ? _c(
+                                    "div",
+                                    { staticClass: "type_transaction" },
+                                    [
+                                      _vm._v("Тип доставки: "),
+                                      _c("span", [_vm._v(_vm._s(del.name))])
+                                    ]
+                                  )
+                                : _vm._e()
+                            }),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "partner_transaction" }, [
+                              _vm._v("Контрагент: "),
+                              _vm.order.organization
+                                ? _c("span", [
+                                    _vm._v(_vm._s(_vm.order.organization.name))
+                                  ])
+                                : _vm._e()
+                            ])
+                          ],
+                          2
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "history_transaction" },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "title_block_transaction" },
+                              [_vm._v("История сделки")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.order.history, function(history) {
+                              return _c(
+                                "div",
+                                { staticClass: "date_active_transaction" },
+                                [
+                                  _vm._v(_vm._s(history.created_at)),
+                                  _c("span", [
+                                    _vm._v(_vm._s(history.status.name))
+                                  ])
+                                ]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-pane fade",
+                      attrs: {
+                        id: "documents",
+                        role: "tabpanel",
+                        "aria-labelledby": "documents-tab"
+                      }
+                    },
+                    [
+                      _c("div", [
+                        _c(
+                          "div",
+                          { staticClass: "delivery_help_documents" },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "title_block_transaction document_title_transaction"
+                              },
+                              [_vm._v("Документы")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "description_title_block_transaction"
+                              },
+                              [
+                                _vm._v(
+                                  "Подсказка: какие это документы и для чего они нужны"
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "document_order_save" }, [
+                              _c("div", { staticClass: "icon_where" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      width: "50",
+                                      height: "50",
+                                      viewBox: "0 0 50 50",
+                                      fill: "none",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c("circle", {
+                                      attrs: {
+                                        cx: "25",
+                                        cy: "25",
+                                        r: "25",
+                                        fill: "#F0F2F4"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M29.6494 23.5613L25.151 28.5861L20.6526 23.5613",
+                                        stroke: "#444C54",
+                                        "stroke-width": "2",
+                                        "stroke-linecap": "round",
+                                        "stroke-linejoin": "round"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("line", {
+                                      attrs: {
+                                        x1: "25.0225",
+                                        y1: "26.6289",
+                                        x2: "25.0225",
+                                        y2: "16.0535",
+                                        stroke: "#444C54",
+                                        "stroke-width": "2",
+                                        "stroke-linecap": "round"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M17 24V29C17 31.7614 19.2386 34 22 34H28C30.7614 34 33 31.7614 33 29V24",
+                                        stroke: "#444C54",
+                                        "stroke-width": "2",
+                                        "stroke-linecap": "round",
+                                        "stroke-linejoin": "round"
+                                      }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("span", [_vm._v("Документ.PDF")])
+                              ]),
+                              _vm._v(" "),
+                              _vm.order.from
+                                ? _c("div", [
+                                    _vm._v(
+                                      _vm._s(_vm.order.from.region_ru) +
+                                        ", " +
+                                        _vm._s(_vm.order.from.title_ru)
+                                    )
+                                  ])
+                                : _vm._e()
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "document_order_save" }, [
+                              _c("div", { staticClass: "icon_where" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      width: "50",
+                                      height: "50",
+                                      viewBox: "0 0 50 50",
+                                      fill: "none",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c("circle", {
+                                      attrs: {
+                                        cx: "25",
+                                        cy: "25",
+                                        r: "25",
+                                        fill: "#F0F2F4"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M29.6494 23.5613L25.151 28.5861L20.6526 23.5613",
+                                        stroke: "#444C54",
+                                        "stroke-width": "2",
+                                        "stroke-linecap": "round",
+                                        "stroke-linejoin": "round"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("line", {
+                                      attrs: {
+                                        x1: "25.0225",
+                                        y1: "26.6289",
+                                        x2: "25.0225",
+                                        y2: "16.0535",
+                                        stroke: "#444C54",
+                                        "stroke-width": "2",
+                                        "stroke-linecap": "round"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M17 24V29C17 31.7614 19.2386 34 22 34H28C30.7614 34 33 31.7614 33 29V24",
+                                        stroke: "#444C54",
+                                        "stroke-width": "2",
+                                        "stroke-linecap": "round",
+                                        "stroke-linejoin": "round"
+                                      }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("span", [_vm._v("Документ.PDF")])
+                              ]),
+                              _vm._v(" "),
+                              _vm.order.delivery
+                                ? _c("div", [
+                                    _vm._v(
+                                      _vm._s(_vm.order.delivery.region_ru) +
+                                        ", " +
+                                        _vm._s(_vm.order.delivery.title_ru)
+                                    )
+                                  ])
+                                : _vm._e()
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.order.type_delivery, function(del) {
+                              return _vm.order.type_delivery
+                                ? _c(
+                                    "div",
+                                    { staticClass: "type_transaction" },
+                                    [
+                                      _vm._v("Тип доставки: "),
+                                      _c("span", [_vm._v(_vm._s(del.name))])
+                                    ]
+                                  )
+                                : _vm._e()
+                            })
+                          ],
+                          2
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "history_transaction" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "title_block_transaction document_title_transaction"
+                            },
+                            [_vm._v("Выгрузка документов")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "description_title_block_transaction"
+                            },
+                            [_vm._v("Подсказка: какие это документы")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "container_document_order_save" },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "document_order_save" },
+                                [
+                                  _c("div", { staticClass: "icon_where" }, [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          width: "50",
+                                          height: "50",
+                                          viewBox: "0 0 50 50",
+                                          fill: "none",
+                                          xmlns: "http://www.w3.org/2000/svg"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            opacity: "0.4",
+                                            cx: "25",
+                                            cy: "25",
+                                            r: "25",
+                                            fill: "#CAE7BA"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M17 25.3137L22.6569 30.9706L33.9706 19.6569",
+                                            stroke: "#71BF45",
+                                            "stroke-width": "2",
+                                            "stroke-linecap": "round"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("span", [_vm._v("Документ.PDF")])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm.order.from
+                                    ? _c("div", [
+                                        _vm._v(
+                                          _vm._s(_vm.order.from.region_ru) +
+                                            ", " +
+                                            _vm._s(_vm.order.from.title_ru)
+                                        )
+                                      ])
+                                    : _vm._e()
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "document_order_save" },
+                                [
+                                  _c("div", { staticClass: "icon_where" }, [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          width: "50",
+                                          height: "50",
+                                          viewBox: "0 0 50 50",
+                                          fill: "none",
+                                          xmlns: "http://www.w3.org/2000/svg"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            opacity: "0.4",
+                                            cx: "25",
+                                            cy: "25",
+                                            r: "25",
+                                            fill: "#CAE7BA"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M17 25.3137L22.6569 30.9706L33.9706 19.6569",
+                                            stroke: "#71BF45",
+                                            "stroke-width": "2",
+                                            "stroke-linecap": "round"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("span", [_vm._v("Документ.PDF")])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm.order.from
+                                    ? _c("div", [
+                                        _vm._v(
+                                          _vm._s(_vm.order.from.region_ru) +
+                                            ", " +
+                                            _vm._s(_vm.order.from.title_ru)
+                                        )
+                                      ])
+                                    : _vm._e()
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "container_document_transaction uploaded"
+                            },
+                            [
+                              _c("div", { staticClass: "form-group" }, [
+                                _c("input", {
+                                  staticClass: "input-file",
+                                  attrs: {
+                                    type: "file",
+                                    name: "file",
+                                    id: "file"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass:
+                                      "btn btn-tertiary js-labelFile",
+                                    attrs: { for: "file" }
+                                  },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          width: "24",
+                                          height: "24",
+                                          viewBox: "0 0 24 24",
+                                          fill: "none",
+                                          xmlns: "http://www.w3.org/2000/svg"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M12 3V21",
+                                            stroke: "#71BF45",
+                                            "stroke-width": "2",
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M3 12L21 12",
+                                            stroke: "#71BF45",
+                                            "stroke-width": "2",
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("span", [
+                                      _vm._v("Загрузить подписанный договор")
+                                    ])
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ])
           ],
           1
         )
@@ -771,7 +1358,7 @@ var render = function() {
                 }
               },
               [
-                _vm._m(0),
+                _vm._m(1),
                 _vm._v(" "),
                 _c("div", { staticClass: "last_message" }, [
                   _c("div", { staticClass: "top_last_message" }, [
@@ -971,12 +1558,12 @@ var render = function() {
                                 staticClass: "image_product_table",
                                 style:
                                   "background-image: url(" +
-                                  _vm.order.offer.product.image +
+                                  _vm.order.offer.type.image +
                                   ");"
                               }),
                               _vm._v(" "),
                               _c("div", [
-                                _vm._v(_vm._s(_vm.order.offer.product.name))
+                                _vm._v(_vm._s(_vm.order.offer.type.name))
                               ])
                             ]
                           )
@@ -984,14 +1571,26 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(pack.package.name))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(pack.capacity) + " кг")]),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              parseFloat(pack.capacity) *
+                                parseFloat(pack.package.value)
+                            ) + " кг"
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(pack.price) + " Р / кг")]),
                         _vm._v(" "),
                         _c("td", { staticClass: "sum_table" }, [
                           _vm._v(
-                            _vm._s(_vm.summPackage(pack.price, pack.capacity)) +
-                              " Р"
+                            _vm._s(
+                              _vm.summPackage(
+                                pack.price,
+                                pack.capacity,
+                                pack.package.value
+                              )
+                            ) + " Р"
                           )
                         ])
                       ])
@@ -1001,7 +1600,7 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(1)
+              _vm._m(2)
             ])
           ],
           1
@@ -1011,6 +1610,55 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      {
+        staticClass: "nav nav-tabs transaction-tabs",
+        attrs: { id: "myTab", role: "tablist" }
+      },
+      [
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link active",
+              attrs: {
+                id: "all-tab",
+                "data-toggle": "tab",
+                href: "#information",
+                role: "tab",
+                "aria-controls": "information",
+                "aria-selected": "true"
+              }
+            },
+            [_vm._v("Общая информация")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "deal-tab",
+                "data-toggle": "tab",
+                href: "#documents",
+                role: "tab",
+                "aria-controls": "documents",
+                "aria-selected": "false"
+              }
+            },
+            [_vm._v("Документы")]
+          )
+        ])
+      ]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

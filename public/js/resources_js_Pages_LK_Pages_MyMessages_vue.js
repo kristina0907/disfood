@@ -12,6 +12,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _omponents_LK_UserLKHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Сomponents/LK/UserLKHeader */ "./resources/js/Сomponents/LK/UserLKHeader.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -202,13 +250,79 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    UserLKHeader: _omponents_LK_UserLKHeader__WEBPACK_IMPORTED_MODULE_0__.default
+    UserLKHeader: _omponents_LK_UserLKHeader__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
-    return {};
-  }
+    return {
+      message: '',
+      active: ''
+    };
+  },
+  methods: _objectSpread(_objectSpread({}, vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions[('mymessages', ['getMessages', 'showMessages', 'sendMessage'])]), {}, {
+    /**
+     *
+     * @param id
+     */
+    showMessage: function showMessage(id) {
+      this.active = id;
+      this.$store.dispatch('mymessages/showMessages', id);
+    },
+    sendMessage: function sendMessage() {
+      var self = this;
+      var message = self.message;
+      var author = '';
+
+      if (this.user && this.user.user) {
+        author = this.user.user.id;
+      }
+
+      var chat_room = this.currentOffer; //console.log(chat_room);
+
+      if (author) {
+        var data = {
+          message: message,
+          author: author,
+          room: chat_room
+        };
+        this.$store.dispatch('mymessages/sendMessage', data);
+      }
+    },
+
+    /**
+     *
+     */
+    scroll: function scroll() {
+      var scroll = document.getElementById('containerMessage');
+
+      if (scroll) {
+        document.getElementById('containerMessage').scrollTop = document.getElementById('containerMessage').scrollHeight;
+      }
+    },
+
+    /**
+     *
+     * @param e
+     */
+    onFileChange: function onFileChange(e) {
+      var vm = this;
+      var selectedFiles = e.target.files;
+
+      for (var i = 0; i < selectedFiles.length; i++) {
+        //console.log(selectedFiles[i]);
+        vm.newFiles.push(selectedFiles[i]);
+      }
+    }
+  }),
+  mounted: function mounted() {
+    this.$store.dispatch('mymessages/getMessages');
+  },
+  updated: function updated() {
+    this.scroll();
+  },
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapState)('mymessages', ['messages', 'messagesFromId', 'currentOffer', 'newMessage', 'newFiles'])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapState)(['user']))
 });
 
 /***/ }),
@@ -289,7 +403,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    UserLoginAuthButton: _UserLoginAuthButton__WEBPACK_IMPORTED_MODULE_0__.default
+    UserLoginAuthButton: _UserLoginAuthButton__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
@@ -455,7 +569,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'user-login-auth-button',
@@ -487,7 +600,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.text-user-login-button\n{\n    font-family: Montserrat;\n    font-weight: 400;\n    font-size: 15px;\n    line-height: 20px;\n    padding: 20px;\n}\n.dropdown-item.dropdown-item-settings.user-login-a\n{\n    font-family: Montserrat;\n    font-weight: 600;\n    font-size: 15px;\n    line-height: 20px;\n    color: #71BF45;\n    cursor: pointer;\n}\nheader .dropdown-menu.show\n{\n    left:-50%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.text-user-login-button\r\n{\r\n    font-family: Montserrat;\r\n    font-weight: 400;\r\n    font-size: 15px;\r\n    line-height: 20px;\r\n    padding: 20px;\n}\n.dropdown-item.dropdown-item-settings.user-login-a\r\n{\r\n    font-family: Montserrat;\r\n    font-weight: 600;\r\n    font-size: 15px;\r\n    line-height: 20px;\r\n    color: #71BF45;\r\n    cursor: pointer;\n}\nheader .dropdown-menu.show\r\n{\r\n    left:-50%;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -515,11 +628,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default, options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -543,8 +656,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _MyMessages_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MyMessages_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _MyMessages_vue_vue_type_template_id_887264cc___WEBPACK_IMPORTED_MODULE_0__.render,
   _MyMessages_vue_vue_type_template_id_887264cc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -581,8 +694,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _UserLKHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UserLKHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _UserLKHeader_vue_vue_type_template_id_6c98f324___WEBPACK_IMPORTED_MODULE_0__.render,
   _UserLKHeader_vue_vue_type_template_id_6c98f324___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -621,8 +734,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
-  _UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__.render,
   _UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -650,7 +763,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MyMessages_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MyMessages.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/LK/Pages/MyMessages.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MyMessages_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MyMessages_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -665,7 +778,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLKHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UserLKHeader.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/LK/UserLKHeader.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLKHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLKHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -680,7 +793,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UserLoginAuthButton.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -854,7 +967,193 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(0)
+              _c("div", { staticClass: "deal_sidebar" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "tab-content", attrs: { id: "myTabContent" } },
+                  [
+                    _vm.messages
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane fade show active",
+                            attrs: {
+                              id: "all",
+                              role: "tabpanel",
+                              "aria-labelledby": "all-tab"
+                            }
+                          },
+                          _vm._l(_vm.messages, function(message, index) {
+                            return _c("div", [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "item_deal_sidebar",
+                                  class: { active: index == _vm.active },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.showMessage(index)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "left_item_deal_sidebar" },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "tile_item_deal_sidebar"
+                                        },
+                                        [_vm._v("Сделка " + _vm._s(index))]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "text_item_deal_sidebar"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                                " +
+                                              _vm._s(
+                                                message[message.length - 1]
+                                                  .message
+                                              ) +
+                                              "\n                                            "
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "right_item_deal_sidebar" },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "time_item_deal_sidebar"
+                                        },
+                                        [
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(
+                                                _vm._f("moment")(
+                                                  message[message.length - 1]
+                                                    .created_at,
+                                                  "HH:MM D-MM-YYYY"
+                                                )
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.messages
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane fade",
+                            attrs: {
+                              id: "deal",
+                              role: "tabpanel",
+                              "aria-labelledby": "deal-tab"
+                            }
+                          },
+                          _vm._l(_vm.messages, function(message, index) {
+                            return _c("div", [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "item_deal_sidebar",
+                                  class: { active: index == _vm.active },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.showMessage(index)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "left_item_deal_sidebar" },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "tile_item_deal_sidebar"
+                                        },
+                                        [_vm._v("Сделка " + _vm._s(index))]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "text_item_deal_sidebar"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                            " +
+                                              _vm._s(
+                                                message[message.length - 1]
+                                                  .message
+                                              ) +
+                                              "\n                                        "
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "right_item_deal_sidebar" },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "time_item_deal_sidebar"
+                                        },
+                                        [
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(
+                                                _vm._f("moment")(
+                                                  message[message.length - 1]
+                                                    .created_at,
+                                                  "HH:MM D-MM-YYYY"
+                                                )
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm._m(1)
+                  ]
+                )
+              ])
             ]
           )
         ]
@@ -862,36 +1161,251 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "xs-12 col-md-8" }, [
         _c("div", { staticClass: "right_container" }, [
-          _c("div", { staticClass: "select_deal_container" }, [
-            _c("div", { staticClass: "image_select_deal" }, [
-              _c(
-                "svg",
-                {
-                  attrs: {
-                    width: "87",
-                    height: "84",
-                    viewBox: "0 0 87 84",
-                    fill: "none",
-                    xmlns: "http://www.w3.org/2000/svg"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M22.5033 7.41667C11.1815 7.41667 2.00334 16.7068 2.00334 28.1667V42C2.00334 42.8312 2.05162 43.651 2.14551 44.4567C2.05087 44.7737 2 45.11 2 45.4583V75.9808C2 78.9355 5.4239 80.5294 7.6402 78.6066L25.3527 63.2393C25.7164 62.9238 26.1818 62.75 26.6633 62.75H63.5033C74.8252 62.75 84.0033 53.4599 84.0033 42V28.1667C84.0033 16.7068 74.8252 7.41667 63.5033 7.41667H22.5033Z",
-                      stroke: "#71BF45",
-                      "stroke-width": "4"
-                    }
-                  })
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text_select_deal" }, [
-              _vm._v("Выберите сделку")
-            ])
-          ])
+          !_vm.messagesFromId.length
+            ? _c("div", { staticClass: "select_deal_container" }, [
+                _c("div", { staticClass: "image_select_deal" }, [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        width: "87",
+                        height: "84",
+                        viewBox: "0 0 87 84",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M22.5033 7.41667C11.1815 7.41667 2.00334 16.7068 2.00334 28.1667V42C2.00334 42.8312 2.05162 43.651 2.14551 44.4567C2.05087 44.7737 2 45.11 2 45.4583V75.9808C2 78.9355 5.4239 80.5294 7.6402 78.6066L25.3527 63.2393C25.7164 62.9238 26.1818 62.75 26.6633 62.75H63.5033C74.8252 62.75 84.0033 53.4599 84.0033 42V28.1667C84.0033 16.7068 74.8252 7.41667 63.5033 7.41667H22.5033Z",
+                          stroke: "#71BF45",
+                          "stroke-width": "4"
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text_select_deal" }, [
+                  _vm._v("Выберите сделку")
+                ])
+              ])
+            : _c("div", [
+                _c("div", { staticClass: "head_deal_message" }, [
+                  _c("div", { staticClass: "left_head_deal_message" }, [
+                    _c("div", { staticClass: "name_head_deal_message" }, [
+                      _vm._v("Сделка " + _vm._s(_vm.currentOffer))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "go_head_deal_message" },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to: { path: "order-page/" + _vm.currentOffer }
+                            }
+                          },
+                          [_vm._v("Перейти к сделке")]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "container_message",
+                    attrs: { id: "containerMessage" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "list_message_date" },
+                      _vm._l(_vm.messagesFromId, function(message) {
+                        return _vm.messagesFromId
+                          ? _c("div", { staticClass: "item_message" }, [
+                              _c("div", { staticClass: "top_message" }, [
+                                _c("div", { staticClass: "sender_message" }, [
+                                  _c("div", {
+                                    staticClass: "photo_sender_message",
+                                    staticStyle: {
+                                      "background-image": "url('/img/logo.svg')"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "info_sender_message" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "name_sender_message" },
+                                        [_vm._v(_vm._s(message.author.name))]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "post_sender_message" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(message.author.dolgnost)
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "time_message" }, [
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm._f("moment")(
+                                        message.created_at,
+                                        "HH:MM D-MM-YYYY"
+                                      )
+                                    )
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "text_message" }, [
+                                _vm._v(
+                                  "\n                                       " +
+                                    _vm._s(message.message) +
+                                    "\n                                    "
+                                )
+                              ])
+                            ])
+                          : _vm._e()
+                      }),
+                      0
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "container_footer_message" }, [
+                  _c("form", { attrs: { action: "" } }, [
+                    _c("div", { staticClass: "container_input_message" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.message,
+                            expression: "message"
+                          }
+                        ],
+                        attrs: { type: "text", placeholder: "Сообщение ..." },
+                        domProps: { value: _vm.message },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.message = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "container_message_file" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("input", {
+                            staticClass: "input-file",
+                            attrs: {
+                              type: "file",
+                              name: "file[]",
+                              id: "file",
+                              multiple: "",
+                              accept: "image/jpeg"
+                            },
+                            on: { change: _vm.onFileChange }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "btn btn-tertiary js-labelFile",
+                              attrs: { for: "file" }
+                            },
+                            [
+                              _c(
+                                "svg",
+                                {
+                                  attrs: {
+                                    width: "23",
+                                    height: "25",
+                                    viewBox: "0 0 23 25",
+                                    fill: "none",
+                                    xmlns: "http://www.w3.org/2000/svg"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M21.981 11.6672L12.0815 21.5667C12.0815 21.5667 7.48528 26.1629 3.24264 21.9203C-1 17.6776 3.59619 13.0814 3.59619 13.0814L13.8492 2.82837C13.8492 2.82837 16.6777 -5.7091e-05 19.5061 2.82837C22.3345 5.6568 19.5061 8.48522 19.5061 8.48522L9.6066 18.3847C9.6066 18.3847 8.19239 19.7989 6.77817 18.3847C5.36396 16.9705 6.77817 15.5563 6.77817 15.5563L15.9706 6.3639",
+                                      stroke: "#8898A8",
+                                      "stroke-width": "2",
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round"
+                                    }
+                                  })
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "btn_send_message" }, [
+                      _c(
+                        "button",
+                        {
+                          attrs: { type: "submit" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.sendMessage.apply(null, arguments)
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              attrs: {
+                                width: "23",
+                                height: "24",
+                                viewBox: "0 0 23 24",
+                                fill: "none",
+                                xmlns: "http://www.w3.org/2000/svg"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M1.72693 11.827C0.899184 11.5087 0.864737 10.3503 1.6721 9.98331L20.407 1.46743C21.2482 1.08508 22.1135 1.95043 21.7312 2.7916L13.2153 21.5265C12.8483 22.3339 11.69 22.2994 11.3716 21.4717L8.85208 14.9209C8.7505 14.6568 8.5418 14.4481 8.27771 14.3466L1.72693 11.827Z",
+                                  stroke: "white",
+                                  "stroke-width": "2"
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
         ])
       ])
     ])
@@ -902,331 +1416,102 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "deal_sidebar" }, [
-      _c(
-        "ul",
-        {
-          staticClass: "nav nav-tabs",
-          attrs: { id: "myTab", role: "tablist" }
-        },
-        [
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link active",
-                attrs: {
-                  id: "all-tab",
-                  "data-toggle": "tab",
-                  href: "#all",
-                  role: "tab",
-                  "aria-controls": "all",
-                  "aria-selected": "true"
-                }
-              },
-              [_vm._v("Все")]
-            )
+    return _c(
+      "ul",
+      { staticClass: "nav nav-tabs", attrs: { id: "myTab", role: "tablist" } },
+      [
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link active",
+              attrs: {
+                id: "all-tab",
+                "data-toggle": "tab",
+                href: "#all",
+                role: "tab",
+                "aria-controls": "all",
+                "aria-selected": "true"
+              }
+            },
+            [_vm._v("Все")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "deal-tab",
+                "data-toggle": "tab",
+                href: "#deal",
+                role: "tab",
+                "aria-controls": "deal",
+                "aria-selected": "false"
+              }
+            },
+            [_vm._v("Сделки")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "alerts-tab",
+                "data-toggle": "tab",
+                href: "#alerts",
+                role: "tab",
+                "aria-controls": "alerts",
+                "aria-selected": "false"
+              }
+            },
+            [_vm._v("Оповещения")]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "tab-pane fade",
+        attrs: {
+          id: "alerts",
+          role: "tabpanel",
+          "aria-labelledby": "alerts-tab"
+        }
+      },
+      [
+        _c("div", { staticClass: "item_deal_sidebar" }, [
+          _c("div", { staticClass: "left_item_deal_sidebar" }, [
+            _c("div", { staticClass: "tile_item_deal_sidebar" }, [
+              _vm._v("Сделка 454 543")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text_item_deal_sidebar" }, [
+              _vm._v(
+                "Пока у нас недостаточно данных о товаре,\n                                            чтобы давать вам "
+              )
+            ])
           ]),
           _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: {
-                  id: "deal-tab",
-                  "data-toggle": "tab",
-                  href: "#deal",
-                  role: "tab",
-                  "aria-controls": "deal",
-                  "aria-selected": "false"
-                }
-              },
-              [_vm._v("Сделки")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: {
-                  id: "alerts-tab",
-                  "data-toggle": "tab",
-                  href: "#alerts",
-                  role: "tab",
-                  "aria-controls": "alerts",
-                  "aria-selected": "false"
-                }
-              },
-              [_vm._v("Оповещения")]
-            )
+          _c("div", { staticClass: "right_item_deal_sidebar" }, [
+            _c("div", { staticClass: "time_item_deal_sidebar" }, [
+              _vm._v("19:00")
+            ])
           ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "tab-content", attrs: { id: "myTabContent" } }, [
-        _c(
-          "div",
-          {
-            staticClass: "tab-pane fade show active",
-            attrs: { id: "all", role: "tabpanel", "aria-labelledby": "all-tab" }
-          },
-          [
-            _c("div", { staticClass: "item_deal_sidebar" }, [
-              _c("div", { staticClass: "left_item_deal_sidebar" }, [
-                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
-                  _vm._v("Сделка 454 543")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text_item_deal_sidebar" }, [
-                  _vm._v(
-                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right_item_deal_sidebar" }, [
-                _c("div", { staticClass: "time_item_deal_sidebar" }, [
-                  _vm._v("19:00")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "item_deal_sidebar" }, [
-              _c("div", { staticClass: "left_item_deal_sidebar" }, [
-                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
-                  _vm._v("Сделка 454 543")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text_item_deal_sidebar" }, [
-                  _vm._v(
-                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам рекомендации. Обратите внимание Пока у нас недостаточно\n                                        данных о товаре,\n                                        чтобы давать вам рекомендации."
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right_item_deal_sidebar" }, [
-                _c("div", { staticClass: "time_item_deal_sidebar" }, [
-                  _vm._v("19:00")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "count_item_deal_sidebar" }, [
-                  _vm._v("10")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "item_deal_sidebar" }, [
-              _c("div", { staticClass: "left_item_deal_sidebar" }, [
-                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
-                  _vm._v("Сделка 454 543")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text_item_deal_sidebar" }, [
-                  _vm._v(
-                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right_item_deal_sidebar" }, [
-                _c("div", { staticClass: "time_item_deal_sidebar" }, [
-                  _vm._v("19:00")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "item_deal_sidebar" }, [
-              _c("div", { staticClass: "left_item_deal_sidebar" }, [
-                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
-                  _vm._v("Сделка 454 543")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text_item_deal_sidebar" }, [
-                  _vm._v(
-                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right_item_deal_sidebar" }, [
-                _c("div", { staticClass: "time_item_deal_sidebar" }, [
-                  _vm._v("19:00")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "item_deal_sidebar" }, [
-              _c("div", { staticClass: "left_item_deal_sidebar" }, [
-                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
-                  _vm._v("Сделка 454 543")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text_item_deal_sidebar" }, [
-                  _vm._v(
-                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right_item_deal_sidebar" }, [
-                _c("div", { staticClass: "time_item_deal_sidebar" }, [
-                  _vm._v("19:00")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "item_deal_sidebar" }, [
-              _c("div", { staticClass: "left_item_deal_sidebar" }, [
-                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
-                  _vm._v("Сделка 454 543")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text_item_deal_sidebar" }, [
-                  _vm._v(
-                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right_item_deal_sidebar" }, [
-                _c("div", { staticClass: "time_item_deal_sidebar" }, [
-                  _vm._v("19:00")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "item_deal_sidebar" }, [
-              _c("div", { staticClass: "left_item_deal_sidebar" }, [
-                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
-                  _vm._v("Сделка 454 543")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text_item_deal_sidebar" }, [
-                  _vm._v(
-                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right_item_deal_sidebar" }, [
-                _c("div", { staticClass: "time_item_deal_sidebar" }, [
-                  _vm._v("19:00")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "item_deal_sidebar" }, [
-              _c("div", { staticClass: "left_item_deal_sidebar" }, [
-                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
-                  _vm._v("Сделка 454 543")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text_item_deal_sidebar" }, [
-                  _vm._v(
-                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right_item_deal_sidebar" }, [
-                _c("div", { staticClass: "time_item_deal_sidebar" }, [
-                  _vm._v("19:00")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "item_deal_sidebar" }, [
-              _c("div", { staticClass: "left_item_deal_sidebar" }, [
-                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
-                  _vm._v("Сделка 454 543")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text_item_deal_sidebar" }, [
-                  _vm._v(
-                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right_item_deal_sidebar" }, [
-                _c("div", { staticClass: "time_item_deal_sidebar" }, [
-                  _vm._v("19:00")
-                ])
-              ])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "tab-pane fade",
-            attrs: {
-              id: "deal",
-              role: "tabpanel",
-              "aria-labelledby": "deal-tab"
-            }
-          },
-          [
-            _c("div", { staticClass: "item_deal_sidebar" }, [
-              _c("div", { staticClass: "left_item_deal_sidebar" }, [
-                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
-                  _vm._v("Сделка 454 543")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text_item_deal_sidebar" }, [
-                  _vm._v(
-                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right_item_deal_sidebar" }, [
-                _c("div", { staticClass: "time_item_deal_sidebar" }, [
-                  _vm._v("19:00")
-                ])
-              ])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "tab-pane fade",
-            attrs: {
-              id: "alerts",
-              role: "tabpanel",
-              "aria-labelledby": "alerts-tab"
-            }
-          },
-          [
-            _c("div", { staticClass: "item_deal_sidebar" }, [
-              _c("div", { staticClass: "left_item_deal_sidebar" }, [
-                _c("div", { staticClass: "tile_item_deal_sidebar" }, [
-                  _vm._v("Сделка 454 543")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text_item_deal_sidebar" }, [
-                  _vm._v(
-                    "Пока у нас недостаточно данных о товаре,\n                                        чтобы давать вам "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right_item_deal_sidebar" }, [
-                _c("div", { staticClass: "time_item_deal_sidebar" }, [
-                  _vm._v("19:00")
-                ])
-              ])
-            ])
-          ]
-        )
-      ])
-    ])
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -1519,7 +1804,7 @@ var render = function() {
             _c(
               "ul",
               {
-                staticClass: "dropdown-menu",
+                staticClass: "dropdown-menu inset-plus",
                 attrs: { "aria-labelledby": "navbarDropdown1" }
               },
               [
@@ -1751,7 +2036,7 @@ var render = function() {
           _c(
             "ul",
             {
-              staticClass: "dropdown-menu",
+              staticClass: "dropdown-menu dropdown-menu-login",
               attrs: { "aria-labelledby": "navbarDropdown" }
             },
             [
@@ -1764,6 +2049,7 @@ var render = function() {
                       return _vm.user.user.organizations
                         ? _c(
                             "div",
+                            { staticClass: "login_info" },
                             [
                               _vm._l(_vm.user.user.organizations, function(
                                 org
@@ -1885,72 +2171,71 @@ var render = function() {
               _vm._v(" "),
               _vm._l(_vm.user.user.organizations, function(org, index) {
                 return _vm.currentUserOrganization[0].id !== org.id
-                  ? _c("li", [
-                      _c(
-                        "div",
-                        { staticClass: "dropdown-item dropdown-item-border" },
-                        [
-                          _c("div", { staticClass: "item_company_list" }, [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "name_company_list",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.changeCurrentOrganization(org.id)
-                                  }
-                                }
-                              },
-                              [
+                  ? _c(
+                      "li",
+                      {
+                        on: {
+                          click: function($event) {
+                            return _vm.changeCurrentOrganization(org.id)
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "dropdown-item dropdown-item-border" },
+                          [
+                            _c("div", { staticClass: "item_company_list" }, [
+                              _c("div", { staticClass: "name_company_list" }, [
                                 _vm._v(
                                   "\n                        " +
                                     _vm._s(org.name) +
                                     "\n                    "
                                 )
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "icon_company_list" }, [
-                            _c(
-                              "svg",
-                              {
-                                attrs: {
-                                  width: "20",
-                                  height: "20",
-                                  viewBox: "0 0 20 20",
-                                  fill: "none",
-                                  xmlns: "http://www.w3.org/2000/svg"
-                                }
-                              },
-                              [
-                                _c("path", {
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "icon_company_list" }, [
+                              _c(
+                                "svg",
+                                {
                                   attrs: {
-                                    d:
-                                      "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
-                                    stroke: "#71BF45",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
+                                    width: "20",
+                                    height: "20",
+                                    viewBox: "0 0 20 20",
+                                    fill: "none",
+                                    xmlns: "http://www.w3.org/2000/svg"
                                   }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
-                                    stroke: "#71BF45",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                })
-                              ]
-                            )
-                          ])
-                        ]
-                      )
-                    ])
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
+                                      stroke: "#71BF45",
+                                      "stroke-width": "2",
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
+                                      stroke: "#71BF45",
+                                      "stroke-width": "2",
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    )
                   : _vm._e()
               }),
               _vm._v(" "),

@@ -508,7 +508,6 @@ export default {
             'getCatalogData',
             'getCatalogTypes',
             'getPackings',
-            'sendDataNewProduct',
             'filterTypes',
             'filterProducts',
             'setProductValue',
@@ -547,9 +546,9 @@ export default {
         if(this.categoryValue && this.typeValue){
             this.sendDataAnswrer(this.userResponses)
         }else{
-            this.error = true; 
+            this.error = true;
         }
-        
+
     }
   },
   mounted() {

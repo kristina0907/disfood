@@ -309,41 +309,6 @@
                             />
                             <label for="filter-1">Значение</label>
                         </div>
-                        <div class="radio">
-                            <input
-                            id="filter-2"
-                            type="checkbox"
-                            name="scales"
-                            class="custom-radio"
-                            value="28"
-                            style="height: auto"
-                            />
-                            <label for="filter-2">Значение</label>
-                        </div>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                        <div class="radio">
-                            <input
-                            id="filter-3"
-                            type="checkbox"
-                            name="scales"
-                            class="custom-radio"
-                            value="28"
-                            style="height: auto"
-                            />
-                            <label for="filter-3">Значение</label>
-                        </div>
-                        <div class="radio">
-                            <input
-                            id="filter-4"
-                            type="checkbox"
-                            name="scales"
-                            class="custom-radio"
-                            value="28"
-                            style="height: auto"
-                            />
-                            <label for="filter-4">Значение</label>
-                        </div>
                         </div>
                     </div>
                     </div>
@@ -506,7 +471,7 @@
                 <div v-if="!btnSubmit" class="btn_next_question" @click="nextStep">
                     Следующий вопрос
                 </div>
-                <button v-if="btnSubmit" class="btn_step_complete" @click="sendDataAnswrer(userResponses)">
+                <button v-if="btnSubmit" class="btn_step_complete" @click="sendData">
                     Завершить
                 </button>
           </div>
@@ -578,6 +543,14 @@ export default {
         mas.id = value;
         this.userResponses[index] = mas;
     },
+    sendData(){
+        if(this.categoryValue && this.typeValue){
+            this.sendDataAnswrer(this.userResponses)
+        }else{
+            this.error = true; 
+        }
+        
+    }
   },
   mounted() {
     this.getQuestion();

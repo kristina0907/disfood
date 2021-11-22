@@ -319,7 +319,7 @@ export default {
                 if(response.status == 200)
                 {
                     console.log(response.status)
-                    router.push({ name: 'addnewproductsuccess', query: { redirect: '/addnewproduct/success' } });
+                    router.push({ name: 'accreditationsuccess', query: { redirect: '/accreditation/success' } });
                 }
             });
         }

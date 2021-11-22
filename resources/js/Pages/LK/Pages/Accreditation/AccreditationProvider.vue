@@ -180,8 +180,8 @@
                                 @input="setSlider(index,question.id,$event)"
                             ></vue-range-slider>
                             </div>
-                            <div class="value_question_range" v-if="userResponses[index]">
-                            {{ question.question_title }} <span>{{ userResponses[index].value_id }} %</span>
+                            <div class="value_question_range">
+                            {{ question.question_title }} <span>{{ sliderVal}} %</span>
                             </div>
                         </div>
                         </div>
@@ -499,7 +499,8 @@ export default {
       selectValue: '',
       btnSubmit: false,
       userResponses:'',
-      error:false
+      error:false,
+      sliderVal:0
     };
   },
   methods: {
@@ -539,6 +540,7 @@ export default {
     },
     setSlider(index,id,value){
         let mas = {};
+        this.sliderVal = value;
         mas.question_id = id;
         mas.id = value;
         this.userResponses[index] = mas;

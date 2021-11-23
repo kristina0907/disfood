@@ -325,7 +325,6 @@ export default {
                     console.log(response.status)
 
                     router.push({ name: 'accreditationsuccess', query: { redirect: '/accreditation/success' } });
-
                 }
             });
         }

@@ -56,7 +56,7 @@
                                             можно разместить в каталоге</div>
                                     </div>
                                 </div>
-                                <button class="btn_submit_price" type="button" @click="sendDataUpdateProduct">Отправить товар на модерацию</button>
+                                <button class="btn_submit_price" type="button" @click="sendData">Отправить товар на модерацию</button>
                             </form>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                                     </div>
                                 </div>
                                 <div id="filters" class="row item_container_product_block">
-                                    <div class="col-md-6" v-if="typeValue && filters.length" v-for="(filter) in filters">
+                                    <div class="col-md-6" v-if="currentProduct.filters.length" v-for="(filter) in currentProduct.filters">
                                         <div class="item_product_input row mar-0-10">
                                             <div class="col-md-6 container_input_price">
                                                 <div class="title_filter_catalog">{{filter.name}}</div>
@@ -136,6 +136,7 @@
                                                          deselectLabel="Нажмите еще раз чтобы удалить"
                                                          @input="setPackingsValue"
                                                          :required="true"
+                                                         class="select_packings"
                                             ></multiselect>
                                         </div>
                                     </div>
@@ -336,7 +337,9 @@ export default {
             'addFileToImages',
             'getProductById'
         ]),
-
+        sendData(){
+            this.sendDataUpdateProduct();
+        },
         /**
          *
          * @param e
@@ -472,7 +475,7 @@ export default {
 }
 .multiselect__tags
 {
-    min-height: 62px;
+    height: 62px;
     display: block;
     padding: 20px 40px 0 8px;
     border-radius: 10px;
@@ -488,7 +491,7 @@ export default {
     border-radius: 10px;
     margin-right: 10px;
     line-height: 1;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     white-space: nowrap;
     overflow: hidden;
     max-width: 100%;

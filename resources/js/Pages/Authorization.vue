@@ -41,6 +41,7 @@
                                         @select="changeCode"
 
                                     ></multiselect>
+                                    <div class="error_input" v-show="errors.countries">{{errors.countries}}</div>
                                 </div>
                                 <div class="item_reg_block">
                                     <div class="title_item_reg_block">
@@ -93,24 +94,51 @@
                                     </div>
                                     <div class="container_item_reg_input">
                                         <div>
-                                            <input type="text" placeholder="Имя" v-model="userName" required />
+                                            <input type="text" placeholder="Имя" v-model="userName" required v-on:keypress="noNumber($event)" />
                                             <div class="error_input" v-show="errors.userName">{{errors.userName}}</div>
                                         </div>
                                         <div>
-                                            <input type="text" placeholder="Фамилия" v-model="userSurname" required />
+                                            <input type="text" placeholder="Фамилия" v-model="userSurname" required v-on:keypress="noNumber($event)"/>
                                             <div class="error_input" v-show="errors.userSurname">{{errors.userSurname}}</div>
                                         </div>
                                     </div>
                                     <div class="container_item_reg_input">
-                                        <div>
-                                            <masked-input type="text" placeholder="Телефон" v-model="userPhone"  :mask="codeTel + '(111) 111-1111'" />
+                                        <div class="select_container select_countries select_code">
+                                             <multiselect
+                                                v-model="codeTel"
+                                                :options="countries"
+                                                label="code"
+                                                track-by="code"
+                                                placeholder="Код"
+                                                selectLabel="Выберите код"
+                                                selectedLabel="Выбрано"
+                                                deselectLabel="Нажмите еще раз чтобы удалить"
+                                                :required="true"
+                                                :multiple="false"
+                                                :searchable="true"
+                                                :internal-search="true"
+                                                :class="'select'"
+                                                :clear-on-select="false"
+                                                :close-on-select="true"
+                                                :options-limit="300"
+                                                :limit="3"
+                                                :show-no-results="false"
+                                                :hide-selected="true"
+                                                @select="changeCode"
+
+                                        ></multiselect>
+                                        <div class="error_input" v-show="errors.code">{{errors.code}}</div>
+                                        </div>
+                                        <div class="phone_reg_input">
+                                            <masked-input type="text" placeholder="Телефон" v-model="userPhone"  :mask="'(111) 111-1111'" />
                                             <div class="error_input" v-show="errors.userPhone">{{errors.userPhone}}</div>
                                         </div>
-                                        <div>
-                                            <input type="email" placeholder="E-mail" v-model="userEmail" required />
-                                            <div class="error_input" v-show="errors.userEmail">{{errors.userEmail}}</div>
-                                        </div>
+                                       
                                     </div>
+                                </div>
+                               <div class="email_reg_input">
+                                    <input type="email" placeholder="E-mail" v-model="userEmail" required v-on:keypress="noCyrillic($event)"/>
+                                    <div class="error_input" v-show="errors.userEmail">{{errors.userEmail}}</div>
                                 </div>
                                 <div class="item_reg_block">
                                     <div class="title_item_reg_block">
@@ -332,7 +360,7 @@ export default {
            serverError:'',
            countries: [],
            countriesVal:'',
-           codeTel:"7"
+           codeTel:''
        }
     },
     components:{
@@ -353,6 +381,22 @@ export default {
             {
                 this.getInnFromBackend(str)
                 /*console.log(self.inn);*/
+            }
+        },
+        noNumber: function(evt) {
+            var regex = new RegExp("^[a-zа-яё ]+$");
+            var key = String.fromCharCode(!evt.charCode ? evt.which : evt.charCode);
+            if (!regex.test(key)) {
+                event.preventDefault();
+                return false;
+            }
+        },
+        noCyrillic: function(evt) {
+            var regex = new RegExp("^[a-zA-Z-0-9.-_@]");
+            var key = String.fromCharCode(!evt.charCode ? evt.which : evt.charCode);
+            if (!regex.test(key)) {
+                event.preventDefault();
+                return false;
             }
         },
        getInnFromBackend(inn) {
@@ -403,7 +447,9 @@ export default {
             if(this.type == 'company' && !this.companyName) this.errors.userName = "Название обязательно для заполнения";
             if(!this.userName) this.errors.userName = "Имя обязательно для заполнения";
             if(!this.userSurname) this.errors.userSurname = "Фамилия обязательно для заполнения";
-            if(!this.userPhone) this.errors.userPhone = "Телефон обязательн для заполнения";
+            if(!this.userPhone) this.errors.userPhone = "Телефон обязателен для заполнения";
+            if(!this.codeTel) this.errors.code = "Код обязателен для заполнения";
+            if(!this.countriesVal) this.errors.countries = "Страна обязательна для заполнения";
             if(!this.inn){
                 this.errors.inn = "ИНН обязателен для заполнения";
             }else if((this.inn).indexOf('_') > -1){
@@ -442,7 +488,7 @@ export default {
                    inn:this.inn,
                    userName:this.userName,
                    userSurname:this.userSurname,
-                   userPhone:this.userPhone,
+                   userPhone:this.codeTel+this.userPhone,
                    userEmail:this.userEmail,
                    userPassword:this.userPassword,
 

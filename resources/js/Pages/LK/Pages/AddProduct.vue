@@ -130,7 +130,7 @@
                                                         </select>-->
                                                     </div>
                                                </div>
-                                            </div>
+                                        </div>
 
                                     </div>
 
@@ -156,7 +156,8 @@
                                                              selectedLabel="Выбрано"
                                                              deselectLabel="Нажмите еще раз чтобы удалить"
                                                              @input="setPackingsValue"
-                                                             :required="true"
+                                                            :required="true"
+                                                            class="select_packings"
                                                 ></multiselect>
                                                 <div class="error_input" v-if="errors.packingsVal">{{errors.packingsVal}}</div>
                                             </div>
@@ -173,7 +174,7 @@
                                             </div>
                                         </div>
                                         <div class="item_product_input row">
-                                            <div class="container_input_price col-md-12 m-b-30" v-for="(adr, index) in adress" :key="index">
+                                            <div class="container_input_price col-md-6 m-b-30" v-for="(adr, index) in adress" :key="index">
                                                 <div class="text_input">Адрес</div>
                                                 <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)" required>
                                                 <datalist id="city">
@@ -187,6 +188,10 @@
                                                     </svg>
                                                 </div>
                                                 <div class="error_input" v-if="errors.adress">{{errors.adress}}</div>
+                                            </div>
+                                            <div class="container_input_price col-md-6">
+                                                <div class="text_input">Код станции</div>
+                                                <input type="number" name="capacity" id="code" :value="code"/>
                                             </div>
 
                                         </div>

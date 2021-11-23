@@ -4102,6 +4102,16 @@ min-width: 280px;
 .select_countries .multiselect.select{
     width: 100%;
 }
+.container_item_reg_input > div.select_countries {
+    width: 25%;
+}
+.container_item_reg_input > div.phone_reg_input {
+    width: 75%;
+    position: relative;
+}
+.email_reg_input{
+    margin-bottom: 20px;
+}
 .select_countries .multiselect__tags {
     min-height: 62px;
     display: block;
@@ -7796,11 +7806,12 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .bl_big_car{
     background-image: url(/img/bl_big_car.png);
     background-repeat: no-repeat;
-    height: 65px;
+    background-position-y:10px;
+    height: 89px;
     width: 159px;
     position: absolute;
     left: 40px;
-    bottom: 10px;
+    bottom: 3px;
     z-index: 2;
     -webkit-transition: all 3s ease;
     -moz-transition: all 3s ease;
@@ -7987,4 +7998,12 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     width: 24px !important;
     height: 24px !important;
     top:-10px !important;
+}
+.select_packings .multiselect__tags
+{
+    padding: 13px 40px 0 8px;
+}
+.select_packings span.multiselect__tags
+{
+    background: #71bf45;
 }

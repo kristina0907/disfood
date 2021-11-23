@@ -140,29 +140,39 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item_container_product_block">
-                                    <div class="title_container_product_block">Вариант доставки</div>
-                                    <div class="item_product_input row">
-                                        <div class="container_input_price col-md-12 m-b-30" v-for="(adr, index) in currentProduct.adresses" :key="index">
-                                            <div class="text_input">Адрес</div>
-                                            <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)" required>
-                                            <datalist id="city">
-                                                <option :value="tip.value" v-for="tip in locationTips">{{tip.value}}</option>
-                                            </datalist>
-                                            <div class="icon_price_input">
-                                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M17 1L6 12L1 7" stroke="#71BF45" stroke-width="2"
-                                                          stroke-linecap="round" />
-                                                </svg>
+                                 <div class="item_container_product_block">
+                                        <div class="title_container_product_block">Вариант доставки</div>
+                                        <div class="delivery_options_item row">
+                                            <div class="col-md-6">
+                                               <search-countries/>
+                                            </div>
+                                            <div class="select_container col-md-6">
+                                                <search-location/>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
-                                            <div class="new_adress" @click="addAdress">Добавить адрес</div>
-                                        </div>
+                                        <div class="item_product_input row">
+                                            <div class="container_input_price col-md-6 m-b-30" v-for="(adr, index) in currentProduct.adress" :key="index">
+                                                <div class="text_input">Адрес</div>
+                                                <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)" required>
+                                                <datalist id="city">
+                                                    <option :value="tip.value" v-for="tip in locationTips">{{tip.value}}</option>
+                                                </datalist>
+                                                <div class="icon_price_input">
+                                                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17 1L6 12L1 7" stroke="#71BF45" stroke-width="2"
+                                                              stroke-linecap="round" />
+                                                    </svg>
+                                                </div>
+                                                <div class="error_input" v-if="errors.adress">{{errors.adress}}</div>
+                                            </div>
+                                            <div class="container_input_price col-md-6">
+                                                <div class="text_input">Код станции</div>
+                                                <input type="number" name="capacity" id="code" :value="currentProduct.code" @input="setCapacity($event.target.value)"/>
+                                            </div>
 
+                                        </div>
                                     </div>
-                                </div>
                                 <div class="item_container_product_block">
                                     <div class="title_container_product_block">
                                         <div>Документы</div>
@@ -294,10 +304,12 @@ import Multiselect from 'vue-multiselect';
 import UserLKHeader from "../../../Сomponents/LK/UserLKHeader";
 import FileSelect from "../../../Сomponents/FileSelect";
 import {mapActions, mapState} from "vuex";
-import vue2Dropzone from 'vue2-dropzone'
-import 'vue2-dropzone/dist/vue2Dropzone.min.css'
+import vue2Dropzone from 'vue2-dropzone';
+import SearchCountries from "../../../Сomponents/SearchCountries";
+import SearchLocation from "../../../Сomponents/SearchLocation";
+import 'vue2-dropzone/dist/vue2Dropzone.min.css';
 export default {
-    components: {UserLKHeader,Multiselect,FileSelect,vueDropzone: vue2Dropzone},
+    components: {UserLKHeader,Multiselect,FileSelect,SearchCountries,SearchLocation,vueDropzone: vue2Dropzone},
     props: ['id'],
     data(){
         return {

@@ -19,6 +19,10 @@ class AltaSoftApiService
     protected $encoding = "utf-8";
     protected $owner="0";
 
+    /**
+     *
+     */
+
     public function __construct()
     {
         $api = Setings::where('slug','alta_soft_api_key')->first();
@@ -28,7 +32,7 @@ class AltaSoftApiService
         }
         else
         {
-            $this->ApiKey = "3045BEEE61B46CFA453770A1A2C2B2E7";
+            $this->ApiKey = "069E4E99072FEEF8657DD7493B51ABF7";
         }
     }
 

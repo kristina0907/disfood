@@ -31,6 +31,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::get('/get/accreditation/quiz',[ApiController::class,'getAccreditationQuiz']);
+Route::post('/set/accreditation/quiz',[ApiController::class,'setAccreditationQuiz']);
 
 Route::get('/get/countries',[ApiController::class,'getCountries']);
 Route::post('/get/inn/from/api',[ApiController::class,'getInnFromApi']);
@@ -41,6 +42,7 @@ Route::post('/set/company/and/register',[ApiController::class,'setCompanyAndRegi
 Route::get('/get/my-products',[ApiController::class,'getMyProducts']);
 Route::get('/get/newproduct/data',[ApiController::class,'getNewProductData']);
 Route::get('/get/productfromid/{id}',[ApiController::class,'getProductFromId']);
+
 
 Route::get('/get/news/all',[ApiController::class,'getNewsAll']);
 Route::get('/get/news/page/{id}',[ApiController::class,'getNewsPage']);
@@ -83,6 +85,7 @@ Route::post('/send/messages',[ApiController::class,'setOfferMessages']);
 Route::get('/get/my/messages/all',[ApiController::class,'getMyMessagesAll']);
 
 Route::post('/set/new/offer',[ApiController::class,'setNewOffer']);
+Route::post('/set/update/offer',[ApiController::class,'setUpdateOffer']);
 
 Route::post('/set/new/organization',[ApiController::class,'setNewOrganization']);
 Route::post('/set/update/organization',[ApiController::class,'setUpdateOrganization']);

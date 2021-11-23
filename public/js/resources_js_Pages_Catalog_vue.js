@@ -11,406 +11,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _omponents_HeaderCatalog__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Сomponents/HeaderCatalog */ "./resources/js/Сomponents/HeaderCatalog.vue");
-/* harmony import */ var _omponents_SidebarCatalog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Сomponents/SidebarCatalog */ "./resources/js/Сomponents/SidebarCatalog.vue");
-/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
-/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _omponents_SearchLocation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Сomponents/SearchLocation */ "./resources/js/Сomponents/SearchLocation.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  components: {
-    Searchlocation: _omponents_SearchLocation__WEBPACK_IMPORTED_MODULE_3__.default,
-    SidebarCatalog: _omponents_SidebarCatalog__WEBPACK_IMPORTED_MODULE_1__.default,
-    NavbarCatalog: _omponents_HeaderCatalog__WEBPACK_IMPORTED_MODULE_0__.default,
-    Multiselect: (vue_multiselect__WEBPACK_IMPORTED_MODULE_2___default())
-  },
-  data: function data() {
-    return {
-      tileView: false,
-      listView: true,
-      coords: [54, 39]
-    };
-  },
-  methods: _objectSpread(_objectSpread({
-    changeToTileView: function changeToTileView() {
-      var self = this;
-      self.tileView = true;
-      self.listView = false;
-    },
-    changeToListView: function changeToListView() {
-      var self = this;
-      self.tileView = false;
-      self.listView = true;
-    }
-  }, (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapActions)('catalog', ['updateValueAction', 'getCatalogData', 'getCatalogTypes', 'updateTypeAction', 'getUserIP'])), (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapActions)(['getCurrentCourse', 'changeCourse'])),
-  mounted: function mounted() {
-    this.getCurrentCourse();
-  },
-  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapState)(['courseUSD', 'currentCourse'])), (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapState)('catalog', ['categories', 'categoryValue', 'types', 'typeValue', 'filteredTypes', 'products', 'location']))
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/HeaderCatalog.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/HeaderCatalog.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuescroll */ "./node_modules/vuescroll/dist/vuescroll.js");
-/* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuescroll__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _UserLoginAuthButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserLoginAuthButton */ "./resources/js/Сomponents/UserLoginAuthButton.vue");
-/* harmony import */ var _SearchLocation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SearchLocation */ "./resources/js/Сomponents/SearchLocation.vue");
+/* harmony import */ var _omponents_HeaderCatalog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Сomponents/HeaderCatalog */ "./resources/js/Сomponents/HeaderCatalog.vue");
+/* harmony import */ var _omponents_SidebarCatalog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Сomponents/SidebarCatalog */ "./resources/js/Сomponents/SidebarCatalog.vue");
+/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
+/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _omponents_SearchLocation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Сomponents/SearchLocation */ "./resources/js/Сomponents/SearchLocation.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -637,6 +245,575 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Searchlocation: _omponents_SearchLocation__WEBPACK_IMPORTED_MODULE_4__["default"],
+    SidebarCatalog: _omponents_SidebarCatalog__WEBPACK_IMPORTED_MODULE_2__["default"],
+    NavbarCatalog: _omponents_HeaderCatalog__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Multiselect: (vue_multiselect__WEBPACK_IMPORTED_MODULE_3___default())
+  },
+  data: function data() {
+    return {
+      deliveryType: 'auto',
+      tileView: false,
+      listView: true,
+      coords: [54, 39],
+      showmap: false,
+      refreshFlag: false,
+      sort: [{
+        name: 'Сортировать по цене',
+        val: 'price'
+      }, {
+        name: 'Сортировать по имени',
+        val: 'name'
+      }],
+      category_id: this.$route.params.category,
+      type_id: this.$route.params.type,
+      isShowDropdown: false,
+      sortValue: 'Сортировать по цене'
+    };
+  },
+  methods: _objectSpread(_objectSpread({
+    changeType: function changeType(type) {
+      this.deliveryType = type;
+      this.setCapacity(type);
+    },
+
+    /**
+     *
+     */
+    showDropdown: function showDropdown() {
+      this.isShowDropdown = !this.isShowDropdown;
+    },
+
+    /**
+     *
+     * @param count
+     */
+    changeCountPage: function changeCountPage(count) {
+      this.sortValue = count;
+      this.isShowDropdown = !this.isShowDropdown;
+    },
+
+    /**
+     *
+     */
+    changeToTileView: function changeToTileView() {
+      var self = this;
+      self.tileView = true;
+      self.listView = false;
+    },
+
+    /**
+     *
+     */
+    changeToListView: function changeToListView() {
+      var self = this;
+      self.tileView = false;
+      self.listView = true;
+    },
+
+    /**
+     *
+     */
+    showMap: function showMap() {
+      this.showmap = !this.showmap;
+    },
+    checkRefreshData: function checkRefreshData() {
+      if (!this.categoryValue && !this.typeValue) {
+        this.refreshFlag = true;
+      }
+    }
+  }, (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapActions)('catalog', ['updateValueAction', 'getCatalogData', 'getCatalogTypes', 'updateTypeAction', 'getUserIP', 'changePrice', 'changeCurrency', 'plusCapacity', 'minusCapacity', 'setCapacity', 'deleteFilter', 'getFilteredData', 'setFilteredTypesRefresh'])), (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapActions)(['getCurrentCourse', 'changeCourse'])),
+  mounted: function mounted() {
+    var _this = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _this.getCurrentCourse();
+
+            case 2:
+              _context.next = 4;
+              return _this.checkRefreshData();
+
+            case 4:
+              if (!_this.refreshFlag) {
+                _context.next = 10;
+                break;
+              }
+
+              data = {
+                cat: _this.category_id,
+                type: _this.type_id
+              };
+              _context.next = 8;
+              return _this.$store.dispatch('catalog/getFilteredData', data);
+
+            case 8:
+              _context.next = 10;
+              return _this.$store.dispatch('catalog/setFilteredTypesRefresh');
+
+            case 10:
+              _context.next = 12;
+              return _this.$store.dispatch('catalog/setCapacity');
+
+            case 12:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  },
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapState)(['courseUSD', 'currentCourse'])), (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapState)('catalog', ['categories', 'categoryValue', 'types', 'typeValue', 'filteredTypes', 'products', 'location', 'priceWithNDS', 'currency', 'capacity', 'selectedFilters']))
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/HeaderCatalog.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/HeaderCatalog.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuescroll */ "./node_modules/vuescroll/dist/vuescroll.js");
+/* harmony import */ var vuescroll__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuescroll__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _UserLoginAuthButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserLoginAuthButton */ "./resources/js/Сomponents/UserLoginAuthButton.vue");
+/* harmony import */ var _SearchLocation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SearchLocation */ "./resources/js/Сomponents/SearchLocation.vue");
+/* harmony import */ var _SearchBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SearchBar */ "./resources/js/Сomponents/SearchBar.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -644,8 +821,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "navbar-catalog",
   components: {
-    Searchlocation: _SearchLocation__WEBPACK_IMPORTED_MODULE_3__.default,
-    UserLoginAuthButton: _UserLoginAuthButton__WEBPACK_IMPORTED_MODULE_2__.default,
+    SearchBar: _SearchBar__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Searchlocation: _SearchLocation__WEBPACK_IMPORTED_MODULE_3__["default"],
+    UserLoginAuthButton: _UserLoginAuthButton__WEBPACK_IMPORTED_MODULE_2__["default"],
     vuescroll: (vuescroll__WEBPACK_IMPORTED_MODULE_1___default())
   },
   data: function data() {
@@ -669,37 +847,54 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     };
   },
-  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapActions)('catalog', ['searchLocation'])), {}, {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapActions)('catalog', ['searchLocation'])), {}, {
+    /**
+     *
+     * @returns {boolean}
+     */
     checkFormValidity: function checkFormValidity() {
       var valid = this.$refs.form.checkValidity();
       this.changeModal = valid;
       return valid;
     },
+
+    /**
+     *
+     */
     resetModal: function resetModal() {
       this.changeModal = '';
     },
+
+    /**
+     *
+     * @param bvModalEvt
+     */
     handleOk: function handleOk(bvModalEvt) {
-      // Prevent modal from closing
-      console.log(bvModalEvt);
       bvModalEvt.preventDefault(); // Trigger submit handler
 
       this.handleSubmit();
     },
+
+    /**
+     *
+     */
     handleSubmit: function handleSubmit() {
       var _this = this;
 
       // Exit when the form isn't valid
       if (!this.checkFormValidity()) {
         return;
-      } // Push the name to submitted names
-
-
-      console.log('submit'); // Hide the modal manually
+      }
 
       this.$nextTick(function () {
         _this.$bvModal.hide('modal-prevent-closing');
       });
     },
+
+    /**
+     *
+     * @returns {Promise<void>}
+     */
     searchText: function searchText() {
       var _this2 = this;
 
@@ -735,6 +930,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee);
       }))();
     },
+
+    /**
+     *
+     * @param cat
+     * @param type
+     */
     searchClickProduct: function searchClickProduct(cat, type) {
       var _this3 = this;
 
@@ -759,30 +960,46 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     },
+
+    /**
+     *
+     * @param cat
+     * @param type
+     */
     redirectToCatalog: function redirectToCatalog(cat, type) {
       var _this4 = this;
 
+      //console.log(cat)
       this.$store.dispatch('catalog/redirectToCatalog', {
         cat: cat,
         type: type
       }).then(function () {
-        if (_this4.$route.name !== 'catalog') {
-          _this4.$router.push({
-            'name': 'catalog'
+        var path = '/catalog/category/' + cat.id;
+
+        if (_this4.$route.path !== path) {
+          _this4.$router.replace({
+            'path': '/catalog/category/' + cat.id + '/' + type.id,
+            params: cat
           });
         }
+
+        _this4.sidebarExpand = false;
       });
     },
+
+    /**
+     *
+     */
     changeDropdown: function changeDropdown() {
       this.isExpand = !this.isExpand;
     }
-  }, (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapActions)('catalog', ['updateValueAction', 'getCatalogData', 'getCatalogTypes', 'updateTypeAction', 'getUserIP', 'updateFromSearch'])), (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapActions)(['getUserData'])),
+  }, (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapActions)('catalog', ['updateValueAction', 'getCatalogData', 'getCatalogTypes', 'updateTypeAction', 'getUserIP', 'updateFromSearch'])), (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapActions)(['getUserData'])),
   mounted: function mounted() {
     this.$store.dispatch('catalog/getUserIP');
     this.$store.dispatch('catalog/getCatalogData');
     this.$store.dispatch('catalog/getCatalogTypes');
   },
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapState)('catalog', ['location', 'categories', 'types', 'categoryValue', 'typeValue'])), (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapState)(['user'])), (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapState)('catalog', ['location', 'locationInput', 'locationsTips'])), {}, {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapState)('catalog', ['location', 'categories', 'types', 'categoryValue', 'typeValue'])), (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapState)(['user'])), (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapState)('catalog', ['location', 'locationInput', 'locationsTips'])), {}, {
     locationInput: {
       get: function get() {
         return this.$store.state.catalog.locationInput;
@@ -792,6 +1009,130 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     }
   })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SearchBar.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SearchBar.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "search-bar",
+  data: function data() {
+    return {
+      searchBar: '',
+      searchResults: []
+    };
+  },
+  methods: {
+    /**
+     *
+     * @returns {Promise<void>}
+     */
+    searchText: function searchText() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                if (!(_this.searchBar.length >= 3)) {
+                  _context.next = 5;
+                  break;
+                }
+
+                _context.next = 3;
+                return axios.get('/get/search/all?search=' + _this.searchBar).then(function (response) {
+                  if (response.data !== 'undefined' && response.data !== null) {
+                    _this.searchResults = response.data;
+                  }
+                });
+
+              case 3:
+                _context.next = 6;
+                break;
+
+              case 5:
+                _this.searchResults = [];
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+
+    /**
+     *
+     * @param cat
+     * @param type
+     */
+    searchClickProduct: function searchClickProduct(cat, type) {
+      var _this2 = this;
+
+      axios.post('/get/cat/type', {
+        'category_id': cat,
+        'type_id': type
+      }).then(function (response) {
+        if (response.data !== 'undefined' && response.data !== null) {
+          _this2.updateFromSearch({
+            'category': response.data.cat,
+            'type': response.data.type
+          });
+
+          if (_this2.$router.currentRoute.name !== 'catalog') {
+            _this2.$router.push({
+              'name': 'catalog'
+            });
+          }
+
+          _this2.searchBar = '';
+          _this2.searchResults = [];
+        }
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -807,7 +1148,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
+/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_0__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -834,21 +1177,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "searchlocation",
+  components: {
+    Multiselect: (vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default())
+  },
   data: function data() {
     return {};
   },
-  methods: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('catalog', ['searchLocation'])),
+  methods: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)('searchlocation', ['updateDeliveryInput', 'searchLocation'])),
   mounted: function mounted() {},
-  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)('catalog', ['location', 'locationInput', 'locationsTips'])), {}, {
-    locationInput: {
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapState)('searchlocation', ['locationDeliveryInput', 'locationsTips'])), {}, {
+    locationDeliveryInput: {
       get: function get() {
-        return this.$store.state.catalog.locationInput;
+        return this.$store.state.searchlocation.locationDeliveryInput;
       },
       set: function set(value) {
-        this.$store.commit('catalog/updateLocationInput', value);
+        this.$store.dispatch('searchlocation/updateDeliveryInput', value);
       }
     }
   })
@@ -874,6 +1227,13 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1051,7 +1411,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'user-login-auth-button',
@@ -1084,17 +1443,17 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.select_category .multiselect__select,\n.select_category .multiselect__tags,\n.select_type .multiselect__select,\n.select_type .multiselect__tags\n{\n    height: 62px;\n}\n.select_category .multiselect__tags,\n.select_type .multiselect__tags\n{\n    min-height: 40px;\n    display: block;\n    padding: 8px 40px 0 8px;\n    border-radius: 10px;\n    border: 1px solid #C8CCD1;\n    background: #fff;\n    font-size: 14px;\n}\n.select_category .multiselect__placeholder,\n.select_type .multiselect__placeholder\n{\n    position: absolute;\n    top: 10px;\n    left: 20px;\n    font-weight: normal;\n    font-size: 12px;\n    line-height: 15px;\n    color: #66727E;\n    display: block !important;\n}\n.select_category .multiselect__select:before,\n.select_type .multiselect__select:before\n{\n    top: 55%;\n}\n.select_category:before\n{\n    content: 'Категория';\n    position: absolute;\n    top: 10px;\n    left: 20px;\n    font-weight: normal;\n    font-size: 12px;\n    line-height: 15px;\n    color: #66727E;\n    display: block;\n    z-index: 99;\n}\n.select_type\n{\n    position: relative;\n    width: 230px;\n    height: 40px;\n    margin: 0 auto;\n}\n.select_type:before\n{\n    content: 'Выберите тип товара';\n    position: absolute;\n    top: 10px;\n    left: 20px;\n    font-weight: normal;\n    font-size: 12px;\n    line-height: 15px;\n    color: #66727E;\n    display: block;\n    z-index: 99;\n}\n.select_category .multiselect__input,\n.select_category .multiselect__single,\n.select_type .multiselect__input,\n.select_type .multiselect__single\n{\n    padding-top: 20px;\n    padding-left: 12px;\n}\n.ymap-container{\n    height: 500px;\n    margin: 50px 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.select_category .multiselect__select,\r\n.select_category .multiselect__tags,\r\n.select_type .multiselect__select,\r\n.select_type .multiselect__tags,\r\n.select_location .multiselect__tags\r\n{\r\n    height: 62px;\n}\n.select_category .multiselect__tags,\r\n.select_type .multiselect__tags,\r\n.select_location .multiselect__tags\r\n{\r\n    min-height: 40px;\r\n    display: block;\r\n    padding: 8px 40px 0 8px;\r\n    border-radius: 10px;\r\n    border: 1px solid #C8CCD1;\r\n    background: #fff;\r\n    font-size: 14px;\n}\n.select_category .multiselect__placeholder,\r\n.select_type .multiselect__placeholder\r\n{\r\n    position: absolute;\r\n    top: 10px;\r\n    left: 20px;\r\n    font-weight: normal;\r\n    font-size: 12px;\r\n    line-height: 15px;\r\n    color: #66727E;\r\n    display: block !important;\n}\n.select_category .multiselect__select:before,\r\n.select_type .multiselect__select:before,\r\n.select_location .multiselect__select:before\r\n{\r\n    top: 55%;\n}\n.select_category:before, .select_location:before\r\n{\r\n    content: 'Категория';\r\n    position: absolute;\r\n    top: 10px;\r\n    left: 20px;\r\n    font-weight: normal;\r\n    font-size: 12px;\r\n    line-height: 15px;\r\n    color: #66727E;\r\n    display: block;\r\n    z-index: 99;\n}\n.select_location:before{\r\n    content: 'Куда доставить';\n}\n.select_location .multiselect__placeholder{\r\n    display: none;\n}\n.select_location .multiselect__select{\r\n    height: 62px;\n}\n.select_type\r\n{\r\n    position: relative;\r\n    width: 230px;\r\n    height: 40px;\r\n    margin: 0 auto;\n}\n.select_type:before\r\n{\r\n    content: 'Выберите тип товара';\r\n    position: absolute;\r\n    top: 10px;\r\n    left: 20px;\r\n    font-weight: normal;\r\n    font-size: 12px;\r\n    line-height: 15px;\r\n    color: #66727E;\r\n    display: block;\r\n    z-index: 99;\n}\n.select_category .multiselect__input,\r\n.select_category .multiselect__single,\r\n.select_type .multiselect__input,\r\n.select_type .multiselect__single,\r\n.select_location .multiselect__single\r\n{\r\n    padding-top: 20px;\r\n    padding-left: 12px;\n}\n.ymap-container{\r\n    height: 500px;\r\n    margin: 50px 0;\r\n    display: none;\n}\n.active-map{\r\n    display: block;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/HeaderCatalog.vue?vue&type=style&index=0&lang=css&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/HeaderCatalog.vue?vue&type=style&index=0&lang=css& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SearchBar.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SearchBar.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1108,7 +1467,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.search-panel\n{\n    display: block;\n    position: fixed;\n    float: left;\n    width:1100px;\n    height:400px;\n    top: 120px;\n    background: #fafafa;\n}\n.search-panel a\n{\n    color:#000;\n    cursor: pointer;\n}\n.product-item\n{\n    margin: 2.5px 0;\n}\n.product-item:hover,\n.product-item:hover a\n{\n    background: #ccc;\n    text-decoration: none;\n    color: #fff;\n    cursor:pointer;\n}\n.search-img\n{\n    height: 50px;\n    width: auto;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.search-panel\r\n{\r\n    display: block;\r\n    position: absolute;\r\n    float: left;\r\n    width: 100%;\r\n    height: auto;\r\n    top: 46px;\r\n    background: #FFFFFF;\r\n    border: 1px solid #C5C5C5;\r\n    box-shadow: 0px 4px 20px rgba(34, 54, 74, 0.05);\r\n    border-radius: 10px;\r\n    padding: 15px 0;\r\n    z-index: 1;\n}\n.search-result_product-item{\r\n    padding: 10px 20px;\n}\n.search-result_product-item:hover{\r\n    background: #F0F2F4;\n}\n.search-result_product-item a{\r\n    font-weight: normal;\r\n    font-size: 15px;\r\n    line-height: 20px;\r\n    color: #22262A;\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: space-between;\n}\n.search-result_product-item:hover a{\r\n    color: #71BF45;\n}\n.search-result_product-item:hover .provider_search-result_product-item{\r\n    color: #71BF45;\n}\n.provider_search-result_product-item{\r\n    color: #8898A8;\n}\n.product-item\r\n{\r\n    margin: 2.5px 0;\n}\n.product-item:hover,\r\n.product-item:hover a\r\n{\r\n    background: #ccc;\r\n    text-decoration: none;\r\n    color: #fff;\r\n    cursor:pointer;\n}\n.search-img\r\n{\r\n    height: 50px;\r\n    width: auto;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1132,7 +1491,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.text-user-login-button\n{\n    font-family: Montserrat;\n    font-weight: 400;\n    font-size: 15px;\n    line-height: 20px;\n    padding: 20px;\n}\n.dropdown-item.dropdown-item-settings.user-login-a\n{\n    font-family: Montserrat;\n    font-weight: 600;\n    font-size: 15px;\n    line-height: 20px;\n    color: #71BF45;\n    cursor: pointer;\n}\nheader .dropdown-menu.show\n{\n    left:-50%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.text-user-login-button\r\n{\r\n    font-family: Montserrat;\r\n    font-weight: 400;\r\n    font-size: 15px;\r\n    line-height: 20px;\r\n    padding: 20px;\n}\n.dropdown-item.dropdown-item-settings.user-login-a\r\n{\r\n    font-family: Montserrat;\r\n    font-weight: 600;\r\n    font-size: 15px;\r\n    line-height: 20px;\r\n    color: #71BF45;\r\n    cursor: pointer;\n}\nheader .dropdown-menu.show\r\n{\r\n    left:-50%;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1185,18 +1544,18 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Catalog_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_1__.default, options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Catalog_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Catalog_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Catalog_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/HeaderCatalog.vue?vue&type=style&index=0&lang=css&":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/HeaderCatalog.vue?vue&type=style&index=0&lang=css& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SearchBar.vue?vue&type=style&index=0&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SearchBar.vue?vue&type=style&index=0&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1206,7 +1565,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderCatalog_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HeaderCatalog.vue?vue&type=style&index=0&lang=css& */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/HeaderCatalog.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchBar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchBar.vue?vue&type=style&index=0&lang=css& */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SearchBar.vue?vue&type=style&index=0&lang=css&");
 
             
 
@@ -1215,11 +1574,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderCatalog_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default, options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchBar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderCatalog_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchBar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -1245,11 +1604,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default, options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -1275,11 +1634,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_vue_multiselect_min_css_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default, options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_vue_multiselect_min_css_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_vue_multiselect_min_css_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_vue_multiselect_min_css_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -1308,8 +1667,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__.default)(
-  _Catalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__["default"])(
+  _Catalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Catalog_vue_vue_type_template_id_a91bf800___WEBPACK_IMPORTED_MODULE_0__.render,
   _Catalog_vue_vue_type_template_id_a91bf800___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -1339,18 +1698,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _HeaderCatalog_vue_vue_type_template_id_5132101a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HeaderCatalog.vue?vue&type=template&id=5132101a& */ "./resources/js/Сomponents/HeaderCatalog.vue?vue&type=template&id=5132101a&");
 /* harmony import */ var _HeaderCatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HeaderCatalog.vue?vue&type=script&lang=js& */ "./resources/js/Сomponents/HeaderCatalog.vue?vue&type=script&lang=js&");
-/* harmony import */ var _HeaderCatalog_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HeaderCatalog.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Сomponents/HeaderCatalog.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
-;
 
 
 /* normalize component */
-
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
-  _HeaderCatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _HeaderCatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _HeaderCatalog_vue_vue_type_template_id_5132101a___WEBPACK_IMPORTED_MODULE_0__.render,
   _HeaderCatalog_vue_vue_type_template_id_5132101a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -1363,6 +1720,47 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/Сomponents/HeaderCatalog.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Сomponents/SearchBar.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/Сomponents/SearchBar.vue ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SearchBar_vue_vue_type_template_id_761e9072___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchBar.vue?vue&type=template&id=761e9072& */ "./resources/js/Сomponents/SearchBar.vue?vue&type=template&id=761e9072&");
+/* harmony import */ var _SearchBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchBar.vue?vue&type=script&lang=js& */ "./resources/js/Сomponents/SearchBar.vue?vue&type=script&lang=js&");
+/* harmony import */ var _SearchBar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SearchBar.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Сomponents/SearchBar.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _SearchBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SearchBar_vue_vue_type_template_id_761e9072___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SearchBar_vue_vue_type_template_id_761e9072___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Сomponents/SearchBar.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -1388,8 +1786,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _SearchLocation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SearchLocation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _SearchLocation_vue_vue_type_template_id_bf1a7e34___WEBPACK_IMPORTED_MODULE_0__.render,
   _SearchLocation_vue_vue_type_template_id_bf1a7e34___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -1427,8 +1825,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _SidebarCatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SidebarCatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _SidebarCatalog_vue_vue_type_template_id_1e635c86___WEBPACK_IMPORTED_MODULE_0__.render,
   _SidebarCatalog_vue_vue_type_template_id_1e635c86___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -1468,8 +1866,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
-  _UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__.render,
   _UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -1498,7 +1896,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Catalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Catalog.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Catalog.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Catalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Catalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -1514,7 +1912,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderCatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HeaderCatalog.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/HeaderCatalog.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderCatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderCatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Сomponents/SearchBar.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/Сomponents/SearchBar.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchBar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SearchBar.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -1530,7 +1944,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchLocation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchLocation.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SearchLocation.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchLocation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchLocation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -1546,7 +1960,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarCatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SidebarCatalog.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SidebarCatalog.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarCatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarCatalog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -1562,7 +1976,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UserLoginAuthButton.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -1592,15 +2006,15 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Сomponents/HeaderCatalog.vue?vue&type=style&index=0&lang=css&":
-/*!************************************************************************************!*\
-  !*** ./resources/js/Сomponents/HeaderCatalog.vue?vue&type=style&index=0&lang=css& ***!
-  \************************************************************************************/
+/***/ "./resources/js/Сomponents/SearchBar.vue?vue&type=style&index=0&lang=css&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/Сomponents/SearchBar.vue?vue&type=style&index=0&lang=css& ***!
+  \********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderCatalog_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HeaderCatalog.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/HeaderCatalog.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchBar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchBar.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SearchBar.vue?vue&type=style&index=0&lang=css&");
 
 
 /***/ }),
@@ -1648,6 +2062,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderCatalog_vue_vue_type_template_id_5132101a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderCatalog_vue_vue_type_template_id_5132101a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HeaderCatalog.vue?vue&type=template&id=5132101a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/HeaderCatalog.vue?vue&type=template&id=5132101a&");
+
+
+/***/ }),
+
+/***/ "./resources/js/Сomponents/SearchBar.vue?vue&type=template&id=761e9072&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Сomponents/SearchBar.vue?vue&type=template&id=761e9072& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchBar_vue_vue_type_template_id_761e9072___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchBar_vue_vue_type_template_id_761e9072___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchBar_vue_vue_type_template_id_761e9072___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchBar.vue?vue&type=template&id=761e9072& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SearchBar.vue?vue&type=template&id=761e9072&");
 
 
 /***/ }),
@@ -1798,7 +2229,12 @@ var render = function() {
                               "button",
                               {
                                 staticClass: "quantity-arrow-minus",
-                                attrs: { "data-id": "m1" }
+                                attrs: { "data-id": "m1" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.minusCapacity(_vm.deliveryType)
+                                  }
+                                }
                               },
                               [
                                 _c(
@@ -1832,15 +2268,21 @@ var render = function() {
                               attrs: {
                                 "data-id": "m1",
                                 type: "number",
-                                value: "1"
-                              }
+                                disabled: ""
+                              },
+                              domProps: { value: _vm.capacity }
                             }),
                             _vm._v(" "),
                             _c(
                               "button",
                               {
                                 staticClass: "quantity-arrow-plus",
-                                attrs: { "data-id": "m1" }
+                                attrs: { "data-id": "m1" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.plusCapacity(_vm.deliveryType)
+                                  }
+                                }
                               },
                               [
                                 _c(
@@ -1891,7 +2333,112 @@ var render = function() {
                   [
                     _c("div", { staticClass: "tab_delivery" }, [
                       _c("div", { staticClass: "container_row_head_product" }, [
-                        _vm._m(1),
+                        _c("div", { staticClass: "tab_product_nav" }, [
+                          _c(
+                            "ul",
+                            {
+                              staticClass: "nav nav-tabs",
+                              attrs: { id: "myTab", role: "tablist" }
+                            },
+                            [
+                              _c("li", { staticClass: "nav-item" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "nav-link",
+                                    attrs: {
+                                      id: "home-tab",
+                                      "data-toggle": "tab",
+                                      href: "#JD",
+                                      role: "tab",
+                                      "aria-controls": "JD",
+                                      "aria-selected": "false"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.changeType("train")
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("span", [
+                                      _vm._v(
+                                        "\n                                                    ·"
+                                      )
+                                    ]),
+                                    _vm._v(
+                                      "\n                                                            ЖД"
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "nav-item" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "nav-link active",
+                                    attrs: {
+                                      id: "avto-tab",
+                                      "data-toggle": "tab",
+                                      href: "#avto",
+                                      role: "tab",
+                                      "aria-controls": "avto",
+                                      "aria-selected": "true"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.changeType("auto")
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("span", [
+                                      _vm._v(
+                                        "\n                                                    ·"
+                                      )
+                                    ]),
+                                    _vm._v(
+                                      "\n                                                            Авто"
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "nav-item" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "nav-link",
+                                    attrs: {
+                                      id: "pickUp-tab",
+                                      "data-toggle": "tab",
+                                      href: "#pickUp ",
+                                      role: "tab",
+                                      "aria-controls": "pickUp",
+                                      "aria-selected": "false"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.changeType("pickup")
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("span", [
+                                      _vm._v(
+                                        "\n                                                    ·"
+                                      )
+                                    ]),
+                                    _vm._v(
+                                      "\n                                                            Самовывоз"
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "delevery_tab_product" }, [
                           _c(
@@ -2013,7 +2560,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(2)
+                              _vm._m(1)
                             ]
                           )
                         ])
@@ -2023,6 +2570,68 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
+              _vm.selectedFilters.length
+                ? _c(
+                    "div",
+                    { staticClass: "container_filter_result" },
+                    _vm._l(_vm.selectedFilters, function(filter) {
+                      return _c("div", { staticClass: "item_filter_result" }, [
+                        _vm._v(
+                          "\n                                    " +
+                            _vm._s(filter) +
+                            "\n                                    "
+                        ),
+                        _c(
+                          "span",
+                          {
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteFilter(filter)
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "20",
+                                  viewBox: "0 0 20 20",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d: "M5 5L15.6452 15.6452",
+                                    stroke: "#8898A8",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("path", {
+                                  attrs: {
+                                    d: "M5 15.6451L15.6452 4.99998",
+                                    stroke: "#8898A8",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        )
+                      ])
+                    }),
+                    0
+                  )
+                : _vm._e(),
+              _vm._v(" "),
               _c(
                 "div",
                 { staticClass: "offer_product_category_block" },
@@ -2031,30 +2640,31 @@ var render = function() {
                     "div",
                     { staticClass: "header_offer_product_category_block" },
                     [
-                      _c("div", [
-                        _c(
-                          "div",
-                          { staticClass: "title_offer_product_category_block" },
-                          [
-                            _vm.typeValue.name
-                              ? _c("span", [_vm._v(_vm._s(_vm.typeValue.name))])
-                              : _c("span", [
-                                  _vm._v(_vm._s(_vm.categoryValue.name))
-                                ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v(_vm._s(_vm.products.length))])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm._m(3)
-                      ]),
-                      _vm._v(" "),
                       _c(
                         "div",
                         { staticClass: "dop_filter_product offer_dop_filter" },
                         [
                           _c("div", { staticClass: "offer_price_filter" }, [
-                            _vm._m(4),
+                            _c("div", [
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "text",
+                                  attrs: { for: "toggle-button" }
+                                },
+                                [_vm._v("Показать цены с НДС")]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                staticClass: "toggle-button",
+                                attrs: {
+                                  type: "checkbox",
+                                  name: "toggle",
+                                  id: "toggle-button"
+                                },
+                                on: { click: _vm.changePrice }
+                              })
+                            ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "dop_filter_currency" }, [
                               _c(
@@ -2091,7 +2701,76 @@ var render = function() {
                             ])
                           ]),
                           _vm._v(" "),
-                          _vm._m(5)
+                          _c("div", { staticClass: "select_dop_filter" }, [
+                            _c(
+                              "div",
+                              { staticClass: "container_select_table_page" },
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "select_table_sort",
+                                    on: { click: _vm.showDropdown }
+                                  },
+                                  [
+                                    _c("span", [_vm._v(_vm._s(_vm.sortValue))]),
+                                    _vm._v(" "),
+                                    _c("span", [
+                                      _c(
+                                        "svg",
+                                        {
+                                          attrs: {
+                                            width: "13",
+                                            height: "7",
+                                            viewBox: "0 0 13 7",
+                                            fill: "none",
+                                            xmlns: "http://www.w3.org/2000/svg"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M1.66675 1L6.66675 6L11.6667 1",
+                                              stroke: "#22262A",
+                                              "stroke-width": "2",
+                                              "stroke-linecap": "round",
+                                              "stroke-linejoin": "round"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _vm.isShowDropdown
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "option_table_page" },
+                                      [
+                                        _vm._l(_vm.sort, function(item) {
+                                          return _c(
+                                            "div",
+                                            {
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.changeCountPage(
+                                                    item.name
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [_vm._v(_vm._s(item.name))]
+                                          )
+                                        })
+                                      ],
+                                      2
+                                    )
+                                  : _vm._e()
+                              ]
+                            )
+                          ])
                         ]
                       ),
                       _vm._v(" "),
@@ -2173,329 +2852,717 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm.coords
-                    ? _c(
-                        "yandex-map",
-                        { attrs: { coords: _vm.coords, zoom: 4 } },
-                        _vm._l(_vm.products, function(product) {
-                          return _c(
-                            "div",
-                            _vm._l(product.adresses, function(adress) {
-                              return product.adresses &&
-                                product.organization &&
-                                product.organization.name
-                                ? _c("ymap-marker", {
-                                    key: product.id,
-                                    attrs: {
-                                      coords: [adress.geo_lat, adress.geo_lon],
-                                      "marker-id": product.id,
-                                      "hint-content": product.organization.name
-                                    }
-                                  })
-                                : _vm._e()
-                            }),
-                            1
-                          )
-                        }),
-                        0
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      class: {
-                        container_item_offer_catalog: _vm.listView,
-                        "tile_container_item_offer_catalog row": _vm.tileView
-                      }
-                    },
-                    [
-                      _vm._l(_vm.products, function(product) {
-                        return _vm.listView && _vm.products.length
-                          ? _c(
+                  _vm._l(_vm.products, function(product, index) {
+                    return _vm.listView && _vm.products
+                      ? _c(
+                          "div",
+                          { staticClass: "row" },
+                          [
+                            _c(
                               "div",
-                              { staticClass: "item_product_category" },
+                              {
+                                staticClass:
+                                  "title_offer_product_category_block m-t-b-45 col-md-12"
+                              },
                               [
-                                _c(
-                                  "div",
-                                  { staticClass: "info_item_offer_catalog" },
-                                  [
-                                    _c("div", {
-                                      staticClass:
-                                        "image_info_item_offer_catalog",
-                                      staticStyle: {
-                                        "background-image":
-                                          "url(/images/offer.png)"
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c("div", [
-                                      product.organization
+                                _c("div", { staticClass: "row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-2 pad-50-10" },
+                                    [
+                                      _vm._v(
+                                        "\n                                                " +
+                                          _vm._s(index) +
+                                          " " +
+                                          _vm._s(product.length) +
+                                          "\n                                            "
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-2 pad-50-10" },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "more_offer_product_category_block"
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              attrs: { href: "#" },
+                                              on: {
+                                                click: function($event) {
+                                                  $event.preventDefault()
+                                                  return _vm.showMap.apply(
+                                                    null,
+                                                    arguments
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              !_vm.showmap
+                                                ? _c("span", [
+                                                    _vm._v(
+                                                      "\n                                                    Показать на карте\n                                                "
+                                                    )
+                                                  ])
+                                                : _c("span", [
+                                                    _vm._v(
+                                                      "\n                                                    Скрыть карту\n                                                "
+                                                    )
+                                                  ])
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", {
+                                    staticClass: "col-md-8 right-block-button"
+                                  })
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm.coords
+                              ? _c(
+                                  "yandex-map",
+                                  {
+                                    class: { "active-map": _vm.showmap },
+                                    attrs: { coords: _vm.coords, zoom: 4 }
+                                  },
+                                  _vm._l(product, function(item) {
+                                    return _c(
+                                      "div",
+                                      _vm._l(item.adresses, function(adress) {
+                                        return item.adresses &&
+                                          item.organization &&
+                                          item.organization.name
+                                          ? _c("ymap-marker", {
+                                              key: item.id,
+                                              attrs: {
+                                                coords: [
+                                                  adress.geo_lat,
+                                                  adress.geo_lon
+                                                ],
+                                                "marker-id": item.id,
+                                                "hint-content":
+                                                  item.organization.name
+                                              }
+                                            })
+                                          : _vm._e()
+                                      }),
+                                      1
+                                    )
+                                  }),
+                                  0
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                class: {
+                                  "col-md-12": _vm.listView,
+                                  "tile_container_item_offer_catalog col-md-12":
+                                    _vm.tileView
+                                }
+                              },
+                              [
+                                _c("div", { staticClass: "col-md-12" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "row" },
+                                    _vm._l(product, function(item, index) {
+                                      return index < 3
                                         ? _c(
                                             "div",
                                             {
                                               staticClass:
-                                                "name_info_item_offer_catalog"
+                                                "item_product_category col-md-12"
                                             },
                                             [
-                                              _vm._v(
-                                                _vm._s(
-                                                  product.organization.name
-                                                ) +
-                                                  "\n                                                        "
-                                              ),
                                               _c(
-                                                "span",
-                                                { staticClass: "icon_star" },
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "info_item_offer_catalog"
+                                                },
                                                 [
-                                                  _c(
-                                                    "svg",
-                                                    {
-                                                      attrs: {
-                                                        width: "13",
-                                                        height: "13",
-                                                        viewBox: "0 0 13 13",
-                                                        fill: "none",
-                                                        xmlns:
-                                                          "http://www.w3.org/2000/svg"
-                                                      }
-                                                    },
-                                                    [
-                                                      _c("path", {
-                                                        attrs: {
-                                                          d:
-                                                            "M5.54894 0.927052C5.8483 0.0057416 7.1517 0.00574088 7.45106 0.927052L8.29611 3.52786C8.42999 3.93989 8.81394 4.21885 9.24717 4.21885H11.9818C12.9505 4.21885 13.3533 5.45846 12.5696 6.02786L10.3572 7.63525C10.0067 7.8899 9.86008 8.34127 9.99396 8.75329L10.839 11.3541C11.1384 12.2754 10.0839 13.0415 9.30017 12.4721L7.08779 10.8647C6.7373 10.6101 6.2627 10.6101 5.91222 10.8647L3.69983 12.4721C2.91612 13.0415 1.86164 12.2754 2.16099 11.3541L3.00604 8.75329C3.13992 8.34127 2.99326 7.8899 2.64277 7.63525L0.430391 6.02787C-0.353323 5.45846 0.0494523 4.21885 1.01818 4.21885H3.75283C4.18606 4.21885 4.57001 3.93989 4.70389 3.52786L5.54894 0.927052Z",
-                                                          fill: "#FFD789"
-                                                        }
+                                                  item.organization &&
+                                                  item.organization.logo
+                                                    ? _c("div", {
+                                                        staticClass:
+                                                          "image_info_item_offer_catalog",
+                                                        style:
+                                                          "background-image: url(" +
+                                                          item.organization
+                                                            .logo +
+                                                          ")"
                                                       })
-                                                    ]
-                                                  )
+                                                    : _vm._e(),
+                                                  _vm._v(" "),
+                                                  _c("div", [
+                                                    item.organization
+                                                      ? _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "name_info_item_offer_catalog"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                item
+                                                                  .organization
+                                                                  .name
+                                                              ) +
+                                                                "\n                                                                "
+                                                            ),
+                                                            _c(
+                                                              "span",
+                                                              {
+                                                                staticClass:
+                                                                  "icon_star"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "svg",
+                                                                  {
+                                                                    attrs: {
+                                                                      width:
+                                                                        "13",
+                                                                      height:
+                                                                        "13",
+                                                                      viewBox:
+                                                                        "0 0 13 13",
+                                                                      fill:
+                                                                        "none",
+                                                                      xmlns:
+                                                                        "http://www.w3.org/2000/svg"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c("path", {
+                                                                      attrs: {
+                                                                        d:
+                                                                          "M5.54894 0.927052C5.8483 0.0057416 7.1517 0.00574088 7.45106 0.927052L8.29611 3.52786C8.42999 3.93989 8.81394 4.21885 9.24717 4.21885H11.9818C12.9505 4.21885 13.3533 5.45846 12.5696 6.02786L10.3572 7.63525C10.0067 7.8899 9.86008 8.34127 9.99396 8.75329L10.839 11.3541C11.1384 12.2754 10.0839 13.0415 9.30017 12.4721L7.08779 10.8647C6.7373 10.6101 6.2627 10.6101 5.91222 10.8647L3.69983 12.4721C2.91612 13.0415 1.86164 12.2754 2.16099 11.3541L3.00604 8.75329C3.13992 8.34127 2.99326 7.8899 2.64277 7.63525L0.430391 6.02787C-0.353323 5.45846 0.0494523 4.21885 1.01818 4.21885H3.75283C4.18606 4.21885 4.57001 3.93989 4.70389 3.52786L5.54894 0.927052Z",
+                                                                        fill:
+                                                                          "#FFD789"
+                                                                      }
+                                                                    })
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "span",
+                                                              {
+                                                                staticClass:
+                                                                  "text_star"
+                                                              },
+                                                              [_vm._v("4,5")]
+                                                            )
+                                                          ]
+                                                        )
+                                                      : _vm._e(),
+                                                    _vm._v(" "),
+                                                    item.packings
+                                                      ? _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "place_count_info_item_offer_catalog"
+                                                          },
+                                                          _vm._l(
+                                                            item.packings,
+                                                            function(pack) {
+                                                              return _c(
+                                                                "span",
+                                                                [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      pack.name
+                                                                    )
+                                                                  )
+                                                                ]
+                                                              )
+                                                            }
+                                                          ),
+                                                          0
+                                                        )
+                                                      : _vm._e()
+                                                  ])
                                                 ]
                                               ),
                                               _vm._v(" "),
                                               _c(
-                                                "span",
-                                                { staticClass: "text_star" },
-                                                [_vm._v("4,5")]
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "delivery_item_similar_products"
+                                                },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "icon_delivery"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "svg",
+                                                        {
+                                                          attrs: {
+                                                            width: "25",
+                                                            height: "24",
+                                                            viewBox:
+                                                              "0 0 25 24",
+                                                            fill: "none",
+                                                            xmlns:
+                                                              "http://www.w3.org/2000/svg"
+                                                          }
+                                                        },
+                                                        [
+                                                          _c("circle", {
+                                                            attrs: {
+                                                              cx: "12.5",
+                                                              cy: "12",
+                                                              r: "11",
+                                                              stroke: "#71BF45",
+                                                              "stroke-width":
+                                                                "2"
+                                                            }
+                                                          }),
+                                                          _vm._v(" "),
+                                                          _c("path", {
+                                                            attrs: {
+                                                              d:
+                                                                "M12.5 7V13L15 15.5",
+                                                              stroke: "#71BF45",
+                                                              "stroke-width":
+                                                                "2",
+                                                              "stroke-linecap":
+                                                                "round",
+                                                              "stroke-linejoin":
+                                                                "round"
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm._m(2, true)
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "price_item_product_category"
+                                                },
+                                                [
+                                                  !_vm.priceWithNDS &&
+                                                  _vm.currentCourse === "USD"
+                                                    ? _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "start_price_category_products"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              (
+                                                                parseFloat(
+                                                                  item.price
+                                                                ) /
+                                                                parseFloat(
+                                                                  _vm.courseUSD
+                                                                    .Value
+                                                                )
+                                                              ).toFixed(2)
+                                                            ) + " $ / кг"
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _vm._e(),
+                                                  _vm._v(" "),
+                                                  _vm.priceWithNDS &&
+                                                  _vm.currentCourse === "USD"
+                                                    ? _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "start_price_category_products"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              parseFloat(
+                                                                item.price_with_nds
+                                                              ) /
+                                                                parseFloat(
+                                                                  _vm.courseUSD
+                                                                    .Value
+                                                                ).toFixed(2)
+                                                            ) + " $  / кг"
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _vm._e(),
+                                                  _vm._v(" "),
+                                                  !_vm.priceWithNDS &&
+                                                  _vm.currentCourse === "RUB"
+                                                    ? _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "start_price_category_products"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(item.price) +
+                                                              " ₽ / кг"
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _vm._e(),
+                                                  _vm._v(" "),
+                                                  _vm.priceWithNDS &&
+                                                  _vm.currentCourse === "RUB"
+                                                    ? _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "start_price_category_products"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              item.price_with_nds
+                                                            ) + " ₽ / кг"
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _vm._e()
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "container_item_offer_btn"
+                                                },
+                                                [
+                                                  _c(
+                                                    "router-link",
+                                                    {
+                                                      attrs: {
+                                                        to: {
+                                                          name: "catalog-page",
+                                                          params: {
+                                                            id: item.id
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "make_deal"
+                                                        },
+                                                        [_vm._v("Подробнее")]
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "doc_item_offer"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "button",
+                                                        {
+                                                          staticClass:
+                                                            "bay_item_offer_catalog",
+                                                          attrs: {
+                                                            type: "button",
+                                                            id:
+                                                              "dropdownMenuButton",
+                                                            "data-toggle":
+                                                              "dropdown",
+                                                            "aria-haspopup":
+                                                              "true",
+                                                            "aria-expanded":
+                                                              "false"
+                                                          }
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "svg",
+                                                            {
+                                                              attrs: {
+                                                                xmlns:
+                                                                  "http://www.w3.org/2000/svg",
+                                                                width: "25",
+                                                                height: "19",
+                                                                viewBox:
+                                                                  "0 0 25 19",
+                                                                fill: "none"
+                                                              }
+                                                            },
+                                                            [
+                                                              _c("path", {
+                                                                attrs: {
+                                                                  d:
+                                                                    "M1.5 4C1.5 2.34315 2.84315 1 4.5 1H8.89023C9.60636 1 10.2989 1.25618 10.8426 1.72223L12.6574 3.27777C13.2011 3.74382 13.8936 4 14.6098 4H20.5C22.1569 4 23.5 5.34315 23.5 7V15C23.5 16.6569 22.1569 18 20.5 18H4.5C2.84315 18 1.5 16.6569 1.5 15V4Z",
+                                                                  stroke:
+                                                                    "#71BF45",
+                                                                  "stroke-width":
+                                                                    "2"
+                                                                }
+                                                              })
+                                                            ]
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      item.documents &&
+                                                      item.documents.length
+                                                        ? _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "dropdown-menu",
+                                                              attrs: {
+                                                                "aria-labelledby":
+                                                                  "dropdownMenuButton"
+                                                              }
+                                                            },
+                                                            _vm._l(
+                                                              item.documents,
+                                                              function(
+                                                                document
+                                                              ) {
+                                                                return _c(
+                                                                  "a",
+                                                                  {
+                                                                    staticClass:
+                                                                      "dropdown-item",
+                                                                    attrs: {
+                                                                      href:
+                                                                        document.path,
+                                                                      target:
+                                                                        "_blank"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "Документ "
+                                                                    ),
+                                                                    _c(
+                                                                      "span",
+                                                                      {
+                                                                        staticClass:
+                                                                          "span-pdf"
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "PDF"
+                                                                        )
+                                                                      ]
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              }
+                                                            ),
+                                                            0
+                                                          )
+                                                        : _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "dropdown-menu",
+                                                              attrs: {
+                                                                "aria-labelledby":
+                                                                  "dropdownMenuButton"
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "dropdown-item"
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "У данного предложения документы отсутствуют"
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                    ]
+                                                  )
+                                                ],
+                                                1
                                               )
                                             ]
                                           )
-                                        : _vm._e(),
-                                      _vm._v(" "),
-                                      _vm._m(6, true)
-                                    ])
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "delivery_item_similar_products"
-                                  },
-                                  [
+                                        : _vm._e()
+                                    }),
+                                    0
+                                  )
+                                ])
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      : _vm._e()
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-md-12" },
+                    _vm._l(_vm.products, function(product, index) {
+                      return _vm.tileView && _vm.products
+                        ? _c(
+                            "div",
+                            { staticClass: "row" },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "title_offer_product_category_block m-t-b-45 col-md-12"
+                                },
+                                [
+                                  _c("div", { staticClass: "row" }, [
                                     _c(
                                       "div",
-                                      { staticClass: "icon_delivery" },
+                                      { staticClass: "col-md-2 pad-50-10" },
                                       [
-                                        _c(
-                                          "svg",
-                                          {
-                                            attrs: {
-                                              width: "25",
-                                              height: "24",
-                                              viewBox: "0 0 25 24",
-                                              fill: "none",
-                                              xmlns:
-                                                "http://www.w3.org/2000/svg"
-                                            }
-                                          },
-                                          [
-                                            _c("circle", {
-                                              attrs: {
-                                                cx: "12.5",
-                                                cy: "12",
-                                                r: "11",
-                                                stroke: "#71BF45",
-                                                "stroke-width": "2"
-                                              }
-                                            }),
-                                            _vm._v(" "),
-                                            _c("path", {
-                                              attrs: {
-                                                d: "M12.5 7V13L15 15.5",
-                                                stroke: "#71BF45",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _vm._m(7, true)
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "price_item_product_category"
-                                  },
-                                  [
-                                    _vm.currentCourse === "RUB"
-                                      ? _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "start_price_category_products"
-                                          },
-                                          [
-                                            _vm._v(
-                                              _vm._s(product.price) + " ₽ / кг"
-                                            )
-                                          ]
-                                        )
-                                      : _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "start_price_category_products"
-                                          },
-                                          [
-                                            _vm._v(
-                                              _vm._s(
-                                                (
-                                                  parseFloat(product.price) /
-                                                  parseFloat(
-                                                    _vm.courseUSD.Value
-                                                  )
-                                                ).toFixed(2)
-                                              ) + " $ / кг"
-                                            )
-                                          ]
-                                        )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "container_item_offer_btn" },
-                                  [
-                                    _c(
-                                      "router-link",
-                                      {
-                                        attrs: {
-                                          to: {
-                                            name: "catalog-page",
-                                            params: { id: product.id }
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "make_deal" },
-                                          [_vm._v("Подробнее")]
+                                        _vm._v(
+                                          "\n                                                    " +
+                                            _vm._s(index) +
+                                            " " +
+                                            _vm._s(product.length) +
+                                            "\n                                                "
                                         )
                                       ]
                                     ),
                                     _vm._v(" "),
                                     _c(
                                       "div",
-                                      { staticClass: "doc_item_offer" },
+                                      { staticClass: "col-md-2 pad-50-10" },
                                       [
                                         _c(
-                                          "button",
+                                          "div",
                                           {
                                             staticClass:
-                                              "bay_item_offer_catalog",
-                                            attrs: {
-                                              type: "button",
-                                              id: "dropdownMenuButton",
-                                              "data-toggle": "dropdown",
-                                              "aria-haspopup": "true",
-                                              "aria-expanded": "false"
-                                            }
+                                              "more_offer_product_category_block"
                                           },
                                           [
                                             _c(
-                                              "svg",
+                                              "a",
                                               {
-                                                attrs: {
-                                                  xmlns:
-                                                    "http://www.w3.org/2000/svg",
-                                                  width: "25",
-                                                  height: "19",
-                                                  viewBox: "0 0 25 19",
-                                                  fill: "none"
+                                                attrs: { href: "#" },
+                                                on: {
+                                                  click: function($event) {
+                                                    $event.preventDefault()
+                                                    return _vm.showMap.apply(
+                                                      null,
+                                                      arguments
+                                                    )
+                                                  }
                                                 }
                                               },
                                               [
-                                                _c("path", {
-                                                  attrs: {
-                                                    d:
-                                                      "M1.5 4C1.5 2.34315 2.84315 1 4.5 1H8.89023C9.60636 1 10.2989 1.25618 10.8426 1.72223L12.6574 3.27777C13.2011 3.74382 13.8936 4 14.6098 4H20.5C22.1569 4 23.5 5.34315 23.5 7V15C23.5 16.6569 22.1569 18 20.5 18H4.5C2.84315 18 1.5 16.6569 1.5 15V4Z",
-                                                    stroke: "#71BF45",
-                                                    "stroke-width": "2"
-                                                  }
-                                                })
+                                                !_vm.showmap
+                                                  ? _c("span", [
+                                                      _vm._v(
+                                                        "\n                                                    Показать на карте\n                                                "
+                                                      )
+                                                    ])
+                                                  : _c("span", [
+                                                      _vm._v(
+                                                        "\n                                                    Скрыть карту\n                                                "
+                                                      )
+                                                    ])
                                               ]
                                             )
                                           ]
-                                        ),
-                                        _vm._v(" "),
-                                        product.documents
-                                          ? _c(
-                                              "div",
-                                              {
-                                                staticClass: "dropdown-menu",
-                                                attrs: {
-                                                  "aria-labelledby":
-                                                    "dropdownMenuButton"
-                                                }
-                                              },
-                                              _vm._l(
-                                                product.documents,
-                                                function(document) {
-                                                  return _c(
-                                                    "a",
-                                                    {
-                                                      staticClass:
-                                                        "dropdown-item",
-                                                      attrs: {
-                                                        href: document.path,
-                                                        target: "_blank"
-                                                      }
-                                                    },
-                                                    [_vm._v("Документ")]
-                                                  )
-                                                }
-                                              ),
-                                              0
-                                            )
-                                          : _vm._e()
+                                        )
                                       ]
-                                    )
-                                  ],
-                                  1
-                                )
-                              ]
-                            )
-                          : _vm._e()
-                      }),
-                      _vm._v(" "),
-                      _vm._l(_vm.products, function(product) {
-                        return _vm.tileView && _vm.products.length
-                          ? _c(
-                              "div",
-                              { staticClass: "tile_item_offer_catalog col" },
-                              [
-                                _c(
+                                    ),
+                                    _vm._v(" "),
+                                    _c("div", {
+                                      staticClass: "col-md-8 right-block-button"
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm.coords
+                                ? _c(
+                                    "yandex-map",
+                                    {
+                                      class: { "active-map": _vm.showmap },
+                                      attrs: { coords: _vm.coords, zoom: 4 }
+                                    },
+                                    _vm._l(product, function(item) {
+                                      return _c(
+                                        "div",
+                                        _vm._l(item.adresses, function(adress) {
+                                          return item.adresses &&
+                                            item.organization &&
+                                            item.organization.name
+                                            ? _c("ymap-marker", {
+                                                key: item.id,
+                                                attrs: {
+                                                  coords: [
+                                                    adress.geo_lat,
+                                                    adress.geo_lon
+                                                  ],
+                                                  "marker-id": item.id,
+                                                  "hint-content":
+                                                    item.organization.name
+                                                }
+                                              })
+                                            : _vm._e()
+                                        }),
+                                        1
+                                      )
+                                    }),
+                                    0
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm._l(product, function(item) {
+                                return _c(
                                   "div",
-                                  { staticClass: "tile_item_product_category" },
+                                  {
+                                    staticClass: "tile_item_offer_catalog col"
+                                  },
                                   [
                                     _c(
                                       "div",
@@ -2508,213 +3575,177 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              "tile_info_item_offer_catalog"
-                                          },
-                                          [
-                                            _c("div", {
-                                              staticClass:
-                                                "tile_image_info_item_offer_catalog",
-                                              staticStyle: {
-                                                "background-image":
-                                                  "url(/images/offer.png)"
-                                              }
-                                            }),
-                                            _vm._v(" "),
-                                            _c("div", [
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "star_info_item_offer_catalog"
-                                                },
-                                                [
-                                                  _c(
-                                                    "span",
-                                                    {
-                                                      staticClass: "icon_star"
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "svg",
-                                                        {
-                                                          attrs: {
-                                                            width: "13",
-                                                            height: "13",
-                                                            viewBox:
-                                                              "0 0 13 13",
-                                                            fill: "none",
-                                                            xmlns:
-                                                              "http://www.w3.org/2000/svg"
-                                                          }
-                                                        },
-                                                        [
-                                                          _c("path", {
-                                                            attrs: {
-                                                              d:
-                                                                "M5.54894 0.927052C5.8483 0.0057416 7.1517 0.00574088 7.45106 0.927052L8.29611 3.52786C8.42999 3.93989 8.81394 4.21885 9.24717 4.21885H11.9818C12.9505 4.21885 13.3533 5.45846 12.5696 6.02786L10.3572 7.63525C10.0067 7.8899 9.86008 8.34127 9.99396 8.75329L10.839 11.3541C11.1384 12.2754 10.0839 13.0415 9.30017 12.4721L7.08779 10.8647C6.7373 10.6101 6.2627 10.6101 5.91222 10.8647L3.69983 12.4721C2.91612 13.0415 1.86164 12.2754 2.16099 11.3541L3.00604 8.75329C3.13992 8.34127 2.99326 7.8899 2.64277 7.63525L0.430391 6.02787C-0.353323 5.45846 0.0494523 4.21885 1.01818 4.21885H3.75283C4.18606 4.21885 4.57001 3.93989 4.70389 3.52786L5.54894 0.927052Z",
-                                                              fill: "#FFD789"
-                                                            }
-                                                          })
-                                                        ]
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "span",
-                                                    {
-                                                      staticClass: "text_star"
-                                                    },
-                                                    [_vm._v("4,5")]
-                                                  )
-                                                ]
-                                              )
-                                            ])
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "name_info_item_offer_catalog"
-                                          },
-                                          [
-                                            _vm._v(
-                                              _vm._s(
-                                                product.organization.name
-                                              ) + " "
-                                            ),
-                                            _c("span", [_vm._v("·")]),
-                                            _vm._v(" "),
-                                            product.country
-                                              ? _c("span", [
-                                                  _vm._v(
-                                                    "\n                                                            " +
-                                                      _vm._s(
-                                                        product.country.title_ru
-                                                      ) +
-                                                      "\n                                                         "
-                                                  )
-                                                ])
-                                              : _vm._e()
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _vm._m(8, true),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "delivery_item_similar_products"
-                                          },
-                                          [
-                                            _c(
-                                              "div",
-                                              { staticClass: "icon_delivery" },
-                                              [
-                                                _c(
-                                                  "svg",
-                                                  {
-                                                    attrs: {
-                                                      width: "25",
-                                                      height: "24",
-                                                      viewBox: "0 0 25 24",
-                                                      fill: "none",
-                                                      xmlns:
-                                                        "http://www.w3.org/2000/svg"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c("circle", {
-                                                      attrs: {
-                                                        cx: "12.5",
-                                                        cy: "12",
-                                                        r: "11",
-                                                        stroke: "#71BF45",
-                                                        "stroke-width": "2"
-                                                      }
-                                                    }),
-                                                    _vm._v(" "),
-                                                    _c("path", {
-                                                      attrs: {
-                                                        d: "M12.5 7V13L15 15.5",
-                                                        stroke: "#71BF45",
-                                                        "stroke-width": "2",
-                                                        "stroke-linecap":
-                                                          "round",
-                                                        "stroke-linejoin":
-                                                          "round"
-                                                      }
-                                                    })
-                                                  ]
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _vm._m(9, true)
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "tile_price_document_block"
+                                              "tile_item_product_category"
                                           },
                                           [
                                             _c(
                                               "div",
                                               {
                                                 staticClass:
-                                                  "tile_start_price_category_products"
+                                                  "tile_info_item_offer_catalog"
                                               },
                                               [
-                                                _vm._v(
-                                                  _vm._s(product.price) +
-                                                    " ₽/ кг"
-                                                )
+                                                _c("div", {
+                                                  staticClass:
+                                                    "tile_image_info_item_offer_catalog",
+                                                  style:
+                                                    "background-image: url(" +
+                                                    item.organization.logo +
+                                                    ");"
+                                                }),
+                                                _vm._v(" "),
+                                                _c("div", [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "star_info_item_offer_catalog"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          staticClass:
+                                                            "icon_star"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "svg",
+                                                            {
+                                                              attrs: {
+                                                                width: "13",
+                                                                height: "13",
+                                                                viewBox:
+                                                                  "0 0 13 13",
+                                                                fill: "none",
+                                                                xmlns:
+                                                                  "http://www.w3.org/2000/svg"
+                                                              }
+                                                            },
+                                                            [
+                                                              _c("path", {
+                                                                attrs: {
+                                                                  d:
+                                                                    "M5.54894 0.927052C5.8483 0.0057416 7.1517 0.00574088 7.45106 0.927052L8.29611 3.52786C8.42999 3.93989 8.81394 4.21885 9.24717 4.21885H11.9818C12.9505 4.21885 13.3533 5.45846 12.5696 6.02786L10.3572 7.63525C10.0067 7.8899 9.86008 8.34127 9.99396 8.75329L10.839 11.3541C11.1384 12.2754 10.0839 13.0415 9.30017 12.4721L7.08779 10.8647C6.7373 10.6101 6.2627 10.6101 5.91222 10.8647L3.69983 12.4721C2.91612 13.0415 1.86164 12.2754 2.16099 11.3541L3.00604 8.75329C3.13992 8.34127 2.99326 7.8899 2.64277 7.63525L0.430391 6.02787C-0.353323 5.45846 0.0494523 4.21885 1.01818 4.21885H3.75283C4.18606 4.21885 4.57001 3.93989 4.70389 3.52786L5.54894 0.927052Z",
+                                                                  fill:
+                                                                    "#FFD789"
+                                                                }
+                                                              })
+                                                            ]
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          staticClass:
+                                                            "text_star"
+                                                        },
+                                                        [_vm._v("4,5")]
+                                                      )
+                                                    ]
+                                                  )
+                                                ])
                                               ]
                                             ),
                                             _vm._v(" "),
                                             _c(
                                               "div",
-                                              { staticClass: "doc_item_offer" },
+                                              {
+                                                staticClass:
+                                                  "name_info_item_offer_catalog"
+                                              },
                                               [
-                                                _c(
-                                                  "button",
+                                                _vm._v(
+                                                  _vm._s(
+                                                    item.organization.name
+                                                  ) + " "
+                                                ),
+                                                _c("span", [_vm._v("·")]),
+                                                _vm._v(" "),
+                                                item.country
+                                                  ? _c("span", [
+                                                      _vm._v(
+                                                        "\n                                                            " +
+                                                          _vm._s(
+                                                            item.country
+                                                              .title_ru
+                                                          ) +
+                                                          "\n                                                         "
+                                                      )
+                                                    ])
+                                                  : _vm._e()
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            item.packings
+                                              ? _c(
+                                                  "div",
                                                   {
                                                     staticClass:
-                                                      "tile_bay_item_offer_catalog",
-                                                    attrs: {
-                                                      type: "button",
-                                                      id: "dropdownMenuButton",
-                                                      "data-toggle": "dropdown",
-                                                      "aria-haspopup": "true",
-                                                      "aria-expanded": "false"
+                                                      "place_count_info_item_offer_catalog"
+                                                  },
+                                                  _vm._l(
+                                                    item.packings,
+                                                    function(pack) {
+                                                      return _c("span", [
+                                                        _vm._v(
+                                                          _vm._s(pack.name)
+                                                        )
+                                                      ])
                                                     }
+                                                  ),
+                                                  0
+                                                )
+                                              : _vm._e(),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "delivery_item_similar_products"
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass: "icon_delivery"
                                                   },
                                                   [
                                                     _c(
                                                       "svg",
                                                       {
                                                         attrs: {
-                                                          xmlns:
-                                                            "http://www.w3.org/2000/svg",
                                                           width: "25",
-                                                          height: "19",
-                                                          viewBox: "0 0 25 19",
-                                                          fill: "none"
+                                                          height: "24",
+                                                          viewBox: "0 0 25 24",
+                                                          fill: "none",
+                                                          xmlns:
+                                                            "http://www.w3.org/2000/svg"
                                                         }
                                                       },
                                                       [
+                                                        _c("circle", {
+                                                          attrs: {
+                                                            cx: "12.5",
+                                                            cy: "12",
+                                                            r: "11",
+                                                            stroke: "#71BF45",
+                                                            "stroke-width": "2"
+                                                          }
+                                                        }),
+                                                        _vm._v(" "),
                                                         _c("path", {
                                                           attrs: {
                                                             d:
-                                                              "M1.5 4C1.5 2.34315 2.84315 1 4.5 1H8.89023C9.60636 1 10.2989 1.25618 10.8426 1.72223L12.6574 3.27777C13.2011 3.74382 13.8936 4 14.6098 4H20.5C22.1569 4 23.5 5.34315 23.5 7V15C23.5 16.6569 22.1569 18 20.5 18H4.5C2.84315 18 1.5 16.6569 1.5 15V4Z",
+                                                              "M12.5 7V13L15 15.5",
                                                             stroke: "#71BF45",
-                                                            "stroke-width": "2"
+                                                            "stroke-width": "2",
+                                                            "stroke-linecap":
+                                                              "round",
+                                                            "stroke-linejoin":
+                                                              "round"
                                                           }
                                                         })
                                                       ]
@@ -2722,75 +3753,202 @@ var render = function() {
                                                   ]
                                                 ),
                                                 _vm._v(" "),
-                                                product.documents
-                                                  ? _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "dropdown-menu",
-                                                        attrs: {
-                                                          "aria-labelledby":
-                                                            "dropdownMenuButton"
-                                                        }
-                                                      },
-                                                      _vm._l(
-                                                        product.documents,
-                                                        function(document) {
-                                                          return _c(
-                                                            "a",
-                                                            {
-                                                              staticClass:
-                                                                "dropdown-item",
-                                                              attrs: {
-                                                                href:
-                                                                  document.path,
-                                                                target: "_blank"
-                                                              }
-                                                            },
-                                                            [_vm._v("Документ")]
-                                                          )
-                                                        }
-                                                      ),
-                                                      0
-                                                    )
-                                                  : _vm._e()
+                                                _vm._m(3, true)
                                               ]
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "router-link",
-                                          {
-                                            attrs: {
-                                              to: {
-                                                name: "catalog-page",
-                                                params: { id: product.id }
-                                              }
-                                            }
-                                          },
-                                          [
+                                            ),
+                                            _vm._v(" "),
                                             _c(
                                               "div",
-                                              { staticClass: "tile_make_deal" },
-                                              [_vm._v("Подробнее")]
+                                              {
+                                                staticClass:
+                                                  "tile_price_document_block"
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "tile_start_price_category_products"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(item.price) +
+                                                        " ₽/ кг"
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "doc_item_offer"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "button",
+                                                      {
+                                                        staticClass:
+                                                          "tile_bay_item_offer_catalog",
+                                                        attrs: {
+                                                          type: "button",
+                                                          id:
+                                                            "dropdownMenuButton",
+                                                          "data-toggle":
+                                                            "dropdown",
+                                                          "aria-haspopup":
+                                                            "true",
+                                                          "aria-expanded":
+                                                            "false"
+                                                        }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "svg",
+                                                          {
+                                                            attrs: {
+                                                              xmlns:
+                                                                "http://www.w3.org/2000/svg",
+                                                              width: "25",
+                                                              height: "19",
+                                                              viewBox:
+                                                                "0 0 25 19",
+                                                              fill: "none"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c("path", {
+                                                              attrs: {
+                                                                d:
+                                                                  "M1.5 4C1.5 2.34315 2.84315 1 4.5 1H8.89023C9.60636 1 10.2989 1.25618 10.8426 1.72223L12.6574 3.27777C13.2011 3.74382 13.8936 4 14.6098 4H20.5C22.1569 4 23.5 5.34315 23.5 7V15C23.5 16.6569 22.1569 18 20.5 18H4.5C2.84315 18 1.5 16.6569 1.5 15V4Z",
+                                                                stroke:
+                                                                  "#71BF45",
+                                                                "stroke-width":
+                                                                  "2"
+                                                              }
+                                                            })
+                                                          ]
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    item.documents &&
+                                                    item.documents.length
+                                                      ? _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "dropdown-menu",
+                                                            attrs: {
+                                                              "aria-labelledby":
+                                                                "dropdownMenuButton"
+                                                            }
+                                                          },
+                                                          _vm._l(
+                                                            item.documents,
+                                                            function(document) {
+                                                              return _c(
+                                                                "a",
+                                                                {
+                                                                  staticClass:
+                                                                    "dropdown-item",
+                                                                  attrs: {
+                                                                    href:
+                                                                      document.path,
+                                                                    target:
+                                                                      "_blank"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Документ "
+                                                                  ),
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "span-pdf"
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "PDF"
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            }
+                                                          ),
+                                                          0
+                                                        )
+                                                      : _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "dropdown-menu",
+                                                            attrs: {
+                                                              "aria-labelledby":
+                                                                "dropdownMenuButton"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "dropdown-item"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "У данного предложения  документы отсутствуют"
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "router-link",
+                                              {
+                                                attrs: {
+                                                  to: {
+                                                    name: "catalog-page",
+                                                    params: { id: item.id }
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "tile_make_deal"
+                                                  },
+                                                  [_vm._v("Подробнее")]
+                                                )
+                                              ]
                                             )
-                                          ]
+                                          ],
+                                          1
                                         )
-                                      ],
-                                      1
+                                      ]
                                     )
                                   ]
                                 )
-                              ]
-                            )
-                          : _vm._e()
-                      })
-                    ],
-                    2
+                              })
+                            ],
+                            2
+                          )
+                        : _vm._e()
+                    }),
+                    0
                   )
                 ],
-                1
+                2
               )
             ])
           ])
@@ -2808,103 +3966,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "text_prompt" }, [
       _vm._v("Нужный объем"),
       _c("br"),
-      _vm._v(" для закупки")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "tab_product_nav" }, [
-      _c(
-        "ul",
-        {
-          staticClass: "nav nav-tabs",
-          attrs: { id: "myTab", role: "tablist" }
-        },
-        [
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: {
-                  id: "home-tab",
-                  "data-toggle": "tab",
-                  href: "#JD",
-                  role: "tab",
-                  "aria-controls": "JD",
-                  "aria-selected": "false"
-                }
-              },
-              [
-                _c("span", [
-                  _vm._v(
-                    "\n                                                    ·"
-                  )
-                ]),
-                _vm._v(
-                  "\n                                                            ЖД"
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link active",
-                attrs: {
-                  id: "avto-tab",
-                  "data-toggle": "tab",
-                  href: "#avto",
-                  role: "tab",
-                  "aria-controls": "avto",
-                  "aria-selected": "true"
-                }
-              },
-              [
-                _c("span", [
-                  _vm._v(
-                    "\n                                                    ·"
-                  )
-                ]),
-                _vm._v(
-                  "\n                                                            Авто"
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: {
-                  id: "pickUp-tab",
-                  "data-toggle": "tab",
-                  href: "#pickUp ",
-                  role: "tab",
-                  "aria-controls": "pickUp",
-                  "aria-selected": "false"
-                }
-              },
-              [
-                _c("span", [
-                  _vm._v(
-                    "\n                                                    ·"
-                  )
-                ]),
-                _vm._v(
-                  "\n                                                            Самовывоз"
-                )
-              ]
-            )
-          ])
-        ]
-      )
+      _vm._v(" для закупки (кг)")
     ])
   },
   function() {
@@ -2932,75 +3994,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "more_offer_product_category_block" }, [
-      _c("a", { attrs: { href: "" } }, [_vm._v("Показать все")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("label", { staticClass: "text", attrs: { for: "toggle-button" } }, [
-        _vm._v("Показать цены с НДС")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "toggle-button",
-        attrs: { type: "checkbox", name: "toggle", id: "toggle-button" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "select_dop_filter" }, [
-      _c("select", { attrs: { name: "", id: "" } }, [
-        _c("option", { attrs: { value: "" } }, [_vm._v("Сортировать по цене")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "place_count_info_item_offer_catalog" }, [
-      _c("span", [_vm._v("50кг")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("25кг")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("10кг")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", [
       _c("div", { staticClass: "title_time_delivery" }, [_vm._v("Доставка")]),
       _vm._v(" "),
       _c("div", { staticClass: "time_delivery" }, [_vm._v("от 5 дней")])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "place_count_info_item_offer_catalog tile_place_count_info_item_offer_catalog"
-      },
-      [
-        _c("span", [_vm._v("50кг")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("25кг")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("10кг")])
-      ]
-    )
   },
   function() {
     var _vm = this
@@ -3197,7 +4195,7 @@ var render = function() {
                         [
                           _vm._v(
                             "\n                            " +
-                              _vm._s(_vm.locationInput) +
+                              _vm._s(_vm.location.location.value) +
                               "\n                            "
                           ),
                           _c("span", [
@@ -3243,7 +4241,9 @@ var render = function() {
                           ref: "modal",
                           attrs: {
                             id: "modal-prevent-closing",
-                            title: "Укажите город доставки"
+                            title: "Укажите город доставки",
+                            "ok-title": "Сохранить",
+                            "cancel-title": "Отмена"
                           },
                           on: {
                             show: _vm.resetModal,
@@ -3379,175 +4379,41 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "search_header" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.searchBar,
-                  expression: "searchBar"
-                }
-              ],
-              attrs: { type: "text", placeholder: "Найти товар" },
-              domProps: { value: _vm.searchBar },
-              on: {
-                keyup: _vm.searchText,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.searchBar = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            Object.keys(_vm.searchResults).length
-              ? _c("div", { staticClass: "search-panel" }, [
-                  _vm.searchResults && _vm.searchResults.products
-                    ? _c(
-                        "div",
-                        { staticClass: "search-result-product" },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass: "col-md-4",
-                              staticStyle: {
-                                "margin-top": "20px",
-                                "margin-bottom": "20px"
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                Продукты\n                            "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _vm._l(_vm.searchResults.products, function(product) {
-                            return _c("div", { staticClass: "col-md-12" }, [
-                              _c("div", { staticClass: "row product-item" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "col-md-12",
-                                    attrs: { href: "#" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.searchClickProduct(
-                                          product.category_id,
-                                          product.type_id
-                                        )
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("div", { staticClass: "row" }, [
-                                      _c("div", { staticClass: "col-md-1" }, [
-                                        _c("img", {
-                                          staticClass: "search-img",
-                                          attrs: { src: product.image, alt: "" }
-                                        })
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "col-md-11" }, [
-                                        _vm._v(
-                                          "\n                                                    " +
-                                            _vm._s(product.name) +
-                                            "\n                                                "
-                                        )
-                                      ])
-                                    ])
-                                  ]
-                                )
-                              ])
-                            ])
-                          })
-                        ],
-                        2
-                      )
-                    : _vm._e()
-                ])
-              : _vm._e()
-          ])
+          _c("div", { staticClass: "search_header" }, [_c("search-bar")], 1)
         ]),
         _vm._v(" "),
         _c(
           "div",
           { staticClass: "container_header_catalog_btn_info" },
           [
-            _c("div", { staticClass: "catalog_header_btn_info" }, [
-              _c(
-                "svg",
-                {
-                  attrs: {
-                    width: "24",
-                    height: "24",
-                    viewBox: "0 0 24 24",
-                    fill: "none",
-                    xmlns: "http://www.w3.org/2000/svg"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M13 4.5C13 5.05228 13.4477 5.5 14 5.5C14.5523 5.5 15 5.05228 15 4.5H13ZM5.42857 16C5.98086 16 6.42857 15.5523 6.42857 15C6.42857 14.4477 5.98086 14 5.42857 14V16ZM5 2H11V0H5V2ZM3 12V4H1V12H3ZM13 4V4.5H15V4H13ZM5.42857 14H5V16H5.42857V14ZM1 12C1 14.2091 2.79086 16 5 16V14C3.89543 14 3 13.1046 3 12H1ZM11 2C12.1046 2 13 2.89543 13 4H15C15 1.79086 13.2091 0 11 0V2ZM5 0C2.79086 0 1 1.79086 1 4H3C3 2.89543 3.89543 2 5 2V0Z",
-                      fill: "#22262A"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("rect", {
-                    attrs: {
-                      x: "10",
-                      y: "9",
-                      width: "12",
-                      height: "14",
-                      rx: "3",
-                      stroke: "#22262A",
-                      "stroke-width": "2"
-                    }
-                  })
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "catalog_header_btn_info" }, [
-              _c(
-                "svg",
-                {
-                  attrs: {
-                    width: "24",
-                    height: "24",
-                    viewBox: "0 0 24 24",
-                    fill: "none",
-                    xmlns: "http://www.w3.org/2000/svg"
-                  }
-                },
-                [
-                  _c("circle", {
-                    attrs: {
-                      cx: "12",
-                      cy: "12",
-                      r: "11",
-                      stroke: "#22262A",
-                      "stroke-width": "2"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d: "M12 7V13L14.5 15.5",
-                      stroke: "#22262A",
-                      "stroke-width": "2",
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round"
-                    }
-                  })
-                ]
-              )
-            ]),
+            _vm.user && _vm.user.user.id
+              ? _c("div", { staticClass: "catalog_header_btn_info" }, [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "26",
+                        height: "23",
+                        viewBox: "0 0 26 23",
+                        fill: "none"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M20.3333 8.01449C20.3333 6.15413 19.5607 4.36997 18.1855 3.0545C16.8102 1.73902 14.9449 1 13 1C11.0551 1 9.18982 1.73902 7.81455 3.0545C6.43928 4.36997 5.66667 6.15413 5.66667 8.01449C5.66667 13.9484 3.21304 16.809 1.86406 17.9333C1.6615 18.1021 1.79337 18.5362 2.05706 18.5362H8.52214C8.6391 18.5362 8.74073 18.6154 8.77521 18.7271C8.99911 19.4529 9.99866 22 13 22C16.0013 22 17.0009 19.4529 17.2248 18.7271C17.2593 18.6154 17.3609 18.5362 17.4779 18.5362H23.9429C24.2066 18.5362 24.3385 18.1021 24.1359 17.9333C22.787 16.809 20.3333 13.9484 20.3333 8.01449Z",
+                          stroke: "#22262A",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      })
+                    ]
+                  )
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c("user-login-auth-button")
           ],
@@ -3700,10 +4566,10 @@ var render = function() {
                                   [
                                     _c("div", {
                                       staticClass: "img_item_list_catalog_menu",
-                                      staticStyle: {
-                                        "background-image":
-                                          "url(./images/similar.png)"
-                                      }
+                                      style:
+                                        "background-image: url(" +
+                                        cat.image +
+                                        ");"
                                     }),
                                     _vm._v(" "),
                                     _c(
@@ -3838,6 +4704,134 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SearchBar.vue?vue&type=template&id=761e9072&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SearchBar.vue?vue&type=template&id=761e9072& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.searchBar,
+          expression: "searchBar"
+        }
+      ],
+      attrs: { type: "text", placeholder: "Найти товар" },
+      domProps: { value: _vm.searchBar },
+      on: {
+        keyup: _vm.searchText,
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.searchBar = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    Object.keys(_vm.searchResults).length
+      ? _c("div", { staticClass: "search-panel" }, [
+          _vm.searchResults && _vm.searchResults.products
+            ? _c(
+                "div",
+                { staticClass: "search-result-product" },
+                [
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value:
+                            Object.keys(_vm.searchResults.products).length == 0,
+                          expression:
+                            "Object.keys(searchResults.products).length == 0"
+                        }
+                      ],
+                      staticClass: "search-result_product-item"
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "title_search-result_product-item" },
+                        [_vm._v("По вашему запросу ничего не найдено")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.searchResults.products, function(product) {
+                    return _c("div", [
+                      _c("div", { staticClass: "search-result_product-item" }, [
+                        _c(
+                          "a",
+                          {
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                return _vm.searchClickProduct(
+                                  product.category_id,
+                                  product.type_id
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "title_search-result_product-item"
+                              },
+                              [_vm._v(_vm._s(product.name))]
+                            ),
+                            _vm._v(" "),
+                            _vm._m(0, true)
+                          ]
+                        )
+                      ])
+                    ])
+                  })
+                ],
+                2
+              )
+            : _vm._e()
+        ])
+      : _vm._e()
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "price_search-result_product-item" }, [
+      _c("span", { staticClass: "provider_search-result_product-item" }, [
+        _vm._v("36 поставщиков,")
+      ]),
+      _vm._v(" от 75 ₽/ кг")
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SearchLocation.vue?vue&type=template&id=bf1a7e34&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/SearchLocation.vue?vue&type=template&id=bf1a7e34& ***!
@@ -3854,77 +4848,40 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "text_input" }, [_vm._v("Куда доставить?")]),
-    _vm._v(" "),
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.locationInput,
-          expression: "locationInput"
-        }
-      ],
-      attrs: { list: "city", type: "text" },
-      domProps: { value: _vm.locationInput },
-      on: {
-        keyup: _vm.searchLocation,
-        input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
-          _vm.locationInput = $event.target.value
-        }
-      }
-    }),
-    _vm._v(" "),
-    _c(
-      "datalist",
-      { attrs: { id: "city" } },
-      _vm._l(_vm.locationsTips, function(tip) {
-        return _c("option", { domProps: { value: tip.value } }, [
-          _vm._v(_vm._s(tip.value))
-        ])
-      }),
-      0
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "icon_price_input" }, [
-      _c(
-        "svg",
-        {
-          attrs: {
-            width: "30",
-            height: "31",
-            viewBox: "0 0 30 31",
-            fill: "none",
-            xmlns: "http://www.w3.org/2000/svg"
-          }
+  return _c(
+    "div",
+    [
+      _c("multiselect", {
+        class: "select select_location",
+        attrs: {
+          name: "ajax",
+          label: "value",
+          "track-by": "value",
+          placeholder: "Город",
+          "open-direction": "bottom",
+          options: _vm.locationsTips,
+          multiple: false,
+          searchable: true,
+          "internal-search": false,
+          "clear-on-select": false,
+          "close-on-select": true,
+          "options-limit": 300,
+          limit: 3,
+          "show-no-results": false,
+          "hide-selected": true
         },
-        [
-          _c("path", {
-            attrs: {
-              d:
-                "M27.5 13.75C27.5 19.3471 19.2834 26.55 16.1735 29.0758C15.4852 29.6348 14.5148 29.6348 13.8265 29.0758C10.7166 26.55 2.5 19.3471 2.5 13.75C2.5 6.84644 8.09644 1.25 15 1.25C21.9036 1.25 27.5 6.84644 27.5 13.75Z",
-              stroke: "#71BF45",
-              "stroke-width": "2"
-            }
-          }),
-          _vm._v(" "),
-          _c("circle", {
-            attrs: {
-              cx: "15",
-              cy: "13.75",
-              r: "3.75",
-              stroke: "#71BF45",
-              "stroke-width": "2"
-            }
-          })
-        ]
-      )
-    ])
-  ])
+        on: { "search-change": _vm.searchLocation },
+        model: {
+          value: _vm.locationDeliveryInput,
+          callback: function($$v) {
+            _vm.locationDeliveryInput = $$v
+          },
+          expression: "locationDeliveryInput"
+        }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3950,55 +4907,52 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "sidebar_catalog" }, [
-    _vm.typeValue && _vm.typeValue.filters.length
-      ? _c(
+    _c(
+      "div",
+      { staticClass: "container_filter_catalog" },
+      _vm._l(_vm.typeValue.filters, function(filter) {
+        return _c(
           "div",
-          { staticClass: "container_filter_catalog" },
-          _vm._l(_vm.typeValue.filters, function(filter) {
-            return _c(
-              "div",
-              { staticClass: "item_filter_catalog" },
-              [
-                _c("div", { staticClass: "title_filter_catalog" }, [
-                  _vm._v(_vm._s(filter.name))
-                ]),
-                _vm._v(" "),
-                _vm._l(filter.values, function(value, index) {
-                  return filter.values
-                    ? _c("div", { staticClass: "radio" }, [
-                        _c("input", {
-                          staticClass: "custom-radio",
-                          attrs: {
-                            type: "radio",
-                            id: filter.slug + "-" + index,
-                            name: filter.slug
-                          },
-                          domProps: { value: value.id },
-                          on: {
-                            change: function($event) {
-                              return _vm.filterOfferValue({
-                                filter: filter.id,
-                                value: value.id
-                              })
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          { attrs: { for: filter.slug + "-" + index } },
-                          [_vm._v(_vm._s(value.value))]
-                        )
-                      ])
-                    : _vm._e()
-                })
-              ],
-              2
-            )
-          }),
-          0
+          { staticClass: "item_filter_catalog" },
+          [
+            _c("div", { staticClass: "title_filter_catalog" }, [
+              _vm._v(_vm._s(filter.name))
+            ]),
+            _vm._v(" "),
+            _vm._l(filter.values, function(value, index) {
+              return filter.values
+                ? _c("div", { staticClass: "radio" }, [
+                    _c("input", {
+                      staticClass: "custom-radio",
+                      attrs: {
+                        type: "checkbox",
+                        id: filter.slug + "-" + index,
+                        name: filter.slug
+                      },
+                      domProps: { value: value.id },
+                      on: {
+                        change: function($event) {
+                          return _vm.filterOfferValue({
+                            filter: filter.id,
+                            value: value.id,
+                            name: value.value
+                          })
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: filter.slug + "-" + index } }, [
+                      _vm._v(_vm._s(value.value))
+                    ])
+                  ])
+                : _vm._e()
+            })
+          ],
+          2
         )
-      : _vm._e()
+      }),
+      0
+    )
   ])
 }
 var staticRenderFns = []
@@ -4088,7 +5042,7 @@ var render = function() {
             _c(
               "ul",
               {
-                staticClass: "dropdown-menu",
+                staticClass: "dropdown-menu inset-plus",
                 attrs: { "aria-labelledby": "navbarDropdown1" }
               },
               [
@@ -4320,7 +5274,7 @@ var render = function() {
           _c(
             "ul",
             {
-              staticClass: "dropdown-menu",
+              staticClass: "dropdown-menu dropdown-menu-login",
               attrs: { "aria-labelledby": "navbarDropdown" }
             },
             [
@@ -4333,6 +5287,7 @@ var render = function() {
                       return _vm.user.user.organizations
                         ? _c(
                             "div",
+                            { staticClass: "login_info" },
                             [
                               _vm._l(_vm.user.user.organizations, function(
                                 org
@@ -4454,72 +5409,71 @@ var render = function() {
               _vm._v(" "),
               _vm._l(_vm.user.user.organizations, function(org, index) {
                 return _vm.currentUserOrganization[0].id !== org.id
-                  ? _c("li", [
-                      _c(
-                        "div",
-                        { staticClass: "dropdown-item dropdown-item-border" },
-                        [
-                          _c("div", { staticClass: "item_company_list" }, [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "name_company_list",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.changeCurrentOrganization(org.id)
-                                  }
-                                }
-                              },
-                              [
+                  ? _c(
+                      "li",
+                      {
+                        on: {
+                          click: function($event) {
+                            return _vm.changeCurrentOrganization(org.id)
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "dropdown-item dropdown-item-border" },
+                          [
+                            _c("div", { staticClass: "item_company_list" }, [
+                              _c("div", { staticClass: "name_company_list" }, [
                                 _vm._v(
                                   "\n                        " +
                                     _vm._s(org.name) +
                                     "\n                    "
                                 )
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "icon_company_list" }, [
-                            _c(
-                              "svg",
-                              {
-                                attrs: {
-                                  width: "20",
-                                  height: "20",
-                                  viewBox: "0 0 20 20",
-                                  fill: "none",
-                                  xmlns: "http://www.w3.org/2000/svg"
-                                }
-                              },
-                              [
-                                _c("path", {
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "icon_company_list" }, [
+                              _c(
+                                "svg",
+                                {
                                   attrs: {
-                                    d:
-                                      "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
-                                    stroke: "#71BF45",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
+                                    width: "20",
+                                    height: "20",
+                                    viewBox: "0 0 20 20",
+                                    fill: "none",
+                                    xmlns: "http://www.w3.org/2000/svg"
                                   }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
-                                    stroke: "#71BF45",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                })
-                              ]
-                            )
-                          ])
-                        ]
-                      )
-                    ])
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
+                                      stroke: "#71BF45",
+                                      "stroke-width": "2",
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
+                                      stroke: "#71BF45",
+                                      "stroke-width": "2",
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    )
                   : _vm._e()
               }),
               _vm._v(" "),

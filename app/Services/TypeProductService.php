@@ -13,10 +13,15 @@ use Illuminate\Support\Facades\Log;
 class TypeProductService
 {
 
+    /**
+     * @var TypeProductRepository
+     */
 
     protected $typeRepository;
 
-
+    /**
+     * @param TypeProductRepository $typeRepository
+     */
 
     public function __construct(TypeProductRepository $typeRepository)
     {

@@ -57,6 +57,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'leftsidebar',
@@ -262,15 +267,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    Leftsidebar: _Leftsidebar__WEBPACK_IMPORTED_MODULE_1__.default,
-    UserLKHeader: _omponents_LK_UserLKHeader__WEBPACK_IMPORTED_MODULE_0__.default,
-    'quick-edit': vue_quick_edit__WEBPACK_IMPORTED_MODULE_2__.default
+    Leftsidebar: _Leftsidebar__WEBPACK_IMPORTED_MODULE_1__["default"],
+    UserLKHeader: _omponents_LK_UserLKHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
+    'quick-edit': vue_quick_edit__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -371,7 +385,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    UserLoginAuthButton: _UserLoginAuthButton__WEBPACK_IMPORTED_MODULE_0__.default
+    UserLoginAuthButton: _UserLoginAuthButton__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
@@ -537,7 +551,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'user-login-auth-button',
@@ -569,7 +582,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.text-user-login-button\n{\n    font-family: Montserrat;\n    font-weight: 400;\n    font-size: 15px;\n    line-height: 20px;\n    padding: 20px;\n}\n.dropdown-item.dropdown-item-settings.user-login-a\n{\n    font-family: Montserrat;\n    font-weight: 600;\n    font-size: 15px;\n    line-height: 20px;\n    color: #71BF45;\n    cursor: pointer;\n}\nheader .dropdown-menu.show\n{\n    left:-50%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.text-user-login-button\r\n{\r\n    font-family: Montserrat;\r\n    font-weight: 400;\r\n    font-size: 15px;\r\n    line-height: 20px;\r\n    padding: 20px;\n}\n.dropdown-item.dropdown-item-settings.user-login-a\r\n{\r\n    font-family: Montserrat;\r\n    font-weight: 600;\r\n    font-size: 15px;\r\n    line-height: 20px;\r\n    color: #71BF45;\r\n    cursor: pointer;\n}\nheader .dropdown-menu.show\r\n{\r\n    left:-50%;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -597,11 +610,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default, options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -625,8 +638,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _Leftsidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Leftsidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Leftsidebar_vue_vue_type_template_id_160422eb___WEBPACK_IMPORTED_MODULE_0__.render,
   _Leftsidebar_vue_vue_type_template_id_160422eb___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -663,8 +676,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _SettingsProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SettingsProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _SettingsProfile_vue_vue_type_template_id_f55a1408___WEBPACK_IMPORTED_MODULE_0__.render,
   _SettingsProfile_vue_vue_type_template_id_f55a1408___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -701,8 +714,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _UserLKHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UserLKHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _UserLKHeader_vue_vue_type_template_id_6c98f324___WEBPACK_IMPORTED_MODULE_0__.render,
   _UserLKHeader_vue_vue_type_template_id_6c98f324___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -741,8 +754,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
-  _UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__.render,
   _UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -770,7 +783,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Leftsidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Leftsidebar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/LK/Pages/Settings/Leftsidebar.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Leftsidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Leftsidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -785,7 +798,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SettingsProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SettingsProfile.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/LK/Pages/Settings/SettingsProfile.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SettingsProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SettingsProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -800,7 +813,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLKHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UserLKHeader.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/LK/UserLKHeader.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLKHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLKHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -815,7 +828,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UserLoginAuthButton.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -1018,6 +1031,23 @@ var render = function() {
                       _vm._v(" "),
                       _c("span", [_vm._v(_vm._s(org.name))])
                     ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "sidebar_accreditation_company_item" },
+                    [
+                      _c(
+                        "router-link",
+                        { attrs: { to: { path: "/accreditation/customer" } } },
+                        [
+                          _vm._v(
+                            "\n                    — Аккредитация\n                "
+                          )
+                        ]
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
@@ -1119,61 +1149,71 @@ var render = function() {
                             "div",
                             { staticClass: "row" },
                             [
-                              _c("quick-edit", {
-                                staticClass: "name_profile_information",
-                                attrs: {
-                                  emptyText: "Не указано",
-                                  buttonCancelText: "Отмена"
-                                },
-                                on: {
-                                  input: function($event) {
-                                    return _vm.storeChanges(_vm.user.user)
+                              _c(
+                                "quick-edit",
+                                {
+                                  staticClass: "name_profile_information",
+                                  attrs: {
+                                    emptyText: "Не указано",
+                                    buttonCancelText: "Отмена"
+                                  },
+                                  on: {
+                                    input: function($event) {
+                                      return _vm.storeChanges(_vm.user.user)
+                                    }
+                                  },
+                                  model: {
+                                    value: _vm.user.user.dolgnost,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.user.user, "dolgnost", $$v)
+                                    },
+                                    expression: "user.user.dolgnost"
                                   }
                                 },
-                                model: {
-                                  value: _vm.user.user.dolgnost,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.user.user, "dolgnost", $$v)
-                                  },
-                                  expression: "user.user.dolgnost"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass: "edit_profile_information_item"
-                                },
                                 [
+                                  _c("span", [
+                                    _vm._v(_vm._s(_vm.user.user.dolgnost))
+                                  ]),
+                                  _vm._v(" "),
                                   _c(
-                                    "svg",
+                                    "span",
                                     {
-                                      attrs: {
-                                        width: "20",
-                                        height: "20",
-                                        viewBox: "0 0 20 20",
-                                        fill: "none",
-                                        xmlns: "http://www.w3.org/2000/svg"
-                                      }
+                                      staticClass:
+                                        "edit_profile_information_item"
                                     },
                                     [
-                                      _c("path", {
-                                        attrs: {
-                                          d:
-                                            "M3.11805 13.1285L14.7158 1.5307C14.7347 1.52503 14.7553 1.51913 14.7774 1.51314C14.9363 1.47009 15.1656 1.42528 15.4346 1.42157C15.9528 1.41442 16.6403 1.55547 17.3156 2.23076C17.9909 2.90604 18.1319 3.59359 18.1248 4.11176C18.1211 4.38081 18.0763 4.61009 18.0332 4.76901C18.0272 4.79111 18.0213 4.81165 18.0157 4.83053L6.41788 16.4283L2.66807 16.8783L3.11805 13.1285Z",
-                                          stroke: "#66727E",
-                                          "stroke-width": "2",
-                                          "stroke-linecap": "round"
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c("path", {
-                                        attrs: {
-                                          d: "M11.8893 2.94299L16.3788 7.43256",
-                                          stroke: "#66727E",
-                                          "stroke-width": "2"
-                                        }
-                                      })
+                                      _c(
+                                        "svg",
+                                        {
+                                          attrs: {
+                                            width: "20",
+                                            height: "20",
+                                            viewBox: "0 0 20 20",
+                                            fill: "none",
+                                            xmlns: "http://www.w3.org/2000/svg"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M3.11805 13.1285L14.7158 1.5307C14.7347 1.52503 14.7553 1.51913 14.7774 1.51314C14.9363 1.47009 15.1656 1.42528 15.4346 1.42157C15.9528 1.41442 16.6403 1.55547 17.3156 2.23076C17.9909 2.90604 18.1319 3.59359 18.1248 4.11176C18.1211 4.38081 18.0763 4.61009 18.0332 4.76901C18.0272 4.79111 18.0213 4.81165 18.0157 4.83053L6.41788 16.4283L2.66807 16.8783L3.11805 13.1285Z",
+                                              stroke: "#66727E",
+                                              "stroke-width": "2",
+                                              "stroke-linecap": "round"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M11.8893 2.94299L16.3788 7.43256",
+                                              stroke: "#66727E",
+                                              "stroke-width": "2"
+                                            }
+                                          })
+                                        ]
+                                      )
                                     ]
                                   )
                                 ]
@@ -1200,61 +1240,71 @@ var render = function() {
                             "div",
                             { staticClass: "row" },
                             [
-                              _c("quick-edit", {
-                                staticClass: "name_profile_information",
-                                attrs: {
-                                  emptyText: "Не указано",
-                                  buttonCancelText: "Отмена"
-                                },
-                                on: {
-                                  input: function($event) {
-                                    return _vm.storeChanges(_vm.user.user)
+                              _c(
+                                "quick-edit",
+                                {
+                                  staticClass: "name_profile_information",
+                                  attrs: {
+                                    emptyText: "Не указано",
+                                    buttonCancelText: "Отмена"
+                                  },
+                                  on: {
+                                    input: function($event) {
+                                      return _vm.storeChanges(_vm.user.user)
+                                    }
+                                  },
+                                  model: {
+                                    value: _vm.user.user.phone,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.user.user, "phone", $$v)
+                                    },
+                                    expression: "user.user.phone"
                                   }
                                 },
-                                model: {
-                                  value: _vm.user.user.phone,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.user.user, "phone", $$v)
-                                  },
-                                  expression: "user.user.phone"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass: "edit_profile_information_item"
-                                },
                                 [
+                                  _c("span", [
+                                    _vm._v(_vm._s(_vm.user.user.phone))
+                                  ]),
+                                  _vm._v(" "),
                                   _c(
-                                    "svg",
+                                    "span",
                                     {
-                                      attrs: {
-                                        width: "20",
-                                        height: "20",
-                                        viewBox: "0 0 20 20",
-                                        fill: "none",
-                                        xmlns: "http://www.w3.org/2000/svg"
-                                      }
+                                      staticClass:
+                                        "edit_profile_information_item"
                                     },
                                     [
-                                      _c("path", {
-                                        attrs: {
-                                          d:
-                                            "M3.11805 13.1285L14.7158 1.5307C14.7347 1.52503 14.7553 1.51913 14.7774 1.51314C14.9363 1.47009 15.1656 1.42528 15.4346 1.42157C15.9528 1.41442 16.6403 1.55547 17.3156 2.23076C17.9909 2.90604 18.1319 3.59359 18.1248 4.11176C18.1211 4.38081 18.0763 4.61009 18.0332 4.76901C18.0272 4.79111 18.0213 4.81165 18.0157 4.83053L6.41788 16.4283L2.66807 16.8783L3.11805 13.1285Z",
-                                          stroke: "#66727E",
-                                          "stroke-width": "2",
-                                          "stroke-linecap": "round"
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c("path", {
-                                        attrs: {
-                                          d: "M11.8893 2.94299L16.3788 7.43256",
-                                          stroke: "#66727E",
-                                          "stroke-width": "2"
-                                        }
-                                      })
+                                      _c(
+                                        "svg",
+                                        {
+                                          attrs: {
+                                            width: "20",
+                                            height: "20",
+                                            viewBox: "0 0 20 20",
+                                            fill: "none",
+                                            xmlns: "http://www.w3.org/2000/svg"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M3.11805 13.1285L14.7158 1.5307C14.7347 1.52503 14.7553 1.51913 14.7774 1.51314C14.9363 1.47009 15.1656 1.42528 15.4346 1.42157C15.9528 1.41442 16.6403 1.55547 17.3156 2.23076C17.9909 2.90604 18.1319 3.59359 18.1248 4.11176C18.1211 4.38081 18.0763 4.61009 18.0332 4.76901C18.0272 4.79111 18.0213 4.81165 18.0157 4.83053L6.41788 16.4283L2.66807 16.8783L3.11805 13.1285Z",
+                                              stroke: "#66727E",
+                                              "stroke-width": "2",
+                                              "stroke-linecap": "round"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M11.8893 2.94299L16.3788 7.43256",
+                                              stroke: "#66727E",
+                                              "stroke-width": "2"
+                                            }
+                                          })
+                                        ]
+                                      )
                                     ]
                                   )
                                 ]
@@ -1281,61 +1331,71 @@ var render = function() {
                             "div",
                             { staticClass: "row" },
                             [
-                              _c("quick-edit", {
-                                staticClass: "name_profile_information",
-                                attrs: {
-                                  emptyText: "Не указано",
-                                  buttonCancelText: "Отмена"
-                                },
-                                on: {
-                                  input: function($event) {
-                                    return _vm.storeChanges(_vm.user.user)
+                              _c(
+                                "quick-edit",
+                                {
+                                  staticClass: "name_profile_information",
+                                  attrs: {
+                                    emptyText: "Не указано",
+                                    buttonCancelText: "Отмена"
+                                  },
+                                  on: {
+                                    input: function($event) {
+                                      return _vm.storeChanges(_vm.user.user)
+                                    }
+                                  },
+                                  model: {
+                                    value: _vm.user.user.email,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.user.user, "email", $$v)
+                                    },
+                                    expression: "user.user.email"
                                   }
                                 },
-                                model: {
-                                  value: _vm.user.user.email,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.user.user, "email", $$v)
-                                  },
-                                  expression: "user.user.email"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass: "edit_profile_information_item"
-                                },
                                 [
+                                  _c("span", [
+                                    _vm._v(_vm._s(_vm.user.user.email))
+                                  ]),
+                                  _vm._v(" "),
                                   _c(
-                                    "svg",
+                                    "span",
                                     {
-                                      attrs: {
-                                        width: "20",
-                                        height: "20",
-                                        viewBox: "0 0 20 20",
-                                        fill: "none",
-                                        xmlns: "http://www.w3.org/2000/svg"
-                                      }
+                                      staticClass:
+                                        "edit_profile_information_item"
                                     },
                                     [
-                                      _c("path", {
-                                        attrs: {
-                                          d:
-                                            "M3.11805 13.1285L14.7158 1.5307C14.7347 1.52503 14.7553 1.51913 14.7774 1.51314C14.9363 1.47009 15.1656 1.42528 15.4346 1.42157C15.9528 1.41442 16.6403 1.55547 17.3156 2.23076C17.9909 2.90604 18.1319 3.59359 18.1248 4.11176C18.1211 4.38081 18.0763 4.61009 18.0332 4.76901C18.0272 4.79111 18.0213 4.81165 18.0157 4.83053L6.41788 16.4283L2.66807 16.8783L3.11805 13.1285Z",
-                                          stroke: "#66727E",
-                                          "stroke-width": "2",
-                                          "stroke-linecap": "round"
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c("path", {
-                                        attrs: {
-                                          d: "M11.8893 2.94299L16.3788 7.43256",
-                                          stroke: "#66727E",
-                                          "stroke-width": "2"
-                                        }
-                                      })
+                                      _c(
+                                        "svg",
+                                        {
+                                          attrs: {
+                                            width: "20",
+                                            height: "20",
+                                            viewBox: "0 0 20 20",
+                                            fill: "none",
+                                            xmlns: "http://www.w3.org/2000/svg"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M3.11805 13.1285L14.7158 1.5307C14.7347 1.52503 14.7553 1.51913 14.7774 1.51314C14.9363 1.47009 15.1656 1.42528 15.4346 1.42157C15.9528 1.41442 16.6403 1.55547 17.3156 2.23076C17.9909 2.90604 18.1319 3.59359 18.1248 4.11176C18.1211 4.38081 18.0763 4.61009 18.0332 4.76901C18.0272 4.79111 18.0213 4.81165 18.0157 4.83053L6.41788 16.4283L2.66807 16.8783L3.11805 13.1285Z",
+                                              stroke: "#66727E",
+                                              "stroke-width": "2",
+                                              "stroke-linecap": "round"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M11.8893 2.94299L16.3788 7.43256",
+                                              stroke: "#66727E",
+                                              "stroke-width": "2"
+                                            }
+                                          })
+                                        ]
+                                      )
                                     ]
                                   )
                                 ]
@@ -1362,61 +1422,69 @@ var render = function() {
                             "div",
                             { staticClass: "row" },
                             [
-                              _c("quick-edit", {
-                                staticClass: "name_profile_information",
-                                attrs: {
-                                  emptyText: "Введите новый пароль",
-                                  buttonCancelText: "Отмена"
-                                },
-                                on: {
-                                  input: function($event) {
-                                    return _vm.storeChanges(_vm.user.user)
+                              _c(
+                                "quick-edit",
+                                {
+                                  staticClass: "name_profile_information",
+                                  attrs: {
+                                    emptyText: "Введите новый пароль",
+                                    buttonCancelText: "Отмена"
+                                  },
+                                  on: {
+                                    input: function($event) {
+                                      return _vm.storeChanges(_vm.user.user)
+                                    }
+                                  },
+                                  model: {
+                                    value: _vm.user.user.password,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.user.user, "password", $$v)
+                                    },
+                                    expression: "user.user.password"
                                   }
                                 },
-                                model: {
-                                  value: _vm.user.user.password,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.user.user, "password", $$v)
-                                  },
-                                  expression: "user.user.password"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass: "edit_profile_information_item"
-                                },
                                 [
+                                  _c("span", [_vm._v("Введите новый пароль")]),
+                                  _vm._v(" "),
                                   _c(
-                                    "svg",
+                                    "span",
                                     {
-                                      attrs: {
-                                        width: "20",
-                                        height: "20",
-                                        viewBox: "0 0 20 20",
-                                        fill: "none",
-                                        xmlns: "http://www.w3.org/2000/svg"
-                                      }
+                                      staticClass:
+                                        "edit_profile_information_item"
                                     },
                                     [
-                                      _c("path", {
-                                        attrs: {
-                                          d:
-                                            "M3.11805 13.1285L14.7158 1.5307C14.7347 1.52503 14.7553 1.51913 14.7774 1.51314C14.9363 1.47009 15.1656 1.42528 15.4346 1.42157C15.9528 1.41442 16.6403 1.55547 17.3156 2.23076C17.9909 2.90604 18.1319 3.59359 18.1248 4.11176C18.1211 4.38081 18.0763 4.61009 18.0332 4.76901C18.0272 4.79111 18.0213 4.81165 18.0157 4.83053L6.41788 16.4283L2.66807 16.8783L3.11805 13.1285Z",
-                                          stroke: "#66727E",
-                                          "stroke-width": "2",
-                                          "stroke-linecap": "round"
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c("path", {
-                                        attrs: {
-                                          d: "M11.8893 2.94299L16.3788 7.43256",
-                                          stroke: "#66727E",
-                                          "stroke-width": "2"
-                                        }
-                                      })
+                                      _c(
+                                        "svg",
+                                        {
+                                          attrs: {
+                                            width: "20",
+                                            height: "20",
+                                            viewBox: "0 0 20 20",
+                                            fill: "none",
+                                            xmlns: "http://www.w3.org/2000/svg"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M3.11805 13.1285L14.7158 1.5307C14.7347 1.52503 14.7553 1.51913 14.7774 1.51314C14.9363 1.47009 15.1656 1.42528 15.4346 1.42157C15.9528 1.41442 16.6403 1.55547 17.3156 2.23076C17.9909 2.90604 18.1319 3.59359 18.1248 4.11176C18.1211 4.38081 18.0763 4.61009 18.0332 4.76901C18.0272 4.79111 18.0213 4.81165 18.0157 4.83053L6.41788 16.4283L2.66807 16.8783L3.11805 13.1285Z",
+                                              stroke: "#66727E",
+                                              "stroke-width": "2",
+                                              "stroke-linecap": "round"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M11.8893 2.94299L16.3788 7.43256",
+                                              stroke: "#66727E",
+                                              "stroke-width": "2"
+                                            }
+                                          })
+                                        ]
+                                      )
                                     ]
                                   )
                                 ]
@@ -2354,7 +2422,7 @@ var render = function() {
             _c(
               "ul",
               {
-                staticClass: "dropdown-menu",
+                staticClass: "dropdown-menu inset-plus",
                 attrs: { "aria-labelledby": "navbarDropdown1" }
               },
               [
@@ -2586,7 +2654,7 @@ var render = function() {
           _c(
             "ul",
             {
-              staticClass: "dropdown-menu",
+              staticClass: "dropdown-menu dropdown-menu-login",
               attrs: { "aria-labelledby": "navbarDropdown" }
             },
             [
@@ -2599,6 +2667,7 @@ var render = function() {
                       return _vm.user.user.organizations
                         ? _c(
                             "div",
+                            { staticClass: "login_info" },
                             [
                               _vm._l(_vm.user.user.organizations, function(
                                 org
@@ -2720,72 +2789,71 @@ var render = function() {
               _vm._v(" "),
               _vm._l(_vm.user.user.organizations, function(org, index) {
                 return _vm.currentUserOrganization[0].id !== org.id
-                  ? _c("li", [
-                      _c(
-                        "div",
-                        { staticClass: "dropdown-item dropdown-item-border" },
-                        [
-                          _c("div", { staticClass: "item_company_list" }, [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "name_company_list",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.changeCurrentOrganization(org.id)
-                                  }
-                                }
-                              },
-                              [
+                  ? _c(
+                      "li",
+                      {
+                        on: {
+                          click: function($event) {
+                            return _vm.changeCurrentOrganization(org.id)
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "dropdown-item dropdown-item-border" },
+                          [
+                            _c("div", { staticClass: "item_company_list" }, [
+                              _c("div", { staticClass: "name_company_list" }, [
                                 _vm._v(
                                   "\n                        " +
                                     _vm._s(org.name) +
                                     "\n                    "
                                 )
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "icon_company_list" }, [
-                            _c(
-                              "svg",
-                              {
-                                attrs: {
-                                  width: "20",
-                                  height: "20",
-                                  viewBox: "0 0 20 20",
-                                  fill: "none",
-                                  xmlns: "http://www.w3.org/2000/svg"
-                                }
-                              },
-                              [
-                                _c("path", {
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "icon_company_list" }, [
+                              _c(
+                                "svg",
+                                {
                                   attrs: {
-                                    d:
-                                      "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
-                                    stroke: "#71BF45",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
+                                    width: "20",
+                                    height: "20",
+                                    viewBox: "0 0 20 20",
+                                    fill: "none",
+                                    xmlns: "http://www.w3.org/2000/svg"
                                   }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
-                                    stroke: "#71BF45",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                })
-                              ]
-                            )
-                          ])
-                        ]
-                      )
-                    ])
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
+                                      stroke: "#71BF45",
+                                      "stroke-width": "2",
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
+                                      stroke: "#71BF45",
+                                      "stroke-width": "2",
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    )
                   : _vm._e()
               }),
               _vm._v(" "),

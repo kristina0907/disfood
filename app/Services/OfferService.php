@@ -71,15 +71,12 @@ class OfferService
     public function updateOfferData($data,$id)
     {
         $validated = $data->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'product_id'    =>'required|integer',
-            'organization_inn'=>'required|integer',
-            'country_id'=>'required|integer',
-            'city_id'=>'required|integer',
-            'adress'=>'required|string',
-            'price'=>'required|integer',
-            'capacity'=>'required|integer'
+            'organization_id'    =>'required|integer',
+            'price'              =>'required',
+            'price_with_nds'     =>'required',
+            'capacity'           =>'required|integer',
+            'category_id'        =>'required',
+            'type_id'            => 'required'
 
         ]);
 

@@ -14,6 +14,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _omponents_LK_UserLKHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Сomponents/LK/UserLKHeader */ "./resources/js/Сomponents/LK/UserLKHeader.vue");
 /* harmony import */ var vue_apexcharts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-apexcharts */ "./node_modules/vue-apexcharts/dist/vue-apexcharts.js");
 /* harmony import */ var vue_apexcharts__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_apexcharts__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _Store_modules_dashboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Store/modules/dashboard */ "./resources/js/Store/modules/dashboard.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -327,11 +335,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    UserLKHeader: _omponents_LK_UserLKHeader__WEBPACK_IMPORTED_MODULE_0__.default,
+    UserLKHeader: _omponents_LK_UserLKHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
     VueApexCharts: (vue_apexcharts__WEBPACK_IMPORTED_MODULE_1___default())
   },
   data: function data() {
@@ -399,9 +413,19 @@ __webpack_require__.r(__webpack_exports__);
         },
         name: ["16 Июня 2021", "20 июня 2021"],
         data: [20, 40, 20, 60, 20, 70, 40, 20, 70, 40, 20, 30]
-      }]
+      }],
+      "new": [],
+      payment: [],
+      cancelled: [],
+      complete: []
     };
-  }
+  },
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapActions)('dashboard', ['getOffers', 'getOrders'])), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapActions)('myorders', ['updateActiveTabAction'])),
+  mounted: function mounted() {
+    this.$store.dispatch('dashboard/getOffers');
+    this.$store.dispatch('dashboard/getOrders');
+  },
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapState)(['dashboard', ['offers', 'orders']]))
 });
 
 /***/ }),
@@ -482,7 +506,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    UserLoginAuthButton: _UserLoginAuthButton__WEBPACK_IMPORTED_MODULE_0__.default
+    UserLoginAuthButton: _UserLoginAuthButton__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
@@ -648,7 +672,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'user-login-auth-button',
@@ -680,7 +703,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.text-user-login-button\n{\n    font-family: Montserrat;\n    font-weight: 400;\n    font-size: 15px;\n    line-height: 20px;\n    padding: 20px;\n}\n.dropdown-item.dropdown-item-settings.user-login-a\n{\n    font-family: Montserrat;\n    font-weight: 600;\n    font-size: 15px;\n    line-height: 20px;\n    color: #71BF45;\n    cursor: pointer;\n}\nheader .dropdown-menu.show\n{\n    left:-50%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.text-user-login-button\r\n{\r\n    font-family: Montserrat;\r\n    font-weight: 400;\r\n    font-size: 15px;\r\n    line-height: 20px;\r\n    padding: 20px;\n}\n.dropdown-item.dropdown-item-settings.user-login-a\r\n{\r\n    font-family: Montserrat;\r\n    font-weight: 600;\r\n    font-size: 15px;\r\n    line-height: 20px;\r\n    color: #71BF45;\r\n    cursor: pointer;\n}\nheader .dropdown-menu.show\r\n{\r\n    left:-50%;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -708,11 +731,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default, options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -736,8 +759,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Dashboard_vue_vue_type_template_id_42552e02___WEBPACK_IMPORTED_MODULE_0__.render,
   _Dashboard_vue_vue_type_template_id_42552e02___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -774,8 +797,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _UserLKHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UserLKHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _UserLKHeader_vue_vue_type_template_id_6c98f324___WEBPACK_IMPORTED_MODULE_0__.render,
   _UserLKHeader_vue_vue_type_template_id_6c98f324___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -814,8 +837,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
-  _UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__.render,
   _UserLoginAuthButton_vue_vue_type_template_id_488559df___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -843,7 +866,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Dashboard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/LK/Pages/Dashboard.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -858,7 +881,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLKHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UserLKHeader.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/LK/UserLKHeader.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLKHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLKHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -873,7 +896,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UserLoginAuthButton.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Сomponents/UserLoginAuthButton.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserLoginAuthButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -952,8 +975,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid" }, [
-    _c("div", { staticClass: "row" }, [_c("UserLKHeader")], 1),
+  return _c("div", [
+    _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row" }, [_c("UserLKHeader")], 1)
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "container_dashboard" }, [
       _c("div", { staticClass: "row" }, [
@@ -972,7 +997,7 @@ var render = function() {
               },
               [
                 _vm._v(
-                  "\n                        16-31 Января 2021\n                    "
+                  "\n                            16-31 Января 2021\n                        "
                 )
               ]
             ),
@@ -992,7 +1017,7 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "Добавьте товар в избранное чтобы отслеживать\n                            цену"
+                      "Добавьте товар в избранное чтобы отслеживать\n                                цену"
                     )
                   ]
                 ),
@@ -1017,7 +1042,7 @@ var render = function() {
                     [
                       _c("span", [
                         _vm._v(
-                          "Добавьте товар в избранное чтобыотслеживать цену"
+                          "Добавьте товар в избранное чтобы отслеживать цену"
                         )
                       ]),
                       _vm._v(" "),
@@ -1501,90 +1526,244 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-xs-12 col-md-6" }, [
-              _c("div", { staticClass: "help_partners" }, [
-                _vm._m(3),
-                _vm._v(" "),
-                _c("div", { staticClass: "icon_help_partners" }, [
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        width: "88",
-                        height: "81",
-                        viewBox: "0 0 88 81",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg"
-                      }
-                    },
-                    [
-                      _c("rect", {
-                        attrs: {
-                          x: "30.5",
-                          width: "57",
-                          height: "57",
-                          rx: "28.5",
-                          fill: "#CAE7BA"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M67.5024 23.5H12.5024C11.1217 23.5 10.0024 24.6193 10.0024 26V66C10.0024 67.3807 11.1217 68.5 12.5024 68.5H67.5024C68.8832 68.5 70.0024 67.3807 70.0024 66V26C70.0024 24.6193 68.8832 23.5 67.5024 23.5Z",
-                          stroke: "#51668F",
-                          "stroke-width": "6",
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M52.5 23.5V18.5C52.5 17.1739 51.9732 15.9021 51.0355 14.9645C50.0979 14.0268 48.8261 13.5 47.5 13.5H32.5C31.1739 13.5 29.9021 14.0268 28.9645 14.9645C28.0268 15.9021 27.5 17.1739 27.5 18.5V23.5",
-                          stroke: "#51668F",
-                          "stroke-width": "6",
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M70.0026 40.4717C60.8847 45.7468 50.5339 48.5166 40 48.5001C29.468 48.5166 19.1188 45.7478 10.0021 40.4743",
-                          stroke: "#51668F",
-                          "stroke-width": "6",
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d: "M36.25 38.5H43.75",
-                          stroke: "#51668F",
-                          "stroke-width": "6",
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round"
-                        }
-                      })
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._m(4)
-          ])
+          _vm._m(3)
         ]),
         _vm._v(" "),
-        _vm._m(5)
+        _c("div", { staticClass: "col-xs-12 col-md-5" }, [
+          _c("div", { staticClass: "transactions_current_period" }, [
+            _vm._m(4),
+            _vm._v(" "),
+            _vm.dashboard.orders
+              ? _c("div", { staticClass: "list_values_dashboard" }, [
+                  _c("div", { staticClass: "item_values_dashboard" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "title_values_dashboard col-md-4",
+                        on: {
+                          click: function($event) {
+                            return _vm.updateActiveTabAction("new")
+                          }
+                        }
+                      },
+                      [_vm._v("Новые")]
+                    ),
+                    _vm._v(" "),
+                    _vm.dashboard.orders.new
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "quantity_values_dashboard col-md-4 text-right"
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(_vm.dashboard.orders.new.items.length)
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.dashboard.orders.new
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "price_values_dashboard col-md-4 text-right"
+                          },
+                          [_vm._v(_vm._s(_vm.dashboard.orders.new.summ) + " ₽")]
+                        )
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "item_values_dashboard" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "title_values_dashboard col-md-4",
+                        on: {
+                          click: function($event) {
+                            return _vm.updateActiveTabAction("paying")
+                          }
+                        }
+                      },
+                      [_vm._v("Ожидают оплаты")]
+                    ),
+                    _vm._v(" "),
+                    _vm.dashboard.orders.payment
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "quantity_values_dashboard col-md-4 text-right"
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(_vm.dashboard.orders.payment.items.length)
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.dashboard.orders.payment
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "price_values_dashboard col-md-4 text-right"
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(_vm.dashboard.orders.payment.summ) + " ₽"
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "item_values_dashboard" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "title_values_dashboard col-md-4",
+                        on: {
+                          click: function($event) {
+                            return _vm.updateActiveTabAction("cancelled")
+                          }
+                        }
+                      },
+                      [_vm._v("Отмены")]
+                    ),
+                    _vm._v(" "),
+                    _vm.dashboard.orders.cancelled
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "quantity_values_dashboard col-md-4 text-right"
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(
+                                _vm.dashboard.orders.cancelled.items.length
+                              )
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.dashboard.orders.cancelled
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "price_values_dashboard col-md-4 text-right"
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(_vm.dashboard.orders.cancelled.summ) + " ₽"
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "item_values_dashboard" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "title_values_dashboard col-md-4",
+                        on: {
+                          click: function($event) {
+                            return _vm.updateActiveTabAction("complete")
+                          }
+                        }
+                      },
+                      [_vm._v("Завершены")]
+                    ),
+                    _vm._v(" "),
+                    _vm.dashboard.orders.complete
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "quantity_values_dashboard col-md-4 text-right"
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(_vm.dashboard.orders.complete.items.length)
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.dashboard.orders.complete
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "price_values_dashboard col-md-4 text-right"
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(_vm.dashboard.orders.complete.summ) + " ₽"
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ])
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "my_items" }, [
+            _c(
+              "div",
+              { staticClass: "header_item_right_dashboard" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "titile_header_item_right_dashboard" },
+                  [_vm._v("Мои товары")]
+                ),
+                _vm._v(" "),
+                _c("router-link", { attrs: { to: { path: "/my-products" } } }, [
+                  _vm.dashboard.offers
+                    ? _c("div", { staticClass: "update_prices_my_items" }, [
+                        _vm._v(
+                          "Обновить цены у " +
+                            _vm._s(_vm.dashboard.offers.length) +
+                            " позиций"
+                        )
+                      ])
+                    : _vm._e()
+                ])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "list_values_dashboard" }, [
+              _c("div", { staticClass: "item_values_dashboard" }, [
+                _c("div", { staticClass: "title_values_dashboard" }, [
+                  _vm._v("Актуальная цена")
+                ]),
+                _vm._v(" "),
+                _vm.dashboard.offers
+                  ? _c("div", { staticClass: "quantity_values_dashboard" }, [
+                      _vm._v(_vm._s(_vm.dashboard.offers.length))
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _vm._m(5)
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(6)
+        ])
       ]),
       _vm._v(" "),
-      _vm._m(6)
+      _vm._m(7)
     ])
   ])
 }
@@ -1626,13 +1805,13 @@ var staticRenderFns = [
       _c("div", { staticClass: "item_period_prediction" }, [
         _c("div", { staticClass: "price_period_prediction" }, [
           _vm._v(
-            "\n                                    32 ₽/ кг\n                                "
+            "\n                                        32 ₽/ кг\n                                    "
           )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "period_prediction" }, [
           _vm._v(
-            "\n                                    Вчера\n                                "
+            "\n                                        Вчера\n                                    "
           )
         ])
       ]),
@@ -1640,13 +1819,13 @@ var staticRenderFns = [
       _c("div", { staticClass: "item_period_prediction" }, [
         _c("div", { staticClass: "price_period_prediction" }, [
           _vm._v(
-            "\n                                    32 ₽/ кг\n                                "
+            "\n                                        32 ₽/ кг\n                                    "
           )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "period_prediction" }, [
           _vm._v(
-            "\n                                    Сегодня\n                                    "
+            "\n                                        Сегодня\n                                        "
           ),
           _c("span", { staticClass: "increase_price" }, [_vm._v("+3,5%")])
         ])
@@ -1655,13 +1834,13 @@ var staticRenderFns = [
       _c("div", { staticClass: "item_period_prediction" }, [
         _c("div", { staticClass: "price_period_prediction" }, [
           _vm._v(
-            "\n                                    32 ₽/ кг\n                                "
+            "\n                                        32 ₽/ кг\n                                    "
           )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "period_prediction" }, [
           _vm._v(
-            "\n                                    Завтра\n                                    "
+            "\n                                        Завтра\n                                        "
           ),
           _c("span", { staticClass: "decline_price" }, [_vm._v("-3,5%")])
         ])
@@ -1672,13 +1851,66 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header_item_right_dashboard" }, [
-      _c("div", { staticClass: "titile_header_item_right_dashboard" }, [
-        _c("div", [_vm._v("Помощь для партнеров")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "description_titile_header_item_dashboard" }, [
-          _vm._v(
-            "Все о том как работать с\n                                        Disfood Market"
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-xs-12 col-md-6" }, [
+        _c("div", { staticClass: "help_partners" }, [
+          _c("div", { staticClass: "header_item_right_dashboard" }, [
+            _c("div", { staticClass: "titile_header_item_right_dashboard" }, [
+              _c("div", [_vm._v("В разработке")])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-xs-12 col-md-6" }, [
+        _c("div", { staticClass: "contacting_those_support" }, [
+          _c("div", { staticClass: "header_item_right_dashboard" }, [
+            _c("div", { staticClass: "titile_header_item_right_dashboard" }, [
+              _c("div", [_vm._v("В разработке")]),
+              _vm._v(" "),
+              _c("div", { staticStyle: { opacity: "0" } }, [
+                _c("div", [_vm._v("Обращение в тех. поддержку")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "description_titile_header_item_dashboard" },
+                  [
+                    _vm._v(
+                      "Среднее время ответа 1 час\n                                        "
+                    )
+                  ]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "list_values_dashboard",
+              staticStyle: { opacity: "0" }
+            },
+            [
+              _c("div", { staticClass: "item_values_dashboard" }, [
+                _c("div", { staticClass: "title_values_dashboard" }, [
+                  _vm._v("Открытые")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "quantity_values_dashboard" }, [
+                  _vm._v("5")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "item_values_dashboard" }, [
+                _c("div", { staticClass: "title_values_dashboard" }, [
+                  _vm._v("Закрытые обращения")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "quantity_values_dashboard" }, [
+                  _vm._v("5")
+                ])
+              ])
+            ]
           )
         ])
       ])
@@ -1688,45 +1920,30 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xs-12 col-md-6" }, [
-      _c("div", { staticClass: "contacting_those_support" }, [
-        _c("div", { staticClass: "header_item_right_dashboard" }, [
-          _c("div", { staticClass: "titile_header_item_right_dashboard" }, [
-            _c("div", [_vm._v("Обращение в тех. поддержку")]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "description_titile_header_item_dashboard" },
-              [
-                _vm._v(
-                  "Среднее время ответа 1 час\n                                    "
-                )
-              ]
-            )
-          ])
-        ]),
+    return _c("div", { staticClass: "header_item_right_dashboard" }, [
+      _c(
+        "div",
+        { staticClass: "titile_header_item_right_dashboard col-md-5" },
+        [_vm._v("Сделки за текущий период")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "date_change_block col-md-7" }, [
+        _c(
+          "div",
+          {
+            staticClass: "date_transactions_current_period col-md-6 text-right"
+          },
+          [_vm._v("Сделки")]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "list_values_dashboard" }, [
-          _c("div", { staticClass: "item_values_dashboard" }, [
-            _c("div", { staticClass: "title_values_dashboard" }, [
-              _vm._v("Открытые")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "quantity_values_dashboard" }, [
-              _vm._v("5")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item_values_dashboard" }, [
-            _c("div", { staticClass: "title_values_dashboard" }, [
-              _vm._v("Закрытые обращения")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "quantity_values_dashboard" }, [
-              _vm._v("5")
-            ])
-          ])
-        ])
+        _c(
+          "div",
+          {
+            staticClass:
+              "change_transactions_current_period col-md-6 text-right"
+          },
+          [_vm._v("Цены")]
+        )
       ])
     ])
   },
@@ -1734,160 +1951,50 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xs-12 col-md-5" }, [
-      _c("div", { staticClass: "transactions_current_period" }, [
-        _c("div", { staticClass: "header_item_right_dashboard" }, [
-          _c("div", { staticClass: "titile_header_item_right_dashboard" }, [
-            _vm._v("Сделки за текущий период")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "date_change_block" }, [
-            _c("div", { staticClass: "date_transactions_current_period" }, [
-              _vm._v("Сделки")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "change_transactions_current_period" }, [
-              _vm._v("Цены")
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "list_values_dashboard" }, [
-          _c("div", { staticClass: "item_values_dashboard" }, [
-            _c("div", { staticClass: "title_values_dashboard" }, [
-              _vm._v("Новые")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "quantity_values_dashboard" }, [
-              _vm._v("5")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "price_values_dashboard" }, [
-              _vm._v("300 000 ₽")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item_values_dashboard" }, [
-            _c("div", { staticClass: "title_values_dashboard" }, [
-              _vm._v("Ожидают оплаты")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "quantity_values_dashboard" }, [
-              _vm._v("5")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "price_values_dashboard" }, [
-              _vm._v("300 000 ₽")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item_values_dashboard" }, [
-            _c("div", { staticClass: "title_values_dashboard" }, [
-              _vm._v("Отмены")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "quantity_values_dashboard" }, [
-              _vm._v("5")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "price_values_dashboard" }, [
-              _vm._v("300 000 ₽")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item_values_dashboard" }, [
-            _c("div", { staticClass: "title_values_dashboard" }, [
-              _vm._v("Завершены")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "quantity_values_dashboard" }, [
-              _vm._v("5")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "price_values_dashboard" }, [
-              _vm._v("300 000 ₽")
-            ])
-          ])
-        ])
+    return _c("div", { staticClass: "item_values_dashboard" }, [
+      _c("div", { staticClass: "title_values_dashboard" }, [
+        _vm._v("Неактуальная цена")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "my_items" }, [
-        _c("div", { staticClass: "header_item_right_dashboard" }, [
-          _c("div", { staticClass: "titile_header_item_right_dashboard" }, [
-            _vm._v("Мои товары")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "update_prices_my_items" }, [
-            _vm._v("Обновить цены у 5 позиций")
-          ])
+      _c("div", { staticClass: "quantity_values_dashboard out_date_price" }, [
+        _vm._v("0")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "advertising_dashboard",
+        staticStyle: {
+          "background-image": "url('./img/advertising_dashboard.jpg')"
+        }
+      },
+      [
+        _c("div", { staticClass: "title_advertising_dashboard" }, [
+          _vm._v("\n                            Снижение коммиссии"),
+          _c("br"),
+          _vm._v("на сделки\n                        ")
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "list_values_dashboard" }, [
-          _c("div", { staticClass: "item_values_dashboard" }, [
-            _c("div", { staticClass: "title_values_dashboard" }, [
-              _vm._v("Сняты с продажи")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "quantity_values_dashboard" }, [
-              _vm._v("5")
-            ])
+        _c("div", { staticClass: "info_advertising_dashboard" }, [
+          _c("div", { staticClass: "percent_advertising_dashboard" }, [
+            _vm._v(
+              "\n                                до 0.5 %\n                            "
+            )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "item_values_dashboard" }, [
-            _c("div", { staticClass: "title_values_dashboard" }, [
-              _vm._v("Актуальная цена")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "quantity_values_dashboard" }, [
-              _vm._v("5")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item_values_dashboard" }, [
-            _c("div", { staticClass: "title_values_dashboard" }, [
-              _vm._v("Неактуальная цена")
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "quantity_values_dashboard out_date_price" },
-              [_vm._v("5")]
+          _c("div", { staticClass: "description_advertising_dashboard" }, [
+            _vm._v(
+              "\n                                Для новый пользователей\n                            "
             )
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "advertising_dashboard",
-          staticStyle: {
-            "background-image": "url('./img/advertising_dashboard.jpg')"
-          }
-        },
-        [
-          _c("div", { staticClass: "title_advertising_dashboard" }, [
-            _vm._v("\n                        Снижение коммиссии"),
-            _c("br"),
-            _vm._v("на сделки\n                    ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info_advertising_dashboard" }, [
-            _c("div", { staticClass: "percent_advertising_dashboard" }, [
-              _vm._v(
-                "\n                            до 0.5 %\n                        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "description_advertising_dashboard" }, [
-              _vm._v(
-                "\n                            Для новый пользователей\n                        "
-              )
-            ])
-          ])
-        ]
-      )
-    ])
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -2234,7 +2341,7 @@ var render = function() {
             _c(
               "ul",
               {
-                staticClass: "dropdown-menu",
+                staticClass: "dropdown-menu inset-plus",
                 attrs: { "aria-labelledby": "navbarDropdown1" }
               },
               [
@@ -2466,7 +2573,7 @@ var render = function() {
           _c(
             "ul",
             {
-              staticClass: "dropdown-menu",
+              staticClass: "dropdown-menu dropdown-menu-login",
               attrs: { "aria-labelledby": "navbarDropdown" }
             },
             [
@@ -2479,6 +2586,7 @@ var render = function() {
                       return _vm.user.user.organizations
                         ? _c(
                             "div",
+                            { staticClass: "login_info" },
                             [
                               _vm._l(_vm.user.user.organizations, function(
                                 org
@@ -2600,72 +2708,71 @@ var render = function() {
               _vm._v(" "),
               _vm._l(_vm.user.user.organizations, function(org, index) {
                 return _vm.currentUserOrganization[0].id !== org.id
-                  ? _c("li", [
-                      _c(
-                        "div",
-                        { staticClass: "dropdown-item dropdown-item-border" },
-                        [
-                          _c("div", { staticClass: "item_company_list" }, [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "name_company_list",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.changeCurrentOrganization(org.id)
-                                  }
-                                }
-                              },
-                              [
+                  ? _c(
+                      "li",
+                      {
+                        on: {
+                          click: function($event) {
+                            return _vm.changeCurrentOrganization(org.id)
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "dropdown-item dropdown-item-border" },
+                          [
+                            _c("div", { staticClass: "item_company_list" }, [
+                              _c("div", { staticClass: "name_company_list" }, [
                                 _vm._v(
                                   "\n                        " +
                                     _vm._s(org.name) +
                                     "\n                    "
                                 )
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "icon_company_list" }, [
-                            _c(
-                              "svg",
-                              {
-                                attrs: {
-                                  width: "20",
-                                  height: "20",
-                                  viewBox: "0 0 20 20",
-                                  fill: "none",
-                                  xmlns: "http://www.w3.org/2000/svg"
-                                }
-                              },
-                              [
-                                _c("path", {
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "icon_company_list" }, [
+                              _c(
+                                "svg",
+                                {
                                   attrs: {
-                                    d:
-                                      "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
-                                    stroke: "#71BF45",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
+                                    width: "20",
+                                    height: "20",
+                                    viewBox: "0 0 20 20",
+                                    fill: "none",
+                                    xmlns: "http://www.w3.org/2000/svg"
                                   }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
-                                    stroke: "#71BF45",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                })
-                              ]
-                            )
-                          ])
-                        ]
-                      )
-                    ])
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M2.5 17.9167L2.58214 17.3886C2.79072 16.0477 3.66466 14.8964 4.9679 14.5183C6.27729 14.1384 8.08427 13.75 10 13.75C11.9157 13.75 13.7227 14.1384 15.0321 14.5183C16.3353 14.8964 17.2093 16.0477 17.4179 17.3886L17.5 17.9167",
+                                      stroke: "#71BF45",
+                                      "stroke-width": "2",
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M9.99992 10.0001C12.3011 10.0001 14.1666 8.1346 14.1666 5.83341C14.1666 3.53223 12.3011 1.66675 9.99992 1.66675C7.69873 1.66675 5.83325 3.53223 5.83325 5.83341C5.83325 8.1346 7.69873 10.0001 9.99992 10.0001Z",
+                                      stroke: "#71BF45",
+                                      "stroke-width": "2",
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    )
                   : _vm._e()
               }),
               _vm._v(" "),

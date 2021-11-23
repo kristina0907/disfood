@@ -319,11 +319,7 @@ export default {
             formData.append('type_id',JSON.stringify(state.typeValue));
             formData.append('answer',JSON.stringify(state.answer));*/
             console.log(data);
-            axios.post('/set/accreditation/quiz', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            }).then(response => {
+            axios.post('/set/accreditation/quiz', data).then(response => {
                 if(response.status == 200)
                 {
                     console.log(response.status)

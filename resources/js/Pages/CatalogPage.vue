@@ -148,7 +148,14 @@
                                                 </div>
                                                 <div class="container_input_price col-md-5">
                                                     <div class="text_input">Код станции</div>
-                                                    <input type="text" value="543 498">
+                                                    <input type="text" name="railway_station" :value="railwayStation" >
+                                                    <div v-if="railwayStations">
+                                                        <div v-for="(station,key) in railwayStations">
+                                                            <a href="#" @click.prevent="setRailwayStation(station)">
+                                                                {{station.index[0]}} {{ station.name[0] }}
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                                     <div class="icon_price_input">
                                                         <svg width="27" height="30" viewBox="0 0 27 30" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
@@ -442,6 +449,11 @@ export default {
         }
     },
     methods:{
+        setRailwayStation(data)
+        {
+          console.log(data)
+            this.$store.dispatch('setRailwayStation',data.index[0])
+        },
         ...mapActions('catalogpage',[
             'getData',
             'getRelatedProducts',
@@ -465,7 +477,8 @@ export default {
     computed: {
         ...mapState('catalog',['location','currentUserOrganization','locationInput']),
         ...mapState('catalogpage',['product','filterPackages','relatedOffers','priceWithNDS','currency','packages','summ','volume']),
-        ...mapState(['currentCourse','courseUSD'])
+        ...mapState(['currentCourse','courseUSD','railwayStations','railwayStation']),
+
     },
 }
 </script>

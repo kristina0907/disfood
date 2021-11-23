@@ -536,6 +536,9 @@ class ApiController extends Controller
         }
     }
 
+    /**
+     * @return mixed|void
+     */
 
     public function getMyMessagesAll()
     {

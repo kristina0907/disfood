@@ -19,7 +19,7 @@ export default {
         capacity:20000,
         isLoading:false,
         selectedFilters:[],
-        railwayStations:[],
+
     },
     getters: {
 
@@ -384,16 +384,7 @@ export default {
 
         },
 
-        /**
-         *
-         * @param state
-         * @param value
-         */
 
-        updateRailwayStations(state,value)
-        {
-            state.railwayStations = value;
-        },
 
         /**
          *
@@ -740,7 +731,8 @@ export default {
         deleteFilter({commit,state},value)
         {
             let exist =[];
-            state.offers.filter(function (item){
+            state.offers.filter(function (item)
+            {
                 if(item.values.length)
                 {
                     item.values.map(function (val){
@@ -756,21 +748,26 @@ export default {
            // commit('updateSelectedFilters',value);
         },
 
+        /**
+         *
+         * @param commit
+         * @param state
+         * @returns {Promise<void>}
+         */
 
-        async getRailwayStation({commit,state})
+        async getRailwayStation({commit,state,rootState})
         {
-            if(state.locationInput.data)
+            if(rootState.searchlocation.locationDeliveryInput && rootState.searchlocation.locationDeliveryInput.data)
             {
-                await  axios.get('/get/railway/station?type=fst&index='+ state.locationInput.data.city)
+                await  axios.get('/get/railway/station?type=fst&index='+ rootState.searchlocation.locationDeliveryInput.data.city)
                     .then(response => {
-                        if(response.status == 200)
+                        if(response.status == 200 && response.data && response.data.error !== 'error')
                         {
                             console.log(response.data)
-                            commit('updateRailwayStations',response.data.search.stations)
+                            commit('updateRailwayStations',response.data.search,{root:true})
                         }
                     });
             }
-
         }
     }
 }

@@ -114,15 +114,34 @@ class AltaSoftApiService
 
     private function parseXmlToArray($data)
     {
+
         // Convert xml string into an object
         $new = simplexml_load_string($data);
 
+        //dd($new);
+        $output = array();
+        $count = 0;
+        foreach ($new->station as  $n)
+        {
+            $indx = json_encode($n['index']);
+            //$indx = json_decode($indx);
+            //dd($indx);
+            $output[$count] = array(
+                'index' => $n['index'][0],
+                'name'  => $n['name'][0],
+                'roadname'=>$n['roadname'][0]
+            );
+           /* $output[$count][] = $n->attributes()->name;
+            $output[$count][] = $n->attributes()->roadname;*/
+            //$output[$count] = json_encode($output[$count]);
+            $count++;
+        }
 
         // Convert into json
-        $con = json_encode($new);
+        //$con = json_encode($output);
 
         // Convert into associative array
-        $newArr = json_decode($con, true);
+        $newArr = $output;
 
         return $newArr;
     }

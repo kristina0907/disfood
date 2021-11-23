@@ -41,6 +41,8 @@ const store = new Vuex.Store({
         currentUserOrganization:null,
         courseUSD:null,
         currentCourse:'RUB',
+        railwayStations:[],
+        railwayStation:'',
     },
     getters: {
         /**
@@ -73,7 +75,8 @@ const store = new Vuex.Store({
          * @param value
          */
 
-        updateUser(state, value) {
+        updateUser(state, value)
+        {
             state.user = value;
         },
 
@@ -87,7 +90,8 @@ const store = new Vuex.Store({
         {
             if(value &&  value.user && value.user.current_organization_id && value.user.organizations)
             {
-                let org = value.user.organizations.filter(function(organization) {
+                let org = value.user.organizations.filter(function(organization)
+                {
                     return organization.id == value.user.current_organization_id;
                 });
                 state.currentUserOrganization = org
@@ -114,7 +118,30 @@ const store = new Vuex.Store({
         changeCurrentCurrency(state,data)
         {
             state.currentCourse = data;
-        }
+        },
+
+        /**
+         *
+         * @param state
+         * @param value
+         */
+
+        updateRailwayStations(state,value)
+        {
+            state.railwayStations = value;
+        },
+
+        /**
+         *
+         * @param state
+         * @param value
+         * @constructor
+         */
+
+        SET_RAILWAY_STATION(state,value)
+        {
+            state.railwayStation = value;
+        },
     },
     actions: {
 
@@ -127,7 +154,8 @@ const store = new Vuex.Store({
         {
             axios.get('/get/currentuser')
                 .then(response => {
-                    if (response.data !== 'undefined' && response.data !== null) {
+                    if (response.data !== 'undefined' && response.data !== null)
+                    {
                         commit('updateUser', response.data)
                         commit('updateCurrentOrganization',response.data);
                     }
@@ -182,7 +210,19 @@ const store = new Vuex.Store({
             {
                 commit('changeCurrentCurrency',data)
             }
+        },
+
+        /**
+         *
+         * @param commit
+         * @param data
+         */
+
+        setRailwayStation({commit},data)
+        {
+            commit('SET_RAILWAY_STATION',data);
         }
+
     }
 })
 

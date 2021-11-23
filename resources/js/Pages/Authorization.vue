@@ -94,11 +94,11 @@
                                     </div>
                                     <div class="container_item_reg_input">
                                         <div>
-                                            <input type="text" placeholder="Имя" v-model="userName" required />
+                                            <input type="text" placeholder="Имя" v-model="userName" required v-on:keypress="noNumber($event)" />
                                             <div class="error_input" v-show="errors.userName">{{errors.userName}}</div>
                                         </div>
                                         <div>
-                                            <input type="text" placeholder="Фамилия" v-model="userSurname" required />
+                                            <input type="text" placeholder="Фамилия" v-model="userSurname" required v-on:keypress="noNumber($event)"/>
                                             <div class="error_input" v-show="errors.userSurname">{{errors.userSurname}}</div>
                                         </div>
                                     </div>
@@ -137,7 +137,7 @@
                                     </div>
                                 </div>
                                <div class="email_reg_input">
-                                    <input type="email" placeholder="E-mail" v-model="userEmail" required />
+                                    <input type="email" placeholder="E-mail" v-model="userEmail" required v-on:keypress="noCyrillic($event)"/>
                                     <div class="error_input" v-show="errors.userEmail">{{errors.userEmail}}</div>
                                 </div>
                                 <div class="item_reg_block">
@@ -381,6 +381,22 @@ export default {
             {
                 this.getInnFromBackend(str)
                 /*console.log(self.inn);*/
+            }
+        },
+        noNumber: function(evt) {
+            var regex = new RegExp("^[a-zа-яё ]+$");
+            var key = String.fromCharCode(!evt.charCode ? evt.which : evt.charCode);
+            if (!regex.test(key)) {
+                event.preventDefault();
+                return false;
+            }
+        },
+        noCyrillic: function(evt) {
+            var regex = new RegExp("^[a-zA-Z-0-9.-_@]");
+            var key = String.fromCharCode(!evt.charCode ? evt.which : evt.charCode);
+            if (!regex.test(key)) {
+                event.preventDefault();
+                return false;
             }
         },
        getInnFromBackend(inn) {

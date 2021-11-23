@@ -4102,6 +4102,16 @@ min-width: 280px;
 .select_countries .multiselect.select{
     width: 100%;
 }
+.container_item_reg_input > div.select_countries {
+    width: 25%;
+}
+.container_item_reg_input > div.phone_reg_input {
+    width: 75%;
+    position: relative;
+}
+.email_reg_input{
+    margin-bottom: 20px;
+}
 .select_countries .multiselect__tags {
     min-height: 62px;
     display: block;

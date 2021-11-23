@@ -8,10 +8,10 @@
                 </div>
                 <div v-for="product in searchResults.products">
                     <div class="search-result_product-item">
-                        <a href="#" @click="searchClickProduct(product.category_id,product.type_id)">
-                            <div class="title_search-result_product-item">{{product.name}}</div>
-                            <div class="price_search-result_product-item"><span class="provider_search-result_product-item">36 поставщиков,</span> от 75 ₽/ кг</div>
-                        </a>
+                          <router-link :to="{'name':'catalog-page',params:{id:product.id}}">
+                                <div class="title_search-result_product-item">{{product.name}}</div>
+                                <div class="price_search-result_product-item"><span class="provider_search-result_product-item">36 поставщиков,</span> от 75 ₽/ кг</div>
+                          </router-link>
                     </div>
                 </div>
             </div>

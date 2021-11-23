@@ -156,8 +156,8 @@
                                                              selectedLabel="Выбрано"
                                                              deselectLabel="Нажмите еще раз чтобы удалить"
                                                              @input="setPackingsValue"
-                                                             :required="true"
-                                                             class="select_packings"
+                                                            :required="true"
+                                                            class="select_packings"
                                                 ></multiselect>
                                                 <div class="error_input" v-if="errors.packingsVal">{{errors.packingsVal}}</div>
                                             </div>

@@ -733,6 +733,14 @@ class ApiController extends Controller
          }
      }
 
+     public function setUpdateOffer(Request $request)
+     {
+         if(!empty($request->id))
+         {
+             $this->offerService->updateOfferData($request,$request->id);
+         }
+     }
+
     /**
      * @param Request $request
      */

@@ -210,6 +210,27 @@ class OfferRepository implements OfferContract
 
     public function update($data, $id)
     {
+        $tempData = array();
+        if(!empty($data->packings))
+        {
+            $tempData['packings'] = json_decode($data->packings,true);
+        }
+        if(!empty($data->adress))
+        {
+            $tempData['adress'] = json_decode($data->adress,true);
+        }
+        if(!empty($data->category_id))
+        {
+            $tempData['category_id'] = json_decode($data->category_id,true);
+        }
+        if(!empty($data->type_id))
+        {
+            $tempData['type_id'] = json_decode($data->type_id,true);
+        }
+        if(!empty($data->filters))
+        {
+            $tempData['filters'] = json_decode($data->filters,true);
+        }
 
         $offer = $this->offer->find($id);
 
@@ -221,6 +242,25 @@ class OfferRepository implements OfferContract
         $offer->type_id = $data['type_id'];
         $offer->updated_at = Carbon::now();
         $offer->update();
+
+        if(!empty($adresses))
+        {
+            $offer->adresses()->sync($adresses);
+        }
+
+        $filters = $this->createFilters($tempData,$offer);
+
+        $packings = $this->createPackings($tempData,$offer);
+
+        if(!empty($data['files']))
+        {
+            $files = $this->createDocuments($data,$offer);
+        }
+
+        if(!empty($data['images']))
+        {
+            $files = $this->createImages($data,$offer);
+        }
 
         return $offer;
     }

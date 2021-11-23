@@ -505,7 +505,7 @@ export default {
                 })
         },
 
-        sendDataUpdateProduct({commit},data)
+        sendDataUpdateProduct({state,commit,rootState})
         {
             let formData = new FormData();
 
@@ -520,18 +520,7 @@ export default {
             }
             console.log(formData)
 
-            /*let data = {
-                organization_id:rootState.user.user.current_organization_id,
-                price:state.price,
-                price_with_nds:state.priceWithNds,
-                capacity:state.capacity,
-                packings:state.selectedPackings,
-                adress:state.adress,
-                category_id: state.categoryValue,
-                type_id:state.typeValue,
-                filters:state.filterValue,
-                documents:formData,
-            }*/
+        
             formData.append('organization_id', rootState.user.user.current_organization_id);
             formData.append('price',state.price);
             formData.append('price_with_nds',state.priceWithNds);
@@ -542,7 +531,7 @@ export default {
             formData.append('type_id',JSON.stringify(state.typeValue));
             formData.append('filters',JSON.stringify(state.filterValue));
             console.log(formData)
-            axios.post('/set/new/offer', formData, {
+            axios.post('/set/update/offer', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -550,7 +539,7 @@ export default {
                 if(response.status == 200)
                 {
                     console.log(response.status)
-                    router.push({ name: 'addnewproductsuccess', query: { redirect: '/addnewproduct/success' } });
+                    // router.push({ name: 'addnewproductsuccess', query: { redirect: '/addnewproduct/success' } });
                 }
             });
         }

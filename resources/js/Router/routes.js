@@ -13,7 +13,7 @@ const routes = [
     },
     {
         path:'/delivery',
-        component: ()=>import('../Pages/Delivery'),
+        component: ()=>import('../Pages/AllNews'),
         name: 'delivery'
     },
     {

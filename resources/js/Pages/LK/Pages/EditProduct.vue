@@ -92,9 +92,9 @@
                                                              selectLabel="Выберите тип товара"
                                                              selectedLabel="Выбрано"
                                                              deselectLabel="Нажмите еще раз чтобы удалить"
-                                                             :class="'select select_type'"
-                                                             :aria-required="true"
-                                                             @input = filterProducts
+                                                            :class="'select select_type'"
+                                                            :aria-required="true"
+                                                            @input = filterProducts
                                                 ></multiselect>
                                             </div>
                                         </div>
@@ -168,8 +168,7 @@
                                                 <div class="error_input" v-if="errors.adress">{{errors.adress}}</div>
                                             </div>
                                             <div class="container_input_price col-md-6">
-                                                <div class="text_input">Код станции</div>
-                                                <input type="number" name="capacity" id="code" :value="currentProduct.code" @input="setCapacity($event.target.value)"/>
+                                                
                                             </div>
 
                                         </div>

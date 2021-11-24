@@ -69,7 +69,8 @@
                                     <div class="item_container_product_block">
                                         <div class="title_container_product_block">Информация о товаре</div>
                                         <div class="item_product_input row">
-                                            <div class="select_container mar-0-10">
+                                            <div class="col-xs-12 col-md-6">
+                                                <div class="select_container">
                                                 <multiselect :value="categoryValue"
                                                              :options="categories"
                                                              :multiple="false"
@@ -86,8 +87,9 @@
                                                 ></multiselect>
                                                 <div class="error_input" v-if="errors.categoryId">{{errors.categoryId}}</div>
                                             </div>
-                                            <div v-if="filteredTypes && categoryId" class="select_container mar-0-10">
-                                                <div>
+                                            </div>
+                                            <div class="col-xs-12 col-md-6" v-if="filteredTypes && categoryId">
+                                                <div class="select_container">
                                                     <multiselect :value="typeValue"
                                                                  :options="filteredTypes"
                                                                  :multiple="false"
@@ -107,34 +109,26 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="filters" class="row item_container_product_block">
-                                        <div class="col-md-6" v-if="typeValue && filters.length && typeId" v-for="(filter) in typeValue.filters">
-                                               <div class="item_product_input row mar-0-10">
-                                                    <div class="col-md-6 container_input_price">
-                                                        <div class="title_filter_catalog">{{filter.name}}</div>
-                                                        <div v-for="(val,index) in filter.values" class="radio">
-                                                            <input :id="'filter-'+filter.id+index"
-                                                                   style="height: auto"
-                                                                   class="custom-radio"
-                                                                   type="checkbox"
-                                                                   :value="val.id"
-                                                                   name="scales"
-                                                                   @input = changeFilterValue(filter.id,val.id)
-                                                            />
-                                                            <label :for="'filter-'+filter.id+index">{{val.value}}</label>
-                                                        </div>
-
-    <!--                                                    <select :id="'filter-'+filter.id" style="height: auto" class="select select_type" @input = changeFilterValue(filter.id) multiple required>
-                                                            <option  value="0" selected disabled>Не выбрано</option>
-                                                            <option v-for="val in filter.values" :value="val.id">{{val.value}}</option>
-                                                        </select>-->
-                                                    </div>
-                                               </div>
-                                        </div>
-
+                                    <div class="item_container_product_block">
+                                         <div class="item_product_input row" v-if="typeValue && filters.length && typeId">
+                                                <div class="col-xs-12 col-md-4" v-for="(filter) in typeValue.filters">
+                                                    <div class="select_container">
+                                                        <multiselect
+                                                                :options="filter.values"
+                                                                :multiple="false"
+                                                                label="value"
+                                                                track-by="value"
+                                                                placeholder="Выбрать"
+                                                                selectLabel="Выбрать"
+                                                                selectedLabel="Выбрано"
+                                                                deselectLabel="Нажмите еще раз чтобы удалить"
+                                                                :class="'select select_type'"
+                                                                :aria-required="true"
+                                                        ></multiselect>
+                                                </div>                                
+                                                </div>
+                                            </div>
                                     </div>
-
-
                                     <div class="item_container_product_block">
                                         <div class="title_container_product_block">Объем в наличии и тип фасовки</div>
                                         <div class="item_product_input row">
@@ -156,15 +150,14 @@
                                                              selectedLabel="Выбрано"
                                                              deselectLabel="Нажмите еще раз чтобы удалить"
                                                              @input="setPackingsValue"
-                                                            :required="true"
-                                                            class="select_packings"
+                                                             :required="true"
                                                 ></multiselect>
                                                 <div class="error_input" v-if="errors.packingsVal">{{errors.packingsVal}}</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="item_container_product_block">
-                                        <div class="title_container_product_block">Вариант доставки</div>
+                                        <div class="title_container_product_block">Адрес производства</div>
                                         <div class="delivery_options_item row">
                                             <div class="col-md-6">
                                                <search-countries/>
@@ -174,7 +167,7 @@
                                             </div>
                                         </div>
                                         <div class="item_product_input row">
-                                            <div class="container_input_price col-md-6 m-b-30" v-for="(adr, index) in adress" :key="index">
+                                            <div class="container_input_price col-md-12 m-b-30" v-for="(adr, index) in adress" :key="index">
                                                 <div class="text_input">Адрес</div>
                                                 <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)" required>
                                                 <datalist id="city">
@@ -189,11 +182,75 @@
                                                 </div>
                                                 <div class="error_input" v-if="errors.adress">{{errors.adress}}</div>
                                             </div>
-                                            <div class="container_input_price col-md-6">
-                                                <div class="text_input">Код станции</div>
-                                                <input type="number" name="capacity" id="code" :value="code"/>
+
+                                        </div>
+                                    </div>
+                                    <div class="item_container_product_block">
+                                        <div class="title_container_product_block">Адрес склада</div>
+                                        <div class="delivery_options_item row">
+                                            <div class="col-md-6">
+                                               <search-countries/>
+                                            </div>
+                                            <div class="select_container col-md-6">
+                                                <search-location/>
+                                            </div>
+                                        </div>
+                                        <div class="item_product_input row">
+                                            <div class="container_input_price col-md-12 m-b-30" v-for="(adr, index) in adress" :key="index">
+                                                <div class="text_input">Адрес</div>
+                                                <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)" required>
+                                                <datalist id="city">
+                                                    <option :value="tip.value" v-for="tip in locationTips">{{tip.value}}</option>
+                                                </datalist>
+                                                <div class="icon_price_input">
+                                                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17 1L6 12L1 7" stroke="#71BF45" stroke-width="2"
+                                                              stroke-linecap="round" />
+                                                    </svg>
+                                                </div>
+                                                <div class="error_input" v-if="errors.adress">{{errors.adress}}</div>
                                             </div>
 
+                                        </div>
+                                    </div>
+                                    <div class="item_container_product_block">
+                                        <div class="title_container_product_block">Варианты доставки</div>
+                                        <div class="delivery_options_item row">
+                                            <div class="col-md-6">
+                                                <div class="checkbox accreditation_company_checkbox">
+                                                    <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox" checked>
+                                                    <label for="country-1">ЖД</label>
+                                                </div>
+                                            </div>
+                                             <div class="container_input col-md-6">
+                                                <input type="number" name="capacity" placeholder="Введите код станции"/>
+                                                <div class="error_input" v-if="errors.capacityVal">{{errors.capacityVal}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="delivery_options_item row">
+                                            <div class="col-md-6">
+                                                <div class="checkbox accreditation_company_checkbox">
+                                                    <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox">
+                                                    <label for="country-1">Авто</label>
+                                                </div>
+                                            </div>
+                                             <div class="container_input container_input_disabled col-md-6">
+                                                <input type="number" name="capacity" placeholder="Введите адрес" disabled/>
+                                                <div class="error_input" v-if="errors.capacityVal">{{errors.capacityVal}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="delivery_options_item row">
+                                            <div class="col-md-6">
+                                                <div class="checkbox accreditation_company_checkbox">
+                                                    <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox">
+                                                    <label for="country-1">Самовывоз</label>
+                                                </div>
+                                            </div>
+                                             <div class="container_input container_input_disabled col-md-6">
+                                                <input type="number" name="capacity" placeholder="Введите адрес" disabled/>
+                                                <div class="error_input" v-if="errors.capacityVal">{{errors.capacityVal}}</div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="item_container_product_block">

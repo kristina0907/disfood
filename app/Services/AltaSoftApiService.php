@@ -53,7 +53,7 @@ class AltaSoftApiService
        curl_close($ch);
 
        $output = $this->parseXmlToArray($output);
-
+        //dd($output);
        return $output;
     }
 
@@ -72,7 +72,6 @@ class AltaSoftApiService
        $output = curl_exec($ch);
 
        curl_close($ch);
-
        $output = $this->parseXmlToArray($output);
 
        return $output;
@@ -100,7 +99,6 @@ class AltaSoftApiService
         $output = curl_exec($ch);
 
         curl_close($ch);
-
         $output = $this->parseXmlToArray($output);
 
         return $output;

@@ -28,8 +28,6 @@ export default {
          */
 
         SET_LOCATION(state, data) {
-
-
             state.locationDeliveryInput = data;
         },
 
@@ -53,9 +51,10 @@ export default {
          * @returns {Promise<void>}
          */
 
-        updateDeliveryInput({commit},value)
+        updateDeliveryInput({commit,dispatch},value)
         {
            commit('SET_LOCATION', value)
+           dispatch('catalog/getRailwayStation',value.value,{root:true})
         },
 
         /**

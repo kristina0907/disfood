@@ -149,7 +149,8 @@
                                                 <div class="container_input_price col-md-5">
                                                     <div class="text_input">Код станции</div>
                                                     <input type="text" name="railway_station" :value="railwayStation" >
-                                                    <div v-if="railwayStations">
+                                                    <div v-if="railwayStations" class="kod-railway" >
+                                                        <div class="railway-kod-title">Выберите станцию</div>
                                                         <div v-for="(station,key) in railwayStations">
                                                             <a href="#" @click.prevent="setRailwayStation(station)">
                                                                 {{station.index[0]}} {{ station.name[0] }}
@@ -482,3 +483,42 @@ export default {
     },
 }
 </script>
+
+<style>
+.kod-railway
+{
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 250px;
+    overflow-y: scroll;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+.kod-railway a
+{
+    color:#444C54;
+    line-height: 20px;
+    font-size: 15px;
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 15px;
+}
+.kod-railway a:hover
+{
+    background:#71BF45 ;
+    color:#fff;
+}
+.railway-kod-title
+{
+    padding: 15px;
+    background: #71BF45;
+    color:#fff;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+</style>

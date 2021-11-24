@@ -157,7 +157,7 @@
                 <div class="container_list_sidebar_catalog_menu">
                     <vue-scroll :ops="ops">
                         <div class="btn-group dropright container_item_list_sidebar_catalog_menu" v-if="categories" v-for="cat in categories">
-                            <div type="button" class="item_list_sidebar_catalog_menu" data-toggle="dropdown"
+                            <div class="item_list_sidebar_catalog_menu" data-toggle="dropdown"
                                  aria-haspopup="true" aria-expanded="false" v-if="cat.id !== 8">
                                 <div class="img_title_item_list_catalog_menu">
                                     <div class="img_item_list_catalog_menu"

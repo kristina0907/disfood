@@ -64,6 +64,7 @@ class AltaSoftController extends Controller
 
     public function getCalcDelivery(Request $request)
     {
+        dd($request);
         if(!empty($request->type) && !empty($request->fst))
         {
             $search = $this->altasoftService->getDeliveryCalc($request->type,$request->fst,$request->tst,$request->fre,$request->frg,$request->weight);

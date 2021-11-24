@@ -43,6 +43,7 @@ const store = new Vuex.Store({
         currentCourse:'RUB',
         railwayStations:[],
         railwayStation:'',
+        deliveryDistance:'',
     },
     getters: {
         /**
@@ -140,8 +141,20 @@ const store = new Vuex.Store({
 
         SET_RAILWAY_STATION(state,value)
         {
-            state.railwayStation = value;
+            state.railwayStation = value.index[0];
         },
+
+        /**
+         *
+         * @param state
+         * @param value
+         * @constructor
+         */
+
+        SET_DELIVERY_DISTANCE(state,value)
+        {
+            state.deliveryDistance = value;
+        }
     },
     actions: {
 
@@ -150,14 +163,12 @@ const store = new Vuex.Store({
          * @param commit
          */
 
-        getUserData({commit})
-        {
+        getUserData({commit}) {
             axios.get('/get/currentuser')
                 .then(response => {
-                    if (response.data !== 'undefined' && response.data !== null)
-                    {
+                    if (response.data !== 'undefined' && response.data !== null) {
                         commit('updateUser', response.data)
-                        commit('updateCurrentOrganization',response.data);
+                        commit('updateCurrentOrganization', response.data);
                     }
                 });
         },
@@ -169,15 +180,13 @@ const store = new Vuex.Store({
          * @returns {Promise<void>}
          */
 
-        async changeCurrentOrganization({commit},data)
-        {
-            await axios.get('/change/currentOrganization/'+data)
-                .then(response=>{
-                    if(response.data !== 'undefined' && response.data !== null)
-                    {
-                        commit('updateCurrentOrganization',response.data);
+        async changeCurrentOrganization({commit}, data) {
+            await axios.get('/change/currentOrganization/' + data)
+                .then(response => {
+                    if (response.data !== 'undefined' && response.data !== null) {
+                        commit('updateCurrentOrganization', response.data);
                     }
-            });
+                });
         },
 
         /**
@@ -186,14 +195,12 @@ const store = new Vuex.Store({
          * @returns {Promise<void>}
          */
 
-        async getCurrentCourse({commit})
-        {
+        async getCurrentCourse({commit}) {
             await axios.get('/get/current/courseusd')
-                .then(response=>{
-                    if(response.data !== 'undefined' && response.data !== null)
-                    {
+                .then(response => {
+                    if (response.data !== 'undefined' && response.data !== null) {
                         //console.log(response.data)
-                        commit('updateCurrentCourse',response.data);
+                        commit('updateCurrentCourse', response.data);
                     }
                 });
         },
@@ -204,11 +211,9 @@ const store = new Vuex.Store({
          * @param data
          */
 
-        changeCourse({commit},data)
-        {
-            if(data)
-            {
-                commit('changeCurrentCurrency',data)
+        changeCourse({commit}, data) {
+            if (data) {
+                commit('changeCurrentCurrency', data)
             }
         },
 
@@ -218,9 +223,27 @@ const store = new Vuex.Store({
          * @param data
          */
 
-        setRailwayStation({commit},data)
+        setRailwayStation({commit,dispatch}, data)
         {
-            commit('SET_RAILWAY_STATION',data);
+            commit('SET_RAILWAY_STATION', data);
+            dispatch('getDistanceDelivery');
+        },
+
+        /**
+         *
+         * @param commit
+         * @returns {Promise<void>}
+         */
+
+        async getDistanceDelivery({commit})
+        {
+            await axios.get('/get/railway/station/distance')
+                .then(response => {
+                    if (response.data !== 'undefined' && response.data !== null) {
+                        console.log(response.data)
+                        commit('SET_DELIVERY_DISTANCE', response.data);
+                    }
+                });
         }
 
     }

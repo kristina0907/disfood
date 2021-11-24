@@ -763,7 +763,6 @@ export default {
                     .then(response => {
                         if(response.status == 200 && response.data && response.data.error !== 'error')
                         {
-                            console.log(response.data)
                             commit('updateRailwayStations',response.data.search,{root:true})
                         }
                     });

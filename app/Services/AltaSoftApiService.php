@@ -91,7 +91,7 @@ class AltaSoftApiService
      * @return mixed
      */
 
-    public function getDeliveryCalc(string $type,string $fst,string $tst,string $fre,string $frg,int $weight,int $gp=66,int $owner=0,int $empt=0,int $return=0)
+    public function getDeliveryCalc(string $type = 'calc',string $fst,string $tst,string $fre,string $frg,int $weight,int $gp=66,int $owner=0,int $empt=0,int $return=0)
     {
         $url = $this->url ."?type=".$type."&encoding=".$this->encoding."&fst=".$fst."&tst=".$tst."&fre=".$fre."&frg=".$frg."&w=".$weight."&gp=".$gp."&owner=".$owner."&empt=".$empt."&return=".$return."&van=200"."&api_key=". $this->ApiKey;
         $ch = curl_init($url);

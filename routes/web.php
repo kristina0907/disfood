@@ -99,6 +99,7 @@ Route::get('/get/current/courseusd',[ApiController::class,'getCurrentCourseUsd']
 
 
 Route::get('/get/railway/station',[AltaSoftController::class,'getRailwayStation']);
+Route::get('/get/railway/station/distance',[AltaSoftController::class,'getCalcDelivery']);
 
 Route::get('/{any?}',function (){
    return view('welcome');

@@ -64,7 +64,7 @@ class AltaSoftApiService
      * @return mixed
      */
 
-   public function getProductCode(string $type,string $index, string $corr = 'yes')
+   public function getProductCode(string $type,string $index, string $corr = 'no')
    {
        $url = $this->url ."?type=".$type."&index=".mb_strtolower($index,$this->encoding)."&encoding=".$this->encoding."&corr=".$corr."&api_key=". $this->ApiKey;
        $ch = curl_init($url);
@@ -72,8 +72,8 @@ class AltaSoftApiService
        $output = curl_exec($ch);
 
        curl_close($ch);
-       $output = $this->parseXmlToArray($output);
-
+       $output = $this->parseXmlToArrayProduct($output);
+      // dd($output);
        return $output;
    }
 
@@ -91,9 +91,9 @@ class AltaSoftApiService
      * @return mixed
      */
 
-    public function getDeliveryCalc(string $type = 'calc',string $fst,string $tst,string $fre,string $frg,int $weight,int $gp=66,int $owner=0,int $empt=0,int $return=0)
+    public function getDeliveryCalc(string $type = 'calc',string $fst,string $tst,string $fre,int $weight,int $gp=66,int $owner=0,int $empt=0,int $return=0)
     {
-        $url = $this->url ."?type=".$type."&encoding=".$this->encoding."&fst=".$fst."&tst=".$tst."&fre=".$fre."&frg=".$frg."&w=".$weight."&gp=".$gp."&owner=".$owner."&empt=".$empt."&return=".$return."&van=200"."&api_key=". $this->ApiKey;
+        $url = $this->url ."?type=".$type."&encoding=".$this->encoding."&fst=".$fst."&tst=".$tst."&fre=".$fre."&gp=".$gp."&owner=".$owner."&empt=".$empt."&return=".$return."&van=200"."&api_key=". $this->ApiKey;
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $output = curl_exec($ch);
@@ -102,6 +102,32 @@ class AltaSoftApiService
         $output = $this->parseXmlToArray($output);
 
         return $output;
+    }
+
+
+    public function parseXmlToArrayProduct($data)
+    {
+        $array = json_decode(json_encode((array)simplexml_load_string($data)),true);
+        $con = json_encode($array);
+
+
+        $newArr = json_decode($con, true);
+        $output = array();
+        if(!empty($newArr['fraight']))
+        {
+            foreach ($newArr['fraight'] as $key=>$item)
+            {
+                if(!empty($item['@attributes']))
+                {
+                    $output[$key]['index'] = $item['@attributes']['index'];
+                    $output[$key]['name'] = $item['@attributes']['name'];
+                    //$output[$key]['etsng'] = $item['@attributes']['toetsng'];
+                }
+
+            }
+        }
+        return $output;
+
     }
 
 

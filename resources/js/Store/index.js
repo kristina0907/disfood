@@ -235,9 +235,9 @@ const store = new Vuex.Store({
          * @returns {Promise<void>}
          */
 
-        async getDistanceDelivery({commit})
+        async getDistanceDelivery({commit,state})
         {
-            await axios.get('/get/railway/station/distance')
+            await axios.get('/get/railway/station/distance?type=calc&tst='+state.railwayStation+'&fst='+state.catalogpage.product.railway_station)
                 .then(response => {
                     if (response.data !== 'undefined' && response.data !== null) {
                         console.log(response.data)

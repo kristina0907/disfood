@@ -98,7 +98,7 @@
                                                                     <searchlocation></searchlocation>
                                                                 </div>
                                                                 <div class="container_input_price col-md-4">
-                                                                    <div class="text_input">Код станции</div>
+<!--                                                                    <div class="text_input">Код станции</div>
                                                                     <input type="text" value="543 498">
                                                                     <div class="icon_price_input">
                                                                         <svg width="27" height="30" viewBox="0 0 27 30" fill="none"
@@ -108,7 +108,8 @@
                                                                                 stroke="#71BF45" stroke-width="2"
                                                                                 stroke-linecap="round" stroke-linejoin="round" />
                                                                         </svg>
-                                                                    </div>
+                                                                    </div>-->
+                                                                    <railway-station></railway-station>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -436,8 +437,10 @@ import SidebarCatalog from "../Сomponents/SidebarCatalog";
 import Multiselect from "vue-multiselect";
 import {mapGetters,mapActions,mapState} from 'vuex';
 import Searchlocation from "../Сomponents/SearchLocation";
+import RailwayStation from "../Сomponents/RailwayStation";
 export default {
     components: {
+        RailwayStation,
         Searchlocation,
         SidebarCatalog,
         NavbarCatalog,

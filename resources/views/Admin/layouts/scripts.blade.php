@@ -63,6 +63,45 @@
 
 <script>
     $(function () {
+
+
+        $('#fre').on('input', function(e){
+            let fre = $('#fre').val();
+            getEtsng(fre)
+        });
+
+
+        async function getEtsng(fre)
+        {
+           await $.ajax(
+                {
+                    url: '/superadmin/alta/getetsn',
+                    type: "GET",
+                    data: {
+                        type: 'fre',
+                        index: fre
+                    },
+                    headers: {
+                        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function (data) {
+                       console.log(data)
+                        if(data.search && data.search.length)
+                        {
+                            //$('#etsn-value').html('');
+                            for(let i=0;i<data.search.length;i++)
+                            {
+                                $("#etsn-value").append("<option value='"+data.search[i].index+"'>"+data.search[i].name+"</option>");
+                            }
+                        }
+                    },
+
+                    error: function (msg) {
+                        $("#etsn-value").append("<option value='Ничего не найдено'></option>");
+                    }
+                })
+        }
+
         $('.dd').nestable();
 
         $('.dd').on('change', function () {
@@ -311,6 +350,8 @@
             paramName: "file",
             maxFilesize: 2
         };
+
+
 
 
     });

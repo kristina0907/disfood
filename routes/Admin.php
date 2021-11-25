@@ -281,6 +281,9 @@ Route::middleware(['auth','IsAdmin'])->prefix('superadmin')->group(function () {
     Route::get('/bik/parse', [BikController::class,'parse'] )->name('bik.parse');
     Route::get('/bik/findbynumber',[BikController::class,'findBik'])->name('bik.find');
 
+
+    Route::get('/alta/getetsn', [AltaSoftController::class,'getProductCode'] )->name('etsn.get');
+
     /**
      * AltaSoft  routes
      */

@@ -20,7 +20,6 @@
                                 <input name="image" type="file" value="{{old('image',$category->image)}}"/>
                             </div>
                         </div>
-
                         <label for="name">Название типа товара</label>
                         <div class="form-group">
                             <div class="form-line">
@@ -29,22 +28,24 @@
                         </div>
                         @if(!empty($categories))
                             <select class="form-control" name="category_id">
-                                @foreach($categories as $category)
-                                    <option value="{{$category->id}}"
-                                    @foreach($categories as $cat)
-                                        @if($cat->id != $category->id)
-                                            <option value="{{$cat->id}}"
-                                                    @if($category->category_id === $cat->id)
-                                                    selected
-                                                @endif
-                                            >{{$cat->name}}</option>
-                                        @endif
-                                    @endforeach
-                                    >{{$category->name}}</option>
+                                @foreach($categories as $cat)
+                                    <option value="{{$cat->id}}"
+                                            @if($cat->id == $category->category_id) selected @endif
+                                    >{{$cat->name}}</option>
                                 @endforeach
                             </select>
                         @endif
                         <br/>
+                        <label for="name">код груза ЕТСНГ</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" id="fre" list="etsn-value" class="form-control" name="fre"  value="{{old('name',$category->fre)}}" placeholder="код груза ЕТСНГ...">
+                                <datalist id="etsn-value">
+
+                                </datalist>
+                            </div>
+                        </div>
+
                         @include('Admin.layouts.errors')
                         <button type="submit" class="btn btn-primary m-t-15 waves-effect">
                             Сохранить

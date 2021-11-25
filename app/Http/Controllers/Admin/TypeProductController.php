@@ -103,7 +103,7 @@ class TypeProductController extends Controller
 
     public function update(Request $request)
     {
-
+        //dd($request);
         if(Gate::allows('create',Auth::user()))
         {
             if(!empty($request->id))

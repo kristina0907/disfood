@@ -106,7 +106,7 @@ class OfferRepository implements OfferContract
 
         $offer->save();
         //TODO включить после оплаты апи
-        //$adresses = $this->createAdresses($data);
+        $adresses = $this->createAdresses($data);
 
         if(!empty($adresses))
         {
@@ -376,7 +376,8 @@ class OfferRepository implements OfferContract
             foreach ($data['adress'] as $adress)
             {
 
-                $result = DaDataAddress::standardization($adress['adress'],1,Language::RU);
+                $result = DaDataAddress::promt($adress['adress'],1,Language::RU);
+                dd($result);
                 if(!empty($result))
                 {
                     foreach ($result as $adr)

@@ -27,6 +27,7 @@
                                                 <th>Название</th>
                                                 <th>slug</th>
                                                 <th>Родитель</th>
+                                                <th>ЕТСНГ</th>
                                                 <th>Дата создания</th>
                                                 <th>Действия</th>
                                             </tr>
@@ -37,6 +38,7 @@
                                                 <th>Название</th>
                                                 <th>slug</th>
                                                 <th>Родитель</th>
+                                                <th>ЕТСНГ</th>
                                                 <th>Дата создания</th>
                                                 <th>Действия</th>
                                             </tr>
@@ -54,6 +56,9 @@
                                                             @else
                                                                 <span class="badge bg-red">Нет</span>
                                                             @endif
+                                                        </td>
+                                                        <td>
+                                                            {{$category->etsn}}
                                                         </td>
                                                         <td>{{$category->created_at}}</td>
                                                         <td>

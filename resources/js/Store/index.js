@@ -153,7 +153,7 @@ const store = new Vuex.Store({
 
         SET_DELIVERY_DISTANCE(state,value)
         {
-            state.deliveryDistance = value;
+            state.deliveryDistance = value.search;
         }
     },
     actions: {
@@ -237,7 +237,7 @@ const store = new Vuex.Store({
 
         async getDistanceDelivery({commit,state})
         {
-            await axios.get('/get/railway/station/distance?type=calc&tst='+state.railwayStation+'&fst='+state.catalogpage.product.railway_station)
+            await axios.get('/get/railway/station/distance?type=calc&tst='+state.railwayStation+'&fst='+state.catalogpage.product.railway_station+'&fre='+state.catalogpage.product.type.etsn)
                 .then(response => {
                     if (response.data !== 'undefined' && response.data !== null) {
                         console.log(response.data)

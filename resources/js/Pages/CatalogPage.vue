@@ -149,6 +149,10 @@
                                                 <div class="container_input_price col-md-5">
                                                     <railway-station></railway-station>
                                                 </div>
+                                                <div v-if="deliveryDistance">
+                                                    Доставка от {{deliveryDistance.delivery_time.delivery_time}} дней,<br/>
+                                                    стоимость от {{deliveryDistance.total_all.total_all}} рублей
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="tab-pane fade show active" id="avto" role="tabpanel"
@@ -160,6 +164,7 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="pickUp" role="tabpanel" aria-labelledby="pickUp-tab">
+
                                         </div>
                                     </div>
 
@@ -461,7 +466,7 @@ export default {
     computed: {
         ...mapState('catalog',['location','currentUserOrganization','locationInput']),
         ...mapState('catalogpage',['product','filterPackages','relatedOffers','priceWithNDS','currency','packages','summ','volume']),
-        ...mapState(['currentCourse','courseUSD','railwayStations','railwayStation']),
+        ...mapState(['currentCourse','courseUSD','railwayStations','railwayStation','deliveryDistance']),
 
     },
 }

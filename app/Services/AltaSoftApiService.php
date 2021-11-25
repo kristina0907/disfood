@@ -91,28 +91,59 @@ class AltaSoftApiService
      * @return mixed
      */
 
-    public function getDeliveryCalc(string $type = 'calc',string $fst,string $tst,string $fre,int $weight,int $gp=66,int $owner=0,int $empt=0,int $return=0)
+    public function getDeliveryCalc(string $type = 'calc',string $fst,string $tst,string $fre,int $owner=0,int $empt=0,int $return=0)
     {
-        $url = $this->url ."?type=".$type."&encoding=".$this->encoding."&fst=".$fst."&tst=".$tst."&fre=".$fre."&gp=".$gp."&owner=".$owner."&empt=".$empt."&return=".$return."&van=200"."&api_key=". $this->ApiKey;
+        $url = $this->url ."?type=".$type."&encoding=".$this->encoding."&fst=".$fst."&tst=".$tst."&fre=".$fre."&w=60000&gp=66&owner=".$owner."&empt=".$empt."&return=".$return."&van=200"."&api_key=". $this->ApiKey;
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $output = curl_exec($ch);
 
         curl_close($ch);
-        $output = $this->parseXmlToArray($output);
+        $output = $this->parseXmlToArrayDelivery($output);
 
         return $output;
     }
 
+
+    public function parseXmlToArrayDelivery($data)
+    {
+        $array = json_decode(json_encode((array)simplexml_load_string($data)),true);
+        $con = json_encode($array);
+        $newArr = json_decode($con, true);
+        $output = [];
+        $final = array();
+        if($newArr['status'] == 'ok')
+        {
+            $output['delivery_time'] = $newArr['Calc']['delivery_time'];
+            $output['total_all'] = $newArr['Calc']['total_all'];
+        }
+
+        foreach ($output as $key=> $item)
+        {
+            if(!empty($item['@attributes']))
+            {
+                $final[$key]['delivery_time'] = $item['@attributes']['value'];
+                $final[$key]['total_all'] = $item['@attributes']['value'];
+            }
+            //dd($item);
+        }
+        return $final;
+    }
+
+    /**
+     * @param $data
+     * @return array
+     */
 
     public function parseXmlToArrayProduct($data)
     {
         $array = json_decode(json_encode((array)simplexml_load_string($data)),true);
         $con = json_encode($array);
 
-
+        //dd($con);
         $newArr = json_decode($con, true);
         $output = array();
+
         if(!empty($newArr['fraight']))
         {
             foreach ($newArr['fraight'] as $key=>$item)
@@ -121,7 +152,6 @@ class AltaSoftApiService
                 {
                     $output[$key]['index'] = $item['@attributes']['index'];
                     $output[$key]['name'] = $item['@attributes']['name'];
-                    //$output[$key]['etsng'] = $item['@attributes']['toetsng'];
                 }
 
             }

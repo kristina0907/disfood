@@ -74,6 +74,11 @@
 
         });
 
+        /**
+         *
+         * @param fre
+         * @returns {Promise<void>}
+         */
 
         async function getEtsng(fre)
         {
@@ -106,7 +111,15 @@
                 })
         }
 
+        /**
+         *
+         */
+
         $('.dd').nestable();
+
+        /**
+         *
+         */
 
         $('.dd').on('change', function () {
             var $this = $(this);
@@ -115,7 +128,9 @@
             //$this.parents('div.body').find('textarea').val(serializedData);
         });
 
-
+        /**
+         *
+         */
 
         $('#companyInput').on('input',function (e){
             e.preventDefault();

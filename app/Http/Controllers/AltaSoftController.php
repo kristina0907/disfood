@@ -68,7 +68,7 @@ class AltaSoftController extends Controller
         //dd($request);
         if(!empty($request->type) && !empty($request->fst))
         {
-            $search = $this->altasoftService->getDeliveryCalc($request->type,$request->fst,$request->tst,$request->fre,$request->frg,$request->weight);
+            $search = $this->altasoftService->getDeliveryCalc($request->type,$request->fst,$request->tst,$request->fre);
             return response()->json(['error'=>'false','search'=>$search],200);
         }
         return response()->json(['error'=>'true','search'=>array()],404);

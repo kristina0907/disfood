@@ -20,6 +20,9 @@ label {
 .mr_0{
     margin: 0 !important;
 }
+.mr-t-20{
+    margin-top: 20px;
+}
 .btn_transparent{
     font-weight: 600;
     font-size: 15px;
@@ -849,6 +852,9 @@ tbody.collapse.in {
 .col_select_table span{
     margin-left: 8px;
     cursor: pointer;
+}
+.select_packings .multiselect__tag{
+    background: #71BF45;
 }
 .multiselect__select:before{
     display: none;
@@ -6439,7 +6445,7 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .item_add_company .container_new_photo{
     margin-right: 20px;
 }
-.accreditation_company_checkbox{
+.accreditation_company_checkbox, .default_checkbox{
     text-align: left;
 }
 .question_company_checkbox{
@@ -6454,7 +6460,7 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     line-height: 20px;
     color: #000000;
 }
-.add_company_checkbox .custom-checkbox+label,  .accreditation_company_checkbox .custom-checkbox+label{
+.add_company_checkbox .custom-checkbox+label,  .accreditation_company_checkbox .custom-checkbox+label, .default_checkbox .custom-checkbox+label{
     display: inline-flex;
     align-items: center;
     user-select: none;
@@ -7537,6 +7543,9 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     border-radius: 0 0 10px 10px;
 }
 .delivery_options_item{
+    margin-bottom: 10px;
+}
+.adress_options_item{
     margin-bottom: 40px;
 }
 .search_name_company .list-group-item{

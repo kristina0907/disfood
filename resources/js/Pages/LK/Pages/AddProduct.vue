@@ -127,7 +127,7 @@
                                                         ></multiselect>
                                                 </div>                                
                                                 </div>
-                                            </div>
+                                        </div>
                                     </div>
                                     <div class="item_container_product_block">
                                         <div class="title_container_product_block">Объем в наличии и тип фасовки</div>
@@ -158,7 +158,7 @@
                                     </div>
                                     <div class="item_container_product_block">
                                         <div class="title_container_product_block">Адрес производства</div>
-                                        <div class="delivery_options_item row">
+                                        <div class="adress_options_item row">
                                             <div class="col-md-6">
                                                <search-countries/>
                                             </div>
@@ -167,7 +167,7 @@
                                             </div>
                                         </div>
                                         <div class="item_product_input row">
-                                            <div class="container_input_price col-md-12 m-b-30" v-for="(adr, index) in adress" :key="index">
+                                            <div class="container_input_price col-md-12" v-for="(adr, index) in adress" :key="index">
                                                 <div class="text_input">Адрес</div>
                                                 <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)" required>
                                                 <datalist id="city">
@@ -187,7 +187,7 @@
                                     </div>
                                     <div class="item_container_product_block">
                                         <div class="title_container_product_block">Адрес склада</div>
-                                        <div class="delivery_options_item row">
+                                        <div class="adress_options_item row">
                                             <div class="col-md-6">
                                                <search-countries/>
                                             </div>
@@ -196,7 +196,7 @@
                                             </div>
                                         </div>
                                         <div class="item_product_input row">
-                                            <div class="container_input_price col-md-12 m-b-30" v-for="(adr, index) in adress" :key="index">
+                                            <div class="container_input_price col-md-12" v-for="(adr, index) in adress" :key="index">
                                                 <div class="text_input">Адрес</div>
                                                 <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)" required>
                                                 <datalist id="city">
@@ -210,6 +210,10 @@
                                                     </svg>
                                                 </div>
                                                 <div class="error_input" v-if="errors.adress">{{errors.adress}}</div>
+                                                <div class="checkbox default_checkbox mr-t-20">
+                                                    <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox">
+                                                    <label for="country-1">Совпадает с адресом производства</label>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -218,7 +222,7 @@
                                         <div class="title_container_product_block">Варианты доставки</div>
                                         <div class="delivery_options_item row">
                                             <div class="col-md-6">
-                                                <div class="checkbox accreditation_company_checkbox">
+                                                <div class="checkbox default_checkbox">
                                                     <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox" checked>
                                                     <label for="country-1">ЖД</label>
                                                 </div>
@@ -230,7 +234,7 @@
                                         </div>
                                         <div class="delivery_options_item row">
                                             <div class="col-md-6">
-                                                <div class="checkbox accreditation_company_checkbox">
+                                                <div class="checkbox default_checkbox">
                                                     <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox">
                                                     <label for="country-1">Авто</label>
                                                 </div>
@@ -242,7 +246,7 @@
                                         </div>
                                         <div class="delivery_options_item row">
                                             <div class="col-md-6">
-                                                <div class="checkbox accreditation_company_checkbox">
+                                                <div class="checkbox default_checkbox">
                                                     <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox">
                                                     <label for="country-1">Самовывоз</label>
                                                 </div>

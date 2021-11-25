@@ -526,7 +526,10 @@ export default {
             'adress',
             'documents',
             'images',
-            'currentProduct'
+            'currentProduct',
+            'countryOrigin',
+            'countryWarehouse',
+            
         ])
 
     },

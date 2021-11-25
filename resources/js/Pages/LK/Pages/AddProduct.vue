@@ -109,22 +109,26 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="item_container_product_block">
+                                    <div class="item_container_filter_block">
                                          <div class="item_product_input row" v-if="typeValue && filters.length && typeId">
-                                                <div class="col-xs-12 col-md-4" v-for="(filter) in typeValue.filters">
+                                                <div class="col-xs-12 col-md-4" v-for="(filter,index) in typeValue.filters">
                                                     <div class="select_container">
-                                                        <multiselect
-                                                                :options="filter.values"
-                                                                :multiple="false"
-                                                                label="value"
-                                                                track-by="value"
-                                                                placeholder="Выбрать"
-                                                                selectLabel="Выбрать"
-                                                                selectedLabel="Выбрано"
-                                                                deselectLabel="Нажмите еще раз чтобы удалить"
-                                                                :class="'select select_type'"
-                                                                :aria-required="true"
-                                                        ></multiselect>
+                                                        <div class="select_container">
+                                                            <multiselect
+                                                                    :options="filter.values"
+                                                                    :multiple="false"
+                                                                    :value="filterVal[index]"
+                                                                    label="value"
+                                                                    track-by="value"
+                                                                    :placeholder="filter.name"
+                                                                    selectLabel="Выбрать"
+                                                                    selectedLabel="Выбрано"
+                                                                    deselectLabel="Нажмите еще раз чтобы удалить"
+                                                                    :class="'select select_type select_filter'"
+                                                                    :aria-required="true"
+                                                                    @select = changeFilterValue($event,index)
+                                                            ></multiselect>
+                                                        </div>
                                                 </div>                                
                                                 </div>
                                         </div>
@@ -150,6 +154,7 @@
                                                              selectedLabel="Выбрано"
                                                              deselectLabel="Нажмите еще раз чтобы удалить"
                                                              @input="setPackingsValue"
+                                                             class="select_packings"
                                                              :required="true"
                                                 ></multiselect>
                                                 <div class="error_input" v-if="errors.packingsVal">{{errors.packingsVal}}</div>
@@ -159,11 +164,13 @@
                                     <div class="item_container_product_block">
                                         <div class="title_container_product_block">Адрес производства</div>
                                         <div class="adress_options_item row">
-                                            <div class="col-md-6">
-                                               <search-countries/>
+                                            <div class="col-md-6 container_input_price">
+                                               <div class="text_input">Страна</div>
+                                                <input type="text" name="countryOrigin" v-model="countryOrigin" @input="setCountryOrigin($event.target.value)" />
                                             </div>
-                                            <div class="select_container col-md-6">
-                                                <search-location/>
+                                            <div class="col-md-6 container_input_price">
+                                               <div class="text_input">Город</div>
+                                                <input type="text" name="countryOrigin" v-model="cityOrigin" @input="setCityOrigin($event.target.value)" />
                                             </div>
                                         </div>
                                         <div class="item_product_input row">
@@ -188,17 +195,19 @@
                                     <div class="item_container_product_block">
                                         <div class="title_container_product_block">Адрес склада</div>
                                         <div class="adress_options_item row">
-                                            <div class="col-md-6">
-                                               <search-countries/>
+                                            <div class="col-md-6 container_input_price" :class="{container_input_disabled: coincidence}">
+                                               <div class="text_input">Страна</div>
+                                                <input type="text" name="countryWarehouse" v-model="countryWarehouse" @input="setCountryWarehouse($event.target.value)" :disabled="coincidence"/>
                                             </div>
-                                            <div class="select_container col-md-6">
-                                                <search-location/>
+                                            <div class="col-md-6 container_input_price">
+                                               <div class="text_input">Город</div>
+                                                <input type="text" name="countryOrigin" v-model="cityWarehouse" @input="setCityWarehouse($event.target.value)" />
                                             </div>
                                         </div>
                                         <div class="item_product_input row">
-                                            <div class="container_input_price col-md-12" v-for="(adr, index) in adress" :key="index">
+                                            <div class="container_input_price col-md-12" :class="{container_input_disabled: coincidence}" v-for="(adr, index) in adress" :key="index">
                                                 <div class="text_input">Адрес</div>
-                                                <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)" required>
+                                                <input list="city" type="text" v-model="adr.Warehouse" @input="searchLocation(adr.Warehouse)" :disabled="coincidence">
                                                 <datalist id="city">
                                                     <option :value="tip.value" v-for="tip in locationTips">{{tip.value}}</option>
                                                 </datalist>
@@ -209,10 +218,10 @@
                                                               stroke-linecap="round" />
                                                     </svg>
                                                 </div>
-                                                <div class="error_input" v-if="errors.adress">{{errors.adress}}</div>
+                                                <div class="error_input" v-if="errors.Warehouse">{{errors.Warehouse}}</div>
                                                 <div class="checkbox default_checkbox mr-t-20">
-                                                    <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox">
-                                                    <label for="country-1">Совпадает с адресом производства</label>
+                                                    <input type="checkbox" id="coincidence" v-model="coincidence" class="custom-checkbox">
+                                                    <label for="coincidence">Совпадает с адресом производства</label>
                                                 </div>
                                             </div>
 
@@ -223,37 +232,34 @@
                                         <div class="delivery_options_item row">
                                             <div class="col-md-6">
                                                 <div class="checkbox default_checkbox">
-                                                    <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox" checked>
-                                                    <label for="country-1">ЖД</label>
+                                                    <input type="checkbox" id="train" v-model="train" class="custom-checkbox">
+                                                    <label for="train">ЖД</label>
                                                 </div>
                                             </div>
-                                             <div class="container_input col-md-6">
-                                                <input type="number" name="capacity" placeholder="Введите код станции"/>
-                                                <div class="error_input" v-if="errors.capacityVal">{{errors.capacityVal}}</div>
+                                             <div class="container_input col-md-6" :class="{container_input_disabled: !train}">
+                                                <input type="number" v-model="codeStation" @input="setCodestation($event.target.value)" placeholder="Введите код станции" :disabled="!train"/>
                                             </div>
                                         </div>
                                         <div class="delivery_options_item row">
                                             <div class="col-md-6">
                                                 <div class="checkbox default_checkbox">
-                                                    <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox">
-                                                    <label for="country-1">Авто</label>
+                                                    <input type="checkbox" id="avto" v-model="avto" class="custom-checkbox">
+                                                    <label for="avto">Авто</label>
                                                 </div>
                                             </div>
-                                             <div class="container_input container_input_disabled col-md-6">
-                                                <input type="number" name="capacity" placeholder="Введите адрес" disabled/>
-                                                <div class="error_input" v-if="errors.capacityVal">{{errors.capacityVal}}</div>
+                                             <div class="container_input col-md-6" :class="{container_input_disabled: !avto}">
+                                                <input type="text" v-model="avtoAdress" @input="setAvtoAdress($event.target.value)" placeholder="Введите адрес" :disabled="!avto"/>
                                             </div>
                                         </div>
                                         <div class="delivery_options_item row">
                                             <div class="col-md-6">
                                                 <div class="checkbox default_checkbox">
-                                                    <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox">
-                                                    <label for="country-1">Самовывоз</label>
+                                                    <input type="checkbox" id="pickup" v-model="pickup" class="custom-checkbox">
+                                                    <label for="pickup">Самовывоз</label>
                                                 </div>
                                             </div>
-                                             <div class="container_input container_input_disabled col-md-6">
-                                                <input type="number" name="capacity" placeholder="Введите адрес" disabled/>
-                                                <div class="error_input" v-if="errors.capacityVal">{{errors.capacityVal}}</div>
+                                             <div class="container_input col-md-6" :class="{container_input_disabled: !pickup}">
+                                                <input type="text" v-model="pickupAdress" @input="setPickupAdress($event.target.value)" placeholder="Введите адрес" :disabled="!pickup"/>
                                             </div>
                                         </div>
                                     </div>
@@ -399,13 +405,15 @@ export default {
             locationTips:[],
             selectedFilters:[],
             errors:[],
-            price:0,
-            priceWithNds:0,
             categoryId:'',
             typeId:'',
             capacityVal:0,
             packingsVal:'',
-
+            filterVal:'',
+            train:false,
+            avto:false,
+            pickup:false,
+            coincidence:false,
         }
     },
     methods:{
@@ -423,7 +431,14 @@ export default {
             'setPriceValue',
             'setPriceWithNdsValue',
             'addFileToDocuments',
-            'addFileToImages'
+            'addFileToImages',
+            'setCodestation',
+            'setAvtoAdress',
+            'setPickupAdress',
+            'setCountryOrigin',
+            'setCountryWarehouse',
+            'setCityOrigin',
+            'setCityWarehouse',
         ]),
 
         /**
@@ -477,9 +492,10 @@ export default {
          * @param val
          */
 
-        changeFilterValue(filter,val)
+        changeFilterValue(filter,index)
         {
-            this.$store.dispatch('addproduct/addFilterValue',{'filter':filter,'value':val});
+            this.filterVal[index] = filter;
+            this.$store.dispatch('addproduct/addFilterValue',{'filter':filter.id,'value':filter.value});
         },
 
 
@@ -550,6 +566,7 @@ export default {
         this.getCatalogData();
         this.getCatalogTypes();
         this.getPackings();
+        this.filterVal = Array(this.filters.length).fill(false);
     },
     computed: {
         ...mapState('addproduct',[
@@ -570,7 +587,15 @@ export default {
             'selectedPackings',
             'adress',
             'documents',
-            'images'
+            'images',
+            'codeStation',
+            'avtoAdress',
+            'pickupAdress',
+            'currentProduct',
+            'countryOrigin',
+            'countryWarehouse',
+            'cityOrigin',
+            'cityWarehouse',
         ]),
     },
 }

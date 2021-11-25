@@ -247,10 +247,10 @@
                             <div class="download_contract_block">
                                 <div class="container_download_contract_block">
                                     <div class="form-group">
-                                        <input type="file" name="file" id="file" class="input-file">
-                                        <label for="file" class="btn btn-tertiary js-labelFile">
+                                        <input type="file" name="arenda_doc" id="arenda_doc" class="input-file">
+                                        <label for="arenda_doc" class="btn btn-tertiary js-labelFile">
                                             <div class="container_info_download_contract">
-                                                <div class="name_download_contract">1. Название документа</div>
+                                                <div class="name_download_contract">1. Договор аренды/собственности на территорию завода/склада</div>
                                                 <div class="info_download_contract">Нажмите на ссылку “Загрузить”
                                                     или перетащите файл в эту область </div>
                                                 <div class="btn_download_contract">Загрузить</div>
@@ -268,10 +268,10 @@
                                         </label>
                                     </div>
                                      <div class="form-group">
-                                        <input type="file" name="file" id="file" class="input-file">
-                                        <label for="file" class="btn btn-tertiary js-labelFile">
+                                        <input type="file" name="shtat_raspisaniye" id="shtat_raspisaniye" class="input-file">
+                                        <label for="shtat_raspisaniye" class="btn btn-tertiary js-labelFile">
                                             <div class="container_info_download_contract">
-                                                <div class="name_download_contract">1. Название документа</div>
+                                                <div class="name_download_contract">2. Штатное расписание (кол-во сотрудников в штате)</div>
                                                 <div class="info_download_contract">Нажмите на ссылку “Загрузить”
                                                     или перетащите файл в эту область </div>
                                                 <div class="btn_download_contract">Загрузить</div>
@@ -289,10 +289,10 @@
                                         </label>
                                     </div>
                                      <div class="form-group">
-                                        <input type="file" name="file" id="file" class="input-file">
-                                        <label for="file" class="btn btn-tertiary js-labelFile">
+                                        <input type="file" name="certificat" id="certificat" class="input-file">
+                                        <label for="certificat" class="btn btn-tertiary js-labelFile">
                                             <div class="container_info_download_contract">
-                                                <div class="name_download_contract">1. Название документа</div>
+                                                <div class="name_download_contract">3. Сертификат на товарный знак</div>
                                                 <div class="info_download_contract">Нажмите на ссылку “Загрузить”
                                                     или перетащите файл в эту область </div>
                                                 <div class="btn_download_contract">Загрузить</div>
@@ -310,10 +310,10 @@
                                         </label>
                                     </div>
                                      <div class="form-group">
-                                        <input type="file" name="file" id="file" class="input-file">
-                                        <label for="file" class="btn btn-tertiary js-labelFile">
+                                        <input type="file" name="declaration" id="declaration" class="input-file">
+                                        <label for="declaration" class="btn btn-tertiary js-labelFile">
                                             <div class="container_info_download_contract">
-                                                <div class="name_download_contract">1. Название документа</div>
+                                                <div class="name_download_contract">4. Декларация налогов на прибыль</div>
                                                 <div class="info_download_contract">Нажмите на ссылку “Загрузить”
                                                     или перетащите файл в эту область </div>
                                                 <div class="btn_download_contract">Загрузить</div>
@@ -331,10 +331,10 @@
                                         </label>
                                     </div>
                                      <div class="form-group">
-                                        <input type="file" name="file" id="file" class="input-file">
-                                        <label for="file" class="btn btn-tertiary js-labelFile">
+                                        <input type="file" name="buhbalance" id="buhbalance" class="input-file">
+                                        <label for="buhbalance" class="btn btn-tertiary js-labelFile">
                                             <div class="container_info_download_contract">
-                                                <div class="name_download_contract">1. Название документа</div>
+                                                <div class="name_download_contract">5. Бухгалтерский Баланс</div>
                                                 <div class="info_download_contract">Нажмите на ссылку “Загрузить”
                                                     или перетащите файл в эту область </div>
                                                 <div class="btn_download_contract">Загрузить</div>
@@ -353,7 +353,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="add_more_download_contract">
+<!--                            <div class="add_more_download_contract">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.5 3V21" stroke="#71BF45" stroke-width="2" stroke-linecap="round"
@@ -362,7 +362,7 @@
                                             stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                                 <span>Добавить еще</span>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -393,7 +393,7 @@
                                         <input type="file" name="file" id="file" class="input-file">
                                         <label for="file" class="btn btn-tertiary js-labelFile">
                                             <div class="container_info_download_contract">
-                                                <div class="name_download_contract">1. Название документа</div>
+                                                <div class="name_download_contract"> Договор</div>
                                                 <div class="info_download_contract">Нажмите на ссылку “Загрузить”
                                                     или перетащите файл в эту область </div>
                                                 <div class="btn_download_contract">Загрузить</div>
@@ -412,7 +412,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="add_more_download_contract">
+<!--                            <div class="add_more_download_contract">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.5 3V21" stroke="#71BF45" stroke-width="2" stroke-linecap="round"
@@ -421,7 +421,7 @@
                                             stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                                 <span>Добавить еще</span>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>

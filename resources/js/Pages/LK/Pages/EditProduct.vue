@@ -104,19 +104,21 @@
                                     </div>
                                     <div class="item_container_product_block">
                                          <div class="item_product_input row" v-if="currentProduct.filters.length">
-                                                <div class="col-xs-12 col-md-4" v-for="(filter) in currentProduct.filters">
+                                                <div class="col-xs-12 col-md-4" v-for="(filter,index) in currentProduct.filters">
                                                     <div class="select_container">
                                                         <multiselect
                                                                 :options="filter.values"
-                                                                :multiple="false"
-                                                                label="value"
-                                                                track-by="value"
-                                                                placeholder="Выбрать"
-                                                                selectLabel="Выбрать"
-                                                                selectedLabel="Выбрано"
-                                                                deselectLabel="Нажмите еще раз чтобы удалить"
-                                                                :class="'select select_type'"
-                                                                :aria-required="true"
+                                                                    :multiple="false"
+                                                                    :value="filterVal[index]"
+                                                                    label="value"
+                                                                    track-by="value"
+                                                                    :placeholder="filter.name"
+                                                                    selectLabel="Выбрать"
+                                                                    selectedLabel="Выбрано"
+                                                                    deselectLabel="Нажмите еще раз чтобы удалить"
+                                                                    :class="'select select_type select_filter'"
+                                                                    :aria-required="true"
+                                                                    @select = changeFilterValue($event,index)
                                                         ></multiselect>
                                                 </div>                                
                                                 </div>
@@ -149,101 +151,105 @@
                                     </div>
                                 </div>
                                 <div class="item_container_product_block">
-                                    <div class="title_container_product_block">Адрес производства</div>
-                                    <div class="adress_options_item row">
-                                        <div class="col-md-6">
-                                            <search-countries/>
-                                        </div>
-                                        <div class="select_container col-md-6">
-                                            <search-location/>
-                                        </div>
-                                    </div>
-                                    <div class="item_product_input row">
-                                        <div class="container_input_price col-md-12" v-for="(adr, index) in adress" :key="index">
-                                            <div class="text_input">Адрес</div>
-                                            <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)" required>
-                                            <datalist id="city">
-                                                <option :value="tip.value" v-for="tip in locationTips">{{tip.value}}</option>
-                                            </datalist>
-                                            <div class="icon_price_input">
-                                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M17 1L6 12L1 7" stroke="#71BF45" stroke-width="2"
-                                                            stroke-linecap="round" />
-                                                </svg>
+                                        <div class="title_container_product_block">Адрес производства</div>
+                                        <div class="adress_options_item row">
+                                            <div class="col-md-6 container_input_price">
+                                               <div class="text_input">Страна</div>
+                                                <input type="text" name="countryOrigin" v-model="countryOrigin" @input="setCountryOrigin($event.target.value)" />
+                                            </div>
+                                            <div class="col-md-6 container_input_price">
+                                               <div class="text_input">Город</div>
+                                                <input type="text" name="countryOrigin" v-model="cityOrigin" @input="setCityOrigin($event.target.value)" />
                                             </div>
                                         </div>
+                                        <div class="item_product_input row">
+                                            <div class="container_input_price col-md-12" v-for="(adr, index) in adress" :key="index">
+                                                <div class="text_input">Адрес</div>
+                                                <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)" required>
+                                                <datalist id="city">
+                                                    <option :value="tip.value" v-for="tip in locationTips">{{tip.value}}</option>
+                                                </datalist>
+                                                <div class="icon_price_input">
+                                                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17 1L6 12L1 7" stroke="#71BF45" stroke-width="2"
+                                                              stroke-linecap="round" />
+                                                    </svg>
+                                                </div>
+                                            </div>
 
-                                    </div>
-                                </div>
-                                <div class="item_container_product_block">
-                                    <div class="title_container_product_block">Адрес склада</div>
-                                    <div class="adress_options_item row">
-                                        <div class="col-md-6">
-                                            <search-countries/>
-                                        </div>
-                                        <div class="select_container col-md-6">
-                                            <search-location/>
                                         </div>
                                     </div>
-                                    <div class="item_product_input row">
-                                        <div class="container_input_price col-md-12" v-for="(adr, index) in adress" :key="index">
-                                            <div class="text_input">Адрес</div>
-                                            <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)" required>
-                                            <datalist id="city">
-                                                <option :value="tip.value" v-for="tip in locationTips">{{tip.value}}</option>
-                                            </datalist>
-                                            <div class="icon_price_input">
-                                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M17 1L6 12L1 7" stroke="#71BF45" stroke-width="2"
-                                                            stroke-linecap="round" />
-                                                </svg>
+                                    <div class="item_container_product_block">
+                                        <div class="title_container_product_block">Адрес склада</div>
+                                        <div class="adress_options_item row">
+                                            <div class="col-md-6 container_input_price" :class="{container_input_disabled: coincidence}">
+                                               <div class="text_input">Страна</div>
+                                                <input type="text" name="countryWarehouse" v-model="countryWarehouse" @input="setCountryWarehouse($event.target.value)" :disabled="coincidence"/>
                                             </div>
-                                            <div class="checkbox default_checkbox mr-t-20">
-                                                <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox">
-                                                <label for="country-1">Совпадает с адресом производства</label>
+                                            <div class="col-md-6 container_input_price">
+                                               <div class="text_input">Город</div>
+                                                <input type="text" name="countryOrigin" v-model="cityWarehouse" @input="setCityWarehouse($event.target.value)" />
                                             </div>
                                         </div>
+                                        <div class="item_product_input row">
+                                            <div class="container_input_price col-md-12" :class="{container_input_disabled: coincidence}" v-for="(adr, index) in adress" :key="index">
+                                                <div class="text_input">Адрес</div>
+                                                <input list="city" type="text" v-model="adr.Warehouse" @input="searchLocation(adr.Warehouse)" :disabled="coincidence">
+                                                <datalist id="city">
+                                                    <option :value="tip.value" v-for="tip in locationTips">{{tip.value}}</option>
+                                                </datalist>
+                                                <div class="icon_price_input">
+                                                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17 1L6 12L1 7" stroke="#71BF45" stroke-width="2"
+                                                              stroke-linecap="round" />
+                                                    </svg>
+                                                </div>
+                                                <div class="checkbox default_checkbox mr-t-20">
+                                                    <input type="checkbox" id="coincidence" v-model="coincidence" class="custom-checkbox">
+                                                    <label for="coincidence">Совпадает с адресом производства</label>
+                                                </div>
+                                            </div>
 
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="item_container_product_block">
-                                    <div class="title_container_product_block">Варианты доставки</div>
-                                    <div class="delivery_options_item row">
-                                        <div class="col-md-6">
-                                            <div class="checkbox default_checkbox">
-                                                <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox" checked>
-                                                <label for="country-1">ЖД</label>
+                                    <div class="item_container_product_block">
+                                        <div class="title_container_product_block">Варианты доставки</div>
+                                        <div class="delivery_options_item row">
+                                            <div class="col-md-6">
+                                                <div class="checkbox default_checkbox">
+                                                    <input type="checkbox" id="train" v-model="train" class="custom-checkbox">
+                                                    <label for="train">ЖД</label>
+                                                </div>
+                                            </div>
+                                             <div class="container_input col-md-6" :class="{container_input_disabled: !train}">
+                                                <input type="number" v-model="codeStation" @input="setCodestation($event.target.value)" placeholder="Введите код станции" :disabled="!train"/>
                                             </div>
                                         </div>
-                                            <div class="container_input col-md-6">
-                                            <input type="number" name="capacity" placeholder="Введите код станции"/>
-                                        </div>
-                                    </div>
-                                    <div class="delivery_options_item row">
-                                        <div class="col-md-6">
-                                            <div class="checkbox default_checkbox">
-                                                <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox">
-                                                <label for="country-1">Авто</label>
+                                        <div class="delivery_options_item row">
+                                            <div class="col-md-6">
+                                                <div class="checkbox default_checkbox">
+                                                    <input type="checkbox" id="avto" v-model="avto" class="custom-checkbox">
+                                                    <label for="avto">Авто</label>
+                                                </div>
+                                            </div>
+                                             <div class="container_input col-md-6" :class="{container_input_disabled: !avto}">
+                                                <input type="text" v-model="avtoAdress" @input="setAvtoAdress($event.target.value)" placeholder="Введите адрес" :disabled="!avto"/>
                                             </div>
                                         </div>
-                                            <div class="container_input container_input_disabled col-md-6">
-                                            <input type="number" name="capacity" placeholder="Введите адрес" disabled/>
-                                        </div>
-                                    </div>
-                                    <div class="delivery_options_item row">
-                                        <div class="col-md-6">
-                                            <div class="checkbox default_checkbox">
-                                                <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox">
-                                                <label for="country-1">Самовывоз</label>
+                                        <div class="delivery_options_item row">
+                                            <div class="col-md-6">
+                                                <div class="checkbox default_checkbox">
+                                                    <input type="checkbox" id="pickup" v-model="pickup" class="custom-checkbox">
+                                                    <label for="pickup">Самовывоз</label>
+                                                </div>
+                                            </div>
+                                             <div class="container_input col-md-6" :class="{container_input_disabled: !pickup}">
+                                                <input type="text" v-model="pickupAdress" @input="setPickupAdress($event.target.value)" placeholder="Введите адрес" :disabled="!pickup"/>
                                             </div>
                                         </div>
-                                            <div class="container_input container_input_disabled col-md-6">
-                                            <input type="number" name="capacity" placeholder="Введите адрес" disabled/>
-                                        </div>
                                     </div>
-                                </div>
                                 <div class="item_container_product_block">
                                     <div class="title_container_product_block">
                                         <div>Документы</div>
@@ -386,7 +392,14 @@ export default {
         return {
             //images:[],
             locationTips:[],
-            selectedFilters:[]
+            selectedFilters:[],
+            capacityVal:0,
+            packingsVal:'',
+            filterVal:'',
+            train:false,
+            avto:false,
+            pickup:false,
+            coincidence:false,
         }
     },
     methods:{
@@ -405,7 +418,14 @@ export default {
             'setPriceWithNdsValue',
             'addFileToDocuments',
             'addFileToImages',
-            'getProductById'
+            'getProductById',
+            'setCodestation',
+            'setAvtoAdress',
+            'setPickupAdress',
+            'setCountryOrigin',
+            'setCountryWarehouse',
+            'setCityOrigin',
+            'setCityWarehouse',
         ]),
         sendData(){
             this.sendDataUpdateProduct();
@@ -462,8 +482,8 @@ export default {
 
         changeFilterValue(filter)
         {
-            let val = document.getElementById('filter-'+filter)
-            this.$store.dispatch('addproduct/addFilterValue',{'filter':filter,'value':val.value});
+           this.filterVal[index] = filter;
+           this.$store.dispatch('editproduct/addFilterValue',{'filter':filter.id,'value':filter.value});
         },
 
         /**
@@ -505,6 +525,7 @@ export default {
         this.getCatalogTypes();
         this.getPackings();
         this.getProductById(this.id)
+        this.filterVal = Array(this.filters.length).fill(false);
     },
     computed: {
         ...mapState('editproduct',[
@@ -526,12 +547,15 @@ export default {
             'adress',
             'documents',
             'images',
+            'codeStation',
+            'avtoAdress',
+            'pickupAdress',
             'currentProduct',
             'countryOrigin',
             'countryWarehouse',
-            
+            'cityOrigin',
+            'cityWarehouse',
         ])
-
     },
 }
 </script>

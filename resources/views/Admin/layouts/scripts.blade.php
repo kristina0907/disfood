@@ -65,9 +65,13 @@
     $(function () {
 
 
-        $('#fre').on('input', function(e){
+        $('#fre').on('input', function(e) {
             let fre = $('#fre').val();
-            getEtsng(fre)
+            if (fre.length && fre.length > 2)
+            {
+                getEtsng(fre)
+            }
+
         });
 
 

@@ -35,6 +35,15 @@
                             </select>
                         @endif
                         <br/>
+                        <label for="name">код груза ЕТСНГ</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" id="fre" list="etsn-value" class="form-control" name="fre"  value="{{old('name',$category->etsn)}}" placeholder="код груза ЕТСНГ...">
+                                <datalist id="etsn-value">
+
+                                </datalist>
+                            </div>
+                        </div>
                         @include('Admin.layouts.errors')
                         <button type="submit" class="btn btn-primary m-t-15 waves-effect">
                             Сохранить

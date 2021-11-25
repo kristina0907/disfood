@@ -85,6 +85,10 @@ class TypeProductRepository implements TypeProductContract
             $data->image->storeAs('/public/images/types', $data['name'].".".$extension);
             $type->image = '/public/images/types'. $data['name'].".".$extension;*/
         }
+        if(!empty($data->fre))
+        {
+            $type->etsn = $data->fre;
+        }
         $type->save();
 
         return $type->fresh();
@@ -98,7 +102,7 @@ class TypeProductRepository implements TypeProductContract
 
     public function update($data, $id)
     {
-        dd($data->fre);
+        //dd($data->fre);
         $type = $this->type->find($id);
 
         $type->name = $data->name;

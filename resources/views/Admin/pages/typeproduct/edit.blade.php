@@ -39,7 +39,7 @@
                         <label for="name">код груза ЕТСНГ</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" id="fre" list="etsn-value" class="form-control" name="fre"  value="{{old('name',$category->fre)}}" placeholder="код груза ЕТСНГ...">
+                                <input type="text" id="fre" list="etsn-value" class="form-control" name="fre"  value="{{old('name',$category->etsn)}}" placeholder="код груза ЕТСНГ...">
                                 <datalist id="etsn-value">
 
                                 </datalist>

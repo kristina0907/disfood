@@ -408,6 +408,54 @@ export default {
                 router.push('/authorization')
             }
         },
+
+        /**
+         *
+         * @param commit
+         * @param state
+         * @returns {Promise<void>}
+         */
+
+        async getAutoDistanceDelivery({commit,rootState})
+        {
+            let fromLat = '';
+            let fromLon = '';
+            let toLat = '';
+            let toLon = '';
+
+
+            if(rootState.catalogpage.product && rootState.catalogpage.product.adresses)
+            {
+                for(let i=0;i<rootState.catalogpage.product.adresses.length;i++)
+                {
+                    if(rootState.catalogpage.product.adresses[i].type == 'storage')
+                    {
+                        fromLat = rootState.catalogpage.product.adresses[i].geo_lat;
+                        fromLon = rootState.catalogpage.product.adresses[i].geo_lon;
+                    }
+                }
+            }
+
+            if(rootState.searchlocation.locationDeliveryInput && rootState.searchlocation.locationDeliveryInput.data)
+            {
+                toLat = rootState.searchlocation.locationDeliveryInput.data.geo_lat;
+                toLon = rootState.searchlocation.locationDeliveryInput.data.geo_lon;
+            }
+
+            //console.log('fromLat= '+fromLat+' fromLon= ' + fromLon + ' toLat= ' + toLat + ' toLon= ' + toLon )
+            if(fromLat  && fromLon && toLat && toLon)
+            {
+                await axios.get('/get/autodelivery/distance?latitude_from='+fromLat+'&latitude_to='+toLat+'&longitude_from='+fromLon+'&longitude_to='+toLon)
+                    .then(response => {
+                        if (response.data !== 'undefined' && response.data !== null) {
+                            console.log(response.data)
+                            commit('SET_AUTO_DISTANCE', response.data,{root:true});
+                        }
+                    });
+            }
+
+
+        }
     }
 }
 

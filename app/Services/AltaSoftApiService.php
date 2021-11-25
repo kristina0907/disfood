@@ -104,6 +104,10 @@ class AltaSoftApiService
         return $output;
     }
 
+    /**
+     * @param $data
+     * @return array
+     */
 
     public function parseXmlToArrayDelivery($data)
     {

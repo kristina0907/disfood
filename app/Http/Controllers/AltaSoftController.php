@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\AltaSoftApiService;
+use App\Services\GeoLocationAutoDeliveryService;
 use http\Env\Response;
 use Illuminate\Http\Request;
 
@@ -15,13 +16,20 @@ class AltaSoftController extends Controller
     protected $altasoftService;
 
     /**
-     * AltaSoftController constructor.
-     * @param AltaSoftApiService $altaSoftApiService
+     * @var GeoLocationAutoDeliveryService
      */
 
-    public function __construct(AltaSoftApiService $altaSoftApiService)
+    protected $geoLocationAutoDeliveryService;
+
+    /**
+     * @param AltaSoftApiService $altaSoftApiService
+     * @param GeoLocationAutoDeliveryService $geoLocationAutoDeliveryService
+     */
+
+    public function __construct(AltaSoftApiService $altaSoftApiService,GeoLocationAutoDeliveryService $geoLocationAutoDeliveryService)
     {
         $this->altasoftService = $altaSoftApiService;
+        $this->geoLocationAutoDeliveryService = $geoLocationAutoDeliveryService;
     }
 
     /**
@@ -72,5 +80,31 @@ class AltaSoftController extends Controller
             return response()->json(['error'=>'false','search'=>$search],200);
         }
         return response()->json(['error'=>'true','search'=>array()],404);
+    }
+
+    /**
+     * @param Request $request
+     * @return array|void
+     */
+
+    public function getAutoDelivery(Request $request)
+    {
+       if(!empty($request->latitude_from) && !empty($request->latitude_to) && !empty($request->longitude_from) && !empty($request->longitude_to))
+       {
+           $dist = $this->geoLocationAutoDeliveryService->haversineGreatCircleDistance($request->latitude_from,$request->longitude_from,$request->latitude_to,$request->longitude_to);
+           $summ = (float)$dist * (float)50;
+           $time = (float)$dist / (float) 800;
+           $output = [];
+           $output['summ'] = round($summ);
+           if($time > 1)
+           {
+                $output['time'] = round($time) + 1;
+           }
+           else
+           {
+               $output['time'] = 1;
+           }
+           return $output;
+       }
     }
 }

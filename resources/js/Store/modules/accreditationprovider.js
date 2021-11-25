@@ -178,6 +178,13 @@ export default {
 
     },
     actions: {
+
+        /**
+         *
+         * @param commit
+         * @param value
+         */
+
         updateValueAction({commit}, value) {
             commit('updateCategory', value);
         },
@@ -191,6 +198,12 @@ export default {
         updateTypeAction({commit}, value) {
             commit('updateType', value);
         },
+
+        /**
+         *
+         * @param commit
+         * @returns {Promise<void>}
+         */
 
         async getCatalogData({commit}) {
             await axios.get('/get/categories')

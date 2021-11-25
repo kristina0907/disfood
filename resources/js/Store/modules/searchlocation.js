@@ -51,10 +51,12 @@ export default {
          * @returns {Promise<void>}
          */
 
-        updateDeliveryInput({commit,dispatch},value)
+        updateDeliveryInput({commit,dispatch,state},value)
         {
            commit('SET_LOCATION', value)
            dispatch('catalog/getRailwayStation',value.value,{root:true})
+           dispatch('catalogpage/getAutoDistanceDelivery',[],{root:true});
+
         },
 
         /**

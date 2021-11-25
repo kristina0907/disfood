@@ -149,7 +149,7 @@
                                                 <div class="container_input_price col-md-5">
                                                     <railway-station></railway-station>
                                                 </div>
-                                                <div v-if="deliveryDistance">
+                                                <div v-if="deliveryDistance && deliveryDistance.delivery_time && deliveryDistance.total_all">
                                                     Доставка от {{deliveryDistance.delivery_time.delivery_time}} дней,<br/>
                                                     стоимость от {{deliveryDistance.total_all.total_all}} рублей
                                                 </div>

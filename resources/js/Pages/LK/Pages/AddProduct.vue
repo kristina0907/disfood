@@ -69,7 +69,8 @@
                                     <div class="item_container_product_block">
                                         <div class="title_container_product_block">Информация о товаре</div>
                                         <div class="item_product_input row">
-                                            <div class="select_container mar-0-10">
+                                            <div class="col-xs-12 col-md-6">
+                                                <div class="select_container">
                                                 <multiselect :value="categoryValue"
                                                              :options="categories"
                                                              :multiple="false"
@@ -86,8 +87,9 @@
                                                 ></multiselect>
                                                 <div class="error_input" v-if="errors.categoryId">{{errors.categoryId}}</div>
                                             </div>
-                                            <div v-if="filteredTypes && categoryId" class="select_container mar-0-10">
-                                                <div>
+                                            </div>
+                                            <div class="col-xs-12 col-md-6" v-if="filteredTypes && categoryId">
+                                                <div class="select_container">
                                                     <multiselect :value="typeValue"
                                                                  :options="filteredTypes"
                                                                  :multiple="false"
@@ -107,34 +109,30 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="filters" class="row item_container_product_block">
-                                        <div class="col-md-6" v-if="typeValue && filters.length && typeId" v-for="(filter) in typeValue.filters">
-                                               <div class="item_product_input row mar-0-10">
-                                                    <div class="col-md-6 container_input_price">
-                                                        <div class="title_filter_catalog">{{filter.name}}</div>
-                                                        <div v-for="(val,index) in filter.values" class="radio">
-                                                            <input :id="'filter-'+filter.id+index"
-                                                                   style="height: auto"
-                                                                   class="custom-radio"
-                                                                   type="checkbox"
-                                                                   :value="val.id"
-                                                                   name="scales"
-                                                                   @input = changeFilterValue(filter.id,val.id)
-                                                            />
-                                                            <label :for="'filter-'+filter.id+index">{{val.value}}</label>
+                                    <div class="item_container_filter_block">
+                                         <div class="item_product_input row" v-if="typeValue && filters.length && typeId">
+                                                <div class="col-xs-12 col-md-4" v-for="(filter,index) in typeValue.filters">
+                                                    <div class="select_container">
+                                                        <div class="select_container">
+                                                            <multiselect
+                                                                    :options="filter.values"
+                                                                    :multiple="false"
+                                                                    :value="filterVal[index]"
+                                                                    label="value"
+                                                                    track-by="value"
+                                                                    :placeholder="filter.name"
+                                                                    selectLabel="Выбрать"
+                                                                    selectedLabel="Выбрано"
+                                                                    deselectLabel="Нажмите еще раз чтобы удалить"
+                                                                    :class="'select select_type select_filter'"
+                                                                    :aria-required="true"
+                                                                    @select = changeFilterValue($event,index)
+                                                            ></multiselect>
                                                         </div>
-
-    <!--                                                    <select :id="'filter-'+filter.id" style="height: auto" class="select select_type" @input = changeFilterValue(filter.id) multiple required>
-                                                            <option  value="0" selected disabled>Не выбрано</option>
-                                                            <option v-for="val in filter.values" :value="val.id">{{val.value}}</option>
-                                                        </select>-->
-                                                    </div>
-                                               </div>
+                                                </div>                                
+                                                </div>
                                         </div>
-
                                     </div>
-
-
                                     <div class="item_container_product_block">
                                         <div class="title_container_product_block">Объем в наличии и тип фасовки</div>
                                         <div class="item_product_input row">
@@ -156,25 +154,27 @@
                                                              selectedLabel="Выбрано"
                                                              deselectLabel="Нажмите еще раз чтобы удалить"
                                                              @input="setPackingsValue"
-                                                            :required="true"
-                                                            class="select_packings"
+                                                             class="select_packings"
+                                                             :required="true"
                                                 ></multiselect>
                                                 <div class="error_input" v-if="errors.packingsVal">{{errors.packingsVal}}</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="item_container_product_block">
-                                        <div class="title_container_product_block">Вариант доставки</div>
-                                        <div class="delivery_options_item row">
-                                            <div class="col-md-6">
-                                               <search-countries/>
+                                        <div class="title_container_product_block">Адрес производства</div>
+                                        <div class="adress_options_item row">
+                                            <div class="col-md-6 container_input_price">
+                                               <div class="text_input">Страна</div>
+                                                <input type="text" name="countryOrigin" v-model="countryOrigin" @input="setCountryOrigin($event.target.value)" />
                                             </div>
-                                            <div class="select_container col-md-6">
-                                                <search-location/>
+                                            <div class="col-md-6 container_input_price">
+                                               <div class="text_input">Город</div>
+                                                <input type="text" name="countryOrigin" v-model="cityOrigin" @input="setCityOrigin($event.target.value)" />
                                             </div>
                                         </div>
                                         <div class="item_product_input row">
-                                            <div class="container_input_price col-md-6 m-b-30" v-for="(adr, index) in adress" :key="index">
+                                            <div class="container_input_price col-md-12" v-for="(adr, index) in adress" :key="index">
                                                 <div class="text_input">Адрес</div>
                                                 <input list="city" type="text" value="" v-model="adr.adress" @input="searchLocation(adr.adress)" required>
                                                 <datalist id="city">
@@ -189,11 +189,78 @@
                                                 </div>
                                                 <div class="error_input" v-if="errors.adress">{{errors.adress}}</div>
                                             </div>
-                                            <div class="container_input_price col-md-6">
-                                                <div class="text_input">Код станции</div>
-                                                <input type="number" name="capacity" id="code" :value="code"/>
+
+                                        </div>
+                                    </div>
+                                    <div class="item_container_product_block">
+                                        <div class="title_container_product_block">Адрес склада</div>
+                                        <div class="adress_options_item row">
+                                            <div class="col-md-6 container_input_price" :class="{container_input_disabled: coincidence}">
+                                               <div class="text_input">Страна</div>
+                                                <input type="text" name="countryWarehouse" v-model="countryWarehouse" @input="setCountryWarehouse($event.target.value)" :disabled="coincidence"/>
+                                            </div>
+                                            <div class="col-md-6 container_input_price">
+                                               <div class="text_input">Город</div>
+                                                <input type="text" name="countryOrigin" v-model="cityWarehouse" @input="setCityWarehouse($event.target.value)" />
+                                            </div>
+                                        </div>
+                                        <div class="item_product_input row">
+                                            <div class="container_input_price col-md-12" :class="{container_input_disabled: coincidence}" v-for="(adr, index) in adress" :key="index">
+                                                <div class="text_input">Адрес</div>
+                                                <input list="city" type="text" v-model="adr.Warehouse" @input="searchLocation(adr.Warehouse)" :disabled="coincidence">
+                                                <datalist id="city">
+                                                    <option :value="tip.value" v-for="tip in locationTips">{{tip.value}}</option>
+                                                </datalist>
+                                                <div class="icon_price_input">
+                                                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17 1L6 12L1 7" stroke="#71BF45" stroke-width="2"
+                                                              stroke-linecap="round" />
+                                                    </svg>
+                                                </div>
+                                                <div class="error_input" v-if="errors.Warehouse">{{errors.Warehouse}}</div>
+                                                <div class="checkbox default_checkbox mr-t-20">
+                                                    <input type="checkbox" id="coincidence" v-model="coincidence" class="custom-checkbox">
+                                                    <label for="coincidence">Совпадает с адресом производства</label>
+                                                </div>
                                             </div>
 
+                                        </div>
+                                    </div>
+                                    <div class="item_container_product_block">
+                                        <div class="title_container_product_block">Варианты доставки</div>
+                                        <div class="delivery_options_item row">
+                                            <div class="col-md-6">
+                                                <div class="checkbox default_checkbox">
+                                                    <input type="checkbox" id="train" v-model="train" class="custom-checkbox">
+                                                    <label for="train">ЖД</label>
+                                                </div>
+                                            </div>
+                                             <div class="container_input col-md-6" :class="{container_input_disabled: !train}">
+                                                <input type="number" v-model="codeStation" @input="setCodestation($event.target.value)" placeholder="Введите код станции" :disabled="!train"/>
+                                            </div>
+                                        </div>
+                                        <div class="delivery_options_item row">
+                                            <div class="col-md-6">
+                                                <div class="checkbox default_checkbox">
+                                                    <input type="checkbox" id="avto" v-model="avto" class="custom-checkbox">
+                                                    <label for="avto">Авто</label>
+                                                </div>
+                                            </div>
+                                             <div class="container_input col-md-6" :class="{container_input_disabled: !avto}">
+                                                <input type="text" v-model="avtoAdress" @input="setAvtoAdress($event.target.value)" placeholder="Введите адрес" :disabled="!avto"/>
+                                            </div>
+                                        </div>
+                                        <div class="delivery_options_item row">
+                                            <div class="col-md-6">
+                                                <div class="checkbox default_checkbox">
+                                                    <input type="checkbox" id="pickup" v-model="pickup" class="custom-checkbox">
+                                                    <label for="pickup">Самовывоз</label>
+                                                </div>
+                                            </div>
+                                             <div class="container_input col-md-6" :class="{container_input_disabled: !pickup}">
+                                                <input type="text" v-model="pickupAdress" @input="setPickupAdress($event.target.value)" placeholder="Введите адрес" :disabled="!pickup"/>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="item_container_product_block">
@@ -338,13 +405,15 @@ export default {
             locationTips:[],
             selectedFilters:[],
             errors:[],
-            price:0,
-            priceWithNds:0,
             categoryId:'',
             typeId:'',
             capacityVal:0,
             packingsVal:'',
-
+            filterVal:'',
+            train:false,
+            avto:false,
+            pickup:false,
+            coincidence:false,
         }
     },
     methods:{
@@ -362,7 +431,14 @@ export default {
             'setPriceValue',
             'setPriceWithNdsValue',
             'addFileToDocuments',
-            'addFileToImages'
+            'addFileToImages',
+            'setCodestation',
+            'setAvtoAdress',
+            'setPickupAdress',
+            'setCountryOrigin',
+            'setCountryWarehouse',
+            'setCityOrigin',
+            'setCityWarehouse',
         ]),
 
         /**
@@ -416,9 +492,10 @@ export default {
          * @param val
          */
 
-        changeFilterValue(filter,val)
+        changeFilterValue(filter,index)
         {
-            this.$store.dispatch('addproduct/addFilterValue',{'filter':filter,'value':val});
+            this.filterVal[index] = filter;
+            this.$store.dispatch('addproduct/addFilterValue',{'filter':filter.id,'value':filter.value});
         },
 
 
@@ -489,6 +566,7 @@ export default {
         this.getCatalogData();
         this.getCatalogTypes();
         this.getPackings();
+        this.filterVal = Array(this.filters.length).fill(false);
     },
     computed: {
         ...mapState('addproduct',[
@@ -509,7 +587,15 @@ export default {
             'selectedPackings',
             'adress',
             'documents',
-            'images'
+            'images',
+            'codeStation',
+            'avtoAdress',
+            'pickupAdress',
+            'currentProduct',
+            'countryOrigin',
+            'countryWarehouse',
+            'cityOrigin',
+            'cityWarehouse',
         ]),
     },
 }

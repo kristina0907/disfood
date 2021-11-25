@@ -20,6 +20,9 @@ label {
 .mr_0{
     margin: 0 !important;
 }
+.mr-t-20{
+    margin-top: 20px;
+}
 .btn_transparent{
     font-weight: 600;
     font-size: 15px;
@@ -850,6 +853,9 @@ tbody.collapse.in {
     margin-left: 8px;
     cursor: pointer;
 }
+.select_packings .multiselect__tag{
+    background: #71BF45;
+}
 .multiselect__select:before{
     display: none;
 }
@@ -1357,6 +1363,22 @@ footer{
     position: relative;
     width: 100%;
 }
+.container_input{
+    position: relative;
+    width: 100%;
+}
+.container_input input{
+    background: #FFFFFF;
+    border: 1px solid #C8CCD1;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 20px;
+    color: #22262A;
+    padding: 10px 20px 10px;
+    width: 100%;
+    height: 62px;
+}
 .container_input_price input{
     background: #FFFFFF;
     border: 1px solid #C8CCD1;
@@ -1367,6 +1389,10 @@ footer{
     color: #22262A;
     padding: 30px 20px 10px;
     width: 100%;
+}
+.container_input_disabled input{
+    background: #F0F2F4;
+    color: #8898A8;
 }
 .text_input{
     position: absolute;
@@ -4241,7 +4267,6 @@ select option{
     padding: 20px;
 }
 .select_category.select{
-    width: 396px;
     margin-right: 20px;
 }
 .select {
@@ -6420,7 +6445,7 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .item_add_company .container_new_photo{
     margin-right: 20px;
 }
-.accreditation_company_checkbox{
+.accreditation_company_checkbox, .default_checkbox{
     text-align: left;
 }
 .question_company_checkbox{
@@ -6435,7 +6460,7 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     line-height: 20px;
     color: #000000;
 }
-.add_company_checkbox .custom-checkbox+label,  .accreditation_company_checkbox .custom-checkbox+label{
+.add_company_checkbox .custom-checkbox+label,  .accreditation_company_checkbox .custom-checkbox+label, .default_checkbox .custom-checkbox+label{
     display: inline-flex;
     align-items: center;
     user-select: none;
@@ -7518,6 +7543,9 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     border-radius: 0 0 10px 10px;
 }
 .delivery_options_item{
+    margin-bottom: 10px;
+}
+.adress_options_item{
     margin-bottom: 40px;
 }
 .search_name_company .list-group-item{
@@ -8015,4 +8043,16 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .select_packings span.multiselect__tags
 {
     background: #71bf45;
+}
+.multiselect {
+    min-height: 62px !important;
+}
+.select_filter{
+    margin-bottom: 30px;
+}
+.item_container_filter_block{
+    margin-bottom: 10px;
+}
+.multiselect__tags {
+    height: 62px;
 }

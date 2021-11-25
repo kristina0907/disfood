@@ -20,9 +20,19 @@ export default {
         adress:[
             {adress:''}
         ],
+        adressWarehouse:[
+            {adress:''}
+        ],
         documents:[],
         images:[],
-        currentProduct:{}
+        currentProduct:{},
+        codeStation:0,
+        avtoAdress:'',
+        pickupAdress:'',
+        countryOrigin:'Россия',
+        countryWarehouse:'Россия',
+        cityOrigin:'',
+        cityWarehouse:'',
     },
     getters: {
 
@@ -284,7 +294,77 @@ export default {
         SET_CURRENT_PRODUCT(state,data)
         {
           state.currentProduct = data;
-        }
+        },
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
+         SET_CODE_STATION(state, data) {
+            state.codeStation = data;
+        },
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
+         SET_AVTO_ADRESS(state, data) {
+            state.avtoAdress = data;
+        },
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
+         SET_PICKUP_ADRESS(state, data) {
+            state.pickupAdress = data;
+        },
+         /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
+        SET_COUNTRY_ORIGIN(state, data) {
+            state.countryOrigin = data;
+        },
+         /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
+        SET_COUNTRY_WAREHOUSE(state, data) {
+            state.countryWarehouse = data;
+        },
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
+        SET_CITY_ORIGIN(state, data) {
+            state.cityOrigin = data;
+        },
+         /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
+        SET_CITY_WAREHOUSE(state, data) {
+            state.cityWarehouse = data;
+        },
     },
     actions: {
 
@@ -475,7 +555,78 @@ export default {
         {
             commit('SET_CAPACITY', data)
         },
+        /**
+         *
+         * @param commit
+         * @param data
+         */
 
+        setCodestation({commit},data)
+        {
+            commit('SET_CODE_STATION',data)
+        },
+
+        /**
+         *
+         * @param commit
+         * @param data
+         */
+
+        setAvtoAdress({commit},data)
+        {
+            commit('SET_AVTO_ADRESS',data)
+        },
+
+        /**
+         *
+         * @param commit
+         * @param data
+         */
+
+        setPickupAdress({commit},data)
+        {
+            commit('SET_PICKUP_ADRESS',data)
+        },
+        /**
+         *
+         * @param commit
+         * @param data
+         */
+
+        setCountryOrigin({commit},data)
+        {
+            commit('SET_COUNTRY_ORIGIN',data)
+        },
+        /**
+         *
+         * @param commit
+         * @param data
+         */
+
+        setCountryWarehouse({commit},data)
+        {
+            commit('SET_COUNTRY_WAREHOUSE',data)
+        },
+        /**
+         *
+         * @param commit
+         * @param data
+         */
+
+        setCityOrigin({commit},data)
+        {
+            commit('SET_CITY_ORIGIN',data)
+        },
+        /**
+         *
+         * @param commit
+         * @param data
+         */
+
+        setCityWarehouse({commit},data)
+        {
+            commit('SET_CITY_WAREHOUSE',data)
+        },
         /**
          *
          * @param commit
@@ -525,6 +676,13 @@ export default {
             formData.append('price',state.price);
             formData.append('price_with_nds',state.priceWithNds);
             formData.append('capacity',state.capacity);
+            formData.append('code_station',state.codeStation);
+            formData.append('avto_adress',state.avtoAdress);
+            formData.append('pickup_adress',state.pickupAdress);
+            formData.append('country_origin',state.countryOrigin);
+            formData.append('country_warehouse',state.countryWarehouse);
+            formData.append('city_origin',state.cityOrigin);
+            formData.append('city_warehouse',state.cityWarehouse);
             formData.append('packings',JSON.stringify(state.selectedPackings));
             formData.append('adress',JSON.stringify(state.adress));
             formData.append('category_id',JSON.stringify(state.categoryValue));

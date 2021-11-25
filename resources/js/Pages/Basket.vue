@@ -27,13 +27,13 @@
                             </div>
                             <div class="item_total_transaction_cart">
                                 <div class="value_item_total_transaction_cart">Доставка</div>
-                                <div class="value_item_total_transaction_cart">40 000 ₽</div>
+                                <div class="value_item_total_transaction_cart" v-if="deliveryDistance && deliveryDistance.total_all">{{deliveryDistance.total_all.total_all}} ₽</div>
                             </div>
                         </div>
                         <div class="total_transaction_cart">
                             <div class="item_total_transaction_cart">
                                 <div class="title_item_total_transaction_cart">Срок доставки</div>
-                                <div class="value_item_total_transaction_cart">от 5 дней</div>
+                                <div class="value_item_total_transaction_cart" v-if="deliveryDistance && deliveryDistance.delivery_time">от {{deliveryDistance.delivery_time.delivery_time}} дней</div>
                             </div>
                             <div class="item_total_transaction_cart">
                                 <div class="title_item_total_transaction_cart">Объем сделки</div>
@@ -111,7 +111,7 @@
                                         <div class="rigth_delivery_main_info_item_cart_product">
                                             <div>
                                                 <div class="title_delivery_main_info_item_cart_product">Доставка</div>
-                                                <div class="description_delivery_main_info_item_cart_product">от 5 дней</div>
+                                                <div class="description_delivery_main_info_item_cart_product"  v-if="deliveryDistance && deliveryDistance.delivery_time" >от {{deliveryDistance.delivery_time.delivery_time}} дней</div>
                                             </div>
                                             <div>
                                                 <div class="title_delivery_main_info_item_cart_product">Объем</div>
@@ -150,7 +150,7 @@
                                                     </svg>
                                                 </span>
                                                 </th>
-                                                <th scope="col">Стоимость доставки</th>
+<!--                                                <th scope="col">Стоимость доставки</th>-->
                                                 <th scope="col">Итог</th>
                                                 <th scope="col"></th>
                                             </tr>
@@ -161,7 +161,7 @@
                                                 <td>{{calcPackageVolume(pack.package.value,pack.value)}} кг</td>
                                                 <td>{{product.price}} ₽</td>
                                                 <td>{{calcSummPackage(product.price ,pack.package.value ,pack.value)}} ₽</td>
-                                                <td>20 000 ₽</td>
+<!--                                                <td>20 000 ₽</td>-->
                                                 <td>{{calcSummWithDelivery(product.price ,pack.package.value,pack.value ,20000)}}  ₽</td>
                                                 <td>
                                                     <div class="settings_table_product">
@@ -194,11 +194,11 @@
                                     <div class="container_info_header_dop_services">
                                         <div class="info_header_dop_services">
                                             <div class="title_info_header_dop_services">Доставка</div>
-                                            <div class="value_info_header_dop_services">от 5 дней</div>
+                                            <div class="value_info_header_dop_services"  v-if="deliveryDistance && deliveryDistance.delivery_time">от {{deliveryDistance.delivery_time.delivery_time}} дней</div>
                                         </div>
                                         <div class="info_header_dop_services">
                                             <div class="title_info_header_dop_services">Стоимость</div>
-                                            <div class="value_info_header_dop_services">40 000 Р</div>
+                                            <div class="value_info_header_dop_services" v-if="deliveryDistance && deliveryDistance.total_all" > {{deliveryDistance.total_all.total_all}} Р</div>
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +206,7 @@
                                     <div>
                                         <div class="item_point">
                                             <div class="pointA_dop_services">A</div>
-                                            <div class="point_title_A_dop_services"v-if="product.adresses" v-for="adress in product.adresses">{{adress.country_name}}, {{adress.city_name}}</div>
+                                            <div class="point_title_A_dop_services" v-if="product.adresses" v-for="adress in product.adresses">{{adress.country_name}}, {{adress.city_name}}</div>
                                         </div>
                                         <div class="point_line_verticale"></div>
                                         <div class="item_point">
@@ -434,7 +434,7 @@
                                     <div class="item_product_input row">
                                         <div class="container_input_price col-md-12">
                                             <div class="text_input">Куда доставить?</div>
-                                            <input type="text" value="Россия, Екатеринбург">
+                                            <input type="text" :value="Россия, Екатеринбург">
                                             <div class="icon_price_input">
                                                 <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -461,11 +461,11 @@
                                     <div class="modal_info_delivery">
                                         <div>
                                             <div class="title_modal_info_delivery">Срок доставки</div>
-                                            <div class="value_modal_info_delivery">от 5 дней</div>
+                                            <div class="value_modal_info_delivery" v-if="deliveryDistance && deliveryDistance.delivery_time">от {{deliveryDistance.delivery_time.delivery_time}} дней</div>
                                         </div>
                                         <div>
                                             <div class="title_modal_info_delivery">Стоимость доставки</div>
-                                            <div class="value_modal_info_delivery">1 340 004 ₽</div>
+                                            <div class="value_modal_info_delivery" v-if="deliveryDistance && deliveryDistance.total_all" >{{deliveryDistance.total_all.total_all}} ₽</div>
                                         </div>
                                     </div>
                                 </div>
@@ -589,7 +589,8 @@ export default {
     computed: {
         ...mapState('catalog',['location','currentUserOrganization']),
         ...mapState('basket',['orderDocuments','selectedDocuments','totalVolume','totalSumm','itogoSumm','totalDocsSumm','orderSuccefullyCreated']),
-        ...mapState('catalogpage',['product','filterPackages','relatedOffers','priceWithNDS','currency','packages','summ','volume'])
+        ...mapState('catalogpage',['product','filterPackages','relatedOffers','priceWithNDS','currency','packages','summ','volume']),
+        ...mapState(['deliveryDistance'])
     },
 }
 </script>

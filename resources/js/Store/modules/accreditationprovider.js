@@ -22,6 +22,7 @@ export default {
             {'id':4, 'code': 'declaration', 'name':'Декларация налогов на прибыль','document':''},
             {'id':5, 'code': 'buhbalance', 'name':'Бухгалтерский Баланс','document':''},
         ],
+        contract:[]
     },
     getters: {
 
@@ -58,6 +59,17 @@ export default {
 
     },
     mutations: {
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
+
+         SET_CONTRACT(state,data)
+         {
+           state.contract = data;
+         },
         /**
          *
          * @param state
@@ -321,6 +333,16 @@ export default {
         {
             commit('SET_DOCUMENTS',data)
         },
+         /**
+         *
+         * @param commit
+         * @param data
+         */
+
+          addFileContract({commit},data)
+          {
+              commit('SET_CONTRACT',data)
+          },
         /**
          *
          * @param state
@@ -330,22 +352,23 @@ export default {
 
         sendDataAnswrer({state,commit,rootState})
         {
-            console.log("rootState",rootState);
 
-            let data = {
-                'organization_id': rootState.user.user.current_organization_id,
-                'category_id'    : state.categoryValue,
-                'type_id'        : state.typeValue,
-                'answer'         : state.answer
-            }
+            // let data = {
+            //     'organization_id': rootState.user.user.current_organization_id,
+            //     'category_id'    : state.categoryValue,
+            //     'type_id'        : state.typeValue,
+            //     'answer'         : state.answer,
+            //     'documents'      : state.documents,
+            // }
 
-          /*  let formData = new FormData();
+            let formData = new FormData();
             formData.append('organization_id', rootState.user.user.current_organization_id);
             formData.append('category_id',JSON.stringify(state.categoryValue));
             formData.append('type_id',JSON.stringify(state.typeValue));
-            formData.append('answer',JSON.stringify(state.answer));*/
-            console.log(data);
-            axios.post('/set/accreditation/quiz', data).then(response => {
+            formData.append('answer',JSON.stringify(state.answer));
+            formData.append('documents',JSON.stringify(state.documents));
+            formData.append('contract',JSON.stringify(state.contract));
+            axios.post('/set/accreditation/quiz', formData).then(response => {
                 if(response.status == 200)
                 {
                     console.log(response.status)

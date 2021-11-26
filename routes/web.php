@@ -103,6 +103,9 @@ Route::get('/get/railway/station/distance',[AltaSoftController::class,'getCalcDe
 
 Route::get('/get/autodelivery/distance',[AltaSoftController::class,'getAutoDelivery']);
 
+Route::get('/generate-accreditation-docx',[ApiController::class,'generateAccredDogovor']);
+
+
 Route::get('/{any?}',function (){
    return view('welcome');
 })->where('any', '.*');

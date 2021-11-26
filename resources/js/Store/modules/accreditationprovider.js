@@ -14,7 +14,14 @@ export default {
         productValue:'',
         selectValue:'',
         filterSelect:[],
-        answer:[]
+        answer:[],
+        documents:[
+            {'id':1, 'code': 'arenda_doc', 'name':'Договор аренды/собственности на территорию завода/склада','document':''},
+            {'id':2, 'code': 'shtat_raspisaniye', 'name':'Штатное расписание (кол-во сотрудников в штате)','document':''},
+            {'id':3, 'code': 'certificat', 'name':'Сертификат на товарный знак','document':''},
+            {'id':4, 'code': 'declaration', 'name':'Декларация налогов на прибыль','document':''},
+            {'id':5, 'code': 'buhbalance', 'name':'Бухгалтерский Баланс','document':''},
+        ],
     },
     getters: {
 
@@ -51,7 +58,17 @@ export default {
 
     },
     mutations: {
+        /**
+         *
+         * @param state
+         * @param data
+         * @constructor
+         */
 
+         SET_DOCUMENTS(state,data)
+         {
+           state.documents = data;
+         },
         /**
          *
          * @param state
@@ -294,7 +311,16 @@ export default {
         {
             commit('SET_PRODUCT_VALUE',data)
         },
+        /**
+         *
+         * @param commit
+         * @param data
+         */
 
+        addFileToDocuments({commit},data)
+        {
+            commit('SET_DOCUMENTS',data)
+        },
         /**
          *
          * @param state

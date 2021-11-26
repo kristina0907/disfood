@@ -168,7 +168,6 @@
                                 <vue-range-slider
                                     class="custom_range"
                                     ref="slider"
-                                    tooltip="false"
                                     name = "slider"
                                     @input="setSlider(index,question.id,$event)"
                                 ></vue-range-slider>
@@ -246,98 +245,22 @@
                         <div class="download_contract">
                             <div class="download_contract_block">
                                 <div class="container_download_contract_block">
-                                    <div class="form-group">
-                                        <input type="file" name="arenda_doc" id="arenda_doc" class="input-file">
+                                    <div class="form-group" v-for="(document,key) in documents">
+                                        <input type="file" 
+                                            :name="document.code" 
+                                            :id="document.code" 
+                                            multiple
+                                            @change="onFileChange($event.target.files,key)"
+                                            class="input-file"
+                                        >
+                                        {{key}}
                                         <label for="arenda_doc" class="btn btn-tertiary js-labelFile">
                                             <div class="container_info_download_contract">
-                                                <div class="name_download_contract">1. Договор аренды/собственности на территорию завода/склада</div>
-                                                <div class="info_download_contract">Нажмите на ссылку “Загрузить”
+                                                <div class="name_download_contract">{{document.id}}. {{document.name}}</div>
+                                                <div class="info_download_contract" v-if="!document.document">Нажмите на ссылку “Загрузить”
                                                     или перетащите файл в эту область </div>
-                                                <div class="btn_download_contract">Загрузить</div>
-                                            </div>
-                                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.42105 2.5C11.0779 2.5 12.4211 3.84315 12.4211 5.5L12.4211 8C12.4211 9.38071 13.5403 10.5 14.9211 10.5H17C18.6569 10.5 20 11.8431 20 13.5V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                    stroke="#22262A" stroke-width="2"></path>
-                                                <path
-                                                    d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.23393 2.5C11.5937 2.5 13.8332 3.54186 15.3532 5.34691L18.1193 8.63163C19.3339 10.074 20 11.899 20 13.7847V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                    stroke="#22262A" stroke-width="2"></path>
-                                            </svg>
-
-                                        </label>
-                                    </div>
-                                     <div class="form-group">
-                                        <input type="file" name="shtat_raspisaniye" id="shtat_raspisaniye" class="input-file">
-                                        <label for="shtat_raspisaniye" class="btn btn-tertiary js-labelFile">
-                                            <div class="container_info_download_contract">
-                                                <div class="name_download_contract">2. Штатное расписание (кол-во сотрудников в штате)</div>
-                                                <div class="info_download_contract">Нажмите на ссылку “Загрузить”
-                                                    или перетащите файл в эту область </div>
-                                                <div class="btn_download_contract">Загрузить</div>
-                                            </div>
-                                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.42105 2.5C11.0779 2.5 12.4211 3.84315 12.4211 5.5L12.4211 8C12.4211 9.38071 13.5403 10.5 14.9211 10.5H17C18.6569 10.5 20 11.8431 20 13.5V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                    stroke="#22262A" stroke-width="2"></path>
-                                                <path
-                                                    d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.23393 2.5C11.5937 2.5 13.8332 3.54186 15.3532 5.34691L18.1193 8.63163C19.3339 10.074 20 11.899 20 13.7847V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                    stroke="#22262A" stroke-width="2"></path>
-                                            </svg>
-
-                                        </label>
-                                    </div>
-                                     <div class="form-group">
-                                        <input type="file" name="certificat" id="certificat" class="input-file">
-                                        <label for="certificat" class="btn btn-tertiary js-labelFile">
-                                            <div class="container_info_download_contract">
-                                                <div class="name_download_contract">3. Сертификат на товарный знак</div>
-                                                <div class="info_download_contract">Нажмите на ссылку “Загрузить”
-                                                    или перетащите файл в эту область </div>
-                                                <div class="btn_download_contract">Загрузить</div>
-                                            </div>
-                                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.42105 2.5C11.0779 2.5 12.4211 3.84315 12.4211 5.5L12.4211 8C12.4211 9.38071 13.5403 10.5 14.9211 10.5H17C18.6569 10.5 20 11.8431 20 13.5V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                    stroke="#22262A" stroke-width="2"></path>
-                                                <path
-                                                    d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.23393 2.5C11.5937 2.5 13.8332 3.54186 15.3532 5.34691L18.1193 8.63163C19.3339 10.074 20 11.899 20 13.7847V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                    stroke="#22262A" stroke-width="2"></path>
-                                            </svg>
-
-                                        </label>
-                                    </div>
-                                     <div class="form-group">
-                                        <input type="file" name="declaration" id="declaration" class="input-file">
-                                        <label for="declaration" class="btn btn-tertiary js-labelFile">
-                                            <div class="container_info_download_contract">
-                                                <div class="name_download_contract">4. Декларация налогов на прибыль</div>
-                                                <div class="info_download_contract">Нажмите на ссылку “Загрузить”
-                                                    или перетащите файл в эту область </div>
-                                                <div class="btn_download_contract">Загрузить</div>
-                                            </div>
-                                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.42105 2.5C11.0779 2.5 12.4211 3.84315 12.4211 5.5L12.4211 8C12.4211 9.38071 13.5403 10.5 14.9211 10.5H17C18.6569 10.5 20 11.8431 20 13.5V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                    stroke="#22262A" stroke-width="2"></path>
-                                                <path
-                                                    d="M4 4.5C4 3.39543 4.89543 2.5 6 2.5L9.23393 2.5C11.5937 2.5 13.8332 3.54186 15.3532 5.34691L18.1193 8.63163C19.3339 10.074 20 11.899 20 13.7847V20.5C20 21.6046 19.1046 22.5 18 22.5L6 22.5C4.89543 22.5 4 21.6046 4 20.5L4 4.5Z"
-                                                    stroke="#22262A" stroke-width="2"></path>
-                                            </svg>
-
-                                        </label>
-                                    </div>
-                                     <div class="form-group">
-                                        <input type="file" name="buhbalance" id="buhbalance" class="input-file">
-                                        <label for="buhbalance" class="btn btn-tertiary js-labelFile">
-                                            <div class="container_info_download_contract">
-                                                <div class="name_download_contract">5. Бухгалтерский Баланс</div>
-                                                <div class="info_download_contract">Нажмите на ссылку “Загрузить”
-                                                    или перетащите файл в эту область </div>
-                                                <div class="btn_download_contract">Загрузить</div>
+                                                <div class="btn_download_contract" v-if="!document.document">Загрузить</div>
+                                                <div class="btn_download_contract" v-if="document.document">{{document.document[0].name}}</div>
                                             </div>
                                             <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -482,6 +405,7 @@ export default {
             'filterSelect',
             'setAnswer',
             'sendDataAnswrer',
+            'addFileToDocuments',
         ]),
     nextStep() {
         if(!this.userResponses[this.stepQuestion - 1]){
@@ -498,7 +422,6 @@ export default {
                 this.stepQuestion++;
             }
         }
-
     },
     prevStep() {
          if(this.stepQuestion !== 1){
@@ -520,8 +443,15 @@ export default {
         mas.id = value;
         this.userResponses[index] = mas;
     },
+    onFileChange(file,key)
+    {
+        console.log("index",key);
+        this.documents[key].document = file;
+        // this.addFileToDocuments(this.documents);
+        console.log("document",this.documents);
+    },
     sendData(){
-        this.sendDataAnswrer(this.userResponses)
+        this.sendDataAnswrer(this.userResponses);
     }
   },
   mounted() {
@@ -529,7 +459,6 @@ export default {
     this.getCatalogData();
     this.getCatalogTypes();
     this.userResponses = Array(this.questions.length).fill(false);
-    console.log("userResponses",this.userResponses);
   },
    computed: {
         ...mapState('accreditationprovider',[
@@ -542,7 +471,8 @@ export default {
             'typeValue',
             'filteredProducts',
             'productValue',
-            'answer'
+            'answer',
+            'documents',
         ]),
     },
 };

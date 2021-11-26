@@ -8036,6 +8036,9 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     height: 24px !important;
     top:-10px !important;
 }
+.custom_range.vue-range-slider.slider-component .slider .slider-dot.slider-always .slider-tooltip-wrap{
+    display: none !important;
+}
 .select_packings .multiselect__tags
 {
     padding: 13px 40px 0 8px;
@@ -8044,15 +8047,15 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 {
     background: #71bf45;
 }
-.multiselect {
-    min-height: 62px !important;
-}
+// .multiselect {
+//     min-height: 62px !important;
+// }
 .select_filter{
     margin-bottom: 30px;
 }
 .item_container_filter_block{
     margin-bottom: 10px;
 }
-.multiselect__tags {
-    height: 62px;
-}
+// .multiselect__tags {
+//     height: 62px;
+// }

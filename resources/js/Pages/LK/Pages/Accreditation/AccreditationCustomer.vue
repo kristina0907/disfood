@@ -62,17 +62,20 @@
                                     Один из ваших документов не прошел модерацию. Мы все равно аккредитовали ваш аккаунт. За
                                     уточнениями по документу обратитесь к менеджеру.
                                 </div>
-                                <div class="save_contract">
-                                    <span>Читать договор</span>
-                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4.5 4.5C4.5 3.39543 5.39543 2.5 6.5 2.5L9.92105 2.5C11.5779 2.5 12.9211 3.84315 12.9211 5.5L12.9211 8C12.9211 9.38071 14.0403 10.5 15.4211 10.5H17.5C19.1569 10.5 20.5 11.8431 20.5 13.5V20.5C20.5 21.6046 19.6046 22.5 18.5 22.5L6.5 22.5C5.39543 22.5 4.5 21.6046 4.5 20.5L4.5 4.5Z" stroke="#22262A" stroke-width="2"/>
-                                        <path d="M4.5 4.5C4.5 3.39543 5.39543 2.5 6.5 2.5L9.73393 2.5C12.0937 2.5 14.3332 3.54186 15.8532 5.34691L18.6193 8.63163C19.8339 10.074 20.5 11.899 20.5 13.7847V20.5C20.5 21.6046 19.6046 22.5 18.5 22.5L6.5 22.5C5.39543 22.5 4.5 21.6046 4.5 20.5L4.5 4.5Z" stroke="#22262A" stroke-width="2"/>
-                                    </svg>
-                                </div>
+                                <a href="https://disfood.atlassian.net/jira/software/projects/DIS/boards/1?selectedIssue=DIS-139" target="_blank">
+                                    <div class="save_contract">
+                                        <span>Читать договор</span>
+                                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4.5 4.5C4.5 3.39543 5.39543 2.5 6.5 2.5L9.92105 2.5C11.5779 2.5 12.9211 3.84315 12.9211 5.5L12.9211 8C12.9211 9.38071 14.0403 10.5 15.4211 10.5H17.5C19.1569 10.5 20.5 11.8431 20.5 13.5V20.5C20.5 21.6046 19.6046 22.5 18.5 22.5L6.5 22.5C5.39543 22.5 4.5 21.6046 4.5 20.5L4.5 4.5Z" stroke="#22262A" stroke-width="2"/>
+                                            <path d="M4.5 4.5C4.5 3.39543 5.39543 2.5 6.5 2.5L9.73393 2.5C12.0937 2.5 14.3332 3.54186 15.8532 5.34691L18.6193 8.63163C19.8339 10.074 20.5 11.899 20.5 13.7847V20.5C20.5 21.6046 19.6046 22.5 18.5 22.5L6.5 22.5C5.39543 22.5 4.5 21.6046 4.5 20.5L4.5 4.5Z" stroke="#22262A" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </a>    
                                 <div class="checkbox accreditation_company_checkbox">
-                                    <input type="checkbox" id="country-1" name="country" value="indigo" class="custom-checkbox">
+                                    <input type="checkbox" id="country-1" name="country" v-model="familiarized" class="custom-checkbox">
                                     <label for="country-1">Ознакомлен с договором</label>
                                 </div>
+                                <div class="error_answer" v-if="error">Ознакомьтесь с договором</div>
                             </div>
                             <button class="btn_next_step" @click="changeStep">Далее</button>
                         </div>
@@ -113,12 +116,19 @@ export default {
     data(){
         return {
             loadingDoc:false,
-            step:1
+            step:1,
+            familiarized:false,
+            error:false,
         }
     },
     methods:{
         changeStep(){
-            this.step ++;
+            if(this.familiarized){
+                this.step ++;
+            }else{
+                this.error = true;
+            }
+            
         }
     },
     computed: {

@@ -246,15 +246,15 @@
                             <div class="download_contract_block">
                                 <div class="container_download_contract_block">
                                     <div class="form-group" v-for="(document,key) in documents">
-                                        <input type="file" 
+                                        <input 
+                                            type="file" 
                                             :name="document.code" 
                                             :id="document.code" 
                                             multiple
                                             @change="onFileChange($event.target.files,key)"
                                             class="input-file"
                                         >
-                                        {{key}}
-                                        <label for="arenda_doc" class="btn btn-tertiary js-labelFile">
+                                        <label :for="document.code" class="btn btn-tertiary js-labelFile">
                                             <div class="container_info_download_contract">
                                                 <div class="name_download_contract">{{document.id}}. {{document.name}}</div>
                                                 <div class="info_download_contract" v-if="!document.document">Нажмите на ссылку “Загрузить”
@@ -287,6 +287,7 @@
                                 <span>Добавить еще</span>
                             </div>-->
                         </div>
+                        <div class="error_answer" v-if="error">Загрузите все документы</div>
                     </div>
                 </div>
                 <div v-if="step == 3">
@@ -295,31 +296,40 @@
                         <div class="step_description_profile_information">
                             Скачайте договор, подпишите и загрузите обратно
                         </div>
-                        <div class="save_contract">
-                            <span>Скачать договор</span>
-                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M4.5 4.5C4.5 3.39543 5.39543 2.5 6.5 2.5L9.92105 2.5C11.5779 2.5 12.9211 3.84315 12.9211 5.5L12.9211 8C12.9211 9.38071 14.0403 10.5 15.4211 10.5H17.5C19.1569 10.5 20.5 11.8431 20.5 13.5V20.5C20.5 21.6046 19.6046 22.5 18.5 22.5L6.5 22.5C5.39543 22.5 4.5 21.6046 4.5 20.5L4.5 4.5Z"
-                                    stroke="#22262A" stroke-width="2" />
-                                <path
-                                    d="M4.5 4.5C4.5 3.39543 5.39543 2.5 6.5 2.5L9.73393 2.5C12.0937 2.5 14.3332 3.54186 15.8532 5.34691L18.6193 8.63163C19.8339 10.074 20.5 11.899 20.5 13.7847V20.5C20.5 21.6046 19.6046 22.5 18.5 22.5L6.5 22.5C5.39543 22.5 4.5 21.6046 4.5 20.5L4.5 4.5Z"
-                                    stroke="#22262A" stroke-width="2" />
-                            </svg>
-
-                        </div>
+                         <a href="https://disfood.atlassian.net/jira/software/projects/DIS/boards/1?selectedIssue=DIS-139" target="_blank">
+                            <div class="save_contract">
+                                <span>Скачать договор</span>
+                                <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M4.5 4.5C4.5 3.39543 5.39543 2.5 6.5 2.5L9.92105 2.5C11.5779 2.5 12.9211 3.84315 12.9211 5.5L12.9211 8C12.9211 9.38071 14.0403 10.5 15.4211 10.5H17.5C19.1569 10.5 20.5 11.8431 20.5 13.5V20.5C20.5 21.6046 19.6046 22.5 18.5 22.5L6.5 22.5C5.39543 22.5 4.5 21.6046 4.5 20.5L4.5 4.5Z"
+                                        stroke="#22262A" stroke-width="2" />
+                                    <path
+                                        d="M4.5 4.5C4.5 3.39543 5.39543 2.5 6.5 2.5L9.73393 2.5C12.0937 2.5 14.3332 3.54186 15.8532 5.34691L18.6193 8.63163C19.8339 10.074 20.5 11.899 20.5 13.7847V20.5C20.5 21.6046 19.6046 22.5 18.5 22.5L6.5 22.5C5.39543 22.5 4.5 21.6046 4.5 20.5L4.5 4.5Z"
+                                        stroke="#22262A" stroke-width="2" />
+                                </svg>
+                            </div>
+                         </a>    
                         <div class="download_contract">
                             <div class="title_download_contract">Загрузите подписаный договор</div>
                             <div class="download_contract_block">
                                 <div class="container_download_contract_block">
                                     <div class="form-group">
-                                        <input type="file" name="file" id="file" class="input-file">
-                                        <label for="file" class="btn btn-tertiary js-labelFile">
+                                        <input 
+                                            type="file" 
+                                            name="contract" 
+                                            id="contract" 
+                                            multiple
+                                            @change="onFileContract($event.target.files)"
+                                            class="input-file"
+                                        >
+                                        <label for="contract" class="btn btn-tertiary js-labelFile">
                                             <div class="container_info_download_contract">
                                                 <div class="name_download_contract"> Договор</div>
-                                                <div class="info_download_contract">Нажмите на ссылку “Загрузить”
+                                                <div class="info_download_contract" v-if="!contract.length">Нажмите на ссылку “Загрузить”
                                                     или перетащите файл в эту область </div>
-                                                <div class="btn_download_contract">Загрузить</div>
+                                                <div class="btn_download_contract" v-if="!contract.length">Загрузить</div>
+                                                <div class="btn_download_contract" v-if="contract.length">{{contract[0].name}}</div>
                                             </div>
                                             <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -333,18 +343,9 @@
 
                                         </label>
                                     </div>
+                                     <div class="error_answer" v-if="error">Загрузите документ</div>
                                 </div>
                             </div>
-<!--                            <div class="add_more_download_contract">
-                                <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.5 3V21" stroke="#71BF45" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    <path d="M3.5 12L21.5 12" stroke="#71BF45" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <span>Добавить еще</span>
-                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -357,7 +358,7 @@
                  <button v-if="step == 1 && stepQuestion > 3" class="btn_next_step" @click="changeStep">
                     Далее
                 </button>
-               <button v-if="step == 2" class="btn_next_step" @click="changeStep">
+               <button v-if="step == 2" class="btn_next_step" @click="documentStep">
                     Далее • подписание договора
                 </button>
                 <button v-if="step == 3" class="btn_step_complete" @click="sendData">
@@ -406,6 +407,7 @@ export default {
             'setAnswer',
             'sendDataAnswrer',
             'addFileToDocuments',
+            'addFileContract'
         ]),
     nextStep() {
         if(!this.userResponses[this.stepQuestion - 1]){
@@ -436,6 +438,23 @@ export default {
             this.error = true;
         }
     },
+    documentStep(){
+        var req = false;
+        for(var i = 0; i < this.documents.length; i ++){
+            if(this.documents[i].document.length == 0){
+                this.error = true;
+                req = false;
+                break;
+            }
+            else{
+                this.error = false;
+                req = true;
+            }
+        }
+        if(req){
+            this.step ++;
+        }
+    },
     setSlider(index,id,value){
         let mas = {};
         this.sliderVal = value;
@@ -445,13 +464,20 @@ export default {
     },
     onFileChange(file,key)
     {
-        console.log("index",key);
         this.documents[key].document = file;
-        // this.addFileToDocuments(this.documents);
-        console.log("document",this.documents);
+        this.addFileToDocuments(this.documents);
+    },
+    onFileContract(file){
+        this.addFileContract(file);
     },
     sendData(){
-        this.sendDataAnswrer(this.userResponses);
+        if(this.contract.length){
+            this.error = false;
+            this.sendDataAnswrer(this.userResponses);
+        }else{
+            this.error = true;
+        }
+        
     }
   },
   mounted() {
@@ -473,6 +499,7 @@ export default {
             'productValue',
             'answer',
             'documents',
+            'contract'
         ]),
     },
 };

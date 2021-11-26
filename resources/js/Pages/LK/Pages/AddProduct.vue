@@ -129,7 +129,7 @@
                                                                     @select = changeFilterValue($event,index)
                                                             ></multiselect>
                                                         </div>
-                                                </div>                                
+                                                </div>
                                                 </div>
                                         </div>
                                     </div>
@@ -498,6 +498,10 @@ export default {
             this.$store.dispatch('addproduct/addFilterValue',{'filter':filter.id,'value':filter.value});
         },
 
+        /**
+         *
+         * @param data
+         */
 
         searchLocation(data)
         {

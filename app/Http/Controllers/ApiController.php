@@ -9,6 +9,7 @@ use App\Services\ChatRoomService;
 use App\Services\CityService;
 use App\Services\CountryService;
 use App\Services\DadataService;
+use App\Services\DocumentGeneratorService;
 use App\Services\FilterService;
 use App\Services\MessageService;
 use App\Services\OfferService;
@@ -155,6 +156,12 @@ class ApiController extends Controller
     protected $accreditationAnswerService;
 
     /**
+     * @var DocumentGeneratorService
+     */
+
+    protected $documentGeneratorService;
+
+    /**
      * @param DadataService $daDataService
      * @param OrganizationService $organizationService
      * @param UserService $userService
@@ -175,6 +182,7 @@ class ApiController extends Controller
      * @param CountryService $countryService
      * @param QuizService $quizService
      * @param AccreditationAnswersService $accreditationAnswerService
+     * @param DocumentGeneratorService $documentGeneratorService
      */
 
     public function __construct(DadataService $daDataService,
@@ -196,7 +204,8 @@ class ApiController extends Controller
                                 BikService $bikService,
                                 CountryService $countryService,
                                 QuizService $quizService,
-                                AccreditationAnswersService $accreditationAnswerService
+                                AccreditationAnswersService $accreditationAnswerService,
+                                DocumentGeneratorService $documentGeneratorService
 
     )
     {
@@ -220,6 +229,7 @@ class ApiController extends Controller
         $this->countryService = $countryService;
         $this->quizService = $quizService;
         $this->accreditationAnswerService  = $accreditationAnswerService;
+        $this->documentGeneratorService = $documentGeneratorService;
     }
 
     /**
@@ -921,7 +931,13 @@ class ApiController extends Controller
 
          if(!empty($request))
          {
-            $this->accreditationAnswerService->save($request->answers);
+            $this->accreditationAnswerService->save($request);
          }
+     }
+
+
+     public function generateAccredDogovor()
+     {
+           return $this->documentGeneratorService->generateAccredDogovor();
      }
 }

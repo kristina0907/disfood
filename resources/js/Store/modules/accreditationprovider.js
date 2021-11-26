@@ -379,14 +379,21 @@ export default {
             formData.append('category_id',JSON.stringify(state.categoryValue));
             formData.append('type_id',JSON.stringify(state.typeValue));
             formData.append('answer',JSON.stringify(state.answer));
-            formData.append('documents',JSON.stringify(state.documents));
+            formData.append('documents',state.documents);
             formData.append('contract',JSON.stringify(state.contract));
-            axios.post('/set/accreditation/quiz', formData).then(response => {
+
+            console.log(formData)
+
+            axios.post('/set/accreditation/quiz', formData,{
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }).then(response => {
                 if(response.status == 200)
                 {
                     console.log(response.status)
 
-                    router.push({ name: 'accreditationsuccess', query: { redirect: '/accreditation/success' } });
+                   // router.push({ name: 'accreditationsuccess', query: { redirect: '/accreditation/success' } });
                 }
             });
         }

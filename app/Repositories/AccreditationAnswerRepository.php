@@ -6,6 +6,7 @@ namespace App\Repositories;
 use App\Contracts\AccreditationAnswerContract;
 
 use App\Models\AccreditationQuestionAnswers;
+use Illuminate\Support\Facades\Auth;
 
 
 class AccreditationAnswerRepository implements AccreditationAnswerContract
@@ -61,7 +62,7 @@ class AccreditationAnswerRepository implements AccreditationAnswerContract
         $answer = new $this->answer;
 
 
-        $answer->user_id = $data['user_id'];
+        $answer->user_id = Auth::user()->id;
         $answer->organization_id = $data['organization_id'];
         $answer->question_id = $data['question_id'];
         $answer->value_id = $data['value_id'];

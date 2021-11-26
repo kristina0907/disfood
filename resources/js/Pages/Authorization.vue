@@ -75,14 +75,14 @@
                                                     </div>
                                                     <div>
                                                         <masked-input  type="text" placeholder="ИНН" v-model="inn" mask="1111111111" v-on:input="getInn()" required />
-                                                        <div class="error_input" v-show="errors.inn">{{errors.inn}}</div>
+                                                        <div class="error_input" v-show="errorsInn">{{errorsInn}}</div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="IP" role="tabpanel" aria-labelledby="IP-tab">
                                                 <div class="item_reg_input_one">
                                                     <masked-input  type="text" placeholder="ИНН" v-model="inn" mask="111111111111" v-on:input="getInn()" required />
-                                                    <div class="error_input" v-show="errors.inn">{{errors.inn}}</div>
+                                                    <div class="error_input" v-show="errorsInn">{{errorsInn}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -369,6 +369,7 @@ export default {
            countries: [],
            countriesVal:'',
            codeTel:'',
+           errorsInn:'',
            passwordType:'password',
            passwordConfirmType:'password'
        }
@@ -409,7 +410,7 @@ export default {
             }
         },
         noNumber: function(evt) {
-            var regex = new RegExp("^[a-zа-яё ]+$");
+            var regex = new RegExp("^[a-zA-Zа-яёА-ЯЁ]+$");
             var key = String.fromCharCode(!evt.charCode ? evt.which : evt.charCode);
             if (!regex.test(key)) {
                 event.preventDefault();
@@ -430,7 +431,15 @@ export default {
 
                    if(response.data !== 'undefined' && response.data !== null && response.data.suggestions !== 'undefined' && response.data.suggestions !== null)
                    {
-                       this.companyName = response.data.suggestions['0'].data.name.short_with_opf;
+                       if(response.data.suggestions.length){
+                        this.companyName = response.data.suggestions['0'].data.name.short_with_opf;
+                        this.errorsInn = "";
+                       }else{
+                        this.errorsInn = "ИНН не существует";
+                       }    
+                   }
+                   else{
+                      
                    }
 
                 })
@@ -475,6 +484,9 @@ export default {
             if(!this.userPhone) this.errors.userPhone = "Телефон обязателен для заполнения";
             if(!this.codeTel) this.errors.code = "Код обязателен для заполнения";
             if(!this.countriesVal) this.errors.countries = "Страна обязательна для заполнения";
+            if(this.errorsInn){
+               this.errors.inn = "ИНН не существует"; 
+            }
             if(!this.inn){
                 this.errors.inn = "ИНН обязателен для заполнения";
             }else if((this.inn).indexOf('_') > -1){
@@ -501,7 +513,7 @@ export default {
             return re.test(email);
         },
         validPassword:function (password){
-           var re =  /^[A-Za-z]\w{8,14}$/;
+           var re =  /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}/g;
            return re.test(password);
         },
         sendData(e){

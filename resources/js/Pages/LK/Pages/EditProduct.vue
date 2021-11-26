@@ -224,7 +224,7 @@
                                                 </div>
                                             </div>
                                              <div class="container_input col-md-6" :class="{container_input_disabled: !train}">
-                                                <input type="number" v-model="codeStation" @input="setCodestation($event.target.value)" placeholder="Введите код станции" :disabled="!train"/>
+                                                <input type="number" :value="currentProduct.codeStation" @input="setCodestation($event.target.value)" placeholder="Введите код станции" :disabled="!train"/>
                                             </div>
                                         </div>
                                         <div class="delivery_options_item row">
@@ -235,7 +235,7 @@
                                                 </div>
                                             </div>
                                              <div class="container_input col-md-6" :class="{container_input_disabled: !avto}">
-                                                <input type="text" v-model="avtoAdress" @input="setAvtoAdress($event.target.value)" placeholder="Введите адрес" :disabled="!avto"/>
+                                                <input type="text" :value="currentProduct.delivery_auto_adress" @input="setAvtoAdress($event.target.value)" placeholder="Введите адрес" :disabled="!avto"/>
                                             </div>
                                         </div>
                                         <div class="delivery_options_item row">
@@ -246,7 +246,7 @@
                                                 </div>
                                             </div>
                                              <div class="container_input col-md-6" :class="{container_input_disabled: !pickup}">
-                                                <input type="text" v-model="pickupAdress" @input="setPickupAdress($event.target.value)" placeholder="Введите адрес" :disabled="!pickup"/>
+                                                <input type="text" :value="currentProduct.delivery_samovivoz_adress" @input="setPickupAdress($event.target.value)" placeholder="Введите адрес" :disabled="!pickup"/>
                                             </div>
                                         </div>
                                     </div>

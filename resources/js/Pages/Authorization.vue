@@ -148,10 +148,10 @@
                                     </div>
                                     <div class="container_item_reg_input">
                                         <div>
-                                            <input type="password" placeholder="Введите пароль" v-model="userPassword">
+                                            <input :type="passwordType" placeholder="Введите пароль" v-model="userPassword">
                                             <div class="error_input" v-show="errors.userPassword">{{errors.userPassword}}</div>
-                                            <div class="icon_password">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            <div class="icon_password" @click="changeOpenPassword">
+                                                <svg v-if="passwordType == 'password'" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <g opacity="0.5">
                                                         <path d="M5.67969 3L21.6797 19" stroke="#22262A" stroke-width="2"
@@ -164,13 +164,17 @@
                                                             stroke="#22262A" stroke-width="2" />
                                                     </g>
                                                 </svg>
+                                                <svg v-if="passwordType == 'text'" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1.33497 13.2561C0.888345 12.4782 0.888342 11.522 1.33497 10.7441C3.68496 6.65097 7.44378 4 11.6798 4C15.9158 4 19.6746 6.65094 22.0246 10.744C22.4712 11.5219 22.4712 12.4781 22.0246 13.256C19.6746 17.3491 15.9158 20 11.6798 20C7.44377 20 3.68497 17.3491 1.33497 13.2561Z" stroke="#22262A" stroke-width="2"/>
+                                                    <circle cx="11.6797" cy="12" r="3" stroke="#22262A" stroke-width="2"/>
+                                                </svg>
                                             </div>
                                         </div>
                                         <div>
-                                            <input type="password" placeholder="Повторите пароль" v-model="userPasswordConfirmation">
+                                            <input :type="passwordConfirmType" placeholder="Повторите пароль" v-model="userPasswordConfirmation">
                                             <div class="error_input" v-show="errors.userPasswordConfirmation">Пароли должны совпадать.</div>
-                                            <div class="icon_password">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            <div class="icon_password" @click="changeOpenConfirmPassword">
+                                                <svg v-if="passwordConfirmType == 'password'" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <g opacity="0.5">
                                                         <path d="M5.67969 3L21.6797 19" stroke="#22262A" stroke-width="2"
@@ -182,6 +186,10 @@
                                                             d="M14.5892 11.8251C14.748 12.457 14.6968 13.1233 14.4434 13.7235C14.1899 14.3236 13.748 14.825 13.1844 15.1517C12.6208 15.4785 11.9662 15.6129 11.3194 15.5347C10.6726 15.4564 10.0689 15.1698 9.59949 14.7181C9.13007 14.2663 8.82045 13.6741 8.71743 13.0308C8.61441 12.3875 8.7236 11.7282 9.02848 11.1524C9.33337 10.5767 9.81738 10.1159 10.4074 9.83956C10.9973 9.56327 11.6612 9.48653 12.2987 9.62095"
                                                             stroke="#22262A" stroke-width="2" />
                                                     </g>
+                                                </svg>
+                                                <svg v-if="passwordConfirmType == 'text'" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1.33497 13.2561C0.888345 12.4782 0.888342 11.522 1.33497 10.7441C3.68496 6.65097 7.44378 4 11.6798 4C15.9158 4 19.6746 6.65094 22.0246 10.744C22.4712 11.5219 22.4712 12.4781 22.0246 13.256C19.6746 17.3491 15.9158 20 11.6798 20C7.44377 20 3.68497 17.3491 1.33497 13.2561Z" stroke="#22262A" stroke-width="2"/>
+                                                    <circle cx="11.6797" cy="12" r="3" stroke="#22262A" stroke-width="2"/>
                                                 </svg>
                                             </div>
                                         </div>
@@ -360,7 +368,9 @@ export default {
            serverError:'',
            countries: [],
            countriesVal:'',
-           codeTel:''
+           codeTel:'',
+           passwordType:'password',
+           passwordConfirmType:'password'
        }
     },
     components:{
@@ -369,6 +379,21 @@ export default {
         Multiselect,
     },
     methods:{
+        changeOpenPassword(){
+            
+            if(this.passwordType == 'password'){
+               this.passwordType = 'text' ;
+            }else if(this.passwordType == 'text'){
+               this.passwordType = 'password' ;
+            }
+        },
+        changeOpenConfirmPassword(){
+            if(this.passwordConfirmType == 'password'){
+               this.passwordConfirmType = 'text' ;
+            }else if(this.passwordConfirmType == 'text'){
+               this.passwordConfirmType = 'password' ;
+            }
+        },
        changeType(type) {
             let self = this;
             self.type = type;

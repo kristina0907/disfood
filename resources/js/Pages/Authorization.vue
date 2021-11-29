@@ -11,7 +11,6 @@
                             Создайте аккаунт<br/>
                             в Disfood Market
                         </div>
-                        <div class="server_error" v-show="serverError">{{serverError}}</div>
                         <div class="reg_form">
                             <form  id="app"
                                    @submit="sendData"
@@ -105,6 +104,7 @@
                                     <div class="container_item_reg_input">
                                         <div class="select_container select_countries select_code">
                                              <multiselect
+                                                 :value="codeTelVal"
                                                 v-model="codeTel"
                                                 :options="countries"
                                                 label="code"
@@ -133,7 +133,7 @@
                                             <masked-input type="text" placeholder="Телефон" v-model="userPhone"  :mask="'(111) 111-1111'" />
                                             <div class="error_input" v-show="errors.userPhone">{{errors.userPhone}}</div>
                                         </div>
-                                       
+
                                     </div>
                                 </div>
                                <div class="email_reg_input">
@@ -199,6 +199,7 @@
                                                value="indigo" v-model="userCheckPersonalData">
                                         <label for="color-2">Даю согласие на обработку персональных данных</label>
                                     </div>
+                                    <div class="error_input" v-show="serverError" style="text-align: center">{{serverError}}</div>
                                     <div class="btn_summit">
                                         <button type="submit">Зарегистрироваться</button>
                                     </div>
@@ -368,7 +369,9 @@ export default {
            serverError:'',
            countries: [],
            countriesVal:'',
-           codeTel:'',
+           codeTel:[
+               { id: 51, country_id: 1, title_ru: "Россия", code: "+7" }
+           ],
            errorsInn:'',
            passwordType:'password',
            passwordConfirmType:'password'
@@ -381,7 +384,7 @@ export default {
     },
     methods:{
         changeOpenPassword(){
-            
+
             if(this.passwordType == 'password'){
                this.passwordType = 'text' ;
             }else if(this.passwordType == 'text'){
@@ -436,10 +439,10 @@ export default {
                         this.errorsInn = "";
                        }else{
                         this.errorsInn = "ИНН не существует";
-                       }    
+                       }
                    }
                    else{
-                      
+
                    }
 
                 })
@@ -485,7 +488,7 @@ export default {
             if(!this.codeTel) this.errors.code = "Код обязателен для заполнения";
             if(!this.countriesVal) this.errors.countries = "Страна обязательна для заполнения";
             if(this.errorsInn){
-               this.errors.inn = "ИНН не существует"; 
+               this.errors.inn = "ИНН не существует";
             }
             if(!this.inn){
                 this.errors.inn = "ИНН обязателен для заполнения";
@@ -534,8 +537,8 @@ export default {
                    {
                        console.log(response.status)
                        this.$router.push({ name: 'authorization-success', query: { redirect: '/successauth' },params:{email:this.userEmail} });
-                   }else{
-                      this.serverError = response;
+                   }else if(response.status == 204){
+                      this.serverError = 'Пользователь уже существует';
                    }
                });
            }

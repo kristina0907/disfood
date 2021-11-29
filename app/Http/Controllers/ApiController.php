@@ -272,7 +272,7 @@ class ApiController extends Controller
             }
             else
             {
-                return response('User already exist', 401);
+                return response('User already exist', 204);
             }
             $exist_organization = $this->daDataService->getCompanyByInn($request->inn, 10);
             if (!empty($exist_organization['suggestions']))

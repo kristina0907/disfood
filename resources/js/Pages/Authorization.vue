@@ -104,7 +104,6 @@
                                     <div class="container_item_reg_input">
                                         <div class="select_container select_countries select_code">
                                              <multiselect
-                                                 :value="codeTelVal"
                                                 v-model="codeTel"
                                                 :options="countries"
                                                 label="code"

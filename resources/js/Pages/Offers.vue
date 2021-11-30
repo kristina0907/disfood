@@ -53,7 +53,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="container_input_price col-md-4">
-                                                            <div class="text_input">Код станции</div>
+                                                            <div class="text_input">Код станции11</div>
                                                             <input type="text" value="543 498">
                                                             <div class="icon_price_input">
                                                                 <svg width="27" height="30" viewBox="0 0 27 30" fill="none" xmlns="http://www.w3.org/2000/svg">

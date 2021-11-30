@@ -202,7 +202,6 @@ a:-webkit-any-link:hover{
 {
     border: 0px solid #C8CCD1;
     min-height: 50px;
-
 }
 .more_offer_product_category_block a
 {
@@ -228,10 +227,6 @@ a:-webkit-any-link:hover{
     padding: 15px 12px;
 }
 
-.delevery_tab_product .multiselect__tags
-{
-    height: 60px;
-}
 .delevery_tab_product .multiselect__single
 {
     padding-top: 15px;

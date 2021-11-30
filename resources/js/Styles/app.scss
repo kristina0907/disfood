@@ -7647,15 +7647,18 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     width: 100%;
     top: 83%;
     border-top: 0;
-    padding: 10px 20px 7px;
+    padding: 10px 0 7px;
     font-size: 15px;
     line-height: 20px;
     color: #66727E;
     background: #ffffff;
 }
 .option_table_page>div{
-    padding: 3px 0;
+    padding: 10px 20px;
     cursor: pointer;
+}
+.option_table_page>div:hover{
+    background: #F0F2F4;
 }
 .value_profile_information_item .vue-quick-edit__input{
    background-color: transparent;

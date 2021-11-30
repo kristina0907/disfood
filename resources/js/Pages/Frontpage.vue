@@ -18,7 +18,7 @@
                            </div>
                            <div class="btn_about_company">
                                <router-link class="btn_register" to="/authorization">Зарегистрироваться</router-link>
-                               <router-link class="btn_learn_more" to="/about">Узнать подробнее</router-link>
+                               <a class="btn_learn_more" href="#user_registration">Узнать подробнее</a>
                            </div>
                        </div>
                        <div class="col-xs-12 col-md-5">
@@ -68,7 +68,7 @@
                            Найти товары и поставщиков
                        </div>
                    </div>
-                   <div class="search_category_company" v-if="categories">
+                   <div class="search_category_company" v-if="categories" id="user_registration">
                        <div class="item_search_category_company" v-for="cat in categories" @click="goToCategory(cat)">
                           {{cat.name}}
                        </div>

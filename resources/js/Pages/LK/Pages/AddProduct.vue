@@ -167,10 +167,12 @@
                                             <div class="col-md-6 container_input_price">
                                                <div class="text_input">Страна</div>
                                                 <input type="text" name="countryOrigin" v-model="countryOrigin" @input="setCountryOrigin($event.target.value)" />
+                                                <div class="error_input" v-if="errors.countryOrigin">{{errors.countryOrigin}}</div>
                                             </div>
                                             <div class="col-md-6 container_input_price">
                                                <div class="text_input">Город</div>
                                                 <input type="text" name="countryOrigin" v-model="cityOrigin" @input="setCityOrigin($event.target.value)" />
+                                             <div class="error_input" v-if="errors.cityOrigin">{{errors.cityOrigin}}</div>
                                             </div>
                                         </div>
                                         <div class="item_product_input row">
@@ -198,10 +200,12 @@
                                             <div class="col-md-6 container_input_price" :class="{container_input_disabled: coincidence}">
                                                <div class="text_input">Страна</div>
                                                 <input type="text" name="countryWarehouse" v-model="countryWarehouse" @input="setCountryWarehouse($event.target.value)" :disabled="coincidence"/>
+                                                <div class="error_input" v-if="errors.countryWarehouse && !coincidence">{{errors.countryWarehouse}}</div>
                                             </div>
-                                            <div class="col-md-6 container_input_price">
+                                            <div class="col-md-6 container_input_price" :class="{container_input_disabled: coincidence}">
                                                <div class="text_input">Город</div>
-                                                <input type="text" name="countryOrigin" v-model="cityWarehouse" @input="setCityWarehouse($event.target.value)" />
+                                                <input type="text" name="countryOrigin" v-model="cityWarehouse" @input="setCityWarehouse($event.target.value)" :disabled="coincidence"/>
+                                                <div class="error_input" v-if="errors.cityWarehouse && !coincidence">{{errors.cityWarehouse}}</div>
                                             </div>
                                         </div>
                                         <div class="item_product_input row">
@@ -220,7 +224,7 @@
                                                 </div>
                                                 <div class="error_input" v-if="errors.Warehouse">{{errors.Warehouse}}</div>
                                                 <div class="checkbox default_checkbox mr-t-20">
-                                                    <input type="checkbox" id="coincidence" v-model="coincidence" class="custom-checkbox">
+                                                    <input type="checkbox" id="coincidence" v-model="coincidence" @input="changeCoincidence" class="custom-checkbox">
                                                     <label for="coincidence">Совпадает с адресом производства</label>
                                                 </div>
                                             </div>
@@ -312,8 +316,8 @@
                                                 </div>
 
                                             </div>
-
                                         </div>
+                                        <div class="error_input" v-if="errors.documents">{{errors.documents}}</div>
                                     </div>
                                     <div class="item_container_product_block">
                                         <div class="title_container_product_block">
@@ -376,6 +380,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="error_input" v-if="errors.images">{{errors.images}}</div>
                                     </div>
                             </div>
                         </div>
@@ -440,7 +445,11 @@ export default {
             'setCityOrigin',
             'setCityWarehouse',
         ]),
+        changeCoincidence(){
+           this.countryWarehouse = this.countryOrigin;
+           this.cityWarehouse = this.countryOrigin;
 
+        },
         /**
          *
          * @param e
@@ -526,12 +535,20 @@ export default {
 
         validations:function() {
             this.errors = [];
-            if(this.price <= 0) this.errors.price = "Цена обязательна для заполнения";
-            if(this.priceWithNds <= 0) this.errors.priceWithNds = "Цена с НДС обязательна для заполнения";
+            if(String(this.price).replace(",",".") < 1) this.errors.price = "Цена обязательна для заполнения";
+            if(String(this.priceWithNds).replace(",",".") < 1) this.errors.priceWithNds = "Цена с НДС обязательна для заполнения";
             if(!this.categoryId) this.errors.categoryId = "Категория обязательна для заполнения";
             if(this.categoryId && !this.typeId) this.errors.typeId = "Тип обязательн для заполнения";
-            if(this.capacityVal <= 0) this.errors.capacityVal = "Объём обязателен для заполнения";
+            if(String(this.capacityVal)[0] == '0') this.errors.capacityVal = "Объём обязателен для заполнения";
+            if(!this.countryOrigin) this.errors.countryOrigin = "Страна обязательна для заполнения";
+            if(!this.cityOrigin) this.errors.cityOrigin = "Город обязателен для заполнения";
+            if(!this.coincidence){
+                if(!this.countryWarehouse) this.errors.countryWarehouse = "Страна обязательна для заполнения";
+                if(!this.cityWarehouse) this.errors.cityWarehouse = "Город обязателен для заполнения";
+            }
             if(!this.packingsVal) this.errors.packingsVal = "Фасовка обязательна для заполнения";
+            if(this.documents.length == 0) this.errors.documents = "Документы обязательны для заполнения";
+            if(this.images.length == 0) this.errors.images = "Фото обязательно для заполнения";
             for (var key in this.adress) {
               if(this.adress[key].adress == ''){
                   this.errors.adress = "Адрес обязателен для заполнения";

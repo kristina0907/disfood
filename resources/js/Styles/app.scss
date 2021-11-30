@@ -6443,6 +6443,9 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     flex-direction: row;
     flex-wrap: wrap;
 }
+.item_product_photo>div:first-child{
+   padding-left: 0;
+}
 .item_add_company .container_new_photo{
     margin-right: 20px;
 }

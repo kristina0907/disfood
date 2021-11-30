@@ -44,6 +44,8 @@ const store = new Vuex.Store({
         railwayStations:[],
         railwayStation:'',
         deliveryDistance:'',
+        autoDistance:'',
+        autoCoords:''
     },
     getters: {
         /**
@@ -69,6 +71,30 @@ const store = new Vuex.Store({
         }
     },
     mutations: {
+
+        /**
+         *
+         * @param state
+         * @param value
+         * @constructor
+         */
+
+        SET_AUTO_DISTANCE(state,value)
+        {
+            state.autoDistance = value;
+        },
+
+        /**
+         *
+         * @param state
+         * @param value
+         * @constructor
+         */
+
+        SET_AUTO_COORDS(state,value)
+        {
+           state.autoCoords = value;
+        },
 
         /**
          *
@@ -227,6 +253,7 @@ const store = new Vuex.Store({
         {
             commit('SET_RAILWAY_STATION', data);
             dispatch('getDistanceDelivery');
+            dispatch('getAutoDistanceDelivery');
         },
 
         /**
@@ -244,6 +271,54 @@ const store = new Vuex.Store({
                         commit('SET_DELIVERY_DISTANCE', response.data);
                     }
                 });
+        },
+
+        /**
+         *
+         * @param commit
+         * @param state
+         * @returns {Promise<void>}
+         */
+
+        async getAutoDistanceDelivery({commit,state})
+        {
+            let fromLat = '';
+            let fromLon = '';
+            let toLat = '';
+            let toLon = '';
+
+
+            if(state.catalogpage.product && state.catalogpage.product.adresses)
+            {
+                for(let i=0;i<state.catalogpage.product.adresses.length;i++)
+                {
+                    if(state.catalogpage.product.adresses[i].type == 'storage')
+                    {
+                        fromLat = state.catalogpage.product.adresses[i].geo_lat;
+                        fromLon = state.catalogpage.product.adresses[i].geo_lon;
+                    }
+                }
+            }
+
+            if(state.searchlocation.locationDeliveryInput && state.searchlocation.locationDeliveryInput.data)
+            {
+                toLat = state.searchlocation.locationDeliveryInput.data.geo_lat;
+                toLon = state.searchlocation.locationDeliveryInput.data.geo_lon;
+            }
+
+            //console.log('fromLat= '+fromLat+' fromLon= ' + fromLon + ' toLat= ' + toLat + ' toLon= ' + toLon )
+            if(fromLat  && fromLon && toLat && toLon)
+            {
+                await axios.get('/get/autodelivery/distance?latitude_from='+fromLat+'&latitude_to='+toLat+'&longitude_from='+fromLon+'&longitude_to='+toLon)
+                    .then(response => {
+                        if (response.data !== 'undefined' && response.data !== null) {
+                            console.log(response.data)
+                            commit('SET_AUTO_DISTANCE', response.data);
+                        }
+                    });
+            }
+
+
         }
 
     }

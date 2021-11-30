@@ -490,11 +490,11 @@
                                     <div class="modal_info_delivery">
                                         <div>
                                             <div class="title_modal_info_delivery">Срок доставки</div>
-                                            <div class="value_modal_info_delivery">от 5 дней</div>
+                                            <div class="value_modal_info_delivery" v-if="autoDistance">от {{autoDistance.time}} дней</div>
                                         </div>
                                         <div>
                                             <div class="title_modal_info_delivery">Стоимость доставки</div>
-                                            <div class="value_modal_info_delivery">1 340 004 ₽</div>
+                                            <div class="value_modal_info_delivery" v-if="autoDistance">{{autoDistance.summ}} ₽</div>
                                         </div>
                                     </div>
                                 </div>
@@ -590,7 +590,7 @@ export default {
         ...mapState('catalog',['location','currentUserOrganization']),
         ...mapState('basket',['orderDocuments','selectedDocuments','totalVolume','totalSumm','itogoSumm','totalDocsSumm','orderSuccefullyCreated']),
         ...mapState('catalogpage',['product','filterPackages','relatedOffers','priceWithNDS','currency','packages','summ','volume']),
-        ...mapState(['deliveryDistance'])
+        ...mapState(['deliveryDistance','autoDistance'])
     },
 }
 </script>

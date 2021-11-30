@@ -161,6 +161,10 @@
                                                 <div class="container_input_price col-md-12">
                                                     <searchlocation></searchlocation>
                                                 </div>
+                                                <div v-if="autoDistance">
+                                                    Доставка от {{autoDistance.time}} дней,<br/>
+                                                    стоимость от {{autoDistance.summ}} рублей
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="pickUp" role="tabpanel" aria-labelledby="pickUp-tab">
@@ -438,9 +442,14 @@ export default {
         }
     },
     methods:{
+
+        /**
+         *
+         * @param data
+         */
+
         setRailwayStation(data)
         {
-          console.log(data)
             this.$store.dispatch('setRailwayStation',data.index[0])
         },
         ...mapActions('catalogpage',[
@@ -466,7 +475,7 @@ export default {
     computed: {
         ...mapState('catalog',['location','currentUserOrganization','locationInput']),
         ...mapState('catalogpage',['product','filterPackages','relatedOffers','priceWithNDS','currency','packages','summ','volume']),
-        ...mapState(['currentCourse','courseUSD','railwayStations','railwayStation','deliveryDistance']),
+        ...mapState(['currentCourse','courseUSD','railwayStations','railwayStation','deliveryDistance','autoDistance']),
 
     },
 }

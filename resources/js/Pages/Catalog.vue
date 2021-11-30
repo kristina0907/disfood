@@ -628,7 +628,7 @@ export default {
 .select_type
 {
     position: relative;
-    width: 230px;
+    min-width: 230px;
     height: 40px;
     margin: 0 auto;
 }

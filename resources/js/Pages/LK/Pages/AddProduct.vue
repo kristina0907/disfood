@@ -446,9 +446,8 @@ export default {
             'setCityWarehouse',
         ]),
         changeCoincidence(){
-           this.countryWarehouse = this.countryOrigin;
-           this.cityWarehouse = this.countryOrigin;
-
+            setCountryWarehouse(this.countryOrigin);
+            setCityWarehouse(this.cityOrigin);
         },
         /**
          *

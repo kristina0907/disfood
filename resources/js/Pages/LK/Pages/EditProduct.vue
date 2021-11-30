@@ -187,9 +187,9 @@
                                                <div class="text_input">Страна</div>
                                                 <input type="text" name="countryWarehouse" v-model="countryWarehouse" @input="setCountryWarehouse($event.target.value)" :disabled="coincidence"/>
                                             </div>
-                                            <div class="col-md-6 container_input_price">
+                                            <div class="col-md-6 container_input_price" :class="{container_input_disabled: coincidence}">
                                                <div class="text_input">Город</div>
-                                                <input type="text" name="countryOrigin" v-model="cityWarehouse" @input="setCityWarehouse($event.target.value)" />
+                                                <input type="text" name="countryOrigin" v-model="cityWarehouse" @input="setCityWarehouse($event.target.value)" :disabled="coincidence"/>
                                             </div>
                                         </div>
                                         <div class="item_product_input row">

@@ -480,7 +480,7 @@
                                                         </div>
                                                         <div class="price_item_product_category">
                                                             <div class="start_price_category_products" v-if="!priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(item.price) / parseFloat(courseUSD.Value)).toFixed(2)}} $ / кг</div>
-                                                            <div class="start_price_category_products" v-if="priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(item.price_with_nds) / parseFloat(courseUSD.Value).toFixed(2))}} $  / кг</div>
+                                                            <div class="start_price_category_products" v-if="priceWithNDS && currentCourse === 'USD'">{{ (parseFloat(item.price_with_nds) / parseFloat(courseUSD.Value)).toFixed(2)}} $  / кг</div>
                                                             <div class="start_price_category_products" v-if="!priceWithNDS && currentCourse === 'RUB'">{{item.price}} ₽ / кг</div>
                                                             <div class="start_price_category_products" v-if="priceWithNDS && currentCourse === 'RUB'">{{item.price_with_nds}} ₽ / кг</div>
                                                         </div>

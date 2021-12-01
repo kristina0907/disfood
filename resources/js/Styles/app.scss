@@ -8115,3 +8115,51 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 // .multiselect__tags {
 //     height: 62px;
 // }
+.title_supplier{
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+    color: #0E0F11;
+    margin-bottom: 40px;
+}
+.description_supplier{
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 150%;
+    color: #66727E;
+    margin-bottom: 40px;
+}
+.img_supplier img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.item_functionality_work{
+    border: 1px solid #CAE7BA;
+    box-sizing: border-box;
+    border-radius: 10px; 
+    padding: 40px;
+    height: 320px;
+}
+.img_item_functionality_work{
+    margin-bottom: 30px;
+}
+.text_item_functionality_work{
+font-weight: 600;
+font-size: 24px;
+line-height: 32px;
+color: #22262A;
+}
+.title_stages_work{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    color: #22262A; 
+    margin-bottom: 20px;
+}
+.description_stages_work{
+    font-weight: normal;
+font-size: 16px;
+line-height: 150%;
+color: #66727E;
+}

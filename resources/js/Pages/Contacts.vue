@@ -91,6 +91,31 @@
                 </div>
             </div>
         </div>
+        <!-- Modal -->
+        <div class="modal fade modal_consultation" id="modal_get_consultation" tabindex="-1" aria-labelledby="exampleModalLabel"
+            style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form action="">
+                            <div class="madal_title">Получить консультацию</div>
+                            <div class="modal_info">Напишите ваш вопрос и оставьте контакты,<br/> мы свяжемся с вами в ближайшее время</div>
+                            <div class="modal_input"><input type="text" placeholder="Имя"></div>
+                            <div class="modal_input"><input type="text" placeholder="Email"></div>
+                            <div class="modal_input"><input type="text" placeholder="Телефон"></div>
+                            <div class="modal_textarea"><textarea placeholder="">Ваш вопрос или комментарий</textarea></div>
+                            <div class="checkbox register_checkbox">
+                                <input class="custom-checkbox" checked type="checkbox" id="color-2" name="color-2"
+                                    value="indigo">
+                                <label for="color-2">Даю согласие на обработку персональных данных</label>
+                            </div>
+                            <div><button class="modal_btn_change_price" type="submit">Отправить</button></div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 

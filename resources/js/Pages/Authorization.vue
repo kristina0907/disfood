@@ -411,6 +411,8 @@ export default {
             {
                 this.getInnFromBackend(str)
                 /*console.log(self.inn);*/
+            }else{
+                this.errorsInn = "";
             }
         },
         noNumber: function(evt) {

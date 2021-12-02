@@ -373,11 +373,10 @@ class OfferRepository implements OfferContract
         $output = array();
         if(!empty($data['adress']))
         {
-            foreach ($data['adress'] as $adress)
-            {
 
-                $result = DaDataAddress::promt($adress['adress'],1,Language::RU);
-                dd($result);
+
+                $result = DaDataAddress::standardization($data['adress'],1,Language::RU);
+
                 if(!empty($result))
                 {
                     foreach ($result as $adr)
@@ -396,7 +395,7 @@ class OfferRepository implements OfferContract
                         $newAdr->save();
                         $output[] = $newAdr->id;
                     }
-                }
+
             }
         }
         return $output;

@@ -1020,45 +1020,41 @@ export default {
                         break;
                     case 2018:
                         this.cordMinCar = 880;
-                        setTimeout(() => {
-                            this.cordFon = 24;
-                            this.leftFon = 240;
-                            this.cordMinCar = 460;
-                            this.corSlider = -240;
-                        }, 3000);
+                        this.cordFon = 24;
+                        this.leftFon = 240;
+                        this.cordMinCar = 460;
+                        this.corSlider = -240;
+                        
                         break;
                     case 2019:
                         this.cordMinCar = 760;
-                        setTimeout(() => {
-                            this.cordMinCar = 350;
-                            this.cordFon = 49;
-                            this.leftFon = 200;
-                            this.corSlider = -660;
-                        }, 3000);
+                        this.cordMinCar = 350;
+                        this.cordFon = 49;
+                        this.leftFon = 200;
+                        this.corSlider = -660;
+                        
                         break;
                     case 2020:
                         this.cordMinCar = 760;
                         this.cordOrCar = 750;
-                        setTimeout(() => {
-                            this.cordMinCar = 350;
-                            this.leftFon = 200;
-                            this.cordFon = 78;
-                            this.cordOrCar = 340;
-                            this.corSlider = -1080;
-                        }, 3000);
+                        this.cordMinCar = 350;
+                        this.leftFon = 200;
+                        this.cordFon = 78;
+                        this.cordOrCar = 340;
+                        this.corSlider = -1080;
+                        
                         break;
                     case 2021:
                         this.cordMinCar = 760;
                         this.cordOrCar = 750;
                         this.cordGrCar = 720;
-                        setTimeout(() => {
-                            this.cordFon = 106;
-                            this.leftFon = 100;
-                            this.cordMinCar = 300;
-                            this.cordOrCar = 290;
-                            this.cordGrCar = 260;
-                            this.corSlider = -1550;
-                        }, 3000);
+                        this.cordFon = 106;
+                        this.leftFon = 100;
+                        this.cordMinCar = 300;
+                        this.cordOrCar = 290;
+                        this.cordGrCar = 260;
+                        this.corSlider = -1550;
+                        
                         break;
                 }
             }else{

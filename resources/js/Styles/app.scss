@@ -1381,6 +1381,10 @@ footer{
     height: 62px;
 }
 .container_input_price input{
+    background: #FFFFFF;
+    border: 1px solid #C8CCD1;
+    box-sizing: border-box;
+    border-radius: 10px;
     font-size: 15px;
     line-height: 20px;
     color: #22262A;
@@ -7643,15 +7647,18 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     width: 100%;
     top: 83%;
     border-top: 0;
-    padding: 10px 20px 7px;
+    padding: 10px 0 7px;
     font-size: 15px;
     line-height: 20px;
     color: #66727E;
     background: #ffffff;
 }
 .option_table_page>div{
-    padding: 3px 0;
+    padding: 10px 20px;
     cursor: pointer;
+}
+.option_table_page>div:hover{
+    background: #F0F2F4;
 }
 .value_profile_information_item .vue-quick-edit__input{
    background-color: transparent;
@@ -7893,7 +7900,6 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 .bl_big_car{
     background-image: url(/img/bl_big_car.png);
     background-repeat: no-repeat;
-    background-position-y:10px;
     height: 89px;
     width: 159px;
     position: absolute;
@@ -8109,3 +8115,51 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 // .multiselect__tags {
 //     height: 62px;
 // }
+.title_supplier{
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+    color: #0E0F11;
+    margin-bottom: 40px;
+}
+.description_supplier{
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 150%;
+    color: #66727E;
+    margin-bottom: 40px;
+}
+.img_supplier img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.item_functionality_work{
+    border: 1px solid #CAE7BA;
+    box-sizing: border-box;
+    border-radius: 10px; 
+    padding: 40px;
+    height: 320px;
+}
+.img_item_functionality_work{
+    margin-bottom: 30px;
+}
+.text_item_functionality_work{
+font-weight: 600;
+font-size: 24px;
+line-height: 32px;
+color: #22262A;
+}
+.title_stages_work{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    color: #22262A; 
+    margin-bottom: 20px;
+}
+.description_stages_work{
+    font-weight: normal;
+font-size: 16px;
+line-height: 150%;
+color: #66727E;
+}

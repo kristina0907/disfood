@@ -75,6 +75,7 @@
                                                     <div>
                                                         <masked-input  type="text" placeholder="ИНН" v-model="inn" mask="1111111111" v-on:input="getInn()" required />
                                                         <div class="error_input" v-show="errorsInn">{{errorsInn}}</div>
+                                                        <div class="error_input" v-show="errors.inn">{{errors.inn}}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -82,6 +83,7 @@
                                                 <div class="item_reg_input_one">
                                                     <masked-input  type="text" placeholder="ИНН" v-model="inn" mask="111111111111" v-on:input="getInn()" required />
                                                     <div class="error_input" v-show="errorsInn">{{errorsInn}}</div>
+                                                    <div class="error_input" v-show="errors.inn">{{errors.inn}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -102,7 +104,7 @@
                                         </div>
                                     </div>
                                     <div class="container_item_reg_input">
-                                        <div class="select_container select_countries select_code">
+                                        <div class="select_container select_countries select_code-phone">
                                              <multiselect
                                                 v-model="codeTel"
                                                 :options="countries"
@@ -489,9 +491,10 @@ export default {
             if(this.errorsInn){
                this.errors.inn = "ИНН не существует";
             }
+            console.log("this.inn",this.inn);
             if(!this.inn){
                 this.errors.inn = "ИНН обязателен для заполнения";
-            }else if((this.inn).indexOf('_') > -1){
+            }else if(this.inn && (this.inn).indexOf('_') > -1){
                 this.errors.inn = "ИНН должен содержать минимум 10 знаков"
             }
             if(!this.userEmail) {

@@ -480,7 +480,7 @@
                                <div class="title_item_questions_company">Нашли ошибку?</div>
                                <div class="text_item_questions_company">Неверные данные, неправильное отображение, другие
                                    моменты</div>
-                               <div class="link_item_questions_company"><a href="">Сообщить об ошибке</a></div>
+                               <div class="link_item_questions_company"><a href="" data-toggle="modal" data-target="#modal_get_consultation">Сообщить об ошибке</a></div>
                            </div>
                        </div>
                    </div>
@@ -495,6 +495,31 @@
                             <iframe id="cartoonVideo" class="embed-responsive-item" width="100%" height="700" src="//www.youtube.com/embed/F6FIMzpU6yQ" allowfullscreen></iframe>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade modal_consultation" id="modal_get_consultation" tabindex="-1" aria-labelledby="exampleModalLabel"
+            style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form action="">
+                            <div class="madal_title">Сообщить об ошибке</div>
+                            <div class="modal_info">Опишите нам обнаруженную ошибку и мы обязательно ее исправим.</div>
+                            <div class="modal_input"><input type="text" placeholder="Имя"></div>
+                            <div class="modal_input"><input type="text" placeholder="Email"></div>
+                            <div class="modal_input"><input type="text" placeholder="Телефон"></div>
+                            <div class="modal_textarea"><textarea placeholder="Расскажите нам об ошибке"></textarea></div>
+                            <div class="checkbox register_checkbox">
+                                <input class="custom-checkbox" checked type="checkbox" id="color-2" name="color-2"
+                                    value="indigo">
+                                <label for="color-2">Даю согласие на обработку персональных данных</label>
+                            </div>
+                            <div><button class="modal_btn_change_price" type="submit">Отправить</button></div>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </div>

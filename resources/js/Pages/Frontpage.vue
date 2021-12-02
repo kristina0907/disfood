@@ -18,7 +18,7 @@
                            </div>
                            <div class="btn_about_company">
                                <router-link class="btn_register" to="/authorization">Зарегистрироваться</router-link>
-                               <a class="btn_learn_more" href="#user_registration">Узнать подробнее</a>
+                               <a class="btn_learn_more" href="/#user_registration">Узнать подробнее</a>
                            </div>
                        </div>
                        <div class="col-xs-12 col-md-5">

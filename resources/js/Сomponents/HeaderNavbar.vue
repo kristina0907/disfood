@@ -25,10 +25,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'tosuppliers'}">Как покупать</router-link>
+                        <router-link class="nav-link" :to="{name:'tosuppliers'}">Покупателям</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'forproviders'}">Стать поставциком</router-link>
+                        <router-link class="nav-link" :to="{name:'forproviders'}">Поставцикам</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{name:'about'}">О компании</router-link>

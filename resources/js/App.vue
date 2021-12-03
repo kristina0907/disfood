@@ -9,6 +9,7 @@
 
 <script>
     import './Styles/app.scss';
+    import './Styles/main.scss';
     import "./bootstrap";
     export default {
         name:"app",

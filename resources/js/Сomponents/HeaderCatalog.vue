@@ -25,10 +25,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'tosuppliers'}">Покупателям</router-link>
+                        <router-link class="nav-link" :to="{name:'tosuppliers'}">Как покупать</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'forproviders'}">Поставщикам</router-link>
+                        <router-link class="nav-link" :to="{name:'forproviders'}">Стать поставциком</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{name:'about'}">О компании</router-link>
@@ -157,7 +157,7 @@
                 <div class="container_list_sidebar_catalog_menu">
                     <vue-scroll :ops="ops">
                         <div class="btn-group dropright container_item_list_sidebar_catalog_menu" v-if="categories" v-for="cat in categories">
-                            <div class="item_list_sidebar_catalog_menu" data-toggle="dropdown"
+                            <div я class="item_list_sidebar_catalog_menu" data-toggle="dropdown"
                                  aria-haspopup="true" aria-expanded="false" v-if="cat.id !== 8">
                                 <div class="img_title_item_list_catalog_menu">
                                     <div class="img_item_list_catalog_menu"

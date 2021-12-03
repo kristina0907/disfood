@@ -13,7 +13,7 @@
                         <div class="description_supplier">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas phasellus cursus integer eu. Integer sed interdum euismod nam. Enim, orci commodo faucibus erat cras varius. Diam lobortis eget mattis arcu, porta. Quis augue pellentesque enim sem lectus aliquam lacus potenti ultrices. Morbi iaculis vulputate urna justo, 
                         </div>
-                        <div class="btn_user_registration_company"><a href="/authorization" class="">Зарегистрироваться</a></div>
+                        <div class="btn_user_registration_company"><a href="/authorization" class="btn_green">Зарегистрироваться</a></div>
                     </div>
                     <div class="col-xs-12 col-md-6">
                         <div class="img_supplier">

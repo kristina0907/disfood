@@ -18,7 +18,7 @@
                            </div>
                            <div class="btn_about_company">
                                <router-link class="btn_register" to="/authorization">Зарегистрироваться</router-link>
-                               <a class="btn_learn_more" href="#user_registration">Узнать подробнее</a>
+                               <a class="btn_learn_more" href="/#user_registration">Узнать подробнее</a>
                            </div>
                        </div>
                        <div class="col-xs-12 col-md-5">
@@ -250,7 +250,7 @@
                    </div>
                </div>
                <div class="delivery_company_block">
-                   <div class="img_car" style="background-image: url('./images/car.png');"></div>
+                   <div class="img_car" style="background-image: url('./img/car.png');"></div>
                    <div class="row">
                        <div class="col-md-4">
                            <div class="title_delivery_company">Доставляем товары<br />по всей России </div>

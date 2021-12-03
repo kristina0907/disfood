@@ -1,6 +1,10 @@
 <template>
     <div class="sidebar_catalog">
         <div class="container_filter_catalog">
+            <div class="not_filter_block" v-if="!typeValue.filters">
+                <img src="/img/filter.svg" alt="">
+                <div class="title_not_filter">Выберите тип товара для активации фильтров</div>
+            </div>
             <div class="item_filter_catalog" v-for="filter in typeValue.filters">
                     <div class="title_filter_catalog">{{filter.name}}</div>
                     <div class="radio" v-if="filter.values" v-for="(value,index) in filter.values">

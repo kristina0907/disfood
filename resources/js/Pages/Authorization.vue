@@ -37,7 +37,6 @@
                                         :limit="3"
                                         :show-no-results="false"
                                         :hide-selected="true"
-                                        @select="changeCode"
 
                                     ></multiselect>
                                     <div class="error_input" v-show="errors.countries">{{errors.countries}}</div>
@@ -80,10 +79,23 @@
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="IP" role="tabpanel" aria-labelledby="IP-tab">
-                                                <div class="item_reg_input_one">
-                                                    <masked-input  type="text" placeholder="ИНН" v-model="inn" mask="111111111111" v-on:input="getInn()" required />
-                                                    <div class="error_input" v-show="errorsInn">{{errorsInn}}</div>
-                                                    <div class="error_input" v-show="errors.inn">{{errors.inn}}</div>
+                                                 <div class="container_item_reg_input">
+                                                    <div>
+                                                        <input type="text" placeholder="ФИО" v-model="companyName" @keyup="getCompanyName()" autocomplete="off"  />
+                                                        <div class="search_name_company" v-if="search_data.length">
+                                                            <ul class="list-group">
+                                                                <a href="#" class="list-group-item" v-for="data1 in search_data"  @click="getName(data1.data.name.full_with_opf,data1.data.inn)">
+                                                                    {{ data1.value}} <br/>
+                                                                    <span class="color_success">ИНН {{data1.data.inn}}</span></a>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="error_input" v-show="errors.companyName">{{errors.companyName}}</div>
+                                                    </div>
+                                                    <div>
+                                                        <masked-input  type="text" placeholder="ИНН" v-model="inn" mask="1111111111" v-on:input="getInn()" required />
+                                                        <div class="error_input" v-show="errorsInn">{{errorsInn}}</div>
+                                                        <div class="error_input" v-show="errors.inn">{{errors.inn}}</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -411,6 +423,8 @@ export default {
             {
                 this.getInnFromBackend(str)
                 /*console.log(self.inn);*/
+            }else{
+                this.errorsInn = "";
             }
         },
         noNumber: function(evt) {
@@ -422,7 +436,8 @@ export default {
             }
         },
         noCyrillic: function(evt) {
-            var regex = new RegExp("^[a-zA-Z-0-9.-_@]");
+            var regex = new RegExp("^[a-zA-Zа-яёА-ЯЁ-0-9.-_@]");
+            var regerus= new RegExp("^[а-яёА-ЯЁ]");
             var key = String.fromCharCode(!evt.charCode ? evt.which : evt.charCode);
             if (!regex.test(key)) {
                 event.preventDefault();
@@ -441,9 +456,6 @@ export default {
                        }else{
                         this.errorsInn = "ИНН не существует";
                        }
-                   }
-                   else{
-
                    }
 
                 })
@@ -471,9 +483,6 @@ export default {
                     this.countries = response.data;
                 }
             });
-        },
-        changeCode(val){
-          this.codeTel=(val.code).replace('+', '');
         },
         getName:function(name,inn) {
            this.companyName = name;

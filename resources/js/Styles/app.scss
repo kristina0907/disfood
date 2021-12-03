@@ -4596,6 +4596,11 @@ select option{
     color: #0E0F11;
     margin-bottom: 30px;
 }
+.img_supplier img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
 .container_supplier_information{
     margin-top: 60px;
 }
@@ -4681,7 +4686,7 @@ select option{
     color: #66727E;
 }
 .btn_learn_more:hover{
-    color: #66727E;
+    color: #71BF45;;
 }
 .about_company_block{
     margin-bottom: 90px;
@@ -8103,18 +8108,23 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
 {
     background: #71bf45;
 }
-// .multiselect {
-//     min-height: 62px !important;
-// }
 .select_filter{
     margin-bottom: 30px;
 }
 .item_container_filter_block{
     margin-bottom: 10px;
 }
-// .multiselect__tags {
-//     height: 62px;
-// }
+.functionality_work{
+    margin-bottom: 120px;
+}
+.title_functionality_work{
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40px;
+    color: #0E0F11;
+    margin-bottom: 60px;
+    text-align: center;
+}
 .title_supplier{
     font-weight: 600;
     font-size: 40px;
@@ -8129,10 +8139,59 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     color: #66727E;
     margin-bottom: 40px;
 }
-.img_supplier img{
-    width: 100%;
-    height: auto;
+.img_stages_work img{
+    width: auto;
+    height: 482px;
     display: block;
+}
+.box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: inline-block;
+}
+.box-front {
+    background-color: transparent;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.box-back {
+    -ms-transform: rotateY(180deg);
+    -webkit-transform: rotateY(
+180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(
+180deg);
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background: #ffffff;
+}
+.box-in {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all .5s;
+}
+.box:hover .box-front {
+    -ms-transform: rotateY(180deg);
+    -webkit-transform: rotateY(
+180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(
+180deg);
+}
+.box:hover .box-back {
+    -ms-transform: rotateY(0deg);
+    -webkit-transform: rotateY(
+0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(
+0deg);
 }
 .item_functionality_work{
     border: 1px solid #CAE7BA;
@@ -8140,6 +8199,7 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     border-radius: 10px; 
     padding: 40px;
     height: 320px;
+    cursor: pointer;
 }
 .img_item_functionality_work{
     margin-bottom: 30px;
@@ -8150,6 +8210,12 @@ font-size: 24px;
 line-height: 32px;
 color: #22262A;
 }
+.description_functionality_work{
+font-weight: normal;
+font-size: 16px;
+line-height: 24px;
+color: #66727E;
+}
 .title_stages_work{
     font-weight: 500;
     font-size: 24px;
@@ -8159,7 +8225,148 @@ color: #22262A;
 }
 .description_stages_work{
     font-weight: normal;
-font-size: 16px;
-line-height: 150%;
-color: #66727E;
+    font-size: 16px;
+    line-height: 150%;
+    color: #66727E;
 }
+.item_stages_work{
+    display: flex;
+}
+.number_stages_work{
+font-weight: 500;
+font-size: 24px;
+line-height: 30px;
+color: #71BF45;
+margin-right: 78px;
+}
+.step_supplier_img img{
+width: 100%;
+height: auto;
+display: block;
+}
+.pd_t_80{
+    padding-top: 80px;
+}
+.img_right{
+    display: flex;
+    justify-content: flex-end;
+}
+.list_stages_work{
+    position: relative;
+}
+.list_stages_work .row{
+    flex-direction: row;
+    align-items: center;
+}
+.step_supplier_img{
+    position: absolute;
+    bottom: 0;
+    left: 60px;
+}
+.step2_supplier_img{
+    position: absolute;
+    bottom: 100%;
+    left: 60px;
+}
+.step2_stages_work{
+padding-bottom: 236px;
+}
+.stages_work{
+   margin-bottom: 123px; 
+}
+.advantages_suppliner_block{
+    margin-bottom: 140px;
+}
+.container_supplier{
+    padding: 220px 240px 63px;
+}
+.info_supplier_block{
+    margin-bottom: 155px;
+}
+.info_supplier_block .row{
+ flex-direction: row;
+ align-items: center;
+}
+.step1_stages_work{
+    padding-bottom: 160px; 
+}
+.title_not_filter{
+font-weight: 600;
+font-size: 18px;
+line-height: 25px;
+color: #444C54;
+margin-top: 40px;
+}
+.not_filter_block img{
+   max-width: 100%;
+   height: auto;
+   display: block; 
+}
+#headline {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+  .column {
+    padding: 0.75rem;
+  }
+  
+  #pinned_wrapper {
+    position: relative;
+    width: 100%;
+    height: 400px;
+  
+    #city {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background-image: url('http://zauberwald.ultrabold.de/static/img/background.acb1581.png');
+      background-repeat: repeat-x;
+      background-size: cover;
+      background-position-y: 23px;
+      z-index: 10;
+    }
+  
+    #sky {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(to bottom, rgb(155, 180, 223) 0%, rgb(221, 240, 252) 25%);
+      background-repeat: no-repeat;
+      background-position-y: -11px;
+      z-index: 1;
+    }
+  
+    #skyline_wrapper {
+      position: absolute;
+      top: -20%;
+      left: 0;
+      width: 100%;
+      height: 400px;
+      z-index: 5;
+  
+      #skyline{
+        position: relative;
+        width: 100%;
+        height: 400px;
+        background: url('http://zauberwald.ultrabold.de/static/img/skyline.a23b304.png');
+        background-repeat: repeat-x;
+        background-size: contain;
+        background-position-y: 44px;
+        background-position-x: 0;
+      }
+    }
+  
+    #walker {
+      background: url('/img/car.png') no-repeat 0% 0%;
+      position: absolute;
+      height: 190px;
+      width: 250px;
+      left: 0;
+      top: 47%;
+      transform: translateX(-200px);
+      z-index: 15;
+    }
+  }

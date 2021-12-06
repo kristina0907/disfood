@@ -7185,3 +7185,44 @@ margin-top: 40px;
    height: auto;
    display: block; 
 }
+.item_city{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #66727E;
+    margin-bottom: 30px;
+    cursor: pointer;     
+}
+.item_city:hover{
+    color: #71BF45;
+}
+.cityModl_btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.cityModl_btn button{
+    width: 50%;
+}
+.cityModl_btn button:first-child{
+   margin-right: 10px;
+}
+.cityModl_btn button:last-child{
+    margin-left: 10px;
+ }
+ .form-control.select{
+    padding: 20px;
+    background: #FFFFFF;
+    border: 1px solid #C8CCD1;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 20px;
+    color: #22262A;
+    min-height: 60px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.was-validated .form-control:valid, .form-control.is-valid {
+    border-color: #C8CCD1 !important;
+}

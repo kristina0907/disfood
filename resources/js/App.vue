@@ -3,6 +3,7 @@
         <router-view></router-view>
         <foot></foot>
         <login-modal/>
+         <city-modal/>
     </div>
 </template>
 
@@ -23,6 +24,7 @@
             Foot: () => import('./Сomponents/Footer'),
             Autocomplete: () => import('./Сomponents/Autocomplete'),
             LoginModal: () => import('./Сomponents/LoginModal'),
+            CityModal: () => import('./Сomponents/CityModal'),
         }
     }
 

@@ -25,10 +25,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'tosuppliers'}">Покупателям</router-link>
+                        <router-link class="nav-link" :to="{name:'tosuppliers'}">Как покупать</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'forproviders'}">Поставщикам</router-link>
+                        <router-link class="nav-link" :to="{name:'forproviders'}">Стать поставциком</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{name:'about'}">О компании</router-link>
@@ -44,7 +44,7 @@
                     <div class="adress_header" v-if="location.location">
                         <!-- The modal -->
                         <div>
-                            <b-button variant="light" v-b-modal.modal-prevent-closing>
+                            <b-button variant="light" data-toggle="modal" data-target="#cityModal">
                                 {{location.location.value}}
                                 <span>
                                     <svg width="30" height="31" viewBox="0 0 30 31" fill="none"
@@ -56,7 +56,7 @@
                                     </svg>
                                 </span>
                             </b-button>
-
+<!-- 
                             <b-modal
                                 id="modal-prevent-closing"
                                 ref="modal"
@@ -87,7 +87,7 @@
                                         </datalist>
                                     </b-form-group>
                                 </form>
-                            </b-modal>
+                            </b-modal> -->
                         </div>
 
                     </div>
@@ -157,7 +157,7 @@
                 <div class="container_list_sidebar_catalog_menu">
                     <vue-scroll :ops="ops">
                         <div class="btn-group dropright container_item_list_sidebar_catalog_menu" v-if="categories" v-for="cat in categories">
-                            <div class="item_list_sidebar_catalog_menu" data-toggle="dropdown"
+                            <div я class="item_list_sidebar_catalog_menu" data-toggle="dropdown"
                                  aria-haspopup="true" aria-expanded="false" v-if="cat.id !== 8">
                                 <div class="img_title_item_list_catalog_menu">
                                     <div class="img_item_list_catalog_menu"
@@ -188,7 +188,6 @@
 import vuescroll from 'vuescroll'
 import {mapActions, mapState} from 'vuex'
 import UserLoginAuthButton from "./UserLoginAuthButton";
-import Searchlocation from "./SearchLocation";
 import SearchBar from "./SearchBar";
 
 
@@ -196,10 +195,8 @@ export default {
     name:"navbar-catalog",
     components:{
         SearchBar,
-        Searchlocation,
         UserLoginAuthButton,
         vuescroll,
-
     },
     data(){
         return {
@@ -224,11 +221,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions('catalog',[
-            'searchLocation'
-        ]),
-
-        /**
+              /**
          *
          * @returns {boolean}
          */
@@ -360,15 +353,7 @@ export default {
     computed: {
         ...mapState('catalog',['location','categories','types','categoryValue','typeValue']),
         ...mapState(['user']),
-        ...mapState('catalog',['location','locationInput','locationsTips']),
-        locationInput: {
-            get () {
-                return this.$store.state.catalog.locationInput
-            },
-            set (value) {
-                this.$store.commit('catalog/updateLocationInput',value)
-            }
-        }
+        ...mapState('catalog'),
     },
 }
 </script>

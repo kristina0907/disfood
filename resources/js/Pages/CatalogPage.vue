@@ -403,7 +403,7 @@
                                 <div class="start_price_category_products" v-if="priceWithNDS && currentCourse === 'RUB'">{{offer.price_with_nds}} ₽ / кг</div>
                             </div>
                             <a :href="'/catalog-page/' + offer.id">
-                                <div class="make_deal">Подробнее</div>
+                                <div class="btn_green">Подробнее</div>
                             </a>
                             <div class="doc_item_offer">
                                 <button class="bay_item_offer_catalog" type="button" id="dropdownMenuButton"

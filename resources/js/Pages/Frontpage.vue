@@ -17,7 +17,7 @@
                                оптом, получить рекомендацию по цене и продвинуть свой товар
                            </div>
                            <div class="btn_about_company">
-                               <router-link class="btn_register" to="/authorization">Зарегистрироваться</router-link>
+                               <router-link class="btn_border" to="/authorization">Зарегистрироваться</router-link>
                                <a class="btn_learn_more" href="/#user_registration">Узнать подробнее</a>
                            </div>
                        </div>
@@ -159,7 +159,7 @@
                                    </div>
                                </div>
                                <div class="btn_user_registration_company">
-                                   <router-link to="/authorization">Зарегистрироваться</router-link>
+                                   <router-link  class="btn_green" to="/authorization">Зарегистрироваться</router-link>
                                </div>
                            </div>
                        </div>
@@ -242,8 +242,7 @@
                                    </div>
                                </div>
                                <div class="btn_user_registration_company">
-
-                                   <router-link to="/authorization">Стать поставщиком</router-link>
+                                   <router-link class="btn_green" to="/authorization">Стать поставщиком</router-link>
                                </div>
                            </div>
                        </div>
@@ -365,7 +364,7 @@
                                Чтобы стать нашим поставщиком необходимо пройти регистрацию и соответствовать нашим требованиям:
                            </div>
                            <div class="btn_user_registration_company">
-                               <router-link to="/authorization">Стать поставщиком</router-link>
+                               <router-link class="btn_green" to="/authorization">Стать поставщиком</router-link>
                            </div>
                        </div>
                        <div class="col-xs-12 col-md-3 icon_become_partner_company">

@@ -69,7 +69,6 @@ export default {
 
         async searchLocation({commit,state},data)
         {
-
             if(data.length >= 4)
             {
                 await axios.get('/get/location/from/text/'+ data)

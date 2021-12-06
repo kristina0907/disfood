@@ -294,7 +294,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="container_item_offer_btn">
-                                                        <div class="make_deal">Оформить сделку</div>
+                                                        <div class="btn_green">Оформить сделку</div>
                                                         <div class="bay_item_offer_catalog">
                                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -359,7 +359,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="container_item_offer_btn">
-                                                        <div class="make_deal">Оформить сделку</div>
+                                                        <div class="btn_green">Оформить сделку</div>
                                                         <div class="bay_item_offer_catalog">
                                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -424,7 +424,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="container_item_offer_btn">
-                                                        <div class="make_deal">Оформить сделку</div>
+                                                        <div class="btn_green">Оформить сделку</div>
                                                         <div class="bay_item_offer_catalog">
                                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -486,7 +486,7 @@
                                                         </div>
                                                         <div class="container_item_offer_btn">
                                                             <router-link :to="{'name':'catalog-page',params:{id:item.id}}">
-                                                                <div class="make_deal">Подробнее</div>
+                                                                <div class="btn_green">Подробнее</div>
                                                             </router-link>
                                                             <div class="doc_item_offer">
                                                                 <button class="bay_item_offer_catalog" type="button" id="dropdownMenuButton"
@@ -611,7 +611,7 @@
                                                         </div>
 
                                                         <router-link :to="{'name':'catalog-page',params:{id:item.id}}">
-                                                            <div class="tile_make_deal">Подробнее</div>
+                                                            <div class="btn_green">Подробнее</div>
                                                         </router-link>
                                                     </div>
                                                 </div>

@@ -137,7 +137,6 @@
                                                 :limit="3"
                                                 :show-no-results="false"
                                                 :hide-selected="true"
-                                                @select="changeCode"
 
                                         ></multiselect>
                                         <div class="error_input" v-show="errors.code">{{errors.code}}</div>
@@ -150,8 +149,9 @@
                                     </div>
                                 </div>
                                <div class="email_reg_input">
-                                    <input type="email" placeholder="E-mail" v-model="userEmail" required v-on:keypress="noCyrillic($event)"/>
+                                    <input type="email" placeholder="E-mail" v-model="userEmail" required @input="noCyrillic($event, 'Rusemail')"/>
                                     <div class="error_input" v-show="errors.userEmail">{{errors.userEmail}}</div>
+                                     <div class="error_input" v-show="Rusemail">{{Rusemail}}</div>
                                 </div>
                                 <div class="item_reg_block">
                                     <div class="title_item_reg_block">
@@ -161,8 +161,9 @@
                                     </div>
                                     <div class="container_item_reg_input">
                                         <div>
-                                            <input :type="passwordType" placeholder="Введите пароль" v-model="userPassword">
+                                            <input :type="passwordType" placeholder="Введите пароль" v-model="userPassword" @input="noCyrillic($event, 'Ruspassword')">
                                             <div class="error_input" v-show="errors.userPassword">{{errors.userPassword}}</div>
+                                            <div class="error_input" v-show="Ruspassword">{{Ruspassword}}</div>
                                             <div class="icon_password" @click="changeOpenPassword">
                                                 <svg v-if="passwordType == 'password'" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -184,8 +185,9 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <input :type="passwordConfirmType" placeholder="Повторите пароль" v-model="userPasswordConfirmation">
+                                            <input :type="passwordConfirmType" placeholder="Повторите пароль" v-model="userPasswordConfirmation" @input="noCyrillic($event, 'Rusconfirm')">
                                             <div class="error_input" v-show="errors.userPasswordConfirmation">Пароли должны совпадать.</div>
+                                             <div class="error_input" v-show="Rusconfirm">{{Rusconfirm}}</div>
                                             <div class="icon_password" @click="changeOpenConfirmPassword">
                                                 <svg v-if="passwordConfirmType == 'password'" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -387,7 +389,10 @@ export default {
            ],
            errorsInn:'',
            passwordType:'password',
-           passwordConfirmType:'password'
+           passwordConfirmType:'password',
+           Rusemail:'',
+           Ruspassword:'',
+           Rusconfirm:''
        }
     },
     components:{
@@ -397,7 +402,6 @@ export default {
     },
     methods:{
         changeOpenPassword(){
-
             if(this.passwordType == 'password'){
                this.passwordType = 'text' ;
             }else if(this.passwordType == 'text'){
@@ -435,14 +439,26 @@ export default {
                 return false;
             }
         },
-        noCyrillic: function(evt) {
-            var regex = new RegExp("^[a-zA-Zа-яёА-ЯЁ-0-9.-_@]");
-            var regerus= new RegExp("^[а-яёА-ЯЁ]");
-            var key = String.fromCharCode(!evt.charCode ? evt.which : evt.charCode);
-            if (!regex.test(key)) {
-                event.preventDefault();
-                return false;
+        noCyrillic: function(evt,type) {
+            var regex = new RegExp("[а-яёА-ЯЁ]");
+            var message;
+            if ((evt.target.value).search(regex) > -1) {
+                message = 'Можно использовать только латиницу';
+            }else{
+                message = '';
             }
+             switch (type) {
+                case 'Rusemail':
+                    this.Rusemail = message;
+                    break;
+                case 'Ruspassword':
+                    this.Ruspassword = message;
+                    break;
+                case 'Rusconfirm':
+                    this.Rusconfirm = message;
+                    break;
+                }
+            
         },
        getInnFromBackend(inn) {
             axios.post('/get/inn/from/api',{inn: inn})
@@ -494,13 +510,16 @@ export default {
             if(this.type == 'company' && !this.companyName) this.errors.userName = "Название обязательно для заполнения";
             if(!this.userName) this.errors.userName = "Имя обязательно для заполнения";
             if(!this.userSurname) this.errors.userSurname = "Фамилия обязательно для заполнения";
-            if(!this.userPhone) this.errors.userPhone = "Телефон обязателен для заполнения";
+            if(!this.userPhone){
+                this.errors.userPhone = "Телефон обязателен для заполнения";
+            }else if(this.userPhone && (this.userPhone).indexOf('_') > -1){
+                this.errors.userPhone = "Телефон должен содержать минимум 10 знаков"
+            }
             if(!this.codeTel) this.errors.code = "Код обязателен для заполнения";
             if(!this.countriesVal) this.errors.countries = "Страна обязательна для заполнения";
             if(this.errorsInn){
                this.errors.inn = "ИНН не существует";
             }
-            console.log("this.inn",this.inn);
             if(!this.inn){
                 this.errors.inn = "ИНН обязателен для заполнения";
             }else if(this.inn && (this.inn).indexOf('_') > -1){
@@ -539,7 +558,7 @@ export default {
                    inn:this.inn,
                    userName:this.userName,
                    userSurname:this.userSurname,
-                   userPhone:this.codeTel+this.userPhone,
+                   userPhone:this.codeTel[0].code+this.userPhone,
                    userEmail:this.userEmail,
                    userPassword:this.userPassword,
 

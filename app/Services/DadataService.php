@@ -6,6 +6,7 @@ namespace App\Services;
 
 
 use App\Contracts\DadataContract;
+use Dadata\DadataClient;
 use Exception;
 use Illuminate\Support\Facades\Lang;
 use InvalidArgumentException;
@@ -28,6 +29,36 @@ class DadataService implements DadataContract
 
 
     /**
+     * @var mixed
+     */
+
+    protected $token;
+
+    /**
+     * @var mixed
+     */
+
+    protected $secret;
+
+    /**
+     *
+     */
+
+    protected $dadata;
+
+    /**
+     *
+     */
+
+    public function __construct()
+    {
+        $this->token = env('DADATA_TOKEN');
+        $this->secret = env('DADATA_SECRET');
+        $this->dadata = new DadataClient($this->token,$this->secret);
+    }
+
+
+    /**
      * @param $data
      * @return mixed|\MoveMoveIo\DaData\DaDataName
      */
@@ -45,7 +76,13 @@ class DadataService implements DadataContract
 
     public function getCompanyByInn($data,$count)
     {
-        $dadata = DaDataCompany::id($data, $count, null, BranchType::MAIN, CompanyType::LEGAL);
+       /* $stream = new DadataClient($this->token,$this->secret);
+        $dadata = $stream->findById("party", $data, $count);*/
+
+        //$dadata = DaDataCompany::id($data, 1, null, 1, 1);
+        $dadata =  $this->dadata->findById("party",$data,$count);
+        //dd($dadata);
+
         return $dadata;
        //return DaDataCompany::id($data,$count);
     }

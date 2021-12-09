@@ -40,9 +40,20 @@ class OfferService
     }
 
     /**
+     * @param $search
+     * @return mixed
+     */
+
+    public function searchByText($search)
+    {
+        return $this->offerRepository->searchByText($search);
+    }
+
+    /**
      * @param $data
      * @return mixed
      */
+
 
     public function saveOfferData($data)
     {

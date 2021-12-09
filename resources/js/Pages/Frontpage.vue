@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid" id="main">
         <div class="row">
             <HeaderCatalog></HeaderCatalog>
         </div>
@@ -541,7 +541,6 @@ export default {
         NavbarCatalog,
         HeaderCatalog,
         VueSlickCarousel,
-
     },
     data(){
       return {
@@ -556,49 +555,52 @@ export default {
               "slidesToShow": 2,
               "speed": 500,
               "arrows":true
-          }
+          },
+          scrollPosition: 0
 
       }
     },
     methods:{
-      getCats()
-      {
-          axios.get('/get/partners')
-              .then((response) => {
 
-                  if (response.data !== 'undefined' && response.data !== null) {
-                      this.partners = response.data;
-                  }
-              })
-          axios.get('/get/news')
-              .then((response) => {
+        getCats()
+        {
+            axios.get('/get/partners')
+                .then((response) => {
 
-                  if (response.data !== 'undefined' && response.data !== null) {
-                      this.news = response.data;
-                  }
-              })
-      },
-      goToCategory(type)
-      {
-          //console.log(type)
-          //this.updateTypeActionFromFrontPage(type);
-          if(this.$route.name !== 'catalog')
-          {
-              //this.$router.push({'name':'catalog'})
-              this.$router.replace({'path':'/catalog/category/'+type.id})
-          }
+                    if (response.data !== 'undefined' && response.data !== null) {
+                        this.partners = response.data;
+                    }
+                })
+            axios.get('/get/news')
+                .then((response) => {
 
-      },
-      ...mapActions('catalog',['updateTypeActionFromFrontPage'])
-    },
-    mounted() {
-        this.getCats();
-    },
-    computed: {
-        ...mapState('catalog',['categories'])
-    },
+                    if (response.data !== 'undefined' && response.data !== null) {
+                        this.news = response.data;
+                    }
+                })
+        },
+        goToCategory(type)
+        {
+            //console.log(type)
+            //this.updateTypeActionFromFrontPage(type);
+            if(this.$route.name !== 'catalog')
+            {
+                //this.$router.push({'name':'catalog'})
+                this.$router.replace({'path':'/catalog/category/'+type.id})
+            }
+
+        },
+        ...mapActions('catalog',['updateTypeActionFromFrontPage'])
+        },
+        mounted() {
+            this.getCats();
+        },
+        computed: {
+            ...mapState('catalog',['categories'])
+        },
 }
 </script>
+
 
 <style>
 #videoModal

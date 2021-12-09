@@ -26,19 +26,19 @@
                                     </b-form-group>
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <div class="item_city">Город А</div>
-                                            <div class="item_city">Город А</div>
-                                            <div class="item_city">Город А</div>
+                                            <div class="item_city">Краснодар</div>
+                                            <div class="item_city">Москва</div>
+                                            <div class="item_city">Екатеринбург</div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div class="item_city">Город А</div>
-                                            <div class="item_city">Город А</div>
-                                            <div class="item_city">Город А</div>
+                                            <div class="item_city">Нижний новгород</div>
+                                            <div class="item_city">Новосибирск</div>
+                                            <div class="item_city">Ростов-на-Дону</div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div class="item_city">Город А</div>
-                                            <div class="item_city">Город А</div>
-                                            <div class="item_city">Город А</div>
+                                            <div class="item_city">Самара</div>
+                                            <div class="item_city">Санкт-Петербург</div>
+                                            <div class="item_city">Уфа</div>
                                         </div>
                                     </div>
                                 </form>
@@ -122,8 +122,6 @@ export default {
          */
 
         handleOk(bvModalEvt) {
-            bvModalEvt.preventDefault()
-            // Trigger submit handler
             this.handleSubmit()
         },
 

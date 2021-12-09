@@ -312,11 +312,26 @@ class OfferRepository implements OfferContract
     }
 
     /**
+     * @param $search
+     * @return mixed
+     */
+
+    public function searchByText($search)
+    {
+        $searched = $this->offer->whereHas('type',function ($q) use ($search){
+            $q->where('name','ILIKE','%'.$search.'%');
+        })->with('type')->get();
+       // dd($searched);
+        return $searched;
+    }
+
+    /**
      * @param $category
      * @param null $type
      * @param null $product
      * @return mixed
      */
+
 
     public function getOffersByCategory($category,$type = null)
     {

@@ -646,7 +646,7 @@ class ApiController extends Controller
         if(!empty($request) && !empty($request->search))
         {
             $req = $this->cleanInputData($request->search);
-            $output['products'] = $this->productService->searchByText($req);
+            $output['products'] = $this->offerService->searchByText($req);
         }
         return $output;
     }

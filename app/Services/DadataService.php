@@ -81,7 +81,7 @@ class DadataService implements DadataContract
 
         //$dadata = DaDataCompany::id($data, 1, null, 1, 1);
         $dadata =  $this->dadata->findById("party",$data,$count);
-        dd($dadata);
+        //dd($dadata);
 
         return $dadata;
        //return DaDataCompany::id($data,$count);

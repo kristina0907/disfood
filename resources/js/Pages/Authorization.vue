@@ -81,7 +81,7 @@
                                             <div class="tab-pane fade" id="IP" role="tabpanel" aria-labelledby="IP-tab">
                                                  <div class="container_item_reg_input">
                                                     <div>
-                                                        <input type="text" placeholder="ФИО" v-model="companyName" @keyup="getCompanyName()" autocomplete="off"  />
+                                                        <input type="text" placeholder="ФИО" v-model="IPName" @keyup="getCompanyName()" autocomplete="off"  />
                                                         <div class="search_name_company" v-if="search_data.length">
                                                             <ul class="list-group">
                                                                 <a href="#" class="list-group-item" v-for="data1 in search_data"  @click="getName(data1.data.name.full_with_opf,data1.data.inn)">
@@ -92,7 +92,7 @@
                                                         <div class="error_input" v-show="errors.companyName">{{errors.companyName}}</div>
                                                     </div>
                                                     <div>
-                                                        <masked-input  type="text" placeholder="ИНН" v-model="inn" mask="1111111111" v-on:input="getInn()" required />
+                                                        <masked-input  type="text" placeholder="ИНН" v-model="IPInn" mask="1111111111" v-on:input="getInn()" required />
                                                         <div class="error_input" v-show="errorsInn">{{errorsInn}}</div>
                                                         <div class="error_input" v-show="errors.inn">{{errors.inn}}</div>
                                                     </div>
@@ -372,6 +372,8 @@ export default {
            phone:'',
            type:'company',
            companyName:'',
+           IPName:'',
+           IPInn:'',
            inn:'',
            userName:'',
            userSurname:'',

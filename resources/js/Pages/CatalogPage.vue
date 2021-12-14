@@ -143,10 +143,10 @@
                                     <div class="tab-content" id="myTabContent">
                                         <div class="tab-pane fade" id="JD" role="tabpanel" aria-labelledby="JD-tab">
                                             <div class="item_product_input row">
-                                                <div class="col-md-7">
+                                                <div class="col-md-6">
                                                    <searchlocation></searchlocation>
                                                 </div>
-                                                <div class="container_input_price col-md-5">
+                                                <div class="container_input_price col-md-6">
                                                     <railway-station></railway-station>
                                                 </div>
                                                 <div v-if="deliveryDistance && deliveryDistance.delivery_time && deliveryDistance.total_all">

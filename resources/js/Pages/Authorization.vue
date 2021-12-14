@@ -89,12 +89,12 @@
                                                                     <span class="color_success">ИНН {{data1.data.inn}}</span></a>
                                                             </ul>
                                                         </div>
-                                                        <div class="error_input" v-show="errors.companyName">{{errors.companyName}}</div>
+                                                        <div class="error_input" v-show="errors.IPName">{{errors.IPName}}</div>
                                                     </div>
                                                     <div>
                                                         <masked-input  type="text" placeholder="ИНН" v-model="IPInn" mask="1111111111" v-on:input="getInn()" required />
                                                         <div class="error_input" v-show="errorsInn">{{errorsInn}}</div>
-                                                        <div class="error_input" v-show="errors.inn">{{errors.inn}}</div>
+                                                        <div class="error_input" v-show="errors.IPInn">{{errors.IPInn}}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -423,8 +423,12 @@ export default {
        },
        getInn() {
             let self = this;
-            let str = self.inn.replace('_','')
-
+            let str;
+            if(self.type == 'company'){
+                str = self.inn.replace('_','');
+            }else{
+                str = self.IPInn.replace('_','');
+            }
             if(str.length >= 10)
             {
                 this.getInnFromBackend(str)
@@ -460,7 +464,7 @@ export default {
                     this.Rusconfirm = message;
                     break;
                 }
-            
+
         },
        getInnFromBackend(inn) {
             axios.post('/get/inn/from/api',{inn: inn})
@@ -469,7 +473,11 @@ export default {
                    if(response.data !== 'undefined' && response.data !== null && response.data.suggestions !== 'undefined' && response.data.suggestions !== null)
                    {
                        if(response.data.suggestions.length){
-                        this.companyName = response.data.suggestions['0'].data.name.short_with_opf;
+                           if(this.type == 'company'){
+                               this.companyName = response.data.suggestions['0'].data.name.short_with_opf;
+                           }else{
+                               this.IPName = response.data.suggestions['0'].data.name.short_with_opf;
+                           }
                         this.errorsInn = "";
                        }else{
                         this.errorsInn = "ИНН не существует";
@@ -479,8 +487,12 @@ export default {
                 })
         },
         getCompanyName() {
-            let self = this;
-            let str = self.companyName.replace('_','');
+            let self = this; let str;
+            if(self.type == 'company'){
+                str = self.companyName.replace('_','');
+            }else{
+                str = self.IPName.replace('_','');
+            }
             if(str.length >= 5)
             {
                 this.getData(str)
@@ -509,7 +521,21 @@ export default {
        },
         validations:function() {
             this.errors = [];
-            if(this.type == 'company' && !this.companyName) this.errors.userName = "Название обязательно для заполнения";
+            if(this.type == 'company'){
+                if(!this.companyName) this.errors.companyName = "Название обязательно для заполнения";
+                if(!this.inn){
+                    this.errors.inn = "ИНН обязателен для заполнения";
+                }else if(this.inn && (this.inn).indexOf('_') > -1){
+                    this.errors.inn = "ИНН должен содержать минимум 10 знаков"
+                }
+            }else if(this.type == 'ip'){
+                if(!this.IPName) this.errors.IPName = "фИО обязательно для заполнения";
+                if(!this.IPInn){
+                    this.errors.IPInn = "ИНН обязателен для заполнения";
+                }else if(this.IPInn && (this.IPInn).indexOf('_') > -1){
+                    this.errors.IPInn = "ИНН должен содержать минимум 10 знаков"
+                }
+            }
             if(!this.userName) this.errors.userName = "Имя обязательно для заполнения";
             if(!this.userSurname) this.errors.userSurname = "Фамилия обязательно для заполнения";
             if(!this.userPhone){
@@ -522,11 +548,6 @@ export default {
             if(this.errorsInn){
                this.errors.inn = "ИНН не существует";
             }
-            if(!this.inn){
-                this.errors.inn = "ИНН обязателен для заполнения";
-            }else if(this.inn && (this.inn).indexOf('_') > -1){
-                this.errors.inn = "ИНН должен содержать минимум 10 знаков"
-            }
             if(!this.userEmail) {
                 this.errors.userEmail = "Email обязателен для заполнения.";
             } else if(!this.validEmail(this.userEmail)) {
@@ -538,7 +559,6 @@ export default {
                 this.errors.userPassword = "Пароль слишком простой"
             }
             if(this.userPassword !== this.userPasswordConfirmation) this.errors.userPasswordConfirmation = "Пароли не совпадают";
-
             if(Object.keys(this.errors).length > 0) return false;
             else return true;
 

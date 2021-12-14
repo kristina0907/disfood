@@ -143,7 +143,7 @@
                                     <div class="tab-content" id="myTabContent">
                                         <div class="tab-pane fade" id="JD" role="tabpanel" aria-labelledby="JD-tab">
                                             <div class="item_product_input row">
-                                                <div class="container_input_price jd_tab_input col-md-7">
+                                                <div class="col-md-7">
                                                    <searchlocation></searchlocation>
                                                 </div>
                                                 <div class="container_input_price col-md-5">
@@ -158,7 +158,7 @@
                                         <div class="tab-pane fade show active" id="avto" role="tabpanel"
                                              aria-labelledby="avto-tab">
                                             <div class="item_product_input row">
-                                                <div class="container_input_price col-md-12">
+                                                <div class="col-md-12">
                                                     <searchlocation></searchlocation>
                                                 </div>
                                                 <div v-if="autoDistance">

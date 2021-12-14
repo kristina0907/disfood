@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="select_container select_countries">
         <multiselect
             v-model="locationDeliveryInput"
             name="ajax"
@@ -11,7 +11,7 @@
             :multiple="false"
             :searchable="true"
             :internal-search="false"
-            :class="'select select_location'"
+            :class="'select'"
             :clear-on-select="false"
             :close-on-select="true"
             :options-limit="300"

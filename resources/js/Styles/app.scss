@@ -1282,6 +1282,9 @@ tbody.table_change_price tr.active{
 .select_container{
     position: relative;
 }
+.select_container .multiselect__input{
+    border: 0;
+}
 .select_container select{
     background: #FFFFFF;
     border: 1px solid #C8CCD1;
@@ -7135,7 +7138,7 @@ header .dropdown-menu.dropdown-menu_item_list_sidebar_catalog_menu{
     font-weight: bold;
 }
 .custom_range.vue-range-slider.slider-component{
-   padding: 0 !important; 
+   padding: 0 !important;
 }
 .custom_range.vue-range-slider.slider-component .slider {
     border-radius: 10px;
@@ -7183,7 +7186,7 @@ margin-top: 40px;
 .not_filter_block img{
    max-width: 100%;
    height: auto;
-   display: block; 
+   display: block;
 }
 .item_city{
     font-weight: 600;
@@ -7191,7 +7194,7 @@ margin-top: 40px;
     line-height: 20px;
     color: #66727E;
     margin-bottom: 30px;
-    cursor: pointer;     
+    cursor: pointer;
 }
 .item_city:hover{
     color: #71BF45;
